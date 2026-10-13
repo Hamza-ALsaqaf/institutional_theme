@@ -1,0 +1,16 @@
+Tue Oct 13 19:34:09 UTC 2026
+
+institutional_theme/dist/css-rtl/
+├─ ins_desk.bundle.UJBUIGC5.css                             105.61 Kb
+├─ ins_web.bundle.U34ZJRKN.css                              154.14 Kb
+├─ ins_fonts_noto.bundle.4ZVPQ3MV.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.PSUMSPR3.css                    2.21 Kb
+├─ ins_palette_forest.bundle.IQJZQ75P.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.L37PRHCM.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.7K4AHHCY.css                   8.16 Kb
+└─ ins_palette_plum.bundle.QBDHCFCL.css                     8.16 Kb
+
+ DONE  Total Build Time: 880.212ms
+
+Done in 1.33s.
+Compiling translations for institutional_theme
