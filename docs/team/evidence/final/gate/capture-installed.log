@@ -1,0 +1,2 @@
+$ env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs installed docs/team/evidence/final/gate http://midad.test:8000
+captured installed into docs/team/evidence/final/gate
