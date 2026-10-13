@@ -1,0 +1,30 @@
+// Dashboard charts: dash patterns that separate line series without colour, and the chart card surface (ADR 0010 decision 3).
+// Dark stroke width and circle stroke are mapped in _scoped_variables.scss; the dataset-N index is 0-based, so series 2..6 are dataset-1..5.
+
+// ---- Dashes on line paths only, never on bars (frappe-charts draws bars with stroke-dasharray internally). Series 1 stays solid.
+// Source: frappe-charts 2.0.0-rc27 dist/frappe-charts.esm.js, lineGraph layerClass "dataset-units dataset-line dataset-" + index; path class "line-graph-path".
+html:root[dir] .chart-container g.dataset-line.dataset-1 .line-graph-path {
+	stroke-dasharray: 8 4;
+}
+
+html:root[dir] .chart-container g.dataset-line.dataset-2 .line-graph-path {
+	stroke-dasharray: 2 4;
+}
+
+html:root[dir] .chart-container g.dataset-line.dataset-3 .line-graph-path {
+	stroke-dasharray: 12 4 2 4;
+}
+
+html:root[dir] .chart-container g.dataset-line.dataset-4 .line-graph-path {
+	stroke-dasharray: 16 6;
+}
+
+html:root[dir] .chart-container g.dataset-line.dataset-5 .line-graph-path {
+	stroke-dasharray: 2 2;
+}
+
+// ---- Chart card: same shape and elevation as the workspace cards (_workspace.scss). Core desktop.scss:189 gives it only a border and min-height.
+html:root[dir] .widget.dashboard-widget-box {
+	border-radius: var(--ins-radius-md);
+	box-shadow: var(--ins-elevation-raised);
+}
