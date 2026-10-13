@@ -36,3 +36,10 @@ html:root[dir] .widget.links-widget-box .link-item {
 html:root[dir] .widget.links-widget-box .link-item:hover {
 	color: var(--ins-text-link);
 }
+
+// ---- Directional arrow: core draws the link-out arrow as an SVG symbol (links_widget.js:84, "es-line-arrow-up-right"),
+// which points to the right in both directions. Mirror it in RTL so it points up and toward the inline end (a11y-phase3 finding 9).
+// Truncated labels need no CSS: core already gives `.link-item` a `title` (links_widget.js, VERIFIED live).
+[dir="rtl"] .widget.links-widget-box .link-content > svg:has(> use[href="#es-line-arrow-up-right"]) {
+	transform: scaleX(-1);
+}

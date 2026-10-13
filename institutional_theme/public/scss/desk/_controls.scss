@@ -81,10 +81,13 @@ html:root .frappe-control .help-box.small {
 }
 
 // ---- Error. Core (controls.scss:222): border `--error-border` (mapped to --ins-danger) at (0,4,1) and a focus
-// box-shadow. Add a second, non-colour cue: an inner 1px line makes the boundary 2px thick. The focus reset in
-// _base.scss removes it while the ring is shown, and the ring then carries the focus cue.
+// box-shadow. Two non-colour cues: an inner 1px line (design) and a 4px inline-start bar. The focus reset in
+// _base.scss removes the box-shadow while the ring is shown, so the bar is a border: it survives focus
+// (a11y-phase3 finding 7). The padding is reduced by the extra 3px so the text does not move.
 html:root .frappe-control.has-error :is(input, select, textarea).form-control#{$ins-cell-scope} {
 	border-color: var(--ins-danger);
+	border-inline-start-width: 4px;
+	padding-inline-start: calc(var(--ins-control-pad-x) - 3px);
 	box-shadow: inset 0 0 0 1px var(--ins-danger);
 }
 
@@ -162,5 +165,11 @@ html:root .frappe-control[data-fieldtype="Attach Image"] .attached-file {
 	html:root .switch-control .switch-visual {
 		outline: 1px solid CanvasText;
 		outline-offset: -1px;
+	}
+
+	// Checked switch: the track fill is overridden by the system, so state is carried by a thicker, Highlight outline.
+	html:root .switch-control .input-area:has(input:checked) ~ .switch-visual {
+		outline: 3px solid Highlight;
+		outline-offset: -3px;
 	}
 }

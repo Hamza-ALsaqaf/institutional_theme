@@ -97,6 +97,21 @@ html:root :is(input, textarea, select):-webkit-autofill:focus {
 		transition-delay: 0s;
 		scroll-behavior: auto;
 	}
+
+	// Looping busy indicators: the collapse above ends them on their base style, which is invisible for
+	// `.spinner-grow` (core: opacity 0). Stop them explicitly and give each a static cue that still reads as busy:
+	// the open ring of `.spinner-border` (core's border-right-color: transparent), a half-size dot for the grow
+	// spinner, static stripes on `.progress-bar-animated`, the glyph of `.fa-spin`/`.fa-pulse`, and the filled
+	// skeleton rows (`.freeze-row`, `.skeleton-card`) at full opacity.
+	html:root[dir] :is(.spinner-border, .spinner-grow, .fa-spin, .fa-pulse, .progress-bar-animated,
+		.freeze-row .list-row-col, .skeleton-card, .indicator.blink) {
+		animation: none;
+	}
+
+	html:root[dir] .spinner-grow {
+		opacity: 0.75;
+		transform: scale(0.5);
+	}
 }
 
 // ---- Forced colours. Palette files never reach this block; it lives in ins_desk only (ADR 0003).
@@ -117,6 +132,12 @@ html:root :is(input, textarea, select):-webkit-autofill:focus {
 	html:root :is(input, textarea, select):-webkit-autofill {
 		-webkit-text-fill-color: FieldText;
 		box-shadow: 0 0 0 1000px Field inset;
+	}
+
+	// Selected rows: the selection fill is dropped, so outline the row (list) or its cells (report and datatable).
+	html:root :is(.list-row-container:has(.list-row-checkbox:checked) .list-row, .datatable .dt-row--highlight .dt-cell) {
+		outline: 2px solid Highlight;
+		outline-offset: -2px;
 	}
 
 	// Status pills lose their background; keep a shape with a system-colour outline (no layout shift).

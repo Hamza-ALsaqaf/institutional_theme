@@ -77,3 +77,17 @@ No `!important` introduced.
 ## Strings
 
 None. The CSS adds no user-visible text.
+
+## Fix round (a11y-phase3 findings 4, 7, 8, 9; Phase 2 item 7)
+
+Method: bench Sass (`compileDesk`, 0 warnings) injected over the live desk at http://localhost:8000 (Host midad.test), users `css-fix-en@midad.test` and `css-fix-ar@midad.test` created via REST (System Manager). Probe scripts are in /tmp (not kept); the numbers below are COMPUTED from the live DOM. Only Light and the comfortable density were run; Dark and compact use the same rules, whose values are tokens.
+
+Files: `scss/desk/_reports.scss`, `_controls.scss`, `_base.scss`, `_workspace.scss`. No `!important`.
+
+- Finding 4 (VERIFIED live, `/desk/user/view/report`, row index 9, serial column `.dt-cell--col-1`). Cause: our 12px inline padding on every `.dt-cell__content` (`_reports.scss`) leaves too little room in a cell whose width core fixes at 41px. Before: `scrollWidth 43 > clientWidth 36`, padding 12px, text "10" truncated. After: `scrollWidth 36 = clientWidth 36`, padding 4px; checkbox column 55 > 28 before, 28 = 28 after. Row height 35px before and after (no height or width set). EN and AR both pass. Fix: `.dt-cell--col-0, .dt-cell--col-1` get `padding-inline: var(--ins-space-1)`. Limitation: a datatable without the checkbox column would give col-1 the same narrow padding on a data column (harmless; report view and list report always have both).
+- Finding 7 (VERIFIED): `has-error` input now has `border-inline-start-width: 4px` (and padding reduced by 3px, so text does not move) besides colour and the inner 1px line. Computed before and after `focus()` (`:focus-visible` true): border-inline-start 4px in both states, EN and AR. The ring is drawn on focus, the bar stays. No icon or message was added: that needs a Frappe-side text, which CSS cannot supply.
+- Phase 2 item 7 (VERIFIED, `reducedMotion: reduce`): the global collapse left `.spinner-grow` invisible (core base opacity 0). Swept: `.spinner-border`, `.spinner-grow`, `.fa-spin`, `.fa-pulse`, `.progress-bar-animated`, `.freeze-row .list-row-col`, `.skeleton-card`, `.indicator.blink` now `animation: none`. Computed: spinner-grow opacity 0 -> 0.75 with scale 0.5; spinner-border keeps core's open ring (border-right transparent), fa-spin keeps its glyph; no animation name on any. Other core animations (toasts, `zoom-in`, plyr, `row-update` breathe) are one-shot and keep the 0.01ms collapse.
+- Finding 9 (VERIFIED, AR `/desk/build`): `.link-content > svg` (use `#es-line-arrow-up-right`) computed transform `matrix(-1,0,0,1,0,0)` in RTL, none in LTR. Truncated labels: no CSS fix; core already sets `title` on `.link-item` (observed `title="تقرير"`), so the review's "no title" was not reproduced on that item.
+- Finding 8 (NOT rendered): forced-colours rules added for selected list rows and report rows (2px Highlight outline) and checked switches (3px Highlight outline); Chromium forced-colors emulation was not run, so they are ASSUMED. Spinners: see item 7.
+
+Regression: `PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node cascade.mjs --bench /home/user/frappe-bench --evidence /tmp/cssfix/ev` -> total 4256, pass 4256, fail 0; `rtlIdentical` desk true, graphite true.

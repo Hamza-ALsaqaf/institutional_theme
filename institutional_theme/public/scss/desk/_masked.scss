@@ -26,9 +26,9 @@ html:root[dir] .frappe-control[data-ins-masked] .control-label::before {
 		linear-gradient(currentColor, currentColor) bottom / 10px 6px no-repeat;
 }
 
-// The reason, as generated text from the attribute on the wrapper itself (already translated by the script).
-html:root[dir] .frappe-control[data-ins-masked]::after {
-	content: attr(data-ins-masked-label);
+// The reason is a real element the script adds to the wrapper (already translated) and links to the input with
+// aria-describedby; it is shown beside the field and read by assistive technology.
+html:root[dir] .frappe-control[data-ins-masked] > .ins-masked-reason {
 	display: block;
 	margin-block-start: var(--ins-space-1);
 	font-size: var(--ins-text-xs);

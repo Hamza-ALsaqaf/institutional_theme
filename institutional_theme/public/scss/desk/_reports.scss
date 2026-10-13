@@ -8,6 +8,13 @@ html:root[dir] .datatable .dt-cell__content {
 	font-size: var(--ins-text-base);
 }
 
+// ---- Frozen checkbox and row-number columns: core fixes their width (32px checkbox; the serial column is narrow and
+// resizable), so the 12px edge padding above leaves under 20px for the digits and "10" becomes "1…" (a11y-phase3 finding 4).
+// They keep the library's smaller inline padding, (0,3,1) beats the rule above; height and width stay core's.
+html:root[dir] .datatable :is(.dt-cell--col-0, .dt-cell--col-1) .dt-cell__content {
+	padding-inline: var(--ins-space-1);
+}
+
 // ---- Header cells: medium weight, secondary colour, sunken background (design th).
 // Library bold header (css:185-189) and core's normal weight + --subtle-fg (frappe_datatable.scss:55-63, (0,4,0)).
 html:root[dir] .datatable .dt-header .dt-cell--header .dt-cell__content {
