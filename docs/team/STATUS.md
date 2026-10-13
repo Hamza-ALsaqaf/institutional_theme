@@ -16,8 +16,8 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 | 1 Analysis and discussion | PASSED (ADR 0002-0009 accepted, `docs/team/PLAN.md`) | e4015f7 |
 | 2 Foundations | PASSED 19:18 UTC: audits pass (contrast 0 failing over 426 pairs, parity 51/0, colour vision 0 failures + 99 baselined gaps, dead tokens 0); 140 unit tests OK; 88 Frappe tests OK; cascade 4256/4256 (static core build); install/uninstall gate clean (`docs/team/evidence/resume/`) | ceb4128..HEAD |
 | 3 P0 | PASSED 20:00 UTC: both reviews (upgrade 0 blocking; a11y 2 blocking fixed and re-checked on the real build); 109 Frappe + 140 unit tests OK; cascade 4256/4256; gate clean, residue none; 48 P0 desk screenshots (en/ar, Light/Dark, comfortable/compact) on the real build (`docs/team/evidence/phase3/`) | HEAD at 20:00 |
-| 4 P1, P2, proof | PARTIAL: charts (dashes), Kanban, Calendar verified; Tree, Gantt, states written not rendered; print, email, Letter Head, proof, budgets NOT delivered | |
-| 5 Documentation and hostile review | NOT PASSED: docs written, both final reviews have 0 blocking; two dimensions score 3 (clarity and hierarchy, dark parity), see `docs/team/OWNER_REVIEW.md` | |
+| 4 P1, P2, proof | PASSED in round 2 (23:47 UTC): Tree, Gantt, P1 states, forced colours rendered; Print Style and Letter Head shipped idempotently, PDFs under wkhtmltopdf 0.12.6.1 (patched Qt) and Chrome, ar/en; email bundle; budgets audit 0 problems; proof parity 0 mismatches; P2 website and portal pages; opt-in banners; editors (`docs/team/evidence/round2/`) | 1087b93 |
+| 5 Documentation and hostile review | PASSED in round 2 (23:58 UTC): both hostile reviews 0 blocking after fix round 1; every BRIEF section 10 dimension 4 or more (`docs/team/reviews/upgrade-round2.md`, `a11y-round2.md`); 142 Frappe + 164 unit tests OK; audits pass; gate clean incl. kept Letter Head after uninstall (`docs/team/evidence/round2/gate-final/`) | 1087b93 |
 
 ## Tasks in flight
 
