@@ -1,0 +1,109 @@
+// Base rules a token cannot reach: focus ring, form atoms, scroll-padding, motion, forced-colors.
+// Logical properties only; no !important; every selector sits above core's (0,2,x) blocks.
+
+// ---- Type: never synthesise bold or italic (Arabic joins distort). Core is (0,1,0).
+html:root[dir] {
+	font-synthesis: none;
+	scroll-padding-block-start: calc(var(--ins-page-head-height) + var(--ins-space-2));
+}
+
+// ---- The one focus ring. Core sets `outline: 0` on .form-control, .btn, .custom-select,
+// .page-link, badges and checkboxes at (0,2,x), and adds a literal grey box-shadow as a second cue
+// (the --focus-default ones are already `none` through the Frappe map). `box-shadow: none` here keeps
+// the outline the only cue; (0,3,1) beats core's (0,2,x) rules without !important. The modal shell is focused by script, so it is excluded.
+html:root :is(
+	a[href], area[href], button, input, select, textarea, summary,
+	[tabindex], [contenteditable="true"],
+	[role="button"], [role="link"], [role="menuitem"], [role="tab"], [role="option"],
+	[role="checkbox"], [role="radio"], [role="switch"], [role="combobox"],
+	.btn, .dropdown-item
+):focus-visible:not(.modal, .modal-dialog) {
+	outline: var(--ins-focus-width) solid var(--ins-focus);
+	outline-offset: var(--ins-focus-offset);
+	box-shadow: none;
+}
+
+// Clipped scroll containers (findings 5): a positive offset would be cut off, so draw inside.
+html:root :is(.datatable, .grid-body, .frappe-list .result-container, .dt-scrollable)
+	:is(a[href], button, input, select, textarea, [tabindex], [contenteditable="true"]):focus-visible {
+	outline-offset: calc(var(--ins-focus-width) * -1);
+}
+
+// ---- Selection. Core: ::selection (0,0,1) and body ::selection (0,0,2).
+html:root ::selection {
+	color: var(--ins-text-strong);
+	background: var(--ins-primary-subtle-border);
+}
+
+// ---- Caret.
+html:root :is(input, textarea, select, [contenteditable="true"]) {
+	caret-color: var(--ins-text-strong);
+}
+
+// ---- Placeholder. Core: .form-control::placeholder (0,1,1), .search-bar .awesomplete input::placeholder (0,2,2).
+html:root :is(input, textarea, .form-control, .search-bar .awesomplete input)::placeholder {
+	color: var(--ins-text-placeholder);
+	opacity: 1;
+}
+
+// ---- Autofill: keep the field surface and text colour the theme gives every other field.
+html:root :is(input, textarea, select):-webkit-autofill,
+html:root :is(input, textarea, select):-webkit-autofill:hover,
+html:root :is(input, textarea, select):-webkit-autofill:focus {
+	-webkit-text-fill-color: var(--ins-text);
+	caret-color: var(--ins-text-strong);
+	box-shadow: 0 0 0 1000px var(--ins-surface-field) inset;
+	transition: background-color 9999s ease-out;
+}
+
+// ---- Scrollbars: core sets `* { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color) }`
+// and both variables are in the Frappe map for both modes, so no selector is needed here.
+// color-scheme (tokens) styles the native scrollbar and controls in Light, Dark and Automatic.
+
+// ---- Motion. Tokens go to zero first; then every transition and animation is collapsed.
+// Core transitions sit at (0,1,0) to (0,2,0); `html:root[dir] *` is (0,2,1).
+@media (prefers-reduced-motion: reduce) {
+	html:root[dir] {
+		--ins-duration-fast: 0ms;
+		--ins-duration: 0ms;
+		--ins-duration-slow: 0ms;
+		scroll-behavior: auto;
+	}
+
+	html:root[dir] *,
+	html:root[dir] *::before,
+	html:root[dir] *::after {
+		animation-duration: 0.01ms;
+		animation-iteration-count: 1;
+		transition-duration: 0.01ms;
+		transition-delay: 0s;
+		scroll-behavior: auto;
+	}
+}
+
+// ---- Forced colours. Palette files never reach this block; it lives in ins_desk only (ADR 0003).
+@media (forced-colors: active) {
+	html:root :is(
+		a[href], area[href], button, input, select, textarea, summary,
+		[tabindex], [contenteditable="true"], [role="button"], [role="link"],
+		[role="menuitem"], [role="tab"], [role="option"], .btn, .dropdown-item
+	):focus-visible:not(.modal, .modal-dialog) {
+		outline-color: Highlight;
+	}
+
+	html:root ::selection {
+		color: HighlightText;
+		background: Highlight;
+	}
+
+	html:root :is(input, textarea, select):-webkit-autofill {
+		-webkit-text-fill-color: FieldText;
+		box-shadow: 0 0 0 1000px Field inset;
+	}
+
+	// Status pills lose their background; keep a shape with a system-colour outline (no layout shift).
+	html:root :is(.indicator-pill, .badge) {
+		outline: 1px solid CanvasText;
+		outline-offset: -1px;
+	}
+}

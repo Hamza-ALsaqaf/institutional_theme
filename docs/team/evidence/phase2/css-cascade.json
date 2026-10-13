@@ -1,0 +1,7079 @@
+{
+ "summary": {
+  "generated": "2026-10-13T07:38:22.379Z",
+  "core": {
+   "ltr": "/home/user/frappe-bench/sites/assets/frappe/dist/css/desk.bundle.OJNSMEVS.css",
+   "rtl": "/home/user/frappe-bench/sites/assets/frappe/dist/css-rtl/desk.bundle.T3V3SNHK.css"
+  },
+  "bundles": {
+   "desk": 81500,
+   "graphite": 2342
+  },
+  "sassWarnings": [],
+  "rtlIdentical": {
+   "desk": true,
+   "graphite": true
+  },
+  "total": 1008,
+  "pass": 1008,
+  "fail": 0
+ },
+ "results": [
+  {
+   "scenario": "ltr/midad/light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--btn-primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "color-scheme",
+   "expected": "light",
+   "actual": "light",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "btn: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "field: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "badge: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "check: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "select: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(47, 106, 167) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(47, 106, 167) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--btn-primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "color-scheme",
+   "expected": "dark",
+   "actual": "dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "btn: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "field: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "badge: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "check: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "select: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(167, 201, 240) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(167, 201, 240) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--btn-primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "btn: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "field: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "badge: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "check: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "select: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(47, 106, 167) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(47, 106, 167) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--btn-primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "btn: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "field: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "badge: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "check: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "select: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(167, 201, 240) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(167, 201, 240) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(0, 230, 255, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "color-scheme",
+   "expected": "light",
+   "actual": "light",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "color-scheme",
+   "expected": "dark",
+   "actual": "dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(0, 230, 255, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "color-scheme",
+   "expected": "light",
+   "actual": "light",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "color-scheme",
+   "expected": "dark",
+   "actual": "dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(0, 230, 255, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--btn-primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "color-scheme",
+   "expected": "light",
+   "actual": "light",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "btn: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "field: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "badge: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "check: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "select: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(47, 106, 167) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(47, 106, 167) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--btn-primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "color-scheme",
+   "expected": "dark",
+   "actual": "dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "btn: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "field: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "badge: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "check: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "select: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(167, 201, 240) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(167, 201, 240) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--btn-primary",
+   "expected": "#1b5086",
+   "actual": "#1b5086",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "btn: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "field: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "badge: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "check: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(47, 106, 167) offset 2px",
+   "actual": "select: 2px solid rgb(47, 106, 167) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(47, 106, 167) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(47, 106, 167) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--btn-primary",
+   "expected": "#a7c9f0",
+   "actual": "#a7c9f0",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "btn: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "field: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "badge: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "check: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(167, 201, 240) offset 2px",
+   "actual": "select: 2px solid rgb(167, 201, 240) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(167, 201, 240) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(167, 201, 240) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(0, 230, 255, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "color-scheme",
+   "expected": "light",
+   "actual": "light",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "color-scheme",
+   "expected": "dark",
+   "actual": "dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(0, 230, 255, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "color-scheme",
+   "expected": "light",
+   "actual": "light",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "color-scheme",
+   "expected": "dark",
+   "actual": "dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--bg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--fg-color",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--text-color",
+   "expected": "#28313c",
+   "actual": "#28313c",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--border-color",
+   "expected": "#e8ebf1",
+   "actual": "#e8ebf1",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--control-bg",
+   "expected": "#f1f4f8",
+   "actual": "#f1f4f8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--gray-500",
+   "expected": "#6a727d",
+   "actual": "#6a727d",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--gray-900",
+   "expected": "#141b25",
+   "actual": "#141b25",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--btn-primary",
+   "expected": "#435060",
+   "actual": "#435060",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#858d97",
+   "actual": "#858d97",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--text-muted",
+   "expected": "#424b57",
+   "actual": "#424b57",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--modal-bg",
+   "expected": "#ffffff",
+   "actual": "#ffffff",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "html background = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(241, 244, 248)",
+   "actual": "rgb(241, 244, 248)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(255, 255, 255)",
+   "actual": "rgb(255, 255, 255)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "::placeholder colour",
+   "expected": "rgb(106, 114, 125)",
+   "actual": "rgb(106, 114, 125)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "caret-color",
+   "expected": "rgb(20, 27, 37)",
+   "actual": "rgb(20, 27, 37)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "btn: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "field: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "badge: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "check: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(90, 105, 123) offset 2px",
+   "actual": "select: 2px solid rgb(90, 105, 123) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(90, 105, 123) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(90, 105, 123) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(5, 0, 73, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "all 691 custom properties from generated partials",
+   "expected": "0 mismatches",
+   "actual": "0 mismatches",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--bg-color",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--fg-color",
+   "expected": "#171e28",
+   "actual": "#171e28",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--text-color",
+   "expected": "#dfe3e8",
+   "actual": "#dfe3e8",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--border-color",
+   "expected": "#252c37",
+   "actual": "#252c37",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--control-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--gray-500",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--gray-900",
+   "expected": "#111820",
+   "actual": "#111820",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--btn-primary",
+   "expected": "#bdc7d3",
+   "actual": "#bdc7d3",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--scrollbar-thumb-color",
+   "expected": "#6f7781",
+   "actual": "#6f7781",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--text-muted",
+   "expected": "#b9bec6",
+   "actual": "#b9bec6",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--modal-bg",
+   "expected": "#1d252f",
+   "actual": "#1d252f",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "--focus-default",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "color-scheme",
+   "expected": "light dark",
+   "actual": "light dark",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "html background = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": ".form-control background = --control-bg",
+   "expected": "rgb(29, 37, 47)",
+   "actual": "rgb(29, 37, 47)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "body background (info) = --bg-color",
+   "expected": "rgb(17, 24, 32)",
+   "actual": "rgb(17, 24, 32)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "body colour = --text-muted (core body rule)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "font-synthesis",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "scroll-padding-block-start = head + 8px",
+   "expected": "64px",
+   "actual": "64px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "::placeholder colour",
+   "expected": "rgb(137, 144, 153)",
+   "actual": "rgb(137, 144, 153)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "caret-color",
+   "expected": "rgb(236, 239, 242)",
+   "actual": "rgb(236, 239, 242)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "focus ring on #btn",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "btn: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #btn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "focus ring on #field",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "field: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #field",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "focus ring on #badge",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "badge: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #badge",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "focus ring on #check",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "check: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #check",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "focus ring on #select",
+   "expected": "2px solid rgb(189, 199, 211) offset 2px",
+   "actual": "select: 2px solid rgb(189, 199, 211) offset 2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #select",
+   "expected": "none or non-focus shadow only",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "focus ring on #dtbtn",
+   "expected": "2px solid rgb(189, 199, 211) offset -2px",
+   "actual": "dtbtn: 2px solid rgb(189, 199, 211) offset -2px",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "no second ring (box-shadow) on #dtbtn",
+   "expected": "none or non-focus shadow only",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "modal shell is not ringed",
+   "expected": "none",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "reduced-motion: .page-head transition collapsed",
+   "expected": "0.00001s",
+   "actual": "1e-05s",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "reduced-motion: --ins-duration",
+   "expected": "0ms",
+   "actual": "0ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "no-preference: --ins-duration",
+   "expected": "160ms",
+   "actual": "160ms",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "forced-colors: media active",
+   "expected": "true",
+   "actual": "true",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "forced-colors: ring still drawn",
+   "expected": "2px solid",
+   "actual": "2px solid rgba(0, 230, 255, 0.8)",
+   "pass": true
+  },
+  {
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "forced-colors: badge keeps an outline shape",
+   "expected": "solid",
+   "actual": "solid",
+   "pass": true
+  }
+ ]
+}

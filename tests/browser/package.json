@@ -1,0 +1,8 @@
+{
+	"name": "institutional-theme-browser-tests",
+	"private": true,
+	"type": "module",
+	"description": "Computed-style proof that the theme wins against compiled Frappe core CSS.",
+	"scripts": { "cascade": "node cascade.mjs" },
+	"devDependencies": { "playwright-core": "1.56.1" }
+}

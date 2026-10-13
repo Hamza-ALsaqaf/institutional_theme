@@ -1,0 +1,9 @@
+// Desk entry: generated tokens and Frappe map, then fonts, then base rules (ADR 0003).
+// The wrapper keeps rtlcss from flipping anything; direction-specific rules use [dir="rtl"].
+/*rtl:begin:ignore*/
+@import "generated/tokens";
+@import "generated/frappe_map";
+@import "generated/scale";
+@import "fonts/plex";
+@import "desk/base";
+/*rtl:end:ignore*/
