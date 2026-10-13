@@ -238,3 +238,11 @@ primary,الأساسي
 Use strong passwords.,استخدم كلمات مرور قوية.
 Sign Up,إنشاء حساب
 Sign up,إنشاء حساب
+Your session has ended. Sign in again to continue.,انتهت جلستك. سجّل الدخول مجدداً للمتابعة.
+Sign in,تسجيل الدخول
+The session could not be refreshed. Try again.,تعذّر تجديد الجلسة. حاول مرة أخرى.
+Stay signed in,الاستمرار في الجلسة
+You have been inactive. Your session may end soon.,لم يُسجَّل أي نشاط منك. قد تنتهي جلستك قريباً.
+You are offline. Changes cannot be saved until the connection returns.,أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال.
+Live updates are interrupted. The page will keep trying to reconnect.,توقفت التحديثات الفورية. ستواصل الصفحة محاولة إعادة الاتصال.
+The connection is back.,عاد الاتصال.
