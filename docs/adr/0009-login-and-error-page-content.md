@@ -73,3 +73,15 @@ Browser test: the masthead survives 2FA, and the language links have accessible 
 - `translate.py:33-47`; `auth.py:45, 99-100`; `templates/includes/navbar/navbar.html:28-30`; `website/js/website.js:379-411`.
 - `monitor.py:20-22, 37-40, 77-78, 118-121`; `hooks.py:256, 456`; `app.py:189-194, 207-208, 260-261, 411-412`; `utils/error.py:80-90`; `core/doctype/error_log/error_log.json:75-78`.
 - `__init__.py:1283-1311` (`respond_as_web_page`).
+
+## Amendment, round 2 (2026-10-13)
+
+The accepted text above stands; this section records what changed in round 2 and supersedes the 403 line under "Gaps".
+
+**403 now shows the reference or the time of error.** Core's `NotPermittedPage.render` stores `indicator_color="red"` in `frappe.local.response["context"]` and sets nothing else in the context (`website/page_renderers/not_permitted_page.py:23-25`). Core merges that dict into the page context only in `set_missing_values`, after the `update_website_context` hooks ran (`base_template_page.py:30-31, 52-54`). `web_content._is_error_message` therefore treats a `www/message.html` page as an error when its status is 400 or more **or** its indicator is red, read from the context or from `frappe.local.response["context"]`. `respond_as_web_page` sets a red indicator for every status over 300 (`frappe/__init__.py:1295-1299`). With `"monitor": 1` the 403 footer shows the reference, equal to the `X-Frappe-Request-Id` header, in English and Arabic; without it, "Time of error". VERIFIED: test `test_message_with_red_indicator_is_an_error`; `/me` as Guest on the test bench (`docs/team/evidence/round2/print-web2/evidence.md` item 1, `a1_403.txt`).
+
+**Arabic strings on the auth pages.** `www/login.html` uses both `_('Sign Up')` (`:151`) and `_("Sign up")` (`:127, 143, 230`). Core's Arabic file leaves "Sign Up" empty and renders "Sign up" as "سجل". This app's `ar.csv` adds both as "إنشاء حساب"; the heading renders it. "Use strong passwords." (`www/update-password.html:20`) already had a row; the English seen earlier came from a stale merged-translation cache (`bench clear-cache`), not from the source. The card heading and subtitle use `unicode-bidi: plaintext` so an English fallback keeps its full stop at the line end.
+
+**Reference label.** The page shows core's Arabic for "Reference", "مرجع", and this app's row "اذكر هذا المرجع عند التواصل مع الدعم الفني." The texts above ("الرقم المرجعي", "اذكر هذا الرقم …") are not used. A row for the bare word "Reference" would change core's translation everywhere in the desk, so core's word is kept (rule 3).
+
+**Gaps after this amendment**: 404 (cached, no per-request ID) and 503 (raises before `monitor.start`, "Time of error") are unchanged; switching language still drops `#forgot`.

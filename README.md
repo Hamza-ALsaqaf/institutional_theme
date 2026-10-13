@@ -52,12 +52,38 @@ bench --site <site> list-apps
 
 ## Optional site configuration
 
-Set these in `sites/<site>/site_config.json`. Both are optional.
+Set these in `sites/<site>/site_config.json` (for example `bench --site <site> set-config ins_release "2026.1"`). All are optional.
 
 | Key | Values | Effect |
 |---|---|---|
 | `ins_environment` | `production`, `training`, `uat`, `staging`, or any other word | Shows an environment ribbon on the desk for every value except `production` and an empty value. On the login and error pages, `production` shows the word "Production". Any other word is shown as "Non-production". Absent or empty means no ribbon. |
 | `ins_release` | Any text | Shown as the release on the login and error pages ("Release {0}"). Empty when absent. |
+| `monitor` | `1` | A Frappe key, not this app's. When set, error pages (500, error messages, 403) show a reference that users can quote to support. The same value is in the `X-Frappe-Request-Id` response header, the Error Log `trace_id` and `logs/monitor.json.log`; if nginx sends `X-Frappe-Request-Id: $request_id`, it also matches the access log. Without it, the page shows the time of the error instead. 404 pages are cached and show no reference. |
+
+The site's `site_config.json` is read on each request; no restart is needed.
+
+## Opt-in behaviours
+
+Two behaviours are off after install. Turn them on in **Institutional Theme Settings**:
+
+- **Warn before the session expires**, with **Minutes of warning** (default 5): a dialog warns an idle user before the session ends; its button keeps the session alive.
+- **Show a banner when the connection is lost**: a banner at the top of the desk while the browser is offline or live updates are interrupted.
+
+## Printing
+
+Install ships a Print Style named **Midad** and a Letter Head named **Midad**. Neither is made the default, and Print Settings is not changed. To use them:
+
+1. **Print Settings → Print Style**: choose "Midad".
+2. **Letter Head**: open "Midad" and tick "Default Letter Head", or set it as the company's "Default Letter Head" (ERPNext), or choose it in the print view. Tick "Print with letterhead" in Print Settings if it is off.
+
+The letter head shows the institution's names, the emblem (when it is a public file) and the default company's primary address, from Institutional Theme Settings. If you edit or delete either record, the app does not overwrite or recreate it; uninstall removes them only if they are unchanged and not linked.
+
+**PDF generator.** Print Settings → PDF Generator offers `wkhtmltopdf` and `chrome`; both are supported.
+
+- `wkhtmltopdf` must be **0.12.6.1 with patched Qt** (`wkhtmltopdf -V` prints `(with patched qt)`). The 0.12.6 package from the Ubuntu or Debian archive is not enough: the page overflows its width and the running header and footer do not work. Install the official build for your distribution from the wkhtmltopdf packaging releases.
+- `chrome` uses the headless browser that Frappe downloads into the bench.
+
+Printing is always light, in either desk mode.
 
 ## Uninstall
 
