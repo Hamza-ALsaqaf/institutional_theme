@@ -319,8 +319,11 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		text = controller.audit_text(result)
 		self.assertRegex(text, r"^\d+ of \d+ contrast pairs pass\. Tightest: ")
 		self.assertIn('<bdi dir="ltr">', text)
+		# Single-word tokens such as "border" are also ordinary words in the labels
+		# ("Input border"), so only hyphenated token names are distinctive.
 		for token in midad.load_model()["semantic"]:
-			self.assertNotIn(f" {token} ", text)
+			if "-" in token:
+				self.assertNotIn(f" {token} ", text)
 
 	def test_form_shows_the_audit_in_words_and_storage_stays_neutral(self) -> None:
 		doc = self.settings(allow_custom=1, custom_primary="#1F3A5F", custom_accent="#B08D57")
