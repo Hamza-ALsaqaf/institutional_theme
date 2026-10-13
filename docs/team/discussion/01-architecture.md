@@ -182,3 +182,19 @@ On `$(document).on("form-refresh", (e, frm) => …)` (`public/js/frappe/form/for
 ---
 
 ## Replies
+
+Replies were posted as separate files: `01-reply-css.md` and `01-reply-print-web.md`. The reviews are in `docs/team/reviews/upgrade-phase1.md` and `docs/team/reviews/a11y-phase1.md`.
+
+---
+
+## Outcome
+
+Revised once, on evidence, and accepted on 2026-10-13. The records are `docs/adr/0002` to `0008`; the file plan is `docs/team/PLAN.md`.
+
+- **0002**: storage as proposed. The mode is now a native radio group that calls core's `switch_theme`; core's dialog is not used (a11y 1).
+- **0003**: the server-linked palette as proposed. The hook is guarded and checks the manifest. `color-scheme` is set and audited in every block (upgrade 2, 4, 5, 7-9; a11y 3).
+- **0004**: names are content hashes computed at link time, and writes are atomic. Semibold uploads are mandatory (upgrade 3, 6; a11y 2).
+- **0005**: identity is written with `set_single_value` and restored on uninstall (upgrade 1, 10).
+- **0006**: pending the bench result.
+- **0007**: the proof, with the a11y 12 additions.
+- **0008**: action, status, masking and ribbon hooks; tagging includes state checks.
