@@ -1,0 +1,6 @@
+import { combos, launch, ready } from "./lib.mjs";
+const { browser, page } = await launch(combos[0]);
+await ready(page, "/desk/todo");
+console.log(JSON.stringify(await page.evaluate(() => { const d=document.createElement("div"); d.className="ins-banner"; d.textContent="x"; d.style.height="40px"; document.body.prepend(d);
+ const sb=document.querySelector('.body-sidebar'); const c=getComputedStyle(sb); const sb2=getComputedStyle(sb); const pr=[sb2.blockSize,sb2.height,sb2.minHeight,sb2.boxSizing]; const re0=[...document.styleSheets].flatMap(ss=>{try{return [...ss.cssRules]}catch(e){return []}}).filter(r=>r.selectorText&&r.selectorText.includes('body-sidebar')&&/height/.test(r.cssText)).map(r=>r.cssText.slice(0,160)); return [pr, c.position,c.height,c.top,c.bottom,c.maxHeight,getComputedStyle(sb.parentElement).position, sb.parentElement.getBoundingClientRect().height, sb.parentElement.className];return [...document.body.children].filter(e=>{const c=getComputedStyle(e);return c.display!=="none"&&c.position!=="fixed"&&c.position!=="absolute"}).map(e=>{const c=getComputedStyle(e);return [e.tagName+"."+e.className, c.gridRowStart, c.gridRowEnd, c.gridColumnStart, c.height, c.maxHeight, c.display]})})));
+await browser.close();

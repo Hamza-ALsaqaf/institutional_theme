@@ -1,0 +1,14 @@
+<!-- Mirrors frappe/public/js/frappe/ui/dialog.js + frappe.msgprint (modal-dialog.msgprint-dialog), shown over the list screen. -->
+<div class="proof-desk proof-modal-host" data-screen-root>
+<div class="modal fade show" tabindex="-1" aria-modal="true" role="dialog" aria-labelledby="proof-dialog-title" style="display:block">
+<div class="modal-dialog msgprint-dialog">
+<div class="modal-content">
+<div class="modal-header">
+	<div class="fill-width flex title-section"><span class="indicator red"></span><h4 class="modal-title" id="proof-dialog-title">[[dialog.title]]</h4></div>
+	<div class="modal-actions d-flex"><button class="btn btn-ghost btn-modal-close icon-btn" data-dismiss="modal" aria-label="[[dialog.close]]"><svg class="icon icon-sm" aria-hidden="true"><use href="#icon-x"></use></svg></button></div>
+</div>
+<div class="modal-body ui-front"><div><div class="msgprint">[[dialog.body]]</div></div></div>
+<div class="modal-footer"><div class="standard-actions"><button type="button" class="btn btn-secondary btn-sm btn-modal-secondary">[[dialog.cancel]]</button> <button type="button" class="btn btn-primary btn-sm btn-modal-primary">[[dialog.confirm]]</button></div></div>
+</div></div></div>
+<div class="modal-backdrop fade show"></div>
+</div>

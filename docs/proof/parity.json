@@ -1,0 +1,847 @@
+{
+ "matrix": [
+  {
+   "tag": "en/list/light/comfortable/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/comfortable/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/comfortable/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/comfortable/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/comfortable/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/compact/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/compact/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/compact/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/compact/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/light/compact/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/comfortable/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/comfortable/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/comfortable/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/comfortable/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/comfortable/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/compact/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/compact/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/compact/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/compact/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/list/dark/compact/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/light/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/form/dark/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/comfortable/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/comfortable/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/comfortable/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/comfortable/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/comfortable/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/compact/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/compact/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/compact/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/compact/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/light/compact/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/comfortable/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/comfortable/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/comfortable/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/comfortable/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/comfortable/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/compact/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/compact/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/compact/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/compact/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/report/dark/compact/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/light/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/dialog/dark/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "en/login",
+   "probes": 11,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/comfortable/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/comfortable/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/comfortable/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/comfortable/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/comfortable/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/compact/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/compact/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/compact/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/compact/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/light/compact/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/comfortable/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/comfortable/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/comfortable/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/comfortable/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/comfortable/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/compact/midad",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/compact/graphite",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/compact/forest",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/compact/petrol",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/list/dark/compact/plum",
+   "probes": 13,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/light/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/form/dark/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/comfortable/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/comfortable/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/comfortable/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/comfortable/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/comfortable/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/compact/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/compact/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/compact/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/compact/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/light/compact/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/comfortable/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/comfortable/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/comfortable/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/comfortable/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/comfortable/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/compact/midad",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/compact/graphite",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/compact/forest",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/compact/petrol",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/report/dark/compact/plum",
+   "probes": 8,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/light/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/comfortable/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/comfortable/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/comfortable/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/comfortable/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/comfortable/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/compact/midad",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/compact/graphite",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/compact/forest",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/compact/petrol",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/dialog/dark/compact/plum",
+   "probes": 9,
+   "ok": true
+  },
+  {
+   "tag": "ar/login",
+   "probes": 11,
+   "ok": true
+  }
+ ],
+ "extra": {
+  "en/list/forced-colors": true,
+  "en/list/reduced-motion": true,
+  "en/form/forced-colors": true,
+  "en/form/reduced-motion": true,
+  "en/report/forced-colors": true,
+  "en/report/reduced-motion": true,
+  "en/dialog/forced-colors": true,
+  "en/dialog/reduced-motion": true,
+  "ar/list/forced-colors": true,
+  "ar/list/reduced-motion": true,
+  "ar/form/forced-colors": true,
+  "ar/form/reduced-motion": true,
+  "ar/report/forced-colors": true,
+  "ar/report/reduced-motion": true,
+  "ar/dialog/forced-colors": true,
+  "ar/dialog/reduced-motion": true,
+  "pointer-coarse-matchMedia": true,
+  "reflow-320-screenshot": "/home/runner/work/institutional_theme/institutional_theme/docs/proof/parity-320.png"
+ },
+ "stale": [],
+ "offline": {
+  "allowedCoreAssetUrls": [],
+  "allowedCount": 0,
+  "blocked": []
+ },
+ "counts": {
+  "configs": 178,
+  "probes": 1738,
+  "mismatches": 0
+ },
+ "failures": 0,
+ "failureSample": []
+}

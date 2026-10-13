@@ -1,0 +1,66 @@
+{
+ "en": {
+  "ribbon": {
+   "top": 0,
+   "bottom": 24,
+   "h": 24
+  },
+  "sidebar": {
+   "top": 0,
+   "bottom": 800,
+   "h": 800
+  },
+  "main": {
+   "top": 0,
+   "bottom": 800,
+   "h": 800
+  },
+  "pagehead": {
+   "top": 24,
+   "bottom": 81,
+   "h": 57
+  },
+  "navbar": null,
+  "body": {
+   "top": 0,
+   "bottom": 800,
+   "h": 800
+  },
+  "docH": 800,
+  "winH": 800,
+  "scrollY": 0,
+  "bodyPad": "0px"
+ },
+ "ar": {
+  "ribbon": {
+   "top": 0,
+   "bottom": 24,
+   "h": 24
+  },
+  "sidebar": {
+   "top": 0,
+   "bottom": 800,
+   "h": 800
+  },
+  "main": {
+   "top": 0,
+   "bottom": 800,
+   "h": 800
+  },
+  "pagehead": {
+   "top": 24,
+   "bottom": 81,
+   "h": 57
+  },
+  "navbar": null,
+  "body": {
+   "top": 0,
+   "bottom": 800,
+   "h": 800
+  },
+  "docH": 800,
+  "winH": 800,
+  "scrollY": 0,
+  "bodyPad": "0px"
+ }
+}

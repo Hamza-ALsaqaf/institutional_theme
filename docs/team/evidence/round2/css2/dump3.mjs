@@ -1,0 +1,14 @@
+import { combos, launch, ready } from "./lib.mjs";
+import { writeFileSync } from "node:fs";
+const { browser, page } = await launch(combos[0]);
+const strip = `(el)=>{const c=el.cloneNode(true);c.querySelectorAll("script,style").forEach(e=>e.remove());c.querySelectorAll("svg").forEach(s=>{const u=s.querySelector("use");s.innerHTML=u?'<use href="'+u.getAttribute("href")+'"></use>':"";});const w=(e)=>{e.removeAttribute("style");for(const k of e.children)w(k)};w(c);return c.outerHTML.replace(/\\s*\\n\\s*/g,"\\n")}`;
+await ready(page, "/desk/todo");
+await page.waitForSelector(".list-row", { timeout: 20000 });
+writeFileSync("/tmp/css2/dom/listrows.html", await page.evaluate(([f]) => { const s = eval(f); return [...document.querySelectorAll(".list-row-container")].slice(0, 3).map(s).join("\n") + "\n<!--paging-->" + s(document.querySelector(".list-paging-area")) + "\n<!--sidebar-->" + s(document.querySelector(".layout-side-section")) + "<!--filters-->" + s(document.querySelector(".standard-filter-section, .page-form")); }, [strip]));
+const name = await page.evaluate(() => document.querySelector(".list-row a.bold, .list-row .list-subject a")?.getAttribute("href"));
+console.log(name);
+await ready(page, name || "/desk/todo/new");
+await page.waitForSelector(".form-layout", { timeout: 20000 });
+await page.waitForTimeout(800);
+writeFileSync("/tmp/css2/dom/form2.html", await page.evaluate(([f]) => { const s = eval(f); return s(document.querySelector(".page-head")) + "\n<!--LAYOUT-->" + s(document.querySelector(".layout-main")); }, [strip]));
+await browser.close();

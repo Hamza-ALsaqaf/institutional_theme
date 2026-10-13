@@ -1,0 +1,11 @@
+import { combos, launch, ready } from "./lib.mjs";
+import { writeFileSync } from "node:fs";
+const { browser, page } = await launch(combos[0]);
+await ready(page, "/desk/todo/view/report");
+await page.waitForSelector(".dt-row", { timeout: 20000 }).catch(() => {});
+await page.waitForTimeout(1000);
+const html = await page.evaluate(() => { const c = document.querySelector(".datatable").cloneNode(true); c.querySelectorAll("svg").forEach(s => s.innerHTML = ""); return c.outerHTML.replace(/\s*\n\s*/g, "\n"); });
+writeFileSync("/tmp/css2/dom/dt.html", html); console.log(html.length);
+const styles = await page.evaluate(() => [...document.querySelectorAll("style")].map(s => (s.className||"")+"|"+(s.id||"")+"|"+s.textContent.slice(0,120).replace(/\s+/g," ")));
+console.log(styles.join("\n"));
+await browser.close();

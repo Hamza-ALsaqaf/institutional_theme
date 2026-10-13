@@ -11,8 +11,19 @@ html:root[dir][data-ins-environment] {
 	scroll-padding-block-start: calc(var(--ins-page-head-height) + var(--ins-space-2) + var(--ins-ribbon-height));
 }
 
-html:root[dir][data-ins-environment] body {
+// Core sets `body { padding: 0 !important }` (desk.bundle, global.scss), so the strip is cleared inside the two columns instead:
+// the sidebar and the scroller keep core's 100vh box (border-box) and gain the ribbon height as block-start padding.
+// Sticky insets are measured from the padded scroller's content edge, so the head needs `top: 0` here (_page_head.scss sets the ribbon height, which would double the offset).
+html:root[dir][data-ins-environment] .body-sidebar {
+	padding-block-start: calc(var(--ins-space-2) + var(--ins-ribbon-height));
+}
+
+html:root[dir][data-ins-environment] .main-section {
 	padding-block-start: var(--ins-ribbon-height);
+}
+
+html:root[dir][data-ins-environment] .page-head {
+	top: 0;
 }
 
 html:root[dir] .ins-env-ribbon {
@@ -41,7 +52,11 @@ html:root[dir] .ins-env-ribbon {
 		display: none;
 	}
 
-	html:root[dir][data-ins-environment] body {
+	html:root[dir][data-ins-environment] .body-sidebar {
+		padding-block-start: var(--ins-space-2);
+	}
+
+	html:root[dir][data-ins-environment] .main-section {
 		padding-block-start: 0;
 	}
 }

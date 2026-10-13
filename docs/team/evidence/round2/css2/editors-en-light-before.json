@@ -1,0 +1,37 @@
+{
+ "en-light": {
+  "quill": {
+   "toolbarBg": "rgb(247, 249, 252)",
+   "toolbarBorder": "rgb(133, 141, 151)",
+   "editorBg": "rgb(255, 255, 255)",
+   "editorColor": "rgb(40, 49, 60)",
+   "editorFont": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+   "placeholder": "ltr",
+   "icon": "rgb(66, 75, 87)"
+  },
+  "ace": {
+   "bg": "rgb(255, 255, 255)",
+   "color": "rgb(40, 49, 60)",
+   "dir": "ltr",
+   "font": "Monaco, Menlo, \"Ubuntu Mono\", Consolas, \"Source Code Pro\", source-code-pro, monospace",
+   "gutterBg": "rgb(255, 255, 255)",
+   "gutterColor": "rgb(88, 97, 109)",
+   "keyword": "rgb(137, 89, 168)",
+   "comment": null,
+   "string": "rgb(113, 140, 0)",
+   "numeric": "rgb(245, 135, 31)",
+   "activeLine": "rgb(255, 255, 255)",
+   "theme": "ace-editor-target border rounded ace_editor ace_hidpi ace-tomorrow"
+  },
+  "shortcuts": {
+   "html": "\n\t\t<div class=\"modal-dialog\">\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div class=\"modal-header\">\n\t\t\t\t\t<div class=\"fill-width flex title-section\">\n\t\t\t\t\t\t<span class=\"indicator hidden\"></span>\n\t\t\t\t\t\t<h4 class=\"modal-title\">Keyboard Shortcuts</h4>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"modal-actions d-flex\">\n\t\t\t\t\t\t<button class=\"btn btn-ghost btn-modal-minimize icon-btn hide\">\n\t\t\t\t\t\t\t<svg class=\"icon  icon-sm\" style=\"\" aria-hidden=\"true\">\n\t\t\t<use class=\"\" href=\"#icon-collapse\">\n\t\t\t</use>\n\t\t</svg>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"btn btn-ghost btn-modal-close icon-btn\" data-dismiss=\"modal\">\n\t\t\t\t\t\t\t<svg class=\"icon  icon-sm\" style=\"\" aria-hidden=\"true\">\n\t\t\t<use class=\"\" href=\"#icon-x\">\n\t\t\t</use>\n\t\t</svg>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body ui-front\"><div><h5 style=\"margin: 0;\">Global Shortcuts</h5>\n\t\t\t<table style=\"margin-top: 10px;\" class=\"table table-bordered\">\n\t\t\t\t<tbody><tr>\n\t\t\t\t\t<td width=\"40%\"><kbd>Ctrl+S</kbd></td>\n\t\t\t\t\t<td width=\"60%\">Trigger primary action</td>\n\t\t\t\t</tr><tr>\n\t\t\t\t\t<td width=\"40%\"><kbd>Ctrl+K</kbd></td>\n\t\t\t\t\t<td width=\"60%\">Open Awesomebar</td>\n\t\t\t\t</tr><tr>\n\t\t\t\t\t<td width=\"40%\"><kbd>Ctrl+G</kbd></td>\n\t\t\t\t\t<td width=\"60%\">Open Global Search</td>\n\t\t\t\t</tr><tr>\n\t\t\t\t\t<td width=\"40%\"><kbd>⇧+/</kbd></td>\n\t\t\t\t\t<td width=\"60%\">Show keyboard shortcuts</td>\n\t\t\t\t</tr><tr>\n\t\t\t\t\t<td width=\"40%\"><kbd>⇧+Ctrl+R</kbd></td>\n\t\t\t\t\t<td width=\"60%\">Clear cache and reload</td>\n\t\t\t\t</tr><tr>\n\t\t\t\t\t<td width=\"40%\"><kbd>⇧+T</kbd></td>\n\t\t\t\t\t<td width=\"60%\">Open con",
+   "kbd": [
+    "KBD",
+    "",
+    "rgb(255, 255, 255)",
+    "rgb(88, 97, 109)",
+    "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif"
+   ]
+  }
+ }
+}

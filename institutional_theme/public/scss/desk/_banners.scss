@@ -1,0 +1,102 @@
+// Opt-in desk banners: `.ins-banner[data-ins-banner="offline|idle"]`, first child of body (backend-engineer's script).
+// Layout: while a banner exists, body (core: flex row) becomes a two-row grid so the banner pushes the sidebar and page down.
+// Core body has `align-items: flex-start`, so the grid resets it to stretch.
+
+// ---- Layout. Core `body { display: flex }` (main.scss:35, (0,0,1)). Rows: banner, then the columns at the remaining height.
+html:root[dir] body:has(> .ins-banner) {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	grid-template-rows: auto minmax(0, 1fr);
+	align-items: stretch;
+	block-size: 100vh;
+}
+
+html:root[dir] body:has(> .ins-banner) > .ins-banner {
+	grid-column: 1 / -1;
+}
+
+// Core gives both columns `height: 100vh` (sidebar.scss:49, main.scss:39); in the grid they take the row instead.
+html:root[dir] body:has(> .ins-banner) > .body-sidebar-container,
+html:root[dir] body:has(> .ins-banner) > .main-section {
+	block-size: auto;
+	min-block-size: 0;
+}
+
+// Core positions the expanded sidebar absolutely against body; make the column the containing block so 100% is the row.
+html:root[dir] body:has(> .ins-banner) > .body-sidebar-container {
+	position: relative;
+}
+
+html:root[dir] body:has(> .ins-banner) .body-sidebar {
+	block-size: 100%;
+}
+
+// The environment ribbon (fixed, 24px) sits above the banner: the banner moves down, the columns no longer need the ribbon padding.
+html:root[dir][data-ins-environment] body:has(> .ins-banner) > .main-section {
+	padding-block-start: 0;
+}
+
+html:root[dir][data-ins-environment] body:has(> .ins-banner) .body-sidebar {
+	padding-block-start: var(--ins-space-2);
+}
+
+// ---- The banner. Info tone by default (idle), warning tone for offline; the text is always present.
+html:root[dir] .ins-banner {
+	position: sticky;
+	inset-block-start: var(--ins-ribbon-height);
+	z-index: var(--ins-z-banner);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--ins-space-2) var(--ins-space-3);
+	box-sizing: border-box;
+	min-block-size: var(--ins-space-10);
+	margin-block-start: var(--ins-ribbon-height);
+	padding: var(--ins-space-2) var(--ins-space-4);
+	background: var(--ins-status-info-bg);
+	color: var(--ins-status-info-fg);
+	border-block-end: 1px solid var(--ins-status-info-border);
+	border-inline-start: var(--ins-space-1) solid var(--ins-status-info-solid);
+	font-size: var(--ins-text-sm);
+	font-weight: var(--ins-weight-medium);
+	line-height: var(--ins-leading);
+}
+
+html:root[dir] .ins-banner[data-ins-banner="offline"] {
+	background: var(--ins-status-warning-bg);
+	color: var(--ins-status-warning-fg);
+	border-block-end-color: var(--ins-status-warning-border);
+	border-inline-start-color: var(--ins-status-warning-solid);
+}
+
+html:root[dir] .ins-banner .ins-banner-text {
+	flex: 1 1 16rem;
+	min-inline-size: 0;
+	overflow-wrap: anywhere;
+}
+
+html:root[dir] .ins-banner .ins-banner-action {
+	flex: 0 0 auto;
+}
+
+// ---- Forced colours: system colours, and the tone is kept by the border (never colour alone: the text label stays).
+@media (forced-colors: active) {
+	html:root[dir] .ins-banner {
+		background: Canvas;
+		color: CanvasText;
+		border-block-end: 1px solid CanvasText;
+		border-inline-start: var(--ins-space-1) solid Highlight;
+	}
+
+	html:root[dir] .ins-banner[data-ins-banner="offline"] {
+		border-inline-start-style: double;
+		border-inline-start-width: var(--ins-space-15);
+		border-inline-start-color: CanvasText;
+	}
+}
+
+@media print {
+	html:root[dir] .ins-banner {
+		display: none;
+	}
+}

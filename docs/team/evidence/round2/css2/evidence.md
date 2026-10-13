@@ -1,0 +1,39 @@
+# Round 2 wave 2, css-engineer evidence
+
+Real build (`tools/bench/b.sh build --app institutional_theme`, no warnings) after the last SCSS change. Cascade harness `node tests/browser/cascade.mjs --bench ... --evidence .../css2/cascade`: 4256 pass, 0 fail, RTL identical (temporary `node_modules` symlink to `/opt/pw-node/node_modules`, removed). Users `css-r2-{en,ar}-{light,dark}@midad.test`; six ToDo records each (`fixtures2.mjs`). Scripts and screenshots are in this folder.
+
+## 1. Ribbon: DONE, VERIFIED (`ribbon.mjs`, `ribbon-{en,ar}-light-{before,after}.png`, `ribbon-before.json`, `ribbon-after.json`, `sticky.json`)
+Cause: core sets `body { padding: 0 !important }` (mobile.scss:1-5), so the old `body` padding rule never applied. Fix in `_ribbon.scss`: with `html[data-ins-environment]` the sidebar (`.body-sidebar`) gets `padding-block-start: space-2 + ribbon height` and `.main-section` gets `padding-block-start: ribbon height`; `.page-head` `top: 0` (sticky insets are measured from the padded scroller's content edge; `_page_head.scss` keeps `top: var(--ins-ribbon-height)` and is out-ranked; its comment is now stale, for the lead). Measured after the fix: ribbon 0-24, page head top 24, sidebar header top 32 (the before screenshot shows it under the ribbon; the before run did not measure it), document height 800 = viewport, sticky head stays at 24 after scrolling 300. `site_config.json` edited with `ins_environment: training` and restored byte-identical (`site_config.cmp.txt`: `cmp` clean, sha256 `7c3e5567...f2e1` before and after, done twice).
+
+## 2. Banners: DONE, VERIFIED on injected markup only (`banners.mjs`, `banners.json`, `banner-*.png` x8; `banner_ribbon.mjs/json`, `banner-ribbon-*.png`, `banner-forced-*.png`)
+`_banners.scss`. Decision: push content. While `body > .ins-banner` exists, `body` (core: flex row) becomes a two-row grid (`:has()`), banner row, then sidebar and page in the rest of the viewport; no overlap, no document scroll (docH 800). Info tone (`--ins-status-info-*`) default, warning (`--ins-status-warning-*`) for `offline`; a 4px inline-start bar plus the text label; Light/Dark pairs measured (offline Light rgb(88,70,0) on rgb(250,240,210)). Arabic mirrored. With the ribbon: ribbon 0-24, banner 24-64, columns from 64. Forced colours: Canvas/CanvasText, bar Highlight, `double` 6px for offline (matchMedia true). Print: hidden. Not verified: against backend's real JS (it exists now, `banner.js`; markup matches the contract by reading, not rendered), focus ring on the action button in the banner, long text wrapping at 320 px.
+
+## 3. Editors: DONE, VERIFIED (`editors.mjs`, `editors-*.json`, `editor-{quill,ace,shortcuts}-{en,ar}-{light,dark}{,-before}.png`)
+`_editors.scss`. Ace: core always loads theme `tomorrow` (code.js:84), light-only colours; Dark keyword #8959a8 on rgb(11,17,25) and Light numeric #f5871f on white were low contrast. Syntax roles now use status tokens (keyword text-link, string success-solid, number pending-solid, function progress-solid, variable danger, type teal-solid, comment text-muted), selection, cursor, invisibles. Computed Dark keyword rgb(150,203,255) (11.1:1 on field), string rgb(104,190,143) (8.4:1), number rgb(235,143,89); Light keyword rgb(0,88,149) (7.4:1), string 4.8:1, number rgb(174,80,0). Code stays `direction: ltr` in Arabic (asserted, all four). Quill: toolbar, editor and icons were already correct in both modes; only the blank-state hint (rgba(0,0,0,.6) italic) is mapped. Shortcuts dialog (`frappe.ui.keys.show_keyboard_shortcut_dialog`, keyboard.js:84; opened by calling it, Ctrl+/ not pressed): `<kbd>` chips (keyboard.js:118) restyled with tokens, mono font, `direction: ltr; unicode-bidi: isolate` so "Ctrl+R" no longer reorders in Arabic rows (seen in `-before`). Client Script form used for Ace (`/desk/client-script/new`; `/desk/server-script/new` returned "Page not found" for this user, not investigated). Not verified: Ace in a Server Script form, fold widgets, autocomplete popup, search box, Quill picker dropdown open, mention list.
+
+## 4. Proof: DONE (smaller than ADR scope, listed in `docs/proof/README.md`)
+`tools/proof/{build_proof.py,proof.js,proof.css,toolbar.html,strings.json,partials/*}`, `docs/proof/{midad-proof.html,README.md,parity.json,parity-320.png}`, `tests/browser/proof_parity.mjs`. Size 5.53 MB (ADR assumed 2 to 4). Screens: list, form, report datatable, dialog, login (isolated document). Controls: screen, mode, language/direction, density, preset, fonts, contrast table. Screenshots `proof/proof-*.png`, rendered from `file://`, no errors, no requests.
+Parity (`node tests/browser/proof_parity.mjs`, 76 s): 178 comparisons, 1738 probes, 0 mismatches, 0 stale paths, 0 blocked requests (full matrix: Light/Dark x en/ar x both densities x five presets x four desk screens, login both languages, forced-colors and reduced-motion on every screen, `pointer: coarse` media asserted). Stale detection tested: a proof with one wrong bundle hash exits 1 (`FAIL stale asset path`). The test found and I fixed 12 proof-markup inaccuracies (e.g. the hidden datatable filter row changes `.dt-row:last-child` borders; labels carry inline `padding-right: 5px`; unseen/seen subject span). Normalisations are listed in the README. ruff is not installed here: `tools/proof/build_proof.py` was not linted.
+
+## Selectors depended on (16.32.0)
+- `body { padding: 0 !important }` mobile.scss:1-5; `body { display: flex; align-items: flex-start }` main.scss:28-35; `.main-section { height: 100vh; overflow }` main.scss:37-43.
+- `.body-sidebar` (position, `height: 100vh`, padding 8px 8px 10px) sidebar.scss:34-52; `.body-sidebar-container` (`height: fit-content`) sidebar.scss:23-27; `.body-sidebar-container.expanded .body-sidebar` absolute, `height: 100%` via mixin sidebar.scss:168-216. Breaks: banner and ribbon offsets.
+- `.page-head` sticky `top: 0` page.scss:121-128.
+- Banner contract classes `.ins-banner`, `[data-ins-banner]`, `.ins-banner-text`, `.ins-banner-action` (theme's own, backend `banner.js`).
+- `.ace_editor` controls.scss:243-265; theme `ace/theme/tomorrow` code.js:84 (class `ace-tomorrow`, tomorrow theme classes `.ace_keyword .ace_string .ace_constant.ace_numeric .ace_comment .ace_variable .ace_support.* .ace_entity.* .ace_marker-layer .ace_selection .ace_cursor .ace_invisible .ace_indent-guide`; Ace loads from its own bundle, version-sensitive).
+- Quill: `.ql-editor.ql-blank::before` (node_modules quill dist/quill.snow.css); `.ql-editor` quill.scss:11.
+- `kbd` rendered by keyboard.js:117-118; dialog keyboard.js:84-150.
+- Datatable markup (proof only): frappe-datatable 1.20.7 src `datatable.js:116-124`, `rowmanager.js:353`, `cellmanager.js:831-860,919-921`; runtime rule `.dt-instance-N .dt-cell { height }` (style.js).
+- List subject: `list_view.js:1323-1343` (`level-item bold ellipsis` unseen, bare span seen).
+
+## Manifest rows
+- No new `!important`. No new direction-specific rule, no physical property (the one `direction: ltr` on `kbd` is not direction-specific).
+- Ribbon, banner: depend on core body being a flex row with 100vh columns; `:has()` used (Chromium 105+, Firefox 121+, Safari 15.4+).
+- Ace `tomorrow` class names and Quill snow class names: third-party, break silently on a version change.
+- Proof: `tools/proof/*`, `docs/proof/*`, `tests/browser/proof_parity.mjs` (gate commands in `docs/proof/README.md`); the proof's own CSS (`proof.css`) uses literal colours by design (not product CSS).
+
+## Strings
+No new product strings. The proof's toolbar and screen texts are in `tools/proof/strings.json` and the toolbar partial (English and Arabic, reviewable by the scribe).
+
+## Not verified
+Real Windows high contrast; the touch comparison itself (only the media query); the proof in Firefox or Safari; the proof's contrast table against a changed `contrast.json`; banner JS rendered; production loading palettes the way the parity test appends them.
