@@ -26,6 +26,28 @@ html:root[dir] .list-row-container:has(.list-row-checkbox:checked) .list-row {
 	--ins-row-bg: var(--ins-surface-selected);
 }
 
+html:root[dir] .list-row-container {
+	--ins-row-bg-state: var(--ins-surface-hover);
+}
+
+html:root[dir] .list-row-container:has(.list-row-checkbox:checked) {
+	--ins-row-bg-state: var(--ins-surface-selected);
+}
+
+// The whole row paints the state, not only the sticky cell: core tints the container (list.scss:99-105) but leaves the cells and the
+// inline-end block on their own backgrounds. Painted on hover and selection only, so the resting row is untouched; no height is set.
+html:root[dir] .list-row-container:hover:not(:has(.list-row-head)),
+html:root[dir] .list-row-container:has(.list-row-checkbox:checked) {
+	background-color: var(--ins-row-bg-state);
+}
+
+html:root[dir] .list-row-container:hover:not(:has(.list-row-head)) .list-row,
+html:root[dir] .list-row-container:has(.list-row-checkbox:checked) .list-row,
+html:root[dir] .list-row-container:hover:not(:has(.list-row-head)) .list-row .level-right,
+html:root[dir] .list-row-container:has(.list-row-checkbox:checked) .list-row .level-right {
+	background-color: var(--ins-row-bg);
+}
+
 html:root[dir] .list-row .level-left .list-subject {
 	position: sticky;
 	inset-inline-start: 0;

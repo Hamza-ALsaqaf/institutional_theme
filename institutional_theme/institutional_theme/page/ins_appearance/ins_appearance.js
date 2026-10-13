@@ -180,6 +180,10 @@
 			this.apply = el("button", { type: "button", class: "btn btn-primary btn-sm" }, __("Apply colour preset"));
 			this.apply.addEventListener("click", () => this.applyPreset());
 			set.appendChild(this.apply);
+			// The visible reason the button is disabled; shown only while it is (see renderSelected).
+			this.hint = el("p", { id: "ins-apply-hint", class: "ins-appearance-apply-hint" });
+			this.apply.setAttribute("aria-describedby", "ins-apply-hint");
+			set.appendChild(this.hint);
 			this.body.appendChild(set);
 			this.renderSelected();
 		}
@@ -198,6 +202,7 @@
 				marker.appendChild(el("span", { class: "ins-selected-text" }, __("Selected")));
 			});
 			this.apply.disabled = this.selected === this.effective;
+			this.hint.textContent = this.apply.disabled ? __("Choose a different colour preset to apply it.") : "";
 		}
 
 		applyPreset() {

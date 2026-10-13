@@ -140,6 +140,11 @@ html:root :is(input, textarea, select):-webkit-autofill:focus {
 		outline-offset: -2px;
 	}
 
+	// Buttons: core sets `border: none` on page-head and some toolbar buttons, so under forced colours they read as plain text on Canvas (WCAG 1.4.11).
+	html:root .btn:not(.btn-link, .btn-reset) {
+		border: 1px solid ButtonBorder;
+	}
+
 	// Status pills lose their background; keep a shape with a system-colour outline (no layout shift).
 	html:root :is(.indicator-pill, .badge) {
 		outline: 1px solid CanvasText;

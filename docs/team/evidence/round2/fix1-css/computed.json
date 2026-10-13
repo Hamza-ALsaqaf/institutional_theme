@@ -1,0 +1,290 @@
+[
+ {
+  "combo": "en-light",
+  "appearance": {
+   "h1": [
+    "42px",
+    "800",
+    1,
+    1
+   ],
+   "btnDisabled": true,
+   "describedby": "ins-apply-hint",
+   "hint": "Choose a different colour preset to apply it.",
+   "hintColor": "rgb(66, 75, 87)",
+   "h1Count": 1
+  },
+  "listRest": {
+   "h": 49,
+   "container": "rgba(0, 0, 0, 0)",
+   "row": "rgba(0, 0, 0, 0)",
+   "cells": [
+    "rgb(255, 255, 255)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(255, 255, 255)|level-right"
+   ]
+  },
+  "listHover": {
+   "h": 49,
+   "container": "rgb(241, 244, 248)",
+   "row": "rgba(0, 0, 0, 0)",
+   "cells": [
+    "rgb(241, 244, 248)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(241, 244, 248)|level-right"
+   ]
+  },
+  "listSel": {
+   "h": 49,
+   "container": "rgba(0, 0, 0, 0)",
+   "row": "rgba(0, 0, 0, 0)",
+   "cells": [
+    "rgb(242, 247, 254)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(255, 255, 255)|level-right"
+   ]
+  },
+  "cal": {
+   "th": "rgb(221, 221, 221) 1px",
+   "grid": "rgb(221, 221, 221) 1px",
+   "td": "rgb(218, 222, 229) 1px"
+  },
+  "forced": [
+   "Add Participant: 1px solid rgb(0, 0, 0)",
+   "Save: 1px solid rgb(0, 0, 0)"
+  ],
+  "forcedList": [
+   "List View: 1px rgb(0, 0, 0)",
+   "Saved Filter: 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   "Add Event: 1px rgb(0, 0, 0)",
+   "Filter: 1px rgb(0, 0, 0)"
+  ]
+ },
+ {
+  "combo": "en-dark",
+  "appearance": {
+   "h1": [
+    "18px",
+    "600",
+    720,
+    18
+   ],
+   "btnDisabled": true,
+   "describedby": "ins-apply-hint",
+   "hint": "Choose a different colour preset to apply it.",
+   "hintColor": "rgb(157, 164, 172)",
+   "h1Count": 1
+  },
+  "listRest": {
+   "h": 49,
+   "container": "rgba(0, 0, 0, 0)",
+   "row": "rgba(0, 0, 0, 0)",
+   "cells": [
+    "rgb(17, 24, 32)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(17, 24, 32)|level-right"
+   ]
+  },
+  "listHover": {
+   "h": 49,
+   "container": "rgb(37, 44, 55)",
+   "row": "rgb(37, 44, 55)",
+   "cells": [
+    "rgb(37, 44, 55)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(37, 44, 55)|level-right"
+   ]
+  },
+  "listSel": {
+   "h": 49,
+   "container": "rgb(26, 47, 70)",
+   "row": "rgb(26, 47, 70)",
+   "cells": [
+    "rgb(26, 47, 70)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(26, 47, 70)|level-right"
+   ]
+  },
+  "cal": {
+   "th": "rgb(46, 54, 65) 1px",
+   "grid": "rgb(46, 54, 65) 1px",
+   "td": "rgb(46, 54, 65) 1px"
+  },
+  "forced": [
+   "Add Participant: 1px solid rgb(0, 0, 0)",
+   "Save: 1px solid rgb(0, 0, 0)"
+  ],
+  "forcedList": [
+   "List View: 1px rgb(0, 0, 0)",
+   "Saved Filter: 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   "Add Event: 1px rgb(0, 0, 0)",
+   "Filter: 1px rgb(0, 0, 0)"
+  ]
+ },
+ {
+  "combo": "ar-light",
+  "appearance": {
+   "h1": [
+    "18px",
+    "600",
+    720,
+    18
+   ],
+   "btnDisabled": true,
+   "describedby": "ins-apply-hint",
+   "hint": "Choose a different colour preset to apply it.",
+   "hintColor": "rgb(88, 97, 109)",
+   "h1Count": 1
+  },
+  "listRest": {
+   "h": 49,
+   "container": "rgba(0, 0, 0, 0)",
+   "row": "rgba(0, 0, 0, 0)",
+   "cells": [
+    "rgb(255, 255, 255)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(255, 255, 255)|level-right"
+   ]
+  },
+  "listHover": {
+   "h": 49,
+   "container": "rgb(241, 244, 248)",
+   "row": "rgb(241, 244, 248)",
+   "cells": [
+    "rgb(241, 244, 248)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(241, 244, 248)|level-right"
+   ]
+  },
+  "listSel": {
+   "h": 49,
+   "container": "rgb(242, 247, 254)",
+   "row": "rgb(242, 247, 254)",
+   "cells": [
+    "rgb(242, 247, 254)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(242, 247, 254)|level-right"
+   ]
+  },
+  "cal": {
+   "th": "rgb(218, 222, 229) 1px",
+   "grid": "rgb(218, 222, 229) 1px",
+   "td": "rgb(218, 222, 229) 1px"
+  },
+  "forced": [
+   "أضف مشاركين: 1px solid rgb(0, 0, 0)",
+   "حفظ: 1px solid rgb(0, 0, 0)"
+  ],
+  "forcedList": [
+   "عرض منسدل: 1px rgb(0, 0, 0)",
+   "حفظ الفلاتر: 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   "أضِف حدث: 1px rgb(0, 0, 0)",
+   "منقي: 1px rgb(0, 0, 0)"
+  ]
+ },
+ {
+  "combo": "ar-dark",
+  "appearance": {
+   "h1": [
+    "18px",
+    "600",
+    720,
+    18
+   ],
+   "btnDisabled": true,
+   "describedby": "ins-apply-hint",
+   "hint": "Choose a different colour preset to apply it.",
+   "hintColor": "rgb(157, 164, 172)",
+   "h1Count": 1
+  },
+  "listRest": {
+   "h": 49,
+   "container": "rgba(0, 0, 0, 0)",
+   "row": "rgba(0, 0, 0, 0)",
+   "cells": [
+    "rgb(17, 24, 32)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(17, 24, 32)|level-right"
+   ]
+  },
+  "listHover": {
+   "h": 49,
+   "container": "rgb(37, 44, 55)",
+   "row": "rgb(37, 44, 55)",
+   "cells": [
+    "rgb(37, 44, 55)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(37, 44, 55)|level-right"
+   ]
+  },
+  "listSel": {
+   "h": 49,
+   "container": "rgb(26, 47, 70)",
+   "row": "rgb(26, 47, 70)",
+   "cells": [
+    "rgb(26, 47, 70)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgba(0, 0, 0, 0)|list-row-col",
+    "rgb(26, 47, 70)|level-right"
+   ]
+  },
+  "cal": {
+   "th": "rgb(46, 54, 65) 1px",
+   "grid": "rgb(46, 54, 65) 1px",
+   "td": "rgb(46, 54, 65) 1px"
+  },
+  "forced": [
+   "أضف مشاركين: 1px solid rgb(0, 0, 0)",
+   "حفظ: 1px solid rgb(0, 0, 0)"
+  ],
+  "forcedList": [
+   "عرض منسدل: 1px rgb(0, 0, 0)",
+   "حفظ الفلاتر: 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   ": 1px rgb(0, 0, 0)",
+   "أضِف حدث: 1px rgb(0, 0, 0)",
+   "منقي: 1px rgb(0, 0, 0)"
+  ]
+ }
+]

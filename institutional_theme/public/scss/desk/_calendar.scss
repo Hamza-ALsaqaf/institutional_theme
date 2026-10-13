@@ -23,6 +23,12 @@ html:root[dir] .fc-theme-standard {
 	--gray-300: var(--ins-border);
 }
 
+// The header row and the grid frame take FullCalendar's own variable, `.fc { --fc-border-color: #ddd }` (fullcalendar main.css), which core
+// does not map; in Dark that is the near-white outline round the day-name row. Re-pointed on the same element, no !important.
+html:root[dir] .fc {
+	--fc-border-color: var(--ins-border);
+}
+
 // ---- Dark block events. FullCalendar writes the chip colours INLINE (`style="background-color:...; border-color:..."` on a.fc-event and
 // `style="color:..."` on .fc-event-main; Frappe sets them in calendar.js prepare_colors, :441-449). Inline style out-ranks any selector and
 // the only property FullCalendar reads as a custom property is the default event colour, which an explicit colour bypasses, so `!important`
