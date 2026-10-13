@@ -1,0 +1,50 @@
+[
+ {
+  "lang": "en",
+  "mode": "light",
+  "user": "css-r2-en-light@midad.test",
+  "media": true,
+  "list": {
+   "checkedAppearance": "none",
+   "checkedBg": "rgb(255, 255, 255)",
+   "checkedBorder": "rgba(5, 0, 73, 0.8) 0px",
+   "checkedBgImage": "url(\"data:image/svg+xml, <svg viewBox='0 0 8 7' fill='none' ",
+   "focusTag": "INPUT.list-row-checkbox",
+   "focusOutline": "solid 2px rgba(5, 0, 73, 0.8)",
+   "rowBorder": "rgb(0, 0, 0) solid"
+  },
+  "appearance": {
+   "focusOutline": "solid 2px rgba(5, 0, 73, 0.8)",
+   "checkedOptionBorder": "rgb(0, 0, 0) solid 3px",
+   "checkedOptionBg": "rgb(255, 255, 255)",
+   "swatchBg": "rgb(27, 80, 134)",
+   "swatchBorder": "rgb(0, 0, 0)",
+   "selectedMarkerColor": "rgb(0, 0, 0)",
+   "selectedMarkerText": "✓Selected"
+  }
+ },
+ {
+  "lang": "ar",
+  "mode": "dark",
+  "user": "css-r2-ar-dark@midad.test",
+  "media": true,
+  "list": {
+   "checkedAppearance": "none",
+   "checkedBg": "rgb(255, 255, 255)",
+   "checkedBorder": "rgba(5, 0, 73, 0.8) 0px",
+   "checkedBgImage": "url(\"data:image/svg+xml, <svg viewBox='0 0 8 7' fill='none' ",
+   "focusTag": "INPUT.list-row-checkbox",
+   "focusOutline": "solid 2px rgba(5, 0, 73, 0.8)",
+   "rowBorder": "rgb(0, 0, 0) solid"
+  },
+  "appearance": {
+   "focusOutline": "solid 2px rgba(5, 0, 73, 0.8)",
+   "checkedOptionBorder": "rgb(0, 0, 0) solid 3px",
+   "checkedOptionBg": "rgb(255, 255, 255)",
+   "swatchBg": "rgb(27, 80, 134)",
+   "swatchBorder": "rgb(0, 0, 0)",
+   "selectedMarkerColor": "rgb(0, 0, 0)",
+   "selectedMarkerText": "✓محددة"
+  }
+ }
+]

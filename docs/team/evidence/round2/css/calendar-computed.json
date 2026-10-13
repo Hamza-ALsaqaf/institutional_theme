@@ -1,0 +1,174 @@
+[
+ {
+  "lang": "en",
+  "mode": "light",
+  "user": "css-r2-en-light@midad.test",
+  "events": [
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-today fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "9:00 AM - 10:30 AMCssR2 Planni",
+    "bg": "rgb(203, 41, 41)",
+    "fg": "rgb(229, 148, 148)",
+    "inline": "border-color: rgb(203, 41, 41); background-color: rgb(203, 41, 41);",
+    "borderStyle": "none",
+    "borderW": "0px",
+    "borderC": "rgb(88, 97, 109)",
+    "dataTheme": "light",
+    "contrast": "2.31"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "11:00 AM - 12:00 PMCssR2 Budge",
+    "bg": "rgb(41, 205, 66)",
+    "fg": "rgb(21, 103, 33)",
+    "inline": "border-color: rgb(41, 205, 66); background-color: rgb(41, 205, 66);",
+    "borderStyle": "none",
+    "borderW": "0px",
+    "borderC": "rgb(88, 97, 109)",
+    "dataTheme": "light",
+    "contrast": "3.31"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "8:00 AM - 9:00 AMCssR2 Site vi",
+    "bg": "rgb(223, 239, 255)",
+    "fg": "rgb(0, 88, 149)",
+    "inline": "background-color: rgb(223, 239, 255);",
+    "borderStyle": "none",
+    "borderW": "0px",
+    "borderC": "rgb(88, 97, 109)",
+    "dataTheme": "light",
+    "contrast": "6.34"
+   }
+  ]
+ },
+ {
+  "lang": "en",
+  "mode": "dark",
+  "user": "css-r2-en-dark@midad.test",
+  "events": [
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-today fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "9:00 AM - 10:30 AMCssR2 Planni",
+    "bg": "rgb(23, 30, 40)",
+    "fg": "rgb(236, 239, 242)",
+    "inline": "border-color: rgb(203, 41, 41); background-color: rgb(203, 41, 41);",
+    "borderStyle": "solid",
+    "borderW": "4px",
+    "borderC": "rgb(157, 164, 172)",
+    "dataTheme": "dark",
+    "contrast": "14.52"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "11:00 AM - 12:00 PMCssR2 Budge",
+    "bg": "rgb(23, 30, 40)",
+    "fg": "rgb(236, 239, 242)",
+    "inline": "border-color: rgb(41, 205, 66); background-color: rgb(41, 205, 66);",
+    "borderStyle": "solid",
+    "borderW": "4px",
+    "borderC": "rgb(157, 164, 172)",
+    "dataTheme": "dark",
+    "contrast": "14.52"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "8:00 AM - 9:00 AMCssR2 Site vi",
+    "bg": "rgb(23, 30, 40)",
+    "fg": "rgb(236, 239, 242)",
+    "inline": "background-color: rgb(223, 239, 255);",
+    "borderStyle": "solid",
+    "borderW": "4px",
+    "borderC": "rgb(157, 164, 172)",
+    "dataTheme": "dark",
+    "contrast": "14.52"
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "light",
+  "user": "css-r2-ar-light@midad.test",
+  "events": [
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-today fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "9:00 ص - 10:30 صCssR2 Planning",
+    "bg": "rgb(203, 41, 41)",
+    "fg": "rgb(229, 148, 148)",
+    "inline": "border-color: rgb(203, 41, 41); background-color: rgb(203, 41, 41);",
+    "borderStyle": "none",
+    "borderW": "0px",
+    "borderC": "rgb(88, 97, 109)",
+    "dataTheme": "light",
+    "contrast": "2.31"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "11:00 ص - 12:00 مCssR2 Budget ",
+    "bg": "rgb(41, 205, 66)",
+    "fg": "rgb(21, 103, 33)",
+    "inline": "border-color: rgb(41, 205, 66); background-color: rgb(41, 205, 66);",
+    "borderStyle": "none",
+    "borderW": "0px",
+    "borderC": "rgb(88, 97, 109)",
+    "dataTheme": "light",
+    "contrast": "3.31"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "8:00 ص - 9:00 صCssR2 Site visi",
+    "bg": "rgb(223, 239, 255)",
+    "fg": "rgb(0, 88, 149)",
+    "inline": "background-color: rgb(223, 239, 255);",
+    "borderStyle": "none",
+    "borderW": "0px",
+    "borderC": "rgb(88, 97, 109)",
+    "dataTheme": "light",
+    "contrast": "6.34"
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "dark",
+  "user": "css-r2-ar-dark@midad.test",
+  "events": [
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-today fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "9:00 ص - 10:30 صCssR2 Planning",
+    "bg": "rgb(23, 30, 40)",
+    "fg": "rgb(236, 239, 242)",
+    "inline": "border-color: rgb(203, 41, 41); background-color: rgb(203, 41, 41);",
+    "borderStyle": "solid",
+    "borderW": "4px",
+    "borderC": "rgb(157, 164, 172)",
+    "dataTheme": "dark",
+    "contrast": "14.52"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "11:00 ص - 12:00 مCssR2 Budget ",
+    "bg": "rgb(23, 30, 40)",
+    "fg": "rgb(236, 239, 242)",
+    "inline": "border-color: rgb(41, 205, 66); background-color: rgb(41, 205, 66);",
+    "borderStyle": "solid",
+    "borderW": "4px",
+    "borderC": "rgb(157, 164, 172)",
+    "dataTheme": "dark",
+    "contrast": "14.52"
+   },
+   {
+    "cls": "fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future fc-daygrid-event fc-daygrid-block-event fc-h-event",
+    "text": "8:00 ص - 9:00 صCssR2 Site visi",
+    "bg": "rgb(23, 30, 40)",
+    "fg": "rgb(236, 239, 242)",
+    "inline": "background-color: rgb(223, 239, 255);",
+    "borderStyle": "solid",
+    "borderW": "4px",
+    "borderC": "rgb(157, 164, 172)",
+    "dataTheme": "dark",
+    "contrast": "14.52"
+   }
+  ]
+ }
+]

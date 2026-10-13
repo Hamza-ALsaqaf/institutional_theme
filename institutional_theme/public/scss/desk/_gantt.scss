@@ -16,3 +16,52 @@ html:root[dir] .gantt-modern .gantt .bar-wrapper .bar {
 html:root[dir] .gantt-modern .gantt .arrow {
 	stroke: var(--ins-text-secondary);
 }
+
+// The chart canvas comes from frappe-gantt's own stylesheet (node_modules/frappe-gantt/dist/frappe-gantt.css:1-27,91-100, version 0.6.1,
+// loaded lazily by gantt_view.js:228) with literal #fff, #f5f5f5, #e0e0e0, #fcf8e3 and #333/#555. They stay white in Dark, so they are mapped here.
+html:root[dir] .gantt .grid-header {
+	fill: var(--ins-surface-raised);
+	stroke: var(--ins-border);
+}
+
+html:root[dir] .gantt .grid-row {
+	fill: var(--ins-surface-base);
+}
+
+html:root[dir] .gantt .grid-row:nth-child(even) {
+	fill: var(--ins-surface-sunken);
+}
+
+html:root[dir] .gantt .row-line,
+html:root[dir] .gantt .tick {
+	stroke: var(--ins-border);
+}
+
+html:root[dir] .gantt .today-highlight {
+	fill: var(--ins-surface-selected);
+}
+
+html:root[dir] .gantt .upper-text {
+	fill: var(--ins-text-secondary);
+}
+
+html:root[dir] .gantt .lower-text {
+	fill: var(--ins-text);
+}
+
+// Progress fill: --gray-200 is the bright end in Dark (core frappe_gantt.scss:22,54); use the selected-strong surface so the bar text keeps contrast.
+html:root[dir] .gantt-modern .gantt .bar-progress,
+html:root[dir] .gantt-modern .gantt .bar-wrapper:hover .bar-progress {
+	fill: var(--ins-surface-selected-strong);
+}
+
+// RTL: frappe-gantt lays the SVG out left to right from x=0, but inside an RTL scroll container scrollLeft 0 shows the END of the chart,
+// so every bar sits off screen (measured: first bar at x=-970 in a 1018px container). The timeline is chronological left to right in the
+// library, so the container is pinned to ltr and the text keeps the page direction. Direction-specific on purpose.
+[dir="rtl"] .gantt-modern .gantt-container {
+	direction: ltr;
+}
+
+[dir="rtl"] .gantt-modern .gantt .bar-label {
+	direction: rtl;
+}

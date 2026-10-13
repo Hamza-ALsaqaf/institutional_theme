@@ -1,0 +1,26 @@
+{
+ "en-light": {
+  "skeleton": {
+   "visible": false,
+   "kids": []
+  }
+ },
+ "en-dark": {
+  "skeleton": {
+   "visible": false,
+   "kids": []
+  }
+ },
+ "ar-light": {
+  "skeleton": {
+   "visible": false,
+   "kids": []
+  }
+ },
+ "ar-dark": {
+  "skeleton": {
+   "visible": false,
+   "kids": []
+  }
+ }
+}

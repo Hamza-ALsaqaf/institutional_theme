@@ -55,9 +55,43 @@ html:root[dir] .ins-appearance-option:has(input:checked) {
 	color: var(--ins-text-strong);
 }
 
+// The label is a flex row so name, swatch and Selected marker each get their own space (no inline overlap).
 html:root[dir] .ins-appearance-option label {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--ins-space-2);
 	margin: 0;
 	cursor: pointer;
+}
+
+// The page title in core's page head is the heading of record. This in-body h1 stays in the accessibility tree and as the
+// focus target (tabindex -1, focused after a preset reload) but is visually hidden; when focused it appears as a modest heading.
+html:root[dir] .ins-appearance > h1 {
+	position: absolute;
+	inline-size: 1px;
+	block-size: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+html:root[dir] .ins-appearance > h1:focus {
+	position: static;
+	inline-size: auto;
+	block-size: auto;
+	margin: 0 0 var(--ins-space-4);
+	overflow: visible;
+	clip-path: none;
+	white-space: normal;
+	color: var(--ins-text-strong);
+	font-size: var(--ins-text-lg);
+	font-weight: var(--ins-weight-strong);
+	outline: var(--ins-focus-width) solid var(--ins-focus);
+	outline-offset: var(--ins-focus-offset);
 }
 
 html:root[dir] .ins-appearance-name {
@@ -83,7 +117,9 @@ html:root[dir] .ins-selected {
 	display: inline-flex;
 	align-items: center;
 	gap: var(--ins-space-1);
-	margin-inline-start: auto;
+	margin-inline-start: var(--ins-space-2);
+	padding-inline-start: var(--ins-space-2);
+	border-inline-start: 1px solid var(--ins-primary-subtle-border);
 	color: var(--ins-primary-text);
 	font-size: var(--ins-text-xs);
 	font-weight: var(--ins-weight-strong);
@@ -97,4 +133,18 @@ html:root[dir] .ins-appearance-help {
 	margin: var(--ins-space-2) 0 var(--ins-space-4);
 	color: var(--ins-text-muted);
 	font-size: var(--ins-text-xs);
+}
+
+// Forced colours: the swatch dots ARE the palette sample (decorative, aria-hidden), so they keep their colour; the checked option gets a
+// thicker boundary because background and box-shadow are replaced by the system (the "Selected" text and check glyph remain as well).
+@media (forced-colors: active) {
+	html:root[dir] .ins-swatch-dot {
+		forced-color-adjust: none;
+		border-color: CanvasText;
+	}
+
+	html:root[dir] .ins-appearance-option:has(input:checked) {
+		border-width: 3px;
+		padding: calc(var(--ins-space-2) - 2px) calc(var(--ins-space-3) - 2px);
+	}
 }

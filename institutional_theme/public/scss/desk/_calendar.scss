@@ -22,3 +22,19 @@ html:root[dir] .fc-theme-standard th.fc-col-header-cell {
 html:root[dir] .fc-theme-standard {
 	--gray-300: var(--ins-border);
 }
+
+// ---- Dark block events. FullCalendar writes the chip colours INLINE (`style="background-color:...; border-color:..."` on a.fc-event and
+// `style="color:..."` on .fc-event-main; Frappe sets them in calendar.js prepare_colors, :441-449). Inline style out-ranks any selector and
+// the only property FullCalendar reads as a custom property is the default event colour, which an explicit colour bypasses, so `!important`
+// is the only route (manifest row). Scoped to Dark and to the chip. Core resets every border longhand with `.fc-event { border: none !important }`
+// (calendar.scss:65), colour included, so the 4px inline-start stripe takes the text colour: the chip stays distinct from the grid by
+// surface and stripe, while the per-event colour is not kept in Dark (it is user data written inline).
+[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) {
+	background-color: var(--ins-surface-raised) !important;
+	border-inline-start-style: solid !important;
+	border-inline-start-width: 4px !important;
+}
+
+[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) .fc-event-main {
+	color: var(--ins-text-strong) !important;
+}
