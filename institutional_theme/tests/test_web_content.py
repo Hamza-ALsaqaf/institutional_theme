@@ -120,6 +120,22 @@ class TestWebContent(IntegrationTestCase):
 		self.assertNotIn("ins-reference", render("www/message.html")["body_include"])
 		self.assertIn("ins-reference", render("www/message.html", error_code=500)["body_include"])
 
+	def test_message_with_red_indicator_is_an_error(self) -> None:
+		# Core's 403 page (`NotPermittedPage`) carries no status in the context, only a red indicator.
+		self.assertIn("ins-reference", render("www/message.html", indicator_color="red")["body_include"])
+		self.assertNotIn("ins-reference", render("www/message.html", indicator_color="green")["body_include"])
+
+	def test_web_page_left_becomes_start_in_arabic_only(self) -> None:
+		for lang, given, expected in (
+			("ar", "Left", "start"),
+			("ar", "Center", None),
+			("ar", "Right", None),
+			("en", "Left", None),
+		):
+			frappe.local.lang = lang
+			result = web_content.update_website_context(frappe._dict(template="", text_align=given))
+			self.assertEqual((result or {}).get("text_align"), expected, (lang, given))
+
 	def test_hook_never_raises(self) -> None:
 		with mock.patch.object(web_content.frappe, "render_template", side_effect=RuntimeError("boom")):
 			self.assertIsNone(web_content.update_website_context(frappe._dict(template="www/login.html")))

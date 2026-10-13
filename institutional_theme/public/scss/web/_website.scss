@@ -1,0 +1,291 @@
+// Hand-written. Public website and portal pages: Web Page, Web Form, portal lists, navbar, footer (P2).
+// Always light (lead decision 1 of round 2): website pages carry no `data-theme`, so `html:root` tokens apply.
+// Scope: every website page except login, 2FA and the error pages, which have their own files and carry
+// `ins-auth` or `ins-error` (set by `web_content.py`). `data-path` exists only on website pages
+// (templates/base.html), so the desk is never touched. Core's website bundle and the Web Form bundle load
+// before or after this file, so rules repeat the scope (and `.web-form-wrapper` for fields) instead of
+// using `!important`.
+
+$site: "body[data-path]:not(.ins-auth):not(.ins-error)";
+
+#{$site} {
+	background-color: var(--ins-surface-base);
+	color: var(--ins-text);
+	font-family: var(--ins-font-sans);
+	font-synthesis: none;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: var(--ins-text-strong);
+		font-weight: var(--ins-weight-strong);
+	}
+
+	// Body text: core's `--text-color` is mapped, but Bootstrap sets `table` and `blockquote` to `--gray-700`.
+	.page_content,
+	.web-page-content,
+	table,
+	blockquote {
+		color: var(--ins-text);
+	}
+
+	// Core's `.text-muted` is `#7c7c7c !important` (about 4.2:1 on white); that one is not overridable here
+	// (see the round-2 evidence). The footer colours below are not `!important`.
+	.page-footer,
+	.web-footer,
+	.web-footer .footer-powered,
+	.web-footer .footer-col-right {
+		color: var(--ins-text-muted);
+	}
+
+	// Links inside content are underlined as well as coloured, so a link is not carried by colour alone.
+	// Prose only (paragraphs, list items, Web Page content, table cells); menus and card actions keep core's look.
+	.web-page-content a:not(.btn),
+	.page_content p a:not(.btn),
+	.page_content li a:not(.btn),
+	.web-footer a,
+	.web-form-introduction a {
+		color: var(--ins-text-link);
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.2em;
+
+		&:hover {
+			color: var(--ins-text-link-hover);
+		}
+	}
+
+	// Navbar and footer.
+	.navbar {
+		border-block-end: 1px solid var(--ins-border);
+		background-color: var(--ins-surface-raised);
+		box-shadow: none;
+	}
+
+	.navbar-brand,
+	.navbar .nav-link {
+		color: var(--ins-text-strong);
+		font-size: var(--ins-text-base);
+		font-weight: var(--ins-weight-medium);
+	}
+
+	.navbar .nav-link:hover {
+		color: var(--ins-text-link-hover);
+	}
+
+	.web-footer {
+		border-block-start: 1px solid var(--ins-border);
+		background-color: var(--ins-surface-base);
+	}
+
+	// One focus ring everywhere.
+	a:focus-visible,
+	button:focus-visible,
+	.btn:focus-visible,
+	.nav-link:focus-visible,
+	.navbar-toggler:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible,
+	[tabindex]:focus-visible {
+		outline: var(--ins-focus-width) solid var(--ins-focus);
+		outline-offset: var(--ins-focus-offset);
+		box-shadow: none;
+	}
+
+	// Buttons: the same two as the desk. Default carries a border, so it is not a floating word.
+	.btn {
+		min-block-size: var(--ins-control-height);
+		border-radius: var(--ins-radius-sm);
+		font-weight: var(--ins-weight-medium);
+	}
+
+	.btn-primary {
+		border-color: var(--ins-primary);
+		background-color: var(--ins-primary);
+		color: var(--ins-on-primary);
+
+		&:hover {
+			border-color: var(--ins-primary-hover);
+			background-color: var(--ins-primary-hover);
+			color: var(--ins-on-primary);
+		}
+	}
+
+	.btn-default,
+	.btn-secondary,
+	.btn-light {
+		border: 1px solid var(--ins-border-control);
+		background-color: var(--ins-surface-base);
+		color: var(--ins-text);
+
+		&:hover {
+			border-color: var(--ins-border-control-hover);
+			background-color: var(--ins-surface-hover);
+			color: var(--ins-text-strong);
+		}
+	}
+
+	// Fields: a visible border (core's web form field has none on a white card) and a focus state.
+	.form-control,
+	.web-form-wrapper .form-control,
+	.web-form-wrapper .input-with-feedback {
+		border: 1px solid var(--ins-border-control);
+		border-radius: var(--ins-radius-sm);
+		background-color: var(--ins-surface-field);
+		color: var(--ins-text-strong);
+
+		&::placeholder {
+			color: var(--ins-text-placeholder);
+		}
+
+		&:hover {
+			border-color: var(--ins-border-control-hover);
+		}
+
+		&:focus {
+			border-color: var(--ins-focus);
+			background-color: var(--ins-surface-field);
+			box-shadow: none;
+		}
+	}
+
+	.control-label,
+	label,
+	.form-group > label {
+		color: var(--ins-text-secondary);
+		font-weight: var(--ins-weight-medium);
+	}
+
+	// Content elements.
+	code,
+	kbd {
+		padding: 0 var(--ins-space-1);
+		border: 1px solid var(--ins-border);
+		border-radius: var(--ins-radius-xs);
+		background-color: var(--ins-surface-base);
+		color: var(--ins-text-strong);
+		font-family: var(--ins-font-mono);
+		font-size: 0.9em;
+	}
+
+	blockquote {
+		margin-inline: 0;
+		padding-inline-start: var(--ins-space-4);
+		border-inline-start: 3px solid var(--ins-accent);
+	}
+
+	.table > thead > tr > th,
+	table.table th {
+		border-block-end: 2px solid var(--ins-border-strong);
+		color: var(--ins-text-strong);
+		font-weight: var(--ins-weight-strong);
+	}
+
+	.table td,
+	.table th {
+		border-color: var(--ins-border);
+	}
+
+	// Text an author wrote in the other language than the page (titles, introductions, success text) keeps
+	// its own punctuation at its own end of the line.
+	.web-form-introduction,
+	.web-form-title,
+	.success-title,
+	.success-message,
+	.web-page-content p,
+	.web-page-content li {
+		unicode-bidi: plaintext;
+	}
+
+	// Web Form card: core gives `.page_content` no top margin, so the card touched the navbar on list pages.
+	[data-doctype="Web Form"] .page-content-wrapper .container .page_content {
+		margin-block: var(--ins-space-6);
+	}
+
+	// Web Form card.
+	.web-form-header,
+	.web-form {
+		border-color: var(--ins-border);
+		background-color: var(--ins-surface-raised);
+	}
+
+	.web-form-head {
+		border-block-end: 1px solid var(--ins-border);
+	}
+
+	// Avatars (portal navbar): core fills them from per-colour variables that the markup reads inline
+	// (`style="background-color: var(--purple-avatar-bg); color: var(--purple-avatar-color)"`), and the
+	// default pairs reach only 3.4:1 to 4.5:1. They are remapped to the status pairs, which are 7:1 or better.
+	--orange-avatar-bg: var(--ins-status-pending-bg);
+	--orange-avatar-color: var(--ins-status-pending-fg);
+	--pink-avatar-bg: var(--ins-status-plum-bg);
+	--pink-avatar-color: var(--ins-status-plum-fg);
+	--blue-avatar-bg: var(--ins-status-progress-bg);
+	--blue-avatar-color: var(--ins-status-progress-fg);
+	--green-avatar-bg: var(--ins-status-success-bg);
+	--green-avatar-color: var(--ins-status-success-fg);
+	--dark-green-avatar-bg: var(--ins-status-teal-bg);
+	--dark-green-avatar-color: var(--ins-status-teal-fg);
+	--red-avatar-bg: var(--ins-status-danger-bg);
+	--red-avatar-color: var(--ins-status-danger-fg);
+	--yellow-avatar-bg: var(--ins-status-warning-bg);
+	--yellow-avatar-color: var(--ins-status-warning-fg);
+	--purple-avatar-bg: var(--ins-status-special-bg);
+	--purple-avatar-color: var(--ins-status-special-fg);
+	--gray-avatar-bg: var(--ins-status-neutral-bg);
+	--gray-avatar-color: var(--ins-status-neutral-fg);
+	--avatar-frame-bg: var(--ins-status-neutral-bg);
+	--avatar-frame-color: var(--ins-status-neutral-fg);
+	--avatar-frame-border: var(--ins-border);
+
+	// Empty states carry the closing rule: a heavy bar over a light bar, with a brass lead at the inline start.
+	.empty-apps-state::after,
+	.no-result .text-center::after {
+		content: "";
+		display: block;
+		box-sizing: border-box;
+		inline-size: 120px;
+		block-size: 7px;
+		margin-block-start: var(--ins-space-5);
+		margin-inline: auto;
+		// Drawn with backgrounds, not borders: a border would paint over the brass lead.
+		background:
+			linear-gradient(var(--ins-accent), var(--ins-accent)) left top / 36px 3px no-repeat,
+			linear-gradient(var(--ins-brand), var(--ins-brand)) left top / 100% 3px no-repeat,
+			linear-gradient(var(--ins-brand), var(--ins-brand)) left bottom / 100% 1px no-repeat;
+	}
+
+	.empty-apps-state {
+		text-align: center;
+	}
+}
+
+html[dir="rtl"] #{$site} {
+	.empty-apps-state::after,
+	.no-result .text-center::after {
+		background-position:
+			right top,
+			right top,
+			right bottom;
+	}
+}
+
+// Arabic joins break under tracking. Core sets `letter-spacing` on body text styles and a negative one on
+// `h1` (website/base.scss:38). The Web Form buttons get theirs through a chain of six selectors
+// (web_form.scss, `[data-doctype="Web Form"] .page-content-wrapper .container .page_content .web-form ...`),
+// so the attribute is repeated to out-rank it: html[lang] + five `[data-path]` + two `:not` + `*`.
+html[lang|="ar"] body[data-path][data-path][data-path][data-path][data-path]:not(.ins-auth):not(.ins-error),
+html[lang|="ar"] body[data-path][data-path][data-path][data-path][data-path]:not(.ins-auth):not(.ins-error) * {
+	letter-spacing: 0;
+}
+
+@media (forced-colors: active) {
+	#{$site} .btn-default,
+	#{$site} .form-control {
+		border-color: ButtonText;
+	}
+}

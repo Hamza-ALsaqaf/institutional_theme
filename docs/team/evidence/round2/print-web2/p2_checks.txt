@@ -1,0 +1,28 @@
+en-about                     texts 28 minContrast 4.17 low 1 letterSpacingNonZero 28 focusStops 13 focusBad 0
+   low: A.text-muted "ERPNext" 4.17
+en-about-ar-page             texts 25 minContrast 4.17 low 1 letterSpacingNonZero 25 focusStops 13 focusBad 0
+   low: A.text-muted "ERPNext" 4.17
+en-visitor-request           texts 57 minContrast 1.35 low 6 letterSpacingNonZero 57 focusStops 13 focusBad 0
+   low: A.text-muted "ERPNext" 4.17 | I. "2026" 2.75 | DIV.datepicker--cell datepicker--cell-day -weekend- -other-month- "27" 1.35 | DIV.datepicker--cell datepicker--cell-day -other-month- "28" 1.35
+en-home                      texts 10 minContrast 7.42 low 0 letterSpacingNonZero 8 focusStops 13 focusBad 0
+en-user-me                   texts 9 minContrast 5.69 low 0 letterSpacingNonZero 9 focusStops 12 focusBad 0
+en-user-orders               texts 5 minContrast 9.32 low 0 letterSpacingNonZero 5 focusStops 11 focusBad 0
+en-user-quotations           texts 5 minContrast 9.32 low 0 letterSpacingNonZero 5 focusStops 11 focusBad 0
+en-user-my-requests          texts 8 minContrast 4.17 low 2 letterSpacingNonZero 8 focusStops 12 focusBad 0
+   low: P.small mb-2 "No ToDo found" 4.17 | A.text-muted "ERPNext" 4.17
+en-user-my-requests-new      texts 11 minContrast 4.17 low 2 letterSpacingNonZero 11 focusStops 13 focusBad 0
+   low: SPAN. "New My Requests" 4.17 | A.text-muted "ERPNext" 4.17
+ar-about                     texts 28 minContrast 4.17 low 1 letterSpacingNonZero 0 focusStops 13 focusBad 0
+   low: A.text-muted "ERPNext" 4.17
+ar-about-ar-page             texts 25 minContrast 4.17 low 1 letterSpacingNonZero 0 focusStops 13 focusBad 0
+   low: A.text-muted "ERPNext" 4.17
+ar-visitor-request           texts 57 minContrast 1.35 low 6 letterSpacingNonZero 0 focusStops 13 focusBad 0
+   low: A.text-muted "ERPNext" 4.17 | I. "2026" 2.75 | DIV.datepicker--cell datepicker--cell-day -weekend- -other-month- "27" 1.35 | DIV.datepicker--cell datepicker--cell-day -other-month- "28" 1.35
+ar-home                      texts 10 minContrast 7.42 low 0 letterSpacingNonZero 0 focusStops 13 focusBad 0
+ar-user-me                   texts 9 minContrast 5.69 low 0 letterSpacingNonZero 0 focusStops 12 focusBad 0
+ar-user-orders               texts 5 minContrast 9.31 low 0 letterSpacingNonZero 0 focusStops 11 focusBad 0
+ar-user-quotations           texts 5 minContrast 9.31 low 0 letterSpacingNonZero 0 focusStops 11 focusBad 0
+ar-user-my-requests          texts 8 minContrast 4.17 low 2 letterSpacingNonZero 0 focusStops 12 focusBad 0
+   low: P.small mb-2 "لم يتم العثور على ToDo" 4.17 | A.text-muted "ERPNext" 4.17
+ar-user-my-requests-new      texts 11 minContrast 4.17 low 2 letterSpacingNonZero 0 focusStops 13 focusBad 0
+   low: SPAN. "My Requests جديد" 4.17 | A.text-muted "ERPNext" 4.17

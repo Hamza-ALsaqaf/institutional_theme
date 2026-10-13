@@ -1,0 +1,10 @@
+import { launch, BASE } from "./lib.mjs";
+import { readFileSync } from "node:fs";
+const b = await launch(); const page = await b.newPage();
+let html = readFileSync("hf-header.html","utf8");
+await page.route("**/*", r => r.fulfill({status:200, contentType:"text/html", body: html}));
+await page.goto(BASE + "/x");
+await page.setViewportSize({width:794,height:300});
+const info = await page.evaluate(() => { const q=s=>document.querySelector(s); const r=e=>{const b=e.getBoundingClientRect();return [Math.round(b.top),Math.round(b.height)]};
+ return {wrapper:r(q(".wrapper")), lh:r(q(".letter-head")), table:r(q(".ins-lh")), mt:getComputedStyle(q(".letter-head")).marginTop, tmt:getComputedStyle(q(".ins-lh")).marginTop, rules:[...document.styleSheets].map(s=>{try{return [...s.cssRules].filter(r=>r.cssText.includes("ins-lh {")||r.cssText.includes("onload")).map(r=>r.cssText.slice(0,120))}catch(e){return "x"}})}; });
+console.log(JSON.stringify(info,null,1)); await b.close();

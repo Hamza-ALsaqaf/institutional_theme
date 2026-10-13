@@ -397,4 +397,17 @@
 		border-left-width: 5px;
 	}
 }
+// Chrome with "repeat header and footer": core's header and footer page (chrome_pdf_header_footer.html)
+// moves `.letter-head` and `.letter-head-footer` up by 12mm with `!important` and measures the page
+// height after that shift, so the top 12mm of a letter head are cut off when the print format has no
+// top margin. Only that page has a `.wrapper` without `onload` on `body` (the wkhtmltopdf header page
+// has `onload="subst()"` and pads itself by 15mm to cancel its own -15mm; printview.html has no
+// `.wrapper`), so the extra space is added there only. It collapses with the core margin: net +4mm from the page top.
+body:not([onload]) .print-format .wrapper .letter-head .ins-lh {
+	margin-top: 16mm;
+}
+
+body:not([onload]) .print-format .wrapper .letter-head-footer .ins-lf {
+	margin-top: 12mm;
+}
 /*rtl:end:ignore*/

@@ -108,6 +108,21 @@ def _status(context) -> int:
 	return 0
 
 
+def _is_error_message(context, status: int) -> bool:
+	"""A `www/message.html` page is an error when it has a status of 400 or more, or a red indicator.
+
+	Core's `NotPermittedPage` (403) sets `self.http_status_code` after construction and leaves the status
+	out of the template context. It stores `indicator_color="red"` in `frappe.local.response["context"]`
+	(`not_permitted_page.py:23-25`), as `frappe.respond_as_web_page` does for every status over 300
+	(`frappe/__init__.py:1295-1299`). Core merges that dict into the context only after the
+	`update_website_context` hooks ran (`base_template_page.py:30-31, 52-54`), so it is read from there too.
+	"""
+	response = getattr(frappe.local, "response", None) or {}
+	pending = response.get("context") or {}
+	colour = context.get("indicator_color") or pending.get("indicator_color") or ""
+	return status >= 400 or str(colour).lower() == "red"
+
+
 def masthead_context(settings, lang: str, auth: bool) -> dict:
 	name, name_lang = _pick(settings, "institution_name", lang)
 	return {
@@ -120,7 +135,7 @@ def masthead_context(settings, lang: str, auth: bool) -> dict:
 	}
 
 
-def footer_context(settings, lang: str, auth: bool, template: str, status: int) -> dict:
+def footer_context(settings, lang: str, auth: bool, template: str, error: bool) -> dict:
 	values: dict = {
 		"ins_lang": lang,
 		"ins_support": _setting(settings, "support_contact"),
@@ -133,7 +148,7 @@ def footer_context(settings, lang: str, auth: bool, template: str, status: int) 
 			notice = _("Access to this system is restricted to authorised users. Activity is recorded.")
 		values["ins_notice"] = notice
 		values["ins_notice_lang"] = notice_lang
-	elif template == "www/error.html" or (template == "www/message.html" and status >= 400):
+	elif template == "www/error.html" or (template == "www/message.html" and error):
 		values["ins_reference"] = reference()
 		if not values["ins_reference"]:
 			values["ins_time_of_error"] = frappe.utils.format_datetime(
@@ -142,12 +157,26 @@ def footer_context(settings, lang: str, auth: bool, template: str, status: int) 
 	return values
 
 
+def page_values(context) -> dict | None:
+	"""Web Page: a stored `Left` becomes `start` on a right-to-left page.
+
+	`Web Page.text_align` defaults to "Left" and `web_page.html:23` writes it as an inline
+	`style="text-align: Left"`, which an author sheet cannot override without `!important`. On an Arabic
+	page that parks every heading and paragraph at the wrong edge. `Center` and `Right` are kept.
+	"""
+	if str(context.get("text_align") or "").strip().lower() != "left":
+		return None
+	from frappe.utils.jinja_globals import is_rtl
+
+	return {"text_align": "start"} if is_rtl() else None
+
+
 def update_website_context(context) -> dict | None:
 	try:
 		template = str(context.get("template") or "")
 		auth = template in AUTH_TEMPLATES
 		if not auth and template not in ERROR_TEMPLATES:
-			return None
+			return page_values(context)
 		settings = _get_settings()
 		lang = _lang()
 		masthead = frappe.render_template(
@@ -155,7 +184,7 @@ def update_website_context(context) -> dict | None:
 		)
 		footer = frappe.render_template(
 			f"{TEMPLATE_DIR}/trust_footer.html",
-			footer_context(settings, lang, auth, template, _status(context)),
+			footer_context(settings, lang, auth, template, _is_error_message(context, _status(context))),
 		)
 		labels = ""
 		if auth:

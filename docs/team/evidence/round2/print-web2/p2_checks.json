@@ -1,0 +1,2121 @@
+{
+ "en-about": {
+  "minContrast": 4.17,
+  "low": [
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [
+   "SPAN.:0.32px",
+   "A.nav-link btn-login-area:0.32px",
+   "H1.:-1px",
+   "P.lead:0.32px",
+   "H2.:0.32px",
+   "P.:0.32px",
+   "A.:0.32px",
+   "A.:0.32px",
+   "H3.:0.32px",
+   "TH.:0.32px",
+   "TH.:0.32px",
+   "TH.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "LI.:0.32px",
+   "LI.:0.32px",
+   "P.:0.32px",
+   "LABEL.:0.32px",
+   "A.btn btn-primary:0.28px",
+   "A.btn btn-default:0.28px",
+   "BUTTON.btn btn-secondary:0.28px",
+   "CODE.:0.32px",
+   "DIV.footer-col-right col-sm-6 col-12 footer-powered:0.32px",
+   "A.text-muted:0.32px"
+  ],
+  "total": 28,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "A.btn btn-primary",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-default",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "BUTTON.btn btn-secondary",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   }
+  ]
+ },
+ "en-about-ar-page": {
+  "minContrast": 4.17,
+  "low": [
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [
+   "SPAN.:0.32px",
+   "A.nav-link btn-login-area:0.32px",
+   "H1.:-1px",
+   "P.lead:0.32px",
+   "H2.:0.32px",
+   "P.:0.32px",
+   "A.:0.32px",
+   "A.:0.32px",
+   "H3.:0.32px",
+   "TH.:0.32px",
+   "TH.:0.32px",
+   "TH.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "TD.:0.32px",
+   "LI.:0.32px",
+   "LI.:0.32px",
+   "LABEL.:0.32px",
+   "A.btn btn-primary:0.28px",
+   "A.btn btn-default:0.28px",
+   "DIV.footer-col-right col-sm-6 col-12 footer-powered:0.32px",
+   "A.text-muted:0.32px"
+  ],
+  "total": 25,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "A.btn btn-primary",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-default",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   }
+  ]
+ },
+ "en-visitor-request": {
+  "minContrast": 1.35,
+  "low": [
+   "A.text-muted \"ERPNext\" 4.17",
+   "I. \"2026\" 2.75",
+   "DIV.datepicker--cell datepicker--cell-day -weekend- -other-month- \"27\" 1.35",
+   "DIV.datepicker--cell datepicker--cell-day -other-month- \"28\" 1.35",
+   "DIV.datepicker--cell datepicker--cell-day -other-month- \"29\" 1.35",
+   "DIV.datepicker--cell datepicker--cell-day -other-month- \"30\" 1.35"
+  ],
+  "spacing": [
+   "SPAN.:0.32px",
+   "A.nav-link btn-login-area:0.32px",
+   "H1.ellipsis:-0.9px",
+   "SPAN.indicator-pill orange:0.24px",
+   "P.:0.32px",
+   "LABEL.control-label reqd:0.28px",
+   "LABEL.control-label:0.28px",
+   "LABEL.control-label:0.28px",
+   "BUTTON.discard-btn btn btn-default btn-sm:0.28px",
+   "BUTTON.submit-btn btn btn-primary btn-sm ml-2:0.28px",
+   "DIV.footer-col-right col-sm-6 col-12 footer-powered:0.32px",
+   "A.text-muted:0.32px",
+   "DIV.datepicker--nav-title:0.32px",
+   "I.:0.32px",
+   "DIV.datepicker--day-name -weekend-:0.32px",
+   "DIV.datepicker--day-name:0.32px",
+   "DIV.datepicker--day-name:0.32px",
+   "DIV.datepicker--day-name:0.32px",
+   "DIV.datepicker--day-name:0.32px",
+   "DIV.datepicker--day-name:0.32px",
+   "DIV.datepicker--day-name -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend- -other-month-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -other-month-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -other-month-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -other-month-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -current-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day:0.32px",
+   "DIV.datepicker--cell datepicker--cell-day -weekend-:0.32px",
+   "SPAN.datepicker--button:0.32px"
+  ],
+  "total": 57,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "INPUT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.discard-btn btn btn-default bt",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "BUTTON.submit-btn btn btn-primary btn",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "INPUT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   }
+  ]
+ },
+ "en-home": {
+  "minContrast": 7.42,
+  "low": [],
+  "spacing": [
+   "A.ins-lang-link:0.28px",
+   "A.ins-lang-link:0.28px",
+   "LABEL.form-label:0.26px",
+   "LABEL.form-label:0.26px",
+   "A.:0.26px",
+   "BUTTON.btn btn-sm btn-default btn-block btn-login:0.28px",
+   "A.btn btn-block btn-default btn-sm btn-login-option btn-login-with-email-link:0.21px",
+   "P.ins-notice:0.28px"
+  ],
+  "total": 10,
+  "focus": [
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "0px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.ins-reveal",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "BUTTON.btn btn-sm btn-default btn-blo",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(15, 58, 101)"
+   },
+   {
+    "tag": "A.btn btn-block btn-default btn-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "A.ins-lang-link",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.ins-lang-link",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "0px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "0px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.ins-reveal",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "BUTTON.btn btn-sm btn-default btn-blo",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(15, 58, 101)"
+   },
+   {
+    "tag": "A.btn btn-block btn-default btn-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   }
+  ]
+ },
+ "en-user-me": {
+  "minContrast": 5.69,
+  "low": [],
+  "spacing": [
+   "DIV.title:0.28px",
+   "SPAN.avatar-frame standard-image:0.24px",
+   "SPAN.my-account-name ml-2:0.28px",
+   "SPAN.item-link-text:0.28px",
+   "SPAN.item-link-text:0.28px",
+   "SPAN.item-link-text:0.28px",
+   "A.:0.28px",
+   "A.:0.28px",
+   "A.:0.28px"
+  ],
+  "total": 9,
+  "focus": [
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   }
+  ]
+ },
+ "en-user-orders": {
+  "minContrast": 9.32,
+  "low": [],
+  "spacing": [
+   "SPAN.:0.32px",
+   "DIV.avatar-frame standard-image:0.28px",
+   "A.:0.32px",
+   "H3.my-account-header:0.32px",
+   "DIV.mt-4:0.32px"
+  ],
+  "total": 5,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   }
+  ]
+ },
+ "en-user-quotations": {
+  "minContrast": 9.32,
+  "low": [],
+  "spacing": [
+   "SPAN.:0.32px",
+   "DIV.avatar-frame standard-image:0.28px",
+   "A.:0.32px",
+   "H3.my-account-header:0.32px",
+   "DIV.mt-4:0.32px"
+  ],
+  "total": 5,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   }
+  ]
+ },
+ "en-user-my-requests": {
+  "minContrast": 4.17,
+  "low": [
+   "P.small mb-2 \"No ToDo found\" 4.17",
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [
+   "SPAN.:0.32px",
+   "DIV.avatar-frame standard-image:0.28px",
+   "H1.ellipsis:-0.9px",
+   "A.btn btn-primary btn-sm button-new:0.28px",
+   "P.small mb-2:0.32px",
+   "A.btn btn-primary btn-sm btn-new-doc hidden-xs:0.28px",
+   "DIV.footer-col-right col-sm-6 col-12 footer-powered:0.32px",
+   "A.text-muted:0.32px"
+  ],
+  "total": 8,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm button-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm btn-new",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm button-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm btn-new",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   }
+  ]
+ },
+ "en-user-my-requests-new": {
+  "minContrast": 4.17,
+  "low": [
+   "SPAN. \"New My Requests\" 4.17",
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [
+   "SPAN.:0.32px",
+   "DIV.avatar-frame standard-image:0.28px",
+   "SPAN.:0.32px",
+   "SPAN.:0.32px",
+   "H1.ellipsis:-0.9px",
+   "LABEL.control-label reqd:0.28px",
+   "LABEL.control-label:0.28px",
+   "BUTTON.discard-btn btn btn-default btn-sm:0.28px",
+   "BUTTON.submit-btn btn btn-primary btn-sm ml-2:0.28px",
+   "DIV.footer-col-right col-sm-6 col-12 footer-powered:0.32px",
+   "A.text-muted:0.32px"
+  ],
+  "total": 11,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.discard-btn btn btn-default bt",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "BUTTON.submit-btn btn btn-primary btn",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   }
+  ]
+ },
+ "ar-about": {
+  "minContrast": 4.17,
+  "low": [
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [],
+  "total": 28,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "A.btn btn-primary",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-default",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "BUTTON.btn btn-secondary",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   }
+  ]
+ },
+ "ar-about-ar-page": {
+  "minContrast": 4.17,
+  "low": [
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [],
+  "total": 25,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "A.btn btn-primary",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-default",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   }
+  ]
+ },
+ "ar-visitor-request": {
+  "minContrast": 1.35,
+  "low": [
+   "A.text-muted \"ERPNext\" 4.17",
+   "I. \"2026\" 2.75",
+   "DIV.datepicker--cell datepicker--cell-day -weekend- -other-month- \"27\" 1.35",
+   "DIV.datepicker--cell datepicker--cell-day -other-month- \"28\" 1.35",
+   "DIV.datepicker--cell datepicker--cell-day -other-month- \"29\" 1.35",
+   "DIV.datepicker--cell datepicker--cell-day -other-month- \"30\" 1.35"
+  ],
+  "spacing": [],
+  "total": 57,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "INPUT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.discard-btn btn btn-default bt",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "BUTTON.submit-btn btn btn-primary btn",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link btn-login-area",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "INPUT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   }
+  ]
+ },
+ "ar-home": {
+  "minContrast": 7.42,
+  "low": [],
+  "spacing": [],
+  "total": 10,
+  "focus": [
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "0px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.ins-reveal",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "BUTTON.btn btn-sm btn-default btn-blo",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(15, 58, 101)"
+   },
+   {
+    "tag": "A.btn btn-block btn-default btn-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "A.ins-lang-link",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tag": "A.ins-lang-link",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "0px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "INPUT.form-control",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "0px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.ins-reveal",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "BUTTON.btn btn-sm btn-default btn-blo",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(15, 58, 101)"
+   },
+   {
+    "tag": "A.btn btn-block btn-default btn-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   }
+  ]
+ },
+ "ar-user-me": {
+  "minContrast": 5.69,
+  "low": [],
+  "spacing": [],
+  "total": 9,
+  "focus": [
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(23, 23, 23)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(88, 97, 109)"
+   }
+  ]
+ },
+ "ar-user-orders": {
+  "minContrast": 9.31,
+  "low": [],
+  "spacing": [],
+  "total": 5,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   }
+  ]
+ },
+ "ar-user-quotations": {
+  "minContrast": 9.31,
+  "low": [],
+  "spacing": [],
+  "total": 5,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(40, 49, 60)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   }
+  ]
+ },
+ "ar-user-my-requests": {
+  "minContrast": 4.17,
+  "low": [
+   "P.small mb-2 \"لم يتم العثور على ToDo\" 4.17",
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [],
+  "total": 8,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm button-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm btn-new",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm button-",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.btn btn-primary btn-sm btn-new",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   }
+  ]
+ },
+ "ar-user-my-requests-new": {
+  "minContrast": 4.17,
+  "low": [
+   "SPAN. \"My Requests جديد\" 4.17",
+   "A.text-muted \"ERPNext\" 4.17"
+  ],
+  "spacing": [],
+  "total": 11,
+  "focus": [
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "BUTTON.discard-btn btn btn-default bt",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(133, 141, 151)"
+   },
+   {
+    "tag": "BUTTON.submit-btn btn btn-primary btn",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(27, 80, 134)"
+   },
+   {
+    "tag": "A.text-muted",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(124, 124, 124)"
+   },
+   {
+    "tag": "A.navbar-brand",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.nav-link nav-avatar",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(20, 27, 37)"
+   },
+   {
+    "tag": "A.",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(0, 88, 149)"
+   },
+   {
+    "tag": "TEXTAREA.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   },
+   {
+    "tag": "SELECT.input-with-feedback form-contr",
+    "style": "solid",
+    "width": "2px",
+    "color": "rgb(47, 106, 167)",
+    "offset": "2px",
+    "bc": "rgb(47, 106, 167)"
+   }
+  ]
+ }
+}

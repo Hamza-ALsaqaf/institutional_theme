@@ -1,4 +1,5 @@
-// Website entry: login, 2FA, forgot-password, update-password and the error pages (ADR 0003, 0009).
+// Website entry: login, 2FA, forgot-password, update-password, the error pages (ADR 0003, 0009) and the
+// public website and portal pages (web/_website.scss).
 // Always light: website pages carry no data-theme, so the light tokens at `html:root` apply.
 // The wrapper keeps rtlcss from flipping anything; every rule uses logical properties.
 // Loaded through `web_include_css`, before `login.bundle.css`, so login rules out-rank it by selector.
@@ -10,4 +11,5 @@
 @import "web/base";
 @import "web/login";
 @import "web/error_pages";
+@import "web/website";
 /*rtl:end:ignore*/
