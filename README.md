@@ -2,7 +2,7 @@
 
 An upgrade-safe visual identity and UI theme for the Frappe / ERPNext v16 desk, designed for a government institution: Light and Dark of equal quality, Arabic-first with full English parity, zero core edits.
 
-**Status: Phase 3 gate passed** (desk, shell and login are themed; see `docs/team/evidence/phase3/`). The build is carried out by the agent team described in `docs/team/`.
+**Status: Round 2 delivered Phase 4 and ran the Phase 5 hostile reviews; final scores are in `docs/team/OWNER_REVIEW.md`.** Phase 3 gate passed earlier (desk, shell and login are themed; see `docs/team/evidence/phase3/`). The build is carried out by the agent team described in `docs/team/`.
 
 Verified target: Frappe 16.32.0, ERPNext 16.33.0, HRMS 16.20.1.
 

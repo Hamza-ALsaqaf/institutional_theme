@@ -23,7 +23,7 @@ Note on staleness: `runtime/HOOKS_ON.md` and `runtime/evidence.md` (login page r
 | `before_uninstall` | `institutional_theme.install.before_uninstall` | `install.py` | `installer.py:445-446` (called with no arguments) | VERIFIED |
 | `doc_events` (`Institutional Theme Settings`, `on_update`), second handler | `institutional_theme.print.ship.on_settings_update` | `print/ship.py` | Same consumer as the row above (`model/document.py:1650-1660`; the hook value is a list of handlers). Round 2 backend evidence, item 6 and "Decisions" 7 | VERIFIED (registration; hook test, backend round 2 item 6) |
 | `jinja` (`methods`) | `institutional_theme.identity.ins_identity` (function path, not module path) | `identity.py` | `utils/jinja.py:223-250` (a function path exposes that function only); rendered as `www/printview.py:231-241` does (backend round 2 item 5) | VERIFIED |
-| `after_install` | `institutional_theme.install.after_install` | `install.py` | Frappe consumer line not recorded in the round-2 evidence. Registration verified by the hook test (backend round 2 item 6) | UNVERIFIED (consumer not opened) |
+| `after_install` | `institutional_theme.install.after_install` | `install.py` | `installer.py:360-361` (`for after_install in app_hooks.after_install or []:` then `frappe.get_attr(after_install)()`, opened in the fix round). Registration verified by the hook test (backend round 2 item 6) | VERIFIED |
 | `email_css` | `["ins_email.bundle.css"]` (appended after `email.bundle.css` and `email_erpnext.bundle.css`) | `public/scss/ins_email.bundle.scss` | `email/email_body.py:477`; `frappe.get_hooks("email_css")` lists it (backend round 2 item 8; print-web round 2 item 5, Premailer output checked) | VERIFIED |
 
 Per-user and per-site links that are not hooks (palette bundles `ins_palette_<name>.bundle.css`, font bundles `ins_fonts_noto|tajawal.bundle.css`) are linked by `update_website_context` only when `<name>` and `rtl_<name>` are both in the asset manifest. Source: `runtime/HOOKS_ON.md`, `runtime/evidence.md`.
@@ -111,7 +111,7 @@ Source: `docs/team/evidence/round2/css/evidence.md` ("Selectors depended on (16.
 
 | Selector | Our file | Frappe 16.32.0 source (file:line) | What breaks if it changes | Status |
 |---|---|---|---|---|
-| `.fc-event` (`border: none !important`), `.fc-event-main`, `.fc-daygrid-dot-event` | `desk/_calendar.scss` (Dark chips, lines 33-39) | `calendar.scss:65` (core `.fc-event`); `.fc-event-main`, `.fc-daygrid-dot-event` as in section 2a | Dark chip surface, stripe and text colour; the stripe depends on core resetting the border colour | VERIFIED |
+| `.fc-event` (`border: none !important`), `.fc-event-main`, `.fc-daygrid-dot-event` | `desk/_calendar.scss` (Dark chips, lines 38-46) | `calendar.scss:65` (core `.fc-event`); `.fc-event-main`, `.fc-daygrid-dot-event` as in section 2a | Dark chip surface, stripe and text colour; the stripe depends on core resetting the border colour | VERIFIED |
 | `.frappe-control.has-error`, `.control-input`, `[data-fieldtype]` | `desk/_controls.scss` (lines 87, 101) | `base_input.js:277` (mandatory), `:286` (invalid); `controls.scss:222` (styling) | Error mask icon on `.control-input::after`, input `padding-inline-end` 32px; forced-colours behaviour | VERIFIED |
 | `.tree-children`, `.tree-label`, `.tree-node-toolbar` | `desk/_tree.scss` | `tree.scss:46,51,108` (directory not recorded in the evidence) | Tree indent, labels and toolbar; the theme sets logical properties only, so no physical override remains | VERIFIED |
 | `.gantt .grid-header`, `.grid-row`, `.row-line`, `.tick`, `.today-highlight`, `.upper-text`, `.lower-text`, `.bar-progress` | `desk/_gantt.scss` | `node_modules/frappe-gantt/dist/frappe-gantt.css:1-27,91-100`, loaded lazily by `gantt_view.js:228` | Chart canvas (core literal white and greys) mapped for Dark; breaks silently if frappe-gantt changes | VERIFIED (third-party, frappe-gantt 0.6.1) |
@@ -150,7 +150,7 @@ Source: `docs/team/evidence/round2/print-web/evidence.md` ("Selectors depended o
 
 ### 2f. Website and web pages, round 2 (print-web2)
 
-Source: `docs/team/evidence/round2/print-web2/evidence.md` ("Selectors depended on (16.32.0)"). All rules are Light only and scoped to `body[data-path]:not(.ins-auth):not(.ins-error)` in `institutional_theme/public/scss/web/_website.scss`, which carries no `!important`.
+Source: `docs/team/evidence/round2/print-web2/evidence.md` ("Selectors depended on (16.32.0)"). All rules are Light only and scoped to `body[data-path]:not(.ins-auth):not(.ins-error)` in `institutional_theme/public/scss/web/_website.scss`, which carries one `!important` (line 39, the `.text-muted` rule in section 4).
 
 | Selector | Our file | Frappe 16.32.0 source (file:line) | What breaks if it changes | Status |
 |---|---|---|---|---|
@@ -161,6 +161,19 @@ Source: `docs/team/evidence/round2/print-web2/evidence.md` ("Selectors depended 
 | `.no-result` | `web/_website.scss` | `web_form_list.js:258` | Empty result on Web Form lists | VERIFIED |
 | Web Page `text_align` inline style (`web_page.html:23`) | `web_content.py` `page_values()` (called at `web_content.py:179`) | `website/doctype/web_page/templates/web_page.html:23` | Arabic Web Pages parked at the left when `text_align: Left` is set inline (fixed in `page_values()`; test added) | VERIFIED |
 | Error and message pages, login headings (`.page-card-head-text h4`, `.page-card-subtitle`) | `web/_login.scss` (`unicode-bidi: plaintext`, end of file); `web/_error_pages.scss:78` (`direction: ltr; text-align: start`) | `frappe/www/update-password.html:17-20`; `login.html:151`; `frappe/www/error.html:19-50`; `public/css/hljs-night-owl.css:30` | Mixed-language full stop placement; traceback direction; error page code block background | VERIFIED |
+
+### 2g. Fix round 1 additions
+
+Generated from: `institutional_theme/public/js/shell/field_errors.js`, `institutional_theme/public/scss/ins_print.bundle.scss` (lines 386-399), `institutional_theme/print/letter_head.html` (lines 3-7), `institutional_theme/print/letter_head_footer.html` (line 4) and `institutional_theme/web_content.py` (lines 201-204). Frappe paths are relative to the `frappe` package root of 16.32.0. Status is as given in `docs/team/reviews/upgrade-round2.md` section 1 or as stated by the source comment named in the row.
+
+| Item | Our file | Frappe 16.32.0 source (file:line) | What breaks if it changes | Status |
+|---|---|---|---|---|
+| `shell/field_errors.js` (`aria-invalid` on invalid and mandatory fields) | `public/js/shell/field_errors.js:1-26` | `public/js/frappe/form/controls/base_input.js:277` (mandatory: toggles `has-error` on the wrapper) and `:286` (invalid: toggles `has-error`) | Invalid fields lose `aria-invalid="true"` if core stops toggling `has-error` on `.frappe-control`. Depends on the class, not on a selector | VERIFIED (core lines). No screen-reader test recorded |
+| Print bundle `span.title` `margin-left: 0.35em` (physical) | `public/scss/ins_print.bundle.scss:393` | Not a Frappe line. Generator: wkhtmltopdf (QtWebKit has no logical margins), as in the section 2e print row | In-words label and the amount touch in wkhtmltopdf output. Physical on purpose; the block is RTL only (source comment) | VERIFIED (generator behaviour, print-web round 2, section 2e) |
+| Print bundle `div.info-text` `unicode-bidi: plaintext` (and `-webkit-plaintext`) | `public/scss/ins_print.bundle.scss:386-387` | Not a Frappe line. Chromium honours it; wkhtmltopdf's WebKit ignores both values (source comment above the rule) | Colon placement on English labels in Arabic print. Under wkhtmltopdf the label shows ":Customer Name"; the comment says no CSS fix exists | ASSUMED (the wkhtmltopdf behaviour is the source comment's statement; no run record read for this row) |
+| Watermark `letter-spacing: 0` on `[document-status="draft"] h4` and `[document-status="cancelled"] h4` | `public/scss/ins_print.bundle.scss:397-399` (no direction selector in the source) | Watermark selectors: `templates/print_formats/standard_macros.html:215,220` (section 2e) | Arabic watermark letters split if tracking applies (source comment at `:395-396`). Selector VERIFIED; the effect is not measured in the files read | ASSUMED (effect stated in the source comment only) |
+| Letter Head `ins_identity is defined` guard (`{%- set ... -%}` in both templates) | `print/letter_head.html:6-7`; `print/letter_head_footer.html:4` | `frappe/utils/jinja.py:66` (`undefined=DebugUndefined`); `:157-160` (render error becomes "Context Error") | A kept Letter Head must still render after uninstall, when the `jinja` hook is gone. Without the guard every print linked to it fails. Checked by QA row C28 | COMPUTED (upgrade-round2 review, section 1, jinja2 run) |
+| `web_content.py` login `<title>` replacement (`values["title"]`) | `web_content.py:201-204` | `frappe/www/login.py:45` (`context["title"] = "Login"`, no `_()`) | The login tab title stays English if core changes the title or the key is missed | VERIFIED (core line) |
 
 ## 3. Frappe CSS variables overridden
 
@@ -180,7 +193,7 @@ The full list is in `docs/audits/dead_tokens.txt`. The audit fails only on dead 
 
 Generated from: `grep -rn '!important' institutional_theme/public/scss` on this checkout.
 
-Result: 8 hits. All 8 are on comment lines (lines beginning with `//`). There is no `!important` in any declaration.
+Phase 3 result (historical; the table below is the phase 3 grep): 8 hits, all on comment lines (lines beginning with `//`), so no declaration existed at phase 3. Current count (fix round 1, `grep -rn "!important" institutional_theme/public/scss --include=*.scss`, comment lines excluded): **5 declarations**, all listed in the round 2 table below: 4 in `public/scss/desk/_calendar.scss` (lines 39, 40, 41, 45) and 1 in `public/scss/web/_website.scss` (line 39).
 
 | File:line | In a comment | Text (abridged) |
 |---|---|---|
@@ -197,14 +210,14 @@ Round 2 declarations (not comments). Source: `docs/team/evidence/round2/css/evid
 
 | File:line | Declaration | Why nothing else works (reason given in the evidence) | Status |
 |---|---|---|---|
-| `public/scss/desk/_calendar.scss:33` | `[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) { background-color: var(--ins-surface-raised) !important }` | Frappe writes the chip colours inline (`calendar.js:441-449`, through `prepare_colors` at `:431-449`); inline style out-ranks any selector, and no custom property outranks it | VERIFIED (reason as given) |
-| `public/scss/desk/_calendar.scss:34-35` | `border-inline-start-style: solid !important; border-inline-start-width: 4px !important` (same selector) | Core sets `border: none !important` on `.fc-event` (`calendar.scss:65`); a non-important border longhand loses to it | VERIFIED (reason as given) |
-| `public/scss/desk/_calendar.scss:39` | `[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) .fc-event-main { color: var(--ins-text-strong) !important }` | Frappe writes `color` inline on `.fc-event-main` (`calendar.js:441-449`) | VERIFIED (reason as given) |
-| `public/scss/web/_website.scss` | Bootstrap `.text-muted { color: $text-muted !important }` (`apps/frappe/node_modules/bootstrap/scss/utilities/_text.scss:52`, compiled into core's website bundle by `frappe/public/scss/website/index.scss:4`, `$text-muted` #7c7c7c from `website/variables.scss:8`) gives 4.17:1 on the footer link. Rule: `body[data-path]:not(.ins-auth):not(.ins-error) .text-muted { color: var(--ins-text-muted) !important }`, 6.28:1 | Two `!important` declarations: only a more specific `!important` wins; the value is compiled in, so no variable reaches it. Contrast (priority 2) outranks the no-`!important` rule (priority 3), lead decision. Scoped to website pages; not the desk, auth or error pages | VERIFIED (`docs/team/evidence/round2/print-web3/evidence.md`) |
+| `public/scss/desk/_calendar.scss:39` | `[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) { background-color: var(--ins-surface-raised) !important }` | Frappe writes the chip colours inline (`calendar.js:441-449`, through `prepare_colors` at `:431-449`); inline style out-ranks any selector, and no custom property outranks it | VERIFIED (reason as given) |
+| `public/scss/desk/_calendar.scss:40-41` | `border-inline-start-style: solid !important; border-inline-start-width: 4px !important` (same selector) | Core sets `border: none !important` on `.fc-event` (`calendar.scss:65`); a non-important border longhand loses to it | VERIFIED (reason as given) |
+| `public/scss/desk/_calendar.scss:45` | `[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) .fc-event-main { color: var(--ins-text-strong) !important }` | Frappe writes `color` inline on `.fc-event-main` (`calendar.js:441-449`) | VERIFIED (reason as given) |
+| `public/scss/web/_website.scss:38-39` | Bootstrap `.text-muted { color: $text-muted !important }` (`apps/frappe/node_modules/bootstrap/scss/utilities/_text.scss:52`, compiled into core's website bundle by `frappe/public/scss/website/index.scss:4`, `$text-muted` #7c7c7c from `website/variables.scss:8`) gives 4.17:1 on the footer link. Rule: `body[data-path]:not(.ins-auth):not(.ins-error) .text-muted { color: var(--ins-text-muted) !important }`, 6.28:1 | Two `!important` declarations: only a more specific `!important` wins; the value is compiled in, so no variable reaches it. Contrast (priority 2) outranks the no-`!important` rule (priority 3), lead decision. Scoped to website pages; not the desk, auth or error pages | VERIFIED (`docs/team/evidence/round2/print-web3/evidence.md`) |
 
-The four declarations in `_calendar.scss` are the only `!important` declarations added in round 2. The css2 evidence adds none. If `calendar.js` stops writing inline colours, the four can go.
+Five declarations were added in round 2: four in `_calendar.scss` (the first four rows above) and one in `_website.scss` (the last row). The css2 evidence adds none. If `calendar.js` stops writing inline colours, the four `_calendar.scss` declarations can go.
 
-Note for the reviewer: the comment at `_hardcoded.scss:2` says there is an exception "listed below". Before round 2 no `!important` declaration existed in the code, so no entry was needed. Count of `!important` declarations in the theme after round 2: 4 (`_calendar.scss`, the table above). The grep result in this section is the phase 3 grep and is not updated.
+Note for the reviewer: the comment at `_hardcoded.scss:2` says there is an exception "listed below". Before round 2 no `!important` declaration existed in the code, so no entry was needed. Count of `!important` declarations in the theme after round 2: 5 (4 in `_calendar.scss` and 1 in `_website.scss`, the table above). The grep result in the section above is the phase 3 grep and is not updated; the count of 5 is from the fix round 1 grep.
 
 ## 5. Site configuration keys the app reads
 
