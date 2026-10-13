@@ -1,0 +1,403 @@
+Starting test run with parameters: site=midad.test, app=institutional_theme, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 87 integration tests for institutional_theme
+
+institutional_theme.tests.test_api.TestSetAppearance
+   [32m ✔ [0m test_a_disallowed_palette_is_a_validation_error
+   [32m ✔ [0m test_a_value_is_stored_for_the_session_user_only
+   [32m ✔ [0m test_a_value_left_out_is_not_changed
+   [32m ✔ [0m test_an_unknown_palette_and_a_bad_density_are_rejected
+   [32m ✔ [0m test_guest_gets_a_permission_error
+   [32m ✔ [0m test_it_is_whitelisted_for_post_only
+   [32m ✔ [0m test_the_result_is_the_effective_value
+
+institutional_theme.tests.test_boot.TestBoot
+   [32m ✔ [0m test_a_failure_is_logged_and_leaves_the_boot_without_ins
+   [32m ✔ [0m test_behaviour_changes_ship_disabled
+   [32m ✔ [0m test_bootinfo_ins_has_the_documented_keys
+   [32m ✔ [0m test_environment_comes_from_site_config_only
+   [32m ✔ [0m test_the_appearance_page_is_open_to_every_desk_user
+   [32m ✔ [0m test_the_behaviour_flags_follow_the_settings
+
+institutional_theme.tests.test_website_hook.TestWebsiteHook
+   [32m ✔ [0m test_a_context_without_a_list_is_left_alone
+   [32m ✔ [0m test_a_custom_palette_is_linked_by_its_generated_file
+   [32m ✔ [0m test_a_font_pairing_bundle_is_linked_with_the_palette
+   [32m ✔ [0m test_a_missing_manifest_key_gives_no_link
+   [32m ✔ [0m test_a_raising_hook_logs_once_and_changes_nothing
+   [32m ✔ [0m test_the_desk_links_the_users_palette_after_the_existing_links
+   [32m ✔ [0m test_the_midad_palette_adds_no_link
+   [32m ✔ [0m test_website_pages_get_the_site_default_in_a_new_list
+
+institutional_theme.tests.test_preferences.TestPreferences
+   [32m ✔ [0m test_a_custom_card_is_never_nameless
+   [32m ✔ [0m test_a_missing_settings_document_gives_the_stock_values
+   [32m ✔ [0m test_a_palette_the_site_does_not_allow_falls_back_and_comes_back
+   [32m ✔ [0m test_a_palette_without_a_stylesheet_is_never_effective
+   [32m ✔ [0m test_a_stored_value_is_read_back
+   [32m ✔ [0m test_allowed_presets_keep_the_shipped_order_and_never_come_back_empty
+   [32m ✔ [0m test_an_unknown_stored_value_is_ignored
+   [32m ✔ [0m test_cards_carry_a_name_and_two_swatches
+   [32m ✔ [0m test_custom_is_offered_only_when_its_palette_passes
+   [32m ✔ [0m test_defaults_are_midad_and_comfortable
+   [32m ✔ [0m test_guest_gets_the_site_defaults
+   [32m ✔ [0m test_site_default_density
+   [32m ✔ [0m test_the_fallback_is_the_site_default_palette
+
+institutional_theme.tests.test_site_files.TestSiteFiles
+   [32m ✔ [0m test_a_deleted_folder_is_regenerated
+   [31m ✖ [0m test_a_palette_that_fails_its_audit_is_never_written
+   [31m ✖ [0m test_a_read_only_folder_gives_no_link_and_no_error
+   [32m ✔ [0m test_after_migrate_regenerates
+   [32m ✔ [0m test_changing_the_colours_writes_a_new_name_and_keeps_one_previous
+   [31m ✖ [0m test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name
+   [32m ✔ [0m test_ensure_never_writes_the_database
+   [31m ✖ [0m test_nothing_is_written_when_nothing_is_wanted
+   [32m ✔ [0m test_the_name_is_the_hash_of_the_content_and_deterministic
+   [32m ✔ [0m test_uploaded_fonts_are_written_and_a_missing_semibold_drops_that_script
+
+institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings.TestInstitutionalThemeSettings
+[90m  Test Records created: Institutional Theme Settings (0)[0m
+   [32m ✔ [0m test_a_changed_font_is_checked_while_the_pairing_stays_uploaded
+   [31m ✖ [0m test_audit_text_uses_labels_not_token_names
+   [32m ✔ [0m test_before_uninstall_continues_after_a_failing_step
+   [32m ✔ [0m test_before_uninstall_leaves_nothing_behind_and_is_idempotent [31m (2.45s)[0m
+   [32m ✔ [0m test_behaviour_ships_disabled
+   [32m ✔ [0m test_broken_website_settings_does_not_block_saving
+   [32m ✔ [0m test_clearing_a_field_restores_the_original
+   [32m ✔ [0m test_clearing_does_not_overwrite_an_administrators_later_edit
+   [32m ✔ [0m test_contrast_line_wording_for_a_maximum
+   [32m ✔ [0m test_custom_colours_are_required_and_must_be_hex
+   [32m ✔ [0m test_custom_default_needs_allow_custom
+   [32m ✔ [0m test_custom_palette_failing_a_pair_is_rejected_naming_every_pair
+   [32m ✔ [0m test_custom_palette_that_passes_is_saved_with_its_audit
+   [32m ✔ [0m test_default_must_be_allowed
+   [32m ✔ [0m test_defaults_save
+   [32m ✔ [0m test_delete_attachments_removes_only_this_doctypes_files
+   [32m ✔ [0m test_doctype_lists_exactly_the_shipped_presets
+   [32m ✔ [0m test_dropped_preset_is_not_a_valid_default
+   [32m ✔ [0m test_environment_comes_from_site_config_and_is_not_stored
+   [32m ✔ [0m test_environment_labels
+   [32m ✔ [0m test_external_font_url_is_rejected
+   [32m ✔ [0m test_file_that_is_not_a_font_is_rejected
+   [32m ✔ [0m test_form_shows_the_audit_in_words_and_storage_stays_neutral
+   [32m ✔ [0m test_hook_is_registered
+   [32m ✔ [0m test_identity_changed_elsewhere_is_not_overwritten_by_an_unrelated_save
+   [32m ✔ [0m test_identity_is_written_through_by_a_system_manager_without_website_manager [31m (2.16s)[0m
+   [32m ✔ [0m test_idle_warning_range
+   [32m ✔ [0m test_missing_upload_is_named_on_the_form
+   [32m ✔ [0m test_only_system_manager_has_permissions
+       ▸  /home/frappe/frappe-bench/apps/frappe/frappe/model/qb_query.py:153: V17FrappeDeprecationWarning: This codepath was marked (DATE: 2024-01-01) deprecated for removal (from v17 onwards); note:
+       ▸   The 'limit_page_length' parameter is deprecated. Use 'limit' instead.
+       ▸  
+       ▸    deprecation_warning(
+   [32m ✔ [0m test_other_pairings_do_not_check_stale_font_fields
+   [32m ✔ [0m test_other_shipped_default_saves_when_allowed
+   [32m ✔ [0m test_pale_custom_colour_keeps_curve_lightness_and_passes
+   [32m ✔ [0m test_private_emblem_is_rejected
+   [32m ✔ [0m test_private_font_is_rejected
+   [32m ✔ [0m test_restore_gives_back_prior_values_and_is_idempotent [31m (2.36s)[0m
+   [32m ✔ [0m test_restore_leaves_a_value_an_administrator_changed
+   [32m ✔ [0m test_restore_without_files_still_saves_with_another_pairing
+   [32m ✔ [0m test_save_without_identity_change_writes_nothing
+   [32m ✔ [0m test_track_changes_is_on
+   [32m ✔ [0m test_truetype_is_accepted
+   [32m ✔ [0m test_uploaded_pairing_requires_all_four_files
+   [32m ✔ [0m test_uploaded_pairing_with_real_fonts_saves
+   [32m ✔ [0m test_website_manager_cannot_write_the_settings
+
+
+======================================================================
+ FAIL  test_a_palette_that_fails_its_audit_is_never_written (institutional_theme.tests.test_site_files.TestSiteFiles.test_a_palette_that_fails_its_audit_is_never_written)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_site_files.py", line 71, in test_a_palette_that_fails_its_audit_is_never_written
+    self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <institutional_theme.tests.test_site_files.TestSiteFiles testMethod=test_a_palette_that_fails_its_audit_is_never_written>
+AssertionError: Lists differ: [PosixPath('midad.test/public/files/instit[47 chars]ss')] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+PosixPath('midad.test/public/files/institutional_theme/ins_palette_custom.f5541a462b9c.css')
+
+- [PosixPath('midad.test/public/files/institutional_theme/ins_palette_custom.f5541a462b9c.css')]
++ []
+
+======================================================================
+ FAIL  test_a_read_only_folder_gives_no_link_and_no_error (institutional_theme.tests.test_site_files.TestSiteFiles.test_a_read_only_folder_gives_no_link_and_no_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_site_files.py", line 97, in test_a_read_only_folder_gives_no_link_and_no_error
+    self.assertEqual(site_files.ensure(), {})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <institutional_theme.tests.test_site_files.TestSiteFiles testMethod=test_a_read_only_folder_gives_no_link_and_no_error>
+AssertionError: {'palette': '/files/institutional_theme/ins_palette_custom.f5541a462b9c.css'} != {}
+- {'palette': '/files/institutional_theme/ins_palette_custom.f5541a462b9c.css'}
++ {}
+
+======================================================================
+ FAIL  test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name (institutional_theme.tests.test_site_files.TestSiteFiles.test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_site_files.py", line 90, in test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name
+    self.assertEqual(errors, [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+    content = '/* generated by institutional_theme.midad.build from design/tokens.json; do not edit */\nhtml:root[dir],\nhtml[dir] [data-theme="light"] {\n\t--ins-surface-selected: #f3f7fc;\n\t--ins-surface-selected-strong: #e6effa;\n\t--ins-text-brand: #1f3a5f;\n\t--ins-brand: #1f3a5f;\n\t--ins-primary: #2d4f7d;\n\t--ins-primary-hover: #1f3a5f;\n\t--ins-primary-active: #13253f;\n\t--ins-on-primary: #ffffff;\n\t--ins-primary-text: #2d4f7d;\n\t--ins-primary-subtle: #f3f7fc;\n\t--ins-primary-subtle-border: #cfdff5;\n\t--ins-accent: #93762a;\n\t--ins-accent-text: #534111;\n\t--ins-accent-subtle: #fbf6ec;\n\t--ins-focus: #42699e;\n\t--ins-status-ink-bg: #cfdff5;\n\t--ins-status-ink-fg: #13253f;\n\t--ins-chart-1: #2d4f7d;\n\t--ins-chart-seq-1: #e6effa;\n\t--ins-chart-seq-2: #afc8ea;\n\t--ins-chart-seq-3: #6086bb;\n\t--ins-chart-seq-4: #2d4f7d;\n\t--ins-chart-seq-5: #13253f;\n\t--ins-chart-div-pos-1: #afc8ea;\n\t--ins-chart-div-pos-2: #2d4f7d;\n}\n\nhtml:root[dir][data-theme="dark"],\nhtml[dir] [data-theme="dark"] {\n\t--ins-surface-selected: #202e43;\n\t--ins-surface-selected-strong: #253954;\n\t--ins-text-brand: #cfdff5;\n\t--ins-brand: #afc8ea;\n\t--ins-primary: #afc8ea;\n\t--ins-primary-hover: #cfdff5;\n\t--ins-primary-active: #e6effa;\n\t--ins-on-primary: #0c1a2c;\n\t--ins-primary-text: #afc8ea;\n\t--ins-primary-subtle: #202e43;\n\t--ins-primary-subtle-border: #1f3a5f;\n\t--ins-accent: #cfb168;\n\t--ins-accent-text: #efdeb7;\n\t--ins-accent-subtle: #2d2513;\n\t--ins-focus: #afc8ea;\n\t--ins-status-ink-bg: #1f3a5f;\n\t--ins-status-ink-fg: #e6effa;\n\t--ins-chart-1: #afc8ea;\n\t--ins-chart-seq-1: #13253f;\n\t--ins-chart-seq-2: #1f3a5f;\n\t--ins-chart-seq-3: #42699e;\n\t--ins-chart-seq-4: #87a8d6;\n\t--ins-chart-seq-5: #cfdff5;\n\t--ins-chart-div-pos-1: #2d4f7d;\n\t--ins-chart-div-pos-2: #afc8ea;\n}\n\n@media (prefers-color-scheme: dark) {\n\thtml:root[dir][data-theme="automatic"] {\n\t\t--ins-surface-selected: #202e43;\n\t\t--ins-surface-selected-strong: #253954;\n\t\t--ins-text-brand: #cfdff5;\n\t\t--ins-brand: #afc8ea;\n\t\t--ins-primary: #afc8ea;\n\t\t--ins-primary-hover: #cfdff5;\n\t\t--ins-primary-active: #e6effa;\n\t\t--ins-on-primary: #0c1a2c;\n\t\t--ins-primary-text: #afc8ea;\n\t\t--ins-primary-subtle: #202e43;\n\t\t--ins-primary-subtle-border: #1f3a5f;\n\t\t--ins-accent: #cfb168;\n\t\t--ins-accent-text: #efdeb7;\n\t\t--ins-accent-subtle: #2d2513;\n\t\t--ins-focus: #afc8ea;\n\t\t--ins-status-ink-bg: #1f3a5f;\n\t\t--ins-status-ink-fg: #e6effa;\n\t\t--ins-chart-1: #afc8ea;\n\t\t--ins-chart-seq-1: #13253f;\n\t\t--ins-chart-seq-2: #1f3a5f;\n\t\t--ins-chart-seq-3: #42699e;\n\t\t--ins-chart-seq-4: #87a8d6;\n\t\t--ins-chart-seq-5: #cfdff5;\n\t\t--ins-chart-div-pos-1: #2d4f7d;\n\t\t--ins-chart-div-pos-2: #afc8ea;\n\t}\n}\n'
+    errors = [AttributeError('site_path'), AttributeError('site_path'), AttributeError('site_path'), AttributeError('site_path'), AttributeError('site_path'), AttributeError('site_path'), AttributeError('site_path'), AttributeError('site_path')]
+    name = 'ins_palette_custom.f5541a462b9c.css'
+    self = <institutional_theme.tests.test_site_files.TestSiteFiles testMethod=test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name>
+    thread = <Thread(Thread-9 (write), stopped 140454171494080)>
+    threads = [<Thread(Thread-2 (write), stopped 140454359549632)>, <Thread(Thread-3 (write), stopped 140454342768320)>, <Thread(Thread-4 (write), stopped 140454325987008)>, <Thread(Thread-5 (write), stopped 140454309205696)>, <Thread(Thread-6 (write), stopped 140454221838016)>, <Thread(Thread-7 (write), stopped 140454205056704)>, <Thread(Thread-8 (write), stopped 140454188275392)>, <Thread(Thread-9 (write), stopped 140454171494080)>]
+    write = <function TestSiteFiles.test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name.<locals>.write at 0x7fbe148b3740>
+AssertionError: Lists differ: [AttributeError('site_path'), AttributeErr[185 chars]th')] != []
+
+First list contains 8 additional elements.
+First extra element 0:
+AttributeError('site_path')
+
++ []
+- [AttributeError('site_path'),
+-  AttributeError('site_path'),
+-  AttributeError('site_path'),
+-  AttributeError('site_path'),
+-  AttributeError('site_path'),
+-  AttributeError('site_path'),
+-  AttributeError('site_path'),
+-  AttributeError('site_path')]
+
+======================================================================
+ FAIL  test_nothing_is_written_when_nothing_is_wanted (institutional_theme.tests.test_site_files.TestSiteFiles.test_nothing_is_written_when_nothing_is_wanted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_site_files.py", line 47, in test_nothing_is_written_when_nothing_is_wanted
+    self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <institutional_theme.tests.test_site_files.TestSiteFiles testMethod=test_nothing_is_written_when_nothing_is_wanted>
+AssertionError: Lists differ: [PosixPath('midad.test/public/files/instit[47 chars]ss')] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+PosixPath('midad.test/public/files/institutional_theme/ins_palette_custom.f5541a462b9c.css')
+
+- [PosixPath('midad.test/public/files/institutional_theme/ins_palette_custom.f5541a462b9c.css')]
++ []
+
+======================================================================
+ FAIL  test_audit_text_uses_labels_not_token_names (institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings.TestInstitutionalThemeSettings.test_audit_text_uses_labels_not_token_names)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/institutional_theme/doctype/institutional_theme_settings/test_institutional_theme_settings.py", line 323, in test_audit_text_uses_labels_not_token_names
+    self.assertNotIn(f" {token} ", text)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+    result = CustomPreset(params={'primary': {'h': 256.689, 'chroma': 0.8305}, 'accent': {'h': 77.404, 'chroma': 0.7423}, 'neutral_h': 255}, palette=Palette(name='custom', params={'primary': {'h': 256.689, 'chroma': 0.8305}, 'accent': {'h': 77.404, 'chroma': 0.7423}, 'neutral_h': 255}, ramps={'ink': {'50': '#f3f7fc', '100': '#e6effa', '200': '#cfdff5', '300': '#afc8ea', '400': '#87a8d6', '500': '#6086bb', '600': '#42699e', '700': '#2d4f7d', '800': '#1f3a5f', '900': '#13253f', '950': '#0c1a2c'}, 'brass': {'50': '#fbf6ee', '100': '#f8eddd', '200': '#f0ddc0', '300': '#e3c89f', '400': '#d0ae7c', '500': '#b5925c', '600': '#947443', '700': '#735930', '800': '#544021', '900': '#392b14', '950': '#281f10'}, 'slate': {'25': '#fcfdfe', '50': '#f7f9fc', '100': '#f1f4f8', '200': '#e8ebf1', '300': '#dadee5', '400': '#b8bec7', '450': '#858d97', '500': '#6a727d', '600': '#58616d', '700': '#424b57', '800': '#28313c', '900': '#141b25', '950': '#091018'}, 'night': {'50': '#eceff2', '100': '#dfe3e8', '200': '#d0d5db', '300': '#b9bec6', '400': '#9da4ac', '450': '#899099', '500': '#6f7781', '600': '#4b535e', '700': '#2e3641', '750': '#252c37', '800': '#1d252f', '850': '#171e28', '900': '#111820', '950': '#0b1119'}, 'red': {'50': '#fff4f3', '100': '#ffe6e4', '200': '#ffcfca', '300': '#ffada6', '400': '#fb7e77', '500': '#e15552', '600': '#be3737', '700': '#992225', '800': '#741417', '900': '#510b0d', '950': '#3a0b0b'}, 'orange': {'50': '#fff4ef', '100': '#ffe7db', '200': '#ffd1b9', '300': '#fab38b', '400': '#eb8f59', '500': '#d06b26', '600': '#ae5000', '700': '#883c00', '800': '#652b00', '900': '#471b00', '950': '#341300'}, 'amber': {'50': '#fff7ee', '100': '#ffedd8', '200': '#ffddb3', '300': '#ffc781', '400': '#f3ae4f', '500': '#dc9322', '600': '#b37400', '700': '#885700', '800': '#643f00', '900': '#452a00', '950': '#301b00'}, 'yellow': {'50': '#fdf8ea', '100': '#faf0d2', '200': '#f4e2ae', '300': '#ebd182', '400': '#dbbb54', '500': '#c3a12a', '600': '#9e8002', '700': '#786000', '800': '#584600', '900': '#3c2f00', '950': '#291f00'}, 'green': {'50': '#f0f9f4', '100': '#def3e6', '200': '#c0e8cf', '300': '#98d6b1', '400': '#68be8f', '500': '#37a16d', '600': '#0e8352', '700': '#00663e', '800': '#004c2c', '900': '#00341d', '950': '#022514'}, 'teal': {'50': '#f0f9f8', '100': '#ddf2ef', '200': '#bee6e1', '300': '#94d4ce', '400': '#61bbb3', '500': '#2a9e96', '600': '#008079', '700': '#00635d', '800': '#004945', '900': '#00322f', '950': '#002422'}, 'cyan': {'50': '#eff9fb', '100': '#ddf1f7', '200': '#bde4f0', '300': '#92d1e4', '400': '#5eb7d0', '500': '#259ab5', '600': '#007c94', '700': '#006073', '800': '#004656', '900': '#00303b', '950': '#00232c'}, 'blue': {'50': '#f0f8ff', '100': '#dfefff', '200': '#c1e0ff', '300': '#96cbff', '400': '#60aff8', '500': '#2d90e0', '600': '#0072be', '700': '#005895', '800': '#004170', '900': '#002c4f', '950': '#001f3a'}, 'violet': {'50': '#f6f6ff', '100': '#eaebff', '200': '#d8d8ff', '300': '#bfbeff', '400': '#a19ef4', '500': '#837cdb', '600': '#6860ba', '700': '#504896', '800': '#3a3472', '900': '#272250', '950': '#1c1938'}, 'purple': {'50': '#faf4fe', '100': '#f4e7fc', '200': '#ead2f9', '300': '#dab5f2', '400': '#c392e1', '500': '#a76fc7', '600': '#8954a8', '700': '#6c3d86', '800': '#502b65', '900': '#371c47', '950': '#271532'}, 'pink': {'50': '#fff3f8', '100': '#fee5ef', '200': '#fdcde0', '300': '#f5adcc', '400': '#e487b1', '500': '#c96393', '600': '#a84877', '700': '#86335c', '800': '#652244', '900': '#46152e', '950': '#321121'}}, tokens={'light': {'surface-base': '#ffffff', 'surface-sunken': '#f7f9fc', 'surface-raised': '#ffffff', 'surface-overlay': '#ffffff', 'surface-hover': '#f1f4f8', 'surface-active': '#e8ebf1', 'surface-selected': '#f3f7fc', 'surface-selected-strong': '#e6effa', 'surface-fill': '#f1f4f8', 'surface-fill-hover': '#e8ebf1', 'surface-field': '#ffffff', 'surface-disabled': '#f1f4f8', 'surface-inverse': '#141b25', 'surface-scrim': 'rgba(9, 16, 24, 0.45)', 'text-strong': '#141b25', 'text': '#28313c', 'text-secondary': '#424b57', 'text-muted': '#58616d', 'text-placeholder': '#6a727d', 'text-disabled': '#6a727d', 'text-inverse': '#ffffff', 'text-link': '#005895', 'text-link-hover': '#004170', 'text-brand': '#1f3a5f', 'border-hairline': '#e8ebf1', 'border': '#dadee5', 'border-strong': '#b8bec7', 'border-control': '#858d97', 'border-control-hover': '#58616d', 'brand': '#1f3a5f', 'primary': '#2d4f7d', 'primary-hover': '#1f3a5f', 'primary-active': '#13253f', 'on-primary': '#ffffff', 'primary-text': '#2d4f7d', 'primary-subtle': '#f3f7fc', 'primary-subtle-border': '#cfdff5', 'danger': '#be3737', 'danger-hover': '#992225', 'on-danger': '#ffffff', 'accent': '#947443', 'accent-text': '#544021', 'accent-subtle': '#fbf6ee', 'focus': '#42699e', 'status-neutral-bg': '#f1f4f8', 'status-neutral-fg': '#424b57', 'status-neutral-border': '#b8bec7', 'status-neutral-solid': '#6a727d', 'status-muted-bg': '#dadee5', 'status-muted-fg': '#141b25', 'status-muted-border': '#6a727d', 'status-muted-solid': '#424b57', 'status-progress-bg': '#dfefff', 'status-progress-fg': '#004170', 'status-progress-border': '#96cbff', 'status-progress-solid': '#0072be', 'status-info-bg': '#ddf1f7', 'status-info-fg': '#004656', 'status-info-border': '#92d1e4', 'status-info-solid': '#007c94', 'status-teal-bg': '#ddf2ef', 'status-teal-fg': '#004945', 'status-teal-border': '#94d4ce', 'status-teal-solid': '#008079', 'status-success-bg': '#def3e6', 'status-success-fg': '#004c2c', 'status-success-border': '#98d6b1', 'status-success-solid': '#0e8352', 'status-pending-bg': '#ffe7db', 'status-pending-fg': '#652b00', 'status-pending-border': '#fab38b', 'status-pending-solid': '#ae5000', 'status-warning-bg': '#faf0d2', 'status-warning-fg': '#584600', 'status-warning-border': '#dbbb54', 'status-warning-solid': '#9e8002', 'status-danger-bg': '#ffe6e4', 'status-danger-fg': '#741417', 'status-danger-border': '#ffada6', 'status-danger-solid': '#be3737', 'status-special-bg': '#eaebff', 'status-special-fg': '#3a3472', 'status-special-border': '#bfbeff', 'status-special-solid': '#6860ba', 'status-plum-bg': '#fee5ef', 'status-plum-fg': '#652244', 'status-plum-border': '#f5adcc', 'status-plum-solid': '#a84877', 'status-ink-bg': '#cfdff5', 'status-ink-fg': '#13253f', 'feedback-info-bg': '#f0f8ff', 'feedback-info-fg': '#004170', 'feedback-success-bg': '#f0f9f4', 'feedback-success-fg': '#004c2c', 'feedback-warning-bg': '#fdf8ea', 'feedback-warning-fg': '#584600', 'feedback-pending-bg': '#fff4ef', 'feedback-pending-fg': '#652b00', 'feedback-danger-bg': '#fff4f3', 'feedback-danger-fg': '#741417', 'mark-bg': '#f4e2ae', 'chart-1': '#2d4f7d', 'chart-2': '#a76fc7', 'chart-3': '#008079', 'chart-4': '#885700', 'chart-5': '#d06b26', 'chart-6': '#741417', 'chart-7': '#007c94', 'chart-8': '#858d97', 'chart-grid': '#e8ebf1', 'chart-axis': '#b8bec7', 'chart-label': '#424b57', 'chart-seq-1': '#e6effa', 'chart-seq-2': '#afc8ea', 'chart-seq-3': '#6086bb', 'chart-seq-4': '#2d4f7d', 'chart-seq-5': '#13253f', 'chart-div-neg-2': '#883c00', 'chart-div-neg-1': '#fab38b', 'chart-div-mid': '#e8ebf1', 'chart-div-pos-1': '#afc8ea', 'chart-div-pos-2': '#2d4f7d', 'elevation-raised': '0 1px 2px rgba(9, 16, 24, 0.06), 0 1px 1px rgba(9, 16, 24, 0.04)', 'elevation-overlay': '0 6px 16px rgba(9, 16, 24, 0.1), 0 1px 3px rgba(9, 16, 24, 0.08)', 'elevation-dialog': '0 20px 48px rgba(9, 16, 24, 0.18), 0 4px 12px rgba(9, 16, 24, 0.08)', 'scroll-shadow-start': 'inset 8px 0 6px -6px rgba(9, 16, 24, 0.14)', 'scroll-shadow-end': 'inset -8px 0 6px -6px rgba(9, 16, 24, 0.14)'}, 'dark': {'surface-base': '#111820', 'surface-sunken': '#0b1119', 'surface-raised': '#171e28', 'surface-overlay': '#1d252f', 'surface-hover': '#252c37', 'surface-active': '#2e3641', 'surface-selected': '#202e43', 'surface-selected-strong': '#253954', 'surface-fill': '#1d252f', 'surface-fill-hover': '#252c37', 'surface-field': '#0b1119', 'surface-disabled': '#171e28', 'surface-inverse': '#dfe3e8', 'surface-scrim': 'rgba(5, 8, 12, 0.7)', 'text-strong': '#eceff2', 'text': '#dfe3e8', 'text-secondary': '#b9bec6', 'text-muted': '#9da4ac', 'text-placeholder': '#899099', 'text-disabled': '#6f7781', 'text-inverse': '#0b1119', 'text-link': '#96cbff', 'text-link-hover': '#c1e0ff', 'text-brand': '#cfdff5', 'border-hairline': '#252c37', 'border': '#2e3641', 'border-strong': '#4b535e', 'border-control': '#6f7781', 'border-control-hover': '#9da4ac', 'brand': '#afc8ea', 'primary': '#afc8ea', 'primary-hover': '#cfdff5', 'primary-active': '#e6effa', 'on-primary': '#0c1a2c', 'primary-text': '#afc8ea', 'primary-subtle': '#202e43', 'primary-subtle-border': '#1f3a5f', 'danger': '#fb7e77', 'danger-hover': '#ffada6', 'on-danger': '#3a0b0b', 'accent': '#d0ae7c', 'accent-text': '#f0ddc0', 'accent-subtle': '#2e2518', 'focus': '#afc8ea', 'status-neutral-bg': '#1d252f', 'status-neutral-fg': '#d0d5db', 'status-neutral-border': '#4b535e', 'status-neutral-solid': '#9da4ac', 'status-muted-bg': '#4b535e', 'status-muted-fg': '#eceff2', 'status-muted-border': '#899099', 'status-muted-solid': '#b9bec6', 'status-progress-bg': '#002c4f', 'status-progress-fg': '#c1e0ff', 'status-progress-border': '#005895', 'status-progress-solid': '#60aff8', 'status-info-bg': '#00303b', 'status-info-fg': '#bde4f0', 'status-info-border': '#006073', 'status-info-solid': '#5eb7d0', 'status-teal-bg': '#00322f', 'status-teal-fg': '#bee6e1', 'status-teal-border': '#00635d', 'status-teal-solid': '#61bbb3', 'status-success-bg': '#00341d', 'status-success-fg': '#c0e8cf', 'status-success-border': '#00663e', 'status-success-solid': '#68be8f', 'status-pending-bg': '#471b00', 'status-pending-fg': '#ffd1b9', 'status-pending-border': '#883c00', 'status-pending-solid': '#eb8f59', 'status-warning-bg': '#3c2f00', 'status-warning-fg': '#f4e2ae', 'status-warning-border': '#786000', 'status-warning-solid': '#dbbb54', 'status-danger-bg': '#510b0d', 'status-danger-fg': '#ffcfca', 'status-danger-border': '#992225', 'status-danger-solid': '#fb7e77', 'status-special-bg': '#272250', 'status-special-fg': '#d8d8ff', 'status-special-border': '#504896', 'status-special-solid': '#a19ef4', 'status-plum-bg': '#46152e', 'status-plum-fg': '#fdcde0', 'status-plum-border': '#86335c', 'status-plum-solid': '#e487b1', 'status-ink-bg': '#1f3a5f', 'status-ink-fg': '#e6effa', 'feedback-info-bg': '#001f3a', 'feedback-info-fg': '#c1e0ff', 'feedback-success-bg': '#022514', 'feedback-success-fg': '#c0e8cf', 'feedback-warning-bg': '#291f00', 'feedback-warning-fg': '#f4e2ae', 'feedback-pending-bg': '#341300', 'feedback-pending-fg': '#ffd1b9', 'feedback-danger-bg': '#3a0b0b', 'feedback-danger-fg': '#ffcfca', 'mark-bg': '#584600', 'chart-1': '#afc8ea', 'chart-2': '#c392e1', 'chart-3': '#2a9e96', 'chart-4': '#dc9322', 'chart-5': '#ae5000', 'chart-6': '#fb7e77', 'chart-7': '#92d1e4', 'chart-8': '#899099', 'chart-grid': '#252c37', 'chart-axis': '#4b535e', 'chart-label': '#b9bec6', 'chart-seq-1': '#13253f', 'chart-seq-2': '#1f3a5f', 'chart-seq-3': '#42699e', 'chart-seq-4': '#87a8d6', 'chart-seq-5': '#cfdff5', 'chart-div-neg-2': '#eb8f59', 'chart-div-neg-1': '#883c00', 'chart-div-mid': '#4b535e', 'chart-div-pos-1': '#2d4f7d', 'chart-div-pos-2': '#afc8ea', 'elevation-raised': 'none', 'elevation-overlay': '0 0 0 1px #2e3641', 'elevation-dialog': '0 0 0 1px #4b535e', 'scroll-shadow-start': 'inset 1px 0 0 0 #4b535e', 'scroll-shadow-end': 'inset -1px 0 0 0 #4b535e'}}), failures=[])
+    self = <institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings.TestInstitutionalThemeSettings testMethod=test_audit_text_uses_labels_not_token_names>
+    text = '426 of 426 contrast pairs pass. Tightest: Input border on Hover background, Light mode, <bdi dir="ltr">3.04</bdi>:1 (at least <bdi dir="ltr">3</bdi>:1 is required).'
+    token = 'border'
+AssertionError: ' border ' unexpectedly found in '426 of 426 contrast pairs pass. Tightest: Input border on Hover background, Light mode, <bdi dir="ltr">3.04</bdi>:1 (at least <bdi dir="ltr">3</bdi>:1 is required).'
+
+----------------------------------------------------------------------
+Ran 87 tests in 37.845s
+
+FAILED (failures=5)
+
+Running 140 unspecified-category tests for institutional_theme
+
+institutional_theme.audits.tests.test_dead_tokens.Categories
+   [32m ✔ [0m test_a_variable_the_theme_reads_is_not_dead
+   [32m ✔ [0m test_counts_add_up
+   [32m ✔ [0m test_each_category
+   [32m ✔ [0m test_report_names_the_origin_and_hashes
+
+institutional_theme.audits.tests.test_dead_tokens.Snapshot
+   [32m ✔ [0m test_a_variable_core_dropped_would_fail
+   [32m ✔ [0m test_committed_snapshot_has_a_generated_header_and_sources
+   [32m ✔ [0m test_every_overridden_variable_is_in_core_or_used_by_the_theme
+   [32m ✔ [0m test_scan_and_round_trip
+
+institutional_theme.audits.tests.test_colour_vision.Baseline
+   [32m ✔ [0m test_a_gap_missing_from_the_baseline_is_fatal
+   [32m ✔ [0m test_a_gap_that_got_worse_is_fatal
+   [32m ✔ [0m test_audit_passes_with_the_committed_baseline
+   [32m ✔ [0m test_baseline_covers_exactly_the_measured_gaps_of_every_shipped_preset
+   [32m ✔ [0m test_no_baseline_means_every_gap_is_new
+
+institutional_theme.audits.tests.test_colour_vision.Neighbours
+   [32m ✔ [0m test_every_neighbour_pair_passes_in_every_shipped_preset
+   [32m ✔ [0m test_neighbour_pairs_are_the_default_series_wrapping_6_to_1
+
+institutional_theme.midad.tests.test_colour.ColourMaths
+   [32m ✔ [0m test_black_and_white
+   [32m ✔ [0m test_colour_vision_simulation_matches_the_reference
+   [32m ✔ [0m test_composite_matches_the_reference
+   [32m ✔ [0m test_contrast_matches_the_reference
+   [32m ✔ [0m test_delta_e_matches_the_reference
+   [32m ✔ [0m test_hex_parsing
+   [32m ✔ [0m test_hex_to_oklch_matches_the_reference
+   [32m ✔ [0m test_oklch_to_hex_matches_the_reference
+   [32m ✔ [0m test_rgba_text_matches_javascript_number_formatting
+   [32m ✔ [0m test_round_trip_through_oklch
+   [32m ✔ [0m test_rounding_is_half_up_like_javascript
+   [32m ✔ [0m test_unknown_simulation_is_rejected
+
+institutional_theme.midad.tests.test_colour.FixtureReproduction
+   [32m ✔ [0m test_deviations_are_exactly_the_adr_0010_list
+   [32m ✔ [0m test_every_primitive_hex_is_reproduced
+   [32m ✔ [0m test_every_semantic_hex_is_reproduced_in_both_modes
+   [32m ✔ [0m test_fixture_and_palette_define_the_same_tokens
+   [32m ✔ [0m test_non_hex_semantic_values_resolve
+   [32m ✔ [0m test_reordered_series_reuse_the_approved_series_colours
+
+institutional_theme.midad.tests.test_model.BrandEntryPoint
+   [32m ✔ [0m test_brand_hex_changes_the_default_preset_only_when_set
+
+institutional_theme.midad.tests.test_model.Contrast
+   [32m ✔ [0m test_every_pair_is_measured_in_both_modes
+   [32m ✔ [0m test_every_shipped_preset_passes_every_pair
+   [32m ✔ [0m test_max_rule_fails_above_its_limit
+   [32m ✔ [0m test_midad_passes_every_pair_in_both_modes
+   [32m ✔ [0m test_ratio_text_rounds_towards_the_failing_side
+   [32m ✔ [0m test_status_check_is_part_of_shipping
+
+institutional_theme.midad.tests.test_model.CustomPreset
+   [32m ✔ [0m test_a_dull_input_lowers_the_chroma_multiplier
+   [32m ✔ [0m test_a_failing_palette_is_reported_with_every_pair_and_human_labels
+   [32m ✔ [0m test_a_rejected_palette_is_never_turned_into_css
+   [32m ✔ [0m test_accent_pairs_ask_for_the_accent_colour
+   [32m ✔ [0m test_an_accepted_palette_becomes_css
+   [32m ✔ [0m test_bad_input_is_rejected
+   [32m ✔ [0m test_hue_is_kept_and_chroma_never_exceeds_the_ramp
+   [32m ✔ [0m test_lightness_follows_the_approved_curves
+   [32m ✔ [0m test_missing_input_keeps_the_midad_value
+   [32m ✔ [0m test_no_input_change_gives_empty_blocks_only
+   [32m ✔ [0m test_the_midad_colours_give_back_midad
+
+institutional_theme.midad.tests.test_model.FrappeMap
+   [32m ✔ [0m test_every_scale_reference_is_defined_or_left_to_the_font_partials
+   [32m ✔ [0m test_light_and_dark_declare_the_same_variables_in_the_same_order
+   [32m ✔ [0m test_names_do_not_collide
+   [32m ✔ [0m test_sets_exactly_the_variables_of_tokens_json
+   [32m ✔ [0m test_unknown_reference_is_an_error
+   [32m ✔ [0m test_values_reference_ins_tokens_only
+
+institutional_theme.midad.tests.test_model.GeneratedModel
+   [32m ✔ [0m test_default_preset_is_shipped_and_first
+   [32m ✔ [0m test_every_preset_hits_the_indicative_values_of_tokens_json
+   [32m ✔ [0m test_header_key_comes_first
+   [32m ✔ [0m test_model_json_matches_tokens_json
+   [32m ✔ [0m test_shipped_and_dropped_partition_the_presets
+
+institutional_theme.midad.tests.test_model.Labels
+   [32m ✔ [0m test_every_token_in_a_contrast_pair_has_a_label
+   [32m ✔ [0m test_labels_are_unique_plain_english
+   [32m ✔ [0m test_the_adr_example_label
+   [32m ✔ [0m test_unknown_token_falls_back_to_its_name
+
+institutional_theme.midad.tests.test_fonts.BundledFiles
+   [32m ✔ [0m test_default_pairing_stays_inside_the_woff2_budget
+   [32m ✔ [0m test_each_family_folder_has_its_licence
+   [32m ✔ [0m test_every_woff2_is_woff2_and_every_ttf_is_truetype
+   [32m ✔ [0m test_the_licence_record_matches_the_files
+
+institutional_theme.midad.tests.test_fonts.FrappeVariables
+   [32m ✔ [0m test_every_ins_font_variable_the_map_uses_is_defined_by_a_font_partial
+   [32m ✔ [0m test_font_stack_and_weights_are_mapped
+   [32m ✔ [0m test_regular_is_400_and_strong_is_600
+
+institutional_theme.midad.tests.test_fonts.MagicNumbers
+   [32m ✔ [0m test_accepted_formats
+   [32m ✔ [0m test_everything_else_is_rejected
+   [32m ✔ [0m test_file_kind_reads_from_disk
+
+institutional_theme.midad.tests.test_fonts.PrintBlock
+   [32m ✔ [0m test_every_print_ttf_exists
+   [32m ✔ [0m test_font_families
+   [32m ✔ [0m test_incomplete_upload_prints_in_plex
+   [32m ✔ [0m test_mixed_uploads
+   [32m ✔ [0m test_noto_and_tajawal_print_in_plex
+   [32m ✔ [0m test_plex_pairing_declares_one_ttf_url_per_face_and_no_format
+   [32m ✔ [0m test_print_faces_never_reuse_a_screen_family_name
+   [32m ✔ [0m test_unknown_pairing
+   [32m ✔ [0m test_uploaded_pairing_without_uploads_is_plex
+   [32m ✔ [0m test_uploaded_ttf_files_are_used_per_script
+   [32m ✔ [0m test_woff2_only_uploads_print_in_plex
+
+institutional_theme.midad.tests.test_fonts.ScssFaces
+   [32m ✔ [0m test_arabic_faces_use_the_arabic_range_and_the_rest_the_latin_range
+   [32m ✔ [0m test_bundle_names_match_the_python_table
+   [32m ✔ [0m test_every_face_points_at_a_bundled_file
+   [32m ✔ [0m test_family_names_are_private
+   [32m ✔ [0m test_pairing_bundles_win_by_specificity_and_are_wrapped_for_rtlcss
+   [32m ✔ [0m test_plex_partial_sets_the_stacks_and_disables_synthesis
+   [32m ✔ [0m test_python_family_names_are_declared_in_the_scss
+   [32m ✔ [0m test_swap_everywhere_and_asset_paths_are_absolute
+   [32m ✔ [0m test_tajawal_semibold_uses_the_700_file
+   [32m ✔ [0m test_the_arabic_range_matches_adr_0004_and_the_python_constant
+   [32m ✔ [0m test_weights_are_400_500_600_only
+
+institutional_theme.midad.tests.test_fonts.UploadedCss
+   [32m ✔ [0m test_a_script_missing_a_file_loses_both_faces
+   [32m ✔ [0m test_complete_set
+   [32m ✔ [0m test_no_forbidden_syntax
+   [32m ✔ [0m test_nothing_usable_gives_no_stylesheet
+   [32m ✔ [0m test_output_is_deterministic_and_changes_with_content
+   [32m ✔ [0m test_truetype_files_declare_truetype
+   [32m ✔ [0m test_variables_sit_at_the_pairing_specificity_with_weights_at_600
+
+institutional_theme.midad.tests.test_fonts.UploadedUrls
+   [32m ✔ [0m test_safe_urls
+   [32m ✔ [0m test_unknown_kind
+   [32m ✔ [0m test_unsafe_urls_cannot_reach_the_stylesheet
+
+institutional_theme.midad.tests.test_emit.Emitter
+   [32m ✔ [0m test_a_key_missing_from_either_mode_is_an_error
+   [32m ✔ [0m test_automatic_block_repeats_the_dark_values
+   [32m ✔ [0m test_blocks_use_the_selector_shapes_of_adr_0003
+   [32m ✔ [0m test_color_scheme_in_light_dark_and_automatic
+   [32m ✔ [0m test_color_scheme_is_absent_unless_asked_for
+   [32m ✔ [0m test_header
+   [32m ✔ [0m test_literals
+   [32m ✔ [0m test_one_key_list_gives_three_blocks_with_the_same_keys
+   [32m ✔ [0m test_rtl_wrapper
+   [32m ✔ [0m test_scale_blocks
+
+institutional_theme.midad.tests.test_emit.GeneratedFiles
+   [32m ✔ [0m test_a_stale_file_is_detected
+   [32m ✔ [0m test_build_is_deterministic
+   [32m ✔ [0m test_every_generated_file_starts_with_the_header
+   [32m ✔ [0m test_files_on_disk_are_not_stale
+   [32m ✔ [0m test_literals_hold_the_light_midad_values
+   [32m ✔ [0m test_no_generated_stylesheet_uses_forbidden_syntax
+   [32m ✔ [0m test_palette_bundles_are_wrapped_in_the_rtl_ignore_pair
+   [32m ✔ [0m test_palette_bundles_exist_only_for_shipped_non_default_presets
+   [32m ✔ [0m test_the_parity_audit_passes_on_the_files_on_disk
+   [32m ✔ [0m test_tokens_scss_carries_the_fixture_primitives_the_map_uses
+   [32m ✔ [0m test_tokens_scss_midad_values_equal_the_fixture_byte_for_byte
+
+institutional_theme.midad.tests.test_emit.ParityOfEveryPreset
+   [32m ✔ [0m test_a_broken_family_is_detected
+   [32m ✔ [0m test_a_key_that_changes_in_one_mode_is_written_in_both
+   [32m ✔ [0m test_a_sample_custom_preset_emits_equal_key_sets
+   [32m ✔ [0m test_every_preset_emits_equal_key_sets_in_all_three_blocks
+   [32m ✔ [0m test_midad_emits_no_palette_overrides
+
+institutional_theme.midad.tests.test_emit.ParserHelpers
+   [32m ✔ [0m test_parse_blocks_handles_media_and_comments
+   [32m ✔ [0m test_unbalanced_braces_raise
+
+institutional_theme.midad.tests.test_emit.Shipping
+   [32m ✔ [0m test_a_leftover_bundle_of_a_dropped_preset_is_stale
+   [32m ✔ [0m test_a_preset_below_a_minimum_is_dropped_with_the_failing_pair
+   [32m ✔ [0m test_the_default_preset_is_never_dropped
+   [32m ✔ [0m test_umber_is_dropped_by_the_status_check_and_forest_ships
+
+
+----------------------------------------------------------------------
+Ran 140 tests in 1.141s
+
+OK
+
+real	0m40.917s
+user	0m17.919s
+sys	0m2.358s

@@ -1,0 +1,26 @@
+PASS [en] dir 
+PASS [en] three fieldsets with legends ["Mode","Density","Colour preset"]
+PASS [en] h1 focusable by script only 
+PASS [en] status region 
+PASS [en] tab reaches the mode group ins-mode
+PASS [en] arrow changes the mode light -> dark
+PASS [en] data-theme-mode follows 
+PASS [en] no dialog opened 
+PASS [en] announcement Mode changed to Dark.
+PASS [en] apply disabled while unchanged 
+PASS [en] apply enabled after a different choice 
+PASS [en] focus lands on the h1 
+PASS [en] reload message Colour preset changed to Midad ink.
+PASS [ar] dir 
+PASS [ar] three fieldsets with legends ["Mode","Density","Colour preset"]
+PASS [ar] h1 focusable by script only 
+PASS [ar] status region 
+PASS [ar] tab reaches the mode group ins-mode
+PASS [ar] arrow changes the mode light -> dark
+PASS [ar] data-theme-mode follows 
+PASS [ar] no dialog opened 
+PASS [ar] announcement Mode changed to داكن.
+PASS [ar] apply disabled while unchanged 
+PASS [ar] apply enabled after a different choice 
+PASS [ar] focus lands on the h1 
+PASS [ar] reload message Colour preset changed to مداد.

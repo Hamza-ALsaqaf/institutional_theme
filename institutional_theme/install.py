@@ -15,6 +15,7 @@ from collections.abc import Callable
 
 import frappe
 
+from institutional_theme import site_files
 from institutional_theme.institutional_theme.doctype.institutional_theme_settings import identity_sync
 
 # Per-user choices stored with `frappe.defaults` (ADR 0002).
@@ -63,6 +64,15 @@ def _run(steps: tuple[tuple[str, Callable[[], object]], ...]) -> None:
 			step()
 		except Exception:
 			frappe.log_error(title=f"Institutional Theme uninstall: {title}")
+
+
+def after_migrate() -> None:
+	"""Regenerate the per-site stylesheets. Idempotent; writes files only, never the database, and
+	never raises (a failed migrate step must not hide behind the theme)."""
+	try:
+		site_files.after_migrate()
+	except Exception:
+		frappe.log_error(title="Institutional Theme migrate: generated files")
 
 
 def before_uninstall() -> None:

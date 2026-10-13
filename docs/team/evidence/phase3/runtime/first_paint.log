@@ -1,0 +1,10 @@
+PASS midad Light painted=255,255,255 expected=255,255,255
+PASS midad Dark painted=17,24,32 expected=17,24,32
+PASS graphite Light painted=255,255,255 expected=255,255,255
+PASS graphite Dark painted=17,24,32 expected=17,24,32
+PASS petrol Light painted=255,255,255 expected=255,255,255
+PASS petrol Dark painted=13,26,30 expected=13,26,30
+PASS forest Light painted=255,255,255 expected=255,255,255
+PASS forest Dark painted=14,26,22 expected=14,26,22
+PASS plum Light painted=255,255,255 expected=255,255,255
+PASS plum Dark painted=28,20,29 expected=28,20,29

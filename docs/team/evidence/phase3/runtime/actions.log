@@ -1,0 +1,28 @@
+PASS [en] docstatus 0 attribute 
+PASS [en] Submit tagged in draft 
+PASS [en] Delete tagged in draft 
+PASS [en] Cancel and Amend not tagged in draft 
+PASS [en] docstatus 1 attribute 
+PASS [en] Cancel tagged when submitted 
+PASS [en] Submit and Delete not tagged when submitted 
+PASS [en] docstatus 2 attribute 
+PASS [en] Amend tagged when cancelled 
+PASS [en] Cancel not tagged when cancelled 
+PASS [en] workflow Approve tagged 
+PASS [en] workflow Reject tagged 
+PASS [en] data-ins-new on a new form 
+PASS [en] no ribbon in production 
+PASS [ar] docstatus 0 attribute 
+PASS [ar] Submit tagged in draft 
+PASS [ar] Delete tagged in draft 
+PASS [ar] Cancel and Amend not tagged in draft 
+PASS [ar] docstatus 1 attribute 
+PASS [ar] Cancel tagged when submitted 
+PASS [ar] Submit and Delete not tagged when submitted 
+PASS [ar] docstatus 2 attribute 
+PASS [ar] Amend tagged when cancelled 
+PASS [ar] Cancel not tagged when cancelled 
+PASS [ar] workflow Approve tagged 
+PASS [ar] workflow Reject tagged 
+PASS [ar] data-ins-new on a new form 
+PASS [ar] no ribbon in production 

@@ -1,0 +1,132 @@
+[
+  {
+    "name": "[en] dir",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] three fieldsets with legends",
+    "ok": true,
+    "detail": "[\"Mode\",\"Density\",\"Colour preset\"]"
+  },
+  {
+    "name": "[en] h1 focusable by script only",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] status region",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] tab reaches the mode group",
+    "ok": true,
+    "detail": "ins-mode"
+  },
+  {
+    "name": "[en] arrow changes the mode",
+    "ok": true,
+    "detail": "light -> dark"
+  },
+  {
+    "name": "[en] data-theme-mode follows",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] no dialog opened",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] announcement",
+    "ok": true,
+    "detail": "Mode changed to Dark."
+  },
+  {
+    "name": "[en] apply disabled while unchanged",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] apply enabled after a different choice",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] focus lands on the h1",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] reload message",
+    "ok": true,
+    "detail": "Colour preset changed to Midad ink."
+  },
+  {
+    "name": "[ar] dir",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] three fieldsets with legends",
+    "ok": true,
+    "detail": "[\"Mode\",\"Density\",\"Colour preset\"]"
+  },
+  {
+    "name": "[ar] h1 focusable by script only",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] status region",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] tab reaches the mode group",
+    "ok": true,
+    "detail": "ins-mode"
+  },
+  {
+    "name": "[ar] arrow changes the mode",
+    "ok": true,
+    "detail": "light -> dark"
+  },
+  {
+    "name": "[ar] data-theme-mode follows",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] no dialog opened",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] announcement",
+    "ok": true,
+    "detail": "Mode changed to داكن."
+  },
+  {
+    "name": "[ar] apply disabled while unchanged",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] apply enabled after a different choice",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] focus lands on the h1",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] reload message",
+    "ok": true,
+    "detail": "Colour preset changed to مداد."
+  }
+]
