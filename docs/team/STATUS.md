@@ -12,22 +12,25 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 | Phase | State | Gate commit |
 |---|---|---|
-| 0 Bench and baseline | in progress | |
-| 1 Analysis and discussion | ADRs 0002-0008 and PLAN accepted; 0006 (bench) and 0009 (login content) pending | |
-| 2 Foundations | not started | |
+| 0 Bench and baseline | PASSED (install/uninstall/reinstall clean, 0 px diff; `docs/team/evidence/phase0/`) | e4015f7 |
+| 1 Analysis and discussion | PASSED (ADR 0002-0009 accepted, `docs/team/PLAN.md`) | e4015f7 |
+| 2 Foundations | built; audits pass (midad 0 failures, umber dropped, parity 51/51); reviews pending | |
 | 3 P0 | not started | |
 | 4 P1, P2, proof | not started | |
 | 5 Documentation and hostile review | not started | |
 
 ## Tasks in flight
 
-- Phase 0 / backend-engineer: test bench script, CI workflow, install and uninstall on the test site.
-- Phase 0 / theme-architect: DONE (`docs/research/phase0-reverification.md`; two findings differ: data-label, per-Print-Format pdf_generator).
-- Phase 1: proposals, replies, both reviews, ADR 0002-0008, PLAN: DONE. ADR 0009 (login and error-page content) in flight.
+- Phase 2 reviews (upgrade-reviewer, a11y-rtl-reviewer) on the Phase 2 diff.
+- scribe: Arabic entries for the settings strings (`docs/team/evidence/phase2/settings.md`).
 
 ## Next step
 
-Wait for both Phase 0 tasks, read their evidence, decide the Phase 0 gate.
+Read the Phase 2 reviews; fix blocking findings (max two attempts each); fast-forward main at the Phase 2 gate; then Phase 3 with css-engineer, backend-engineer, print-web-engineer in parallel per `docs/team/PLAN.md` "Parallel work in Phase 3".
+
+## Bench
+
+`tools/bench/build_test_bench.sh && tools/bench/start_services.sh` (6-8 min cold, COMPUTED); bench at `/home/frappe/frappe-bench` (symlink `/home/user/frappe-bench`), site `midad.test`, Administrator/admin, port 8000. Run bench commands as the `frappe` user.
 
 ## Lead decisions log (to be carried into OWNER_REVIEW.md, Arabic)
 
