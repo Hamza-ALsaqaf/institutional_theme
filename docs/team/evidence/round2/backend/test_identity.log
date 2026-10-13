@@ -1,0 +1,21 @@
+Starting test run with parameters: site=midad.test, app=institutional_theme, module=institutional_theme.tests.test_identity, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 9 integration tests for institutional_theme
+
+institutional_theme.tests.test_identity.TestIdentity
+   [32m ✔ [0m test_a_private_or_foreign_emblem_is_not_offered
+   [32m ✔ [0m test_an_emblem_url_cannot_end_an_attribute
+   [32m ✔ [0m test_everything_is_empty_without_settings_and_company
+   [32m ✔ [0m test_fallbacks_when_the_settings_are_empty
+   [32m ✔ [0m test_it_never_raises
+   [32m ✔ [0m test_the_jinja_hook_exposes_the_function
+   [32m ✔ [0m test_the_keys_are_exactly_the_contract
+   [32m ✔ [0m test_the_real_settings_give_strings
+   [32m ✔ [0m test_values_come_from_the_settings
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.149s
+
+OK

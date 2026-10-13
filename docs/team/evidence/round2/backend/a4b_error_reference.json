@@ -1,0 +1,55 @@
+{
+  "name": "a4b_error_reference",
+  "checks": [
+    {
+      "label": "message-500-en: reference equals the response header",
+      "ok": true,
+      "detail": "1d53ff83-86cf-4f0e-9cb4-af458faa0758 vs 1d53ff83-86cf-4f0e-9cb4-af458faa0758"
+    },
+    {
+      "label": "forbidden-403-en: reference equals the response header",
+      "ok": false,
+      "detail": "null vs 67b94970-d989-4a93-a743-710f7d82c3fa"
+    },
+    {
+      "label": "message-500-ar: reference equals the response header",
+      "ok": true,
+      "detail": "7a3f6684-9450-4306-b183-da59bd2c32da vs 7a3f6684-9450-4306-b183-da59bd2c32da"
+    },
+    {
+      "label": "forbidden-403-ar: reference equals the response header",
+      "ok": false,
+      "detail": "null vs b9bb337c-f636-4fa3-aa54-42549c4cf85f"
+    }
+  ],
+  "data": {
+    "message-500-en": {
+      "status": 200,
+      "header": "1d53ff83-86cf-4f0e-9cb4-af458faa0758",
+      "reference": "1d53ff83-86cf-4f0e-9cb4-af458faa0758",
+      "footer": "Reference 1d53ff83-86cf-4f0e-9cb4-af458faa0758\nQuote this reference when you contact support.\n\nTraining",
+      "dir": "ltr"
+    },
+    "forbidden-403-en": {
+      "status": 403,
+      "header": "67b94970-d989-4a93-a743-710f7d82c3fa",
+      "reference": null,
+      "footer": "Training",
+      "dir": "ltr"
+    },
+    "message-500-ar": {
+      "status": 200,
+      "header": "7a3f6684-9450-4306-b183-da59bd2c32da",
+      "reference": "7a3f6684-9450-4306-b183-da59bd2c32da",
+      "footer": "مرجع 7a3f6684-9450-4306-b183-da59bd2c32da\nاذكر هذا المرجع عند التواصل مع الدعم الفني.\n\nتدريب",
+      "dir": "rtl"
+    },
+    "forbidden-403-ar": {
+      "status": 403,
+      "header": "b9bb337c-f636-4fa3-aa54-42549c4cf85f",
+      "reference": null,
+      "footer": "تدريب",
+      "dir": "rtl"
+    }
+  }
+}

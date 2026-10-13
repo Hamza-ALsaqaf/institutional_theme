@@ -1,0 +1,22 @@
+{
+ "en": {
+  "has_font_face": true,
+  "has_print_family": true,
+  "letterhead_table": true,
+  "footer_table": true,
+  "print_rules": true,
+  "html_bytes": 29830,
+  "pdf": "/tmp/ins_r2_print_en.pdf",
+  "pdf_bytes": 475324
+ },
+ "ar": {
+  "has_font_face": true,
+  "has_print_family": true,
+  "letterhead_table": true,
+  "footer_table": true,
+  "print_rules": true,
+  "html_bytes": 29875,
+  "pdf": "/tmp/ins_r2_print_ar.pdf",
+  "pdf_bytes": 509585
+ }
+}

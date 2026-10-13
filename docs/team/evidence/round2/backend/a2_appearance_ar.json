@@ -1,0 +1,70 @@
+{
+  "name": "a2_appearance_ar",
+  "checks": [
+    {
+      "label": "Arabic page",
+      "ok": true,
+      "detail": "rtl / ar"
+    },
+    {
+      "label": "densitySuccess is Arabic text",
+      "ok": true,
+      "detail": "\"تم تغيير الكثافة إلى مضغوطة.\""
+    },
+    {
+      "label": "modeSuccess is Arabic text",
+      "ok": true,
+      "detail": "\"تم تغيير الوضع إلى داكن.\""
+    },
+    {
+      "label": "densityFail is Arabic text",
+      "ok": true,
+      "detail": "\"تعذّر حفظ الكثافة. تمت استعادة الكثافة السابقة.\""
+    },
+    {
+      "label": "modeFail is Arabic text",
+      "ok": true,
+      "detail": "\"تعذّر حفظ الوضع. تمت استعادة الوضع السابق.\""
+    },
+    {
+      "label": "presetFail is Arabic text",
+      "ok": true,
+      "detail": "\"تعذّر تطبيق مجموعة الألوان. حاول مرة أخرى.\""
+    },
+    {
+      "label": "presetSuccessAfterReload is Arabic text",
+      "ok": true,
+      "detail": "\"تم تغيير مجموعة الألوان إلى مداد.\""
+    }
+  ],
+  "data": {
+    "dir": "rtl / ar",
+    "region": {
+      "role": "status",
+      "ariaLive": "polite",
+      "ariaAtomic": null
+    },
+    "densitySuccess": "تم تغيير الكثافة إلى مضغوطة.",
+    "densitySuccess2": "تم تغيير الكثافة إلى مريحة.",
+    "modeSuccess": "تم تغيير الوضع إلى داكن.",
+    "modeSuccess2": "تم تغيير الوضع إلى فاتح.",
+    "densityFail": "تعذّر حفظ الكثافة. تمت استعادة الكثافة السابقة.",
+    "densityFailRestored": "comfortable",
+    "densityFailFocus": "ins-density=comfortable",
+    "densityAttrAfterFail": "comfortable",
+    "modeFail": "تعذّر حفظ الوضع. تمت استعادة الوضع السابق.",
+    "modeFailRestored": "light",
+    "modeAttrAfterFail": "light",
+    "presets": [
+      "midad",
+      "graphite",
+      "petrol",
+      "forest",
+      "plum"
+    ],
+    "presetBefore": "graphite",
+    "presetFail": "تعذّر تطبيق مجموعة الألوان. حاول مرة أخرى.",
+    "presetSuccessAfterReload": "تم تغيير مجموعة الألوان إلى مداد.",
+    "presetRestored": 400
+  }
+}

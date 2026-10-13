@@ -30,18 +30,28 @@ update_website_context = [
 ]
 
 # Email (inlined by Premailer: no custom properties, no @font-face)
-# email_css = ["ins_email.bundle.css"]
+email_css = ["ins_email.bundle.css"]
 
 # Boot info for the desk shell (palette, density, environment label)
 extend_bootinfo = "institutional_theme.boot.extend_bootinfo"
 
 # Regenerate the per-site stylesheets after the settings are saved (ADR 0004).
 doc_events = {
-	"Institutional Theme Settings": {"on_update": "institutional_theme.site_files.on_settings_update"},
+	"Institutional Theme Settings": {
+		"on_update": [
+			"institutional_theme.site_files.on_settings_update",
+			"institutional_theme.print.ship.on_settings_update",
+		]
+	},
 }
 
+# `ins_identity()` for the Letter Head (Jinja, rendered at print time). The path names the function, not the
+# module: a module path would expose every function in it (frappe/utils/jinja.py get_jinja_hooks).
+jinja = {"methods": ["institutional_theme.identity.ins_identity"]}
+
 # Install / migrate / uninstall. All of them must be idempotent and must never
-# overwrite a value an administrator has changed. Install changes nothing by itself: the theme
-# is on as soon as the bundles are built.
+# overwrite a value an administrator has changed. Install only ships the Print Style and Letter Head
+# (never as the default): the theme is on as soon as the bundles are built.
+after_install = "institutional_theme.install.after_install"
 after_migrate = "institutional_theme.install.after_migrate"
 before_uninstall = "institutional_theme.install.before_uninstall"

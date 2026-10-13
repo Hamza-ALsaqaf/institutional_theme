@@ -1,0 +1,155 @@
+{
+  "name": "a4_ribbon",
+  "checks": [
+    {
+      "label": "en-light: exactly one ribbon",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en-light: translated text",
+      "ok": true,
+      "detail": "Training"
+    },
+    {
+      "label": "en-light: role note, text in the accessibility tree",
+      "ok": true,
+      "detail": "- note: Training"
+    },
+    {
+      "label": "en-dark: exactly one ribbon",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en-dark: translated text",
+      "ok": true,
+      "detail": "Training"
+    },
+    {
+      "label": "en-dark: role note, text in the accessibility tree",
+      "ok": true,
+      "detail": "- note: Training"
+    },
+    {
+      "label": "ar-light: exactly one ribbon",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar-light: translated text",
+      "ok": true,
+      "detail": "تدريب"
+    },
+    {
+      "label": "ar-light: role note, text in the accessibility tree",
+      "ok": true,
+      "detail": "- note: تدريب"
+    },
+    {
+      "label": "ar-dark: exactly one ribbon",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar-dark: translated text",
+      "ok": true,
+      "detail": "تدريب"
+    },
+    {
+      "label": "ar-dark: role note, text in the accessibility tree",
+      "ok": true,
+      "detail": "- note: تدريب"
+    }
+  ],
+  "data": {
+    "en-light": {
+      "count": 1,
+      "text": "Training",
+      "role": "note",
+      "ariaSnapshot": "- note: Training",
+      "rootAttr": "training",
+      "mode": "light",
+      "dir": "ltr",
+      "boot": "training",
+      "style": {
+        "position": "fixed",
+        "color": "rgb(87, 63, 12)",
+        "background": "rgb(252, 246, 235)",
+        "fontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+        "fontSize": "12px",
+        "zIndex": "1021",
+        "top": 0,
+        "height": 24,
+        "width": 1280
+      },
+      "pagePaddingTop": "0px"
+    },
+    "en-dark": {
+      "count": 1,
+      "text": "Training",
+      "role": "note",
+      "ariaSnapshot": "- note: Training",
+      "rootAttr": "training",
+      "mode": "dark",
+      "dir": "ltr",
+      "boot": "training",
+      "style": {
+        "position": "fixed",
+        "color": "rgb(243, 221, 181)",
+        "background": "rgb(47, 37, 18)",
+        "fontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+        "fontSize": "12px",
+        "zIndex": "1021",
+        "top": 0,
+        "height": 24,
+        "width": 1280
+      },
+      "pagePaddingTop": "0px"
+    },
+    "ar-light": {
+      "count": 1,
+      "text": "تدريب",
+      "role": "note",
+      "ariaSnapshot": "- note: تدريب",
+      "rootAttr": "training",
+      "mode": "light",
+      "dir": "rtl",
+      "boot": "training",
+      "style": {
+        "position": "fixed",
+        "color": "rgb(87, 63, 12)",
+        "background": "rgb(252, 246, 235)",
+        "fontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+        "fontSize": "12px",
+        "zIndex": "1021",
+        "top": 0,
+        "height": 24,
+        "width": 1280
+      },
+      "pagePaddingTop": "0px"
+    },
+    "ar-dark": {
+      "count": 1,
+      "text": "تدريب",
+      "role": "note",
+      "ariaSnapshot": "- note: تدريب",
+      "rootAttr": "training",
+      "mode": "dark",
+      "dir": "rtl",
+      "boot": "training",
+      "style": {
+        "position": "fixed",
+        "color": "rgb(243, 221, 181)",
+        "background": "rgb(47, 37, 18)",
+        "fontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+        "fontSize": "12px",
+        "zIndex": "1021",
+        "top": 0,
+        "height": 24,
+        "width": 1280
+      },
+      "pagePaddingTop": "0px"
+    }
+  }
+}
