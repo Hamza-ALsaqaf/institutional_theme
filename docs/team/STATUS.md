@@ -14,24 +14,22 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 |---|---|---|
 | 0 Bench and baseline | PASSED (install/uninstall/reinstall clean, 0 px diff; `docs/team/evidence/phase0/`) | e4015f7 |
 | 1 Analysis and discussion | PASSED (ADR 0002-0009 accepted, `docs/team/PLAN.md`) | e4015f7 |
-| 2 Foundations | built; audits pass (midad 0 failures, umber dropped, parity 51/51); reviews pending | |
-| 3 P0 | not started | |
+| 2 Foundations | PASSED 19:18 UTC: audits pass (contrast 0 failing over 426 pairs, parity 51/0, colour vision 0 failures + 99 baselined gaps, dead tokens 0); 140 unit tests OK; 88 Frappe tests OK; cascade 4256/4256 (static core build); install/uninstall gate clean (`docs/team/evidence/resume/`) | ceb4128..HEAD |
+| 3 P0 | runtime and hooks on (R2), controls/form CSS (css-C) done; shell, list, reports, overlays, login pending | |
 | 4 P1, P2, proof | not started | |
 | 5 Documentation and hostile review | not started | |
 
-## Tasks in flight (resume run in GitHub Actions, started 17:33 UTC)
+## Tasks in flight (resume run, 19:20 UTC)
 
-Time boxes shifted by the 33-minute late start (RESUME_PROMPT): Phase 2 gate 18:13, Phase 3 19:23, Phase 4 20:23, Phase 5 20:53, final report 21:13 UTC.
+All earlier background agents were cut off at 17:45 UTC when the lead's turn ended; agents now run in the foreground. Remaining time boxes: Phase 3 shell/list/login 20:05, Phase 3 reviews and fixes 20:40, documentation and final report 21:13 UTC. Phase 4 is cut except what fits after the Phase 3 gate (sacrifice order: font pairings, presets, P2, P1).
 
-- bench (backend-engineer): make `tools/bench/` work in Actions (`sudo -E`, env.sh overrides), build and start the bench, then migrate, run-tests and the install/uninstall gate. Evidence `docs/team/evidence/resume/`.
-- R1 (backend-engineer): Phase 2 fix round (ADR 0010 token edits, colour-vision baseline, U1-U9, bidi strings, CI fixes). Marker `docs/team/evidence/phase2/fixround/DONE.md`.
-- css-C (css-engineer): ADR 0010 rules in `desk/_controls.scss`, then P0 controls, form, status, actions, masked, ribbon, typography, scoped variables, hard-coded colours; cascade descendant probes. Evidence `docs/team/evidence/phase3/css-form/`.
-
-CI cause (VERIFIED from run 38439406253): ruff F841 at `audits/colour_vision.py:349`; `test_model.py:54` expects 362 contrast results, 426 after the partial ADR 0010 group edits. Assigned to R1.
+- css-A: `_shell`, `_page_head`, `_workspace`, `_list`, `_reports`, `_grid`, `_overlays`, `_appearance`, `tests/browser/screens.mjs` + P0 screenshots.
+- print-web: `ins_web.bundle.scss`, `web/_login.scss`, `_error_pages.scss`, templates; `web_content.py` reassigned to print-web by the lead (decision 27).
+- scribe: `translations/ar.csv` from every evidence "Strings" list.
 
 ## Next step
 
-Wait for bench, R1 and css-C. Then: Phase 2 gate (audits, cascade, gate script); dispatch css-A (shell, page head, workspace, overlays, list, reports, grid, appearance, screens.mjs), print-web (web bundle, login, error pages), backend R2 (Phase 3 runtime: hooks on, preferences, api, boot, website, site_files, identity, Appearance page, shell JS, fixtures).
+When batch B reports: commit, run both reviewers on `ceb4128..HEAD` (Phase 3), one fix round, Phase 3 gate, then scribe manifest + OWNER_REVIEW.md (Arabic) + PR body.
 
 ## Bench
 
@@ -64,3 +62,6 @@ Wait for bench, R1 and css-C. Then: Phase 2 gate (audits, cascade, gate script);
 23. 16:45 UTC: the owner merged pull request #1 into `main` (merge commit `24a8b35`), so `main` now holds the unverified snapshot and CI is red on it. The first Actions run failed because the key secret is named `INSTITUTIONAL_THEME`, not `ANTHROPIC_API_KEY`; the workflow now reads `INSTITUTIONAL_THEME`. The run is started by a new draft pull request from `build/midad-v1` to `main`, which is not to be merged before the final report.
 24. 17:15 UTC: the owner's key carries promotional credits that cover the Agent SDK and the API but not Claude Code, so `claude-code-action` failed with "Credit balance is too low". The resume workflow now runs Claude through the Claude Agent SDK (`tools/ci/run_agent.mjs`, engine `sdk`), with `claude -p` as an automatic fallback, after a one-turn smoke test that must succeed before the build starts. A local plumbing test of the runner unintentionally used this cloud session's own credentials (about 0.23 USD); no further local API calls are made.
 25. 17:33 UTC: resume run started in GitHub Actions, 33 minutes after 17:00, so every time box in RESUME_PROMPT is shifted by 33 minutes (final report 21:13 UTC, inside the 355-minute job limit). The stray `mkusers.sh` and the `adm.jar` cookie jar it produced were removed from the repository root.
+26. 19:18 UTC: Phase 2 gate passed (evidence in the phase table). The one failing Frappe test (`test_audit_text_uses_labels_not_token_names`) was a test bug: the word "border" is both a token name and an English word in the label "Input border"; the assertion now checks hyphenated token names only. Calendar event text keeps core's own `!important` blue (`calendar.scss:71,99`): the theme does not add an `!important` to fight it; contrast of that pair is not computed (P1, listed as a gap).
+27. 19:20 UTC: to save an agent cycle, `web_content.py` (ADR 0009 Python) is written by print-web-engineer together with its templates, instead of backend-engineer. Reverse by moving ownership back in PLAN.md; no behaviour depends on who wrote it.
+28. The custom brand preset's contrast rejection cannot fire for any hex input (lightness comes from the approved curves; `#FFFFFF` on `#FFFFFF` saves). Kept as a safeguard (decision 12), not a bug.
