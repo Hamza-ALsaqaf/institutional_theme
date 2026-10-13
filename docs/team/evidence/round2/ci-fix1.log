@@ -1,0 +1,21 @@
+== Tue Oct 13 23:43:25 UTC 2026
+All checks passed!
+113 files already formatted
+Ran 130 tests in 1.662s
+
+OK
+Ran 34 tests in 0.331s
+
+OK
+build --check: 12 file(s) checked, 0 stale
+build-check rc=0
+audits rc=0
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+parity: 55 checks, 0 failed
+colour-vision: 0 failure(s) (status, neighbouring series, gap not in the baseline), 99 baselined chart gap(s) in shipped presets
+dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
+budgets: 0 problem(s)
+wrote contrast.txt, contrast.json, parity.txt, colour_vision.txt, dead_tokens.txt, budgets.txt to docs/audits
+audits: passed

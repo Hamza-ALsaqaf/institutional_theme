@@ -246,3 +246,19 @@ You have been inactive. Your session may end soon.,لم يُسجَّل أي نش
 You are offline. Changes cannot be saved until the connection returns.,أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال.
 Live updates are interrupted. The page will keep trying to reconnect.,توقفت التحديثات الفورية. ستواصل الصفحة محاولة إعادة الاتصال.
 The connection is back.,عاد الاتصال.
+Quotation:,عرض أسعار:
+Posting Date:,تاريخ الترحيل:
+Valid Till:,صالح حتى:
+Sub Total:,المجموع الفرعي:
+Grand Total:,المجموع الإجمالي:
+In Words:,في كلمات:
+Total in words,المبلغ كتابةً
+Bill From,الفاتورة من
+Bill To,الفاتورة إلى
+Quarter Day,ربع يوم
+Half Day,نصف يوم
+Projects Setup,إعداد المشاريع
+Create Project,إنشاء مشروع
+Create Task,إنشاء مهمة
+View Project Summary,عرض ملخص المشروع
+Import Data,استيراد البيانات

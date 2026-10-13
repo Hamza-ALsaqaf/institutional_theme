@@ -52,6 +52,12 @@ class TestWebContent(IntegrationTestCase):
 		self.assertIn("restricted to authorised users", render()["body_include"])
 		self.assertIn("مقصور على المصرَّح لهم", render(lang="ar")["body_include"])
 
+	def test_login_title_is_translated(self) -> None:
+		self.assertEqual(render(title="Login")["title"], "Login")
+		self.assertEqual(render(lang="ar", title="Login")["title"], "دخول")
+		self.assertEqual(render(lang="ar", title="Acme - Login")["title"], "Acme - دخول")
+		self.assertNotIn("title", render("www/update-password.html", title="Update Password"))
+
 	def test_notice_follows_page_language_with_fallback(self) -> None:
 		helpers.set_settings(authorised_use_notice=NOTICE_EN, authorised_use_notice_ar=NOTICE_AR)
 		self.assertIn(NOTICE_AR, render(lang="ar")["body_include"])

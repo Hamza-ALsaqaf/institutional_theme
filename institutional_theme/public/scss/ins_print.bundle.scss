@@ -377,6 +377,28 @@
 // alignment with physical classes (`text-right` for figures); in Arabic figures sit at the line end (left)
 // and text at the line start (right), set here so it does not depend on which stylesheet loaded last.
 [dir="rtl"] .print-format {
+	// Label blocks: a label that stays English (ERPNext hard-codes "Customer Name:" and "Bill to:" in the
+	// Quotation print formats) must keep its colon after the words. Each block takes its direction from
+	// its own first strong letter; the physical right edge keeps the column alignment. Chromium honours
+	// it; wkhtmltopdf's old WebKit ignores both values and still shows ":Customer Name" (no CSS fix exists).
+	div.info-text {
+		text-align: right;
+		unicode-bidi: -webkit-plaintext;
+		unicode-bidi: plaintext;
+	}
+
+	// The in-words label loses its trailing space in translation (core strips the key and the value), so
+	// the label and the amount in words would touch.
+	span.title {
+		margin-left: 0.35em; // physical: wkhtmltopdf's WebKit has no logical margins; this block is RTL only
+	}
+
+	// Arabic letters join; tracking breaks the word apart, so the watermark is not spaced.
+	[document-status="draft"] h4,
+	[document-status="cancelled"] h4 {
+		letter-spacing: 0;
+	}
+
 	td.text-right,
 	th.text-right {
 		text-align: left;

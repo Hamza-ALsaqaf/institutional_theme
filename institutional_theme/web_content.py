@@ -193,11 +193,16 @@ def update_website_context(context) -> dict | None:
 				frappe.utils.escape_html(_("Show password")), frappe.utils.escape_html(_("Hide password"))
 			)
 		flags = " ins-has-masthead ins-auth" if auth else " ins-error"
-		return {
+		values = {
 			"banner_html": masthead + str(context.get("banner_html") or ""),
 			"body_include": str(context.get("body_include") or "") + footer + labels,
 			"body_class": str(context.get("body_class") or "") + flags,
 		}
+		title = str(context.get("title") or "")
+		if template == "www/login.html" and title.endswith("Login"):
+			# Core sets `context["title"] = "Login"` without `_()` (www/login.py:45), so the tab reads English.
+			values["title"] = title[: -len("Login")] + _("Login")
+		return values
 	except Exception:
 		frappe.log_error(title="Institutional Theme: web content", defer_insert=True)
 		return None
