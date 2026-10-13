@@ -41,7 +41,7 @@ institutional_theme/        the Frappe app package
 - Python: tabs, ruff (configuration in `pyproject.toml`), type hints on public functions.
 - CSS namespace `--ins-*`; root attributes `data-ins-*`; bundle names start with `ins_`.
 - Commits: conventional prefixes (`feat:`, `fix:`, `docs:`, `test:`, `chore:`), one concern per commit.
-- Work on a branch and open a pull request. Do not push to `main`.
+- Work on the branch `build/midad-v1`; commit and push after every completed task. `main` is fast-forwarded only to a commit whose phase gate passed, so it is always shippable.
 - Documentation and code comments are in English. Every user-visible string is wrapped for translation and has an Arabic entry.
 
 ## Working economically
@@ -51,5 +51,5 @@ The owner has a usage limit. Respect it.
 - Read the files named for your task, not the repository. Use search before opening large files.
 - Do not re-derive what the findings file already establishes; re-verify only the lines you depend on.
 - Do not spawn an agent for something a few tool calls would do.
-- When blocked, stop and report what you found. Do not loop.
+- When blocked, report what you found to the lead and do not loop. The lead decides; the run is autonomous and nobody waits for the owner (see `docs/team/WORKFLOW.md`, Autonomous mode).
 - Reviewers read the diff and the files it touches, not everything.

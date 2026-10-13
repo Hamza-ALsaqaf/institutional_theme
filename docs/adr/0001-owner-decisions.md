@@ -26,8 +26,8 @@ Dependency-free Python, shared by the build pipeline, the audits and the runtime
 ## D7. Behaviour is opt-in
 The idle-session warning and the connection banner change behaviour, not appearance. They ship disabled and are enabled in settings.
 
-## D8. Delivery
-The owner pushes this repository to GitHub. Agents work on branches and open pull requests against `main`.
+## D8. Delivery and autonomy
+The owner pushes this repository to GitHub and starts one run. The team then works **fully autonomously, with no questions to the owner**, through every phase. Work happens on `build/midad-v1`; `main` is fast-forwarded to each gate-verified commit, so it always holds a working product. Decisions taken on the owner's behalf are recorded in `docs/team/OWNER_REVIEW.md`.
 
 ## Open, for the architect to decide in Phase 1
 Write one short record each (`0002` onwards), with the alternatives considered and the reason.
