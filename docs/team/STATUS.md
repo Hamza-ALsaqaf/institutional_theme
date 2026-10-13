@@ -31,7 +31,7 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Next step
 
-PAUSED at 15:5x UTC on the owner's instruction (stop consuming cloud session credits). Every agent was stopped mid-task; their partial work is committed as an unverified snapshot on `build/midad-v1`. `main` is still at e4015f7 (Phase 0 and Phase 1 gates).
+PAUSED at 15:52 UTC on the owner's instruction (stop consuming cloud session credits). Every agent was stopped mid-task; their partial work is committed as an unverified snapshot on `build/midad-v1`. `main` is still at e4015f7 (Phase 0 and Phase 1 gates).
 
 To resume, re-dispatch the seven tasks listed under "Tasks in flight" with the same file ownership (dispatch texts follow `docs/team/RUN_RULES.md`); each agent first reads `git diff e4015f7 -- <its files>` to pick up its partial work. Order of value: (1) backend-R1 Part 1 (Phase 2 fix round; marker `docs/team/evidence/phase2/fixround/DONE.md`) and the ADR 0010 token edits (evidence `docs/team/evidence/phase2/adr0010.md`) together with css-C's two ADR 0010 rules in `desk/_controls.scss`, then the Phase 2 gate; (2) Phase 3 P0. Remove the stray `mkusers.sh` at the repository root. The bench needs `tools/bench/start_services.sh` after a container restart.
 
@@ -62,3 +62,4 @@ To resume, re-dispatch the seven tasks listed under "Tasks in flight" with the s
 19. The Phase 2 fix-round backend agent was stopped by an accidental interruption; its uncommitted work was kept and a new agent (backend-R1) finishes it before starting the Phase 3 runtime.
 20. ADR 0010 accepted: fields drawn on `surface-field` as in the approved artboards (mapping fix, no value change); one approved value changed (`surface-selected-strong` dark 0.35→0.34 L); default chart series reordered 1,5,3,2,6,4 (deviation); remaining chart gaps accepted and baselined.
 21. Paused on the owner's instruction to stop consuming cloud session credits. This session's model usage cannot be routed through an API key stored in the repository, so the run was stopped and the owner informed before spending more.
+22. 16:30 UTC: the owner chose to continue on their own Anthropic API key. Added `.github/workflows/claude-resume.yml` (Claude Code in GitHub Actions with the `ANTHROPIC_API_KEY` secret; starts when a pull request from `build/midad-v1` to `main` is opened, reopened or labelled `claude-resume`; a pre-push hook refuses pushes to `main`) and `docs/team/RESUME_PROMPT.md` (the instructions that run follows). No cloud agents were restarted.
