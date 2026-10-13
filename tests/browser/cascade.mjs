@@ -62,12 +62,14 @@ const palettes = [
 	{ id: "midad", order: ["core", "desk"], files: baseFiles },
 	{ id: "graphite-after", order: ["core", "desk", "graphite"], files: [...baseFiles, paletteFile] },
 	{ id: "graphite-before", order: ["core", "graphite", "desk"], files: [...baseFiles, paletteFile] },
+	// upgrade-phase2 item 6: the other installed app's rules (harness/second_app.css) load after ins_desk.
+	{ id: "second-app", order: ["core", "desk", "other"], files: baseFiles },
 ];
 const colorScheme = { light: "light", dark: "dark", automatic: "light dark" };
 
 const html = readFileSync(join(here, "harness/fixture.html"), "utf8");
 function pageFor(dir, pal, mode) {
-	const sheet = { core: core[dir === "rtl" ? "rtl" : "ltr"], desk: built.desk[dir], graphite: built.graphite[dir] };
+	const sheet = { core: core[dir === "rtl" ? "rtl" : "ltr"], desk: built.desk[dir], graphite: built.graphite[dir], other: join(here, "harness/second_app.css") };
 	const links = pal.order.map((k) => `<link rel="stylesheet" href="${pathToFileURL(sheet[k])}">`).join("\n");
 	const file = join(outDir, `page-${dir}-${pal.id}-${mode.id}.html`);
 	writeFileSync(file, html.replace("{{LINKS}}", links).replace("{{DIR}}", dir).replace("{{LANG}}", dir === "rtl" ? "ar" : "en")
@@ -195,6 +197,19 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 		for (const [name, rgb] of c.rowBgs) { const r = ratio(c.ring, rgb); record(scenario, `checkbox #${id}: ring vs ${name} >= 3`, ">= 3", r.toFixed(2), r >= 3); }
 		if (c.checked) { const rf = ratio(c.ring, c.fill); record(scenario, `checkbox #${id}: ring vs checked fill (info; ring is outside, fill is not adjacent)`, "info", rf.toFixed(2), true); }
 	}
+	// Border widths below 2px compute to 1px at device-pixel ratio 1, so the 1.5px ring is asserted as 1px or 1.5px.
+	// Second app (findings 8): its (0,2,0) and (0,3,0) `.btn-primary` rules and its (0,1,1) --font-stack must lose to the theme.
+	const sa = await page.evaluate(() => {
+		const tok = (n) => { const e = document.createElement("i"); e.style.backgroundColor = `var(${n})`; document.body.append(e); const c = getComputedStyle(e).backgroundColor; e.remove(); return c; };
+		const r = getComputedStyle(document.documentElement);
+		return { bg: getComputedStyle(document.getElementById("act-approve")).backgroundColor, primary: tok("--ins-primary"), stack: r.getPropertyValue("--font-stack").trim(), sans: r.getPropertyValue("--ins-font-sans").trim(), hoverWant: tok("--ins-primary-hover") };
+	});
+	record(scenario, ".btn-primary background = --ins-primary (beats [data-theme=light] .btn-primary)", sa.primary, sa.bg, sa.bg === sa.primary);
+	record(scenario, "--font-stack = --ins-font-sans (beats html[lang=ar] --font-stack)", sa.sans, sa.stack, sa.stack === sa.sans);
+	await page.hover("#act-approve");
+	const hv = await page.evaluate(() => getComputedStyle(document.getElementById("act-approve")).backgroundColor);
+	record(scenario, ".btn-primary:hover background = --ins-primary-hover", sa.hoverWant, hv, hv === sa.hoverWant);
+	await page.mouse.move(0, 0);
 	// Autofill cover must survive focus: the reset is skipped for :-webkit-autofill, so the rule text is the proof available headless.
 	const afRule = await page.evaluate(() => [...document.styleSheets].flatMap((s) => { try { return [...s.cssRules]; } catch { return []; } }).filter((r) => r.selectorText && /box-shadow/.test(r.cssText) && /focus-visible/.test(r.selectorText) && /autofill/.test(r.selectorText)).length);
 	record(scenario, "box-shadow reset excludes :-webkit-autofill", ">= 1 rule", String(afRule), afRule >= 1);
@@ -262,9 +277,9 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	record(scenario, "pill green (no-indicator-dot): check shape", "2px right border, rotated", `${pl["pill-green"].bw} ${pl["pill-green"].tf}`, pl["pill-green"].bw === "2px" && pl["pill-green"].tf !== "none" && pl["pill-green"].content === '""');
 	record(scenario, "pill red: cross (two gradients)", "2 linear-gradients", pl["pill-red"].bgi.slice(0, 60), (pl["pill-red"].bgi.match(/linear-gradient/g) || []).length === 2);
 	record(scenario, "pill orange: half disc (gradient and round)", "50% radius and gradient", `${pl["pill-orange"].radius} ${pl["pill-orange"].bgi.slice(0, 30)}`, /linear-gradient/.test(pl["pill-orange"].bgi) && /50%|4\.5px/.test(pl["pill-orange"].radius));
-	record(scenario, "Draft (form title, data-ins-docstatus=0): ring on the neutral pair", `ring, ${p3.pillBg.neutral}`, `${pl["pill-title-draft"].radius} ${pl["pill-title-draft"].bgi}`, pl["pill-title-draft"].bgi === "none" && pl["pill-title-draft"].bw === "1.5px");
+	record(scenario, "Draft (form title, data-ins-docstatus=0): ring on the neutral pair", `ring, ${p3.pillBg.neutral}`, `${pl["pill-title-draft"].radius} ${pl["pill-title-draft"].bgi}`, pl["pill-title-draft"].bgi === "none" && /^1(\.5)?px$/.test(pl["pill-title-draft"].bw));
 	record(scenario, "Cancelled (form title, data-ins-docstatus=2): filled square", "1px radius, filled", `${pl["pill-title-cancelled"].radius} ${pl["pill-title-cancelled"].bg}`, pl["pill-title-cancelled"].radius === "1px" && pl["pill-title-cancelled"].bg !== "rgba(0, 0, 0, 0)");
-	record(scenario, "Draft (list data-filter): neutral pair, ring", `${p3.pillBg.neutral}`, `${p3.pillBg.draft} ${pl["pill-draft"].bw}`, p3.pillBg.draft === p3.pillBg.neutral && pl["pill-draft"].bw === "1.5px");
+	record(scenario, "Draft (list data-filter): neutral pair, ring", `${p3.pillBg.neutral}`, `${p3.pillBg.draft} ${pl["pill-draft"].bw}`, p3.pillBg.draft === p3.pillBg.neutral && /^1(\.5)?px$/.test(pl["pill-draft"].bw));
 	record(scenario, "Cancelled (list data-filter): muted pair, square", `${p3.pillBg.muted}`, `${p3.pillBg.cancelled} ${pl["pill-cancelled"].radius}`, p3.pillBg.cancelled === p3.pillBg.muted && pl["pill-cancelled"].radius === "1px");
 	record(scenario, "Rejected (red) differs in shape from Draft and Cancelled", "cross vs ring vs square", `${pl["pill-red"].bgi.slice(0, 12)} | ${pl["pill-draft"].bw} | ${pl["pill-cancelled"].radius}`, pl["pill-red"].bgi !== pl["pill-draft"].bgi && pl["pill-draft"].radius !== pl["pill-cancelled"].radius);
 	record(scenario, "black pill gets the ink pair", p3.pillBg.ink, p3.pillBg.black, p3.pillBg.black === p3.pillBg.ink);

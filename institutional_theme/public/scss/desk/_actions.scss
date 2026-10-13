@@ -32,6 +32,25 @@
 
 // ---- Buttons. Core: `.btn.btn-primary` and `.btn.btn-secondary` (common/buttons.scss:80,117) at (0,2,0) to (0,3,0) with hover,
 // active and focus variants. Here: html:root[dir] (0,2,1) + attribute + class = (0,4,1); hover and active add one class.
+// Primary button as property rules, not only the mapped --btn-primary: another installed app may set `background` on
+// `[data-theme=light] .btn-primary` at (0,2,0) and its `:hover` at (0,3,0) (findings 8), which a variable cannot beat.
+// Here (0,4,1), hover and active (0,5,1). Core's `.btn-primary:active { color: ... !important }` (buttons.scss:~124) is not overridden.
+html:root[dir] .btn.btn-primary {
+	background-color: var(--ins-primary);
+	border-color: var(--ins-primary);
+	color: var(--ins-on-primary);
+}
+
+html:root[dir] .btn.btn-primary:hover {
+	background-color: var(--ins-primary-hover);
+	border-color: var(--ins-primary-hover);
+}
+
+html:root[dir] .btn.btn-primary:active {
+	background-color: var(--ins-primary-active);
+	border-color: var(--ins-primary-active);
+}
+
 html:root[dir] :is(button, .btn)[data-ins-action="submit"]::before,
 html:root[dir] :is(button, .btn)[data-ins-action="approve"]::before {
 	@include ins-action-glyph(check);
