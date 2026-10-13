@@ -1,0 +1,21 @@
+// Hand-written. Tajawal (SIL OFL 1.1) with its own Latin subset, selected in Institutional Theme Settings.
+// Linked only while the pairing is "Tajawal" (ADR 0004).
+//
+// @fontsource/tajawal 5.3.0 ships 200, 300, 400, 500, 700, 800 and 900; there is no 600. The 700 file
+// answers 600 and 700 requests (`font-weight: 600 700`), so semibold UI text is real bold, not synthetic.
+@import "ranges";
+
+/*rtl:begin:ignore*/
+@include ins-face("Midad Tajawal Latin", 400, "tajawal/tajawal-latin-400-normal.woff2", $ins-range-latin);
+@include ins-face("Midad Tajawal Latin", 500, "tajawal/tajawal-latin-500-normal.woff2", $ins-range-latin);
+@include ins-face("Midad Tajawal Latin", "600 700", "tajawal/tajawal-latin-700-normal.woff2", $ins-range-latin);
+
+@include ins-face("Midad Tajawal", 400, "tajawal/tajawal-arabic-400-normal.woff2", $ins-range-arabic);
+@include ins-face("Midad Tajawal", 500, "tajawal/tajawal-arabic-500-normal.woff2", $ins-range-arabic);
+@include ins-face("Midad Tajawal", "600 700", "tajawal/tajawal-arabic-700-normal.woff2", $ins-range-arabic);
+
+html:root[dir][lang] {
+	--ins-font-sans: "Midad Tajawal", "Midad Tajawal Latin", "Midad Plex Sans Arabic", "Midad Plex Sans", system-ui, sans-serif;
+	--ins-font-arabic: "Midad Tajawal", "Midad Plex Sans Arabic", system-ui, sans-serif;
+}
+/*rtl:end:ignore*/

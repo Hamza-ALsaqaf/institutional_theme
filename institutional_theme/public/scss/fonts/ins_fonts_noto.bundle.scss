@@ -1,0 +1,19 @@
+// Hand-written. Noto Sans Arabic and Noto Sans (SIL OFL 1.1), selected in Institutional Theme Settings.
+// Linked only while the pairing is "Noto" (ADR 0004). The Plex pair stays loaded by ins_desk and
+// follows in the stack, so a glyph missing from a Noto subset still has a Plex fallback.
+@import "ranges";
+
+/*rtl:begin:ignore*/
+@include ins-face("Midad Noto Sans", 400, "noto/noto-sans-latin-400-normal.woff2", $ins-range-latin);
+@include ins-face("Midad Noto Sans", 500, "noto/noto-sans-latin-500-normal.woff2", $ins-range-latin);
+@include ins-face("Midad Noto Sans", 600, "noto/noto-sans-latin-600-normal.woff2", $ins-range-latin);
+
+@include ins-face("Midad Noto Sans Arabic", 400, "noto/noto-sans-arabic-arabic-400-normal.woff2", $ins-range-arabic);
+@include ins-face("Midad Noto Sans Arabic", 500, "noto/noto-sans-arabic-arabic-500-normal.woff2", $ins-range-arabic);
+@include ins-face("Midad Noto Sans Arabic", 600, "noto/noto-sans-arabic-arabic-600-normal.woff2", $ins-range-arabic);
+
+html:root[dir][lang] {
+	--ins-font-sans: "Midad Noto Sans Arabic", "Midad Noto Sans", "Midad Plex Sans Arabic", "Midad Plex Sans", system-ui, sans-serif;
+	--ins-font-arabic: "Midad Noto Sans Arabic", "Midad Plex Sans Arabic", system-ui, sans-serif;
+}
+/*rtl:end:ignore*/

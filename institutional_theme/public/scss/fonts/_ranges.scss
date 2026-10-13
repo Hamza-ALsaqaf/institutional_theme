@@ -1,0 +1,25 @@
+// Hand-written. Unicode ranges shared by every font pairing (ADR 0004).
+//
+// The Arabic faces own the Arabic blocks and the joiners U+200C-200F. Latin digits, Latin letters
+// and punctuation (U+0000-00FF) are not in this range, so they always come from the Latin face of
+// the pairing, whichever Arabic face is selected. Arabic-Indic digits (U+0660-0669) sit inside
+// U+0600-06FF and therefore come from the Arabic face.
+$ins-range-arabic: "U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F";
+
+// The Latin subset of the @fontsource files (identical for every family in this folder).
+$ins-range-latin: "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD";
+
+// Absolute, as the Frappe bundler requires (findings section 3); relative url() values fail the build.
+$ins-font-path: "/assets/institutional_theme/fonts";
+
+// One @font-face. `$weight` is a number or a range such as "600 700". font-display is always swap.
+@mixin ins-face($family, $weight, $file, $range) {
+	@font-face {
+		font-family: $family;
+		font-style: normal;
+		font-weight: #{$weight};
+		font-display: swap;
+		src: url("#{$ins-font-path}/#{$file}") format("woff2");
+		unicode-range: #{$range};
+	}
+}

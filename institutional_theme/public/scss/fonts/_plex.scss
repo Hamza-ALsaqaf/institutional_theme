@@ -1,0 +1,29 @@
+// Hand-written. IBM Plex under private family names (CLAUDE.md, ADR 0004).
+//
+// Another app on the owner's bench registers "IBM Plex Sans Arabic"; these names cannot clash with it.
+// Imported by ins_desk and ins_web. The faces are WOFF2 subsets from @fontsource 5.3.0 (docs/FONTS.md).
+@import "ranges";
+
+// Plex Sans, Latin subset
+@include ins-face("Midad Plex Sans", 400, "plex/ibm-plex-sans-latin-400-normal.woff2", $ins-range-latin);
+@include ins-face("Midad Plex Sans", 500, "plex/ibm-plex-sans-latin-500-normal.woff2", $ins-range-latin);
+@include ins-face("Midad Plex Sans", 600, "plex/ibm-plex-sans-latin-600-normal.woff2", $ins-range-latin);
+
+// Plex Sans Arabic, Arabic subset
+@include ins-face("Midad Plex Sans Arabic", 400, "plex/ibm-plex-sans-arabic-arabic-400-normal.woff2", $ins-range-arabic);
+@include ins-face("Midad Plex Sans Arabic", 500, "plex/ibm-plex-sans-arabic-arabic-500-normal.woff2", $ins-range-arabic);
+@include ins-face("Midad Plex Sans Arabic", 600, "plex/ibm-plex-sans-arabic-arabic-600-normal.woff2", $ins-range-arabic);
+
+// Plex Mono. Weight 600 requests resolve to the 500 face; nothing is synthesised.
+@include ins-face("Midad Plex Mono", 400, "plex/ibm-plex-mono-latin-400-normal.woff2", $ins-range-latin);
+@include ins-face("Midad Plex Mono", 500, "plex/ibm-plex-mono-latin-500-normal.woff2", $ins-range-latin);
+
+// Stacks run Arabic, Latin, then the system. `--ins-font-sans` is core's `--font-stack` through the
+// generated Frappe map. The selector is (0,2,1): above core's :root and Bootstrap's :root. A pairing
+// bundle or the uploaded-font file overrides these at html:root[dir][lang] (0,3,1).
+html:root[dir] {
+	--ins-font-sans: "Midad Plex Sans Arabic", "Midad Plex Sans", system-ui, sans-serif;
+	--ins-font-arabic: "Midad Plex Sans Arabic", system-ui, sans-serif;
+	--ins-font-mono: "Midad Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+	font-synthesis: none;
+}
