@@ -51,7 +51,9 @@ class GeneratedModel(unittest.TestCase):
 class Contrast(unittest.TestCase):
 	def test_midad_passes_every_pair_in_both_modes(self):
 		results = model.contrast_results(MODEL, model.palette(MODEL, "midad"))
-		self.assertEqual(len(results), 362)
+		# 213 pairs x 2 modes: 181 before ADR 0010, plus the 32 pairs its `contrast.groups` edits add
+		# (12 body text, 4 help text, 3 hover and selected rows, 6 boundary, 7 disabled text).
+		self.assertEqual(len(results), 426)
 		self.assertEqual([r for r in results if not r.passed], [])
 
 	def test_every_shipped_preset_passes_every_pair(self):

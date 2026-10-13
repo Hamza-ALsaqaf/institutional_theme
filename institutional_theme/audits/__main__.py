@@ -78,10 +78,13 @@ def main(argv: list[str] | None = None) -> int:
 	failures += len(failed_checks)
 
 	# Colour vision
-	lines, status_failures, chart_gaps = colour_vision.report(model, palettes)
+	lines, vision_failures, chart_gaps = colour_vision.report(model, palettes)
 	outputs["colour_vision.txt"] = "\n".join(lines) + "\n"
-	print(f"colour-vision: {status_failures} status failure(s), {chart_gaps} chart gap(s) in shipped presets")
-	failures += status_failures
+	print(
+		f"colour-vision: {vision_failures} failure(s) (status, neighbouring series, gap not in the "
+		f"baseline), {chart_gaps} baselined chart gap(s) in shipped presets"
+	)
+	failures += vision_failures
 	if args.strict:
 		failures += chart_gaps
 

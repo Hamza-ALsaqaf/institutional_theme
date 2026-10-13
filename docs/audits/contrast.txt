@@ -6,16 +6,16 @@ Light and Dark. A pair below its minimum fails; below its target only counts as 
 The row shows the closest pair of the group (lowest ratio; highest for max rules).
 
 == midad (shipped)
--- light: 181 pairs, 0 failing, 2 below target
-  ok     7.40:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-active]
-  ok     4.61:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-sunken]
-  ok     5.69:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-hover]
+-- light: 213 pairs, 0 failing, 7 below target
+  ok     7.40:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-active]
+  ok     4.61:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-sunken]
+  ok     5.26:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-active]
   ok     6.73:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover] below target
   ok     7.69:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok     8.27:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     5.54:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    17.31:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     4.41:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     4.41:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.01:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-disabled]
   ok     8.01:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok    12.83:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg]
@@ -37,7 +37,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    10.24:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    10.50:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok    10.24:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.18:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-sunken]
+  ok     3.04:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     5.09:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-hover]
   ok     7.84:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-sunken]
   ok     5.54:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-base]
@@ -49,16 +49,16 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.84:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-base]
   ok     3.04:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.19:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
--- dark: 181 pairs, 0 failing, 6 below target
-  ok     6.06:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-selected-strong] below target
-  ok     4.80:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-overlay]
-  ok     5.42:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-selected]
+-- dark: 213 pairs, 0 failing, 8 below target
+  ok     6.32:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-selected-strong] below target
+  ok     4.80:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-overlay]
+  ok     4.69:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-selected-strong]
   ok     8.22:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover]
   ok     7.96:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok    10.23:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     6.78:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    14.70:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     3.70:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     3.70:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.97:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-raised]
   ok    10.47:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok     6.74:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg] below target
@@ -80,7 +80,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    12.16:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    12.19:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok     7.11:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.41:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-overlay]
+  ok     3.10:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     7.96:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-selected]
   ok     9.03:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-overlay]
   ok     6.15:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-overlay]
@@ -88,22 +88,22 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.03:1     >= 3  Accent rule and active marker [3 pairs; closest accent on surface-raised]
   ok    11.35:1   >= 4.5  Accent text [3 pairs; closest accent-text on accent-subtle]
   ok     6.54:1     >= 3  Icons [6 pairs; closest --icon-stroke on surface-active]
-  ok     3.15:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-6 on surface-raised]
+  ok     3.15:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-5 on surface-raised]
   ok     8.97:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-raised]
   ok     3.94:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.27:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
 
 == graphite (shipped)
--- light: 181 pairs, 0 failing, 2 below target
-  ok     7.40:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-active]
-  ok     4.61:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-sunken]
-  ok     5.69:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-hover]
+-- light: 213 pairs, 0 failing, 7 below target
+  ok     7.40:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-active]
+  ok     4.61:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-sunken]
+  ok     5.26:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-active]
   ok     6.73:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover] below target
   ok     7.65:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok     8.22:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     5.54:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    17.31:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     4.41:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     4.41:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.01:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-disabled]
   ok     8.01:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok    12.83:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg]
@@ -125,7 +125,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    10.24:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    10.50:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok    10.24:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.18:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-sunken]
+  ok     3.04:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     5.09:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-hover]
   ok     7.79:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-sunken]
   ok     5.54:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-base]
@@ -137,16 +137,16 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.84:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-base]
   ok     3.04:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.19:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
--- dark: 181 pairs, 0 failing, 6 below target
-  ok     6.05:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-selected-strong] below target
-  ok     4.80:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-overlay]
-  ok     5.43:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-selected]
+-- dark: 213 pairs, 0 failing, 8 below target
+  ok     6.27:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-selected-strong] below target
+  ok     4.80:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-overlay]
+  ok     4.65:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-selected-strong]
   ok     8.22:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover]
   ok     7.99:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok    10.22:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     6.78:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    14.70:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     3.70:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     3.70:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.97:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-raised]
   ok    10.47:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok     6.74:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg] below target
@@ -168,7 +168,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    12.16:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    12.19:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok     7.11:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.41:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-overlay]
+  ok     3.10:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     7.99:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-selected]
   ok     9.04:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-overlay]
   ok     6.15:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-overlay]
@@ -176,22 +176,22 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.03:1     >= 3  Accent rule and active marker [3 pairs; closest accent on surface-raised]
   ok    11.35:1   >= 4.5  Accent text [3 pairs; closest accent-text on accent-subtle]
   ok     6.54:1     >= 3  Icons [6 pairs; closest --icon-stroke on surface-active]
-  ok     3.15:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-6 on surface-raised]
+  ok     3.15:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-5 on surface-raised]
   ok     8.97:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-raised]
   ok     3.94:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.27:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
 
 == petrol (shipped)
--- light: 181 pairs, 0 failing, 2 below target
-  ok     7.32:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-active]
-  ok     4.56:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-sunken]
-  ok     5.63:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-hover]
+-- light: 213 pairs, 0 failing, 7 below target
+  ok     7.32:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-active]
+  ok     4.56:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-sunken]
+  ok     5.19:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-active]
   ok     6.75:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover] below target
   ok     7.46:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok     7.97:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     5.54:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    17.25:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     4.36:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     4.36:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     7.94:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-disabled]
   ok     7.94:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok    12.86:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg]
@@ -213,7 +213,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    10.24:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    10.50:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok    10.18:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.18:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-sunken]
+  ok     3.04:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     4.90:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-hover]
   ok     7.58:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-sunken]
   ok     5.54:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-base]
@@ -225,16 +225,16 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.73:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-base]
   ok     3.04:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.19:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
--- dark: 181 pairs, 0 failing, 6 below target
-  ok     5.93:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-selected-strong] below target
-  ok     4.80:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-overlay]
-  ok     5.32:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-selected]
+-- dark: 213 pairs, 0 failing, 8 below target
+  ok     6.19:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-selected-strong] below target
+  ok     4.80:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-overlay]
+  ok     4.56:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-selected-strong]
   ok     8.12:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover]
   ok     7.97:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok    10.34:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     6.78:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    14.66:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     3.70:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     3.70:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.99:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-raised]
   ok    10.41:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok     6.67:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg] below target
@@ -256,7 +256,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    12.16:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    12.19:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok     7.13:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.41:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-overlay]
+  ok     3.08:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     7.97:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-selected]
   ok     9.15:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-overlay]
   ok     6.12:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-overlay]
@@ -264,22 +264,22 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     7.97:1     >= 3  Accent rule and active marker [3 pairs; closest accent on surface-raised]
   ok    11.29:1   >= 4.5  Accent text [3 pairs; closest accent-text on accent-subtle]
   ok     6.55:1     >= 3  Icons [6 pairs; closest --icon-stroke on surface-active]
-  ok     3.14:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-6 on surface-raised]
+  ok     3.14:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-5 on surface-raised]
   ok     8.99:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-raised]
   ok     3.93:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.28:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
 
 == forest (shipped)
--- light: 181 pairs, 0 failing, 2 below target
-  ok     7.31:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-active]
-  ok     4.54:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-sunken]
-  ok     5.59:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-hover]
+-- light: 213 pairs, 0 failing, 7 below target
+  ok     7.31:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-active]
+  ok     4.54:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-sunken]
+  ok     5.18:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-active]
   ok     6.74:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover] below target
   ok     7.36:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok     7.92:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     5.54:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    17.19:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     4.33:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     4.33:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     7.89:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-disabled]
   ok     7.89:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok    12.79:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg]
@@ -301,7 +301,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    10.24:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    10.50:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok    10.17:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.17:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-sunken]
+  ok     3.02:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     4.89:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-hover]
   ok     7.54:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-sunken]
   ok     5.54:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-base]
@@ -313,16 +313,16 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.69:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-base]
   ok     3.02:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.19:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
--- dark: 181 pairs, 0 failing, 6 below target
-  ok     5.90:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-selected-strong] below target
-  ok     4.75:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-overlay]
-  ok     5.34:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-selected]
+-- dark: 213 pairs, 0 failing, 8 below target
+  ok     6.16:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-selected-strong] below target
+  ok     4.75:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-overlay]
+  ok     4.57:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-selected-strong]
   ok     8.16:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover]
   ok     7.95:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok    10.26:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     6.78:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    14.78:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     3.70:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     3.70:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.92:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-raised]
   ok    10.34:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok     6.69:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg] below target
@@ -344,7 +344,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    12.16:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    12.19:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok     7.16:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.41:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-overlay]
+  ok     3.11:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     7.95:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-selected]
   ok     9.08:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-overlay]
   ok     6.09:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-overlay]
@@ -352,22 +352,22 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.00:1     >= 3  Accent rule and active marker [3 pairs; closest accent on surface-raised]
   ok    11.44:1   >= 4.5  Accent text [3 pairs; closest accent-text on accent-subtle]
   ok     6.51:1     >= 3  Icons [6 pairs; closest --icon-stroke on surface-active]
-  ok     3.12:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-6 on surface-raised]
+  ok     3.12:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-5 on surface-raised]
   ok     8.92:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-raised]
   ok     3.97:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.28:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
 
 == plum (shipped)
--- light: 181 pairs, 0 failing, 2 below target
-  ok     7.48:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-active]
-  ok     4.63:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-sunken]
-  ok     5.69:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-hover]
+-- light: 213 pairs, 0 failing, 7 below target
+  ok     7.48:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-active]
+  ok     4.63:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-sunken]
+  ok     5.26:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-active]
   ok     6.70:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover] below target
   ok     8.06:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok     8.68:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     5.54:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    17.46:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     4.42:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     4.42:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.09:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-disabled]
   ok     8.09:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok    12.92:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg]
@@ -389,7 +389,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    10.24:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    10.50:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok    10.38:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.21:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-sunken]
+  ok     3.05:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     5.34:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-hover]
   ok     8.22:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-sunken]
   ok     5.54:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-base]
@@ -401,16 +401,16 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.97:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-base]
   ok     3.05:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.20:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
--- dark: 181 pairs, 0 failing, 6 below target
-  ok     6.19:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-selected-strong] below target
-  ok     4.79:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-overlay]
-  ok     5.47:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-selected]
+-- dark: 213 pairs, 0 failing, 8 below target
+  ok     6.40:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-selected-strong] below target
+  ok     4.79:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-overlay]
+  ok     4.73:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-selected-strong]
   ok     8.29:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover]
   ok     7.95:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok    10.11:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     6.78:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    14.71:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     3.67:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     3.67:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.93:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-raised]
   ok    10.47:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok     6.75:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg] below target
@@ -432,7 +432,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    12.16:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    12.19:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok     7.09:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.41:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-overlay]
+  ok     3.10:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     7.95:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-selected]
   ok     8.89:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-overlay]
   ok     6.20:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-overlay]
@@ -440,22 +440,22 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.06:1     >= 3  Accent rule and active marker [3 pairs; closest accent on surface-raised]
   ok    11.35:1   >= 4.5  Accent text [3 pairs; closest accent-text on accent-subtle]
   ok     6.53:1     >= 3  Icons [6 pairs; closest --icon-stroke on surface-active]
-  ok     3.16:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-6 on surface-raised]
+  ok     3.16:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-5 on surface-raised]
   ok     8.93:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-raised]
   ok     3.93:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.27:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
 
 == umber (NOT SHIPPED)
--- light: 181 pairs, 0 failing, 2 below target
-  ok     7.41:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-active]
-  ok     4.61:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-sunken]
-  ok     5.70:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-hover]
+-- light: 213 pairs, 0 failing, 7 below target
+  ok     7.41:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-active]
+  ok     4.61:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-sunken]
+  ok     5.26:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-active]
   ok     6.73:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover] below target
   ok     7.91:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok     8.48:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     5.54:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    17.41:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     4.42:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     4.42:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.03:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-disabled]
   ok     8.03:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok    12.93:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg]
@@ -477,7 +477,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    10.24:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    10.50:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok    10.23:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.19:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-sunken]
+  ok     3.05:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     5.27:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-hover]
   ok     8.02:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-sunken]
   ok     5.54:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-base]
@@ -489,16 +489,16 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.86:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-base]
   ok     3.05:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.19:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]
--- dark: 181 pairs, 0 failing, 6 below target
-  ok     6.11:1   >= 4.5  Body text and headings [27 pairs; closest text-secondary on surface-selected-strong] below target
-  ok     4.77:1   >= 4.5  Help, caption and placeholder text [10 pairs; closest text-placeholder on surface-overlay]
-  ok     5.43:1   >= 4.5  Help text on hover and selected rows [2 pairs; closest text-muted on surface-selected]
+-- dark: 213 pairs, 0 failing, 8 below target
+  ok     6.39:1   >= 4.5  Body text and headings [39 pairs; closest text-secondary on surface-selected-strong] below target
+  ok     4.77:1   >= 4.5  Help, caption and placeholder text [14 pairs; closest text-placeholder on surface-overlay]
+  ok     4.71:1   >= 4.5  Help text on hover and selected rows [5 pairs; closest text-muted on surface-selected-strong]
   ok     8.27:1   >= 4.5  Links [10 pairs; closest text-link on surface-hover]
   ok     7.93:1   >= 4.5  Primary-coloured text [8 pairs; closest primary-text on primary-subtle]
   ok    10.11:1   >= 4.5  Text on primary action [3 pairs; closest on-primary on primary]
   ok     6.78:1   >= 4.5  Text on destructive action [2 pairs; closest on-danger on danger]
   ok    14.73:1   >= 4.5  Text on inverse surface (tooltips) [1 pairs; closest text-inverse on surface-inverse]
-  ok     3.67:1     >= 3  Disabled text stays legible [3 pairs; closest text-disabled on surface-disabled] below target
+  ok     3.67:1     >= 3  Disabled text stays legible [10 pairs; closest text-disabled on surface-disabled] below target
   ok     8.94:1   >= 4.5  Read-only values [3 pairs; closest --disabled-text-color on surface-raised]
   ok    10.45:1   >= 4.5  Status pill: neutral [1 pairs; closest status-neutral-fg on status-neutral-bg]
   ok     6.77:1   >= 4.5  Status pill: muted [1 pairs; closest status-muted-fg on status-muted-bg] below target
@@ -520,7 +520,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok    12.16:1   >= 4.5  Banner and toast text: pending [1 pairs; closest feedback-pending-fg on feedback-pending-bg]
   ok    12.19:1   >= 4.5  Banner and toast text: danger [1 pairs; closest feedback-danger-fg on feedback-danger-bg]
   ok     7.13:1   >= 4.5  Body text on search highlight [1 pairs; closest text on mark-bg]
-  ok     3.40:1     >= 3  Input, checkbox and switch boundary [10 pairs; closest border-control on surface-overlay]
+  ok     3.10:1     >= 3  Input, checkbox and switch boundary [16 pairs; closest border-control on surface-hover]
   ok     7.93:1     >= 3  Focus ring against adjacent colours [8 pairs; closest focus on surface-selected]
   ok     8.91:1     >= 3  Primary button boundary against the page [4 pairs; closest primary on surface-overlay]
   ok     6.16:1     >= 3  Destructive button boundary against the page [3 pairs; closest danger on surface-overlay]
@@ -528,7 +528,7 @@ The row shows the closest pair of the group (lowest ratio; highest for max rules
   ok     8.09:1     >= 3  Accent rule and active marker [3 pairs; closest accent on surface-raised]
   ok    11.40:1   >= 4.5  Accent text [3 pairs; closest accent-text on accent-subtle]
   ok     6.55:1     >= 3  Icons [6 pairs; closest --icon-stroke on surface-active]
-  ok     3.15:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-6 on surface-raised]
+  ok     3.15:1     >= 3  Chart marks against the plot background [16 pairs; closest chart-5 on surface-raised]
   ok     8.94:1   >= 4.5  Chart labels [2 pairs; closest chart-label on surface-raised]
   ok     3.94:1     >= 3  Scrollbar thumb against its track [1 pairs; closest --scrollbar-thumb-color on --scrollbar-track-color]
   ok     1.27:1  <= 1.35  Chart gridlines stay quiet (at most 10% contrast step) [2 pairs; closest chart-grid on surface-base]

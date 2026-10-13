@@ -63,7 +63,9 @@ class FixtureReproduction(unittest.TestCase):
 		for mode in ("light", "dark"):
 			for new, old in ((2, 5), (4, 2), (5, 6), (6, 4)):
 				self.assertEqual(
-					deviations.SEMANTIC[(mode, f"chart-{new}")], sem[mode][f"chart-{old}"], f"{mode} chart-{new}"
+					deviations.SEMANTIC[(mode, f"chart-{new}")],
+					sem[mode][f"chart-{old}"],
+					f"{mode} chart-{new}",
 				)
 
 	def test_non_hex_semantic_values_resolve(self):
