@@ -30,3 +30,24 @@ The previous findings are resolved. The `/todo` diff after uninstall is back to 
 - Premailer output.
 - The masked-field ARIA with a screen reader.
 - A live socket disconnect.
+
+## Second pass (fix round 1)
+
+**Blocking now: None.** The kept Letter Head finding is resolved, with run evidence. Both templates now check `ins_identity is defined` (`print/letter_head.html:6-7`, `letter_head_footer.html:4`). The gate edits the record and prints with it after a real uninstall, in English and Arabic, as HTML and as wkhtmltopdf PDF. The result was "KEPT PRINT: ok" (`gate-final/kept-print.log`; `gate-commands.tsv` rows 14-18 exit 0). Residue was "none". 142 integration and 164 unit tests passed.
+
+`test_print_ship.py` is now safe on a live site. Neither `ship.py` nor `install.py` commits. The class cleanup rolls back (`integration_test_case.py:72,194`). `tearDown` restores the records and asserts the snapshot.
+
+The three Documentation items are fixed: 5 `!important`, `_website.scss:39`, and `after_install` VERIFIED.
+
+Minor issues, none blocking:
+- `kept-cleanup` leaves `Deleted Document` rows on the bench.
+- The `.btn` forced-colours border adds 2px, in that mode only.
+- `field_errors.js` re-queries a Table wrapper's grid inputs on every class change.
+- The guard row in manifest 2g still says COMPUTED. The gate run makes it VERIFIED.
+
+
+Scores:
+- **Upgrade-safety 4/5:** the kept record prints without the app (gate). Selector and inline-colour coupling remain.
+- **Performance 4/5:** one bounded observer per layout, filtered to `class`. `ins_web` CSS is still about 61 KiB (`build1.log`), and CI has no budget check.
+- **Documentation 4/5:** all three contradictions fixed. The new 2g rows label what is ASSUMED.
+- **Craft 4/5:** guarded templates, a test for records saved before the guard, and a non-destructive print test. The physical `margin-left` is justified.

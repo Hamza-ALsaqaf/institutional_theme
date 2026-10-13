@@ -33,3 +33,30 @@ Screen readers on the P0 flows; Windows High Contrast on real hardware; 200% and
 ## 4. Not tested
 
 Zoom 200/400%, `prefers-reduced-motion`, coarse pointer, screen readers, light-theme hover pairs (only Dark computed), the idle banner live, email clients, the website portal pages beyond one screenshot, and Tab order on dialogs.
+
+## Second pass (fix round 1)
+
+Designed to meet WCAG 2.2 AA; formal audit recommended. Re-checked live (`/tmp/a11yr2b/`).
+
+**Blocking:** None.
+
+**Majors: all four resolved.**
+- Appearance: visible `h1` "المظهر" (18px, 15.5:1 Dark); button `describedby="ins-apply-hint"` (7.1:1), cleared when enabled.
+- Errors: `invalid=true` in the accessibility tree on `subject` and `starts_on`, cleared after correction.
+- Forced colours: every page-head and list button has `solid 1px`.
+- Row tint: container, row and end block painted on hover and selection (Dark and Light); muted text 5.6:1 on Dark hover.
+
+**New (core markup):** form textboxes have an empty accessible name (label has no `for`). Major.
+
+**Remaining:** wkhtmltopdf ":Customer Name"; Gantt axis "October"; English lead sentence in the save dialog.
+
+| Dimension | Score | Evidence |
+|---|---|---|
+| Accessibility | 4 | Four closed; unnamed inputs remain |
+| RTL parity | 4 | Chromium print colons right; wkhtmltopdf not |
+| Dark-mode parity | 4 | Calendar frame fixed; chips lose colour |
+| Density and productivity | 5 | Whole-row tint |
+| Clarity and hierarchy | 5 | Visible title; reason for disabled |
+| Calm | 4 | Unchanged |
+| Consistency | 4 | 99 chart gaps remain |
+| Credibility | 4 | Login title "دخول"; some English stays |
