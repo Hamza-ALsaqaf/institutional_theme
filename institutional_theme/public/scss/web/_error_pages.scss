@@ -75,11 +75,19 @@ html body.ins-error {
 		// Technical detail on error.html is a traceback: keep it on the page, left to right, scrollable.
 		.error-content {
 			direction: ltr;
-			text-align: left;
+			text-align: start;
 			border: 1px solid var(--ins-border);
 			background-color: var(--ins-surface-sunken);
 			color: var(--ins-text);
 			font-family: var(--ins-font-mono);
+
+			// Core links `hljs-night-owl.css` on this page, which paints the code element dark navy. The page
+			// is always light and the traceback is plain text, so the block takes the surface above.
+			.hljs {
+				border-radius: 0;
+				background: transparent;
+				color: inherit;
+			}
 		}
 	}
 }

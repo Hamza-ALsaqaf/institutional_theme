@@ -1,0 +1,156 @@
+// Email styles for the `email_css` hook (ADR 0004). Premailer inlines this file into every message, so
+// every value is a literal from `generated/_literals.scss`: no custom properties, no `@font-face`, no
+// logical properties (mail clients do not read them), no flex or grid. Layout is the core table markup.
+// Equal specificity to core's `email.bundle.scss` (0,2,0 and up) and loaded after it, so these rules win.
+// Direction: core's template sets no `dir`, so text blocks use `unicode-bidi: plaintext`, which resolves the
+// direction of each paragraph from its first strong character; clients that ignore it show left to right.
+/*rtl:begin:ignore*/
+@import "generated/literals";
+
+$ins-email-font: "Segoe UI", Tahoma, Arial, "Helvetica Neue", sans-serif;
+
+body {
+	color: $ins-text-strong;
+	line-height: $ins-leading;
+}
+
+a {
+	color: $ins-text-link;
+}
+
+.body-table {
+	font-family: $ins-email-font;
+	color: $ins-text-strong;
+
+	td {
+		font-family: $ins-email-font;
+	}
+
+	.email-masthead a,
+	.brand-name {
+		color: $ins-brand;
+	}
+
+	.brand-name {
+		font-weight: $ins-weight-strong;
+		letter-spacing: 0;
+	}
+
+	// Every text block resolves its own direction from its first strong character. `text-align: start`
+	// follows that direction where the client supports it and is left otherwise.
+	.email-title-cell,
+	.email-body-cell,
+	.email-footer-cell,
+	.email-masthead,
+	p,
+	h1,
+	li,
+	.email-footer-container div {
+		unicode-bidi: plaintext;
+		text-align: start;
+	}
+}
+
+.body-table.with-container {
+	background-color: $ins-surface-sunken;
+	color: $ins-text-strong;
+
+	.email-container {
+		border: 1px solid $ins-border;
+		border-top: 4px solid $ins-brand;
+		border-radius: $ins-radius-md;
+		background-color: $ins-surface-base;
+
+		.email-masthead {
+			border-bottom: 3px double $ins-border-strong;
+		}
+
+		.email-footer-cell.filled {
+			border-top: 1px solid $ins-border-strong;
+			background-color: $ins-surface-sunken;
+		}
+	}
+}
+
+.with-container p {
+	color: $ins-text-secondary;
+}
+
+.email-header-title {
+	color: $ins-text-strong;
+	font-weight: $ins-weight-strong;
+	letter-spacing: 0;
+}
+
+.email-body a:not(.btn) {
+	color: $ins-text-link;
+	font-weight: $ins-weight-medium;
+	text-decoration: underline;
+}
+
+.email-footer-container {
+	color: $ins-text-muted;
+}
+
+.email-footer-container.with-divider {
+	border-top: 1px solid $ins-border-strong;
+}
+
+.btn {
+	border-radius: $ins-radius-sm;
+}
+
+.btn.btn-primary {
+	border: 1px solid $ins-primary;
+	background-color: $ins-primary;
+	color: $ins-on-primary;
+}
+
+.verification-code {
+	border: 2px solid $ins-text-strong;
+	background-color: $ins-surface-base;
+	color: $ins-text-strong;
+}
+
+.callout-warning {
+	border: 1px solid $ins-status-warning-border;
+	border-left: 4px solid $ins-status-warning-solid;
+	background-color: $ins-feedback-warning-bg;
+	color: $ins-feedback-warning-fg;
+}
+
+.table th,
+.table td {
+	border-top: 1px solid $ins-border-strong;
+	unicode-bidi: plaintext;
+	text-align: start;
+}
+
+.table > thead > tr > th {
+	border-bottom: 2px solid $ins-text-strong;
+}
+
+blockquote {
+	border-left: 2px solid $ins-border-strong;
+}
+
+.indicator-red {
+	background-color: $ins-status-danger-solid;
+}
+
+.indicator-green {
+	background-color: $ins-status-success-solid;
+}
+
+.indicator-orange {
+	background-color: $ins-status-pending-solid;
+}
+
+.indicator-blue {
+	background-color: $ins-status-progress-solid;
+}
+
+.indicator-gray {
+	background-color: $ins-status-neutral-solid;
+}
+/*rtl:end:ignore*/

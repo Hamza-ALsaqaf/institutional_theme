@@ -405,3 +405,11 @@ html[dir="rtl"] body[data-path="login"] .page-card-body :is(#login_email, #login
 html[dir="rtl"] body[data-path="update-password"] .page-card-body input[type="password"] {
 	text-align: end;
 }
+
+// Each heading and subtitle takes its direction from its own first strong character, so a string that
+// falls back to English on an Arabic page keeps its full stop at the end of the line (bidi isolation).
+html body[data-path="login"] .page-card-head-text :is(h4, .page-card-subtitle),
+html body[data-path="update-password"] .page-card-head-text :is(h4, .page-card-subtitle) {
+	unicode-bidi: plaintext;
+	text-align: start;
+}

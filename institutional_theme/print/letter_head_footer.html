@@ -1,0 +1,19 @@
+{#- Letter Head footer (ADR 0005). Same contract as letter_head.html. Page X of Y is added by core when the
+    Print Settings "repeat header and footer" option is on (standard.html), so it is not repeated here. -#}
+{%- set ins = ins_identity() or {} -%}
+{%- set arabic = (frappe.lang or "en")[:2] == "ar" -%}
+{%- set name_en = ins.get("institution_name", "") -%}
+{%- set name_ar = ins.get("institution_name_ar", "") -%}
+{%- set name = (name_ar or name_en) if arabic else (name_en or name_ar) -%}
+{%- set line_one = [name, ins.get("system_name", "")] | select | join(" · ") -%}
+{%- set line_two = [ins.get("address", ""), ins.get("contact", "")] | select | join(" · ") -%}
+{%- if line_one or line_two %}
+<table class="ins-lf" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			{%- if line_one %}<div>{{ line_one | e }}</div>{% endif %}
+			{%- if line_two %}<div>{{ line_two | e }}</div>{% endif %}
+		</td>
+	</tr>
+</table>
+{%- endif %}
