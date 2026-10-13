@@ -22,8 +22,11 @@ app_include_css = ["ins_desk.bundle.css"]
 app_include_js = ["ins_shell.bundle.js"]
 
 # Website, login, portal
-# web_include_css = ["ins_web.bundle.css"]
-update_website_context = "institutional_theme.website.update_website_context"
+web_include_css = ["ins_web.bundle.css"]
+update_website_context = [
+	"institutional_theme.website.update_website_context",
+	"institutional_theme.web_content.update_website_context",
+]
 
 # Email (inlined by Premailer: no custom properties, no @font-face)
 # email_css = ["ins_email.bundle.css"]
