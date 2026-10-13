@@ -1,0 +1,22 @@
+$ ruff --version
+ruff 0.16.8
+$ ruff check .
+All checks passed!
+exit=0
+$ ruff format --check .
+unformatted: File would be reformatted
+  --> institutional_theme/hooks.py:4:19
+  |
+3 | app_publisher = "Hamza ALsaqaf"
+  - app_description = "Midad: an upgrade-safe institutional visual identity and UI theme for the Frappe / ERPNext v16 desk"
+4 + app_description = (
+5 + 	"Midad: an upgrade-safe institutional visual identity and UI theme for the Frappe / ERPNext v16 desk"
+6 + )
+7 | app_email = ""
+  |
+
+1 file would be reformatted, 23 files already formatted
+exit=1
+$ yaml parse .github/workflows/ci.yml
+parsed OK; jobs: ['lint', 'audits'] ; triggers: ['push', 'pull_request']
+exit=0

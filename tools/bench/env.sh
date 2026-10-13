@@ -2,7 +2,10 @@
 # Shared settings for the test-bench scripts. Sourced, not executed.
 # Every value can be overridden from the environment.
 
+# BENCH_DIR is the path used everywhere. It is a symlink to the real bench inside the bench
+# user's home, because bench init must create its own directory and /home/user belongs to root.
 export BENCH_DIR="${BENCH_DIR:-/home/user/frappe-bench}"
+export BENCH_REAL_DIR="${BENCH_REAL_DIR:-/home/frappe/frappe-bench}"
 export REPO_DIR="${REPO_DIR:-/home/user/institutional_theme}"
 export SITE="${SITE:-midad.test}"
 
@@ -17,6 +20,10 @@ export BENCH_PYTHON="${BENCH_PYTHON_HOME}/bin/python3.14"
 # bench refuses to run as root, so everything bench-related runs as this unprivileged user.
 export BENCH_USER="${BENCH_USER:-frappe}"
 export BENCH_HOME="/home/${BENCH_USER}"
+# Frappe 16.32.0 declares "engines": {"node": ">=24"} (package.json); the image has Node 22 only,
+# so Node 24 is unpacked here and put first on the bench user's PATH.
+export NODE_VERSION="${NODE_VERSION:-24.21.0}"
+export NODE_HOME="${NODE_HOME:-/opt/node24}"
 # Optional local clone of Frappe at FRAPPE_TAG; when it does not exist, GitHub is used.
 export FRAPPE_SRC="${FRAPPE_SRC:-/home/user/src/frappe-16.32.0}"
 # 1 = install ERPNext on the site, 0 = Frappe only.
@@ -35,12 +42,27 @@ export ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}"
 export WEB_PORT="${WEB_PORT:-8000}"
 export PATH="/root/.local/bin:${PATH}"
 
-# Run a command as the unprivileged bench user, keeping the proxy and CA variables of the caller.
+# The sandbox proxy CA lives under /root, which the bench user cannot read. step_user copies
+# it (a public certificate bundle) here and as_bench points every CA variable at the copy.
+export CA_BUNDLE_COPY="${CA_BUNDLE_COPY:-/opt/proxy-ca-bundle.crt}"
+
+# Run a command as the unprivileged bench user, keeping the proxy variables of the caller.
 as_bench() {
-	if [[ "$(id -u)" == "0" ]]; then
-		runuser -u "${BENCH_USER}" -p -- env HOME="${BENCH_HOME}" USER="${BENCH_USER}" \
-			LOGNAME="${BENCH_USER}" PATH="${BENCH_HOME}/.local/bin:/usr/local/bin:${PATH}" "$@"
-	else
+	if [[ "$(id -u)" != "0" ]]; then
 		"$@"
+		return
 	fi
+	local -a remap=()
+	local line name value
+	while IFS= read -r line; do
+		name="${line%%=*}"
+		value="${line#*=}"
+		if [[ "${value}" == /root/.ccr/* && -f "${CA_BUNDLE_COPY}" ]]; then
+			remap+=("${name}=${CA_BUNDLE_COPY}")
+		fi
+	done < <(env)
+	runuser -u "${BENCH_USER}" -p -- env -u PIP_CONFIG_FILE -u NPM_CONFIG_USERCONFIG -u RUSTUP_HOME \
+		-u BUN_INSTALL HOME="${BENCH_HOME}" USER="${BENCH_USER}" \
+		LOGNAME="${BENCH_USER}" PATH="${NODE_HOME}/bin:${BENCH_HOME}/.local/bin:/usr/local/bin:${PATH}" \
+		"${remap[@]}" "$@"
 }

@@ -42,13 +42,16 @@ step_preflight() {
 		exit 1
 	}
 	test "$(id -u)" == "0" || { echo "run as root (the scripts drop to ${BENCH_USER} themselves)" >&2; exit 1; }
-	node --version
-	yarn --version
 	"${PG_BIN}/postgres" --version
 	redis-server --version
 	git --version
 	uv --version
 	id postgres >/dev/null
+	# Frappe lists mysqlclient as a hard dependency, so its C headers are needed at install time
+	# even though this bench uses PostgreSQL (client library only; no MariaDB server).
+	if ! pkg-config --exists mariadb 2>/dev/null; then
+		DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends libmariadb-dev pkg-config gcc
+	fi
 	test -d "${REPO_DIR}/institutional_theme" || { echo "repo not found at ${REPO_DIR}" >&2; exit 1; }
 }
 
@@ -59,13 +62,27 @@ step_user() {
 	if [[ ! -x "${BENCH_PYTHON}" ]]; then
 		cp -a --dereference "${SYSTEM_PYTHON_SRC}" "${BENCH_PYTHON_HOME}"
 	fi
+	if [[ ! -x "${NODE_HOME}/bin/node" ]]; then
+		local tarball="node-v${NODE_VERSION}-linux-x64.tar.xz" work
+		work="$(mktemp -d)"
+		curl -fsSL -o "${work}/${tarball}" "https://nodejs.org/dist/v${NODE_VERSION}/${tarball}"
+		curl -fsSL -o "${work}/SHASUMS256.txt" "https://nodejs.org/dist/v${NODE_VERSION}/SHASUMS256.txt"
+		(cd "${work}" && grep " ${tarball}\$" SHASUMS256.txt | sha256sum -c -)
+		mkdir -p "${NODE_HOME}"
+		tar -xJf "${work}/${tarball}" -C "${NODE_HOME}" --strip-components=1
+		rm -rf "${work}"
+	fi
+	if [[ -f /root/.ccr/ca-bundle.crt ]]; then
+		install -m 644 /root/.ccr/ca-bundle.crt "${CA_BUNDLE_COPY}"
+	fi
 	if [[ ! -x /usr/local/bin/uv ]]; then
 		install -m 755 "$(command -v uv)" /usr/local/bin/uv
 	fi
 	as_bench "${BENCH_PYTHON}" --version
+	as_bench node --version
+	as_bench yarn --version
 	# Local clones are owned by root; allow git to read them (test container only).
 	as_bench git config --global --add safe.directory '*'
-	install -d -o "${BENCH_USER}" -g "${BENCH_USER}" "${BENCH_DIR}"
 	# The app is edited as root but built (public/dist, __pycache__) as the bench user.
 	chgrp -R "${BENCH_USER}" "${REPO_DIR}/institutional_theme"
 	chmod -R g+rwX "${REPO_DIR}/institutional_theme"
@@ -106,24 +123,30 @@ EOF
 }
 
 step_bench() {
-	if [[ -x "${BENCH_DIR}/env/bin/python" && -d "${BENCH_DIR}/apps/frappe" ]]; then
-		echo "bench already initialised at ${BENCH_DIR}"
+	if [[ -f "${BENCH_REAL_DIR}/sites/assets/assets.json" ]]; then
+		echo "bench already initialised at ${BENCH_REAL_DIR}"
 	else
 		local frappe_path="https://github.com/frappe/frappe"
 		if [[ -d "${FRAPPE_SRC}/.git" ]]; then
 			frappe_path="${FRAPPE_SRC}"
 		fi
+		# A previous attempt that did not reach the asset build left a partial directory behind.
+		rm -rf "${BENCH_REAL_DIR}"
 		(
-			cd "$(dirname "${BENCH_DIR}")"
-			as_bench "${BENCH}" init "$(basename "${BENCH_DIR}")" \
+			cd "$(dirname "${BENCH_REAL_DIR}")"
+			as_bench "${BENCH}" init "$(basename "${BENCH_REAL_DIR}")" \
 				--frappe-path "${frappe_path}" --frappe-branch "${FRAPPE_TAG}" \
-				--python "${BENCH_PYTHON}"
+				--python "${BENCH_PYTHON}" --no-backups
 		)
+	fi
+	if [[ ! -e "${BENCH_DIR}" ]]; then
+		ln -s "${BENCH_REAL_DIR}" "${BENCH_DIR}"
 	fi
 	bgit "${BENCH_DIR}/apps/frappe" describe --tags
 	test -z "$(bgit "${BENCH_DIR}/apps/frappe" status --porcelain)" && echo "apps/frappe is pristine"
-	# A local clone has no upstream URL; point origin at GitHub so later updates behave.
-	bgit "${BENCH_DIR}/apps/frappe" remote set-url origin https://github.com/frappe/frappe
+	# A bench built from a local clone has no usable upstream; point origin at GitHub.
+	bgit "${BENCH_DIR}/apps/frappe" remote set-url origin https://github.com/frappe/frappe 2>/dev/null ||
+		bgit "${BENCH_DIR}/apps/frappe" remote add origin https://github.com/frappe/frappe
 }
 
 step_services() {

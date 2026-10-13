@@ -68,9 +68,11 @@ fi
 if ! curl -fsS -o /dev/null --noproxy '*' "http://127.0.0.1:${WEB_PORT}/api/method/ping" 2>/dev/null; then
 	(
 		cd "${BENCH_DIR}/sites"
-		as_bench bash -c 'cd "$1" && nohup ../env/bin/python -m frappe.utils.bench_helper frappe \
-			--site "$2" serve --port "$3" --noreload >"$4" 2>&1 & echo $! >"$5"' _ \
-			"${BENCH_DIR}/sites" "${SITE}" "${WEB_PORT}" "${LOGS}/web.log" "${LOGS}/web.pid"
+		as_bench bash -c 'cd "$1" || exit 1
+			nohup ../env/bin/python -m frappe.utils.bench_helper frappe --site "$2" serve \
+				--port "$3" --noreload >"$4" 2>&1 </dev/null &
+			echo $! >"$5"' _ \
+			"${BENCH_DIR}/sites" "${SITE}" "${WEB_PORT}" "${LOGS}/web.log" "${LOGS}/web.pid" </dev/null
 	)
 fi
 for _ in $(seq 1 60); do
