@@ -64,3 +64,8 @@ Owner reviews pull request #2. To continue: fix the two score-3 items in `docs/t
 29. 20:00 UTC: Phase 3 gate passed. Login a11y blockers fixed inside this app: a small web script wraps core's pointer-only password icon in a real button (label rendered server-side, because `__()` has no messages on website pages); Arabic login letter-spacing reset by repeating the body class (no `!important`). App rows in `ar.csv` that only repeated core's Arabic were dropped; rows that correct core's Arabic (Light, Dark, Automatic, Draft, Submitted, Cancelled, Completed) were kept and apply desk-wide.
 30. Phase 4 cut to charts only because of the deadline (sacrifice order: P2 first, then P1). Print Style, Letter Head, email bundle, the interactive proof, Kanban, Calendar, Tree, Gantt and the global-state pages are not delivered.
 31-33. See `docs/team/OWNER_REVIEW.md` section 4 (error-page link, desktop icons, background agents cut off at 17:45).
+
+## Round 2 (started by the lead after the owner said to continue without waiting for approval)
+
+- Lead decisions: login, website and error pages are light only by platform constraint and design, not a dark-parity defect; the Dark calendar chips may use a narrowly scoped, manifest-justified `!important` against Frappe's inline colours if nothing else works; the test site's own `site_config.json` may be edited for verification and restored.
+- Order of work and the end-of-job routine are in `docs/team/RESUME_PROMPT.md` (round 2). `main` stays unchanged; pull request #2 stays open for the owner.
