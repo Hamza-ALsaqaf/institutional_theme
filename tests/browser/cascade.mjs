@@ -238,7 +238,7 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 		const b = (id) => { const s = cs(id); return { w: s.borderTopWidth, st: s.borderTopStyle, c: s.borderTopColor, bbs: s.borderBottomStyle, bbc: s.borderBottomColor, bg: s.backgroundColor, color: s.color, sh: s.boxShadow, cur: s.cursor }; };
 		o.dis = b("dis"); o.ro = b("ro"); o.rov = b("rov"); o.err = b("errfield"); o.dtdis = b("dtdis"); o.erowdis = b("erowdis"); o.masked = b("maskedvalue");
 		o.t = { disabledBg: tok("--ins-surface-disabled", "backgroundColor"), dim: tok("--ins-text-disabled", "color"), dash: tok("--ins-border", "color"), hair: tok("--ins-border-hairline", "color"), strong: tok("--ins-text-strong", "color"), danger: tok("--ins-danger", "color"), strongBorder: tok("--ins-border-strong", "color") };
-		o.maskAfter = { content: cs("masked", "::after").content, lock: cs("masked", "::after").display };
+		o.maskAfter = { content: cs("masked", "::after").content, text: document.getElementById("maskedreason").textContent, display: cs("maskedreason").display, size: cs("maskedreason").fontSize };
 		o.maskLock = cs("masked", "::before").content; o.maskLabelLock = getComputedStyle(document.querySelector("#masked .control-label"), "::before").content;
 		// status
 		const ps = (id) => { const s = cs(id, "::before"); return { content: s.content, display: s.display, bw: s.borderRightWidth, bblw: s.borderBottomWidth, radius: s.borderTopLeftRadius, bgi: s.backgroundImage, bg: s.backgroundColor, tf: s.transform, w: s.width, h: s.height }; };
@@ -271,7 +271,7 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	record(scenario, "editable-row disabled input keeps border none", "0px none", `${p3.erowdis.w} ${p3.erowdis.st}`, p3.erowdis.w === "0px" && p3.erowdis.st === "none");
 	record(scenario, "error field: danger border plus inset second cue", `solid ${p3.t.danger}, inset shadow`, `${p3.err.st} ${p3.err.c}, ${p3.err.sh}`, p3.err.c === p3.t.danger && /inset/.test(p3.err.sh));
 	record(scenario, "masked value: dashed strong border", `dashed ${p3.t.strongBorder}`, `${p3.masked.st} ${p3.masked.c}`, p3.masked.st === "dashed" && p3.masked.c === p3.t.strongBorder);
-	record(scenario, "masked wrapper shows its reason as generated text", '"Hidden for your role"', p3.maskAfter.content, p3.maskAfter.content === '"Hidden for your role"');
+	record(scenario, "masked wrapper shows its reason as a real element (no generated text, so it is read once)", 'block, no ::after', `${p3.maskAfter.display}, ${p3.maskAfter.content}`, p3.maskAfter.display === "block" && p3.maskAfter.text === "Hidden for your role" && (p3.maskAfter.content === "none" || p3.maskAfter.content === "normal"));
 	record(scenario, "masked label carries a drawn lock", '""', p3.maskLabelLock, p3.maskLabelLock === '""');
 	const pl = p3.pill;
 	record(scenario, "pill green (no-indicator-dot): check shape", "2px right border, rotated", `${pl["pill-green"].bw} ${pl["pill-green"].tf}`, pl["pill-green"].bw === "2px" && pl["pill-green"].tf !== "none" && pl["pill-green"].content === '""');

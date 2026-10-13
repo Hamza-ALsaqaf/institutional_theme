@@ -104,3 +104,23 @@ Shell (`public/js/shell/`): "Training", "UAT", "Staging", "Non-production", "Hid
 2. A custom palette cannot be made to fail contrast by any input I tried (white on white still passes, because lightness comes from the approved curves). The save-time rejection of ADR 0005 therefore never fires for valid hex input; this is a property of `midad/model.py`, not of this task, and the lead should confirm it is intended.
 3. The Appearance page adds its own `h1` below core's page title, so the screen has two headings; ADR 0002 asks for the `h1`.
 4. The memo in `site_files.ensure()` is per worker and keyed by the setting values, not `modified`; a change from another worker is picked up on the next request after the file is missing or the values differ.
+
+## Fix round (upgrade advisories 1-3, a11y findings 5 and 6)
+
+Changes (VERIFIED by the runs below unless stated):
+
+- `guard_log.py` (new): `log_once(title)` logs the exception being handled with `defer_insert=True`, at most once per worker process per distinct (title, exception type, message), never raises. `boot.extend_bootinfo` and `site_files` use it.
+- `site_files.on_settings_update` only clears the memo and registers `frappe.db.after_commit.add(...)` (`frappe/database/database.py:130` creates the `CallbackManager`, `:1194` runs it after `commit`, `:1203` resets it on rollback). `_regenerate` writes the files and calls `website.utils.clear_cache()` and never raises (a raising callback would stop the other commit callbacks, `utils/__init__.py:1103-1135`).
+- `site_files.prune` deletes `ins_palette_custom.*.tmp` / `ins_fonts_uploaded.*.tmp` older than `TEMPORARY_MAX_AGE` (300 s); younger and foreign `.tmp` files are kept.
+- `masked_fields.js`: a real `span.ins-masked-reason` (id `ins-masked-reason-N`) in the wrapper, `aria-describedby` on the field's input/textarea/select, idempotent. The `::after` generated text and `data-ins-masked-label` are removed (one reading of the reason, not two). `_masked.scss` styles the element with the same tokens. The reason stays visible (it is design text, not hidden): "visually hidden" was not needed because sighted users also benefit.
+- `ins_appearance.js`: a failed mode, density or apply announces a message in the status region and moves focus to the restored radio or to the apply button; the post-reload message is announced in `on_page_show` together with the focus move. Heading: core 16.32 page head (`ui/page.html`) has a breadcrumb list and no `h1`/heading element (VERIFIED by reading the file), so the page's `h1` is the only heading on the screen. It is kept (ADR 0002); risk 3 above is withdrawn.
+
+Commands and results:
+
+- `tools/bench/b.sh run-tests --app institutional_theme`: 109 tests OK (the new ones: `test_a_persistent_failure_is_logged_once_per_process`, `test_a_different_failure_is_logged_again`, `test_a_log_call_that_raises_never_leaves_the_guard`, `test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing`, `test_a_failure_after_the_commit_is_logged_once_and_does_not_raise`, `test_old_temporary_files_are_pruned_and_young_ones_kept`), then 140 OK in the second suite. `tests/helpers.py` now commits in `set_settings`/`reset_settings` because the files appear after the commit.
+- `tools/bench/b.sh build --app institutional_theme` then `restart-web`: built bundles contain `ins-masked-reason`.
+- `node tests/browser/appearance_keyboard.mjs`: all PASS (en and ar). `node tests/browser/actions.mjs`: all PASS. `node tests/browser/cascade.mjs`: pass 4256, fail 0 (fixture and the masked assertion updated: real element, display block, no `::after`).
+- Failed-save probe (ad hoc script, requests aborted with Playwright routes): density and mode revert, focus on the restored radio, status "The density could not be saved. The previous density was restored." and the mode equivalent; apply failure re-enables the button, focus on it, status "The colour preset could not be applied. Try again." (VERIFIED live, en only).
+- `uvx ruff@0.16.8 check .` and `format --check .`: clean.
+
+Not verified: the masked-field markup on a real form with a masked field (only the fixture and the CSS cascade were run; the JS path was not exercised live); the Arabic text of the three new failure messages in the browser (strings are not yet in `ar.csv`); finding U4/U5 of the upgrade review were not part of this round.

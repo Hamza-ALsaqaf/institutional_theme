@@ -7,7 +7,7 @@ from unittest import mock
 import frappe
 from frappe.tests import IntegrationTestCase
 
-from institutional_theme import boot
+from institutional_theme import boot, guard_log
 
 from .helpers import all_bundles_linkable, reset_settings, set_settings
 
@@ -23,6 +23,7 @@ class TestBoot(IntegrationTestCase):
 	def setUp(self) -> None:
 		frappe.set_user("Administrator")
 		reset_settings()
+		guard_log.reset()
 
 	def test_bootinfo_ins_has_the_documented_keys(self) -> None:
 		info = frappe._dict()
@@ -78,7 +79,34 @@ class TestBoot(IntegrationTestCase):
 		):
 			boot.extend_bootinfo(bootinfo=info)
 		self.assertNotIn("ins", info)
-		log_error.assert_called_once_with(title="Institutional Theme: boot")
+		log_error.assert_called_once_with(title="Institutional Theme: boot", defer_insert=True)
+
+	def test_a_persistent_failure_is_logged_once_per_process(self) -> None:
+		with (
+			mock.patch.object(boot, "build", side_effect=RuntimeError("boom")),
+			mock.patch("frappe.log_error") as log_error,
+		):
+			for _ in range(5):
+				info = frappe._dict()
+				boot.extend_bootinfo(bootinfo=info)
+				self.assertNotIn("ins", info)
+		self.assertEqual(log_error.call_count, 1)
+
+	def test_a_different_failure_is_logged_again(self) -> None:
+		with mock.patch("frappe.log_error") as log_error:
+			for message in ("first", "second", "first"):
+				with mock.patch.object(boot, "build", side_effect=RuntimeError(message)):
+					boot.extend_bootinfo(bootinfo=frappe._dict())
+		self.assertEqual(log_error.call_count, 2)
+
+	def test_a_log_call_that_raises_never_leaves_the_guard(self) -> None:
+		info = frappe._dict()
+		with (
+			mock.patch.object(boot, "build", side_effect=RuntimeError("boom")),
+			mock.patch("frappe.log_error", side_effect=RuntimeError("transaction aborted")),
+		):
+			boot.extend_bootinfo(bootinfo=info)
+		self.assertNotIn("ins", info)
 
 	def test_the_appearance_page_is_open_to_every_desk_user(self) -> None:
 		page = frappe.get_doc("Page", "ins-appearance")

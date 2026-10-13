@@ -5,7 +5,7 @@ from __future__ import annotations
 import frappe
 from frappe.utils import cint
 
-from institutional_theme import preferences, site_files
+from institutional_theme import guard_log, preferences, site_files
 
 
 def environment() -> str:
@@ -30,9 +30,9 @@ def build(user: str) -> dict:
 
 
 def extend_bootinfo(bootinfo) -> None:
-	"""Add `bootinfo.ins`. A failure is logged and leaves the desk without it: the shell script then
-	writes nothing and the stylesheet defaults apply."""
+	"""Add `bootinfo.ins`. A failure is logged (once per process, never raising) and leaves the desk
+	without it: the shell script then writes nothing and the stylesheet defaults apply."""
 	try:
 		bootinfo["ins"] = build(frappe.session.user)
 	except Exception:
-		frappe.log_error(title="Institutional Theme: boot")
+		guard_log.log_once("Institutional Theme: boot")

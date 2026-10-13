@@ -2,7 +2,7 @@ Accent background,الخلفية المميزة
 Accent colour,اللون المميز
 Accent rule and marker,خط التمييز وعلامته
 Accent text,النص المميز
-Access to this system is restricted to authorised users. Activity is recorded.,"الوصول إلى هذا النظام مقصور على المصرَّح لهم، ويُسجَّل النشاط."
+Access to this system is restricted to authorised users. Activity is recorded.,الوصول إلى هذا النظام مقصور على المصرَّح لهم، ويُسجَّل النشاط.
 Adjust the {0} colour.,اضبط اللون {0}.
 Allow Forest,السماح بمجموعة الألوان غابي
 Allow Graphite,السماح بمجموعة الألوان جرافيت
@@ -23,6 +23,7 @@ Arabic semibold,الخط العربي شبه العريض
 Authorised use notice,إشعار الاستخدام المصرح به
 Authorised use notice (Arabic),إشعار الاستخدام المصرح به (بالعربية)
 Automatic,تلقائي
+Back to sign in,العودة إلى تسجيل الدخول
 Behaviour,السلوك
 Between 1 and 30 minutes before the session expires.,بين 1 و30 دقيقة قبل انتهاء الجلسة.
 Body text,نص المتن
@@ -62,6 +63,7 @@ Density changed to {0}.,تم تغيير الكثافة إلى {0}.
 Density must be Comfortable or Compact.,يجب أن تكون الكثافة مريحة أو مضغوطة.
 Destructive action,إجراء خطِر
 Destructive action on hover,إجراء خطِر عند تمرير المؤشر
+Didn't receive the link?,لم يصلك الرابط؟
 Disabled control background,خلفية العنصر المعطل
 Disabled control background in forms,خلفية العنصر المعطل في النماذج
 Disabled input background,خلفية حقل الإدخال المعطل
@@ -77,9 +79,12 @@ Field background,خلفية الحقل
 Field background on grey,خلفية الحقل على الرمادي
 Focus ring,حلقة التركيز
 Font pairing,ثنائية الخطوط
+Forgot Password?,نسيت كلمة المرور؟
+Forgot password?,نسيت كلمة المرور؟
 Heading text,نص العناوين
 Help text,نص المساعدة
 Hidden for your role,مخفي لدورك
+Hide password,إخفاء كلمة المرور
 Hover background,خلفية عند تمرير المؤشر
 IBM Plex,IBM Plex
 Icons,الأيقونات
@@ -106,6 +111,8 @@ Latin semibold,الخط اللاتيني شبه العريض
 Light,فاتح
 Link text,نص الرابط
 Link text on hover,نص الرابط عند تمرير المؤشر
+Login with Email Link,الدخول برابط عبر البريد الإلكتروني
+Login with password,الدخول بكلمة المرور
 Menu and dialog background,خلفية القوائم والحوارات
 Minutes of warning,دقائق التنبيه
 Mode,الوضع
@@ -132,6 +139,8 @@ Pending status background,خلفية حالة الانتظار
 Pending status mark,علامة حالة الانتظار
 Pending status text,نص حالة الانتظار
 Placeholder text,النص التوضيحي داخل الحقل
+Please check your email.,تحقق من بريدك الإلكتروني.
+"Please enter your email, we'll send you password reset link",أدخل بريدك الإلكتروني وسنرسل إليك رابط إعادة تعيين كلمة المرور.
 Plum status background,خلفية الحالة البرقوقية
 Plum status mark,علامة الحالة البرقوقية
 Plum status text,نص الحالة البرقوقية
@@ -147,19 +156,24 @@ Read-only value text,نص القيمة للقراءة فقط
 Reject,رفض
 Rejected,مرفوض
 Release {0},الإصدار {0}
+Resend,إعادة الإرسال
 Scrollbar thumb,مقبض شريط التمرير
 Scrollbar track,مسار شريط التمرير
 Search highlight,تمييز نتائج البحث
 Secondary button background,خلفية الزر الثانوي
 Secondary button background on hover,خلفية الزر الثانوي عند تمرير المؤشر
 Secondary text,النص الثانوي
-Selected,محدد
+Selected,محددة
 Selected and hovered row background,خلفية الصف المحدد عند تمرير المؤشر
 Selected row background,خلفية الصف المحدد
+Send Link,إرسال الرابط
+Send login link,إرسال رابط الدخول
 "Set by ins_environment in site_config.json: Training, UAT or Staging. Empty means production.",يُحدَّد بالمفتاح ins_environment في الملف site_config.json: تدريب أو UAT أو ما قبل الإنتاج. الحقل الفارغ يعني بيئة الإنتاج.
 Set by your administrator.,يحدده مسؤول النظام.
 Show a banner when the connection is lost,إظهار شريط عند انقطاع الاتصال
+Show password,إظهار كلمة المرور
 Sidebar and well background,خلفية الشريط الجانبي والمناطق الغائرة
+Sign In,تسجيل الدخول
 Staging,ما قبل الإنتاج
 Submitted,مُرحَّل
 Success banner background,خلفية شريط النجاح
@@ -177,12 +191,15 @@ Teal status text,نص الحالة الفيروزية
 Technical support,الدعم الفني
 Text on destructive action,النص على الإجراء الخطِر
 Text on primary action,النص على الإجراء الأساسي
+The colour preset could not be applied. Try again.,تعذّر تطبيق مجموعة الألوان. حاول مرة أخرى.
 The colour preset {0} is not available on this site.,مجموعة الألوان {0} غير متاحة على هذا الموقع.
 The colour preset {0} is not available.,مجموعة الألوان {0} غير متاحة.
 The default colour preset {0} must also be allowed.,يجب أيضًا السماح بمجموعة الألوان الافتراضية {0}.
+The density could not be saved. The previous density was restored.,تعذّر حفظ الكثافة. تمت استعادة الكثافة السابقة.
 The font file {0} must be public so that the login page and printouts can load it.,يجب أن يكون ملف الخط {0} عامًا حتى تتمكن صفحة الدخول والمطبوعات من تحميله.
 The idle warning must come between 1 and 30 minutes before the session expires.,يجب أن يقع تنبيه عدم النشاط بين 1 و30 دقيقة قبل انتهاء الجلسة.
 The image {0} must be public so that the login page and printouts can load it.,يجب أن تكون الصورة {0} عامة حتى تتمكن صفحة الدخول والمطبوعات من تحميلها.
+The mode could not be saved. The previous mode was restored.,تعذّر حفظ الوضع. تمت استعادة الوضع السابق.
 The uploaded font {0} is missing from the server; IBM Plex is used until it is uploaded again.,الخط المرفوع {0} غير موجود على الخادم؛ يُستخدم IBM Plex إلى أن يُعاد رفعه.
 Time of error,وقت الخطأ
 Tinted primary background,خلفية بلون أساسي خفيف
@@ -202,6 +219,7 @@ Warning banner text,نص شريط التحذير
 Warning status background,خلفية حالة التحذير
 Warning status mark,علامة حالة التحذير
 Warning status text,نص حالة التحذير
+Welcome! Please sign in to continue.,مرحباً بك. سجّل الدخول للمتابعة.
 Wordmark,الشعار النصي
 Wordmark for dark backgrounds,الشعار النصي للخلفيات الداكنة
 accent,المميز

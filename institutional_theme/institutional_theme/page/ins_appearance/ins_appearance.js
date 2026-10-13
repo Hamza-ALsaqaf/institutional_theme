@@ -60,7 +60,7 @@
 			this.buildDensity();
 			this.buildPresets();
 			$(page.main).empty().append(this.body);
-			this.announceReload();
+			this.reloadMessage = this.takeReloadMessage();
 		}
 
 		announce(message) {
@@ -69,6 +69,15 @@
 			window.setTimeout(() => {
 				this.status.textContent = message;
 			}, 50);
+		}
+
+		// A failed save puts the previous radio back and returns focus to it (the focused radio is
+		// the one the user just chose, which is no longer selected).
+		restore(set, value) {
+			const radio = set.querySelector('input[value="' + value + '"]');
+			if (!radio) return;
+			radio.checked = true;
+			radio.focus();
 		}
 
 		save(args) {
@@ -100,8 +109,8 @@
 				.then(() => this.announce(__("Mode changed to {0}.", [label])))
 				.catch(() => {
 					root.setAttribute("data-theme-mode", previous);
-					const radio = this.modeSet.querySelector('input[value="' + previous + '"]');
-					if (radio) radio.checked = true;
+					this.restore(this.modeSet, previous);
+					this.announce(__("The mode could not be saved. The previous mode was restored."));
 				});
 		}
 
@@ -128,8 +137,8 @@
 				})
 				.catch(() => {
 					root.setAttribute("data-ins-density", previous);
-					const radio = this.densitySet.querySelector('input[value="' + previous + '"]');
-					if (radio) radio.checked = true;
+					this.restore(this.densitySet, previous);
+					this.announce(__("The density could not be saved. The previous density was restored."));
 				});
 		}
 
@@ -206,11 +215,14 @@
 				})
 				.catch(() => {
 					this.apply.disabled = false;
+					this.apply.focus();
+					this.announce(__("The colour preset could not be applied. Try again."));
 				});
 		}
 
-		// After the reload that applied a preset: say so, with focus on the heading.
-		announceReload() {
+		// After the reload that applied a preset: read the stored label once. The message is spoken and
+		// focus moves to the heading only when the page is shown (a hidden region is not announced).
+		takeReloadMessage() {
 			let label = null;
 			try {
 				label = window.sessionStorage.getItem(CHANGED_KEY);
@@ -218,17 +230,16 @@
 			} catch (error) {
 				label = null;
 			}
-			if (label === null) return;
-			// The page is still hidden while it is built; focus waits for on_page_show.
-			this.pendingFocus = true;
-			this.announce(__("Colour preset changed to {0}.", [label]));
+			return label === null ? null : __("Colour preset changed to {0}.", [label]);
 		}
 
 		// Called by core when the page container is shown (views/pageview.js:105-107).
 		shown() {
-			if (!this.pendingFocus) return;
-			this.pendingFocus = false;
+			if (this.reloadMessage === null) return;
+			const message = this.reloadMessage;
+			this.reloadMessage = null;
 			this.title.focus();
+			this.announce(message);
 		}
 	}
 

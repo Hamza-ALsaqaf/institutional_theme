@@ -4,6 +4,22 @@
 // attribute; CSS draws it as generated text.
 import { toElement, setAttr, warn } from "./dom.js";
 
+const REASON_CLASS = "ins-masked-reason";
+let counter = 0;
+
+// The reason element of one wrapper: found again on every refresh, created once.
+function reasonElement(wrapper) {
+	for (const child of wrapper.children) {
+		if (child.classList.contains(REASON_CLASS)) return child;
+	}
+	const node = document.createElement("span");
+	node.className = REASON_CLASS;
+	counter += 1;
+	node.id = "ins-masked-reason-" + counter;
+	wrapper.appendChild(node);
+	return node;
+}
+
 export function applyMaskedFields(frm) {
 	const names = frm && frm.meta && frm.meta.masked_fields;
 	if (!names || !names.length || !frm.fields_dict) return;
@@ -14,7 +30,11 @@ export function applyMaskedFields(frm) {
 		const wrapper = field && toElement(field.wrapper);
 		if (!wrapper) return;
 		setAttr(wrapper, "data-ins-masked", "1");
-		setAttr(wrapper, "data-ins-masked-label", reason);
+		const node = reasonElement(wrapper);
+		if (node.textContent !== reason) node.textContent = reason;
+		wrapper.querySelectorAll("input, textarea, select").forEach((control) => {
+			setAttr(control, "aria-describedby", node.id);
+		});
 	});
 }
 

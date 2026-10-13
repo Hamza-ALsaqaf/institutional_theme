@@ -45,6 +45,8 @@ def set_settings(**values) -> None:
 		doc.save()
 	finally:
 		frappe.set_user(user)
+	# The generated files are written after the commit (`site_files.on_settings_update`).
+	frappe.db.commit()
 	site_files.clear_memo()
 
 
@@ -60,6 +62,7 @@ def reset_settings() -> None:
 	for fieldname in ("allow_midad", "allow_graphite", "allow_petrol", "allow_forest", "allow_plum"):
 		doc.set(fieldname, 1)
 	doc.save()
+	frappe.db.commit()
 	site_files.clear_memo()
 
 

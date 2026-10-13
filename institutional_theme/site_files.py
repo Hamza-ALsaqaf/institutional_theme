@@ -17,12 +17,13 @@ import functools
 import hashlib
 import os
 import threading
+import time
 from typing import Any
 from urllib.parse import quote
 
 import frappe
 
-from institutional_theme import fonts
+from institutional_theme import fonts, guard_log
 from institutional_theme.midad import model as midad
 
 DOCTYPE = "Institutional Theme Settings"
@@ -34,6 +35,8 @@ PREFIXES = (PALETTE_PREFIX, FONTS_PREFIX)
 PALETTE_BUNDLE = "ins_palette_{0}.bundle.css"
 HASH_LENGTH = 12
 CUSTOM = "custom"
+# Seconds after which a `.tmp` file is an orphan: a write takes milliseconds.
+TEMPORARY_MAX_AGE = 300
 
 # One entry per site and settings state: {(site, state, present): {kind: file name}}.
 _memo: dict[tuple[Any, ...], dict[str, str]] = {}
@@ -220,6 +223,7 @@ def prune(keep: Any = ()) -> list[str]:
 		return []
 	keep = set(keep)
 	removed: list[str] = []
+	removed.extend(_prune_temporary(folder))
 	for prefix in PREFIXES:
 		candidates = [
 			name
@@ -233,6 +237,26 @@ def prune(keep: Any = ()) -> list[str]:
 				removed.append(name)
 			except OSError:
 				continue
+	return removed
+
+
+def _prune_temporary(folder: str) -> list[str]:
+	"""Delete `<prefix>.*.tmp` files a killed worker left behind (`_write_atomic` removes its own).
+
+	A file younger than `TEMPORARY_MAX_AGE` may belong to a write in progress and is kept.
+	"""
+	removed: list[str] = []
+	now = time.time()
+	for name in os.listdir(folder):
+		if not name.endswith(".tmp") or not name.startswith(PREFIXES):
+			continue
+		path = os.path.join(folder, name)
+		try:
+			if now - os.path.getmtime(path) > TEMPORARY_MAX_AGE:
+				os.unlink(path)
+				removed.append(name)
+		except OSError:
+			continue
 	return removed
 
 
@@ -290,15 +314,26 @@ def font_links(settings: Any | None = None) -> list[str]:
 
 
 def on_settings_update(doc: Any = None, method: str | None = None) -> None:
-	"""`doc_events` hook: regenerate the files after the settings are saved and clear page caches."""
+	"""`doc_events` hook: after the save is committed, regenerate the files and clear page caches.
+
+	Both wait for `frappe.db.after_commit` (`database/database.py:130,1194`): a web request cannot
+	re-cache a page with the old links before the new state exists, and a save that rolls back writes
+	nothing (the callbacks are dropped on rollback, `database.py:1203`).
+	"""
 	clear_memo()
+	frappe.db.after_commit.add(lambda: _regenerate(doc))
+
+
+def _regenerate(doc: Any) -> None:
+	"""The after-commit work. It never raises: an exception would stop the other commit callbacks."""
 	try:
 		import frappe.website.utils
 
+		clear_memo()
 		ensure(doc)
 		frappe.website.utils.clear_cache()
 	except Exception:
-		frappe.log_error(title="Institutional Theme: generated files")
+		guard_log.log_once("Institutional Theme: generated files")
 
 
 def after_migrate() -> None:

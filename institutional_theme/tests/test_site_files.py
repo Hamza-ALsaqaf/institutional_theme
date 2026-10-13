@@ -6,13 +6,14 @@ import hashlib
 import os
 import shutil
 import threading
+import time
 from pathlib import Path
 from unittest import mock
 
 import frappe
 from frappe.tests import IntegrationTestCase
 
-from institutional_theme import fonts, site_files
+from institutional_theme import fonts, guard_log, site_files
 
 from .helpers import reset_settings, set_settings
 
@@ -41,6 +42,7 @@ class TestSiteFiles(IntegrationTestCase):
 		frappe.set_user("Administrator")
 		shutil.rmtree(folder(), ignore_errors=True)
 		reset_settings()
+		guard_log.reset()
 
 	def test_nothing_is_written_when_nothing_is_wanted(self) -> None:
 		self.assertEqual(site_files.ensure(), {})
@@ -160,3 +162,44 @@ class TestSiteFiles(IntegrationTestCase):
 		shutil.rmtree(folder(), ignore_errors=True)
 		site_files.after_migrate()
 		self.assertEqual(len(generated(site_files.PALETTE_PREFIX)), 1)
+
+	def test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing(self) -> None:
+		doc = frappe.get_doc(site_files.DOCTYPE)
+		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
+		doc.save()
+		self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+		frappe.db.rollback()
+		self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+		doc = frappe.get_doc(site_files.DOCTYPE)
+		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
+		doc.save()
+		with mock.patch("frappe.website.utils.clear_cache") as clear_cache:
+			clear_cache.assert_not_called()
+			frappe.db.commit()
+			clear_cache.assert_called_once()
+		self.assertEqual(len(generated(site_files.PALETTE_PREFIX)), 1)
+
+	def test_a_failure_after_the_commit_is_logged_once_and_does_not_raise(self) -> None:
+		with (
+			mock.patch.object(site_files, "ensure", side_effect=OSError("disk")),
+			mock.patch("frappe.log_error") as log_error,
+		):
+			for _ in range(3):
+				site_files._regenerate(None)
+		self.assertEqual(log_error.call_count, 1)
+
+	def test_old_temporary_files_are_pruned_and_young_ones_kept(self) -> None:
+		folder().mkdir(parents=True, exist_ok=True)
+		old = folder() / f"{site_files.PALETTE_PREFIX}.abc.1.2.tmp"
+		young = folder() / f"{site_files.FONTS_PREFIX}.abc.3.4.tmp"
+		foreign = folder() / "other.tmp"
+		for path in (old, young, foreign):
+			path.write_bytes(b"x")
+		aged = time.time() - site_files.TEMPORARY_MAX_AGE - 60
+		os.utime(old, (aged, aged))
+		os.utime(foreign, (aged, aged))
+		removed = site_files.prune()
+		self.assertIn(old.name, removed)
+		self.assertFalse(old.exists())
+		self.assertTrue(young.exists())
+		self.assertTrue(foreign.exists())
