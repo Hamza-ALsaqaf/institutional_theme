@@ -72,15 +72,45 @@ jobs:
           sudo chown "$(id -u):$(id -g)" /opt/pw-browsers
           npx -y playwright@1.56.1 install --with-deps chromium
 
+      # Prints only the kind of credential and the API's answer, never the credential itself.
+      # An API key (sk-ant-api…) is billed to the Anthropic API account; a Claude Code OAuth
+      # token (sk-ant-oat…) is billed to the Claude subscription that created it.
+      - name: Check the credential and pick a model
+        id: key
+        env:
+          KEY: ${{ secrets.INSTITUTIONAL_THEME }}
+        run: |
+          case "$KEY" in
+            "") echo "::error::The INSTITUTIONAL_THEME secret is empty or not available to this workflow."; exit 1 ;;
+            sk-ant-oat*) echo "Credential type: Claude Code OAuth token (billed to the Claude subscription)."
+                         echo "oauth=true" >> "$GITHUB_OUTPUT"; echo "model=opus" >> "$GITHUB_OUTPUT"; exit 0 ;;
+            sk-ant-api*) echo "Credential type: Anthropic API key (billed to the API account)." ;;
+            *) echo "Credential type: unrecognised format (not an Anthropic key prefix)." ;;
+          esac
+          echo "oauth=false" >> "$GITHUB_OUTPUT"
+          for model in claude-opus-5-5 claude-sonnet-5-5; do
+            body=$(curl -sS https://api.anthropic.com/v1/messages \
+              -H "x-api-key: ${KEY}" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" \
+              -d "{\"model\":\"${model}\",\"max_tokens\":8,\"messages\":[{\"role\":\"user\",\"content\":\"ping\"}]}")
+            echo "${model}: $(echo "$body" | jq -c '{type, error: .error}')"
+            if [ "$(echo "$body" | jq -r .type)" = "message" ]; then
+              echo "model=${model}" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          echo "::error::The Anthropic API rejected this credential for every model tried (see the lines above)."
+          exit 1
+
       - uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          anthropic_api_key: ${{ secrets.INSTITUTIONAL_THEME }}
+          anthropic_api_key: ${{ steps.key.outputs.oauth != 'true' && secrets.INSTITUTIONAL_THEME || '' }}
+          claude_code_oauth_token: ${{ steps.key.outputs.oauth == 'true' && secrets.INSTITUTIONAL_THEME || '' }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             Read docs/team/RESUME_PROMPT.md in this repository and follow it exactly, from the first step to the final report.
           claude_args: >-
-            --model opus
+            --model ${{ steps.key.outputs.model }}
             --max-turns 2000
             --allowedTools "Bash,Read,Write,Edit,MultiEdit,Glob,Grep,Task,Agent,TodoWrite,WebFetch"
