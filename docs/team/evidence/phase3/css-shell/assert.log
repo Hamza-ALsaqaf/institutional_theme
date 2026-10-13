@@ -1,0 +1,91 @@
+PASS en-light-comfortable sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(218, 222, 229) 0px 0px 0px 1px"}
+PASS en-light-comfortable accent bar 3px {"inline-size":"3px","background-color":"rgb(153, 115, 36)","inset-inline-start":"0px"}
+PASS en-light-comfortable bar on the inline-start side {"left":"0px","right":"198px"}
+PASS en-light-comfortable page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS en-light-comfortable title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS en-light-comfortable list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(255, 255, 255)"}
+PASS en-light-comfortable list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS en-light-comfortable theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS en-light-comfortable cell inline padding follows density {"padding-inline-start":"12px","padding-block-start":"8px","font-size":"14px"}
+PASS en-light-comfortable header weight 500 {"font-weight":"500","background-color":"rgb(247, 249, 252)"}
+PASS en-light-comfortable dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgba(9, 16, 24, 0.18) 0px 20px 48px 0px, rgba(9, 16, 24, 0.08) 0px 4px 12px 0px","background-color":"rgb(255, 255, 255)"}
+PASS en-light-compact sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(218, 222, 229) 0px 0px 0px 1px"}
+PASS en-light-compact accent bar 3px {"inline-size":"3px","background-color":"rgb(153, 115, 36)","inset-inline-start":"0px"}
+PASS en-light-compact bar on the inline-start side {"left":"0px","right":"198px"}
+PASS en-light-compact page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS en-light-compact title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS en-light-compact list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(255, 255, 255)"}
+PASS en-light-compact list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS en-light-compact theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS en-light-compact cell inline padding follows density {"padding-inline-start":"8px","padding-block-start":"8px","font-size":"13px"}
+PASS en-light-compact header weight 500 {"font-weight":"500","background-color":"rgb(247, 249, 252)"}
+PASS en-light-compact dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgba(9, 16, 24, 0.18) 0px 20px 48px 0px, rgba(9, 16, 24, 0.08) 0px 4px 12px 0px","background-color":"rgb(255, 255, 255)"}
+PASS en-dark-comfortable sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(46, 54, 65) 0px 0px 0px 1px"}
+PASS en-dark-comfortable accent bar 3px {"inline-size":"3px","background-color":"rgb(213, 174, 99)","inset-inline-start":"0px"}
+PASS en-dark-comfortable bar on the inline-start side {"left":"0px","right":"198px"}
+PASS en-dark-comfortable page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS en-dark-comfortable title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS en-dark-comfortable list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(17, 24, 32)"}
+PASS en-dark-comfortable list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS en-dark-comfortable theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS en-dark-comfortable cell inline padding follows density {"padding-inline-start":"12px","padding-block-start":"8px","font-size":"14px"}
+PASS en-dark-comfortable header weight 500 {"font-weight":"500","background-color":"rgb(11, 17, 25)"}
+PASS en-dark-comfortable dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgb(75, 83, 94) 0px 0px 0px 1px","background-color":"rgb(29, 37, 47)"}
+PASS en-dark-compact sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(46, 54, 65) 0px 0px 0px 1px"}
+PASS en-dark-compact accent bar 3px {"inline-size":"3px","background-color":"rgb(213, 174, 99)","inset-inline-start":"0px"}
+PASS en-dark-compact bar on the inline-start side {"left":"0px","right":"198px"}
+PASS en-dark-compact page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS en-dark-compact title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS en-dark-compact list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(17, 24, 32)"}
+PASS en-dark-compact list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS en-dark-compact theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS en-dark-compact cell inline padding follows density {"padding-inline-start":"8px","padding-block-start":"8px","font-size":"13px"}
+PASS en-dark-compact header weight 500 {"font-weight":"500","background-color":"rgb(11, 17, 25)"}
+PASS en-dark-compact dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgb(75, 83, 94) 0px 0px 0px 1px","background-color":"rgb(29, 37, 47)"}
+PASS ar-light-comfortable sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(218, 222, 229) 0px 0px 0px 1px"}
+PASS ar-light-comfortable accent bar 3px {"inline-size":"3px","background-color":"rgb(153, 115, 36)","inset-inline-start":"0px"}
+PASS ar-light-comfortable bar on the inline-start side {"left":"198px","right":"0px"}
+PASS ar-light-comfortable page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS ar-light-comfortable title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS ar-light-comfortable list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(255, 255, 255)"}
+PASS ar-light-comfortable list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS ar-light-comfortable theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS ar-light-comfortable cell inline padding follows density {"padding-inline-start":"12px","padding-block-start":"8px","font-size":"14px"}
+PASS ar-light-comfortable header weight 500 {"font-weight":"500","background-color":"rgb(247, 249, 252)"}
+PASS ar-light-comfortable dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgba(9, 16, 24, 0.18) 0px 20px 48px 0px, rgba(9, 16, 24, 0.08) 0px 4px 12px 0px","background-color":"rgb(255, 255, 255)"}
+PASS ar-light-compact sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(218, 222, 229) 0px 0px 0px 1px"}
+PASS ar-light-compact accent bar 3px {"inline-size":"3px","background-color":"rgb(153, 115, 36)","inset-inline-start":"0px"}
+PASS ar-light-compact bar on the inline-start side {"left":"198px","right":"0px"}
+PASS ar-light-compact page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS ar-light-compact title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS ar-light-compact list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(255, 255, 255)"}
+PASS ar-light-compact list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS ar-light-compact theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS ar-light-compact cell inline padding follows density {"padding-inline-start":"8px","padding-block-start":"8px","font-size":"13px"}
+PASS ar-light-compact header weight 500 {"font-weight":"500","background-color":"rgb(247, 249, 252)"}
+PASS ar-light-compact dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgba(9, 16, 24, 0.18) 0px 20px 48px 0px, rgba(9, 16, 24, 0.08) 0px 4px 12px 0px","background-color":"rgb(255, 255, 255)"}
+PASS ar-dark-comfortable sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(46, 54, 65) 0px 0px 0px 1px"}
+PASS ar-dark-comfortable accent bar 3px {"inline-size":"3px","background-color":"rgb(213, 174, 99)","inset-inline-start":"0px"}
+PASS ar-dark-comfortable bar on the inline-start side {"left":"198px","right":"0px"}
+PASS ar-dark-comfortable page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS ar-dark-comfortable title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS ar-dark-comfortable list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(17, 24, 32)"}
+PASS ar-dark-comfortable list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS ar-dark-comfortable theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS ar-dark-comfortable cell inline padding follows density {"padding-inline-start":"12px","padding-block-start":"8px","font-size":"14px"}
+PASS ar-dark-comfortable header weight 500 {"font-weight":"500","background-color":"rgb(11, 17, 25)"}
+PASS ar-dark-comfortable dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgb(75, 83, 94) 0px 0px 0px 1px","background-color":"rgb(29, 37, 47)"}
+PASS ar-dark-compact sidebar active radius 4px and ring {"border-radius":"4px","box-shadow":"rgb(46, 54, 65) 0px 0px 0px 1px"}
+PASS ar-dark-compact accent bar 3px {"inline-size":"3px","background-color":"rgb(213, 174, 99)","inset-inline-start":"0px"}
+PASS ar-dark-compact bar on the inline-start side {"left":"198px","right":"0px"}
+PASS ar-dark-compact page-head sticky top 0px (no ribbon) {"top":"0px","position":"sticky"}
+PASS ar-dark-compact title 18px/600 {"font-size":"18px","font-weight":"600"}
+PASS ar-dark-compact list subject sticky at inline start {"position":"sticky","inset-inline-start":"0px","background-color":"rgb(17, 24, 32)"}
+PASS ar-dark-compact list scroll-padding-inline-start 192px {"scroll-padding-inline-start":"192px"}
+PASS ar-dark-compact theme sets no height on dt-row or dt-cell {"row":"35px","rowInline":"","cell":"35px","cellInline":""}
+PASS ar-dark-compact cell inline padding follows density {"padding-inline-start":"8px","padding-block-start":"8px","font-size":"13px"}
+PASS ar-dark-compact header weight 500 {"font-weight":"500","background-color":"rgb(11, 17, 25)"}
+PASS ar-dark-compact dialog radius 8px with elevation {"border-radius":"8px","box-shadow":"rgb(75, 83, 94) 0px 0px 0px 1px","background-color":"rgb(29, 37, 47)"}
+PASS appearance swatch dot painted from --ins-swatch-colour with 1px border {"background-color":"rgb(27, 80, 134)","border-top-width":"1px","inline-size":"16px"}
+PASS appearance .ins-sr-only is visually hidden {"position":"absolute","inline-size":"1px","overflow":"hidden"}
+pass 90 fail 0

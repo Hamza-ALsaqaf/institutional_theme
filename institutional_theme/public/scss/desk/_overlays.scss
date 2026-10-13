@@ -1,2 +1,71 @@
-// Overlays: dialogs, message boxes, toasts, freeze, menus, tooltips, popovers, autocomplete, pickers.
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Overlays: dialog, freeze backdrop, dropdowns, popovers, tooltips, toasts, awesomplete (core global.scss, toast.scss, form.scss).
+// Surfaces come from the map; shape and elevation are written here so every overlay reads from --ins-elevation-*.
+
+// ---- Dialog: 8px radius, hairline, dialog elevation (design .dialog). Bootstrap `.modal-content`.
+html:root[dir] .modal-content {
+	background: var(--ins-surface-overlay);
+	border: 1px solid var(--ins-border);
+	border-radius: var(--ins-radius-lg);
+	box-shadow: var(--ins-elevation-dialog);
+}
+
+// ---- Freeze backdrop: core fades --bg-color to 0.8 opacity (global.scss:511-531); the scrim token carries its own alpha.
+html:root[dir] #freeze {
+	background-color: var(--ins-surface-scrim);
+}
+
+html:root[dir] #freeze.in {
+	opacity: 1;
+}
+
+html:root[dir] #freeze .freeze-message-container {
+	background-color: var(--ins-surface-overlay);
+	color: var(--ins-text);
+}
+
+// ---- Dropdowns, popovers, tooltips: overlay surface, hairline, overlay elevation (design .overlay).
+html:root[dir] .dropdown-menu,
+html:root[dir] .popover {
+	background-color: var(--ins-surface-overlay);
+	border: 1px solid var(--ins-border);
+	border-radius: var(--ins-radius-md);
+	box-shadow: var(--ins-elevation-overlay);
+}
+
+html:root[dir] .tooltip-content {
+	background-color: var(--ins-surface-inverse);
+	color: var(--ins-text-inverse);
+	border-radius: var(--ins-radius-sm);
+	font-size: var(--ins-text-xs);
+}
+
+// ---- Toast: raised surface with the feedback colour as an inline-start bar would need markup core lacks, so the --toast-bg
+// feedback surface stays and gets a hairline plus the dialog elevation (toast.scss:12-40).
+html:root[dir] .desk-alert {
+	border: 1px solid var(--ins-border);
+	border-radius: var(--ins-radius-md);
+	box-shadow: var(--ins-elevation-dialog);
+}
+
+// ---- Awesomplete list (link and awesomebar suggestions): same overlay surface.
+html:root[dir] .awesomplete > ul {
+	background: var(--ins-surface-overlay);
+	border: 1px solid var(--ins-border);
+	border-radius: var(--ins-radius-md);
+	box-shadow: var(--ins-elevation-overlay);
+}
+
+html:root[dir] .awesomplete > ul > li[aria-selected="true"],
+html:root[dir] .awesomplete > ul > li:hover {
+	background: var(--ins-surface-hover);
+	color: var(--ins-text-strong);
+}
+
+// ---- Datepicker (air-datepicker): overlay surface; cell colours come from --date-active-* in the map.
+html:root[dir] .datepicker {
+	background: var(--ins-surface-overlay);
+	border: 1px solid var(--ins-border);
+	border-radius: var(--ins-radius-md);
+	box-shadow: var(--ins-elevation-overlay);
+	color: var(--ins-text);
+}

@@ -1,2 +1,38 @@
-// Workspace home: number cards, chart containers, shortcuts, link cards, onboarding.
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Workspace: number cards, shortcut cards, link cards (core desk/desktop.scss widgets).
+// Part of the desk bundle; card colours are the mapped --card-bg and --border-color, shape and type are written here.
+
+// ---- Cards: raised surface, hairline, 6px radius, raised elevation (design .card). Core `.widget` is 8px, no shadow (desktop.scss:91-100).
+html:root[dir] .widget.number-widget-box,
+html:root[dir] .widget.shortcut-widget-box,
+html:root[dir] .widget.links-widget-box {
+	border-radius: var(--ins-radius-md);
+	box-shadow: var(--ins-elevation-raised);
+}
+
+// ---- Hover on shortcut cards: core inverts the border to --invert-neutral (desktop.scss:542-548); the design keeps a hairline and raises the fill.
+html:root[dir] .widget.shortcut-widget-box:hover {
+	background-color: var(--ins-surface-hover);
+	border-color: var(--ins-border-strong);
+}
+
+// ---- Card titles and number: strong, tabular, direction-isolated (numbers stay left-to-right in Arabic).
+html:root[dir] .widget.number-widget-box .widget-title,
+html:root[dir] .widget.shortcut-widget-box .widget-label .widget-title,
+html:root[dir] .widget.links-widget-box .widget-title {
+	color: var(--ins-text-strong);
+	font-weight: var(--ins-weight-strong);
+}
+
+html:root[dir] .widget.number-widget-box .number {
+	font-variant-numeric: tabular-nums lining-nums;
+	unicode-bidi: isolate;
+}
+
+// ---- Link items: secondary text, hover to link colour (desktop.scss:568-600).
+html:root[dir] .widget.links-widget-box .link-item {
+	color: var(--ins-text-secondary);
+}
+
+html:root[dir] .widget.links-widget-box .link-item:hover {
+	color: var(--ins-text-link);
+}

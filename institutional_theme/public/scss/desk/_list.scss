@@ -1,2 +1,57 @@
-// List view: rows, filters, selection (css-B).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// List view: head and row backgrounds, sticky first column, scroll padding, empty state (core list.scss).
+// Part of the desk bundle; row height is core's --list-row-height, mapped from tokens, never set here.
+
+// ---- Head row: sunken, hairline, medium secondary type (design th). Core: `.list-row-head` background --subtle-fg (list.scss:223-228).
+html:root[dir] .list-row-head {
+	border-radius: var(--ins-radius-sm);
+	color: var(--ins-text-secondary);
+	font-weight: var(--ins-weight-medium);
+}
+
+// ---- Sticky first column. The subject stays at the inline start while a wide list scrolls (BRIEF P0).
+// The cell needs an opaque background that follows the row state, held in --ins-row-bg on the row.
+html:root[dir] .list-row {
+	--ins-row-bg: var(--ins-surface-base);
+}
+
+html:root[dir] .list-row:hover:not(.list-row-head) {
+	--ins-row-bg: var(--ins-surface-hover);
+}
+
+html:root[dir] .list-row-head {
+	--ins-row-bg: var(--ins-surface-sunken);
+}
+
+html:root[dir] .list-row-container:has(.list-row-checkbox:checked) .list-row {
+	--ins-row-bg: var(--ins-surface-selected);
+}
+
+html:root[dir] .list-row .level-left .list-subject {
+	position: sticky;
+	inset-inline-start: 0;
+	z-index: 1;
+	background-color: var(--ins-row-bg);
+}
+
+// Keyboard focus and anchor scrolling stop clear of the sticky column.
+html:root[dir] .frappe-list .result-container {
+	scroll-padding-inline-start: calc(var(--ins-space-16) * 3);
+}
+
+// ---- Row hover and the sticky inline-end block: core paints its shadow on the physical left (list.scss:144-148).
+// Core's own 2px border on the block already separates it, so the shadow is dropped.
+html:root[dir] .list-row:hover:not(.list-row-head) .level-right {
+	box-shadow: none;
+}
+
+// ---- Empty state: muted, centred, sized to the type scale (global.scss:538-542, page.scss:220-230).
+html:root[dir] .msg-box {
+	color: var(--ins-text-muted);
+	font-size: var(--ins-text-base);
+}
+
+// ---- Pagination buttons: hairline group, selected = filled with the strong surface.
+html:root[dir] .list-paging-area .btn-group .btn.btn-paging.btn-info {
+	background: var(--ins-surface-active);
+	color: var(--ins-text-strong);
+}

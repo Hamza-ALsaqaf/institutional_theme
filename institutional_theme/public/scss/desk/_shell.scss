@@ -1,2 +1,40 @@
-// Desk shell: desktop apps screen, sidebar, awesomebar search, notifications, account and app menu.
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Desk shell: sidebar items, awesomebar search, notifications and account menu where tokens stop (core sidebar.scss, menu.scss).
+// Part of the desk bundle; imported by ins_desk.bundle.scss. Colours come from the Frappe map; only shape and the accent bar are written here.
+
+// ---- Sidebar item shape. Core hover mixin and `.active-sidebar` use 8px radius (sidebar.scss:19-23, 271-274); the design uses --ins-radius-sm.
+// Core's hover rule is (0,5,1); this is (0,6,1) with the container class.
+html:root[dir] .body-sidebar-container .body-sidebar .standard-sidebar-item:is(:hover, .active-sidebar) {
+	border-radius: var(--ins-radius-sm);
+}
+
+// ---- Active item: hairline ring, strong label, accent bar at the inline start (design .side-item.active).
+// Core `.active-sidebar` is (0,1,0): background and a --shadow-sm drop shadow, replaced by the ring.
+html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar {
+	box-shadow: 0 0 0 1px var(--ins-border);
+}
+
+html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar::before {
+	content: "";
+	position: absolute;
+	inset-inline-start: 0;
+	inset-block: var(--ins-space-15);
+	inline-size: 3px;
+	border-radius: var(--ins-radius-xs);
+	background: var(--ins-accent);
+	pointer-events: none;
+}
+
+html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar .sidebar-item-label {
+	color: var(--ins-text-strong);
+	font-weight: var(--ins-weight-strong);
+}
+
+// ---- Sidebar labels and anchors: --ink-gray-6 is mapped, so only the weight of the group label is written.
+html:root[dir] .body-sidebar .standard-sidebar-item .item-anchor {
+	color: var(--ins-text-secondary);
+}
+
+// ---- Menu items in dropdowns opened from the shell (menu.scss:18-24): same radius as the sidebar.
+html:root[dir] .dropdown-menu-item {
+	border-radius: var(--ins-radius-sm);
+}

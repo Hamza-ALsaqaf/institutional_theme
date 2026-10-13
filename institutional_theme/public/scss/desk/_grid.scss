@@ -1,2 +1,23 @@
-// Child table grid (css-B).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Grid child tables: head, rows, empty state (core common/grid.scss). Type, colour and padding only; no row height is set.
+// Part of the desk bundle; heights stay core's because the grid row is clipped and scroll-synchronised.
+
+// ---- Head row: secondary colour, medium weight (design th). Core `.grid-heading-row` colour --gray-600, regular (grid.scss:19-23).
+html:root[dir] .grid-heading-row {
+	color: var(--ins-text-secondary);
+	font-weight: var(--ins-weight-medium);
+}
+
+html:root[dir] .grid-heading-row .grid-row {
+	background-color: var(--ins-surface-sunken);
+}
+
+// ---- Empty state: muted on the sunken surface (grid.scss:154-169).
+html:root[dir] .grid-empty {
+	color: var(--ins-text-muted);
+	background-color: var(--ins-surface-sunken);
+}
+
+// ---- Scroll padding at the inline start for the frozen index and check columns.
+html:root[dir] .form-grid .grid-body .rows {
+	scroll-padding-inline-start: calc(var(--ins-space-16) * 2);
+}
