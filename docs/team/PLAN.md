@@ -87,7 +87,7 @@ Paths are relative to the repository root. `pkg/` stands for `institutional_them
 | `pkg/public/scss/ins_web.bundle.scss` | print-web-engineer | Website and login entry: light tokens, Plex, `font-synthesis`, forced-colors. | 0003 |
 | `pkg/public/scss/web/_login.scss`, `_website.scss`, `_error_pages.scss` | print-web-engineer | Login, 2FA, forgot-password; `html body[data-path="login"]` out-ranks `login.bundle.css`. | 0003 |
 | `pkg/public/images/ins_emblem_placeholder.svg`, `ins_wordmark.svg`, `ins_wordmark_dark.svg`, `ins_wordmark_mono.svg`, `ins_favicon.svg` | print-web-engineer | Neutral placeholder identity. | 0005 |
-| Login and error-page content (notice, support contact, version and environment line, reference ID) | print-web-engineer | Mechanism not yet decided. Governed by ADR 0009, which the theme-architect writes before print-web starts this item. | 0009 (pending) |
+| Login and error-page content: `pkg/templates/ins/masthead.html`, `pkg/templates/ins/trust_footer.html` (print-web-engineer, styled in `web/_login.scss`, `_error_pages.scss`); `pkg/web_content.py`, its `update_website_context` entry in `pkg/hooks.py`, `pkg/tests/test_web_content.py` (backend-engineer) | print-web-engineer (templates), backend-engineer (Python) | Masthead (emblem, names, language links) into `banner_html`; trust footer (notice, support, release and environment, reference ID or time of error) into `body_include`; `body_class` flags. Server-side translation, no script. | 0009 |
 
 ## Phase 4: P1, P2 and the proof
 
