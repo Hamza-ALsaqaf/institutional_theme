@@ -19,21 +19,19 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 | 4 P1, P2, proof | not started | |
 | 5 Documentation and hostile review | not started | |
 
-## Tasks in flight (since 15:45 UTC; owner deadline 20:40 UTC, see docs/team/RUN_RULES.md)
+## Tasks in flight (resume run in GitHub Actions, started 17:33 UTC)
 
-- backend (ADR 0010): tokens.json edits, contrast groups, fixture deviation list, colour-vision baseline. Evidence `docs/team/evidence/phase2/adr0010.md`.
-- backend-R1: finish the interrupted Phase 2 fix round (marker `docs/team/evidence/phase2/fixround/DONE.md`), then Phase 3 runtime (hooks on: marker `docs/team/evidence/phase3/runtime/HOOKS_ON.md`).
-- backend-R2: shell script (ADR 0008), test fixtures, actions browser test. Evidence `docs/team/evidence/phase3/shell/`.
-- css-A: desk entry, base, typography, scoped variables, hard-coded colours, shell, page head, workspace, overlays, cascade test, screens runner. Evidence `docs/team/evidence/phase3/css-shell/`, screenshots `docs/team/evidence/phase3/screens/`.
-- css-B: list, reports, grid. Evidence `docs/team/evidence/phase3/css-list/`.
-- css-C: ADR 0010 CSS rules, controls, form, status, actions, masked, ribbon, appearance. Evidence `docs/team/evidence/phase3/css-form/`.
-- print-web: web bundle, login, error pages, masthead and trust-footer templates, SVG identity. Evidence `docs/team/evidence/phase3/web/`.
+Time boxes shifted by the 33-minute late start (RESUME_PROMPT): Phase 2 gate 18:13, Phase 3 19:23, Phase 4 20:23, Phase 5 20:53, final report 21:13 UTC.
+
+- bench (backend-engineer): make `tools/bench/` work in Actions (`sudo -E`, env.sh overrides), build and start the bench, then migrate, run-tests and the install/uninstall gate. Evidence `docs/team/evidence/resume/`.
+- R1 (backend-engineer): Phase 2 fix round (ADR 0010 token edits, colour-vision baseline, U1-U9, bidi strings, CI fixes). Marker `docs/team/evidence/phase2/fixround/DONE.md`.
+- css-C (css-engineer): ADR 0010 rules in `desk/_controls.scss`, then P0 controls, form, status, actions, masked, ribbon, typography, scoped variables, hard-coded colours; cascade descendant probes. Evidence `docs/team/evidence/phase3/css-form/`.
+
+CI cause (VERIFIED from run 38439406253): ruff F841 at `audits/colour_vision.py:349`; `test_model.py:54` expects 362 contrast results, 426 after the partial ADR 0010 group edits. Assigned to R1.
 
 ## Next step
 
-PAUSED at 15:52 UTC on the owner's instruction (stop consuming cloud session credits). Every agent was stopped mid-task; their partial work is committed as an unverified snapshot on `build/midad-v1`. `main` is still at e4015f7 (Phase 0 and Phase 1 gates).
-
-To resume, re-dispatch the seven tasks listed under "Tasks in flight" with the same file ownership (dispatch texts follow `docs/team/RUN_RULES.md`); each agent first reads `git diff e4015f7 -- <its files>` to pick up its partial work. Order of value: (1) backend-R1 Part 1 (Phase 2 fix round; marker `docs/team/evidence/phase2/fixround/DONE.md`) and the ADR 0010 token edits (evidence `docs/team/evidence/phase2/adr0010.md`) together with css-C's two ADR 0010 rules in `desk/_controls.scss`, then the Phase 2 gate; (2) Phase 3 P0. Remove the stray `mkusers.sh` at the repository root. The bench needs `tools/bench/start_services.sh` after a container restart.
+Wait for bench, R1 and css-C. Then: Phase 2 gate (audits, cascade, gate script); dispatch css-A (shell, page head, workspace, overlays, list, reports, grid, appearance, screens.mjs), print-web (web bundle, login, error pages), backend R2 (Phase 3 runtime: hooks on, preferences, api, boot, website, site_files, identity, Appearance page, shell JS, fixtures).
 
 ## Bench
 
@@ -65,3 +63,4 @@ To resume, re-dispatch the seven tasks listed under "Tasks in flight" with the s
 22. 16:30 UTC: the owner chose to continue on their own Anthropic API key. Added `.github/workflows/claude-resume.yml` (Claude Code in GitHub Actions with the `ANTHROPIC_API_KEY` secret; starts when a pull request from `build/midad-v1` to `main` is opened, reopened or labelled `claude-resume`; a pre-push hook refuses pushes to `main`) and `docs/team/RESUME_PROMPT.md` (the instructions that run follows). No cloud agents were restarted.
 23. 16:45 UTC: the owner merged pull request #1 into `main` (merge commit `24a8b35`), so `main` now holds the unverified snapshot and CI is red on it. The first Actions run failed because the key secret is named `INSTITUTIONAL_THEME`, not `ANTHROPIC_API_KEY`; the workflow now reads `INSTITUTIONAL_THEME`. The run is started by a new draft pull request from `build/midad-v1` to `main`, which is not to be merged before the final report.
 24. 17:15 UTC: the owner's key carries promotional credits that cover the Agent SDK and the API but not Claude Code, so `claude-code-action` failed with "Credit balance is too low". The resume workflow now runs Claude through the Claude Agent SDK (`tools/ci/run_agent.mjs`, engine `sdk`), with `claude -p` as an automatic fallback, after a one-turn smoke test that must succeed before the build starts. A local plumbing test of the runner unintentionally used this cloud session's own credentials (about 0.23 USD); no further local API calls are made.
+25. 17:33 UTC: resume run started in GitHub Actions, 33 minutes after 17:00, so every time box in RESUME_PROMPT is shifted by 33 minutes (final report 21:13 UTC, inside the 355-minute job limit). The stray `mkusers.sh` and the `adm.jar` cookie jar it produced were removed from the repository root.
