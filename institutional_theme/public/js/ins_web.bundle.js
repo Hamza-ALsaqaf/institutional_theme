@@ -46,7 +46,15 @@
 		sync(button, input);
 	}
 
+	// Core ships `.text-muted { color: #7c7c7c !important }` (4.2:1 on white). On error pages the muted
+	// class sits on the "Back to Home" link, so drop it and let the link colour from _error_pages.scss apply.
+	function unmuteErrorLinks() {
+		var links = document.querySelectorAll("body.ins-error .details a.text-muted");
+		for (var j = 0; j < links.length; j++) links[j].classList.remove("text-muted");
+	}
+
 	function run() {
+		unmuteErrorLinks();
 		var icons = document.querySelectorAll("svg.toggle-password");
 		for (var i = 0; i < icons.length; i++) wrap(icons[i]);
 	}

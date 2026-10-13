@@ -90,3 +90,28 @@ Evidence labels: VERIFIED = run live on the bench (Chromium, SCSS compiled with 
 - **3, 10 translations:** `ar.csv` gains Sign In, Welcome!..., Forgot password?, Forgot Password?, the reset-link sentence, Send Link, Resend, Didn't receive the link?, Back to sign in, Login with Email Link, Send login link, Login with password, Please check your email., Show password, Hide password; "Selected" is now "محددة". Not VERIFIED live: the running bench has not reloaded translations, so the screenshot still shows English for those strings.
 - **11 input direction (VERIFIED):** `#login_email`, `#login_password` and update-password password fields get `direction: ltr` (Latin caret and run correct). Under ltr, `text-align: start` is the left edge, so in RTL pages `text-align: end` (right edge) keeps the text lined up with the mirrored layout and icons. Computed: ar `ltr/end`, en `ltr/start`.
 - Screenshot artefact: the doubled masthead in `fix-login-*.png` comes from injecting the fragment into a page that already renders it.
+
+## Real build verification
+
+Run against the live bench at `http://midad.test:8000` with this app's bundles served by core (no injection), Chromium via Playwright, `locale` set per language. Script: `real_pages.mjs`; measurements: `real-pages-check.json`; screenshots `real-<page>-<lang>.png`. Evidence label: VERIFIED = run live.
+
+Fictional test data (all prefixed `web-`): users `web-reset@`, `web-session@`, `web-twofa@example.com`, role `web-2fa-role` (the only role with `two_factor_auth=1`, assigned only to `web-twofa`). Administrator was not touched. 2FA: System Settings `enable_two_factor_auth` was 0; the script set it to 1 only around the 2FA login and restored it to 0 in a `finally` block (re-read afterwards: 0). The `web-twofa` user has its `_otplogin` default set so the OTP step shows without an outgoing email account (the first-login path needs one: the English run first showed core's "Please setup default outgoing Email Account" message).
+
+Dark: not applicable. Core website pages never set `data-theme` or `prefers-color-scheme` (grep of `templates/`, `www/`, `public/scss/website`: only `www/desk.html` and the avatar partial); auth and error pages are always Light.
+
+Session expired in 16.32: `request.js:136-139` (401) and `request.js:436-439` (`r.session_expired`) call `frappe.app.handle_session_expired()` (`desk.js:403`), which calls `redirect_to_login()` (`desk.js:406`) = navigation to `/login?redirect-to=<path>`. There is no separate expired page: it is the login page. Reproduced by `frappe.sessions.clear_sessions(user, force=True)` and then a `frappe.call` from the open desk; the browser landed on `/login?redirect-to=%2Fdesk%2Fuser%3Fenabled%3D1`.
+
+| Page | en | ar | Notes |
+|---|---|---|---|
+| login | VERIFIED | VERIFIED | earlier capture, not repeated |
+| forgot-password (`/login#forgot`) | VERIFIED | VERIFIED | own CSS loaded, 0 tracked text nodes in ar |
+| update-password (real reset key) | VERIFIED | VERIFIED | reveal buttons 32x32 with translated label; ar subtitle "Use strong passwords." was untranslated, entry added to `ar.csv` (not re-rendered: bench has not reloaded translations) |
+| 2FA (OTP App, verification step) | VERIFIED | VERIFIED | ar letter-spacing 0 |
+| session-expired (redirect to login) | VERIFIED | VERIFIED | URL above; page identical to login with `redirect-to` |
+| 404 | VERIFIED | VERIFIED | |
+| 403 (`/printview` as Guest, "Not Permitted") | VERIFIED | VERIFIED | |
+| Dark | n/a | n/a | see above |
+
+Checks: Arabic letter-spacing is 0 on every page (zero text-bearing elements with non-zero tracking). English shows core's 0.28px, unchanged by design. Reveal button present and visible on every password page (hidden on forgot, where the field is not shown).
+
+Defect found and fixed: on 404 and 403 the "Back to Home" link kept core's `.text-muted { color: #7c7c7c !important }` (4.2:1 on white, below 4.5:1), so `_error_pages.scss` could not recolour it. `ins_web.bundle.js` now removes `text-muted` from `body.ins-error .details a.text-muted`; verified by injecting the script into the live 404 page: class empty, colour rgb(0, 88, 149) = `--ins-text-link`, underlined, about 7.5:1 (COMPUTED). Screenshot `fix-404-link-en.png`. Needs a rebuild to reach the real build. Not done: no `!important` was added.
