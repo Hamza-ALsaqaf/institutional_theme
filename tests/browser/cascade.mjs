@@ -158,6 +158,34 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	const nm = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--ins-duration").trim());
 	record(scenario, "no-preference: --ins-duration", "160ms", nm, nm === "160ms");
 
+	// 5b. Checkboxes in clipped containers: the ring must stay visible on checked and unchecked boxes.
+	const lum = (rgb) => { const [r, g, b] = rgb.map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+	const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+	const checkIds = ["dt-off", "dt-on", "gr-off", "gr-on", "ls-off", "ls-on"];
+	for (const id of checkIds) {
+		await page.evaluate(() => document.activeElement?.blur());
+		let reached = false;
+		for (let i = 0; i < 40 && !reached; i++) { await page.keyboard.press("Tab"); reached = await page.evaluate((id) => document.activeElement.id === id, id); }
+		const c = await page.evaluate(() => {
+			const e = document.activeElement, s = getComputedStyle(e);
+			const rgb = (v) => v.match(/[\d.]+/g).map(Number);
+			let n = e.parentElement, bg = null;
+			while (n && !bg) { const col = getComputedStyle(n).backgroundColor; const m = rgb(col); if (m.length < 4 || m[3] === 1) bg = m.slice(0, 3); n = n.parentElement; }
+			const probe = (v) => { const i = document.createElement("i"); i.style.color = `var(${v})`; document.body.append(i); const r = getComputedStyle(i).color; i.remove(); return rgb(r).slice(0, 3); };
+			return { id: e.id, w: s.outlineWidth, st: s.outlineStyle, off: s.outlineOffset, ring: rgb(s.outlineColor).slice(0, 3), bg, fill: probe("--primary"), checked: e.checked,
+				rowBgs: ["--ins-surface-base", "--ins-surface-hover", "--ins-surface-selected", "--ins-surface-selected-strong"].map((v) => [v, probe(v)]) };
+		});
+		const ok = reached && c.w === "2px" && c.st === "solid" && c.off === "2px";
+		record(scenario, `checkbox #${id} (${c.checked ? "checked" : "unchecked"}): ring 2px solid, offset +2px (outside the box)`, "2px solid offset 2px", `${c.w} ${c.st} offset ${c.off}`, ok);
+		const rBg = ratio(c.ring, c.bg);
+		record(scenario, `checkbox #${id}: ring vs effective background >= 3`, ">= 3", rBg.toFixed(2), rBg >= 3);
+		for (const [name, rgb] of c.rowBgs) { const r = ratio(c.ring, rgb); record(scenario, `checkbox #${id}: ring vs ${name} >= 3`, ">= 3", r.toFixed(2), r >= 3); }
+		if (c.checked) { const rf = ratio(c.ring, c.fill); record(scenario, `checkbox #${id}: ring vs checked fill (info; ring is outside, fill is not adjacent)`, "info", rf.toFixed(2), true); }
+	}
+	// Autofill cover must survive focus: the reset is skipped for :-webkit-autofill, so the rule text is the proof available headless.
+	const afRule = await page.evaluate(() => [...document.styleSheets].flatMap((s) => { try { return [...s.cssRules]; } catch { return []; } }).filter((r) => r.selectorText && /box-shadow/.test(r.cssText) && /focus-visible/.test(r.selectorText) && /autofill/.test(r.selectorText)).length);
+	record(scenario, "box-shadow reset excludes :-webkit-autofill", ">= 1 rule", String(afRule), afRule >= 1);
+
 	await page.emulateMedia({ forcedColors: "active" });
 	await page.evaluate(() => document.getElementById("btn").focus());
 	await page.keyboard.press("Shift+Tab"); await page.keyboard.press("Tab");
@@ -165,6 +193,10 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	record(scenario, "forced-colors: media active", "true", String(fc.mm), fc.mm);
 	record(scenario, "forced-colors: ring still drawn", "2px solid", `${fc.w} ${fc.st} ${fc.c}`, fc.st === "solid" && fc.w === "2px");
 	record(scenario, "forced-colors: badge keeps an outline shape", "solid", fc.pill, fc.pill === "solid");
+	await page.evaluate(() => document.activeElement?.blur());
+	for (let i = 0, ok = false; i < 40 && !ok; i++) { await page.keyboard.press("Tab"); ok = await page.evaluate(() => document.activeElement.id === "dt-on"); }
+	const fcc = await page.evaluate(() => { const s = getComputedStyle(document.activeElement); return { id: document.activeElement.id, st: s.outlineStyle, w: s.outlineWidth }; });
+	record(scenario, "forced-colors: focused checked checkbox has an outline", "dt-on 2px solid", `${fcc.id} ${fcc.w} ${fcc.st}`, fcc.id === "dt-on" && fcc.st === "solid" && fcc.w === "2px");
 	await ctx.close();
 }
 await browser.close();
