@@ -21,8 +21,9 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-- Phase 2 reviews (upgrade-reviewer, a11y-rtl-reviewer) on the Phase 2 diff.
-- scribe: Arabic entries for the settings strings (`docs/team/evidence/phase2/settings.md`).
+- Phase 2 reviews DONE: a11y 3 blocking (placeholder/border on the real control bg; dark help text on selected-strong; checkbox focus ring), upgrade 1 blocking (restore without files blocks settings save). Arabic settings strings DONE.
+- Fix round 1 in flight: theme-architect ADR 0010 (contrast corrections); backend-engineer (U1 font validation, U2 print font names, U3, U7 dead-token snapshot + ruff pin, U8 before_uninstall, U9 track_changes, bidi strings); css-engineer (checkbox focus ring, autofill on focus, comments).
+- After ADR 0010: backend-engineer applies tokens.json edits, widens contrast groups, fixture test with deviation list, regenerates; css re-runs cascade.
 
 ## Next step
 
@@ -48,3 +49,5 @@ Read the Phase 2 reviews; fix blocking findings (max two attempts each); fast-fo
 12. The custom-preset contrast rejection is a safeguard: no hue on the approved curves fails a required pair (scan in `docs/team/evidence/phase2/backend-pipeline.md`).
 13. Focus: core's literal grey focus box-shadows on .btn/.form-control/.custom-select/.page-link/badges are set to none so exactly one ring (the outline) shows. Consequence: .btn-default loses its inset highlight while focused. One ring wins (BRIEF §8 focus).
 14. Fonts: Plex default 234 KB WOFF2 (budget 350). Tajawal has no 600 weight: its 700 file serves 600-700 (a heavier semibold than designed, only when Tajawal is selected). Noto and Tajawal pairings print in Plex (only Plex has TTFs for wkhtmltopdf).
+15. main was fast-forwarded to e4015f7 at the Phase 0 and Phase 1 gates. That commit already held inert Phase 2 code (no CSS or JS hook enabled; install/uninstall verified clean on it). The settings doctype on that commit can write identity values through to Website Settings without restoring them on uninstall (upgrade review Phase 2 #8); fixed in the Phase 2 fix round. Recorded as a lapse in strictness, not repeated: main now advances only at a full phase gate.
+16. Phase 2 deferrals to Phase 3 (owner: css-engineer unless noted): Arabic typography rules (letter-spacing reset, Arabic leading, size compensation, tabular numerals), read-only vs disabled distinction, inline-start scroll-padding for sticky first column, descendant re-declarations in dark (`_scoped_variables.scss`) with descendant-level cascade assertions, forced-colors coverage of checkbox/switch fills and selected rows, brand-app coexistence test (findings §8). Reduced-motion spinner substitute deferred to Phase 4 (global states).
