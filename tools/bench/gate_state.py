@@ -13,6 +13,9 @@ import sys
 import frappe
 
 DOCTYPE = "Institutional Theme Settings"
+PRINT_STYLE = "Print Style"
+LETTER_HEAD = "Letter Head"
+PRINT_NAME = "Midad"
 WEBSITE = ("app_name", "app_logo", "splash_image", "favicon")
 PNG = b"\x89PNG\r\n\x1a\n" + b"\x00" * 16
 
@@ -23,8 +26,17 @@ def website_values() -> dict:
 	return values
 
 
+def print_state() -> dict:
+	"""The shipped print records and their bookkeeping globals (print/ship.py)."""
+	return {
+		"print_style": bool(frappe.db.exists(PRINT_STYLE, PRINT_NAME)),
+		"letter_head": bool(frappe.db.exists(LETTER_HEAD, PRINT_NAME)),
+		"globals": frappe.db.count("DefaultValue", {"defkey": ("like", "ins_print_%")}),
+	}
+
+
 def seed(state_path: str) -> None:
-	state = {"original": website_values()}
+	state = {"original": website_values(), "print_at_seed": print_state()}
 	file = frappe.get_doc(
 		{
 			"doctype": "File",
@@ -51,7 +63,15 @@ def seed(state_path: str) -> None:
 	state["file"] = file.name
 	with open(state_path, "w", encoding="utf-8") as handle:
 		json.dump(state, handle, indent=1)
-	print(json.dumps({"seeded": state["written"]}, indent=1))
+	print(
+		json.dumps(
+			{"seeded": state["written"], "print_records_after_install": state["print_at_seed"]}, indent=1
+		)
+	)
+	if not (state["print_at_seed"]["print_style"] and state["print_at_seed"]["letter_head"]):
+		print(
+			"WARNING: the Midad Print Style or Letter Head was not shipped by install; the print check proves nothing"
+		)
 
 
 def residue(state_path: str) -> int:
@@ -73,6 +93,20 @@ def residue(state_path: str) -> int:
 		left["globals ins_identity_*"] = frappe.db.count(
 			"DefaultValue", {"defkey": ("like", "ins_identity_%")}
 		)
+	# Print records: installed untouched, so uninstall must remove both and clear the bookkeeping globals.
+	if frappe.db.exists(PRINT_STYLE, PRINT_NAME):
+		left["print style Midad"] = "still exists"
+	if frappe.db.exists(LETTER_HEAD, PRINT_NAME):
+		left["letter head Midad"] = "still exists"
+	if frappe.db.count("DefaultValue", {"defkey": ("like", "ins_print_%")}):
+		left["globals ins_print_*"] = frappe.db.count("DefaultValue", {"defkey": ("like", "ins_print_%")})
+	if frappe.db.get_single_value("Print Settings", "print_style") == PRINT_NAME:
+		left["Print Settings.print_style"] = PRINT_NAME
+	print(
+		json.dumps(
+			{"print_after_uninstall": print_state(), "print_at_seed": state.get("print_at_seed")}, indent=1
+		)
+	)
 	if frappe.db.count("Version", {"ref_doctype": DOCTYPE}):
 		left["version rows"] = frappe.db.count("Version", {"ref_doctype": DOCTYPE})
 	if os.path.exists(frappe.get_site_path("public", "files", "institutional_theme")):

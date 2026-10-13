@@ -1,0 +1,6 @@
+Print Style Midad Letter Head Midad
+globals [{'defkey': 'ins_print_shipped'}]
+Property Setter tax_id mask 0
+Customer BE R2 0 Quotation 0 Item B2 0
+settings {'enable_idle_warning': 0, 'idle_warning_minutes': 0, 'enable_connection_banner': 0}
+css has family rule True

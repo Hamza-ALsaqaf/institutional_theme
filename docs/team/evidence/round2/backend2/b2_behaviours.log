@@ -1,0 +1,44 @@
+PASS disabled: boot keys are false {"ins":{"idle_warning":false,"idle_minutes":5,"connection_banner":false},"session_expiry":"170:00"}
+PASS disabled: no banner when offline 
+PASS settings saved 200
+PASS en: boot keys enabled, idle_minutes 1 {"ins":{"idle_warning":true,"idle_minutes":1,"connection_banner":true},"session_expiry":"170:00"}
+PASS en: no banner while online 
+PASS en: offline banner (first child of body, role status, one banner) {"role":"status","firstChild":true,"count":1,"text":"You are offline. Changes cannot be saved until the connection returns.","button":null,"labelledBy":null,"labelOk":false,"buttonClass":null,"focusOnButton":false,"display":"flex"}
+PASS en: offline text is in the user language You are offline. Changes cannot be saved until the connection returns.
+PASS en: a repeated offline event adds no second banner 
+PASS en: online shows "connection is back" The connection is back.
+PASS en: the banner is removed after the confirmation 
+PASS en: realtime disconnect shows the banner Live updates are interrupted. The page will keep trying to reconnect.
+PASS en: realtime connect shows the confirmation The connection is back.
+PASS en: idle, no banner at start 
+PASS en: no banner after 50 s 
+PASS en: input resets the idle clock (still none 50 s after input) 
+PASS en: warning after 70 s without input (alertdialog, labelled, focus on the action) {"role":"alertdialog","firstChild":true,"count":1,"text":"You have been inactive. Your session may end soon.","button":"Stay signed in","labelledBy":"ins-banner-text-1","labelOk":true,"buttonClass":"btn btn-sm btn-default ins-banner-action","focusOnButton":true,"display":"flex"}
+PASS en: idle text and action in the user language You have been inactive. Your session may end soon. | Stay signed in
+PASS en: input does not dismiss the warning 
+PASS en: a failed refresh keeps the warning with a retry message The session could not be refreshed. Try again.
+PASS en: Stay signed in made one authenticated GET per press (2 presses) ["GET","GET"]
+PASS en: the warning is dismissed after a successful refresh 
+PASS en: the idle clock restarted (none 50 s later) 
+PASS en: warns again after another idle period 
+PASS ar: boot keys enabled, idle_minutes 1 {"ins":{"idle_warning":true,"idle_minutes":1,"connection_banner":true},"session_expiry":"170:00"}
+PASS ar: no banner while online 
+PASS ar: offline banner (first child of body, role status, one banner) {"role":"status","firstChild":true,"count":1,"text":"أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال.","button":null,"labelledBy":null,"labelOk":false,"buttonClass":null,"focusOnButton":false,"display":"flex"}
+PASS ar: offline text is in the user language أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال.
+PASS ar: a repeated offline event adds no second banner 
+PASS ar: online shows "connection is back" عاد الاتصال.
+PASS ar: the banner is removed after the confirmation 
+PASS ar: realtime disconnect shows the banner توقفت التحديثات الفورية. ستواصل الصفحة محاولة إعادة الاتصال.
+PASS ar: realtime connect shows the confirmation عاد الاتصال.
+PASS ar: idle, no banner at start 
+PASS ar: no banner after 50 s 
+PASS ar: input resets the idle clock (still none 50 s after input) 
+PASS ar: warning after 70 s without input (alertdialog, labelled, focus on the action) {"role":"alertdialog","firstChild":true,"count":1,"text":"لم يُسجَّل أي نشاط منك. قد تنتهي جلستك قريباً.","button":"الاستمرار في الجلسة","labelledBy":"ins-banner-text-1","labelOk":true,"buttonClass":"btn btn-sm btn-default ins-banner-action","focusOnButton":true,"display":"flex"}
+PASS ar: idle text and action in the user language لم يُسجَّل أي نشاط منك. قد تنتهي جلستك قريباً. | الاستمرار في الجلسة
+PASS ar: input does not dismiss the warning 
+PASS ar: a failed refresh keeps the warning with a retry message تعذّر تجديد الجلسة. حاول مرة أخرى.
+PASS ar: Stay signed in made one authenticated GET per press (2 presses) ["GET","GET"]
+PASS ar: the warning is dismissed after a successful refresh 
+PASS ar: the idle clock restarted (none 50 s later) 
+PASS ar: warns again after another idle period 
+PASS settings restored to the original values {"status":200,"values":{"enable_idle_warning":0,"idle_warning_minutes":5,"enable_connection_banner":0}}

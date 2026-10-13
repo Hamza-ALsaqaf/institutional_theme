@@ -1,0 +1,394 @@
+{
+  "name": "b2_behaviours",
+  "checks": [
+    {
+      "label": "disabled: boot keys are false",
+      "ok": true,
+      "detail": "{\"ins\":{\"idle_warning\":false,\"idle_minutes\":5,\"connection_banner\":false},\"session_expiry\":\"170:00\"}"
+    },
+    {
+      "label": "disabled: no banner when offline",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "settings saved",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "label": "en: boot keys enabled, idle_minutes 1",
+      "ok": true,
+      "detail": "{\"ins\":{\"idle_warning\":true,\"idle_minutes\":1,\"connection_banner\":true},\"session_expiry\":\"170:00\"}"
+    },
+    {
+      "label": "en: no banner while online",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: offline banner (first child of body, role status, one banner)",
+      "ok": true,
+      "detail": "{\"role\":\"status\",\"firstChild\":true,\"count\":1,\"text\":\"You are offline. Changes cannot be saved until the connection returns.\",\"button\":null,\"labelledBy\":null,\"labelOk\":false,\"buttonClass\":null,\"focusOnButton\":false,\"display\":\"flex\"}"
+    },
+    {
+      "label": "en: offline text is in the user language",
+      "ok": true,
+      "detail": "You are offline. Changes cannot be saved until the connection returns."
+    },
+    {
+      "label": "en: a repeated offline event adds no second banner",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: online shows \"connection is back\"",
+      "ok": true,
+      "detail": "The connection is back."
+    },
+    {
+      "label": "en: the banner is removed after the confirmation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: realtime disconnect shows the banner",
+      "ok": true,
+      "detail": "Live updates are interrupted. The page will keep trying to reconnect."
+    },
+    {
+      "label": "en: realtime connect shows the confirmation",
+      "ok": true,
+      "detail": "The connection is back."
+    },
+    {
+      "label": "en: idle, no banner at start",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: no banner after 50 s",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: input resets the idle clock (still none 50 s after input)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: warning after 70 s without input (alertdialog, labelled, focus on the action)",
+      "ok": true,
+      "detail": "{\"role\":\"alertdialog\",\"firstChild\":true,\"count\":1,\"text\":\"You have been inactive. Your session may end soon.\",\"button\":\"Stay signed in\",\"labelledBy\":\"ins-banner-text-1\",\"labelOk\":true,\"buttonClass\":\"btn btn-sm btn-default ins-banner-action\",\"focusOnButton\":true,\"display\":\"flex\"}"
+    },
+    {
+      "label": "en: idle text and action in the user language",
+      "ok": true,
+      "detail": "You have been inactive. Your session may end soon. | Stay signed in"
+    },
+    {
+      "label": "en: input does not dismiss the warning",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: a failed refresh keeps the warning with a retry message",
+      "ok": true,
+      "detail": "The session could not be refreshed. Try again."
+    },
+    {
+      "label": "en: Stay signed in made one authenticated GET per press (2 presses)",
+      "ok": true,
+      "detail": "[\"GET\",\"GET\"]"
+    },
+    {
+      "label": "en: the warning is dismissed after a successful refresh",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: the idle clock restarted (none 50 s later)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "en: warns again after another idle period",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: boot keys enabled, idle_minutes 1",
+      "ok": true,
+      "detail": "{\"ins\":{\"idle_warning\":true,\"idle_minutes\":1,\"connection_banner\":true},\"session_expiry\":\"170:00\"}"
+    },
+    {
+      "label": "ar: no banner while online",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: offline banner (first child of body, role status, one banner)",
+      "ok": true,
+      "detail": "{\"role\":\"status\",\"firstChild\":true,\"count\":1,\"text\":\"أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال.\",\"button\":null,\"labelledBy\":null,\"labelOk\":false,\"buttonClass\":null,\"focusOnButton\":false,\"display\":\"flex\"}"
+    },
+    {
+      "label": "ar: offline text is in the user language",
+      "ok": true,
+      "detail": "أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال."
+    },
+    {
+      "label": "ar: a repeated offline event adds no second banner",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: online shows \"connection is back\"",
+      "ok": true,
+      "detail": "عاد الاتصال."
+    },
+    {
+      "label": "ar: the banner is removed after the confirmation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: realtime disconnect shows the banner",
+      "ok": true,
+      "detail": "توقفت التحديثات الفورية. ستواصل الصفحة محاولة إعادة الاتصال."
+    },
+    {
+      "label": "ar: realtime connect shows the confirmation",
+      "ok": true,
+      "detail": "عاد الاتصال."
+    },
+    {
+      "label": "ar: idle, no banner at start",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: no banner after 50 s",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: input resets the idle clock (still none 50 s after input)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: warning after 70 s without input (alertdialog, labelled, focus on the action)",
+      "ok": true,
+      "detail": "{\"role\":\"alertdialog\",\"firstChild\":true,\"count\":1,\"text\":\"لم يُسجَّل أي نشاط منك. قد تنتهي جلستك قريباً.\",\"button\":\"الاستمرار في الجلسة\",\"labelledBy\":\"ins-banner-text-1\",\"labelOk\":true,\"buttonClass\":\"btn btn-sm btn-default ins-banner-action\",\"focusOnButton\":true,\"display\":\"flex\"}"
+    },
+    {
+      "label": "ar: idle text and action in the user language",
+      "ok": true,
+      "detail": "لم يُسجَّل أي نشاط منك. قد تنتهي جلستك قريباً. | الاستمرار في الجلسة"
+    },
+    {
+      "label": "ar: input does not dismiss the warning",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: a failed refresh keeps the warning with a retry message",
+      "ok": true,
+      "detail": "تعذّر تجديد الجلسة. حاول مرة أخرى."
+    },
+    {
+      "label": "ar: Stay signed in made one authenticated GET per press (2 presses)",
+      "ok": true,
+      "detail": "[\"GET\",\"GET\"]"
+    },
+    {
+      "label": "ar: the warning is dismissed after a successful refresh",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: the idle clock restarted (none 50 s later)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "ar: warns again after another idle period",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "settings restored to the original values",
+      "ok": true,
+      "detail": "{\"status\":200,\"values\":{\"enable_idle_warning\":0,\"idle_warning_minutes\":5,\"enable_connection_banner\":0}}"
+    }
+  ],
+  "data": {
+    "original": {
+      "enable_idle_warning": 0,
+      "idle_warning_minutes": 5,
+      "enable_connection_banner": 0
+    },
+    "boot_disabled": {
+      "ins": {
+        "idle_warning": false,
+        "idle_minutes": 5,
+        "connection_banner": false
+      },
+      "session_expiry": "170:00"
+    },
+    "boot_en": {
+      "ins": {
+        "idle_warning": true,
+        "idle_minutes": 1,
+        "connection_banner": true
+      },
+      "session_expiry": "170:00"
+    },
+    "offline_en": {
+      "role": "status",
+      "firstChild": true,
+      "count": 1,
+      "text": "You are offline. Changes cannot be saved until the connection returns.",
+      "button": null,
+      "labelledBy": null,
+      "labelOk": false,
+      "buttonClass": null,
+      "focusOnButton": false,
+      "display": "flex"
+    },
+    "online_en": {
+      "role": "status",
+      "firstChild": true,
+      "count": 1,
+      "text": "The connection is back.",
+      "button": null,
+      "labelledBy": null,
+      "labelOk": false,
+      "buttonClass": null,
+      "focusOnButton": false,
+      "display": "flex"
+    },
+    "realtime_en": {
+      "hasRealtime": true,
+      "hasSocket": true,
+      "disabled": false
+    },
+    "socket_down_en": {
+      "role": "status",
+      "firstChild": true,
+      "count": 1,
+      "text": "Live updates are interrupted. The page will keep trying to reconnect.",
+      "button": null,
+      "labelledBy": null,
+      "labelOk": false,
+      "buttonClass": null,
+      "focusOnButton": false,
+      "display": "flex"
+    },
+    "idle_en": {
+      "role": "alertdialog",
+      "firstChild": true,
+      "count": 1,
+      "text": "You have been inactive. Your session may end soon.",
+      "button": "Stay signed in",
+      "labelledBy": "ins-banner-text-1",
+      "labelOk": true,
+      "buttonClass": "btn btn-sm btn-default ins-banner-action",
+      "focusOnButton": true,
+      "display": "flex"
+    },
+    "idle_failed_en": {
+      "role": "alertdialog",
+      "firstChild": true,
+      "count": 1,
+      "text": "The session could not be refreshed. Try again.",
+      "button": "Stay signed in",
+      "labelledBy": "ins-banner-text-1",
+      "labelOk": true,
+      "buttonClass": "btn btn-sm btn-default ins-banner-action",
+      "focusOnButton": true,
+      "display": "flex"
+    },
+    "boot_ar": {
+      "ins": {
+        "idle_warning": true,
+        "idle_minutes": 1,
+        "connection_banner": true
+      },
+      "session_expiry": "170:00"
+    },
+    "offline_ar": {
+      "role": "status",
+      "firstChild": true,
+      "count": 1,
+      "text": "أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال.",
+      "button": null,
+      "labelledBy": null,
+      "labelOk": false,
+      "buttonClass": null,
+      "focusOnButton": false,
+      "display": "flex"
+    },
+    "online_ar": {
+      "role": "status",
+      "firstChild": true,
+      "count": 1,
+      "text": "عاد الاتصال.",
+      "button": null,
+      "labelledBy": null,
+      "labelOk": false,
+      "buttonClass": null,
+      "focusOnButton": false,
+      "display": "flex"
+    },
+    "realtime_ar": {
+      "hasRealtime": true,
+      "hasSocket": true,
+      "disabled": false
+    },
+    "socket_down_ar": {
+      "role": "status",
+      "firstChild": true,
+      "count": 1,
+      "text": "توقفت التحديثات الفورية. ستواصل الصفحة محاولة إعادة الاتصال.",
+      "button": null,
+      "labelledBy": null,
+      "labelOk": false,
+      "buttonClass": null,
+      "focusOnButton": false,
+      "display": "flex"
+    },
+    "idle_ar": {
+      "role": "alertdialog",
+      "firstChild": true,
+      "count": 1,
+      "text": "لم يُسجَّل أي نشاط منك. قد تنتهي جلستك قريباً.",
+      "button": "الاستمرار في الجلسة",
+      "labelledBy": "ins-banner-text-1",
+      "labelOk": true,
+      "buttonClass": "btn btn-sm btn-default ins-banner-action",
+      "focusOnButton": true,
+      "display": "flex"
+    },
+    "idle_failed_ar": {
+      "role": "alertdialog",
+      "firstChild": true,
+      "count": 1,
+      "text": "تعذّر تجديد الجلسة. حاول مرة أخرى.",
+      "button": "الاستمرار في الجلسة",
+      "labelledBy": "ins-banner-text-1",
+      "labelOk": true,
+      "buttonClass": "btn btn-sm btn-default ins-banner-action",
+      "focusOnButton": true,
+      "display": "flex"
+    },
+    "restored": {
+      "status": 200,
+      "values": {
+        "enable_idle_warning": 0,
+        "idle_warning_minutes": 5,
+        "enable_connection_banner": 0
+      }
+    }
+  }
+}

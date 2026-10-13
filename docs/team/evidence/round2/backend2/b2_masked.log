@@ -1,0 +1,22 @@
+PASS en: tax_id is in meta.masked_fields ["tax_id"]
+PASS en: the value is the core placeholder, not the real one XXXXXXXX
+PASS en: marker attribute and reason element Hidden for your role
+PASS en: aria-describedby resolves to the reason ins-masked-reason-1
+PASS en: visible static value has role textbox, aria-readonly, tabindex 0 {"role":"textbox","readonly":"true","tabindex":"0","labelText":"Tax ID","describedText":"Hidden for your role","isReason":true}
+PASS en: static value is named by the field label Tax ID
+PASS en: static value is described by the reason Hidden for your role
+PASS en: the static value can take keyboard focus 
+PASS en: reason text in the user language Hidden for your role
+PASS en: refresh is idempotent {"count":1,"id":"ins-masked-reason-1"}
+PASS en: browser accessibility tree: textbox with name and description {"name":"Tax ID","description":"Hidden for your role","role":"textbox","properties":["focusable=true","focused=true","multiline=false","readonly=true","required=false","describedby=\"ins-masked-reason-1\"","labelledby=undefined"]}
+PASS ar: tax_id is in meta.masked_fields ["tax_id"]
+PASS ar: the value is the core placeholder, not the real one XXXXXXXX
+PASS ar: marker attribute and reason element مخفي لدورك
+PASS ar: aria-describedby resolves to the reason ins-masked-reason-1
+PASS ar: visible static value has role textbox, aria-readonly, tabindex 0 {"role":"textbox","readonly":"true","tabindex":"0","labelText":"الرقم الضريبي","describedText":"مخفي لدورك","isReason":true}
+PASS ar: static value is named by the field label الرقم الضريبي
+PASS ar: static value is described by the reason مخفي لدورك
+PASS ar: the static value can take keyboard focus 
+PASS ar: reason text in the user language مخفي لدورك
+PASS ar: refresh is idempotent {"count":1,"id":"ins-masked-reason-1"}
+PASS ar: browser accessibility tree: textbox with name and description {"name":"الرقم الضريبي","description":"مخفي لدورك","role":"textbox","properties":["focusable=true","focused=true","multiline=false","readonly=true","required=false","describedby=\"ins-masked-reason-1\"","labelledby=undefined"]}

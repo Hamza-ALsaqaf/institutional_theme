@@ -2,6 +2,11 @@
 // a placeholder value and forces the field read-only but leaves no markup
 // (frappe/public/js/frappe/form/form.js:1214-1220). The reason is exposed as an
 // attribute; CSS draws it as generated text.
+//
+// Core shows a read-only value as a static `.control-value` div and hides the input, so
+// `aria-describedby` on the input reaches nobody. The static value therefore also gets
+// `role="textbox"`, `aria-readonly`, a name from the field label and the same description, and
+// `tabindex="0"` so a keyboard and a screen reader can reach it. Attributes only.
 import { toElement, setAttr, warn } from "./dom.js";
 
 const REASON_CLASS = "ins-masked-reason";
@@ -35,6 +40,20 @@ export function applyMaskedFields(frm) {
 		wrapper.querySelectorAll("input, textarea, select").forEach((control) => {
 			setAttr(control, "aria-describedby", node.id);
 		});
+		const value = wrapper.querySelector(".control-value");
+		if (value) {
+			setAttr(value, "role", "textbox");
+			setAttr(value, "aria-readonly", "true");
+			setAttr(value, "tabindex", "0");
+			setAttr(value, "aria-describedby", node.id);
+			const label = wrapper.querySelector(".control-label");
+			if (label && label.textContent.trim()) {
+				if (!label.id) label.id = node.id + "-label";
+				setAttr(value, "aria-labelledby", label.id);
+			} else if (field.df && field.df.label) {
+				setAttr(value, "aria-label", __(field.df.label));
+			}
+		}
 	});
 }
 

@@ -1,0 +1,12 @@
+import { expirySeconds, warnAfter } from "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/public/js/shell/idle_warning.js";
+const eq = (a, b, l) => { console.log(a === b ? "PASS" : "FAIL", l, a, b); if (a !== b) process.exitCode = 1; };
+eq(expirySeconds("170:00"), 170 * 3600, "hh:mm");
+eq(expirySeconds("06:30:15"), 6 * 3600 + 30 * 60 + 15, "hh:mm:ss");
+eq(expirySeconds(undefined), 240 * 3600, "absent -> core default 240 h");
+eq(expirySeconds("garbage"), 240 * 3600, "unreadable -> default");
+eq(expirySeconds("00:00"), 240 * 3600, "zero -> default");
+eq(warnAfter(5, 240 * 3600), 300000, "5 min idle, long session");
+eq(warnAfter(30, 10 * 60), 9 * 60 * 1000, "idle longer than the session: one minute before it ends");
+eq(warnAfter(30, 90), 30 * 1000, "90 s session");
+eq(warnAfter(30, 30), 10 * 1000, "tiny session floors at 10 s");
+eq(warnAfter(0, 3600), 300000, "0 minutes -> 5 (the setting's default)");
