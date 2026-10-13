@@ -60,11 +60,15 @@ jobs:
         env:
           KEY: ${{ secrets.INSTITUTIONAL_THEME }}
         run: |
-          case "$KEY" in
+          KEY_TRIMMED="$(printf '%s' "$KEY" | tr -d '[:space:]')"
+          [ "$KEY_TRIMMED" != "$KEY" ] && echo "Note: the secret has whitespace around the key; it is trimmed before use."
+          case "$KEY_TRIMMED" in
             "") echo "::error::The INSTITUTIONAL_THEME secret is empty or not available to this workflow."; exit 1 ;;
             sk-ant-api*) echo "Credential type: Anthropic API key." ;;
-            *) echo "::error::INSTITUTIONAL_THEME does not hold an Anthropic API key (sk-ant-api...)."; exit 1 ;;
+            sk-ant-oat*) echo "::error::INSTITUTIONAL_THEME holds a Claude Code OAuth token; the promotional credits need an Anthropic API key."; exit 1 ;;
+            *) echo "Credential type: unrecognised prefix; relying on the API's answer below." ;;
           esac
+          KEY="$KEY_TRIMMED"
           for model in claude-opus-5-5 claude-sonnet-5-5; do
             body=$(curl -sS https://api.anthropic.com/v1/messages \
               -H "x-api-key: ${KEY}" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" \

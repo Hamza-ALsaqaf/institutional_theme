@@ -107,6 +107,8 @@ function runCli(prompt) {
 	});
 }
 
+// A secret pasted with a stray space or newline still authenticates over HTTP but not everywhere.
+process.env.ANTHROPIC_API_KEY = (process.env.ANTHROPIC_API_KEY ?? "").trim();
 if (!process.env.ANTHROPIC_API_KEY) {
 	console.error("::error::ANTHROPIC_API_KEY is not set.");
 	process.exit(1);
