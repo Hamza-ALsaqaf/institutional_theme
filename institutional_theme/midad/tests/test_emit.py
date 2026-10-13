@@ -251,6 +251,58 @@ class Shipping(unittest.TestCase):
 		self.assertNotIn(leftover, files)
 
 
+class LightOnlyPartials(unittest.TestCase):
+	"""The website bundle imports the light-only partials; they must equal the light blocks."""
+
+	PAIRS = (("_tokens.scss", "_tokens_light.scss"), ("_frappe_map.scss", "_frappe_map_light.scss"))
+
+	@staticmethod
+	def _light_block(text: str) -> str:
+		start = text.index("html:root")
+		return text[start : text.index("}\n", start) + 2]
+
+	def test_light_file_is_the_light_block_of_the_full_file(self):
+		files = build.render_all(TOKENS)
+		for full, light in self.PAIRS:
+			full_text, light_text = files[build.SCSS_DIR / full], files[build.SCSS_DIR / light]
+			block = self._light_block(full_text)
+			self.assertTrue(light_text.endswith("\n\n" + block), light)
+			self.assertEqual(light_text.count("{"), 1)
+			self.assertEqual(light_text.splitlines()[0], full_text.splitlines()[0])
+
+	def test_light_files_have_no_dark_or_automatic_selector(self):
+		files = build.render_all(TOKENS)
+		for _, light in self.PAIRS:
+			text = files[build.SCSS_DIR / light]
+			self.assertNotIn("@media", text)
+			blocks = parity.parse_blocks(text)
+			self.assertEqual(len(blocks), 1)
+			self.assertIsNone(blocks[0].media)
+			for selector in blocks[0].selectors:
+				self.assertNotRegex(selector, r"dark|automatic")
+			self.assertEqual(len(blocks[0].selectors), 2)
+
+	def test_light_tokens_keep_color_scheme_light_and_map_has_none(self):
+		files = build.render_all(TOKENS)
+		tokens = files[build.SCSS_DIR / "_tokens_light.scss"]
+		self.assertEqual(parity._scheme(parity.parse_blocks(tokens)[0]), ["light"])
+		self.assertNotRegex(files[build.SCSS_DIR / "_frappe_map_light.scss"], r"(?<!-)color-scheme\s*:")
+
+	def test_light_files_are_deterministic_and_fresh(self):
+		first, second = build.render_all(TOKENS), build.render_all(TOKENS)
+		for _, light in self.PAIRS:
+			path = build.SCSS_DIR / light
+			self.assertEqual(first[path], second[path])
+			self.assertEqual(path.read_text(encoding="utf-8"), first[path])
+
+	def test_emit_light_family_equals_first_block_of_emit_family(self):
+		keys, light, dark = Emitter.KEYS, Emitter.LIGHT, Emitter.DARK
+		for family, scheme in (("base", True), ("palette", False)):
+			full = emit.emit_family(family, keys, light, dark, color_scheme=scheme)
+			only = emit.emit_light_family(family, keys, light, color_scheme=scheme)
+			self.assertTrue(full.startswith(only))
+
+
 class ParserHelpers(unittest.TestCase):
 	def test_parse_blocks_handles_media_and_comments(self):
 		blocks = parity.parse_blocks(
