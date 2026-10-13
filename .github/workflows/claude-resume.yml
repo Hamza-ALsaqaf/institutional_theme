@@ -108,6 +108,9 @@ jobs:
           anthropic_api_key: ${{ steps.key.outputs.oauth != 'true' && secrets.INSTITUTIONAL_THEME || '' }}
           claude_code_oauth_token: ${{ steps.key.outputs.oauth == 'true' && secrets.INSTITUTIONAL_THEME || '' }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Full output so the owner can follow the run and any API error is visible.
+          # GitHub masks registered secrets in logs.
+          show_full_output: true
           prompt: |
             Read docs/team/RESUME_PROMPT.md in this repository and follow it exactly, from the first step to the final report.
           claude_args: >-
