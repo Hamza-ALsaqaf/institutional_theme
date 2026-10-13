@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>الحوارات والحالات</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="midad.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="md" data-theme="{{theme}}" dir="rtl" lang="ar" style="width: 1366px; height: 1280px; padding: 32px 36px; display: flex; flex-direction: column; gap: 28px; background: var(--ins-surface-sunken); overflow: hidden">
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="font-size: 16px">حوارات التأكيد — الأثر مكتوب صراحةً، والتمييز ليس باللون وحده</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start">
+
+<div class="dialog" role="dialog" aria-label="تأكيد الترحيل">
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-block-end: 1px solid var(--ins-border-hairline)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="color: var(--ins-primary-text)"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z"/></svg><h3 style="font-size: 16px">تأكيد الترحيل النهائي</h3></div>
+<div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 12px">
+<p class="sm">سيُرحَّل قيد اليومية <span class="mono strong">JV-2026-00933</span> بمبلغ <span class="mono strong">48,200.00</span> ريال إلى دفتر الأستاذ العام.</p>
+<div class="banner b-info"><div><span style="font-weight: 600">لا يمكن التعديل بعد الترحيل.</span> التصحيح يكون بإلغاء القيد ثم إنشاء نسخة معدَّلة منه.</div></div>
+</div>
+<div style="display: flex; justify-content: flex-end; gap: 8px; padding: 12px 20px; border-block-start: 1px solid var(--ins-border-hairline)"><button class="btn btn-default" type="button">تراجع</button><button class="btn btn-primary" type="button">ترحيل نهائي</button></div>
+</div>
+
+<div class="dialog" role="alertdialog" aria-label="إلغاء مستند" style="border-block-start: 3px solid var(--ins-danger-solid)">
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-block-end: 1px solid var(--ins-border-hairline)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="color: var(--ins-danger-fg)"><path d="M12 4 2.5 20h19zM12 10v5M12 17.5v.5"/></svg><h3 style="font-size: 16px">إلغاء مستند مُرحَّل</h3></div>
+<div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 12px">
+<p class="sm">أنت على وشك إلغاء أمر الدفع <span class="mono strong">PAY-2026-01207</span>. هذا الإجراء <span class="strong">لا يمكن التراجع عنه</span>:</p>
+<ul class="sm" style="margin: 0; padding-inline-start: 20px; display: flex; flex-direction: column; gap: 4px"><li>يُعكس أثره المحاسبي بقيمة <span class="mono">1,150,000.00</span> ريال.</li><li>يُلغى معه <span class="strong">3</span> مستندات مرتبطة.</li><li>يُسجَّل الإلغاء باسمك في سجل المراجعة.</li></ul>
+<div class="field"><span class="label">اكتب رقم المستند للتأكيد</span><span class="input mono ph">PAY-2026-01207</span></div>
+</div>
+<div style="display: flex; justify-content: flex-end; gap: 8px; padding: 12px 20px; border-block-start: 1px solid var(--ins-border-hairline)"><button class="btn btn-default is-focus" type="button">إبقاء المستند</button><button class="btn btn-danger" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>إلغاء المستند نهائياً</button></div>
+</div>
+
+<div class="dialog" role="alertdialog" aria-label="أخطاء التحقق">
+<div style="display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-block-end: 1px solid var(--ins-border-hairline)"><span class="pill p-rejected">3 أخطاء</span><h3 style="font-size: 16px">تعذّر الحفظ</h3></div>
+<div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 10px">
+<p class="sm">صحّح الحقول الآتية ثم أعد الحفظ. لم يُفقد شيء مما أدخلته.</p>
+<ul class="sm" style="margin: 0; padding-inline-start: 20px; display: flex; flex-direction: column; gap: 6px"><li><a href="#">تاريخ التسليم المطلوب</a>: حقل إلزامي فارغ.</li><li><a href="#">الصف 3 — الكمية</a>: يجب أن تكون أكبر من صفر.</li><li><a href="#">بند الموازنة</a>: المبلغ يتجاوز المتاح في البند.</li></ul>
+</div>
+<div style="display: flex; justify-content: flex-end; gap: 8px; padding: 12px 20px; border-block-start: 1px solid var(--ins-border-hairline)"><button class="btn btn-primary" type="button">الانتقال إلى أول خطأ</button></div>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="font-size: 16px">التنبيهات والأشرطة — هادئة ومحدَّدة</h2>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<div class="overlay" style="display: flex; gap: 10px; padding: 12px 14px; border-inline-start: 3px solid var(--ins-success-solid)"><span class="pill p-approved" style="padding: 0 6px"></span><div><div class="sm strong">تم الحفظ</div><div class="xs muted">أمر الشراء PO-2026-00421</div></div></div>
+<div class="overlay" style="display: flex; gap: 10px; padding: 12px 14px; border-inline-start: 3px solid var(--ins-progress-solid)"><span class="pill p-submitted" style="padding: 0 6px"></span><div><div class="sm strong">أُرسل للاعتماد</div><div class="xs muted">إلى مدير المشتريات</div></div></div>
+<div class="overlay" style="display: flex; gap: 10px; padding: 12px 14px; border-inline-start: 3px solid var(--ins-warning-solid)"><span class="pill p-hold" style="padding: 0 6px"></span><div><div class="sm strong">تغييرات غير محفوظة</div><div class="xs muted">احفظ قبل مغادرة الصفحة</div></div></div>
+<div class="overlay" style="display: flex; gap: 10px; padding: 12px 14px; border-inline-start: 3px solid var(--ins-danger-solid)"><span class="pill p-rejected" style="padding: 0 6px"></span><div><div class="sm strong">لم يُنفَّذ الإجراء</div><div class="xs muted">المرجع <span class="mono">ERR-4C1D-88A2</span></div></div></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<div class="banner b-warning" role="status"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><span style="font-weight: 600">تنتهي جلستك خلال 5 دقائق.</span> أي إجراء تقوم به يُبقيها نشطة. احفظ عملك.</div></div>
+<div class="banner b-info" role="status"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9a12 12 0 0 1 16 0M7 13a7.5 7.5 0 0 1 10 0M12 18h.01M4 4l16 16"/></svg><div><span style="font-weight: 600">انقطع الاتصال اللحظي.</span> نحاول إعادة الاتصال؛ ما حفظته آمن، وقد تتأخر الإشعارات.</div></div>
+<div class="banner" role="note" style="background: var(--ins-accent-subtle); color: var(--ins-accent-text); border-color: var(--ins-accent)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-2 4 2 4H5"/></svg><div><span style="font-weight: 600">بيئة التدريب.</span> البيانات هنا غير حقيقية ولا يترتب عليها أثر. يظهر الشريط خارج الإنتاج فقط.</div></div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="font-size: 16px">حالات الحقل — كل حالة تختلف عن الأخرى بالشكل لا باللون وحده</h2>
+<div class="card" style="padding: 20px 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 20px">
+<div class="field"><span class="label">افتراضي</span><span class="input ph">اختر المورّد</span><span class="help">نص مساعد بإيقاع ثابت</span></div>
+<div class="field"><span class="label">عند المرور</span><span class="input ph" style="border-color: var(--ins-text-muted)">اختر المورّد</span><span class="help">حدّ أغمق</span></div>
+<div class="field"><span class="label">نشط</span><span class="input is-focus">شركة الأ</span><span class="help">حلقة 2 بكسل بإزاحة 2</span></div>
+<div class="field"><span class="label">مُعبَّأ</span><span class="input">شركة الأفق للتوريدات</span><span class="help">نص بتباين 13:1</span></div>
+<div class="field"><span class="label">إلزامي فارغ<span class="req">* مطلوب</span></span><span class="input ph" style="border-inline-start: 3px solid var(--ins-danger-solid)">يوم / شهر / سنة</span><span class="help">علامة نصية وحدّ جانبي</span></div>
+<div class="field"><span class="label">غير صالح</span><span class="input is-error">31-02-2026</span><span class="err">✕ تاريخ غير موجود في التقويم</span></div>
+<div class="field"><span class="label">للقراءة فقط</span><span class="ro">الإدارة العامة للمشتريات</span><span class="help">محتوى بلا إطار</span></div>
+<div class="field"><span class="label">معطَّل</span><span class="input is-disabled">غير متاح في هذه المرحلة</span><span class="help">إطار متقطّع وخلفية رمادية</span></div>
+<div class="field"><span class="label">محجوب بالصلاحية</span><span class="masked"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z"/></svg><span class="mono" aria-hidden="true">••••••••</span><span class="xs">محجوب</span></span><span class="help">قفل وسبب ظاهر</span></div>
+<div class="field"><span class="label">جارٍ التحميل</span><span class="input" style="background: linear-gradient(90deg, var(--ins-surface-hover), var(--ins-surface-active), var(--ins-surface-hover))"></span><span class="help">هيكل بلا حركة عند تقليل الحركة</span></div>
+<div class="field"><span class="label">خانة اختيار</span><span style="display: flex; align-items: center; gap: 16px; min-height: 32px"><span style="display: inline-flex; gap: 8px; align-items: center"><span class="check on"></span>مفعَّل</span><span style="display: inline-flex; gap: 8px; align-items: center"><span class="check"></span>غير مفعَّل</span><span style="display: inline-flex; gap: 8px; align-items: center"><span class="check mixed"></span>جزئي</span></span></div>
+<div class="field"><span class="label">صف جدول</span><span style="display: flex; gap: 6px; min-height: 32px; align-items: center"><span class="pill" style="border-radius: 2px; background: var(--ins-surface-hover)">مرور</span><span class="pill" style="border-radius: 2px; background: var(--ins-surface-selected); border-color: var(--ins-primary-subtle-border); color: var(--ins-primary-text)">محدَّد</span><span class="pill is-focus" style="border-radius: 2px; background: var(--ins-surface-base); outline-offset: -2px">تركيز</span></span></div>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; flex: 1 1 auto">
+<div class="card" style="padding: 28px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px">
+<span class="rule" style="inline-size: 120px"></span>
+<h3 style="font-size: 16px; margin-top: 8px">لا توجد أوامر شراء مطابقة</h3>
+<p class="sm sec">لا نتائج لعوامل التصفية الحالية. عدّلها أو أنشئ أمراً جديداً.</p>
+<div style="display: flex; gap: 8px; margin-top: 6px"><button class="btn btn-default" type="button">مسح عوامل التصفية</button><button class="btn btn-primary" type="button">أمر شراء جديد</button></div>
+</div>
+<div class="card" style="padding: 28px 24px; display: flex; flex-direction: column; justify-content: center; gap: 10px">
+<div class="mono xs" style="color: var(--ins-accent-text)">403</div>
+<h3 style="font-size: 16px">لا تملك صلاحية عرض هذا المستند</h3>
+<p class="sm sec">الصلاحية تُمنح بحسب الدور والإدارة. اطلبها من مدير النظام واذكر المرجع أدناه.</p>
+<div class="xs muted">المرجع <span class="mono">REF-9B2E-5510</span> · <span class="mono">13-10-2026 10:42</span></div>
+<div style="display: flex; gap: 8px; margin-top: 6px"><button class="btn btn-default" type="button">العودة إلى الرئيسية</button><button class="btn btn-ghost" type="button">نسخ المرجع</button></div>
+</div>
+<div class="card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 12px" aria-busy="true" aria-label="جارٍ التحميل">
+<div class="xs muted">جارٍ تحميل القائمة</div>
+<sc-for list="{{skeleton}}" as="s" hint-placeholder-count="5">
+<div style="display: flex; gap: 12px; align-items: center"><span style="width: 16px; height: 16px; border-radius: 2px; background: var(--ins-surface-active)"></span><span style="height: 12px; border-radius: 2px; background: var(--ins-surface-active); inline-size: {{s.a}}"></span><span style="height: 12px; border-radius: 2px; background: var(--ins-surface-hover); inline-size: {{s.b}}"></span><span style="height: 12px; border-radius: 2px; background: var(--ins-surface-hover); inline-size: 56px; margin-inline-start: auto"></span></div>
+</sc-for>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1366,"height":1280}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+theme: this.props.theme ?? 'light',
+skeleton: [{ a: '110px', b: '160px' }, { a: '110px', b: '120px' }, { a: '110px', b: '180px' }, { a: '110px', b: '140px' }, { a: '110px', b: '100px' }]
+};
+}
+}
+</script>
+</body>
+</html>

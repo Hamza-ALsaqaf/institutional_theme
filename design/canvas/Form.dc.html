@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>أمر شراء في مسار الاعتماد</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="midad.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="md shell" data-theme="{{theme}}" dir="rtl" lang="ar" style="width: 1366px; height: 1640px; overflow: hidden">
+
+<nav class="side" aria-label="التنقل الرئيسي">
+<div class="side-head">
+<div class="emblem"><i></i><i></i></div>
+<div style="min-width: 0"><div class="strong sm" style="line-height: 1.4">[اسم الجهة]</div><div class="xs muted">النظام المؤسسي الموحَّد</div></div>
+</div>
+<div class="side-item" style="border: 1px solid var(--ins-border-control); background: var(--ins-surface-field); color: var(--ins-text-placeholder)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>بحث أو انتقال<span class="kbd" style="margin-inline-start: auto">Ctrl K</span></div>
+<a class="side-item" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7 2.5 7h-17S6 15 6 9M10 20a2 2 0 0 0 4 0"/></svg>الإشعارات<span class="count">4</span></a>
+<div class="side-label">المشتريات</div>
+<sc-for list="{{nav}}" as="it" hint-placeholder-count="7">
+<a class="{{it.cls}}" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="{{it.d}}"/></svg>{{it.label}}<sc-if value="{{it.count}}" hint-placeholder-val="{{false}}"><span class="count">{{it.count}}</span></sc-if></a>
+</sc-for>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 10px 8px 2px; border-top: 1px solid var(--ins-border)">
+<span class="avatar">سح</span>
+<div style="min-width: 0"><div class="sm strong" style="line-height: 1.4">سارة الحربي</div><div class="xs muted">مديرة الإدارة المالية</div></div>
+</div>
+</nav>
+
+<div class="main">
+<header class="ph">
+<div>
+<div class="crumb"><a class="plain" href="#">المشتريات</a><span aria-hidden="true">/</span><a class="plain" href="#">أوامر الشراء</a><span aria-hidden="true">/</span></div>
+<div class="title">أمر شراء <span class="mono">PO-2026-00418</span><span class="pill p-pending">بانتظار الاعتماد</span></div>
+</div>
+<div class="actions">
+<button class="btn btn-default btn-icon" type="button" aria-label="المستند السابق"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+<button class="btn btn-default btn-icon" type="button" aria-label="المستند التالي"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+<button class="btn btn-default btn-icon" type="button" aria-label="طباعة"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V4h10v4M7 17H5v-7h14v7h-2M7 14h10v6H7z"/></svg></button>
+<button class="btn btn-default btn-icon" type="button" aria-label="خيارات إضافية"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+<span class="sep"></span>
+<button class="btn btn-danger-outline" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>رفض</button>
+<button class="btn btn-primary" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>اعتماد</button>
+</div>
+</header>
+
+<div class="banner b-warning" style="margin: 16px 24px 0; background: var(--ins-pending-bg); color: var(--ins-pending-fg); border-color: var(--ins-pending-bd); align-items: center">
+<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+<div style="flex: 1 1 auto"><span style="font-weight: 600">بانتظار اعتمادك منذ 3 أيام.</span> المرحلة الحالية: اعتماد الإدارة المالية (3 من 4) · السابقة: مراجعة المشتريات، وافق عليها فهد القحطاني في <span class="mono">10-10-2026</span>.</div>
+</div>
+
+<div style="display: flex; gap: 24px; padding: 0 24px; margin-top: 16px; border-block-end: 1px solid var(--ins-border)" role="tablist">
+<span role="tab" aria-selected="true" style="padding: 10px 0; font-weight: 600; color: var(--ins-text-strong); box-shadow: inset 0 -2px 0 var(--ins-primary)">التفاصيل</span>
+<span role="tab" class="sec" style="padding: 10px 0">الشروط والدفع</span>
+<span role="tab" class="sec" style="padding: 10px 0">المرفقات <span class="count" style="margin: 0">3</span></span>
+<span role="tab" class="sec" style="padding: 10px 0">سجل الاعتماد</span>
+</div>
+
+<div style="display: flex; align-items: flex-start; flex: 1 1 auto">
+<div style="flex: 1 1 0; min-width: 0; padding: 24px; display: flex; flex-direction: column; gap: 28px">
+
+<section style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="font-size: 15px">بيانات الأمر</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 20px">
+<div class="field"><span class="label">المورّد</span><span class="ro"><a href="#">شركة الأفق للتوريدات</a></span></div>
+<div class="field"><span class="label">تاريخ الطلب</span><span class="ro mono">10-10-2026</span></div>
+<div class="field"><span class="label">تاريخ التسليم المطلوب</span><span class="ro mono">15-11-2026</span></div>
+<div class="field"><span class="label">الإدارة الطالبة</span><span class="ro">الإدارة العامة لتقنية المعلومات</span></div>
+<div class="field"><span class="label">مركز التكلفة</span><span class="ro"><span class="mono">CC-2100</span> تقنية المعلومات</span></div>
+<div class="field"><span class="label">بند الموازنة</span><span class="ro"><span class="mono">ACC-5100-07</span> أجهزة وتجهيزات تقنية</span></div>
+<div class="field"><span class="label">الرصيد المتاح في البند</span><span class="masked"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z"/></svg><span class="mono" aria-hidden="true">••••••••</span><span class="xs">محجوب</span></span><span class="help">محجوب بحسب صلاحيات دورك. اطلب الاطلاع من إدارة الموازنة.</span></div>
+<div class="field"><span class="label">طريقة الشراء</span><span class="ro">منافسة محدودة — 3 عروض</span></div>
+<div class="field"><span class="label">العملة</span><span class="ro">ريال</span></div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; justify-content: space-between"><h2 style="font-size: 15px">الأصناف</h2><span class="xs muted"><span class="mono">5</span> أصناف · للقراءة فقط في مرحلة الاعتماد</span></div>
+<div class="card" style="overflow: hidden; box-shadow: none">
+<table class="tbl">
+<thead><tr><th scope="col" style="inline-size: 44px">م</th><th scope="col">رمز الصنف</th><th scope="col">الوصف</th><th scope="col" class="num">الكمية</th><th scope="col">الوحدة</th><th scope="col" class="num">سعر الوحدة</th><th scope="col" class="num">الإجمالي</th></tr></thead>
+<tbody>
+<sc-for list="{{items}}" as="it" hint-placeholder-count="5">
+<tr><td class="mono muted">{{it.n}}</td><td class="mono">{{it.code}}</td><td>{{it.desc}}</td><td class="num">{{it.qty}}</td><td class="sec">{{it.uom}}</td><td class="num">{{it.rate}}</td><td class="num">{{it.amount}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px">
+<div class="field" style="flex: 1 1 0"><span class="label">المبلغ كتابةً</span><span class="ro">مئتان وأربعة وثمانون ألفاً وستمئة وخمسون ريالاً لا غير</span></div>
+<table class="tbl" style="inline-size: 360px">
+<tbody>
+<tr><td class="sec">المجموع قبل الضريبة</td><td class="num">247,521.74</td></tr>
+<tr><td class="sec">ضريبة القيمة المضافة 15%</td><td class="num">37,128.26</td></tr>
+<tr class="grand"><td>الإجمالي المستحق (ريال)</td><td class="num" style="font-size: 16px">284,650.00</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="font-size: 15px">قرار الاعتماد</h2>
+<div class="field" style="max-width: 640px">
+<label class="label" for="fm-note">ملاحظة المعتمِد<span class="xs muted" style="font-weight: 400; margin-inline-start: 8px">مطلوبة عند الرفض</span></label>
+<div class="input is-focus" style="min-height: 84px; align-items: flex-start; padding-block: 8px">تمت مطابقة الأسعار مع العرض المعتمد، والبند يغطي المبلغ.</div>
+<span class="help">تُحفظ الملاحظة في سجل الاعتماد وتظهر في المستند المطبوع.</span>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="font-size: 15px">سجل النشاط</h2>
+<div style="display: flex; flex-direction: column">
+<sc-for list="{{timeline}}" as="t" hint-placeholder-count="4">
+<div style="display: flex; gap: 12px; padding-block: 10px; border-block-end: 1px solid var(--ins-border-hairline)">
+<span class="avatar">{{t.av}}</span>
+<div style="flex: 1 1 auto; min-width: 0"><div class="sm"><span class="strong">{{t.who}}</span> {{t.what}}</div><div class="xs muted">{{t.role}} · <span class="mono">{{t.when}}</span></div></div>
+<span class="{{t.pill}}">{{t.state}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+</div>
+
+<aside style="inline-size: 264px; flex: none; border-inline-start: 1px solid var(--ins-border); padding: 24px 20px; display: flex; flex-direction: column; gap: 20px; align-self: stretch" aria-label="معلومات المستند">
+<div style="display: flex; flex-direction: column; gap: 8px"><div class="xs muted" style="font-weight: 500">مُسنَد إلى</div><div style="display: flex; align-items: center; gap: 8px"><span class="avatar">سح</span><span class="sm">سارة الحربي</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div class="xs muted" style="font-weight: 500">المرفقات (3)</div>
+<a class="sm" href="#">عرض السعر المعتمد.pdf</a>
+<a class="sm" href="#">محضر لجنة الفحص.pdf</a>
+<a class="sm" href="#">جدول المقارنة.xlsx</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div class="xs muted" style="font-weight: 500">مستندات مرتبطة</div><div class="sm" style="display: flex; justify-content: space-between"><a href="#">طلب مواد</a><span class="mono sec">1</span></div><div class="sm" style="display: flex; justify-content: space-between"><a href="#">طلب عرض أسعار</a><span class="mono sec">3</span></div><div class="sm" style="display: flex; justify-content: space-between"><span class="muted">محضر استلام</span><span class="mono muted">0</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding-top: 16px; border-top: 1px solid var(--ins-border-hairline)"><div class="xs muted">أنشأه خالد العمري · <span class="mono">10-10-2026</span></div><div class="xs muted">آخر تعديل فهد القحطاني · قبل 3 أيام</div></div>
+</aside>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1366,"height":1640}}'>
+class Component extends DCLogic {
+renderVals() {
+const I = {
+home: 'M4 11 12 4l8 7v9h-5v-6H9v6H4z',
+doc: 'M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5',
+cart: 'M4 5h2l2 10h9l2-7H7M9 19h.01M17 19h.01',
+users: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6M3 19c0-3 2.5-5 6-5s6 2 6 5M17 6a3 3 0 0 1 0 5M18 14c2 .6 3 2.3 3 5',
+box: 'M4 8 12 4l8 4v8l-8 4-8-4zM4 8l8 4 8-4M12 12v8',
+chart: 'M4 20V5M4 20h16M8 16v-4M12 16V9M16 16v-6',
+check: 'M4 6h10M4 12h10M4 18h6m5-2 2 2 4-4'
+};
+return {
+theme: this.props.theme ?? 'light',
+nav: [
+{ label: 'الرئيسية', d: I.home, cls: 'side-item' },
+{ label: 'طلبات المواد', d: I.doc, cls: 'side-item' },
+{ label: 'طلبات عروض الأسعار', d: I.doc, cls: 'side-item' },
+{ label: 'أوامر الشراء', d: I.cart, cls: 'side-item active' },
+{ label: 'محاضر الاستلام', d: I.box, cls: 'side-item' },
+{ label: 'المورّدون', d: I.users, cls: 'side-item' },
+{ label: 'الاعتمادات', d: I.check, cls: 'side-item', count: 7 },
+{ label: 'تقارير المشتريات', d: I.chart, cls: 'side-item' }
+],
+items: [
+{ n: '1', code: 'IT-SRV-2U-064', desc: 'خادم تطبيقات 2U، ذاكرة 64 غيغابايت', qty: '4', uom: 'جهاز', rate: '38,500.00', amount: '154,000.00' },
+{ n: '2', code: 'IT-NAS-48TB', desc: 'وحدة تخزين شبكي بسعة 48 تيرابايت', qty: '2', uom: 'جهاز', rate: '27,250.00', amount: '54,500.00' },
+{ n: '3', code: 'IT-SW-48P', desc: 'مبدّل شبكة مُدار، 48 منفذاً', qty: '3', uom: 'جهاز', rate: '9,840.00', amount: '29,520.00' },
+{ n: '4', code: 'LIC-OS-SRV', desc: 'ترخيص نظام تشغيل للخوادم، 3 سنوات', qty: '4', uom: 'ترخيص', rate: '2,125.00', amount: '8,500.00' },
+{ n: '5', code: 'IT-CBL-KIT', desc: 'كابلات وتجهيزات تركيب', qty: '1', uom: 'مجموعة', rate: '1,001.74', amount: '1,001.74' }
+],
+timeline: [
+{ av: 'فق', who: 'فهد القحطاني', what: 'وافق في مرحلة «مراجعة المشتريات»', role: 'مدير المشتريات', when: '10-10-2026 14:20', pill: 'pill p-approved', state: 'موافقة' },
+{ av: 'خع', who: 'خالد العمري', what: 'قدّم المستند للاعتماد', role: 'أخصائي مشتريات', when: '10-10-2026 09:05', pill: 'pill p-submitted', state: 'تقديم' },
+{ av: 'خع', who: 'خالد العمري', what: 'غيّر «تاريخ التسليم المطلوب» من 01-11-2026 إلى 15-11-2026', role: 'أخصائي مشتريات', when: '10-10-2026 08:52', pill: 'pill p-amended', state: 'تعديل' },
+{ av: 'خع', who: 'خالد العمري', what: 'أنشأ المستند', role: 'أخصائي مشتريات', when: '09-10-2026 16:31', pill: 'pill p-draft', state: 'مسودة' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

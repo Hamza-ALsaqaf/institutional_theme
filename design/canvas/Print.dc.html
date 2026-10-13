@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>أمر شراء — مستند مطبوع A4</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="midad.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="md" data-theme="light" dir="rtl" lang="ar" style="width: 794px; height: 1123px; padding: 48px 56px 40px; display: flex; flex-direction: column; gap: 18px; background: #ffffff; color: #141b25; font-size: 15px; line-height: 1.6; overflow: hidden">
+
+<header style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 24px">
+<div style="display: flex; align-items: center; gap: 14px">
+<div class="emblem" style="width: 52px; height: 52px; border-radius: 8px; gap: 5px"><i style="width: 28px; height: 5px"></i><i style="width: 28px; height: 2px"></i></div>
+<div><div style="font-size: 20px; font-weight: 600; color: #0f3a65; line-height: 1.4">[اسم الجهة]</div><div style="font-size: 13px; color: #424b57">الإدارة العامة للمشتريات والعقود</div></div>
+</div>
+<div style="text-align: end">
+<div style="font-size: 22px; font-weight: 600; line-height: 1.4">أمر شراء</div>
+<div class="mono" style="font-size: 15px; font-weight: 500">PO-2026-00418</div>
+</div>
+</div>
+<span class="rule"></span>
+</header>
+
+<section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 24px">
+<div><div style="font-size: 13px; color: #424b57">المورّد</div><div style="font-weight: 500">شركة الأفق للتوريدات</div></div>
+<div><div style="font-size: 13px; color: #424b57">تاريخ الطلب</div><div class="mono">10-10-2026</div></div>
+<div><div style="font-size: 13px; color: #424b57">حالة المستند</div><div><span class="pill p-approved" style="background: #ffffff; border-color: #141b25; color: #141b25">معتمد</span></div></div>
+<div><div style="font-size: 13px; color: #424b57">الرقم الضريبي للمورّد</div><div class="mono">300-145-7782-00003</div></div>
+<div><div style="font-size: 13px; color: #424b57">تاريخ التسليم المطلوب</div><div class="mono">15-11-2026</div></div>
+<div><div style="font-size: 13px; color: #424b57">بند الموازنة</div><div><span class="mono">ACC-5100-07</span></div></div>
+<div style="grid-column: span 2"><div style="font-size: 13px; color: #424b57">مكان التسليم</div><div>مستودع تقنية المعلومات، المبنى الرئيسي، الطابق الأرضي</div></div>
+<div><div style="font-size: 13px; color: #424b57">مركز التكلفة</div><div><span class="mono">CC-2100</span> تقنية المعلومات</div></div>
+</section>
+
+<section>
+<table style="border-collapse: collapse; width: 100%; font-size: 14px">
+<thead><tr style="border-block: 1.5px solid #141b25">
+<th scope="col" style="text-align: start; padding: 7px 6px; font-weight: 600; width: 28px">م</th><th scope="col" style="text-align: start; padding: 7px 6px; font-weight: 600">الصنف والوصف</th><th scope="col" style="text-align: left; padding: 7px 6px; font-weight: 600">الكمية</th><th scope="col" style="text-align: start; padding: 7px 6px; font-weight: 600">الوحدة</th><th scope="col" style="text-align: left; padding: 7px 6px; font-weight: 600">سعر الوحدة</th><th scope="col" style="text-align: left; padding: 7px 6px; font-weight: 600">الإجمالي</th>
+</tr></thead>
+<tbody>
+<sc-for list="{{items}}" as="it" hint-placeholder-count="5">
+<tr style="border-block-end: 1px solid #b8bec7"><td class="mono" style="padding: 7px 6px">{{it.n}}</td><td style="padding: 7px 6px"><div>{{it.desc}}</div><div class="mono" style="font-size: 12px; color: #424b57; text-align: start">{{it.code}}</div></td><td class="num" style="padding: 7px 6px; text-align: left">{{it.qty}}</td><td style="padding: 7px 6px">{{it.uom}}</td><td class="num" style="padding: 7px 6px; text-align: left">{{it.rate}}</td><td class="num" style="padding: 7px 6px; text-align: left">{{it.amount}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</section>
+
+<section style="display: flex; justify-content: space-between; align-items: flex-start; gap: 32px">
+<div style="flex: 1 1 0; display: flex; flex-direction: column; gap: 10px">
+<div><div style="font-size: 13px; color: #424b57">المبلغ كتابةً</div><div style="font-weight: 500">مئتان وأربعة وثمانون ألفاً وستمئة وخمسون ريالاً لا غير</div></div>
+<div><div style="font-size: 13px; color: #424b57">شروط الدفع</div><div style="font-size: 14px">خلال 30 يوماً من تاريخ محضر الاستلام النهائي.</div></div>
+</div>
+<table style="border-collapse: collapse; width: 300px; font-size: 14px">
+<tbody>
+<tr><td style="padding: 5px 6px; color: #424b57">المجموع قبل الضريبة</td><td class="num" style="padding: 5px 6px; text-align: left">247,521.74</td></tr>
+<tr><td style="padding: 5px 6px; color: #424b57">ضريبة القيمة المضافة 15%</td><td class="num" style="padding: 5px 6px; text-align: left">37,128.26</td></tr>
+<tr style="border-block-start: 3px double #141b25"><td style="padding: 8px 6px; font-weight: 600">الإجمالي المستحق (ريال)</td><td class="num" style="padding: 8px 6px; text-align: left; font-weight: 600; font-size: 16px">284,650.00</td></tr>
+</tbody>
+</table>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: auto">
+<sc-for list="{{signers}}" as="s" hint-placeholder-count="3">
+<div style="border: 1px solid #6a727d; border-radius: 4px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #424b57">{{s.role}}</div>
+<div style="font-weight: 600">{{s.name}}</div>
+<div style="font-size: 13px">{{s.title}}</div>
+<div style="height: 44px; border-block-end: 1px solid #141b25"></div>
+<div style="font-size: 12px; color: #424b57; display: flex; justify-content: space-between"><span>التوقيع</span><span class="mono">{{s.date}}</span></div>
+</div>
+</sc-for>
+</section>
+
+<section style="display: flex; align-items: center; gap: 16px; padding: 12px 14px; border: 1px solid #b8bec7; border-radius: 4px">
+<svg viewBox="0 0 21 21" role="img" aria-label="موضع رمز التحقق QR" style="width: 76px; height: 76px; flex: none; shape-rendering: crispEdges"><path fill="#141b25" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0zM9 0h1v2H9zM11 1h2v1h-2zM9 4h3v1H9zM8 6h1v3H8zM10 7h2v1h-2zM13 8h3v1h-3zM0 8h2v1H0zM3 9h3v1H3zM17 9h4v1h-4zM9 10h2v2H9zM12 11h1v3h-1zM14 11h3v1h-3zM0 11h1v2H0zM2 12h4v1H2zM18 12h2v2h-2zM8 13h2v1H8zM14 14h2v2h-2zM9 15h3v1H9zM17 16h4v1h-4zM8 17h1v4H8zM10 18h3v1h-3zM14 18h2v3h-2zM18 19h3v2h-3zM11 20h2v1h-2z"/><path fill="#ffffff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/><path fill="#141b25" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2z"/></svg>
+<div style="flex: 1 1 auto; font-size: 13px; line-height: 1.7">
+<div style="font-weight: 600">للتحقق من صحة هذا المستند</div>
+<div>امسح الرمز أو أدخل رقم المستند في بوابة التحقق: <span class="mono">verify.jiha.example</span></div>
+<div style="color: #424b57">رمز التحقق <span class="mono">7F3A-2291-C0D4</span> · موضع الرمز نموذجي</div>
+</div>
+</section>
+
+<footer style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #424b57; padding-top: 10px; border-top: 1px solid #141b25">
+<span>[اسم الجهة] · مستند رسمي صادر من النظام المؤسسي الموحَّد</span>
+<span>طُبع في <span class="mono">13-10-2026 10:42</span> · صفحة <span class="mono">1</span> من <span class="mono">1</span></span>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+items: [
+{ n: '1', code: 'IT-SRV-2U-064', desc: 'خادم تطبيقات 2U، ذاكرة 64 غيغابايت', qty: '4', uom: 'جهاز', rate: '38,500.00', amount: '154,000.00' },
+{ n: '2', code: 'IT-NAS-48TB', desc: 'وحدة تخزين شبكي بسعة 48 تيرابايت', qty: '2', uom: 'جهاز', rate: '27,250.00', amount: '54,500.00' },
+{ n: '3', code: 'IT-SW-48P', desc: 'مبدّل شبكة مُدار، 48 منفذاً', qty: '3', uom: 'جهاز', rate: '9,840.00', amount: '29,520.00' },
+{ n: '4', code: 'LIC-OS-SRV', desc: 'ترخيص نظام تشغيل للخوادم، 3 سنوات', qty: '4', uom: 'ترخيص', rate: '2,125.00', amount: '8,500.00' },
+{ n: '5', code: 'IT-CBL-KIT', desc: 'كابلات وتجهيزات تركيب', qty: '1', uom: 'مجموعة', rate: '1,001.74', amount: '1,001.74' }
+],
+signers: [
+{ role: 'أعدّه', name: 'خالد العمري', title: 'أخصائي مشتريات', date: '10-10-2026' },
+{ role: 'راجعه', name: 'فهد القحطاني', title: 'مدير المشتريات', date: '10-10-2026' },
+{ role: 'اعتمده', name: 'سارة الحربي', title: 'مديرة الإدارة المالية', date: '13-10-2026' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

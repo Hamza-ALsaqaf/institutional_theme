@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.DS_Store
+node_modules/
+institutional_theme/public/dist/
+institutional_theme/public/node_modules
+*.swp
+.venv/

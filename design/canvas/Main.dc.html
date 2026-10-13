@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>هوية مداد</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="midad.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="md" data-theme="{{theme}}" dir="rtl" lang="ar" style="width: 1600px; height: 2140px; padding: 64px 72px; display: flex; flex-direction: column; gap: 48px; overflow: hidden">
+
+<header style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 860px">
+<div class="sm" style="color: var(--ins-accent-text); font-weight: 500">الهوية البصرية لنظام ERPNext v16 · Frappe 16.32</div>
+<h1 style="font-size: 56px; line-height: 1.25; letter-spacing: 0">مداد</h1>
+<p style="font-size: 20px; line-height: 1.7; color: var(--ins-text-secondary)">حبرٌ على ورق يُختَم بختم: واجهة تجعل حالة كل مستند لا تُخطئها العين، وتُبقي الموظف ثماني ساعات أمام الشاشة بلا إجهاد.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+<div style="display: flex; align-items: center; gap: 16px; padding: 20px 24px; border: 1px dashed var(--ins-border-strong); border-radius: 8px">
+<div class="emblem" style="width: 64px; height: 64px; border-radius: 10px; gap: 6px"><i style="width: 34px; height: 6px"></i><i style="width: 34px; height: 2px"></i></div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 22px; font-weight: 600; color: var(--ins-text-brand); line-height: 1.4">[اسم الجهة]</div>
+<div style="font-size: 14px; color: var(--ins-text-secondary)">النظام المؤسسي الموحَّد</div>
+</div>
+</div>
+<div class="xs muted">موضع الشعار — نموذج مؤقت يُستبدل بشعار الجهة واسمها من مكان واحد</div>
+</div>
+</div>
+<span class="rule"></span>
+</header>
+
+<section style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{principles}}" as="p" hint-placeholder-count="7">
+<div class="card" style="padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: baseline; gap: 10px"><span class="mono xs" style="color: var(--ins-accent-text)">{{p.n}}</span><h3 style="font-size: 15px">{{p.t}}</h3></div>
+<p class="sm sec" style="line-height: 1.7">{{p.d}}</p>
+</div>
+</sc-for>
+<div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; border: 1px dashed var(--ins-border-strong); border-radius: 6px">
+<h3 style="font-size: 15px">عند التعارض</h3>
+<p class="sm sec" style="line-height: 1.7">صحة الحالة، ثم إمكانية الوصول، ثم سلامة الترقية، ثم الإنتاجية، وأخيراً الجمال.</p>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between"><h2 style="font-size: 22px">اللون</h2><span class="xs muted">مصمَّم على منحنى OKLCH ومُسلَّم بقيم sRGB محسوبة</span></div>
+<sc-for list="{{ramps}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: baseline; gap: 10px"><span class="strong sm">{{r.name}}</span><span class="xs muted">{{r.note}}</span></div>
+<div style="display: flex; gap: 2px" dir="ltr">
+<sc-for list="{{r.chips}}" as="c" hint-placeholder-count="11">
+<div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="height: 44px; border-radius: 3px; background: {{c.hex}}; box-shadow: inset 0 0 0 1px var(--ins-border)"></div>
+<div class="mono" style="font-size: 12px; line-height: 1.3; color: var(--ins-text-secondary)">{{c.s}}</div>
+<div class="mono" style="font-size: 10.5px; line-height: 1.2; color: var(--ins-text-muted)">{{c.hex}}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: baseline; gap: 10px"><span class="strong sm">الألوان الدلالية</span><span class="xs muted">منسجمة مع الحبر على منحنى إضاءة واحد، لا أحمر وأخضر جاهزان</span></div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{hues}}" as="h" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; height: 44px; border-radius: 3px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--ins-border)"><span style="flex: 1 1 0; background: {{h.a}}"></span><span style="flex: 1 1 0; background: {{h.b}}"></span><span style="flex: 1 1 0; background: {{h.c}}"></span></div>
+<div class="xs strong">{{h.name}}</div>
+<div class="xs muted" style="line-height: 1.4">{{h.use}}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between"><h2 style="font-size: 22px">الخط</h2><span class="xs muted">IBM Plex Sans Arabic + IBM Plex Sans + IBM Plex Mono · رخصة OFL · مستضاف محلياً</span></div>
+<div class="card" style="padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 32px; font-weight: 600; color: var(--ins-text-strong); line-height: 1.5">الموازنة المعتمدة للسنة المالية 2026</div>
+<div style="font-size: 20px; font-weight: 500; color: var(--ins-text-strong); line-height: 1.6">Approved budget for fiscal year 2026</div>
+<p style="font-size: 14px; line-height: 1.8; max-width: 62ch">يُصرف المبلغ بعد اعتماد مدير الإدارة المالية ومطابقة أمر الشراء رقم <span class="mono">PO-2026-00418</span> مع محضر الاستلام. الارتفاع المتطابق للحروف في الخطين يجعل النص العربي واللاتيني يُقرآن بحجم بصري واحد.</p>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding-top: 14px; border-top: 1px solid var(--ins-border-hairline)">
+<div><div class="xs muted">عنوان الصفحة</div><div style="font-size: 18px; font-weight: 600; color: var(--ins-text-strong)">18 / 600</div></div>
+<div><div class="xs muted">نص النماذج</div><div style="font-size: 14px">14 / 400</div></div>
+<div><div class="xs muted">بيانات الجداول</div><div style="font-size: 13px">13 / 400</div></div>
+<div><div class="xs muted">أصغر حجم مقروء</div><div style="font-size: 12px">12 / 400</div></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 14px; border-top: 1px solid var(--ins-border-hairline)">
+<div style="display: flex; flex-direction: column; gap: 2px"><span class="xs muted">أرقام جدولية موحّدة في اللغتين</span><span class="num" style="font-size: 24px; font-weight: 600; color: var(--ins-text-strong)">1,284,650.00</span><span class="num" style="font-size: 24px; font-weight: 600; color: var(--ins-text-strong)">9,071,113.45</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end"><span class="xs muted">الرموز والمعرّفات: صفر منقوط وتمييز I l 1</span><span class="mono" style="font-size: 22px; color: var(--ins-text-strong)">0O · Il1 · ACC-5100-07</span></div>
+</div>
+</div>
+
+<div style="display: flex; align-items: baseline; justify-content: space-between; padding-top: 6px"><h2 style="font-size: 22px">العلامة المميِّزة: القاعدة الختامية</h2><span class="xs muted">عنصر واحد فقط، ولا يوضع خلف البيانات</span></div>
+<div class="card" style="padding: 24px 28px; display: flex; flex-direction: column; gap: 16px">
+<span class="rule"></span>
+<p class="sm sec" style="line-height: 1.8">الخط المزدوج الذي يُقفل به المحاسب المجموع النهائي، يتقدّمه مقطع نحاسي قصير عند بداية السطر. يظهر في صفحة الدخول، والحالات الفارغة، وترويسة المطبوعات، وفوق الإجمالي العام في التقارير حيث يؤدي وظيفته المحاسبية الأصلية. محايد ثقافياً: لا رمز دينياً ولا وطنياً ولا سياسياً.</p>
+</div>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: baseline; justify-content: space-between"><h2 style="font-size: 22px">لغة الحالة</h2><span class="xs muted">لون + تسمية + شكل · واحدة في القوائم والنماذج والتقارير والطباعة</span></div>
+<div class="card" style="padding: 20px 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 32px">
+<sc-for list="{{statuses}}" as="s" hint-placeholder-count="10">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span class="{{s.cls}}">{{s.ar}}</span><span class="xs muted">{{s.shape}} · <span dir="ltr">{{s.en}}</span></span></div>
+</sc-for>
+</div>
+<p class="xs muted" style="line-height: 1.7">الأشكال مرسومة بـ CSS خالص دون صور، فتبقى واضحة في النسخ بالأبيض والأسود وفي وضع التباين العالي في Windows.</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: baseline; justify-content: space-between"><h2 style="font-size: 22px">الإجراءات والحقول</h2><span class="xs muted">ارتفاع 32 بكسل · زوايا 4 · حلقة تركيز واحدة 2 بكسل</span></div>
+<div class="card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<button class="btn btn-primary" type="button">حفظ</button>
+<button class="btn btn-default" type="button">إجراء ثانوي</button>
+<button class="btn btn-ghost" type="button">إجراء هادئ</button>
+<span class="sep"></span>
+<button class="btn btn-primary" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>اعتماد</button>
+<button class="btn btn-danger-outline" type="button">رفض</button>
+<button class="btn btn-danger" type="button">إلغاء المستند</button>
+<button class="btn btn-default is-disabled" type="button" disabled>معطَّل</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div class="field"><span class="label">المورّد<span class="req">* مطلوب</span></span><span class="input is-focus">شركة الأفق للتوريدات</span><span class="help">الحقل النشط: حلقة تركيز بتباين 5.6:1</span></div>
+<div class="field"><span class="label">تاريخ التسليم<span class="req">* مطلوب</span></span><span class="input is-error ph">يوم / شهر / سنة</span><span class="err">✕ أدخل تاريخ التسليم المطلوب</span></div>
+<div class="field"><span class="label">مركز التكلفة</span><span class="ro">الإدارة العامة للمشتريات</span><span class="help">للقراءة فقط: يُقرأ كمحتوى لا كحقل معطَّل</span></div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="background: var(--ins-surface-sunken); border: 1px solid var(--ins-border-hairline); border-radius: 6px; padding: 14px 16px"><div class="strong sm">مسطّح</div><div class="xs muted">الصفحة والشريط الجانبي</div></div>
+<div class="card" style="padding: 14px 16px"><div class="strong sm">مرتفع</div><div class="xs muted">البطاقات: خط شعري + ظل خفيف</div></div>
+<div class="dialog" style="padding: 14px 16px"><div class="strong sm">طافٍ</div><div class="xs muted">القوائم والحوارات</div></div>
+</div>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1600,"height":2140}}'>
+class Component extends DCLogic {
+renderVals() {
+const steps = ['50','100','200','300','400','500','600','700','800','900','950'];
+const mk = (name, note, hexes, st) => ({ name, note, chips: hexes.map((hex, i) => ({ hex, s: (st || steps)[i] })) });
+return {
+theme: this.props.theme ?? 'light',
+principles: [
+{ n: '01', t: 'الحالة أولاً', d: 'كل حالة تُقرأ بثلاث إشارات: لون وتسمية وشكل، وتبقى مفهومة بالأبيض والأسود.' },
+{ n: '02', t: 'إجراء رئيسي واحد', d: 'زر أساسي واحد في كل شاشة، والإجراءات ذات الأثر (اعتماد، رفض، إلغاء) مفصولة عنه بصرياً.' },
+{ n: '03', t: 'التباين يُقاس', d: 'نص الجسم 7:1 فأعلى، وحدود الحقول والأيقونات 3:1 فأعلى، في الوضعين، بتدقيق آلي.' },
+{ n: '04', t: 'الرموز قبل المحدِّدات', d: 'نعيد توجيه متغيّرات Frappe ولا نلمس الأصل؛ إزالة التطبيق تعيد المظهر الأصلي كاملاً.' },
+{ n: '05', t: 'العربية أصل لا ترجمة', d: 'خصائص منطقية وأرقام جدولية موحّدة، ولا نسخة معكوسة من الأنماط.' },
+{ n: '06', t: 'الهدوء من الانضباط', d: 'شبكة 4 بكسل، خطوط شعرية، زوايا صغيرة. لا تدرّجات ولا زجاج ولا ظلال ثقيلة.' },
+{ n: '07', t: 'النحاس أقل من 5٪', d: 'اللون المميِّز للقاعدة الختامية ومؤشر العنصر النشط فقط، ولا يُكتب به نص.' }
+],
+ramps: [
+mk('الحبر — اللون الأساسي', 'حبر بروسي · الزر الأساسي 700 · العلامة 800', ['#f2f7fe','#e4effd','#cae0f9','#a7c9f0','#7baadf','#5088c5','#2f6aa7','#1b5086','#0f3a65','#082644','#061a30']),
+mk('النحاس — اللون المميِّز', 'الختم على المستند · 600 للعلامات', ['#fcf6eb','#f9edd7','#f3ddb5','#e8c78d','#d5ae63','#bb913e','#997324','#775814','#573f0c','#3c2b06','#2a1e08']),
+mk('الأردواز — محايدات الوضع الفاتح', 'مسحة حبرية باردة ثابتة', ['#f7f9fc','#f1f4f8','#e8ebf1','#dadee5','#b8bec7','#858d97','#6a727d','#58616d','#424b57','#28313c','#141b25'], ['50','100','200','300','400','450','500','600','700','800','900']),
+mk('الليل — محايدات الوضع الداكن', 'مضبوطة يدوياً: الارتفاع يعني سطحاً أفتح', ['#eceff2','#dfe3e8','#b9bec6','#9da4ac','#6f7781','#4b535e','#2e3641','#252c37','#1d252f','#171e28','#111820','#0b1119'], ['50','100','300','400','500','600','700','750','800','850','900','950'])
+],
+hues: [
+{ name: 'أخضر زنجاري', use: 'معتمد، مكتمل', a: '#def3e6', b: '#0e8352', c: '#004c2c' },
+{ name: 'طيني', use: 'بانتظار الاعتماد', a: '#ffe7db', b: '#ae5000', c: '#652b00' },
+{ name: 'مَغرة', use: 'معلَّق، تنبيه', a: '#faf0d2', b: '#9e8002', c: '#584600' },
+{ name: 'أحمر أكسيدي', use: 'مرفوض، متأخر', a: '#ffe6e4', b: '#be3737', c: '#741417' },
+{ name: 'لازوردي', use: 'مُرحَّل، روابط', a: '#dfefff', b: '#0072be', c: '#004170' },
+{ name: 'بنفسجي', use: 'معدَّل', a: '#eaebff', b: '#6860ba', c: '#3a3472' }
+],
+statuses: [
+{ cls: 'pill p-draft', ar: 'مسودة', en: 'Draft', shape: 'حلقة' },
+{ cls: 'pill p-pending', ar: 'بانتظار الاعتماد', en: 'Pending approval', shape: 'نصف دائرة' },
+{ cls: 'pill p-approved', ar: 'معتمد', en: 'Approved', shape: 'علامة صح' },
+{ cls: 'pill p-rejected', ar: 'مرفوض', en: 'Rejected', shape: 'علامة خطأ' },
+{ cls: 'pill p-submitted', ar: 'مُرحَّل', en: 'Submitted', shape: 'نقطة' },
+{ cls: 'pill p-cancelled', ar: 'ملغى', en: 'Cancelled', shape: 'مربع' },
+{ cls: 'pill p-amended', ar: 'معدَّل', en: 'Amended', shape: 'معيّن' },
+{ cls: 'pill p-hold', ar: 'معلَّق', en: 'On hold', shape: 'شريطان' },
+{ cls: 'pill p-overdue', ar: 'متأخر', en: 'Overdue', shape: 'مثلث' },
+{ cls: 'pill p-completed', ar: 'مكتمل', en: 'Completed', shape: 'هدف' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

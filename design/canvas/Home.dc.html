@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>الرئيسية التنفيذية</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="midad.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="md shell" data-theme="{{theme}}" dir="rtl" lang="ar" style="width: 1366px; height: 1010px; overflow: hidden">
+
+<nav class="side" aria-label="التنقل الرئيسي">
+<div class="side-head">
+<div class="emblem"><i></i><i></i></div>
+<div style="min-width: 0"><div class="strong sm" style="line-height: 1.4">[اسم الجهة]</div><div class="xs muted">النظام المؤسسي الموحَّد</div></div>
+</div>
+<div class="side-item" style="border: 1px solid var(--ins-border-control); background: var(--ins-surface-field); color: var(--ins-text-placeholder)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>بحث أو انتقال<span class="kbd" style="margin-inline-start: auto">Ctrl K</span></div>
+<a class="side-item" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7 2.5 7h-17S6 15 6 9M10 20a2 2 0 0 0 4 0"/></svg>الإشعارات<span class="count">4</span></a>
+<div class="side-label">مساحات العمل</div>
+<sc-for list="{{nav}}" as="it" hint-placeholder-count="8">
+<a class="{{it.cls}}" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="{{it.d}}"/></svg>{{it.label}}<sc-if value="{{it.count}}" hint-placeholder-val="{{false}}"><span class="count">{{it.count}}</span></sc-if></a>
+</sc-for>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 10px 8px 2px; border-top: 1px solid var(--ins-border)">
+<span class="avatar">سح</span>
+<div style="min-width: 0"><div class="sm strong" style="line-height: 1.4">سارة الحربي</div><div class="xs muted">مديرة الإدارة المالية</div></div>
+</div>
+</nav>
+
+<div class="main">
+<header class="ph">
+<div>
+<div class="crumb">الرئيسية</div>
+<div class="title">لوحة المتابعة التنفيذية</div>
+</div>
+<div class="actions">
+<span class="xs muted">آخر تحديث <span class="mono">10:42</span> · 13 أكتوبر 2026</span>
+<button class="btn btn-default" type="button">السنة المالية 2026<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 14px; height: 14px"><path d="m6 9 6 6 6-6"/></svg></button>
+</div>
+</header>
+
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 24px; background: var(--ins-surface-sunken); flex: 1 1 auto">
+
+<section style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px" aria-label="المؤشرات الرئيسية">
+<div class="card" style="padding: 16px 20px; display: flex; flex-direction: column; gap: 4px">
+<div class="sm sec">الموازنة المعتمدة <span class="muted">(ريال)</span></div>
+<div class="num strong" style="font-size: 26px; line-height: 1.3; text-align: start">48,600,000</div>
+<div class="xs muted">السنة المالية 2026 · 4 أبواب</div>
+</div>
+<div class="card" style="padding: 16px 20px; display: flex; flex-direction: column; gap: 4px">
+<div class="sm sec">المنصرف حتى تاريخه <span class="muted">(ريال)</span></div>
+<div class="num strong" style="font-size: 26px; line-height: 1.3; text-align: start">31,284,650</div>
+<div class="xs sec" style="display: flex; align-items: center; gap: 4px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 14px; height: 14px"><path d="M7 17 17 7M9 7h8v8"/></svg>أعلى بنسبة <span class="mono">4.2%</span> من الفترة نفسها في 2025</div>
+</div>
+<div class="card" style="padding: 16px 20px; display: flex; flex-direction: column; gap: 4px">
+<div class="sm sec">الالتزامات القائمة <span class="muted">(ريال)</span></div>
+<div class="num strong" style="font-size: 26px; line-height: 1.3; text-align: start">6,912,300</div>
+<div class="xs sec" style="display: flex; align-items: center; gap: 4px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 14px; height: 14px"><path d="m7 7 10 10M17 9v8H9"/></svg>أقل بنسبة <span class="mono">1.8%</span> من الشهر الماضي</div>
+</div>
+<div class="card" style="padding: 16px 20px; display: flex; flex-direction: column; gap: 4px; border-color: var(--ins-pending-bd)">
+<div class="sm sec" style="display: flex; justify-content: space-between; align-items: center">بانتظار اعتمادك<span class="pill p-pending">يتطلب إجراء</span></div>
+<div class="strong" style="font-size: 26px; line-height: 1.3"><span class="num">7</span> <span class="sm sec" style="font-weight: 400">مستندات</span></div>
+<div class="xs muted">أقدمها منذ 4 أيام · <a href="#">فتح قائمة الاعتمادات</a></div>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px">
+<div class="card" style="padding: 16px 20px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<h2 style="font-size: 15px">المنصرف مقابل الموازنة حسب الربع <span class="xs muted" style="font-weight: 400">(مليون ريال)</span></h2>
+<div class="xs sec" style="display: flex; gap: 16px"><span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; background: var(--ins-chart-1); border-radius: 2px"></span>الموازنة</span><span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 2px; border: 1.5px solid var(--ins-chart-2); background: repeating-linear-gradient(135deg, var(--ins-chart-2) 0 2px, transparent 2px 5px)"></span>المنصرف</span></div>
+</div>
+<svg viewBox="0 0 680 236" role="img" aria-label="أعمدة: الموازنة 12.15 مليون لكل ربع؛ المنصرف 11.20 في الربع الأول، 12.90 في الثاني، 7.18 في الثالث حتى تاريخه" style="width: 100%; height: 236px; font-family: inherit; direction: ltr">
+<defs><pattern id="hx" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.4" height="6" style="fill: var(--ins-chart-2)"/></pattern></defs>
+<g style="stroke: var(--ins-chart-grid); stroke-width: 1"><path d="M40 141.5h630M40 77.5h630"/></g>
+<path d="M40 205.5h630" style="stroke: var(--ins-border-strong); stroke-width: 1"/>
+<g style="fill: var(--ins-text-muted); font-size: 12px" text-anchor="end"><text x="32" y="209">0</text><text x="32" y="145">5</text><text x="32" y="81">10</text></g>
+<g style="fill: var(--ins-chart-1)"><rect x="80" y="49" width="46" height="156" rx="2"/><rect x="240" y="49" width="46" height="156" rx="2"/><rect x="400" y="49" width="46" height="156" rx="2"/><rect x="560" y="49" width="46" height="156" rx="2"/></g>
+<g style="fill: url(#hx); stroke: var(--ins-chart-2); stroke-width: 1.5"><rect x="132" y="61" width="46" height="144" rx="2"/><rect x="292" y="39" width="46" height="166" rx="2"/><rect x="452" y="113" width="46" height="92" rx="2"/></g>
+<g style="fill: var(--ins-text-strong); font-size: 12px; font-weight: 500" text-anchor="middle"><text x="103" y="42">12.15</text><text x="155" y="54">11.20</text><text x="263" y="42">12.15</text><text x="315" y="32">12.90</text><text x="423" y="42">12.15</text><text x="475" y="106">7.18</text><text x="583" y="42">12.15</text></g>
+<g style="fill: var(--ins-text-secondary); font-size: 12px" text-anchor="middle"><text x="129" y="226">الربع الأول</text><text x="289" y="226">الربع الثاني</text><text x="449" y="226">الربع الثالث · جارٍ</text><text x="606" y="226">الربع الرابع</text></g>
+</svg>
+</div>
+<div class="card" style="padding: 16px 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="font-size: 15px">نسبة الصرف حسب الباب</h2>
+<sc-for list="{{chapters}}" as="c" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div class="sm" style="display: flex; justify-content: space-between; gap: 12px"><span>{{c.name}}</span><span class="mono strong">{{c.pct}}%</span></div>
+<div style="height: 8px; border-radius: 2px; background: var(--ins-surface-active); overflow: hidden" role="img" aria-label="{{c.pct}}%"><div style="height: 100%; width: {{c.pct}}%; background: var(--ins-chart-1)"></div></div>
+<div class="xs muted"><span class="mono">{{c.spent}}</span> من <span class="mono">{{c.budget}}</span></div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section class="card" style="overflow: hidden">
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 20px">
+<h2 style="font-size: 15px">مستندات بانتظار اعتمادك</h2>
+<a class="sm" href="#">عرض الكل (7)</a>
+</div>
+<table class="tbl">
+<thead><tr><th scope="col" style="padding-inline-start: 20px">المستند</th><th scope="col">النوع</th><th scope="col">الجهة الطالبة</th><th scope="col" class="num">المبلغ (ريال)</th><th scope="col">منذ</th><th scope="col">الحالة</th><th scope="col"><span style="position: absolute; opacity: 0">إجراء</span></th></tr></thead>
+<tbody>
+<sc-for list="{{queue}}" as="q" hint-placeholder-count="5">
+<tr class="{{q.row}}"><td style="padding-inline-start: 20px"><a class="mono" href="#">{{q.id}}</a></td><td>{{q.type}}</td><td>{{q.dept}}</td><td class="num">{{q.amount}}</td><td class="sec">{{q.age}}</td><td><span class="{{q.pill}}">{{q.status}}</span></td><td style="text-align: end; padding-inline-end: 20px"><button class="btn btn-sm btn-default" type="button">مراجعة</button></td></tr>
+</sc-for>
+</tbody>
+</table>
+</section>
+
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1366,"height":1010}}'>
+class Component extends DCLogic {
+renderVals() {
+const I = {
+home: 'M4 11 12 4l8 7v9h-5v-6H9v6H4z',
+check: 'M4 6h10M4 12h10M4 18h6m5-2 2 2 4-4',
+book: 'M5 4h13v16H5zM9 4v16M12 9h3',
+cart: 'M4 5h2l2 10h9l2-7H7M9 19h.01M17 19h.01',
+box: 'M4 8 12 4l8 4v8l-8 4-8-4zM4 8l8 4 8-4M12 12v8',
+users: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6M3 19c0-3 2.5-5 6-5s6 2 6 5M17 6a3 3 0 0 1 0 5M18 14c2 .6 3 2.3 3 5',
+flag: 'M5 21V4h11l-2 4 2 4H5',
+chart: 'M4 20V5M4 20h16M8 16v-4M12 16V9M16 16v-6'
+};
+const nav = [
+{ label: 'الرئيسية', d: I.home, cls: 'side-item active' },
+{ label: 'الاعتمادات', d: I.check, cls: 'side-item', count: 7 },
+{ label: 'المحاسبة والموازنة', d: I.book, cls: 'side-item' },
+{ label: 'المشتريات', d: I.cart, cls: 'side-item' },
+{ label: 'المخازن والأصول', d: I.box, cls: 'side-item' },
+{ label: 'الموارد البشرية والرواتب', d: I.users, cls: 'side-item' },
+{ label: 'المشاريع', d: I.flag, cls: 'side-item' },
+{ label: 'التقارير', d: I.chart, cls: 'side-item' }
+];
+return {
+theme: this.props.theme ?? 'light',
+nav,
+chapters: [
+{ name: 'الرواتب والأجور', pct: 71, spent: '15,620,000', budget: '22,000,000' },
+{ name: 'السلع والخدمات', pct: 64, spent: '8,064,650', budget: '12,600,000' },
+{ name: 'الأصول والتجهيزات', pct: 52, spent: '4,680,000', budget: '9,000,000' },
+{ name: 'المشاريع', pct: 58, spent: '2,920,000', budget: '5,000,000' }
+],
+queue: [
+{ id: 'PO-2026-00418', type: 'أمر شراء', dept: 'الإدارة العامة لتقنية المعلومات', amount: '284,650.00', age: '3 أيام', status: 'بانتظار اعتمادك', pill: 'pill p-pending', row: 'is-hover' },
+{ id: 'PAY-2026-01207', type: 'أمر دفع', dept: 'إدارة المشاريع', amount: '1,150,000.00', age: 'يومان', status: 'بانتظار اعتمادك', pill: 'pill p-pending', row: '' },
+{ id: 'JV-2026-00933', type: 'قيد يومية', dept: 'الإدارة المالية', amount: '48,200.00', age: 'يوم واحد', status: 'بانتظار اعتمادك', pill: 'pill p-pending', row: '' },
+{ id: 'MR-2026-00672', type: 'طلب مواد', dept: 'إدارة المخازن', amount: '17,940.00', age: '4 أيام', status: 'متأخر', pill: 'pill p-overdue', row: '' },
+{ id: 'PO-2026-00415', type: 'أمر شراء', dept: 'إدارة الخدمات العامة', amount: '62,300.00', age: '5 ساعات', status: 'معلَّق', pill: 'pill p-hold', row: '' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

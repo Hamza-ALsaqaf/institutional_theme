@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>تسجيل الدخول</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="midad.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="md" data-theme="light" dir="rtl" lang="ar" style="width: 1366px; height: 768px; display: flex; flex-direction: column; background: var(--ins-surface-sunken)">
+
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px">
+<div class="xs muted">الوصول لهذا النظام مقصور على المصرَّح لهم</div>
+<div style="display: flex; align-items: center; gap: 4px" role="group" aria-label="اللغة">
+<span class="btn btn-sm btn-default" aria-current="true" style="border-color: var(--ins-primary); color: var(--ins-primary-text); font-weight: 600">العربية</span>
+<a class="btn btn-sm btn-ghost" href="#" lang="en">English</a>
+</div>
+</div>
+
+<main style="flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 0 16px 24px">
+<div class="dialog" style="width: 408px; overflow: hidden">
+<span class="rule" style="border-radius: 0"></span>
+<div style="padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; gap: 14px">
+<div class="emblem" style="width: 48px; height: 48px; border-radius: 8px; gap: 5px"><i style="width: 26px; height: 5px"></i><i style="width: 26px; height: 2px"></i></div>
+<div>
+<div style="font-size: 18px; font-weight: 600; color: var(--ins-text-brand); line-height: 1.4">[اسم الجهة]</div>
+<div class="sm sec">النظام المؤسسي الموحَّد</div>
+</div>
+</div>
+<h1 style="font-size: 16px">تسجيل الدخول</h1>
+<div class="field">
+<label class="label" for="lg-user">البريد الإلكتروني أو اسم المستخدم</label>
+<input id="lg-user" class="input" style="height: 40px" type="text" value="s.alharbi@jiha.example" dir="ltr" autocomplete="username">
+</div>
+<div class="field">
+<div style="display: flex; align-items: baseline; justify-content: space-between"><label class="label" for="lg-pass">كلمة المرور</label><a class="xs" href="#">نسيت كلمة المرور؟</a></div>
+<div class="input is-focus" style="height: 40px; padding-inline-end: 4px">
+<input id="lg-pass" type="password" value="••••••••••" dir="ltr" style="flex: 1 1 auto; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; color: inherit">
+<button class="btn btn-sm btn-ghost" type="button" aria-pressed="false">إظهار</button>
+</div>
+<div class="err" role="status" style="color: var(--ins-warning-fg)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 14px; height: 14px"><path d="M12 3 4 12h4v5h8v-5h4zM8 21h8"/></svg>مفتاح الأحرف الكبيرة (Caps Lock) مفعَّل</div>
+</div>
+<button class="btn btn-primary" type="button" style="height: 40px; font-size: 14px">تسجيل الدخول</button>
+<div style="display: flex; align-items: center; gap: 12px"><span style="flex: 1 1 0; height: 1px; background: var(--ins-border)"></span><span class="xs muted">أو</span><span style="flex: 1 1 0; height: 1px; background: var(--ins-border)"></span></div>
+<button class="btn btn-default" type="button" style="height: 40px; font-size: 14px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.2 7.8 8 9 4.8-1.2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>الدخول عبر النفاذ المؤسسي الموحَّد</button>
+</div>
+</div>
+
+<div style="width: 408px; display: flex; flex-direction: column; gap: 10px">
+<p class="xs sec" style="line-height: 1.8; padding: 10px 14px; border: 1px solid var(--ins-border); border-radius: 4px; background: var(--ins-surface-base)">هذا نظام حكومي رسمي. استخدامك له يعني موافقتك على مراقبة النشاط وتسجيله، وأي استخدام غير مصرَّح به يعرّض صاحبه للمساءلة النظامية.</p>
+<div class="xs muted" style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span>الدعم الفني: تحويلة <span class="mono">1400</span> · <span class="mono">support@jiha.example</span></span>
+<span>الإصدار <span class="mono">16.32</span> · بيئة الإنتاج</span>
+</div>
+</div>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1366,"height":768}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

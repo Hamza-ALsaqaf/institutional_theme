@@ -1,0 +1,80 @@
+# Team workflow
+
+How the build team works in this repository. The lead session orchestrates; seven specialised agents are defined in `.claude/agents/`. Each agent's model and reasoning effort are set in its definition and are chosen to protect the owner's usage limit: the expensive model thinks, the mid model builds, the cheap model does mechanical work.
+
+## The team
+
+| Role | Agent | Model | Effort | Owns |
+|---|---|---|---|---|
+| Lead and orchestrator | the main session | Opus | high | Phase plan, gates, merging decisions, the final report. Writes no feature code. |
+| Architect | `theme-architect` | Opus | high | `docs/adr/`, token architecture, cascade strategy, the prose of `docs/DESIGN_SYSTEM.md` |
+| Desk CSS | `css-engineer` | Sonnet | medium | `institutional_theme/public/scss/` (desk), the interactive proof |
+| Backend and settings | `backend-engineer` | Sonnet | high | Python package, token pipeline, audits, settings doctype, `public/js/`, test bench, CI |
+| Print, email, portal | `print-web-engineer` | Sonnet | medium | Print Style, Letter Head, email bundle, web and login bundle, SVG assets |
+| Accessibility and RTL | `a11y-rtl-reviewer` | Sonnet | high | Review only: `docs/team/reviews/a11y-*.md` |
+| Upgrade safety | `upgrade-reviewer` | Opus | medium | Review only: `docs/team/reviews/upgrade-*.md` |
+| Documentation and data | `scribe` | Haiku | medium | Token tables, the manifest tables, `translations/ar.csv`, `FONTS.md`, checklists |
+
+File ownership is exclusive. If a task needs a file another agent owns, ask the lead; do not edit it.
+
+## Rules that keep usage down
+
+1. At most **three agents run at the same time**, and only when their files do not overlap.
+2. Every dispatch names the exact files to read and the exact files to write. No "explore the repository".
+3. One discussion round per phase, in writing, with word limits (below). No open-ended debate.
+4. Reviewers run **once per phase**, on the phase diff. A second pass happens only for findings marked blocking.
+5. Mechanical work (tables, translations, manifests, changelogs) always goes to `scribe`.
+6. An agent that is blocked stops and reports. It does not retry the same approach more than twice.
+7. The lead does not re-do an agent's work to check it; it reads the agent's evidence (command output, audit result, screenshot path).
+
+## Discussion protocol
+
+Agents cannot talk to each other directly, so discussion happens in files under `docs/team/discussion/`.
+
+1. The architect posts a proposal (`NN-topic.md`, 600 words at most): the decision, two alternatives, the reason.
+2. Each affected engineer and each reviewer appends a reply (200 words at most): agree, or the specific objection with evidence (a file and line in Frappe source, a measurement, a failing case).
+3. The architect revises once and records the outcome as an ADR. The lead breaks ties using the priority order in `docs/BRIEF.md` section 3.
+
+Objections without evidence are noted and overruled.
+
+## Phases and gates
+
+Each phase ends at a gate. Nothing from the next phase starts until the gate passes. The lead writes a five-line status in `docs/team/STATUS.md` at every gate.
+
+### Phase 0 — Bench and baseline
+`backend-engineer`: a script that builds a test bench from scratch (Frappe 16.32.0 pinned, a test site, this app installed), and a CI workflow that runs lint and the audits. Record what was run and how long it took.
+`theme-architect`: re-verify the ten findings the design depends on most (cascade order, bundle discovery, RTL, indicator colours, datatable geometry, login load order, PDF generator, masking, `data-label`, `form-refresh`) against the pinned source. Record any that differ.
+**Gate**: the app installs and uninstalls cleanly on the test site with the stock look unchanged.
+
+### Phase 1 — Analysis and discussion
+`theme-architect` proposes ADR 0002 to 0007 (the open questions at the end of `0001`). One discussion round. Engineers each post a 200-word feasibility note for their area. Both reviewers critique the proposals before any code exists.
+**Gate**: ADRs accepted; a file-by-file ownership plan exists in `docs/team/PLAN.md`.
+
+### Phase 2 — Foundations
+`backend-engineer`: colour maths in Python reproducing `design/reference/tokens.resolved.json` exactly; the token pipeline generating SCSS and the resolved JSON; the contrast audit, the dead-token audit and the colour-vision audit; fonts with licences; the settings doctype.
+`css-engineer` (after the pipeline exists): the token layer bundle and the cascade proof (computed-style assertions that the theme wins in Light, Dark and Automatic).
+`scribe`: token tables generated into the docs.
+**Gate**: all audits pass for `midad` in both modes with zero failures; each other preset is either passing or formally dropped; key-set parity between light and dark holds.
+
+### Phase 3 — P0
+In parallel, disjoint files: `css-engineer` (shell, page head, list, form, controls, dialogs, reports), `backend-engineer` (preset and font runtime, boot info, the small shell script, install and uninstall), `print-web-engineer` (login, website, error pages).
+**Gate**: both reviewers pass P0 with no blocking finding; screenshots exist for every P0 screen in Light and Dark, Arabic and English, comfortable and compact.
+
+### Phase 4 — P1, P2 and the proof
+`css-engineer`: dashboards, charts, Kanban, Calendar, Tree, Gantt, global states, then the interactive proof. `print-web-engineer`: Print Style, Letter Head, email, SVG assets. `backend-engineer`: idempotent shipping of print records, opt-in behaviours, tests.
+**Gate**: PDF output verified under both generators; proof matches the product; size budgets met.
+
+### Phase 5 — Documentation and hostile review
+`scribe` builds every table and checklist from the code. `theme-architect` writes the prose. The two reviewers and the lead then review as three hostile readers: a sceptical senior official (lead), an accessibility auditor, and a Frappe engineer planning the next upgrade. Fix, re-run every audit, fill in the quality table from `docs/BRIEF.md` section 10.
+**Gate**: every dimension scores 4 or more, with evidence.
+
+## Evidence standard
+
+A task is done when its agent can point to something that was run: an audit output file, a test result, a screenshot path, a diff of computed styles. "Looks right" is not evidence. Anything not run is reported as not verified, in those words.
+
+## When to stop and ask the owner
+
+- An approved design value has to change.
+- A preset cannot pass and has to be dropped.
+- A requirement in the brief turns out to be impossible in 16.32 without touching core.
+- The test bench cannot be built in the cloud environment.

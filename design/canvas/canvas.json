@@ -1,0 +1,44 @@
+{
+	"v": 3,
+	"createdOnFiles": { "v": 1, "at": "2026-10-13T12:00:00Z" },
+	"title": "ERPNext v16 Institutional Theme",
+	"launch": { "view": "canvas" },
+	"pages": [],
+	"boards": {
+		"Main.dc.html": { "x": 0, "y": 0, "w": 1600, "h": 2140, "title": "هوية مداد — الوضع الفاتح" },
+		"IdentityDark.dc.html": { "x": 1680, "y": 0, "w": 1600, "h": 2140, "title": "هوية مداد — الوضع الداكن" },
+		"Login.dc.html": { "x": 0, "y": 2560, "w": 1366, "h": 768, "title": "تسجيل الدخول" },
+		"Home.dc.html": { "x": 0, "y": 3448, "w": 1366, "h": 1010, "title": "الرئيسية التنفيذية — فاتح" },
+		"HomeDark.dc.html": { "x": 1446, "y": 3448, "w": 1366, "h": 1010, "title": "الرئيسية التنفيذية — داكن" },
+		"List.dc.html": { "x": 0, "y": 4578, "w": 1366, "h": 860, "title": "قائمة أوامر الشراء — فاتح" },
+		"ListDark.dc.html": { "x": 1446, "y": 4578, "w": 1366, "h": 860, "title": "قائمة أوامر الشراء — داكن" },
+		"Form.dc.html": { "x": 0, "y": 5558, "w": 1366, "h": 1640, "title": "أمر شراء في مسار الاعتماد — فاتح" },
+		"FormDark.dc.html": { "x": 1446, "y": 5558, "w": 1366, "h": 1640, "title": "أمر شراء في مسار الاعتماد — داكن" },
+		"Report.dc.html": { "x": 0, "y": 7318, "w": 1366, "h": 900, "title": "تقرير الموازنة — فاتح" },
+		"ReportDark.dc.html": { "x": 1446, "y": 7318, "w": 1366, "h": 900, "title": "تقرير الموازنة — داكن" },
+		"States.dc.html": { "x": 0, "y": 8338, "w": 1366, "h": 1280, "title": "الحوارات والحالات — فاتح" },
+		"StatesDark.dc.html": { "x": 1446, "y": 8338, "w": 1366, "h": 1280, "title": "الحوارات والحالات — داكن" },
+		"Print.dc.html": { "x": 0, "y": 9738, "w": 794, "h": 1123, "title": "مستند رسمي مطبوع A4", "paper": "a4" }
+	},
+	"order": [
+		"Main.dc.html",
+		"IdentityDark.dc.html",
+		"Login.dc.html",
+		"Home.dc.html",
+		"HomeDark.dc.html",
+		"List.dc.html",
+		"ListDark.dc.html",
+		"Form.dc.html",
+		"FormDark.dc.html",
+		"Report.dc.html",
+		"ReportDark.dc.html",
+		"States.dc.html",
+		"StatesDark.dc.html",
+		"Print.dc.html"
+	],
+	"notes": {
+		"t-identity": { "x": 0, "y": -300, "text": "الهوية", "kind": "title1", "maxW": 3280 },
+		"t-screens": { "x": 0, "y": 2260, "text": "الشاشات", "kind": "title1", "maxW": 2812 }
+	},
+	"designSystems": []
+}
