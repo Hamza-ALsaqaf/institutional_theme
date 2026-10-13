@@ -339,7 +339,7 @@
 		"surface-selected-strong": {
 			"group": "surface",
 			"light": "ink.100",
-			"dark": "oklch(0.35 0.065 252)"
+			"dark": "oklch(0.34 0.065 252)"
 		},
 		"surface-fill": {
 			"group": "surface",
@@ -813,8 +813,8 @@
 		},
 		"chart-2": {
 			"group": "chart",
-			"light": "amber.700",
-			"dark": "amber.500"
+			"light": "purple.500",
+			"dark": "purple.400"
 		},
 		"chart-3": {
 			"group": "chart",
@@ -823,18 +823,18 @@
 		},
 		"chart-4": {
 			"group": "chart",
-			"light": "red.800",
-			"dark": "red.400"
+			"light": "amber.700",
+			"dark": "amber.500"
 		},
 		"chart-5": {
 			"group": "chart",
-			"light": "purple.500",
-			"dark": "purple.400"
+			"light": "orange.500",
+			"dark": "orange.600"
 		},
 		"chart-6": {
 			"group": "chart",
-			"light": "orange.500",
-			"dark": "orange.600"
+			"light": "red.800",
+			"dark": "red.400"
 		},
 		"chart-7": {
 			"group": "chart",
@@ -1485,12 +1485,12 @@
 				"dark": "@surface-hover"
 			},
 			"--control-bg": {
-				"light": "@surface-fill",
-				"dark": "@surface-fill"
+				"light": "@surface-field",
+				"dark": "@surface-field"
 			},
 			"--control-bg-on-gray": {
-				"light": "@surface-fill-hover",
-				"dark": "@surface-fill-hover"
+				"light": "@surface-field",
+				"dark": "@surface-field"
 			},
 			"--disabled-control-bg": {
 				"light": "@surface-disabled",
@@ -2198,7 +2198,11 @@
 					"surface-active",
 					"surface-selected",
 					"surface-selected-strong",
-					"surface-field"
+					"surface-field",
+					"--control-bg",
+					"--control-bg-on-gray",
+					"surface-fill",
+					"surface-fill-hover"
 				]
 			},
 			{
@@ -2214,7 +2218,9 @@
 					"surface-sunken",
 					"surface-raised",
 					"surface-overlay",
-					"surface-field"
+					"surface-field",
+					"--control-bg",
+					"--control-bg-on-gray"
 				]
 			},
 			{
@@ -2226,7 +2232,10 @@
 				],
 				"bg": [
 					"surface-hover",
-					"surface-selected"
+					"surface-selected",
+					"surface-selected-strong",
+					"surface-active",
+					"surface-fill"
 				]
 			},
 			{
@@ -2301,12 +2310,15 @@
 				"min": 3,
 				"target": 4.5,
 				"fg": [
-					"text-disabled"
+					"text-disabled",
+					"text-placeholder"
 				],
 				"bg": [
 					"surface-disabled",
 					"surface-base",
-					"surface-raised"
+					"surface-raised",
+					"--disabled-control-bg",
+					"--input-disabled-bg"
 				]
 			},
 			{
@@ -2568,7 +2580,10 @@
 					"surface-sunken",
 					"surface-raised",
 					"surface-overlay",
-					"surface-field"
+					"surface-field",
+					"--control-bg",
+					"--control-bg-on-gray",
+					"surface-hover"
 				]
 			},
 			{

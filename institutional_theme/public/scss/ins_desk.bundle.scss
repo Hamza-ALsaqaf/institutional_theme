@@ -1,4 +1,4 @@
-// Desk entry: generated tokens and Frappe map, then fonts, then base rules (ADR 0003).
+// Desk entry: generated tokens and Frappe map, then fonts, then desk partials in cascade order (ADR 0003).
 // The wrapper keeps rtlcss from flipping anything; direction-specific rules use [dir="rtl"].
 /*rtl:begin:ignore*/
 @import "generated/tokens";
@@ -6,4 +6,21 @@
 @import "generated/scale";
 @import "fonts/plex";
 @import "desk/base";
+@import "desk/typography";
+@import "desk/scoped_variables";
+@import "desk/hardcoded";
+@import "desk/shell";
+@import "desk/page_head";
+@import "desk/workspace";
+@import "desk/controls";
+@import "desk/form";
+@import "desk/grid";
+@import "desk/list";
+@import "desk/reports";
+@import "desk/overlays";
+@import "desk/status";
+@import "desk/actions";
+@import "desk/masked";
+@import "desk/ribbon";
+@import "desk/appearance";
 /*rtl:end:ignore*/

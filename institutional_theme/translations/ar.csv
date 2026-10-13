@@ -1,0 +1,192 @@
+Accent background,الخلفية المميزة
+Accent colour,اللون المميز
+Accent rule and marker,خط التمييز وعلامته
+Accent text,النص المميز
+Adjust the {0} colour.,اضبط اللون {0}.
+Allow Forest,السماح بنمط غابي
+Allow Graphite,السماح بنمط جرافيت
+Allow Midad ink,السماح بنمط مداد
+Allow Petrol,السماح بنمط بترولي
+Allow Plum,السماح بنمط برقوقي
+Allow a custom colour preset,السماح بنمط ألوان مخصص
+Amended,معدَّل
+Amended status background,خلفية حالة معدَّل
+Amended status mark,علامة حالة معدَّل
+Amended status text,نص حالة معدَّل
+Approved,معتمد
+Arabic regular,الخط العربي العادي
+Arabic semibold,الخط العربي شبه العريض
+Authorised use notice,إشعار الاستخدام المصرح به
+Authorised use notice (Arabic),إشعار الاستخدام المصرح به (بالعربية)
+Behaviour,السلوك
+Between 1 and 30 minutes before the session expires.,بين 1 و30 دقيقة قبل انتهاء الجلسة.
+Body text,نص المتن
+Brand text,نص العلامة
+Cancelled,ملغى
+Card background,خلفية البطاقة
+Chart gridlines,خطوط شبكة الرسم البياني
+Chart labels,تسميات الرسم البياني
+Chart series 1,سلسلة الرسم البياني 1
+Chart series 2,سلسلة الرسم البياني 2
+Chart series 3,سلسلة الرسم البياني 3
+Chart series 4,سلسلة الرسم البياني 4
+Chart series 5,سلسلة الرسم البياني 5
+Chart series 6,سلسلة الرسم البياني 6
+Chart series 7,سلسلة الرسم البياني 7
+Chart series 8,سلسلة الرسم البياني 8
+Colour,الألوان
+Comfortable,مريح
+Compact,مضغوط
+Completed,مكتمل
+Contrast check,فحص التباين
+"Copied to the Frappe settings that show it (login page, navbar, browser tab) when changed here.",يُنسخ إلى إعدادات Frappe التي تعرضه (صفحة الدخول، شريط التنقل، علامة تبويب المتصفح) عند تغييره هنا.
+Custom,مخصص
+Custom colour preset,نمط الألوان المخصص
+Custom colour preset rejected,رُفض نمط الألوان المخصص
+Custom colour preset rejected. These pairs are below their minimum contrast:,رُفض نمط الألوان المخصص. الأزواج التالية أقل من الحد الأدنى للتباين:
+Danger status background,خلفية حالة الخطر
+Danger status mark,علامة حالة الخطر
+Danger status text,نص حالة الخطر
+Dark,داكن
+Default colour preset,نمط الألوان الافتراضي
+Default density,الكثافة الافتراضية
+Destructive action,إجراء خطِر
+Destructive action on hover,إجراء خطِر عند تمرير المؤشر
+Disabled control background,خلفية العنصر المعطل
+Disabled text,النص المعطل
+Draft,مسودة
+Emblem,الشعار الرسمي
+Environment,البيئة
+Error banner background,خلفية شريط الخطأ
+Error banner text,نص شريط الخطأ
+Error border,إطار الخطأ
+Favicon,أيقونة المتصفح
+Focus ring,حلقة التركيز
+Font pairing,ثنائية الخطوط
+Heading text,نص العناوين
+Help text,نص المساعدة
+Hover background,خلفية عند تمرير المؤشر
+IBM Plex,IBM Plex
+Icons,الأيقونات
+In-progress status background,خلفية حالة قيد التنفيذ
+In-progress status mark,علامة حالة قيد التنفيذ
+In-progress status text,نص حالة قيد التنفيذ
+Information banner background,خلفية شريط المعلومات
+Information banner text,نص شريط المعلومات
+Information status background,خلفية حالة المعلومات
+Information status mark,علامة حالة المعلومات
+Information status text,نص حالة المعلومات
+Ink status background,خلفية حالة المداد
+Ink status text,نص حالة المداد
+Input background,خلفية حقل الإدخال
+Input border,إطار الحقل
+Input border on hover,إطار الحقل عند تمرير المؤشر
+Institution identity,هوية المؤسسة
+Institution name,اسم المؤسسة
+Institution name (Arabic),اسم المؤسسة (بالعربية)
+Institutional Theme,المظهر المؤسسي
+Institutional Theme Settings,إعدادات المظهر المؤسسي
+Latin regular,الخط اللاتيني العادي
+Latin semibold,الخط اللاتيني شبه العريض
+Light,فاتح
+Link text,نص الرابط
+Link text on hover,نص الرابط عند تمرير المؤشر
+Menu and dialog background,خلفية القوائم والحوارات
+Minutes of warning,دقائق التنبيه
+Muted status background,خلفية الحالة الخافتة
+Muted status mark,علامة الحالة الخافتة
+Muted status text,نص الحالة الخافتة
+Name (Arabic),الاسم (بالعربية)
+Name (English),الاسم (بالإنجليزية)
+Neutral status background,خلفية الحالة المحايدة
+Neutral status mark,علامة الحالة المحايدة
+Neutral status text,نص الحالة المحايدة
+Non-production,غير إنتاجية
+Noto,Noto
+On hold,معلَّق
+"Only the hue and chroma are used. Lightness follows the approved curves, so contrast is kept.",تُستخدم درجة اللون وتشبعه فقط. تتبع الإضاءة المنحنيات المعتمدة، فيبقى التباين محفوظًا.
+Overdue,متأخر
+Page background,خلفية الصفحة
+"Passed pairs out of all pairs, and the lowest ratio. Set when the settings are saved.",عدد الأزواج الناجحة من مجموع الأزواج، وأدنى نسبة تباين. تُحدَّد عند حفظ الإعدادات.
+Pending approval,بانتظار الاعتماد
+Pending banner background,خلفية شريط الانتظار
+Pending banner text,نص شريط الانتظار
+Pending status background,خلفية حالة الانتظار
+Pending status mark,علامة حالة الانتظار
+Pending status text,نص حالة الانتظار
+Placeholder text,النص التوضيحي داخل الحقل
+Plum status background,خلفية الحالة البرقوقية
+Plum status mark,علامة الحالة البرقوقية
+Plum status text,نص الحالة البرقوقية
+Pressed background,خلفية عند الضغط
+Primary action,الإجراء الأساسي
+Primary action on hover,الإجراء الأساسي عند تمرير المؤشر
+Primary action when pressed,الإجراء الأساسي عند الضغط
+Primary colour,اللون الأساسي
+Primary-coloured text,نص بلون أساسي
+Read-only value text,نص القيمة للقراءة فقط
+Rejected,مرفوض
+Scrollbar thumb,مقبض شريط التمرير
+Scrollbar track,مسار شريط التمرير
+Search highlight,تمييز نتائج البحث
+Secondary button background,خلفية الزر الثانوي
+Secondary text,النص الثانوي
+Selected and hovered row background,خلفية الصف المحدد عند تمرير المؤشر
+Selected row background,خلفية الصف المحدد
+"Set by ins_environment in site_config.json: Training, UAT or Staging. Empty means production.",يُحدَّد بالمفتاح ins_environment في الملف site_config.json: تدريب أو UAT أو ما قبل الإنتاج. الحقل الفارغ يعني بيئة الإنتاج.
+Show a banner when the connection is lost,إظهار شريط عند انقطاع الاتصال
+Sidebar and well background,خلفية الشريط الجانبي والمناطق الغائرة
+Staging,ما قبل الإنتاج
+Submitted,مُرحَّل
+Success banner background,خلفية شريط النجاح
+Success banner text,نص شريط النجاح
+Success status background,خلفية حالة النجاح
+Success status mark,علامة حالة النجاح
+Success status text,نص حالة النجاح
+Support contact,جهة الدعم
+System identity,هوية النظام
+System name,اسم النظام
+Tajawal,Tajawal
+Teal status background,خلفية الحالة الفيروزية
+Teal status mark,علامة الحالة الفيروزية
+Teal status text,نص الحالة الفيروزية
+Text on destructive action,النص على الإجراء الخطِر
+Text on primary action,النص على الإجراء الأساسي
+The colour preset {0} is not available.,نمط الألوان {0} غير متاح.
+The default colour preset {0} must also be allowed.,يجب أيضًا السماح بنمط الألوان الافتراضي {0}.
+The font file {0} must be public so that the login page and printouts can load it.,يجب أن يكون ملف الخط {0} عامًا حتى تتمكن صفحة الدخول والمطبوعات من تحميله.
+The idle warning must come between 1 and 30 minutes before the session expires.,يجب أن يقع تنبيه عدم النشاط بين 1 و30 دقيقة قبل انتهاء الجلسة.
+The image {0} must be public so that the login page and printouts can load it.,يجب أن تكون الصورة {0} عامة حتى تتمكن صفحة الدخول والمطبوعات من تحميلها.
+The uploaded font {0} is missing from the server; IBM Plex is used until it is uploaded again.,الخط المرفوع {0} غير موجود على الخادم؛ يُستخدم IBM Plex إلى أن يُعاد رفعه.
+Tinted primary background,خلفية بلون أساسي خفيف
+Tooltip background,خلفية التلميح
+Tooltip text,نص التلميح
+Training,تدريب
+Typography,الطباعة
+UAT,اختبار قبول المستخدم (UAT)
+Uploaded,مرفوع
+Uploaded fonts,الخطوط المرفوعة
+Used by every user who has not chosen another preset.,يستخدمه كل مستخدم لم يختر نمطًا آخر.
+"Used by this app only, for example in the Letter Head.",يستخدمه هذا التطبيق فقط، مثلًا في ترويسة الخطاب.
+"WOFF2 or TrueType files, public. All four are required for the Uploaded pairing.",ملفات WOFF2 أو TrueType عامة. الملفات الأربعة كلها مطلوبة لثنائية الخطوط المرفوعة.
+Warn before the session expires,التنبيه قبل انتهاء الجلسة
+Warning banner background,خلفية شريط التحذير
+Warning banner text,نص شريط التحذير
+Warning status background,خلفية حالة التحذير
+Warning status mark,علامة حالة التحذير
+Warning status text,نص حالة التحذير
+Wordmark,الشعار النصي
+Wordmark for dark backgrounds,الشعار النصي للخلفيات الداكنة
+accent,المميز
+custom,مخصص
+forest,غابي
+graphite,جرافيت
+midad,مداد
+petrol,بترولي
+plum,برقوقي
+primary,الأساسي
+{0} is not a WOFF2 or TrueType font file.,{0} ليس ملف خط بصيغة WOFF2 أو TrueType.
+"{0} is not a colour written as six hex digits, for example #1F3A5F.",{0} ليس لونًا مكتوبًا بستة أرقام سداسية عشرية، مثل #1F3A5F.
+{0} is required,{0} مطلوب
+"{0} on {1}, {2} mode: {3}:1; at least {4}:1 is required.",{0} على {1}، وضع {2}: {3}:1؛ المطلوب {4}:1 على الأقل.
+"{0} on {1}, {2} mode: {3}:1; at most {4}:1 is allowed.",{0} على {1}، وضع {2}: {3}:1؛ المسموح به {4}:1 كحد أقصى.

@@ -1,0 +1,243 @@
+Starting test run with parameters: site=midad.test, app=institutional_theme, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 43 integration tests for institutional_theme
+
+institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings.TestInstitutionalThemeSettings
+  Test Records created: Institutional Theme Settings (0)
+    ✔  test_a_changed_font_is_checked_while_the_pairing_stays_uploaded  (2.25s)
+    ✔  test_audit_text_uses_labels_not_token_names
+    ✔  test_before_uninstall_continues_after_a_failing_step  (2.9s)
+    ✔  test_before_uninstall_leaves_nothing_behind_and_is_idempotent  (5.44s)
+    ✔  test_behaviour_ships_disabled
+    ✔  test_broken_website_settings_does_not_block_saving  (2.21s)
+    ✔  test_clearing_a_field_restores_the_original  (3.58s)
+    ✔  test_clearing_does_not_overwrite_an_administrators_later_edit  (3.42s)
+    ✔  test_contrast_line_wording_for_a_maximum
+    ✔  test_custom_colours_are_required_and_must_be_hex
+    ✔  test_custom_default_needs_allow_custom
+    ✔  test_custom_palette_failing_a_pair_is_rejected_naming_every_pair
+    ✔  test_custom_palette_that_passes_is_saved_with_its_audit
+    ✔  test_default_must_be_allowed
+    ✔  test_defaults_save
+    ✔  test_delete_attachments_removes_only_this_doctypes_files
+    ✔  test_doctype_lists_exactly_the_shipped_presets
+    ✔  test_dropped_preset_is_not_a_valid_default
+    ✔  test_environment_comes_from_site_config_and_is_not_stored
+    ✔  test_environment_labels
+    ✔  test_external_font_url_is_rejected  (2.47s)
+    ✔  test_file_that_is_not_a_font_is_rejected  (2.08s)
+    ✔  test_form_shows_the_audit_in_words_and_storage_stays_neutral
+    ✔  test_hook_is_registered
+    ✔  test_identity_changed_elsewhere_is_not_overwritten_by_an_unrelated_save  (2.29s)
+    ✔  test_identity_is_written_through_by_a_system_manager_without_website_manager  (4.22s)
+    ✔  test_idle_warning_range
+    ✔  test_missing_upload_is_named_on_the_form  (2.08s)
+    ✔  test_only_system_manager_has_permissions
+       ▸  /home/frappe/frappe-bench/apps/frappe/frappe/model/qb_query.py:153: V17FrappeDeprecationWarning: This codepath was marked (DATE: 2024-01-01) deprecated for removal (from v17 onwards); note:
+       ▸   The 'limit_page_length' parameter is deprecated. Use 'limit' instead.
+       ▸  
+       ▸    deprecation_warning(
+    ✔  test_other_pairings_do_not_check_stale_font_fields
+    ✔  test_other_shipped_default_saves_when_allowed
+    ✔  test_pale_custom_colour_keeps_curve_lightness_and_passes
+    ✔  test_private_emblem_is_rejected
+    ✔  test_private_font_is_rejected  (2.18s)
+    ✔  test_restore_gives_back_prior_values_and_is_idempotent  (4.56s)
+    ✔  test_restore_leaves_a_value_an_administrator_changed  (2.6s)
+    ✔  test_restore_without_files_still_saves_with_another_pairing  (2.25s)
+    ✔  test_save_without_identity_change_writes_nothing  (2.25s)
+    ✔  test_track_changes_is_on
+    ✔  test_truetype_is_accepted  (2.08s)
+    ✔  test_uploaded_pairing_requires_all_four_files  (2.19s)
+    ✔  test_uploaded_pairing_with_real_fonts_saves  (2.14s)
+    ✔  test_website_manager_cannot_write_the_settings
+
+
+----------------------------------------------------------------------
+Ran 43 tests in 74.320s
+
+OK
+
+Running 131 unspecified-category tests for institutional_theme
+
+institutional_theme.audits.tests.test_dead_tokens.Categories
+    ✔  test_a_variable_the_theme_reads_is_not_dead
+    ✔  test_counts_add_up
+    ✔  test_each_category
+    ✔  test_report_names_the_origin_and_hashes
+
+institutional_theme.audits.tests.test_dead_tokens.Snapshot
+    ✔  test_a_variable_core_dropped_would_fail
+    ✔  test_committed_snapshot_has_a_generated_header_and_sources
+    ✔  test_every_overridden_variable_is_in_core_or_used_by_the_theme
+    ✔  test_scan_and_round_trip
+
+institutional_theme.midad.tests.test_fonts.BundledFiles
+    ✔  test_default_pairing_stays_inside_the_woff2_budget
+    ✔  test_each_family_folder_has_its_licence
+    ✔  test_every_woff2_is_woff2_and_every_ttf_is_truetype
+    ✔  test_the_licence_record_matches_the_files
+
+institutional_theme.midad.tests.test_fonts.FrappeVariables
+    ✔  test_every_ins_font_variable_the_map_uses_is_defined_by_a_font_partial
+    ✔  test_font_stack_and_weights_are_mapped
+    ✔  test_regular_is_400_and_strong_is_600
+
+institutional_theme.midad.tests.test_fonts.MagicNumbers
+    ✔  test_accepted_formats
+    ✔  test_everything_else_is_rejected
+    ✔  test_file_kind_reads_from_disk
+
+institutional_theme.midad.tests.test_fonts.PrintBlock
+    ✔  test_every_print_ttf_exists
+    ✔  test_font_families
+    ✔  test_incomplete_upload_prints_in_plex
+    ✔  test_mixed_uploads
+    ✔  test_noto_and_tajawal_print_in_plex
+    ✔  test_plex_pairing_declares_one_ttf_url_per_face_and_no_format
+    ✔  test_print_faces_never_reuse_a_screen_family_name
+    ✔  test_unknown_pairing
+    ✔  test_uploaded_pairing_without_uploads_is_plex
+    ✔  test_uploaded_ttf_files_are_used_per_script
+    ✔  test_woff2_only_uploads_print_in_plex
+
+institutional_theme.midad.tests.test_fonts.ScssFaces
+    ✔  test_arabic_faces_use_the_arabic_range_and_the_rest_the_latin_range
+    ✔  test_bundle_names_match_the_python_table
+    ✔  test_every_face_points_at_a_bundled_file
+    ✔  test_family_names_are_private
+    ✔  test_pairing_bundles_win_by_specificity_and_are_wrapped_for_rtlcss
+    ✔  test_plex_partial_sets_the_stacks_and_disables_synthesis
+    ✔  test_python_family_names_are_declared_in_the_scss
+    ✔  test_swap_everywhere_and_asset_paths_are_absolute
+    ✔  test_tajawal_semibold_uses_the_700_file
+    ✔  test_the_arabic_range_matches_adr_0004_and_the_python_constant
+    ✔  test_weights_are_400_500_600_only
+
+institutional_theme.midad.tests.test_fonts.UploadedCss
+    ✔  test_a_script_missing_a_file_loses_both_faces
+    ✔  test_complete_set
+    ✔  test_no_forbidden_syntax
+    ✔  test_nothing_usable_gives_no_stylesheet
+    ✔  test_output_is_deterministic_and_changes_with_content
+    ✔  test_truetype_files_declare_truetype
+    ✔  test_variables_sit_at_the_pairing_specificity_with_weights_at_600
+
+institutional_theme.midad.tests.test_fonts.UploadedUrls
+    ✔  test_safe_urls
+    ✔  test_unknown_kind
+    ✔  test_unsafe_urls_cannot_reach_the_stylesheet
+
+institutional_theme.midad.tests.test_model.BrandEntryPoint
+    ✔  test_brand_hex_changes_the_default_preset_only_when_set
+
+institutional_theme.midad.tests.test_model.Contrast
+    ✔  test_every_pair_is_measured_in_both_modes
+    ✔  test_every_shipped_preset_passes_every_pair
+    ✔  test_max_rule_fails_above_its_limit
+    ✔  test_midad_passes_every_pair_in_both_modes
+    ✔  test_ratio_text_rounds_towards_the_failing_side
+    ✔  test_status_check_is_part_of_shipping
+
+institutional_theme.midad.tests.test_model.CustomPreset
+    ✔  test_a_dull_input_lowers_the_chroma_multiplier
+    ✔  test_a_failing_palette_is_reported_with_every_pair_and_human_labels
+    ✔  test_a_rejected_palette_is_never_turned_into_css
+    ✔  test_accent_pairs_ask_for_the_accent_colour
+    ✔  test_an_accepted_palette_becomes_css
+    ✔  test_bad_input_is_rejected
+    ✔  test_hue_is_kept_and_chroma_never_exceeds_the_ramp
+    ✔  test_lightness_follows_the_approved_curves
+    ✔  test_missing_input_keeps_the_midad_value
+    ✔  test_no_input_change_gives_empty_blocks_only
+    ✔  test_the_midad_colours_give_back_midad
+
+institutional_theme.midad.tests.test_model.FrappeMap
+    ✔  test_every_scale_reference_is_defined_or_left_to_the_font_partials
+    ✔  test_light_and_dark_declare_the_same_variables_in_the_same_order
+    ✔  test_names_do_not_collide
+    ✔  test_sets_exactly_the_variables_of_tokens_json
+    ✔  test_unknown_reference_is_an_error
+    ✔  test_values_reference_ins_tokens_only
+
+institutional_theme.midad.tests.test_model.GeneratedModel
+    ✔  test_default_preset_is_shipped_and_first
+    ✔  test_every_preset_hits_the_indicative_values_of_tokens_json
+    ✔  test_header_key_comes_first
+    ✔  test_model_json_matches_tokens_json
+    ✔  test_shipped_and_dropped_partition_the_presets
+
+institutional_theme.midad.tests.test_model.Labels
+    ✔  test_every_token_in_a_contrast_pair_has_a_label
+    ✔  test_labels_are_unique_plain_english
+    ✔  test_the_adr_example_label
+    ✔  test_unknown_token_falls_back_to_its_name
+
+institutional_theme.midad.tests.test_emit.Emitter
+    ✔  test_a_key_missing_from_either_mode_is_an_error
+    ✔  test_automatic_block_repeats_the_dark_values
+    ✔  test_blocks_use_the_selector_shapes_of_adr_0003
+    ✔  test_color_scheme_in_light_dark_and_automatic
+    ✔  test_color_scheme_is_absent_unless_asked_for
+    ✔  test_header
+    ✔  test_literals
+    ✔  test_one_key_list_gives_three_blocks_with_the_same_keys
+    ✔  test_rtl_wrapper
+    ✔  test_scale_blocks
+
+institutional_theme.midad.tests.test_emit.GeneratedFiles
+    ✔  test_a_stale_file_is_detected
+    ✔  test_build_is_deterministic
+    ✔  test_every_generated_file_starts_with_the_header
+    ✔  test_files_on_disk_are_not_stale
+    ✔  test_literals_hold_the_light_midad_values
+    ✔  test_no_generated_stylesheet_uses_forbidden_syntax
+    ✔  test_palette_bundles_are_wrapped_in_the_rtl_ignore_pair
+    ✔  test_palette_bundles_exist_only_for_shipped_non_default_presets
+    ✔  test_the_parity_audit_passes_on_the_files_on_disk
+    ✔  test_tokens_scss_carries_the_fixture_primitives_the_map_uses
+    ✔  test_tokens_scss_midad_values_equal_the_fixture_byte_for_byte
+
+institutional_theme.midad.tests.test_emit.ParityOfEveryPreset
+    ✔  test_a_broken_family_is_detected
+    ✔  test_a_key_that_changes_in_one_mode_is_written_in_both
+    ✔  test_a_sample_custom_preset_emits_equal_key_sets
+    ✔  test_every_preset_emits_equal_key_sets_in_all_three_blocks
+    ✔  test_midad_emits_no_palette_overrides
+
+institutional_theme.midad.tests.test_emit.ParserHelpers
+    ✔  test_parse_blocks_handles_media_and_comments
+    ✔  test_unbalanced_braces_raise
+
+institutional_theme.midad.tests.test_emit.Shipping
+    ✔  test_a_leftover_bundle_of_a_dropped_preset_is_stale
+    ✔  test_a_preset_below_a_minimum_is_dropped_with_the_failing_pair
+    ✔  test_the_default_preset_is_never_dropped
+    ✔  test_umber_is_dropped_by_the_status_check_and_forest_ships
+
+institutional_theme.midad.tests.test_colour.ColourMaths
+    ✔  test_black_and_white
+    ✔  test_colour_vision_simulation_matches_the_reference
+    ✔  test_composite_matches_the_reference
+    ✔  test_contrast_matches_the_reference
+    ✔  test_delta_e_matches_the_reference
+    ✔  test_hex_parsing
+    ✔  test_hex_to_oklch_matches_the_reference
+    ✔  test_oklch_to_hex_matches_the_reference
+    ✔  test_rgba_text_matches_javascript_number_formatting
+    ✔  test_round_trip_through_oklch
+    ✔  test_rounding_is_half_up_like_javascript
+    ✔  test_unknown_simulation_is_rejected
+
+institutional_theme.midad.tests.test_colour.FixtureReproduction
+    ✔  test_every_primitive_hex_is_reproduced
+    ✔  test_every_semantic_hex_is_reproduced_in_both_modes
+    ✔  test_fixture_and_palette_define_the_same_tokens
+    ✔  test_non_hex_semantic_values_resolve
+
+
+----------------------------------------------------------------------
+Ran 131 tests in 1.140s
+
+OK

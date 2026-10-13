@@ -349,11 +349,11 @@ class PrintBlock(unittest.TestCase):
 
 	def test_uploaded_ttf_files_are_used_per_script(self):
 		css = fonts.print_font_css("Uploaded", _all("ttf"))
-		self.assertIn('"Midad Uploaded Arabic"', css)
-		self.assertIn('"Midad Uploaded Latin"', css)
+		self.assertIn('"Midad Print Uploaded Arabic"', css)
+		self.assertIn('"Midad Print Uploaded Latin"', css)
 		self.assertIn("/files/institutional_theme/arabic-r.ttf", css)
-		self.assertNotIn(fonts.FAMILY_PLEX_LATIN + '";\n\tfont-style: normal;\n\tfont-weight: 400', css)
-		self.assertIn(fonts.FAMILY_PLEX_MONO, css)
+		self.assertNotIn(fonts.FAMILY_PRINT_PLEX_LATIN + '";\n\tfont-style: normal;\n\tfont-weight: 400', css)
+		self.assertIn(fonts.FAMILY_PRINT_PLEX_MONO, css)
 		self.assertNotIn("format(", css)
 		self.assertEqual(css.count("src: url("), 4 + 2)
 
@@ -363,14 +363,14 @@ class PrintBlock(unittest.TestCase):
 
 	def test_mixed_uploads(self):
 		css = fonts.print_font_css("Uploaded", {**_upload("arabic", "ttf"), **_upload("latin", "woff2")})
-		self.assertIn("Midad Uploaded Arabic", css)
-		self.assertNotIn("Midad Uploaded Latin", css)
+		self.assertIn("Midad Print Uploaded Arabic", css)
+		self.assertNotIn("Midad Print Uploaded Latin", css)
 		self.assertIn("IBMPlexSans-Regular.ttf", css)
 		self.assertNotIn("IBMPlexSansArabic-Regular.ttf", css)
 
 	def test_incomplete_upload_prints_in_plex(self):
 		css = fonts.print_font_css("Uploaded", {**_all("ttf"), "arabic_semibold": None})
-		self.assertNotIn("Midad Uploaded Arabic", css)
+		self.assertNotIn("Midad Print Uploaded Arabic", css)
 		self.assertIn("IBMPlexSansArabic-SemiBold.ttf", css)
 
 	def test_uploaded_pairing_without_uploads_is_plex(self):
@@ -382,14 +382,32 @@ class PrintBlock(unittest.TestCase):
 
 	def test_font_families(self):
 		plex = fonts.print_font_families("IBM Plex")
-		self.assertEqual(plex["sans"], '"Midad Plex Sans Arabic", "Midad Plex Sans", sans-serif')
-		self.assertEqual(plex["mono"], '"Midad Plex Mono", monospace')
+		self.assertEqual(plex["sans"], '"Midad Print Plex Sans Arabic", "Midad Print Plex Sans", sans-serif')
+		self.assertEqual(plex["mono"], '"Midad Print Plex Mono", monospace')
 		uploaded = fonts.print_font_families("Uploaded", _all("ttf"))
 		self.assertTrue(
 			uploaded["sans"].startswith(
-				'"Midad Uploaded Arabic", "Midad Uploaded Latin", "Midad Plex Sans Arabic"'
+				'"Midad Print Uploaded Arabic", "Midad Print Uploaded Latin", "Midad Print Plex Sans Arabic"'
 			)
 		)
+
+	def test_print_faces_never_reuse_a_screen_family_name(self):
+		screen = {
+			fonts.FAMILY_PLEX_ARABIC,
+			fonts.FAMILY_PLEX_LATIN,
+			fonts.FAMILY_PLEX_MONO,
+			fonts.FAMILY_UPLOADED_ARABIC,
+			fonts.FAMILY_UPLOADED_LATIN,
+		}
+		for pairing, uploaded in (("IBM Plex", None), ("Noto", None), ("Uploaded", _all("ttf"))):
+			css = fonts.print_font_css(pairing, uploaded)
+			declared = set(re.findall(r'font-family: "([^"]+)"', css))
+			self.assertTrue(declared)
+			self.assertFalse(declared & screen, (pairing, declared & screen))
+			self.assertTrue(all(name.startswith("Midad Print ") for name in declared))
+			families = fonts.print_font_families(pairing, uploaded)
+			used = set(re.findall(r'"([^"]+)"', families["sans"] + families["mono"]))
+			self.assertFalse(used & screen)
 
 	def test_every_print_ttf_exists(self):
 		for faces in fonts.PLEX_PRINT_FACES.values():

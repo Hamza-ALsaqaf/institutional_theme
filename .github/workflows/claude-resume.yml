@@ -1,0 +1,86 @@
+# Resumes the autonomous Midad build with Claude Code, billed to the ANTHROPIC_API_KEY
+# repository secret. It starts when a pull request from build/midad-v1 is opened or
+# reopened, or when the label "claude-resume" is added to it. Pushes made by the run
+# itself (GITHUB_TOKEN) do not start new runs. The run never changes main.
+name: Claude resume (Midad build)
+
+on:
+  pull_request:
+    types: [opened, reopened, labeled]
+    branches: [main]
+
+concurrency:
+  group: claude-resume
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: read
+  id-token: write
+
+jobs:
+  resume:
+    if: >-
+      github.event.pull_request.head.ref == 'build/midad-v1' &&
+      (github.event.action != 'labeled' || github.event.label.name == 'claude-resume')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: /opt/pw-browsers
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: build/midad-v1
+          fetch-depth: 0
+
+      - name: Git identity and a guard that refuses pushes to main
+        run: |
+          git config user.name "Midad build (Claude)"
+          git config user.email "midad-build@users.noreply.github.com"
+          cat > .git/hooks/pre-push <<'HOOK'
+          #!/bin/sh
+          while read local_ref local_sha remote_ref remote_sha; do
+            case "$remote_ref" in
+              refs/heads/main) echo "Pushing to main is not allowed in this run." >&2; exit 1 ;;
+            esac
+          done
+          exit 0
+          HOOK
+          chmod +x .git/hooks/pre-push
+
+      - name: System packages for the test bench
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q redis-server libmariadb-dev pkg-config postgresql-16
+          sudo systemctl stop redis-server postgresql || true
+          sudo systemctl disable redis-server postgresql || true
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Python 3.14
+        run: uv python install 3.14
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Playwright Chromium
+        run: |
+          sudo mkdir -p /opt/pw-browsers
+          sudo chown "$(id -u):$(id -g)" /opt/pw-browsers
+          npx -y playwright@1.56.1 install --with-deps chromium
+
+      - uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Read docs/team/RESUME_PROMPT.md in this repository and follow it exactly, from the first step to the final report.
+          claude_args: >-
+            --model opus
+            --max-turns 2000
+            --allowedTools "Bash,Read,Write,Edit,MultiEdit,Glob,Grep,Task,Agent,TodoWrite,WebFetch"

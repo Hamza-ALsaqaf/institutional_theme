@@ -15,6 +15,7 @@ from unittest import mock
 import frappe
 from frappe.tests import IntegrationTestCase
 
+from institutional_theme import install
 from institutional_theme.midad import model as midad
 
 from . import identity_sync
@@ -56,6 +57,8 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		# Saving a document that points at a file adds File rows of its own: sweep them.
 		frappe.set_user("Administrator")
 		identity_sync.delete_attachments()
+		frappe.db.delete("Version", {"ref_doctype": DOCTYPE})
+		frappe.db.commit()
 		for leftover in glob.glob(frappe.get_site_path("public", "files", "ins-test-*")):
 			os.remove(leftover)
 		for email in (SYSTEM_MANAGER_ONLY, WEBSITE_MANAGER_ONLY):
@@ -201,7 +204,9 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertIn("<ul>", message)
 		self.assertEqual(message.count("<li>"), len(failures))
 		self.assertIn("Text on primary action", message)
-		self.assertIn('<bdi dir="ltr"><code>on-primary</code></bdi>', message)
+		self.assertIn("Primary action", message)
+		for token in ("on-primary", "primary-hover", "primary-active", "<code>"):
+			self.assertNotIn(token, message)  # human labels only
 		self.assertIn('<bdi dir="ltr">30</bdi>', message)
 		self.assertIn("at least", message)
 		self.assertIn("Adjust the primary colour.", message)
@@ -248,7 +253,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		with self.assertRaises(frappe.ValidationError) as caught:
 			self.settings(font_pairing="Uploaded", **fonts).save()
 		self.assertIn("is not a WOFF2 or TrueType font file", str(caught.exception))
-		self.assertIn("ins-test-fake", str(caught.exception))
+		self.assertIn('<bdi dir="ltr">ins-test-fake', str(caught.exception))
 
 	def test_private_font_is_rejected(self) -> None:
 		fonts = self.all_fonts()
@@ -267,6 +272,65 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		with self.assertRaises(frappe.ValidationError):
 			self.settings(font_pairing="Uploaded", **fonts).save()
 
+	def test_restore_without_files_still_saves_with_another_pairing(self) -> None:
+		"""Upgrade review U1: URLs set, files gone (a restore), then switch to IBM Plex."""
+		doc = self.settings(font_pairing="Uploaded", **self.all_fonts())
+		doc.save()
+		for url in {doc.font_arabic_regular, doc.font_latin_regular}:
+			path = frappe.get_site_path("public", url.lstrip("/"))
+			if os.path.exists(path):
+				os.remove(path)
+		frappe.clear_document_cache(DOCTYPE, DOCTYPE)
+
+		# An unrelated change while the pairing stays Uploaded is allowed: the fields did not change.
+		again = frappe.get_doc(DOCTYPE)
+		again.default_density = "Compact"
+		again.save()
+
+		# Switching to another pairing is allowed.
+		switch = frappe.get_doc(DOCTYPE)
+		switch.font_pairing = "IBM Plex"
+		switch.save()
+		self.assertEqual(frappe.get_doc(DOCTYPE).font_pairing, "IBM Plex")
+
+		# Choosing Uploaded again checks every file, and the missing ones are refused.
+		back = frappe.get_doc(DOCTYPE)
+		back.font_pairing = "Uploaded"
+		with self.assertRaises(frappe.ValidationError) as caught:
+			back.save()
+		self.assertIn("is not a WOFF2 or TrueType font file", str(caught.exception))
+
+	def test_a_changed_font_is_checked_while_the_pairing_stays_uploaded(self) -> None:
+		self.settings(font_pairing="Uploaded", **self.all_fonts()).save()
+		doc = frappe.get_doc(DOCTYPE)
+		doc.font_latin_regular = self.public_file("ins-test-fake2.woff2", NOT_A_FONT)
+		with self.assertRaises(frappe.ValidationError):
+			doc.save()
+
+	def test_other_pairings_do_not_check_stale_font_fields(self) -> None:
+		not_a_font = self.public_file("ins-test-stale.woff2", NOT_A_FONT)
+		self.settings(font_pairing="IBM Plex", font_arabic_regular=not_a_font).save()
+
+	def test_track_changes_is_on(self) -> None:
+		self.assertEqual(json.loads(JSON_PATH.read_text(encoding="utf-8"))["track_changes"], 1)
+
+	def test_audit_text_uses_labels_not_token_names(self) -> None:
+		result = midad.custom_preset("#1F3A5F", "#B08D57")
+		text = controller.audit_text(result)
+		self.assertRegex(text, r"^\d+ of \d+ contrast pairs pass\. Tightest: ")
+		self.assertIn('<bdi dir="ltr">', text)
+		for token in midad.load_model()["semantic"]:
+			self.assertNotIn(f" {token} ", text)
+
+	def test_form_shows_the_audit_in_words_and_storage_stays_neutral(self) -> None:
+		doc = self.settings(allow_custom=1, custom_primary="#1F3A5F", custom_accent="#B08D57")
+		doc.save()
+		stored = frappe.db.get_single_value(DOCTYPE, "custom_audit")
+		self.assertRegex(stored, r"^\d+ / \d+ · ")
+		shown = frappe.get_doc(DOCTYPE)
+		shown.run_method("onload")
+		self.assertIn("contrast pairs pass", shown.custom_audit)
+
 	def test_missing_upload_is_named_on_the_form(self) -> None:
 		doc = self.settings(font_pairing="Uploaded", **self.all_fonts())
 		doc.save()
@@ -274,7 +338,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		os.remove(path)
 		message = frappe.get_doc(DOCTYPE)
 		message.run_method("onload")
-		self.assertIn("ins-test-ar-400", message.get_onload("missing_font_message"))
+		self.assertIn('<bdi dir="ltr">ins-test-ar-400', message.get_onload("missing_font_message"))
 		self.assertIn("IBM Plex is used", message.get_onload("missing_font_message"))
 
 	# -- behaviour -----------------------------------------------------------------------------
@@ -366,6 +430,67 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertEqual(self.website("app_name"), original)
 		self.assertNotIn(
 			"Website Settings.app_name", json.loads(frappe.db.get_global(identity_sync.WRITTEN_KEY))
+		)
+
+	def test_clearing_does_not_overwrite_an_administrators_later_edit(self) -> None:
+		"""Upgrade review U3."""
+		original = self.website("app_name")
+		self.settings(system_name="Test Authority").save()
+		frappe.db.set_single_value("Website Settings", "app_name", "Changed by an administrator")
+		doc = frappe.get_doc(DOCTYPE)
+		doc.system_name = ""
+		doc.save()
+		self.assertEqual(self.website("app_name"), "Changed by an administrator")
+		self.assertNotEqual(self.website("app_name"), original)
+		self.assertNotIn(
+			"Website Settings.app_name", json.loads(frappe.db.get_global(identity_sync.WRITTEN_KEY))
+		)
+		frappe.db.set_single_value("Website Settings", "app_name", original)
+
+	def test_before_uninstall_leaves_nothing_behind_and_is_idempotent(self) -> None:
+		original = self.website("app_name")
+		logo = self.public_file("ins-test-emblem3.png", b"\x89PNG\r\n\x1a\n" + b"\x00" * 16)
+		self.settings(system_name="Test Authority", emblem=logo, default_density="Compact").save()
+		frappe.defaults.set_user_default("ins_palette", "graphite", "Administrator")
+		frappe.defaults.set_user_default("ins_density", "Compact", SYSTEM_MANAGER_ONLY)
+		frappe.defaults.set_user_default("unrelated_key", "keep", "Administrator")
+		folder = frappe.get_site_path(*install.SITE_FILES_FOLDER)
+		os.makedirs(folder, exist_ok=True)
+		Path(folder, "ins_palette_custom.test.css").write_text("/* test */", encoding="utf-8")
+		frappe.db.commit()
+
+		install.before_uninstall()
+		install.before_uninstall()  # idempotent
+
+		self.assertEqual(self.website("app_name"), original)
+		self.assertFalse(frappe.db.get_global(identity_sync.PRIOR_KEY))
+		self.assertFalse(frappe.db.get_global(identity_sync.WRITTEN_KEY))
+		self.assertFalse(frappe.get_all("File", filters={"attached_to_doctype": DOCTYPE}))
+		self.assertFalse(frappe.db.count("DefaultValue", {"defkey": ("in", install.USER_DEFAULT_KEYS)}))
+		self.assertFalse(frappe.db.count("DefaultValue", {"defkey": ("like", "ins_identity_%")}))
+		self.assertFalse(frappe.db.count("Version", {"ref_doctype": DOCTYPE}))
+		self.assertFalse(os.path.exists(folder))
+		self.assertEqual(frappe.db.count("DefaultValue", {"defkey": "unrelated_key"}), 1)
+		frappe.defaults.clear_default(key="unrelated_key", parent="Administrator")
+
+	def test_before_uninstall_continues_after_a_failing_step(self) -> None:
+		self.settings(system_name="Test Authority").save()
+		frappe.defaults.set_user_default("ins_palette", "graphite", "Administrator")
+		frappe.db.commit()
+		with (
+			mock.patch.object(identity_sync, "restore", side_effect=RuntimeError("boom")),
+			mock.patch.object(install.frappe, "log_error") as log_error,
+		):
+			install.before_uninstall()
+		log_error.assert_called()
+		self.assertIn("restore identity", log_error.call_args_list[0].kwargs["title"])
+		self.assertFalse(frappe.db.count("DefaultValue", {"defkey": ("in", install.USER_DEFAULT_KEYS)}))
+		frappe.db.set_single_value("Website Settings", "app_name", "Frappe")
+
+	def test_hook_is_registered(self) -> None:
+		self.assertEqual(
+			frappe.get_hooks("before_uninstall", app_name="institutional_theme"),
+			["institutional_theme.install.before_uninstall"],
 		)
 
 	def test_restore_gives_back_prior_values_and_is_idempotent(self) -> None:

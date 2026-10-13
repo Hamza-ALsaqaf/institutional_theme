@@ -1,0 +1,28 @@
+{#- Trust footer for login, update-password and error pages (ADR 0009). Rendered into body_include.
+    Context keys, all optional; a block is omitted when its keys are empty:
+    ins_notice, ins_notice_lang (notice text and its language when it is not the page language), ins_lang,
+    ins_support (plain text, newlines kept), ins_release (string), ins_environment (already translated word),
+    ins_reference (already validated against ^[A-Za-z0-9-]{1,64}$), ins_time_of_error (formatted string).
+    Every value is escaped here. No script, no style attribute. -#}
+<footer class="ins-trust">
+	{%- if ins_notice %}
+	<p class="ins-notice"{% if ins_notice_lang and ins_notice_lang != ins_lang %} lang="{{ ins_notice_lang | e }}"{% endif %}>{{ ins_notice | e }}</p>
+	{%- endif %}
+	{%- if ins_reference %}
+	<p class="ins-reference"><span class="ins-reference-label">{{ _("Reference") | e }}</span> <bdi dir="ltr"><code>{{ ins_reference | e }}</code></bdi><br>{{ _("Quote this reference when you contact support.") | e }}</p>
+	{%- elif ins_time_of_error %}
+	<p class="ins-reference"><span class="ins-reference-label">{{ _("Time of error") | e }}</span> <bdi dir="ltr"><time>{{ ins_time_of_error | e }}</time></bdi></p>
+	{%- endif %}
+	<div class="ins-trust-line">
+		{%- if ins_support %}
+		<p class="ins-support"><span class="ins-support-label">{{ _("Technical support") | e }}</span> <span class="ins-support-text" dir="auto">{{ ins_support | e }}</span></p>
+		{%- endif %}
+		{%- if ins_release or ins_environment %}
+		<p class="ins-version">
+			{%- if ins_release %}{{ _("Release {0}").format(ins_release) | e }}{% endif -%}
+			{%- if ins_release and ins_environment %} · {% endif -%}
+			{%- if ins_environment %}{{ ins_environment | e }}{% endif -%}
+		</p>
+		{%- endif %}
+	</div>
+</footer>

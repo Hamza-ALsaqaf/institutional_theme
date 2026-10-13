@@ -1,0 +1,9 @@
+### diff assets-before.txt assets-installed.txt
+(identical)
+
+### diff assets-before.txt assets-after-uninstall.txt
+(identical)
+
+### diff assets-installed.txt assets-after-uninstall.txt
+(identical)
+

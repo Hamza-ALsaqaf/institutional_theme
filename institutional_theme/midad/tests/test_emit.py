@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 
 from institutional_theme.audits import parity
-from institutional_theme.midad import build, colour, emit, model
+from institutional_theme.midad import build, colour, deviations, emit, model
 
 REPO = Path(__file__).resolve().parents[3]
 TOKENS = build.load_tokens(REPO / "design" / "tokens.json")
@@ -140,8 +140,9 @@ class GeneratedFiles(unittest.TestCase):
 		values = {"light": dict(light.declarations), "dark": dict(dark.declarations)}
 		checked = 0
 		for mode in ("light", "dark"):
-			for name, expected in FIXTURE["sem"][mode].items():
-				if expected.startswith("#") and len(expected) == 7:
+			for name, approved in FIXTURE["sem"][mode].items():
+				if approved.startswith("#") and len(approved) == 7:
+					expected = deviations.expected(FIXTURE, mode, name)
 					self.assertEqual(values[mode][f"--ins-{name}"], expected, f"{mode} {name}")
 					checked += 1
 		self.assertEqual(checked, 242)

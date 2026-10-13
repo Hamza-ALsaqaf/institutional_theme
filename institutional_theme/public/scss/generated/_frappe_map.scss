@@ -208,8 +208,8 @@ html[dir] [data-theme="light"] {
 	--subtle-fg: var(--ins-surface-hover);
 	--fg-hover-color: var(--ins-surface-hover);
 	--highlight-color: var(--ins-surface-hover);
-	--control-bg: var(--ins-surface-fill);
-	--control-bg-on-gray: var(--ins-surface-fill-hover);
+	--control-bg: var(--ins-surface-field);
+	--control-bg-on-gray: var(--ins-surface-field);
 	--disabled-control-bg: var(--ins-surface-disabled);
 	--input-disabled-bg: var(--ins-surface-disabled);
 	--disabled-text-color: var(--ins-text-secondary);
@@ -589,8 +589,8 @@ html[dir] [data-theme="dark"] {
 	--subtle-fg: var(--ins-surface-hover);
 	--fg-hover-color: var(--ins-surface-hover);
 	--highlight-color: var(--ins-surface-hover);
-	--control-bg: var(--ins-surface-fill);
-	--control-bg-on-gray: var(--ins-surface-fill-hover);
+	--control-bg: var(--ins-surface-field);
+	--control-bg-on-gray: var(--ins-surface-field);
 	--disabled-control-bg: var(--ins-surface-disabled);
 	--input-disabled-bg: var(--ins-surface-disabled);
 	--disabled-text-color: var(--ins-text-secondary);
@@ -970,8 +970,8 @@ html[dir] [data-theme="dark"] {
 		--subtle-fg: var(--ins-surface-hover);
 		--fg-hover-color: var(--ins-surface-hover);
 		--highlight-color: var(--ins-surface-hover);
-		--control-bg: var(--ins-surface-fill);
-		--control-bg-on-gray: var(--ins-surface-fill-hover);
+		--control-bg: var(--ins-surface-field);
+		--control-bg-on-gray: var(--ins-surface-field);
 		--disabled-control-bg: var(--ins-surface-disabled);
 		--input-disabled-bg: var(--ins-surface-disabled);
 		--disabled-text-color: var(--ins-text-secondary);

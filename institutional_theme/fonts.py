@@ -36,6 +36,15 @@ FAMILY_PLEX_MONO = "Midad Plex Mono"
 FAMILY_UPLOADED_ARABIC = "Midad Uploaded Arabic"
 FAMILY_UPLOADED_LATIN = "Midad Uploaded Latin"
 
+# Print faces have their own private names. The Print Style is injected into every desk boot after the
+# screen bundles, so a print face that reused a screen family name would replace the small WOFF2 subsets
+# with full TTF files on screen (upgrade review, Phase 2, finding 2).
+FAMILY_PRINT_PLEX_ARABIC = "Midad Print Plex Sans Arabic"
+FAMILY_PRINT_PLEX_LATIN = "Midad Print Plex Sans"
+FAMILY_PRINT_PLEX_MONO = "Midad Print Plex Mono"
+FAMILY_PRINT_UPLOADED_ARABIC = "Midad Print Uploaded Arabic"
+FAMILY_PRINT_UPLOADED_LATIN = "Midad Print Uploaded Latin"
+
 SYSTEM_TAIL = "system-ui, sans-serif"
 
 # Magic numbers of the accepted formats: WOFF2, TrueType (00 01 00 00) and Apple TrueType ("true").
@@ -172,18 +181,18 @@ def uploaded_font_css(fonts: Mapping[str, UploadedFont | None]) -> str:
 # Only IBM Plex ships TTF; the Noto and Tajawal pairings print in Plex.
 PLEX_PRINT_FACES: dict[str, tuple[tuple[str, str, str], ...]] = {
 	"arabic": (
-		(FAMILY_PLEX_ARABIC, "400", "IBMPlexSansArabic-Regular.ttf"),
-		(FAMILY_PLEX_ARABIC, "500", "IBMPlexSansArabic-Medium.ttf"),
-		(FAMILY_PLEX_ARABIC, "600", "IBMPlexSansArabic-SemiBold.ttf"),
+		(FAMILY_PRINT_PLEX_ARABIC, "400", "IBMPlexSansArabic-Regular.ttf"),
+		(FAMILY_PRINT_PLEX_ARABIC, "500", "IBMPlexSansArabic-Medium.ttf"),
+		(FAMILY_PRINT_PLEX_ARABIC, "600", "IBMPlexSansArabic-SemiBold.ttf"),
 	),
 	"latin": (
-		(FAMILY_PLEX_LATIN, "400", "IBMPlexSans-Regular.ttf"),
-		(FAMILY_PLEX_LATIN, "500", "IBMPlexSans-Medium.ttf"),
-		(FAMILY_PLEX_LATIN, "600", "IBMPlexSans-SemiBold.ttf"),
+		(FAMILY_PRINT_PLEX_LATIN, "400", "IBMPlexSans-Regular.ttf"),
+		(FAMILY_PRINT_PLEX_LATIN, "500", "IBMPlexSans-Medium.ttf"),
+		(FAMILY_PRINT_PLEX_LATIN, "600", "IBMPlexSans-SemiBold.ttf"),
 	),
 	"mono": (
-		(FAMILY_PLEX_MONO, "400", "IBMPlexMono-Regular.ttf"),
-		(FAMILY_PLEX_MONO, "500", "IBMPlexMono-Medium.ttf"),
+		(FAMILY_PRINT_PLEX_MONO, "400", "IBMPlexMono-Regular.ttf"),
+		(FAMILY_PRINT_PLEX_MONO, "500", "IBMPlexMono-Medium.ttf"),
 	),
 }
 
@@ -200,7 +209,7 @@ def _print_sources(
 		fonts = uploaded or {}
 		regular, semibold = fonts.get(f"{script}_regular"), fonts.get(f"{script}_semibold")
 		if script in own and regular and semibold and regular.kind == "ttf" and semibold.kind == "ttf":
-			family = FAMILY_UPLOADED_ARABIC if script == "arabic" else FAMILY_UPLOADED_LATIN
+			family = FAMILY_PRINT_UPLOADED_ARABIC if script == "arabic" else FAMILY_PRINT_UPLOADED_LATIN
 			sources[script] = [
 				(family, "400", regular.url, script == "arabic"),
 				(family, "500 600", semibold.url, script == "arabic"),
@@ -243,10 +252,10 @@ def print_font_families(
 		family = sources[script][0][0]
 		if family not in families:
 			families.append(family)
-	for family in (FAMILY_PLEX_ARABIC, FAMILY_PLEX_LATIN):
+	for family in (FAMILY_PRINT_PLEX_ARABIC, FAMILY_PRINT_PLEX_LATIN):
 		if family not in families:
 			families.append(family)
 	return {
 		"sans": ", ".join([*(f'"{f}"' for f in families), "sans-serif"]),
-		"mono": f'"{FAMILY_PLEX_MONO}", monospace',
+		"mono": f'"{FAMILY_PRINT_PLEX_MONO}", monospace',
 	}

@@ -12,22 +12,32 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 | Phase | State | Gate commit |
 |---|---|---|
-| 0 Bench and baseline | in progress | |
-| 1 Analysis and discussion | ADRs 0002-0008 and PLAN accepted; 0006 (bench) and 0009 (login content) pending | |
-| 2 Foundations | not started | |
+| 0 Bench and baseline | PASSED (install/uninstall/reinstall clean, 0 px diff; `docs/team/evidence/phase0/`) | e4015f7 |
+| 1 Analysis and discussion | PASSED (ADR 0002-0009 accepted, `docs/team/PLAN.md`) | e4015f7 |
+| 2 Foundations | built; audits pass (midad 0 failures, umber dropped, parity 51/51); reviews pending | |
 | 3 P0 | not started | |
 | 4 P1, P2, proof | not started | |
 | 5 Documentation and hostile review | not started | |
 
-## Tasks in flight
+## Tasks in flight (since 15:45 UTC; owner deadline 20:40 UTC, see docs/team/RUN_RULES.md)
 
-- Phase 0 / backend-engineer: test bench script, CI workflow, install and uninstall on the test site.
-- Phase 0 / theme-architect: DONE (`docs/research/phase0-reverification.md`; two findings differ: data-label, per-Print-Format pdf_generator).
-- Phase 1: proposals, replies, both reviews, ADR 0002-0008, PLAN: DONE. ADR 0009 (login and error-page content) in flight.
+- backend (ADR 0010): tokens.json edits, contrast groups, fixture deviation list, colour-vision baseline. Evidence `docs/team/evidence/phase2/adr0010.md`.
+- backend-R1: finish the interrupted Phase 2 fix round (marker `docs/team/evidence/phase2/fixround/DONE.md`), then Phase 3 runtime (hooks on: marker `docs/team/evidence/phase3/runtime/HOOKS_ON.md`).
+- backend-R2: shell script (ADR 0008), test fixtures, actions browser test. Evidence `docs/team/evidence/phase3/shell/`.
+- css-A: desk entry, base, typography, scoped variables, hard-coded colours, shell, page head, workspace, overlays, cascade test, screens runner. Evidence `docs/team/evidence/phase3/css-shell/`, screenshots `docs/team/evidence/phase3/screens/`.
+- css-B: list, reports, grid. Evidence `docs/team/evidence/phase3/css-list/`.
+- css-C: ADR 0010 CSS rules, controls, form, status, actions, masked, ribbon, appearance. Evidence `docs/team/evidence/phase3/css-form/`.
+- print-web: web bundle, login, error pages, masthead and trust-footer templates, SVG identity. Evidence `docs/team/evidence/phase3/web/`.
 
 ## Next step
 
-Wait for both Phase 0 tasks, read their evidence, decide the Phase 0 gate.
+PAUSED at 15:52 UTC on the owner's instruction (stop consuming cloud session credits). Every agent was stopped mid-task; their partial work is committed as an unverified snapshot on `build/midad-v1`. `main` is still at e4015f7 (Phase 0 and Phase 1 gates).
+
+To resume, re-dispatch the seven tasks listed under "Tasks in flight" with the same file ownership (dispatch texts follow `docs/team/RUN_RULES.md`); each agent first reads `git diff e4015f7 -- <its files>` to pick up its partial work. Order of value: (1) backend-R1 Part 1 (Phase 2 fix round; marker `docs/team/evidence/phase2/fixround/DONE.md`) and the ADR 0010 token edits (evidence `docs/team/evidence/phase2/adr0010.md`) together with css-C's two ADR 0010 rules in `desk/_controls.scss`, then the Phase 2 gate; (2) Phase 3 P0. Remove the stray `mkusers.sh` at the repository root. The bench needs `tools/bench/start_services.sh` after a container restart.
+
+## Bench
+
+`tools/bench/build_test_bench.sh && tools/bench/start_services.sh` (6-8 min cold, COMPUTED); bench at `/home/frappe/frappe-bench` (symlink `/home/user/frappe-bench`), site `midad.test`, Administrator/admin, port 8000. Run bench commands as the `frappe` user.
 
 ## Lead decisions log (to be carried into OWNER_REVIEW.md, Arabic)
 
@@ -45,3 +55,11 @@ Wait for both Phase 0 tasks, read their evidence, decide the Phase 0 gate.
 12. The custom-preset contrast rejection is a safeguard: no hue on the approved curves fails a required pair (scan in `docs/team/evidence/phase2/backend-pipeline.md`).
 13. Focus: core's literal grey focus box-shadows on .btn/.form-control/.custom-select/.page-link/badges are set to none so exactly one ring (the outline) shows. Consequence: .btn-default loses its inset highlight while focused. One ring wins (BRIEF §8 focus).
 14. Fonts: Plex default 234 KB WOFF2 (budget 350). Tajawal has no 600 weight: its 700 file serves 600-700 (a heavier semibold than designed, only when Tajawal is selected). Noto and Tajawal pairings print in Plex (only Plex has TTFs for wkhtmltopdf).
+15. main was fast-forwarded to e4015f7 at the Phase 0 and Phase 1 gates. That commit already held inert Phase 2 code (no CSS or JS hook enabled; install/uninstall verified clean on it). The settings doctype on that commit can write identity values through to Website Settings without restoring them on uninstall (upgrade review Phase 2 #8); fixed in the Phase 2 fix round. Recorded as a lapse in strictness, not repeated: main now advances only at a full phase gate.
+16. Phase 2 deferrals to Phase 3 (owner: css-engineer unless noted): Arabic typography rules (letter-spacing reset, Arabic leading, size compensation, tabular numerals), read-only vs disabled distinction, inline-start scroll-padding for sticky first column, descendant re-declarations in dark (`_scoped_variables.scss`) with descendant-level cascade assertions, forced-colors coverage of checkbox/switch fills and selected rows, brand-app coexistence test (findings §8). Reduced-motion spinner substitute deferred to Phase 4 (global states).
+17. Checkbox focus: ring kept outside (+2px) inside datatable/grid/list; 3:1 against the row backgrounds, not against the checked fill (not adjacent; the 2px gap separates them). Clipping in real datatable/grid cells to be verified in Phase 3 screenshots.
+18. 15:41 UTC: the owner set a 5-hour deadline (20:40 UTC) and authorised the full budget. Concurrency raised from three to seven agents on disjoint files; a build lock (`/tmp/ins-bench.lock`) serialises bench builds, migrations and the gate; CSS agents iterate by injecting compiled CSS into the live desk. Time boxes in `docs/team/RUN_RULES.md`.
+19. The Phase 2 fix-round backend agent was stopped by an accidental interruption; its uncommitted work was kept and a new agent (backend-R1) finishes it before starting the Phase 3 runtime.
+20. ADR 0010 accepted: fields drawn on `surface-field` as in the approved artboards (mapping fix, no value change); one approved value changed (`surface-selected-strong` dark 0.35→0.34 L); default chart series reordered 1,5,3,2,6,4 (deviation); remaining chart gaps accepted and baselined.
+21. Paused on the owner's instruction to stop consuming cloud session credits. This session's model usage cannot be routed through an API key stored in the repository, so the run was stopped and the owner informed before spending more.
+22. 16:30 UTC: the owner chose to continue on their own Anthropic API key. Added `.github/workflows/claude-resume.yml` (Claude Code in GitHub Actions with the `ANTHROPIC_API_KEY` secret; starts when a pull request from `build/midad-v1` to `main` is opened, reopened or labelled `claude-resume`; a pre-push hook refuses pushes to `main`) and `docs/team/RESUME_PROMPT.md` (the instructions that run follows). No cloud agents were restarted.

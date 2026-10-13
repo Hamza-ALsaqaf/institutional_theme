@@ -1,0 +1,23 @@
+{#- Masthead for login, update-password and error pages (ADR 0009). Rendered by web_content.py into banner_html.
+    Context keys (all optional except ins_lang): ins_lang, ins_emblem, ins_name, ins_name_lang, ins_system_name, ins_languages.
+    Every value is escaped here. No script, no style attribute. -#}
+<header class="ins-masthead">
+	<div class="ins-masthead-brand">
+		<img class="ins-emblem" src="{{ (ins_emblem or '/assets/institutional_theme/images/ins_emblem_placeholder.svg') | e }}" alt="" width="40" height="40">
+		<div class="ins-masthead-names">
+			{%- if ins_name %}
+			<span class="ins-name"{% if ins_name_lang and ins_name_lang != ins_lang %} lang="{{ ins_name_lang | e }}"{% endif %}>{{ ins_name | e }}</span>
+			{%- endif %}
+			{%- if ins_system_name %}
+			<span class="ins-system">{{ ins_system_name | e }}</span>
+			{%- endif %}
+		</div>
+	</div>
+	{%- if ins_languages %}
+	<nav class="ins-lang" aria-label="{{ _('Language') | e }}">
+		{%- for l in ins_languages %}
+		<a class="ins-lang-link" href="{{ l.href | e }}" lang="{{ l.code | e }}" hreflang="{{ l.code | e }}"{% if l.current %} aria-current="true"{% endif %}>{{ l.label | e }}</a>
+		{%- endfor %}
+	</nav>
+	{%- endif %}
+</header>

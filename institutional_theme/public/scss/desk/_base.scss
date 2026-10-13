@@ -8,28 +8,38 @@ html:root[dir] {
 }
 
 // ---- The one focus ring. Core sets `outline: 0` on .form-control, .btn, .custom-select,
-// .page-link, badges and checkboxes at (0,2,x), and adds a literal grey box-shadow as a second cue
-// (the --focus-default ones are already `none` through the Frappe map). `box-shadow: none` here keeps
-// the outline the only cue; (0,3,1) beats core's (0,2,x) rules without !important. The modal shell is focused by script, so it is excluded.
-html:root :is(
-	a[href], area[href], button, input, select, textarea, summary,
-	[tabindex], [contenteditable="true"],
-	[role="button"], [role="link"], [role="menuitem"], [role="tab"], [role="option"],
-	[role="checkbox"], [role="radio"], [role="switch"], [role="combobox"],
-	.btn, .dropdown-item
-):focus-visible:not(.modal, .modal-dialog) {
+// .page-link, badges and checkboxes at (0,2,x) and adds a literal grey box-shadow as a second cue
+// (the --focus-default ones are already `none` through the Frappe map).
+// Ring rule: html (0,0,1) + :root + :is() [its [tabindex] arm] + :focus-visible + :not() = (0,4,1).
+// The modal shell is focused by script, so it is excluded.
+$ins-focusable: 'a[href], area[href], button, input, select, textarea, summary, [tabindex], [contenteditable="true"], [role="button"], [role="link"], [role="menuitem"], [role="tab"], [role="option"], [role="checkbox"], [role="radio"], [role="switch"], [role="combobox"], .btn, .dropdown-item';
+
+html:root :is(#{$ins-focusable}):focus-visible:not(.modal, .modal-dialog) {
 	outline: var(--ins-focus-width) solid var(--ins-focus);
 	outline-offset: var(--ins-focus-offset);
+}
+
+// Second cue removal, (0,5,1). Autofilled fields are skipped: their themed cover below is a
+// box-shadow too, and must survive focus.
+html:root :is(#{$ins-focusable}):focus-visible:not(.modal, .modal-dialog, :-webkit-autofill) {
 	box-shadow: none;
 }
 
-// Clipped scroll containers (findings 5): a positive offset would be cut off, so draw inside.
+// Clipped scroll containers (findings 5): a positive offset would be cut off, so draw inside, (0,5,1).
 html:root :is(.datatable, .grid-body, .frappe-list .result-container, .dt-scrollable)
 	:is(a[href], button, input, select, textarea, [tabindex], [contenteditable="true"]):focus-visible {
 	outline-offset: calc(var(--ins-focus-width) * -1);
 }
 
-// ---- Selection. Core: ::selection (0,0,1) and body ::selection (0,0,2).
+// Exception: a checked box is filled with --ins-primary, which is the ring colour or close to it
+// (1.00:1 Dark, 1.47:1 Light), so an inset ring vanishes on it. Checkboxes and radios keep the
+// ring outside, on the row background, in the same containers, (0,5,2).
+html:root :is(.datatable, .grid-body, .frappe-list .result-container, .dt-scrollable)
+	:is(input[type="checkbox"], input[type="radio"], [role="checkbox"], [role="radio"]):focus-visible {
+	outline-offset: var(--ins-focus-offset);
+}
+
+// ---- Selection. Core: ::selection (0,0,1) and `body ::selection` (0,0,2); this is (0,1,2).
 html:root ::selection {
 	color: var(--ins-text-strong);
 	background: var(--ins-primary-subtle-border);
@@ -47,6 +57,7 @@ html:root :is(input, textarea, .form-control, .search-bar .awesomplete input)::p
 }
 
 // ---- Autofill: keep the field surface and text colour the theme gives every other field.
+// Specificity: (0,2,2) plain, (0,3,2) with :hover or :focus; the focus reset above skips autofilled fields.
 html:root :is(input, textarea, select):-webkit-autofill,
 html:root :is(input, textarea, select):-webkit-autofill:hover,
 html:root :is(input, textarea, select):-webkit-autofill:focus {
