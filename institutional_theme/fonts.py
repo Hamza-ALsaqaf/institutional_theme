@@ -86,14 +86,16 @@ class UploadedFont:
 	def __post_init__(self) -> None:
 		if self.kind not in _FORMATS:
 			raise ValueError(f"Unknown font kind: {self.kind}")
-		if not _SAFE_URL.match(self.url):
+		if not _SAFE_URL.match(self.url) or self.url.startswith("//") or ".." in self.url.split("/"):
 			raise ValueError(f"Unsafe font URL: {self.url!r}")
 
 
 def usable_scripts(fonts: Mapping[str, UploadedFont | None]) -> tuple[str, ...]:
 	"""Scripts (`arabic`, `latin`) with both a regular and a semibold file. Others fall back to Plex."""
 	return tuple(
-		script for script in ("arabic", "latin") if fonts.get(f"{script}_regular") and fonts.get(f"{script}_semibold")
+		script
+		for script in ("arabic", "latin")
+		if fonts.get(f"{script}_regular") and fonts.get(f"{script}_semibold")
 	)
 
 
@@ -209,7 +211,8 @@ def _print_sources(
 				for family, weight, name in PLEX_PRINT_FACES[script]
 			]
 	sources["mono"] = [
-		(family, weight, f"{ASSET_BASE}/plex/{name}", False) for family, weight, name in PLEX_PRINT_FACES["mono"]
+		(family, weight, f"{ASSET_BASE}/plex/{name}", False)
+		for family, weight, name in PLEX_PRINT_FACES["mono"]
 	]
 	return sources
 
@@ -223,14 +226,16 @@ def print_font_css(pairing: str, uploaded: Mapping[str, UploadedFont | None] | N
 	pairing, the bundled Plex TTF files are used.
 	"""
 	parts = [HEADER]
-	for script, faces in _print_sources(pairing, uploaded).items():
+	for faces in _print_sources(pairing, uploaded).values():
 		for family, weight, url, is_arabic in faces:
 			font = UploadedFont(url, "ttf")
 			parts.append(_face(family, weight, font, arabic=is_arabic, with_format=False))
 	return "\n".join(parts)
 
 
-def print_font_families(pairing: str, uploaded: Mapping[str, UploadedFont | None] | None = None) -> dict[str, str]:
+def print_font_families(
+	pairing: str, uploaded: Mapping[str, UploadedFont | None] | None = None
+) -> dict[str, str]:
 	"""CSS `font-family` values for the print body (`sans`) and for code (`mono`)."""
 	sources = _print_sources(pairing, uploaded)
 	families: list[str] = []
