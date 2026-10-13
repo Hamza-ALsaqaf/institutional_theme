@@ -2,22 +2,27 @@ Accent background,الخلفية المميزة
 Accent colour,اللون المميز
 Accent rule and marker,خط التمييز وعلامته
 Accent text,النص المميز
+Access to this system is restricted to authorised users. Activity is recorded.,"الوصول إلى هذا النظام مقصور على المصرَّح لهم، ويُسجَّل النشاط."
 Adjust the {0} colour.,اضبط اللون {0}.
-Allow Forest,السماح بنمط غابي
-Allow Graphite,السماح بنمط جرافيت
-Allow Midad ink,السماح بنمط مداد
-Allow Petrol,السماح بنمط بترولي
-Allow Plum,السماح بنمط برقوقي
-Allow a custom colour preset,السماح بنمط ألوان مخصص
+Allow Forest,السماح بمجموعة الألوان غابي
+Allow Graphite,السماح بمجموعة الألوان جرافيت
+Allow Midad ink,السماح بمجموعة الألوان مداد
+Allow Petrol,السماح بمجموعة الألوان بترولي
+Allow Plum,السماح بمجموعة الألوان برقوقي
+Allow a custom colour preset,السماح بمجموعة ألوان مخصصة
 Amended,معدَّل
 Amended status background,خلفية حالة معدَّل
 Amended status mark,علامة حالة معدَّل
 Amended status text,نص حالة معدَّل
+Appearance,المظهر
+Apply colour preset,تطبيق مجموعة الألوان
+Approve,اعتماد
 Approved,معتمد
 Arabic regular,الخط العربي العادي
 Arabic semibold,الخط العربي شبه العريض
 Authorised use notice,إشعار الاستخدام المصرح به
 Authorised use notice (Arabic),إشعار الاستخدام المصرح به (بالعربية)
+Automatic,تلقائي
 Behaviour,السلوك
 Between 1 and 30 minutes before the session expires.,بين 1 و30 دقيقة قبل انتهاء الجلسة.
 Body text,نص المتن
@@ -35,24 +40,31 @@ Chart series 6,سلسلة الرسم البياني 6
 Chart series 7,سلسلة الرسم البياني 7
 Chart series 8,سلسلة الرسم البياني 8
 Colour,الألوان
-Comfortable,مريح
-Compact,مضغوط
+Colour preset,مجموعة الألوان
+Colour preset changed to {0}.,تم تغيير مجموعة الألوان إلى {0}.
+Comfortable,مريحة
+Compact,مضغوطة
 Completed,مكتمل
 Contrast check,فحص التباين
 "Copied to the Frappe settings that show it (login page, navbar, browser tab) when changed here.",يُنسخ إلى إعدادات Frappe التي تعرضه (صفحة الدخول، شريط التنقل، علامة تبويب المتصفح) عند تغييره هنا.
-Custom,مخصص
-Custom colour preset,نمط الألوان المخصص
-Custom colour preset rejected,رُفض نمط الألوان المخصص
-Custom colour preset rejected. These pairs are below their minimum contrast:,رُفض نمط الألوان المخصص. الأزواج التالية أقل من الحد الأدنى للتباين:
+Custom,مخصصة
+Custom colour preset,مجموعة الألوان المخصصة
+Custom colour preset rejected,رُفضت مجموعة الألوان المخصصة
+Custom colour preset rejected. These pairs are below their minimum contrast:,رُفضت مجموعة الألوان المخصصة. الأزواج التالية أقل من الحد الأدنى للتباين:
 Danger status background,خلفية حالة الخطر
 Danger status mark,علامة حالة الخطر
 Danger status text,نص حالة الخطر
 Dark,داكن
-Default colour preset,نمط الألوان الافتراضي
+Default colour preset,مجموعة الألوان الافتراضية
 Default density,الكثافة الافتراضية
+Density,الكثافة
+Density changed to {0}.,تم تغيير الكثافة إلى {0}.
+Density must be Comfortable or Compact.,يجب أن تكون الكثافة مريحة أو مضغوطة.
 Destructive action,إجراء خطِر
 Destructive action on hover,إجراء خطِر عند تمرير المؤشر
 Disabled control background,خلفية العنصر المعطل
+Disabled control background in forms,خلفية العنصر المعطل في النماذج
+Disabled input background,خلفية حقل الإدخال المعطل
 Disabled text,النص المعطل
 Draft,مسودة
 Emblem,الشعار الرسمي
@@ -61,10 +73,13 @@ Error banner background,خلفية شريط الخطأ
 Error banner text,نص شريط الخطأ
 Error border,إطار الخطأ
 Favicon,أيقونة المتصفح
+Field background,خلفية الحقل
+Field background on grey,خلفية الحقل على الرمادي
 Focus ring,حلقة التركيز
 Font pairing,ثنائية الخطوط
 Heading text,نص العناوين
 Help text,نص المساعدة
+Hidden for your role,مخفي لدورك
 Hover background,خلفية عند تمرير المؤشر
 IBM Plex,IBM Plex
 Icons,الأيقونات
@@ -93,6 +108,8 @@ Link text,نص الرابط
 Link text on hover,نص الرابط عند تمرير المؤشر
 Menu and dialog background,خلفية القوائم والحوارات
 Minutes of warning,دقائق التنبيه
+Mode,الوضع
+Mode changed to {0}.,تم تغيير الوضع إلى {0}.
 Muted status background,خلفية الحالة الخافتة
 Muted status mark,علامة الحالة الخافتة
 Muted status text,نص الحالة الخافتة
@@ -124,16 +141,23 @@ Primary action on hover,الإجراء الأساسي عند تمرير المؤ
 Primary action when pressed,الإجراء الأساسي عند الضغط
 Primary colour,اللون الأساسي
 Primary-coloured text,نص بلون أساسي
+Production,الإنتاج
+Quote this reference when you contact support.,اذكر هذا المرجع عند التواصل مع الدعم الفني.
 Read-only value text,نص القيمة للقراءة فقط
+Reject,رفض
 Rejected,مرفوض
+Release {0},الإصدار {0}
 Scrollbar thumb,مقبض شريط التمرير
 Scrollbar track,مسار شريط التمرير
 Search highlight,تمييز نتائج البحث
 Secondary button background,خلفية الزر الثانوي
+Secondary button background on hover,خلفية الزر الثانوي عند تمرير المؤشر
 Secondary text,النص الثانوي
+Selected,محدد
 Selected and hovered row background,خلفية الصف المحدد عند تمرير المؤشر
 Selected row background,خلفية الصف المحدد
 "Set by ins_environment in site_config.json: Training, UAT or Staging. Empty means production.",يُحدَّد بالمفتاح ins_environment في الملف site_config.json: تدريب أو UAT أو ما قبل الإنتاج. الحقل الفارغ يعني بيئة الإنتاج.
+Set by your administrator.,يحدده مسؤول النظام.
 Show a banner when the connection is lost,إظهار شريط عند انقطاع الاتصال
 Sidebar and well background,خلفية الشريط الجانبي والمناطق الغائرة
 Staging,ما قبل الإنتاج
@@ -150,14 +174,17 @@ Tajawal,Tajawal
 Teal status background,خلفية الحالة الفيروزية
 Teal status mark,علامة الحالة الفيروزية
 Teal status text,نص الحالة الفيروزية
+Technical support,الدعم الفني
 Text on destructive action,النص على الإجراء الخطِر
 Text on primary action,النص على الإجراء الأساسي
-The colour preset {0} is not available.,نمط الألوان {0} غير متاح.
-The default colour preset {0} must also be allowed.,يجب أيضًا السماح بنمط الألوان الافتراضي {0}.
+The colour preset {0} is not available on this site.,مجموعة الألوان {0} غير متاحة على هذا الموقع.
+The colour preset {0} is not available.,مجموعة الألوان {0} غير متاحة.
+The default colour preset {0} must also be allowed.,يجب أيضًا السماح بمجموعة الألوان الافتراضية {0}.
 The font file {0} must be public so that the login page and printouts can load it.,يجب أن يكون ملف الخط {0} عامًا حتى تتمكن صفحة الدخول والمطبوعات من تحميله.
 The idle warning must come between 1 and 30 minutes before the session expires.,يجب أن يقع تنبيه عدم النشاط بين 1 و30 دقيقة قبل انتهاء الجلسة.
 The image {0} must be public so that the login page and printouts can load it.,يجب أن تكون الصورة {0} عامة حتى تتمكن صفحة الدخول والمطبوعات من تحميلها.
 The uploaded font {0} is missing from the server; IBM Plex is used until it is uploaded again.,الخط المرفوع {0} غير موجود على الخادم؛ يُستخدم IBM Plex إلى أن يُعاد رفعه.
+Time of error,وقت الخطأ
 Tinted primary background,خلفية بلون أساسي خفيف
 Tooltip background,خلفية التلميح
 Tooltip text,نص التلميح
@@ -166,7 +193,7 @@ Typography,الطباعة
 UAT,اختبار قبول المستخدم (UAT)
 Uploaded,مرفوع
 Uploaded fonts,الخطوط المرفوعة
-Used by every user who has not chosen another preset.,يستخدمه كل مستخدم لم يختر نمطًا آخر.
+Used by every user who has not chosen another preset.,يستخدمه كل مستخدم لم يختر مجموعة ألوان أخرى.
 "Used by this app only, for example in the Letter Head.",يستخدمه هذا التطبيق فقط، مثلًا في ترويسة الخطاب.
 "WOFF2 or TrueType files, public. All four are required for the Uploaded pairing.",ملفات WOFF2 أو TrueType عامة. الملفات الأربعة كلها مطلوبة لثنائية الخطوط المرفوعة.
 Warn before the session expires,التنبيه قبل انتهاء الجلسة
@@ -178,7 +205,7 @@ Warning status text,نص حالة التحذير
 Wordmark,الشعار النصي
 Wordmark for dark backgrounds,الشعار النصي للخلفيات الداكنة
 accent,المميز
-custom,مخصص
+custom,مخصصة
 forest,غابي
 graphite,جرافيت
 midad,مداد
