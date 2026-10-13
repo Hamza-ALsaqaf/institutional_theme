@@ -1,0 +1,18 @@
+// Gantt (frappe-gantt, desk/frappe_gantt.scss): core paints bars with a literal `fill: white` and --gray-* strokes; map them to surfaces.
+// The popup stays frappe-gantt's translucent dark with white title (frappe_gantt.scss:70), legible on both modes, so it is left alone.
+
+html:root[dir] .gantt-modern .gantt .bar {
+	fill: var(--ins-surface-raised);
+}
+
+html:root[dir] .gantt-modern .gantt .bar-wrapper:hover .bar {
+	fill: var(--ins-surface-hover);
+}
+
+html:root[dir] .gantt-modern .gantt .bar-wrapper .bar {
+	stroke: var(--ins-border-strong);
+}
+
+html:root[dir] .gantt-modern .gantt .arrow {
+	stroke: var(--ins-text-secondary);
+}

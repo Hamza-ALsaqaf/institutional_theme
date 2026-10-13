@@ -1,0 +1,24 @@
+// Calendar (FullCalendar, desk/calendar.scss): day numbers, event chips and the toolbar read mapped variables; this fixes the chip contrast.
+// Core forces event text to rgb(0, 112, 204) with !important (calendar.scss:99), so the BACKGROUND is chosen to pass 4.5:1 against it.
+
+// rgb(0,112,204) on --ins-blue-50 (#f0f8ff) is 4.67:1. The primitive is the same in both modes by design: the text colour is fixed,
+// so the chip stays a light tint in Dark too (on --ins-feedback-info-bg #001f3a the pair was 3.33:1, a fail).
+html:root .fc-event {
+	background-color: var(--ins-blue-50);
+}
+
+html:root[dir] .fc-event:focus-visible {
+	outline: 2px solid var(--ins-focus);
+	outline-offset: -2px;
+}
+
+// Weekend tint and the selection highlight come from core's --highlight-color and a literal --blue-100 (calendar.scss:163, !important).
+html:root[dir] .fc-theme-standard th.fc-col-header-cell {
+	color: var(--ins-text-secondary);
+}
+
+// Core draws every grid line with `border-color: var(--gray-300) !important` (calendar.scss:36-43); in Dark --gray-300 is the bright end of the
+// scale, so the lines turn near-white. Re-pointing the variable inside the calendar fixes it without competing with the !important.
+html:root[dir] .fc-theme-standard {
+	--gray-300: var(--ins-border);
+}

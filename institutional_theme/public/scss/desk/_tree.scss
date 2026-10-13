@@ -1,0 +1,27 @@
+// Tree view (desk/tree.scss): rows read --text-color, --fg-hover-color and --highlight-color, all mapped; add the drop target and selected node.
+// Indent uses logical padding; core's physical padding-left in .tree-children is overridden to inline-start.
+
+html:root[dir] .tree-children {
+	padding-left: 0;
+	padding-inline-start: var(--padding-xl);
+}
+
+html:root[dir] .tree-label {
+	margin-left: 0;
+	margin-inline-start: var(--margin-sm);
+}
+
+html:root[dir] .tree-node-toolbar {
+	margin-left: 0;
+	margin-inline-start: var(--margin-md);
+}
+
+html:root[dir] .tree-link.active {
+	background-color: var(--ins-surface-selected);
+	border-radius: var(--ins-radius-sm);
+}
+
+html:root[dir] .tree-link:focus-visible {
+	outline: 2px solid var(--ins-focus);
+	outline-offset: -2px;
+}

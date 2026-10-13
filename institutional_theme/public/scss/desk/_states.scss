@@ -1,0 +1,12 @@
+// Global states core renders inside the desk: skeletons, empty and not-permitted boxes. Offline is a core toast (dom.js:439), styled in _overlays.scss.
+// Colour comes from --skeleton-bg and --text-muted (mapped); only the literals and the radius that tokens cannot reach are set here.
+
+// ---- Skeleton blocks: core paints --skeleton-bg (list.scss:61, desktop.scss:912). Same radius as the cards they stand in for.
+html:root[dir] :is(.list-skeleton-box, .workspace-skeleton .skeleton-card) {
+	border-radius: var(--ins-radius-sm);
+}
+
+// ---- Not-permitted (403) and not-found messages: `frappe.show_message_page` renders `.message-page .lead` (pageview.js:150-157).
+html:root[dir] .message-page .lead {
+	color: var(--ins-text-secondary);
+}

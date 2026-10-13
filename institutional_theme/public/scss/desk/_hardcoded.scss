@@ -1,5 +1,5 @@
 // Core's hard-coded colours and literals, replaced by tokens (print preview stays paper white, desk/print_preview.scss:73).
-// Selectors sit above core's; no !important except where core uses it on the same property (calendar events), listed below.
+// Selectors sit above core's; no !important anywhere (RUN_RULES). Calendar event text keeps core's !important colour, see _calendar.scss.
 
 // ---- Breadcrumb: core paints `background-color: white` (desk/breadcrumb.scss:4) on a (0,1,0) selector.
 html:root .breadcrumb {
