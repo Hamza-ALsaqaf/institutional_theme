@@ -19,15 +19,19 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 | 4 P1, P2, proof | not started | |
 | 5 Documentation and hostile review | not started | |
 
-## Tasks in flight
+## Tasks in flight (since 15:45 UTC; owner deadline 20:40 UTC, see docs/team/RUN_RULES.md)
 
-- Phase 2 reviews DONE: a11y 3 blocking (placeholder/border on the real control bg; dark help text on selected-strong; checkbox focus ring), upgrade 1 blocking (restore without files blocks settings save). Arabic settings strings DONE.
-- Fix round 1 in flight: theme-architect ADR 0010 (contrast corrections); backend-engineer (U1 font validation, U2 print font names, U3, U7 dead-token snapshot + ruff pin, U8 before_uninstall, U9 track_changes, bidi strings); css-engineer (checkbox focus ring, autofill on focus, comments).
-- After ADR 0010: backend-engineer applies tokens.json edits, widens contrast groups, fixture test with deviation list, regenerates; css re-runs cascade.
+- backend (ADR 0010): tokens.json edits, contrast groups, fixture deviation list, colour-vision baseline. Evidence `docs/team/evidence/phase2/adr0010.md`.
+- backend-R1: finish the interrupted Phase 2 fix round (marker `docs/team/evidence/phase2/fixround/DONE.md`), then Phase 3 runtime (hooks on: marker `docs/team/evidence/phase3/runtime/HOOKS_ON.md`).
+- backend-R2: shell script (ADR 0008), test fixtures, actions browser test. Evidence `docs/team/evidence/phase3/shell/`.
+- css-A: desk entry, base, typography, scoped variables, hard-coded colours, shell, page head, workspace, overlays, cascade test, screens runner. Evidence `docs/team/evidence/phase3/css-shell/`, screenshots `docs/team/evidence/phase3/screens/`.
+- css-B: list, reports, grid. Evidence `docs/team/evidence/phase3/css-list/`.
+- css-C: ADR 0010 CSS rules, controls, form, status, actions, masked, ribbon, appearance. Evidence `docs/team/evidence/phase3/css-form/`.
+- print-web: web bundle, login, error pages, masthead and trust-footer templates, SVG identity. Evidence `docs/team/evidence/phase3/web/`.
 
 ## Next step
 
-Read the Phase 2 reviews; fix blocking findings (max two attempts each); fast-forward main at the Phase 2 gate; then Phase 3 with css-engineer, backend-engineer, print-web-engineer in parallel per `docs/team/PLAN.md` "Parallel work in Phase 3".
+When `fixround/DONE.md` and `adr0010.md` exist and css-C's ADR 0010 rules are in: commit, re-run audits + cascade, decide the Phase 2 gate, fast-forward main. At 17:40 UTC: collect Phase 3 reports, commit, run both reviewers on the Phase 3 diff.
 
 ## Bench
 
@@ -52,3 +56,6 @@ Read the Phase 2 reviews; fix blocking findings (max two attempts each); fast-fo
 15. main was fast-forwarded to e4015f7 at the Phase 0 and Phase 1 gates. That commit already held inert Phase 2 code (no CSS or JS hook enabled; install/uninstall verified clean on it). The settings doctype on that commit can write identity values through to Website Settings without restoring them on uninstall (upgrade review Phase 2 #8); fixed in the Phase 2 fix round. Recorded as a lapse in strictness, not repeated: main now advances only at a full phase gate.
 16. Phase 2 deferrals to Phase 3 (owner: css-engineer unless noted): Arabic typography rules (letter-spacing reset, Arabic leading, size compensation, tabular numerals), read-only vs disabled distinction, inline-start scroll-padding for sticky first column, descendant re-declarations in dark (`_scoped_variables.scss`) with descendant-level cascade assertions, forced-colors coverage of checkbox/switch fills and selected rows, brand-app coexistence test (findings §8). Reduced-motion spinner substitute deferred to Phase 4 (global states).
 17. Checkbox focus: ring kept outside (+2px) inside datatable/grid/list; 3:1 against the row backgrounds, not against the checked fill (not adjacent; the 2px gap separates them). Clipping in real datatable/grid cells to be verified in Phase 3 screenshots.
+18. 15:41 UTC: the owner set a 5-hour deadline (20:40 UTC) and authorised the full budget. Concurrency raised from three to seven agents on disjoint files; a build lock (`/tmp/ins-bench.lock`) serialises bench builds, migrations and the gate; CSS agents iterate by injecting compiled CSS into the live desk. Time boxes in `docs/team/RUN_RULES.md`.
+19. The Phase 2 fix-round backend agent was stopped by an accidental interruption; its uncommitted work was kept and a new agent (backend-R1) finishes it before starting the Phase 3 runtime.
+20. ADR 0010 accepted: fields drawn on `surface-field` as in the approved artboards (mapping fix, no value change); one approved value changed (`surface-selected-strong` dark 0.35→0.34 L); default chart series reordered 1,5,3,2,6,4 (deviation); remaining chart gaps accepted and baselined.
