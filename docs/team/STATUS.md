@@ -15,21 +15,19 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 | 0 Bench and baseline | PASSED (install/uninstall/reinstall clean, 0 px diff; `docs/team/evidence/phase0/`) | e4015f7 |
 | 1 Analysis and discussion | PASSED (ADR 0002-0009 accepted, `docs/team/PLAN.md`) | e4015f7 |
 | 2 Foundations | PASSED 19:18 UTC: audits pass (contrast 0 failing over 426 pairs, parity 51/0, colour vision 0 failures + 99 baselined gaps, dead tokens 0); 140 unit tests OK; 88 Frappe tests OK; cascade 4256/4256 (static core build); install/uninstall gate clean (`docs/team/evidence/resume/`) | ceb4128..HEAD |
-| 3 P0 | runtime and hooks on (R2), controls/form CSS (css-C) done; shell, list, reports, overlays, login pending | |
+| 3 P0 | PASSED 20:00 UTC: both reviews (upgrade 0 blocking; a11y 2 blocking fixed and re-checked on the real build); 109 Frappe + 140 unit tests OK; cascade 4256/4256; gate clean, residue none; 48 P0 desk screenshots (en/ar, Light/Dark, comfortable/compact) on the real build (`docs/team/evidence/phase3/`) | HEAD at 20:00 |
 | 4 P1, P2, proof | not started | |
 | 5 Documentation and hostile review | not started | |
 
-## Tasks in flight (resume run, 19:20 UTC)
+## Tasks in flight (20:00 UTC)
 
-All earlier background agents were cut off at 17:45 UTC when the lead's turn ended; agents now run in the foreground. Remaining time boxes: Phase 3 shell/list/login 20:05, Phase 3 reviews and fixes 20:40, documentation and final report 21:13 UTC. Phase 4 is cut except what fits after the Phase 3 gate (sacrifice order: font pairings, presets, P2, P1).
-
-- css-A: `_shell`, `_page_head`, `_workspace`, `_list`, `_reports`, `_grid`, `_overlays`, `_appearance`, `tests/browser/screens.mjs` + P0 screenshots.
-- print-web: `ins_web.bundle.scss`, `web/_login.scss`, `_error_pages.scss`, templates; `web_content.py` reassigned to print-web by the lead (decision 27).
-- scribe: `translations/ar.csv` from every evidence "Strings" list.
+- scribe: `docs/DEPENDENCY_MANIFEST.md`, `docs/UPGRADE_AND_QA_CHECKLIST.md`, README install section.
+- theme-architect: `docs/DESIGN_SYSTEM.md` prose and design deviations.
+- css-engineer (Phase 4, only what fits by 20:35): charts in dashboards (ADR 0010 dashes, dark chart-container re-declarations).
 
 ## Next step
 
-When batch B reports: commit, run both reviewers on `ceb4128..HEAD` (Phase 3), one fix round, Phase 3 gate, then scribe manifest + OWNER_REVIEW.md (Arabic) + PR body.
+When they report: commit; lead writes `docs/team/OWNER_REVIEW.md` (Arabic) and updates the open PR body; push. Not delivered so far: Phase 4 print, email, Letter Head, proof, P1 views other than charts; extra font pairings stay as built in Phase 2 but unverified in the desk.
 
 ## Bench
 
@@ -65,3 +63,5 @@ When batch B reports: commit, run both reviewers on `ceb4128..HEAD` (Phase 3), o
 26. 19:18 UTC: Phase 2 gate passed (evidence in the phase table). The one failing Frappe test (`test_audit_text_uses_labels_not_token_names`) was a test bug: the word "border" is both a token name and an English word in the label "Input border"; the assertion now checks hyphenated token names only. Calendar event text keeps core's own `!important` blue (`calendar.scss:71,99`): the theme does not add an `!important` to fight it; contrast of that pair is not computed (P1, listed as a gap).
 27. 19:20 UTC: to save an agent cycle, `web_content.py` (ADR 0009 Python) is written by print-web-engineer together with its templates, instead of backend-engineer. Reverse by moving ownership back in PLAN.md; no behaviour depends on who wrote it.
 28. The custom brand preset's contrast rejection cannot fire for any hex input (lightness comes from the approved curves; `#FFFFFF` on `#FFFFFF` saves). Kept as a safeguard (decision 12), not a bug.
+29. 20:00 UTC: Phase 3 gate passed. Login a11y blockers fixed inside this app: a small web script wraps core's pointer-only password icon in a real button (label rendered server-side, because `__()` has no messages on website pages); Arabic login letter-spacing reset by repeating the body class (no `!important`). App rows in `ar.csv` that only repeated core's Arabic were dropped; rows that correct core's Arabic (Light, Dark, Automatic, Draft, Submitted, Cancelled, Completed) were kept and apply desk-wide.
+30. Phase 4 cut to charts only because of the deadline (sacrifice order: P2 first, then P1). Print Style, Letter Head, email bundle, the interactive proof, Kanban, Calendar, Tree, Gantt and the global-state pages are not delivered.
