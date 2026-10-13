@@ -115,6 +115,56 @@ $ins-auth-pages: 'html body[data-path="login"], html body[data-path="update-pass
 					color: var(--ins-text-placeholder);
 				}
 
+				// Email and password are Latin text. `direction: ltr` keeps the caret and the Latin
+				// run correct in an Arabic page; the default `text-align: start` is the left edge under ltr, so in
+				// RTL the text is aligned to `end` instead (rule at the end of this file), the right edge, to line up with the
+				// mirrored layout and its icons.
+				input[type="email"],
+				input[type="password"],
+				#login_email,
+				#login_password {
+					direction: ltr;
+				}
+
+				.password-field {
+					// Core's svg keeps its click handler but loses its class (see ins_web.bundle.js).
+					.ins-reveal {
+						position: absolute;
+						inset-inline-end: var(--ins-space-1);
+						inset-block-start: 50%;
+						transform: translateY(-50%);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						box-sizing: border-box;
+						min-inline-size: 32px;
+						min-block-size: 32px;
+						padding: 0;
+						border: 0;
+						border-radius: var(--ins-radius-sm);
+						background: transparent;
+						color: var(--ins-text-muted);
+						cursor: pointer;
+						z-index: 2;
+
+						&:hover {
+							color: var(--ins-text-strong);
+						}
+
+						&:focus-visible {
+							outline: var(--ins-focus-width) solid var(--ins-focus);
+							outline-offset: var(--ins-focus-offset);
+						}
+
+						svg {
+							fill: currentcolor;
+							inline-size: 16px;
+							block-size: 16px;
+							pointer-events: none;
+						}
+					}
+				}
+
 				// The icon sits at the start of the field, the reveal toggle at the end.
 				.field-icon {
 					inset-inline-start: var(--ins-space-3);
@@ -348,4 +398,10 @@ html body[data-path="update-password"] .ins-trust {
 	#{$ins-auth-pages} .invalid-login {
 		animation: none;
 	}
+}
+
+// RTL: the Latin fields align to the right edge, next to the lock icon.
+html[dir="rtl"] body[data-path="login"] .page-card-body :is(#login_email, #login_password),
+html[dir="rtl"] body[data-path="update-password"] .page-card-body input[type="password"] {
+	text-align: end;
 }

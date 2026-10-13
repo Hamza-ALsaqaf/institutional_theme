@@ -22,6 +22,15 @@ html[lang|="ar"] body.ins-error {
 	line-height: var(--ins-leading-arabic);
 }
 
+// Arabic joins break under tracking. Core's `login.bundle.scss` sets `letter-spacing` on descendants
+// through chains of up to five classes (`.for-login .page-card .page-card-actions ...`, lines 365, 423,
+// 434 and the `get_textstyle` mixin). The body class is repeated to out-rank them without `!important`:
+// 2 attributes/classes in `html[lang]` and `[data-path]`, plus six repeats of `.ins-auth`.
+html[lang|="ar"] body.ins-auth.ins-auth.ins-auth.ins-auth.ins-auth.ins-auth *,
+html[lang|="ar"] body.ins-error.ins-error.ins-error.ins-error.ins-error.ins-error * {
+	letter-spacing: 0;
+}
+
 // Masthead: emblem and names at the start, language links at the end.
 .ins-masthead {
 	display: flex;

@@ -157,10 +157,16 @@ def update_website_context(context) -> dict | None:
 			f"{TEMPLATE_DIR}/trust_footer.html",
 			footer_context(settings, lang, auth, template, _status(context)),
 		)
+		labels = ""
+		if auth:
+			# Read by `ins_web.bundle.js` for the password reveal button; `__()` is English on website pages.
+			labels = ('<span hidden data-ins-reveal-labels data-show="{}" data-hide="{}"></span>').format(
+				frappe.utils.escape_html(_("Show password")), frappe.utils.escape_html(_("Hide password"))
+			)
 		flags = " ins-has-masthead ins-auth" if auth else " ins-error"
 		return {
 			"banner_html": masthead + str(context.get("banner_html") or ""),
-			"body_include": str(context.get("body_include") or "") + footer,
+			"body_include": str(context.get("body_include") or "") + footer + labels,
 			"body_class": str(context.get("body_class") or "") + flags,
 		}
 	except Exception:

@@ -1,0 +1,14 @@
+{
+ "ar": {
+  "nonZeroLetterSpacing": 0,
+  "revealButton": true,
+  "revealLabel": "إظهار كلمة المرور",
+  "dir": "rtl"
+ },
+ "en": {
+  "nonZeroLetterSpacing": 26,
+  "revealButton": true,
+  "revealLabel": "Show password",
+  "dir": "ltr"
+ }
+}
