@@ -196,7 +196,7 @@ step_app() {
 		as_bench bash -c "echo institutional_theme >>${BENCH_DIR}/sites/apps.txt"
 	fi
 	cat "${BENCH_DIR}/sites/apps.txt"
-	(cd "${BENCH_DIR}/sites" && as_bench ../env/bin/python -c "import frappe; print(frappe.get_module('institutional_theme').__name__)")
+	(cd "${BENCH_DIR}/sites" && as_bench "${BENCH_REAL_DIR}/env/bin/python" -c "import frappe; print(frappe.get_module('institutional_theme').__name__)")
 }
 
 step_build() {
