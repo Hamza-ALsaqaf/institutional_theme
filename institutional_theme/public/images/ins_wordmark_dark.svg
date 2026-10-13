@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72" role="img" aria-labelledby="t">
+<!-- PLACEHOLDER WORDMARK LOCKUP (dark, for dark backgrounds). Placeholder emblem plus placeholder names; not an official mark.
+     Clear space: 12 units (the emblem corner radius times 1.5) on every side. Minimum size: 160 px wide.
+     Text uses the system sans stack because an image cannot load the page fonts. -->
+<title id="t">Placeholder wordmark</title>
+<g transform="translate(12 12)">
+<rect width="48" height="48" rx="8" fill="#a7c9f0"/><rect x="5.5" y="5.5" width="37" height="37" rx="4.5" fill="none" stroke="#061a30" stroke-dasharray="3 2"/><rect x="11" y="17" width="26" height="5" fill="#061a30"/><rect x="11" y="26" width="26" height="2" fill="#061a30"/><rect x="11" y="13" width="10" height="2" fill="#d5ae63"/>
+</g>
+<text x="76" y="35" font-family="'Midad Plex Sans','IBM Plex Sans',system-ui,'Segoe UI',Arial,sans-serif" font-size="17" font-weight="600" fill="#ffffff">[Institution name]</text>
+<text x="76" y="54" font-family="'Midad Plex Sans','IBM Plex Sans',system-ui,'Segoe UI',Arial,sans-serif" font-size="12" font-weight="400" fill="#ffffff">Unified institutional system</text>
+</svg>

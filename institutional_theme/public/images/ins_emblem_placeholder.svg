@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-labelledby="t">
+<!-- PLACEHOLDER EMBLEM. Abstract geometry only: a framed square over the closing-rule motif (a heavy and a light bar).
+     It is not an official emblem and carries no national, religious or political meaning. Replace it through
+     Institutional Theme Settings > emblem.
+     Clear space: 6 units (one eighth of the width) on every side. Minimum size: 24 px wide.
+     The dashed inner frame marks it as a placeholder and must stay in the artwork. -->
+<title id="t">Placeholder emblem</title>
+<rect width="48" height="48" rx="8" fill="#0f3a65"/>
+<rect x="5.5" y="5.5" width="37" height="37" rx="4.5" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 2"/>
+<rect x="11" y="17" width="26" height="5" fill="#ffffff"/>
+<rect x="11" y="26" width="26" height="2" fill="#ffffff"/>
+<rect x="11" y="13" width="10" height="2" fill="#d5ae63"/>
+</svg>

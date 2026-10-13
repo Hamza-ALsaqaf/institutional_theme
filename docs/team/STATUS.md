@@ -31,7 +31,9 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Next step
 
-When `fixround/DONE.md` and `adr0010.md` exist and css-C's ADR 0010 rules are in: commit, re-run audits + cascade, decide the Phase 2 gate, fast-forward main. At 17:40 UTC: collect Phase 3 reports, commit, run both reviewers on the Phase 3 diff.
+PAUSED at 15:5x UTC on the owner's instruction (stop consuming cloud session credits). Every agent was stopped mid-task; their partial work is committed as an unverified snapshot on `build/midad-v1`. `main` is still at e4015f7 (Phase 0 and Phase 1 gates).
+
+To resume, re-dispatch the seven tasks listed under "Tasks in flight" with the same file ownership (dispatch texts follow `docs/team/RUN_RULES.md`); each agent first reads `git diff e4015f7 -- <its files>` to pick up its partial work. Order of value: (1) backend-R1 Part 1 (Phase 2 fix round; marker `docs/team/evidence/phase2/fixround/DONE.md`) and the ADR 0010 token edits (evidence `docs/team/evidence/phase2/adr0010.md`) together with css-C's two ADR 0010 rules in `desk/_controls.scss`, then the Phase 2 gate; (2) Phase 3 P0. Remove the stray `mkusers.sh` at the repository root. The bench needs `tools/bench/start_services.sh` after a container restart.
 
 ## Bench
 
@@ -59,3 +61,4 @@ When `fixround/DONE.md` and `adr0010.md` exist and css-C's ADR 0010 rules are in
 18. 15:41 UTC: the owner set a 5-hour deadline (20:40 UTC) and authorised the full budget. Concurrency raised from three to seven agents on disjoint files; a build lock (`/tmp/ins-bench.lock`) serialises bench builds, migrations and the gate; CSS agents iterate by injecting compiled CSS into the live desk. Time boxes in `docs/team/RUN_RULES.md`.
 19. The Phase 2 fix-round backend agent was stopped by an accidental interruption; its uncommitted work was kept and a new agent (backend-R1) finishes it before starting the Phase 3 runtime.
 20. ADR 0010 accepted: fields drawn on `surface-field` as in the approved artboards (mapping fix, no value change); one approved value changed (`surface-selected-strong` dark 0.35→0.34 L); default chart series reordered 1,5,3,2,6,4 (deviation); remaining chart gaps accepted and baselined.
+21. Paused on the owner's instruction to stop consuming cloud session credits. This session's model usage cannot be routed through an API key stored in the repository, so the run was stopped and the owner informed before spending more.
