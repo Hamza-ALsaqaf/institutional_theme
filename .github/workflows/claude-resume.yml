@@ -1,5 +1,5 @@
-# Resumes the autonomous Midad build with Claude Code, billed to the ANTHROPIC_API_KEY
-# repository secret. It starts when a pull request from build/midad-v1 is opened or
+# Resumes the autonomous Midad build with Claude Code, billed to the owner's Anthropic API key in the
+# INSTITUTIONAL_THEME repository secret. It starts when a pull request from build/midad-v1 is opened or
 # reopened, or when the label "claude-resume" is added to it. Pushes made by the run
 # itself (GITHUB_TOKEN) do not start new runs. The run never changes main.
 name: Claude resume (Midad build)
@@ -76,7 +76,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: ${{ secrets.INSTITUTIONAL_THEME }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             Read docs/team/RESUME_PROMPT.md in this repository and follow it exactly, from the first step to the final report.

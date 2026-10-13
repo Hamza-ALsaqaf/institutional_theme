@@ -20,8 +20,9 @@ You are the lead of the Institutional Theme (Midad) build team, resuming an inte
 
 ## Overrides to those documents
 
-- `main` is never changed by this run. Record each passed gate in `STATUS.md` only.
-- Time: your total budget is 4 h 30 min from your start time T. Replace the time boxes in `RUN_RULES.md` with: Phase 2 gate T+0:45, Phase 3 T+2:15, Phase 4 T+3:30, Phase 5 T+4:10, final report T+4:30.
+- `main` is never changed by this run. Record each passed gate in `STATUS.md` only. Note: the owner merged pull request #1 at 16:45 UTC, so `main` (`24a8b35`) currently holds the same unverified snapshot; a new draft pull request from `build/midad-v1` to `main` is the approval channel for the finished work.
+- CI (`.github/workflows/ci.yml`) has failed on every commit since the snapshot (runs 32 to 35). Find out why in step 1 and fix it.
+- Time: the owner's hard deadline is 20:40 UTC on 2026-10-13. Replace the time boxes in `RUN_RULES.md` with: Phase 2 gate 17:40, Phase 3 18:50, Phase 4 19:50, Phase 5 20:20, final report 20:40 UTC. If you start later than 17:00 UTC, shift every time box by your delay but never past the job timeout.
 - At most 3 agents at once (2 vCPUs), on disjoint files. Bench builds, migrations and the gate script run under `flock /tmp/ins-bench.lock`.
 
 ## Steps
