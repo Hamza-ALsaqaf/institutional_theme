@@ -18,6 +18,7 @@ source "${HERE}/env.sh"
 EVIDENCE="${1:-${REPO_DIR}/docs/team/evidence/phase0}"
 BASE_URL="http://${SITE}:${WEB_PORT}"
 APP=institutional_theme
+STATE_JSON="/tmp/ins-gate-state.json"
 TSV="${EVIDENCE}/gate-commands.tsv"
 mkdir -p "${EVIDENCE}"
 printf 'label\tcommand\texit_code\tseconds\n' >"${TSV}"
@@ -60,10 +61,20 @@ doctype_exists() { bench_site --site "${SITE}" execute frappe.db.exists --args "
 
 timed install "${EVIDENCE}/install.log" bench_site --site "${SITE}" install-app "${APP}"
 timed doctype-after-install "${EVIDENCE}/doctype-after-install.log" doctype_exists
+
 capture installed
+
+# State the app must clean up: identity written through, a File attachment, per-user defaults, a site file.
+# Seeded after the "installed" capture, so that capture shows the app with no identity change.
+bench_state() {
+	as_bench bash -c 'cd "$1/sites" && shift && "$@"' _ "${BENCH_REAL_DIR}" \
+		"${BENCH_REAL_DIR}/env/bin/python" "${HERE}/gate_state.py" "$@"
+}
+timed seed-state "${EVIDENCE}/seed-state.log" bench_state seed "${SITE}" "${STATE_JSON}"
 
 timed uninstall "${EVIDENCE}/uninstall.log" bench_site --site "${SITE}" uninstall-app "${APP}" --yes --no-backup
 timed doctype-after-uninstall "${EVIDENCE}/doctype-after-uninstall.log" doctype_exists
+timed residue-after-uninstall "${EVIDENCE}/residue-after-uninstall.log" bench_state residue "${SITE}" "${STATE_JSON}"
 capture after-uninstall
 
 # The first line of each list is its own label, so it is excluded from the comparison.

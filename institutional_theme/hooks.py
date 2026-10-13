@@ -34,4 +34,4 @@ app_license = "mit"
 # overwrite a value an administrator has changed.
 # after_install = "institutional_theme.install.after_install"
 # after_migrate = "institutional_theme.install.after_migrate"
-# before_uninstall = "institutional_theme.install.before_uninstall"
+before_uninstall = "institutional_theme.install.before_uninstall"

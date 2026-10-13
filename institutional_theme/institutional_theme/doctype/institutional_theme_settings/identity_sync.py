@@ -19,7 +19,7 @@ Rules:
   only into a target that still holds the value this app wrote.
 - Install and migrate never call `apply`.
 
-`restore()` and `delete_attachments()` are called from `before_uninstall` (`install.py`, Phase 3).
+`restore()` and `delete_attachments()` are called from `before_uninstall` (`institutional_theme/install.py`).
 """
 
 from __future__ import annotations
@@ -108,16 +108,20 @@ def apply(doc: Any, old: Any) -> list[str]:
 		value = _text(doc.get(field))
 		for target_doctype, target_field in TARGETS[field]:
 			key = _key(target_doctype, target_field)
+			current = frappe.db.get_single_value(target_doctype, target_field)
 			if key not in prior:
-				prior[key] = frappe.db.get_single_value(target_doctype, target_field)
+				prior[key] = current
+			batch = website if target_doctype == "Website Settings" else navbar
 			if value:
-				new_value: Any = value
+				batch[target_field] = value
 				written[key] = value
-			else:
-				# Cleared here: give the target its original value back and forget it.
-				new_value = prior.pop(key, None)
-				written.pop(key, None)
-			(website if target_doctype == "Website Settings" else navbar)[target_field] = new_value
+				continue
+			# Cleared here: forget the key. The original value goes back only into a target that still
+			# holds what this app wrote; an administrator's later edit is left alone.
+			original = prior.pop(key, None)
+			wrote = written.pop(key, None)
+			if wrote is not None and _text(current) == _text(wrote):
+				batch[target_field] = original
 
 	_store(PRIOR_KEY, prior)
 	_store(WRITTEN_KEY, written)

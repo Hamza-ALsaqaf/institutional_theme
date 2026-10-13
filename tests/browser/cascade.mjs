@@ -121,6 +121,19 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	record(scenario, "body background (info) = --bg-color", px.bgVar, px.bodyBg, px.bodyBg === px.bgVar);
 	record(scenario, "body colour = --text-muted (core body rule)", px.textVar, px.text, px.text === px.textVar);
 
+	// 3b. ADR 0010: fields on surface-field with a control border; buttons keep surface-fill; datatable inputs stay borderless.
+	const a10 = await page.evaluate(() => {
+		const tok = (n, prop) => { const e = document.createElement("i"); e.style[prop] = `var(${n})`; document.body.append(e); const c = getComputedStyle(e)[prop]; e.remove(); return c; };
+		const f = getComputedStyle(document.getElementById("field")), b = getComputedStyle(document.getElementById("btn2")), d = getComputedStyle(document.getElementById("dtfield"));
+		return { fBg: f.backgroundColor, fWant: tok("--ins-surface-field", "backgroundColor"), fBd: `${f.borderTopWidth} ${f.borderTopStyle} ${f.borderTopColor}`,
+			fBdWant: `1px solid ${tok("--ins-border-control", "color")}`, bBg: b.backgroundColor, bWant: tok("--ins-surface-fill", "backgroundColor"),
+			dBd: `${d.borderTopWidth} ${d.borderTopStyle}`, dBg: d.backgroundColor, dWant: tok("--ins-surface-field", "backgroundColor") };
+	});
+	record(scenario, "ADR0010 .form-control background = surface-field", a10.fWant, a10.fBg, a10.fBg === a10.fWant);
+	record(scenario, "ADR0010 .form-control border = 1px solid border-control", a10.fBdWant, a10.fBd, a10.fBd === a10.fBdWant);
+	record(scenario, "ADR0010 .btn-default background = surface-fill", a10.bWant, a10.bBg, a10.bBg === a10.bWant);
+	record(scenario, "ADR0010 .datatable .form-control has no border", "0px none", a10.dBd, /^0px none$/.test(a10.dBd));
+
 	// 4. Base rules: font-synthesis, scroll-padding, caret, placeholder.
 	const b = await page.evaluate(() => {
 		const f = document.getElementById("field"), r = document.documentElement;

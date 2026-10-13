@@ -30,7 +30,7 @@ html[dir] [data-theme="light"] {
 html:root[dir][data-theme="dark"],
 html[dir] [data-theme="dark"] {
 	--ins-surface-selected: #292e35;
-	--ins-surface-selected-strong: #343b45;
+	--ins-surface-selected-strong: #313942;
 	--ins-text-brand: #d8dee6;
 	--ins-brand: #bdc7d3;
 	--ins-primary: #bdc7d3;
@@ -56,7 +56,7 @@ html[dir] [data-theme="dark"] {
 @media (prefers-color-scheme: dark) {
 	html:root[dir][data-theme="automatic"] {
 		--ins-surface-selected: #292e35;
-		--ins-surface-selected-strong: #343b45;
+		--ins-surface-selected-strong: #313942;
 		--ins-text-brand: #d8dee6;
 		--ins-brand: #bdc7d3;
 		--ins-primary: #bdc7d3;

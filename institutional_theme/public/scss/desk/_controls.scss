@@ -1,0 +1,14 @@
+// Field controls: ADR 0010 corrections first, then every control state (tokens first, selectors where a token cannot reach).
+// Logical properties only; no !important; the focus ring itself lives in _base.scss.
+
+// ---- ADR 0010 (1): fields sit on surface-field; buttons and chips keep surface-fill.
+// Core declares --control-bg only on ancestors, so a declaration on the element wins at (0,1,0).
+:is(.btn, .filter-chart, .avatar-action, .ql-mention-list-item, .ql-editor .mention) {
+	--control-bg: var(--ins-surface-fill);
+}
+
+// ---- ADR 0010 (2): core has `.form-control { border: none }` (0,1,0). Loaded after core, this wins;
+// `.datatable .form-control` (0,2,0) and `.grid-body .editable-row .form-control` (0,3,0) still beat it.
+.form-control {
+	border: 1px solid var(--ins-border-control);
+}

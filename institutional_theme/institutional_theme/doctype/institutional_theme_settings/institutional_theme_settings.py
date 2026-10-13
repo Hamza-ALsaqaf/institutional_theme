@@ -19,6 +19,7 @@ from frappe.utils import cint, escape_html
 
 from institutional_theme import fonts
 from institutional_theme.midad import model as midad
+from institutional_theme.midad.labels import mode_label, token_label
 from institutional_theme.midad.model import CustomPreset
 
 from . import identity_sync
@@ -60,27 +61,23 @@ def preset_label(name: str, model: midad.Model | None = None) -> str:
 	return entry.get("label_ar" if arabic else "label_en") or name
 
 
-def _token(label: str, token: str) -> str:
-	"""A translated token label followed by the token name, isolated so it reads in both directions."""
-	return f'{_(label)} <bdi dir="ltr"><code>{escape_html(token)}</code></bdi>'
-
-
-def _number(text: str) -> str:
-	return f'<bdi dir="ltr">{escape_html(text)}</bdi>'
+def _ltr(text: Any) -> str:
+	"""Text that must keep its own direction inside a sentence of either language (names, numbers)."""
+	return f'<bdi dir="ltr">{escape_html(str(text))}</bdi>'
 
 
 def contrast_line(failure: dict[str, Any]) -> str:
-	"""One sentence naming a failing pair, in the current language."""
+	"""One sentence naming a failing pair by its human labels, in the current language."""
 	if failure["kind"] == "max":
 		template = _("{0} on {1}, {2} mode: {3}:1; at most {4}:1 is allowed.")
 	else:
 		template = _("{0} on {1}, {2} mode: {3}:1; at least {4}:1 is required.")
 	line = template.format(
-		_token(failure["fg_label"], failure["fg"]),
-		_token(failure["bg_label"], failure["bg"]),
+		_(failure["fg_label"]),
+		_(failure["bg_label"]),
 		_(failure["mode_label"]),
-		_number(failure["ratio_text"]),
-		_number(f"{failure['required']:g}"),
+		_ltr(failure["ratio_text"]),
+		_ltr(f"{failure['required']:g}"),
 	)
 	if failure.get("adjust"):
 		line += " " + _("Adjust the {0} colour.").format(_(failure["adjust_label"]))
@@ -103,7 +100,9 @@ def check_custom_palette(
 	for value in (primary, accent):
 		if not HEX.match(value or ""):
 			frappe.throw(
-				_("{0} is not a colour written as six hex digits, for example #1F3A5F.").format(value)
+				_("{0} is not a colour written as six hex digits, for example #1F3A5F.").format(
+					_ltr(value or "")
+				)
 			)
 	result = midad.custom_preset(primary, accent, model)
 	if result.failures:
@@ -112,12 +111,38 @@ def check_custom_palette(
 
 
 def audit_summary(result: CustomPreset, model: midad.Model | None = None) -> str:
-	"""Language-neutral summary stored in `custom_audit`: passed pairs out of all, lowest ratio."""
+	"""Language-neutral summary stored in `custom_audit`: passed pairs out of all, lowest ratio.
+
+	The form shows `audit_text` instead (labels, in the user's language); this stored value is
+	rewritten on every save.
+	"""
 	model = model or midad.load_model()
 	measured = midad.contrast_results(model, result.palette)
 	passed = sum(1 for pair in measured if pair.passed)
 	lowest = min((pair.ratio for pair in measured if pair.kind == "min"), default=0.0)
-	return f"{passed} / {len(measured)} · {midad.ratio_text(lowest)}:1"
+	return f"{passed} / {len(measured)} \u00b7 {midad.ratio_text(lowest)}:1"
+
+
+def audit_text(result: CustomPreset, model: midad.Model | None = None) -> str:
+	"""The contrast check in words, in the current language, naming the tightest pair by its labels."""
+	model = model or midad.load_model()
+	measured = midad.contrast_results(model, result.palette)
+	passed = sum(1 for pair in measured if pair.passed)
+	minima = [pair for pair in measured if pair.kind == "min"]
+	if not minima:
+		return ""
+	tight = min(minima, key=lambda pair: pair.ratio / pair.limit)
+	return _(
+		"{0} of {1} contrast pairs pass. Tightest: {2} on {3}, {4} mode, {5}:1 (at least {6}:1 is required)."
+	).format(
+		passed,
+		len(measured),
+		_(token_label(tight.fg)),
+		_(token_label(tight.bg)),
+		_(mode_label(tight.mode)),
+		_ltr(midad.ratio_text(tight.ratio)),
+		_ltr(f"{tight.limit:g}"),
+	)
 
 
 def environment_label(value: str | None) -> str:
@@ -155,13 +180,14 @@ def _file_name(file_url: str) -> str:
 class InstitutionalThemeSettings(Document):
 	def onload(self) -> None:
 		self.environment = environment_label(frappe.conf.get("ins_environment"))
+		self.show_audit_text()
 		missing = self.missing_font_files()
 		if missing:
 			self.set_onload(
 				"missing_font_message",
 				_(
 					"The uploaded font {0} is missing from the server; IBM Plex is used until it is uploaded again."
-				).format(", ".join(escape_html(name) for name in missing)),
+				).format(", ".join(_ltr(name) for name in missing)),
 			)
 
 	def validate(self) -> None:
@@ -185,7 +211,7 @@ class InstitutionalThemeSettings(Document):
 	def validate_default_preset(self) -> None:
 		default = self.default_palette or "midad"
 		if default != CUSTOM and default not in shipped_presets():
-			frappe.throw(_("The colour preset {0} is not available.").format(default))
+			frappe.throw(_("The colour preset {0} is not available.").format(_ltr(default)))
 		if not self.allowed(default):
 			frappe.throw(
 				_("The default colour preset {0} must also be allowed.").format(
@@ -220,36 +246,58 @@ class InstitutionalThemeSettings(Document):
 				missing.append(_file_name(url))
 		return missing
 
+	def changed(self, fieldname: str) -> bool:
+		"""True when the field differs from the previous save (or there is no previous save)."""
+		old = self.get_doc_before_save()
+		return old is None or (old.get(fieldname) or "") != (self.get(fieldname) or "")
+
 	def validate_fonts(self) -> None:
-		if self.font_pairing == "Uploaded":
-			for field, label in FONT_FIELD_LABELS.items():
-				if not self.get(field):
-					frappe.throw(_("{0} is required").format(frappe.bold(_(label))), frappe.MandatoryError)
+		"""Uploaded fonts are checked only for the Uploaded pairing, and only when they changed.
+
+		After a restore without files the URLs are set and the files are gone. Saving must still work
+		(for example to switch to another pairing), so unchanged fields are not re-checked while the
+		pairing stays Uploaded; choosing Uploaded checks every file again.
+		"""
+		if self.font_pairing != "Uploaded":
+			return
+		old = self.get_doc_before_save()
+		newly_uploaded = old is None or old.font_pairing != "Uploaded"
+		for field, label in FONT_FIELD_LABELS.items():
+			if not self.get(field):
+				frappe.throw(_("{0} is required").format(frappe.bold(_(label))), frappe.MandatoryError)
 		for field in FONT_FIELDS:
 			url = self.get(field)
-			if not url:
-				continue
-			if url.startswith("/private/"):
-				frappe.throw(
-					_(
-						"The font file {0} must be public so that the login page and printouts can load it."
-					).format(frappe.bold(_file_name(url)))
-				)
-			path = _public_path(url)
-			if not path or fonts.file_kind(path) is None:
-				frappe.throw(
-					_("{0} is not a WOFF2 or TrueType font file.").format(frappe.bold(_file_name(url)))
-				)
+			if url and (newly_uploaded or self.changed(field)):
+				self.check_font_file(url)
+
+	def check_font_file(self, url: str) -> None:
+		if url.startswith("/private/"):
+			frappe.throw(
+				_(
+					"The font file {0} must be public so that the login page and printouts can load it."
+				).format(_ltr(_file_name(url)))
+			)
+		path = _public_path(url)
+		if not path or fonts.file_kind(path) is None:
+			frappe.throw(_("{0} is not a WOFF2 or TrueType font file.").format(_ltr(_file_name(url))))
 
 	def validate_images(self) -> None:
 		for field in identity_sync.IMAGE_FIELDS:
 			url = self.get(field)
-			if url and url.startswith("/private/"):
+			if url and url.startswith("/private/") and self.changed(field):
 				frappe.throw(
 					_(
 						"The image {0} must be public so that the login page and printouts can load it."
-					).format(frappe.bold(_file_name(url)))
+					).format(_ltr(_file_name(url)))
 				)
+
+	def show_audit_text(self) -> None:
+		"""Show the contrast check in words, in the user's language, on the form only."""
+		if not (cint(self.allow_custom) or self.default_palette == CUSTOM):
+			return
+		if not (HEX.match(self.custom_primary or "") and HEX.match(self.custom_accent or "")):
+			return
+		self.custom_audit = audit_text(midad.custom_preset(self.custom_primary, self.custom_accent))
 
 	# -- behaviour --------------------------------------------------------------------------
 

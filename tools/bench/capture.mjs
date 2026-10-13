@@ -76,7 +76,7 @@ async function rawHtml(url) {
 		bodyDataTheme: document.body.getAttribute("data-theme"),
 	}));
 	lines.push("## /login data-theme (live DOM)", JSON.stringify(live), "");
-	await page.screenshot({ path: path.join(outDir, `${label}-login.png`) });
+	await page.screenshot({ path: path.join(outDir, `${label}-login.png`), animations: "disabled", caret: "hide" });
 	await page.close();
 }
 
@@ -106,7 +106,7 @@ async function rawHtml(url) {
 	const page = await context.newPage();
 	await page.goto(`${baseUrl}/app/todo`, { waitUntil: "load" });
 	await page.waitForSelector(".page-head", { timeout: 60000 });
-	await page.waitForTimeout(1500);
+	await page.waitForTimeout(3000);
 	const live = await page.evaluate(() => ({
 		dataTheme: document.documentElement.getAttribute("data-theme"),
 		dataThemeMode: document.documentElement.getAttribute("data-theme-mode"),
@@ -115,7 +115,7 @@ async function rawHtml(url) {
 	}));
 	lines.push("## /app/todo data-theme (live DOM)", JSON.stringify({ ...live, stylesheets: undefined }), "");
 	lines.push(section("/app/todo stylesheets (live DOM)", live.stylesheets));
-	await page.screenshot({ path: path.join(outDir, `${label}-todo.png`) });
+	await page.screenshot({ path: path.join(outDir, `${label}-todo.png`), animations: "disabled", caret: "hide" });
 	await page.close();
 }
 

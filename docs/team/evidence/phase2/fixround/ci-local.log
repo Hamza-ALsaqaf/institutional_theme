@@ -1,0 +1,25 @@
+$ python3.14 -m unittest discover -s institutional_theme/midad/tests -t .
+Ran 123 tests in 1.195s
+
+OK
+$ python3.14 -m unittest discover -s institutional_theme/audits/tests -t .
+Ran 8 tests in 0.024s
+
+OK
+$ python3.14 -m institutional_theme.midad.build --check
+build --check: 10 file(s) checked, 0 stale
+exit=0
+$ python3.14 -m institutional_theme.audits   (committed core snapshot, no bench)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+parity: 51 checks, 0 failed
+colour-vision: 0 status failure(s), 67 chart gap(s) in shipped presets
+dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
+wrote contrast.txt, contrast.json, parity.txt, colour_vision.txt, dead_tokens.txt to docs/audits
+audits: passed
+exit=0
+$ ruff --version; ruff check .; ruff format --check .
+ruff 0.16.8
+All checks passed!
+81 files already formatted
+ci.yml parses; jobs ['lint', 'audits']

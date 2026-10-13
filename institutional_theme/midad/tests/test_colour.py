@@ -6,7 +6,7 @@ import json
 import unittest
 from pathlib import Path
 
-from institutional_theme.midad import build, colour, model
+from institutional_theme.midad import build, colour, deviations, model
 
 REPO = Path(__file__).resolve().parents[3]
 FIXTURE = REPO / "design" / "reference" / "tokens.resolved.json"
@@ -38,11 +38,33 @@ class FixtureReproduction(unittest.TestCase):
 	def test_every_semantic_hex_is_reproduced_in_both_modes(self):
 		checked = 0
 		for mode in ("light", "dark"):
-			for name, expected in self.fixture["sem"][mode].items():
-				if expected.startswith("#"):
+			for name, approved in self.fixture["sem"][mode].items():
+				if approved.startswith("#"):
+					expected = deviations.expected(self.fixture, mode, name)
 					self.assertEqual(self.palette.tokens[mode][name], expected, f"{mode} {name}")
 					checked += 1
 		self.assertEqual(checked, 2 * 121)
+
+	def test_deviations_are_exactly_the_adr_0010_list(self):
+		"""ADR 0010: one dark surface and chart series 2, 4, 5 and 6 in both modes; nothing else."""
+		self.assertEqual(
+			sorted(deviations.SEMANTIC),
+			sorted(
+				[("dark", "surface-selected-strong")]
+				+ [(mode, f"chart-{n}") for mode in ("light", "dark") for n in (2, 4, 5, 6)]
+			),
+		)
+		for (mode, name), value in deviations.SEMANTIC.items():
+			self.assertNotEqual(value, self.fixture["sem"][mode][name], f"{mode} {name} is not a deviation")
+
+	def test_reordered_series_reuse_the_approved_series_colours(self):
+		"""Series 1,5,3,2,6,4: new 2 is old 5, new 4 is old 2, new 5 is old 6, new 6 is old 4."""
+		sem = self.fixture["sem"]
+		for mode in ("light", "dark"):
+			for new, old in ((2, 5), (4, 2), (5, 6), (6, 4)):
+				self.assertEqual(
+					deviations.SEMANTIC[(mode, f"chart-{new}")], sem[mode][f"chart-{old}"], f"{mode} chart-{new}"
+				)
 
 	def test_non_hex_semantic_values_resolve(self):
 		light, dark = self.palette.tokens["light"], self.palette.tokens["dark"]
