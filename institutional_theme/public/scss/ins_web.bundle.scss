@@ -1,11 +1,12 @@
 // Website entry: login, 2FA, forgot-password, update-password, the error pages (ADR 0003, 0009) and the
 // public website and portal pages (web/_website.scss).
-// Always light: website pages carry no data-theme, so the light tokens at `html:root` apply.
+// Always light: website pages carry no data-theme, so the light tokens at `html:root` apply. Only the light
+// blocks are imported (generated/_tokens_light, _frappe_map_light): this bundle never renders Dark.
 // The wrapper keeps rtlcss from flipping anything; every rule uses logical properties.
 // Loaded through `web_include_css`, before `login.bundle.css`, so login rules out-rank it by selector.
 /*rtl:begin:ignore*/
-@import "generated/tokens";
-@import "generated/frappe_map";
+@import "generated/tokens_light";
+@import "generated/frappe_map_light";
 @import "generated/scale";
 @import "fonts/plex";
 @import "web/base";

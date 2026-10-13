@@ -1,0 +1,19 @@
+ar-403.json              compared  1094 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+ar-404.json              compared  1088 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+ar-about.json            compared  1145 elements (sprite 8704 skipped)  differences  16  intended text-muted  16  other 0
+ar-home.json             compared  1196 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+ar-login-forgot.json     compared  1196 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+ar-login.json            compared  1196 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+ar-twofa.json            compared  1121 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+ar-update-password.json  compared  1139 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+ar-webform.json          compared  1243 elements (sprite 8704 skipped)  differences  16  intended text-muted  16  other 0
+en-403.json              compared  1094 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+en-404.json              compared  1088 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+en-about.json            compared  1145 elements (sprite 8704 skipped)  differences  16  intended text-muted  16  other 0
+en-home.json             compared  1196 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+en-login-forgot.json     compared  1196 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+en-login.json            compared  1196 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+en-twofa.json            compared  1121 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+en-update-password.json  compared  1139 elements (sprite 8704 skipped)  differences   0  intended text-muted   0  other 0
+en-webform.json          compared  1243 elements (sprite 8704 skipped)  differences  16  intended text-muted  16  other 0
+TOTAL unintended differences 0

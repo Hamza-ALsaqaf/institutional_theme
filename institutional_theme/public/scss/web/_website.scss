@@ -32,8 +32,14 @@ $site: "body[data-path]:not(.ins-auth):not(.ins-error)";
 		color: var(--ins-text);
 	}
 
-	// Core's `.text-muted` is `#7c7c7c !important` (about 4.2:1 on white); that one is not overridable here
-	// (see the round-2 evidence). The footer colours below are not `!important`.
+	// Core's website bundle compiles Bootstrap's `.text-muted { color: $text-muted !important }` with
+	// `$text-muted: #7c7c7c` (about 4.2:1 on white). Contrast outranks the no-`!important` rule here: this is
+	// the only `!important` in the bundle, scoped to website pages, and the manifest row names why.
+	.text-muted {
+		color: var(--ins-text-muted) !important;
+	}
+
+	// The footer colours are not `!important`.
 	.page-footer,
 	.web-footer,
 	.web-footer .footer-powered,

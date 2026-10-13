@@ -7,7 +7,10 @@
 // Core writes physical `left`, `right` and `padding-left`; the rtlcss build flips them. Each
 // declaration below sets the logical property on both sides, so the result is direction-correct.
 
-$ins-auth-pages: 'html body[data-path="login"], html body[data-path="update-password"]';
+// `:is()` takes the specificity of its most specific argument, so `body:is([data-path=a], [data-path=b])`
+// weighs the same as `body[data-path=a]` and the two pages share one selector instead of doubling
+// every nested rule below (the previous comma list multiplied with the six card wrappers).
+$ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"])';
 
 #{$ins-auth-pages} {
 	background-color: var(--ins-surface-sunken);
@@ -27,12 +30,10 @@ $ins-auth-pages: 'html body[data-path="login"], html body[data-path="update-pass
 		display: none;
 	}
 
-	.for-login,
-	.for-forgot,
-	.for-login-with-email-link,
-	.for-signup,
-	.for-email-login,
-	.for-reset-password {
+	// `.for-*` wrappers exist only in core's login.html and update-password.html (VERIFIED, 16.32.0), so the
+	// card rules need no page prefix beyond `body[data-path]`: it has the specificity of the page attribute
+	// and halves the length of every selector below.
+	@at-root html body[data-path] :is(.for-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-email-login, .for-reset-password) {
 		.page-card {
 			box-sizing: border-box;
 			max-inline-size: 408px;
@@ -265,12 +266,8 @@ $ins-auth-pages: 'html body[data-path="login"], html body[data-path="update-pass
 				}
 
 				// Core shows the first action as a neutral button when other sign-in methods exist.
-				.btn-login:not(.btn-ldap-login),
 				.btn-login-option {
 					min-block-size: 40px;
-				}
-
-				.btn-login-option {
 					border: 1px solid var(--ins-border-control);
 					border-radius: var(--ins-radius-sm);
 					background: var(--ins-surface-base);
@@ -311,7 +308,7 @@ $ins-auth-pages: 'html body[data-path="login"], html body[data-path="update-pass
 	}
 
 	// Two-factor step: core empties the card and injects this markup (login.js request_otp).
-	#twofactor_div {
+	@at-root html body[data-path] #twofactor_div {
 		.page-card-head {
 			text-align: start;
 		}
@@ -372,7 +369,7 @@ $ins-auth-pages: 'html body[data-path="login"], html body[data-path="update-pass
 	}
 
 	// Update-password strength meter: the label states the strength; the bar only repeats it.
-	.for-reset-password .password-strength-bar-track {
+	@at-root html body[data-path] .for-reset-password .password-strength-bar-track {
 		border: 1px solid var(--ins-border-strong);
 		background: var(--ins-surface-fill);
 	}
@@ -385,17 +382,13 @@ html body[data-path="update-password"] .ins-trust {
 }
 
 @media (forced-colors: active) {
-	#{$ins-auth-pages} {
-		.for-login .page-card,
-		.for-forgot .page-card,
-		.for-reset-password .page-card {
-			border-color: CanvasText;
-		}
+	html body[data-path] :is(.for-login, .for-forgot, .for-reset-password) .page-card {
+		border-color: CanvasText;
 	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-	#{$ins-auth-pages} .invalid-login {
+	html body[data-path] .invalid-login {
 		animation: none;
 	}
 }

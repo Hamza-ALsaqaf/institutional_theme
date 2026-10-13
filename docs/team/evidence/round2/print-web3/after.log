@@ -1,0 +1,18 @@
+en login 9900 elements http://midad.test:8000/login?_lang=en Login
+en login-forgot 9900 elements http://midad.test:8000/login?_lang=en#forgot Login
+en update-password 9843 elements http://midad.test:8000/update-password?key=abc&_lang=en Set Password
+en twofa 9825 elements http://midad.test:8000/login?_lang=en Login
+en 404 9792 elements http://midad.test:8000/ins-no-such-page?_lang=en Not Found
+en 403 9798 elements http://midad.test:8000/me?_lang=en Not Permitted
+en about 9849 elements http://midad.test:8000/ins-p2-about?_lang=en About the Example Institution
+en webform 9947 elements http://midad.test:8000/visitor-request/new?_lang=en Visitor Request
+en home 9900 elements http://midad.test:8000/?_lang=en Login
+ar login 9900 elements http://midad.test:8000/login?_lang=ar Login
+ar login-forgot 9900 elements http://midad.test:8000/login?_lang=ar#forgot Login
+ar update-password 9843 elements http://midad.test:8000/update-password?key=abc&_lang=ar تعيين كلمة المرور
+ar twofa 9825 elements http://midad.test:8000/login?_lang=ar Login
+ar 404 9792 elements http://midad.test:8000/ins-no-such-page?_lang=ar لم يتم العثور على
+ar 403 9798 elements http://midad.test:8000/me?_lang=ar لا يسمح
+ar about 9849 elements http://midad.test:8000/ins-p2-about?_lang=ar About the Example Institution
+ar webform 9947 elements http://midad.test:8000/visitor-request/new?_lang=ar Visitor Request
+ar home 9900 elements http://midad.test:8000/?_lang=ar Login
