@@ -42,7 +42,7 @@ timed() {
 
 capture() {
 	timed "capture-$1" "${EVIDENCE}/capture-$1.log" \
-		env NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers \
+		env NODE_PATH="${PW_NODE_PATH}" PLAYWRIGHT_BROWSERS_PATH="${PW_BROWSERS_PATH}" \
 		node "${HERE}/capture.mjs" "$1" "${EVIDENCE}" "${BASE_URL}"
 }
 
@@ -91,7 +91,7 @@ capture after-uninstall
 for shot in login todo; do
 	for pair in "before installed" "before after-uninstall"; do
 		set -- ${pair}
-		python3 "${HERE}/pixel_diff.py" "${EVIDENCE}/$1-${shot}.png" "${EVIDENCE}/$2-${shot}.png" \
+		"${PIXDIFF_PYTHON}" "${HERE}/pixel_diff.py" "${EVIDENCE}/$1-${shot}.png" "${EVIDENCE}/$2-${shot}.png" \
 			--out "${EVIDENCE}/diff-$1-vs-$2-${shot}.png" >>"${EVIDENCE}/pixel-diff.txt"
 	done
 done
