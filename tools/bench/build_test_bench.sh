@@ -172,7 +172,7 @@ step_erpnext() {
 		return 0
 	fi
 	if [[ ! -d "${BENCH_DIR}/apps/erpnext" ]]; then
-		bench_cmd get-app erpnext --branch "${ERPNEXT_TAG}"
+		bench_cmd get-app https://github.com/frappe/erpnext --branch "${ERPNEXT_TAG}"
 	fi
 	bgit "${BENCH_DIR}/apps/erpnext" describe --tags
 	if ! bench_cmd --site "${SITE}" list-apps | grep -qx erpnext; then
