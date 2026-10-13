@@ -1,2 +1,57 @@
-// Core's descendant re-declarations (dark): chart, indicator, modal, grid, toast, rating variables.
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Core's descendant re-declarations (findings 2): root-level mapping cannot reach them, so each is re-asserted here.
+// One block per scope, for both modes: values are tokens, so nothing branches on mode (upgrade-phase2 item 4).
+
+// ---- Modal, form-in-grid, editable grid row.
+// Core (dark): `[data-theme="dark"] .modal, .form-in-grid` (0,2,0) sets --control-bg gray-800 and --border-color gray-800
+// (desk/dark.scss:189-193); `[data-theme="dark"] .grid-body .editable-row` (0,3,0) sets gray-900 and gray-800 (dark.scss:174-175).
+// Core (light): `.grid-body .editable-row` (0,2,0) sets --control-bg neutral and --input-disabled-bg gray-50 (common/grid.scss:283-286).
+// Here: html (0,0,1) + :root + [dir] + the scope = (0,4,1) for the editable row, (0,3,1) for the others, above every one of them.
+// The `.btn` rule in _controls.scss sets --control-bg on the button itself, so buttons inside these scopes keep surface-fill.
+html:root[dir] :is(.modal, .form-in-grid) {
+	--control-bg: var(--ins-surface-field);
+	--control-bg-on-gray: var(--ins-surface-field);
+	--border-color: var(--ins-border-hairline);
+}
+
+html:root[dir] .grid-body .editable-row {
+	--control-bg: var(--ins-surface-field);
+	--control-bg-on-gray: var(--ins-surface-field);
+	--input-disabled-bg: var(--ins-surface-disabled);
+}
+
+// ---- Chart container.
+// Core (dark): `[data-theme="dark"] .chart-container` (0,2,0) sets ten --charts-* variables, among them a 5px stroke and a literal white
+// circle stroke (dark.scss:222-234). Re-assert the map's values (the same ones `html:root[dir]` carries) at (0,3,1).
+html:root[dir] .chart-container {
+	--charts-label-color: var(--ins-chart-label);
+	--charts-axis-line-color: var(--ins-chart-grid);
+	--charts-stroke-width: 2px;
+	--charts-dataset-circle-stroke: var(--ins-surface-raised);
+	--charts-dataset-circle-stroke-width: var(--charts-stroke-width);
+	--charts-tooltip-title: var(--ins-text-secondary);
+	--charts-tooltip-label: var(--ins-text-secondary);
+	--charts-tooltip-value: var(--ins-text-strong);
+	--charts-tooltip-bg: var(--ins-surface-overlay);
+	--charts-legend-label: var(--ins-chart-label);
+	--charts-legend-value: var(--ins-text);
+}
+
+// ---- Rating stars (common/controls.scss:360-365, dark.scss:244-249): core fills stars with gray ramp steps, mapped at the root.
+// The `.rating` element re-declares --star-fill itself, so give it a token-backed value.
+html:root[dir] .rating {
+	--star-fill: var(--ins-border-strong);
+}
+
+html:root[dir] .rating .star-hover {
+	--star-fill: var(--ins-text-placeholder);
+}
+
+html:root[dir] .rating .star-click {
+	--star-fill: var(--ins-status-warning-solid);
+}
+
+// ---- Dataset dots on `.indicator` (dark.scss:266-268, common/indicator.scss:72-73): the shape in _status.scss draws its own
+// colour from currentColor, so these are not re-declared.
+// ---- Toast (desk/toast.scss:14-30): `--toast-bg` per colour class reads --alert-bg-*, which the map sets; no re-declaration needed.
+// ---- Print format (dark.scss:196-197): `.print-format` stays paper white on purpose; it is not re-declared.
+// ---- frappe-datatable (desk/frappe_datatable.scss:2-17): see _hardcoded.scss for --dt-primary-color.

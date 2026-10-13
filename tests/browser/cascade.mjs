@@ -199,6 +199,106 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	const afRule = await page.evaluate(() => [...document.styleSheets].flatMap((s) => { try { return [...s.cssRules]; } catch { return []; } }).filter((r) => r.selectorText && /box-shadow/.test(r.cssText) && /focus-visible/.test(r.selectorText) && /autofill/.test(r.selectorText)).length);
 	record(scenario, "box-shadow reset excludes :-webkit-autofill", ">= 1 rule", String(afRule), afRule >= 1);
 
+	// 7. Phase 3 (css-C): descendants that core re-declares (upgrade-phase2 item 4), control states, status shapes, actions, masking, tabs, Arabic typography.
+	const p3 = await page.evaluate(() => {
+		const tok = (n, prop) => { const e = document.createElement("i"); e.style[prop] = `var(${n})`; document.body.append(e); const c = getComputedStyle(e)[prop]; e.remove(); return c; };
+		const $ = (id) => document.getElementById(id);
+		const cs = (id, pseudo) => getComputedStyle($(id), pseudo || null);
+		const v = (id, name) => getComputedStyle($(id)).getPropertyValue(name).trim();
+		const px = (name) => { const e = document.createElement("i"); e.style.width = `var(${name})`; document.body.append(e); const w = getComputedStyle(e).width; e.remove(); return w; };
+		const o = {};
+		// descendants
+		o.scope = {};
+		for (const id of ["modal2", "fig", "erow"]) o.scope[id] = { control: tok("--control-bg", "backgroundColor"), got: (() => { const e = document.createElement("i"); e.style.backgroundColor = v(id, "--control-bg"); document.body.append(e); const c = getComputedStyle(e).backgroundColor; e.remove(); return c; })() };
+		o.fieldWant = tok("--ins-surface-field", "backgroundColor");
+		o.fieldBg = { modal: cs("modalfield").backgroundColor, fig: cs("figfield").backgroundColor, erow: cs("erowfield").backgroundColor };
+		o.btnInModal = cs("modalbtn2").backgroundColor; o.fillWant = tok("--ins-surface-fill", "backgroundColor");
+		o.modalBorder = (() => { const e = document.createElement("i"); e.style.color = v("modal2", "--border-color"); document.body.append(e); const c = getComputedStyle(e).color; e.remove(); return c; })();
+		o.hairWant = tok("--ins-border-hairline", "color");
+		o.chart = { stroke: v("chart", "--charts-stroke-width"), circle: (() => { const e = document.createElement("i"); e.style.color = v("chart", "--charts-dataset-circle-stroke"); document.body.append(e); const c = getComputedStyle(e).color; e.remove(); return c; })(), circleW: (() => { const e = document.createElement("i"); e.style.width = v("chart", "--charts-dataset-circle-stroke-width"); document.body.append(e); const c = getComputedStyle(e).width; e.remove(); return c; })() };
+		o.raisedWant = tok("--ins-surface-raised", "color");
+		o.disabledBgVar = (() => { const e = document.createElement("i"); e.style.backgroundColor = v("erow", "--input-disabled-bg"); document.body.append(e); const c = getComputedStyle(e).backgroundColor; e.remove(); return c; })();
+		o.disabledWant = tok("--ins-surface-disabled", "backgroundColor");
+		// states
+		const b = (id) => { const s = cs(id); return { w: s.borderTopWidth, st: s.borderTopStyle, c: s.borderTopColor, bbs: s.borderBottomStyle, bbc: s.borderBottomColor, bg: s.backgroundColor, color: s.color, sh: s.boxShadow, cur: s.cursor }; };
+		o.dis = b("dis"); o.ro = b("ro"); o.rov = b("rov"); o.err = b("errfield"); o.dtdis = b("dtdis"); o.erowdis = b("erowdis"); o.masked = b("maskedvalue");
+		o.t = { disabledBg: tok("--ins-surface-disabled", "backgroundColor"), dim: tok("--ins-text-disabled", "color"), dash: tok("--ins-border", "color"), hair: tok("--ins-border-hairline", "color"), strong: tok("--ins-text-strong", "color"), danger: tok("--ins-danger", "color"), strongBorder: tok("--ins-border-strong", "color") };
+		o.maskAfter = { content: cs("masked", "::after").content, lock: cs("masked", "::after").display };
+		o.maskLock = cs("masked", "::before").content; o.maskLabelLock = getComputedStyle(document.querySelector("#masked .control-label"), "::before").content;
+		// status
+		const ps = (id) => { const s = cs(id, "::before"); return { content: s.content, display: s.display, bw: s.borderRightWidth, bblw: s.borderBottomWidth, radius: s.borderTopLeftRadius, bgi: s.backgroundImage, bg: s.backgroundColor, tf: s.transform, w: s.width, h: s.height }; };
+		o.pill = Object.fromEntries(["pill-green", "pill-red", "pill-orange", "pill-black", "pill-draft", "pill-cancelled", "pill-title-draft", "pill-title-cancelled"].map((id) => [id, ps(id)]));
+		o.pillBg = { draft: cs("pill-draft").backgroundColor, neutral: tok("--ins-status-neutral-bg", "backgroundColor"), cancelled: cs("pill-cancelled").backgroundColor, muted: tok("--ins-status-muted-bg", "backgroundColor"), red: cs("pill-red").backgroundColor, danger: tok("--ins-status-danger-bg", "backgroundColor"), black: cs("pill-black").backgroundColor, ink: tok("--ins-status-ink-bg", "backgroundColor") };
+		// actions and banners
+		const rj = cs("act-reject"); o.reject = { bd: rj.borderTopColor, color: rj.color, w: rj.borderTopWidth, g: cs("act-reject", "::before").backgroundImage };
+		o.approve = { g: cs("act-approve", "::before").borderRightWidth, tf: cs("act-approve", "::before").transform };
+		o.banner = { bg: cs("banner").backgroundColor, want: tok("--ins-feedback-danger-bg", "backgroundColor"), color: cs("banner").color, fg: tok("--ins-feedback-danger-fg", "color"), edge: cs("banner").borderInlineStartWidth };
+		// tabs
+		o.tabs = { on: (() => { const s = cs("tab-on"); return { w: s.borderBottomWidth, c: s.borderBottomColor, fw: s.fontWeight, color: s.color }; })(), off: (() => { const s = cs("tab-off"); return { fw: s.fontWeight, color: s.color }; })(), primary: tok("--ins-primary", "color"), strongText: tok("--ins-text-strong", "color"), secondary: tok("--ins-text-secondary", "color") };
+		// typography
+		o.type = { btn: cs("btn").letterSpacing, pill: cs("pill-green").letterSpacing, lbl: getComputedStyle(document.querySelector("#masked .control-label")).letterSpacing, num: cs("dtnum").fontVariantNumeric, lh: getComputedStyle(document.body).lineHeight, lhWant: v("btn", "--ins-leading-arabic") || getComputedStyle(document.documentElement).getPropertyValue("--ins-leading-arabic").trim() };
+		return o;
+	});
+	const rgbEq = (a, b) => a === b;
+	for (const [id, r] of Object.entries(p3.scope)) record(scenario, `descendant #${id}: --control-bg = surface-field`, p3.fieldWant, r.got, r.got === p3.fieldWant);
+	for (const [k, got] of Object.entries(p3.fieldBg)) record(scenario, `field inside ${k} paints surface-field`, p3.fieldWant, got, got === p3.fieldWant);
+	record(scenario, "button inside .modal keeps surface-fill", p3.fillWant, p3.btnInModal, p3.btnInModal === p3.fillWant);
+	record(scenario, ".modal --border-color = border-hairline", p3.hairWant, p3.modalBorder, p3.modalBorder === p3.hairWant);
+	record(scenario, ".chart-container --charts-stroke-width = 2px", "2px", p3.chart.stroke, p3.chart.stroke === "2px");
+	record(scenario, ".chart-container circle stroke = surface-raised", p3.raisedWant, p3.chart.circle, p3.chart.circle === p3.raisedWant);
+	record(scenario, ".chart-container circle stroke width = 2px", "2px", p3.chart.circleW, p3.chart.circleW === "2px");
+	record(scenario, ".editable-row --input-disabled-bg = surface-disabled", p3.disabledWant, p3.disabledBgVar, p3.disabledBgVar === p3.disabledWant);
+	record(scenario, "disabled field: dashed 1px border, disabled fill, dim text", `1px dashed ${p3.t.dash} on ${p3.t.disabledBg}, ${p3.t.dim}`, `${p3.dis.w} ${p3.dis.st} ${p3.dis.c} on ${p3.dis.bg}, ${p3.dis.color}`, p3.dis.w === "1px" && p3.dis.st === "dashed" && p3.dis.c === p3.t.dash && p3.dis.bg === p3.t.disabledBg && p3.dis.color === p3.t.dim && p3.dis.cur === "not-allowed");
+	record(scenario, "read-only input: flat, solid hairline underline, strong text", `transparent, solid ${p3.t.hair}, ${p3.t.strong}`, `${p3.ro.bg}, ${p3.ro.bbs} ${p3.ro.bbc}, ${p3.ro.color}`, p3.ro.bg === "rgba(0, 0, 0, 0)" && p3.ro.bbs === "solid" && p3.ro.bbc === p3.t.hair && p3.ro.color === p3.t.strong && p3.ro.st === "solid" && p3.ro.c === "rgba(0, 0, 0, 0)");
+	record(scenario, "read-only value (.like-disabled-input): flat, hairline underline, strong text", `transparent, solid ${p3.t.hair}, ${p3.t.strong}`, `${p3.rov.bg}, ${p3.rov.bbs} ${p3.rov.bbc}, ${p3.rov.color}`, p3.rov.bg === "rgba(0, 0, 0, 0)" && p3.rov.bbs === "solid" && p3.rov.bbc === p3.t.hair && p3.rov.color === p3.t.strong);
+	record(scenario, "read-only is visibly distinct from disabled (fill, border style, text colour all differ)", "differs", `${p3.ro.bg}/${p3.dis.bg}; ${p3.ro.st}/${p3.dis.st}; ${p3.ro.color}/${p3.dis.color}`, p3.ro.bg !== p3.dis.bg && p3.ro.bbs !== p3.dis.st && p3.ro.color !== p3.dis.color);
+	record(scenario, "datatable disabled input keeps border none", "0px none", `${p3.dtdis.w} ${p3.dtdis.st}`, p3.dtdis.w === "0px" && p3.dtdis.st === "none");
+	record(scenario, "editable-row disabled input keeps border none", "0px none", `${p3.erowdis.w} ${p3.erowdis.st}`, p3.erowdis.w === "0px" && p3.erowdis.st === "none");
+	record(scenario, "error field: danger border plus inset second cue", `solid ${p3.t.danger}, inset shadow`, `${p3.err.st} ${p3.err.c}, ${p3.err.sh}`, p3.err.c === p3.t.danger && /inset/.test(p3.err.sh));
+	record(scenario, "masked value: dashed strong border", `dashed ${p3.t.strongBorder}`, `${p3.masked.st} ${p3.masked.c}`, p3.masked.st === "dashed" && p3.masked.c === p3.t.strongBorder);
+	record(scenario, "masked wrapper shows its reason as generated text", '"Hidden for your role"', p3.maskAfter.content, p3.maskAfter.content === '"Hidden for your role"');
+	record(scenario, "masked label carries a drawn lock", '""', p3.maskLabelLock, p3.maskLabelLock === '""');
+	const pl = p3.pill;
+	record(scenario, "pill green (no-indicator-dot): check shape", "2px right border, rotated", `${pl["pill-green"].bw} ${pl["pill-green"].tf}`, pl["pill-green"].bw === "2px" && pl["pill-green"].tf !== "none" && pl["pill-green"].content === '""');
+	record(scenario, "pill red: cross (two gradients)", "2 linear-gradients", pl["pill-red"].bgi.slice(0, 60), (pl["pill-red"].bgi.match(/linear-gradient/g) || []).length === 2);
+	record(scenario, "pill orange: half disc (gradient and round)", "50% radius and gradient", `${pl["pill-orange"].radius} ${pl["pill-orange"].bgi.slice(0, 30)}`, /linear-gradient/.test(pl["pill-orange"].bgi) && /50%|4\.5px/.test(pl["pill-orange"].radius));
+	record(scenario, "Draft (form title, data-ins-docstatus=0): ring on the neutral pair", `ring, ${p3.pillBg.neutral}`, `${pl["pill-title-draft"].radius} ${pl["pill-title-draft"].bgi}`, pl["pill-title-draft"].bgi === "none" && pl["pill-title-draft"].bw === "1.5px");
+	record(scenario, "Cancelled (form title, data-ins-docstatus=2): filled square", "1px radius, filled", `${pl["pill-title-cancelled"].radius} ${pl["pill-title-cancelled"].bg}`, pl["pill-title-cancelled"].radius === "1px" && pl["pill-title-cancelled"].bg !== "rgba(0, 0, 0, 0)");
+	record(scenario, "Draft (list data-filter): neutral pair, ring", `${p3.pillBg.neutral}`, `${p3.pillBg.draft} ${pl["pill-draft"].bw}`, p3.pillBg.draft === p3.pillBg.neutral && pl["pill-draft"].bw === "1.5px");
+	record(scenario, "Cancelled (list data-filter): muted pair, square", `${p3.pillBg.muted}`, `${p3.pillBg.cancelled} ${pl["pill-cancelled"].radius}`, p3.pillBg.cancelled === p3.pillBg.muted && pl["pill-cancelled"].radius === "1px");
+	record(scenario, "Rejected (red) differs in shape from Draft and Cancelled", "cross vs ring vs square", `${pl["pill-red"].bgi.slice(0, 12)} | ${pl["pill-draft"].bw} | ${pl["pill-cancelled"].radius}`, pl["pill-red"].bgi !== pl["pill-draft"].bgi && pl["pill-draft"].radius !== pl["pill-cancelled"].radius);
+	record(scenario, "black pill gets the ink pair", p3.pillBg.ink, p3.pillBg.black, p3.pillBg.black === p3.pillBg.ink);
+	record(scenario, "data-ins-action=reject: danger outline and cross glyph", `1px ${p3.t.danger}, 2 gradients`, `${p3.reject.w} ${p3.reject.bd}, ${(p3.reject.g.match(/linear-gradient/g) || []).length} gradients`, p3.reject.w === "1px" && p3.reject.bd === p3.t.danger && p3.reject.color === p3.t.danger && (p3.reject.g.match(/linear-gradient/g) || []).length === 2);
+	record(scenario, "data-ins-action=approve: check glyph", "2px border, rotated", `${p3.approve.g} ${p3.approve.tf}`, p3.approve.g === "2px" && p3.approve.tf !== "none");
+	record(scenario, ".form-message.red: feedback pair, 4px start edge", `${p3.banner.want}, ${p3.banner.fg}, 4px`, `${p3.banner.bg}, ${p3.banner.color}, ${p3.banner.edge}`, p3.banner.bg === p3.banner.want && p3.banner.color === p3.banner.fg && p3.banner.edge === "4px");
+	record(scenario, "active tab: 2px primary underline, strong weight and text", `2px ${p3.tabs.primary}, 600, ${p3.tabs.strongText}`, `${p3.tabs.on.w} ${p3.tabs.on.c}, ${p3.tabs.on.fw}, ${p3.tabs.on.color}`, p3.tabs.on.w === "2px" && p3.tabs.on.c === p3.tabs.primary && p3.tabs.on.fw === "600" && p3.tabs.on.color === p3.tabs.strongText);
+	record(scenario, "idle tab: secondary text, regular weight", `${p3.tabs.secondary}, 400`, `${p3.tabs.off.color}, ${p3.tabs.off.fw}`, p3.tabs.off.color === p3.tabs.secondary && p3.tabs.off.fw === "400");
+	record(scenario, "numeric datatable content: tabular lining numerals", "tabular-nums", p3.type.num, /tabular-nums/.test(p3.type.num) && /lining-nums/.test(p3.type.num));
+	if (dir === "rtl") {
+		const zero = (x) => x === "normal" || x === "0px";
+		record(scenario, "Arabic: letter-spacing 0 on .btn, pill and label (core sets 0.02em)", "normal or 0px", `${p3.type.btn} | ${p3.type.pill} | ${p3.type.lbl}`, zero(p3.type.btn) && zero(p3.type.pill) && zero(p3.type.lbl));
+		record(scenario, "Arabic: body line-height = --ins-leading-arabic (1.65 x 14px)", "23.1px", p3.type.lh, Math.abs(parseFloat(p3.type.lh) - 23.1) < 0.2);
+	}
+	// Tabs and switch: the ring must reach the tab (core `outline: none` at (0,5,0)), and an idle tab keeps its weight on focus.
+	await page.keyboard.press("Tab");
+	const tabFocus = await page.evaluate((ring) => {
+		const out = {};
+		for (const id of ["tab-on", "tab-off"]) { const e = document.getElementById(id); e.focus({ focusVisible: true }); const s = getComputedStyle(e); out[id] = { ok: document.activeElement === e && e.matches(":focus-visible"), w: s.outlineWidth, st: s.outlineStyle, c: s.outlineColor, o: s.outlineOffset, fw: s.fontWeight }; }
+		return out;
+	}, ringWant);
+	for (const [id, t] of Object.entries(tabFocus)) record(scenario, `focus ring on #${id}: 2px solid ring, inside (-2px)`, `2px solid ${ringWant} -2px`, `${t.w} ${t.st} ${t.c} ${t.o} (focus-visible ${t.ok})`, t.ok && t.w === "2px" && t.st === "solid" && t.c === ringWant && t.o === "-2px");
+	record(scenario, "idle tab keeps regular weight when focused (no width jump)", "400", tabFocus["tab-off"].fw, tabFocus["tab-off"].fw === "400");
+	await page.evaluate(() => document.activeElement?.blur());
+	// Ribbon: html attribute plus the element the script appends.
+	const rb = await page.evaluate(() => {
+		const r = document.documentElement; r.setAttribute("data-ins-environment", "uat");
+		const e = document.createElement("div"); e.className = "ins-env-ribbon"; e.setAttribute("role", "note"); e.textContent = "UAT"; document.body.append(e);
+		const s = getComputedStyle(e), h = getComputedStyle(r);
+		const out = { pos: s.position, z: s.zIndex, h: s.height, top: s.top, sp: h.scrollPaddingBlockStart, head: h.getPropertyValue("--ins-page-head-height").trim(), hit: s.pointerEvents };
+		e.remove(); r.removeAttribute("data-ins-environment"); return out;
+	});
+	record(scenario, "ribbon: fixed, z-index 1021 (below the 1040 backdrop), 24px, pointer-events none", "fixed 1021 24px", `${rb.pos} ${rb.z} ${rb.h} ${rb.hit}`, rb.pos === "fixed" && rb.z === "1021" && rb.h === "24px" && rb.hit === "none");
+	record(scenario, "ribbon: scroll-padding-block-start grows by the ribbon height", `${parseFloat(rb.head) + 8 + 24}px`, rb.sp, rb.sp === `${parseFloat(rb.head) + 8 + 24}px`);
 	await page.emulateMedia({ forcedColors: "active" });
 	await page.evaluate(() => document.getElementById("btn").focus());
 	await page.keyboard.press("Shift+Tab"); await page.keyboard.press("Tab");

@@ -1,2 +1,72 @@
-// Core's hard-coded colours and literals, replaced by tokens (print preview stays paper white).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Core's hard-coded colours and literals, replaced by tokens (print preview stays paper white, desk/print_preview.scss:73).
+// Selectors sit above core's; no !important except where core uses it on the same property (calendar events), listed below.
+
+// ---- Breadcrumb: core paints `background-color: white` (desk/breadcrumb.scss:4) on a (0,1,0) selector.
+html:root .breadcrumb {
+	background-color: transparent;
+}
+
+// ---- Form sidebar scrim on small screens: core `div.close-sidebar { background: #000; opacity: 0.3 }` (desk/form_sidebar.scss:388-396).
+// --ins-surface-scrim carries its own alpha, so the opacity is reset to avoid compounding.
+html:root div.close-sidebar {
+	background: var(--ins-surface-scrim);
+	opacity: 1;
+}
+
+// ---- Collapse indicator: core `#d1d8dd` (desk/notification.scss:34-37), a 1.4:1 grey on white.
+html:root .collapse-indicator {
+	color: var(--ins-text-muted);
+}
+
+// ---- Module progress bar: core `#999999` (desk/module.scss:119-122).
+html:root .module-item-progress-total {
+	background-color: var(--ins-border-strong);
+}
+
+// ---- Calendar (desk/calendar.scss). Today's date number is `$white` on --gray-700; events are a literal light blue with literal blue text.
+html:root .fc-theme-standard .fc-day-today .fc-daygrid-day-number {
+	background-color: var(--ins-surface-inverse);
+	color: var(--ins-text-inverse);
+}
+
+html:root .fc-event {
+	background-color: var(--ins-feedback-info-bg);
+}
+
+// !important: core sets `color: rgb(0, 112, 204) !important` on both selectors (calendar.scss:71, 99), so only an
+// !important declaration can replace it. Recorded in the manifest; the value is the audited feedback-info foreground.
+html:root .fc-event-main-frame,
+html:root .fc-daygrid-dot-event {
+	color: var(--ins-feedback-info-fg) !important;
+}
+
+// ---- frappe-datatable (desk/frappe_datatable.scss:2): `--dt-primary-color: $primary` is emitted as a literal. Variable only; no geometry.
+html:root[dir] .datatable {
+	--dt-primary-color: var(--ins-primary);
+}
+
+// ---- Heatmap legend label `#555b51` (desk/desktop.scss:312). Core's chain is nested under a page container, so :root repeats.
+html:root:root:root .heatmap-legend .legend-label {
+	color: var(--ins-text-muted);
+}
+
+// ---- Editor.js settings popovers on the workspace editor (desk/desktop.scss:1283, 1291, 1302, 1348): literal greys, blue and white.
+html:root:root:root:root .ce-toolbar .ce-settings .cdx-settings-button {
+	color: var(--ins-text-secondary);
+}
+
+html:root:root:root:root .ce-toolbar .ce-settings .cdx-settings-button--active {
+	color: var(--ins-text-link);
+}
+
+html:root:root:root:root .ce-toolbar .ce-settings .cdx-settings-sidebar {
+	background: var(--ins-surface-overlay);
+}
+
+html:root:root:root .cdx-marker {
+	background: var(--ins-mark-bg);
+}
+
+// ---- Outline literals `1px solid #c9c9c9` on :focus-visible (desk/form.scss:54,58; common/grid.scss:150): they are (0,3,0) to (0,4,0),
+// below the ring rule in _base.scss (0,4,2), so the one ring replaces them wherever the element is focusable by that rule.
+// The tab link is the exception (core `outline: none` at (0,5,0)), handled in _form.scss.

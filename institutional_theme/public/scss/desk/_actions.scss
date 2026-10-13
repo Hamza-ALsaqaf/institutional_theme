@@ -1,2 +1,103 @@
-// Consequential action cues (css-C).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Consequential actions (ADR 0008 section 3): CSS keys only on data-ins-action, set by the shell script from translated labels.
+// Buttons: approve and submit stay filled primary with a check; cancel, reject and delete become danger outlines with a cross; amend gets a diamond.
+
+// The glyph is drawn with currentColor gradients and borders (no image, no literal colour), so forced colours keep it.
+@mixin ins-action-glyph($kind) {
+	content: "";
+	display: inline-block;
+	flex: none;
+	box-sizing: border-box;
+	width: 9px;
+	height: 9px;
+	margin-inline-end: var(--ins-space-15);
+	@if $kind == check {
+		width: 5px;
+		height: 9px;
+		margin-inline: 2px var(--ins-space-2);
+		border: solid currentColor;
+		border-width: 0 2px 2px 0;
+		transform: translateY(-1px) rotate(45deg);
+	} @else if $kind == cross {
+		background:
+			linear-gradient(45deg, transparent 41%, currentColor 41% 59%, transparent 59%),
+			linear-gradient(-45deg, transparent 41%, currentColor 41% 59%, transparent 59%);
+	} @else {
+		width: 7px;
+		height: 7px;
+		margin-inline: 1px var(--ins-space-15);
+		background: currentColor;
+		transform: rotate(45deg);
+	}
+}
+
+// ---- Buttons. Core: `.btn.btn-primary` and `.btn.btn-secondary` (common/buttons.scss:80,117) at (0,2,0) to (0,3,0) with hover,
+// active and focus variants. Here: html:root[dir] (0,2,1) + attribute + class = (0,4,1); hover and active add one class.
+html:root[dir] :is(button, .btn)[data-ins-action="submit"]::before,
+html:root[dir] :is(button, .btn)[data-ins-action="approve"]::before {
+	@include ins-action-glyph(check);
+}
+
+html:root[dir] :is(button, .btn)[data-ins-action="cancel"]::before,
+html:root[dir] :is(button, .btn)[data-ins-action="reject"]::before,
+html:root[dir] :is(button, .btn)[data-ins-action="delete"]::before {
+	@include ins-action-glyph(cross);
+}
+
+html:root[dir] :is(button, .btn)[data-ins-action="amend"]::before {
+	@include ins-action-glyph(diamond);
+}
+
+html:root[dir] :is(button, .btn):is([data-ins-action="submit"], [data-ins-action="approve"], [data-ins-action="amend"]) {
+	font-weight: var(--ins-weight-strong);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+html:root[dir] :is(button, .btn):is([data-ins-action="cancel"], [data-ins-action="reject"], [data-ins-action="delete"]) {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--ins-surface-base);
+	border: 1px solid var(--ins-danger);
+	color: var(--ins-danger);
+	font-weight: var(--ins-weight-medium);
+}
+
+html:root[dir] :is(button, .btn):is([data-ins-action="cancel"], [data-ins-action="reject"], [data-ins-action="delete"]):is(:hover, :active) {
+	background: var(--ins-feedback-danger-bg);
+	border-color: var(--ins-danger-hover);
+	color: var(--ins-danger-hover);
+}
+
+// ---- Menu and dropdown items: the tag is on the `a` or `.dropdown-item` (ADR 0008). Danger text, same glyph; weight medium.
+// Core: `.dropdown-menu .dropdown-item` carry --text-color; their hover rules are (0,3,0), so this is above at (0,4,1).
+html:root[dir] :is(a, .dropdown-item)[data-ins-action]:not(button, .btn) {
+	display: flex;
+	align-items: center;
+}
+
+html:root[dir] :is(a, .dropdown-item)[data-ins-action="cancel"]:not(button, .btn)::before,
+html:root[dir] :is(a, .dropdown-item)[data-ins-action="reject"]:not(button, .btn)::before,
+html:root[dir] :is(a, .dropdown-item)[data-ins-action="delete"]:not(button, .btn)::before {
+	@include ins-action-glyph(cross);
+}
+
+html:root[dir] :is(a, .dropdown-item)[data-ins-action="submit"]:not(button, .btn)::before,
+html:root[dir] :is(a, .dropdown-item)[data-ins-action="approve"]:not(button, .btn)::before {
+	@include ins-action-glyph(check);
+}
+
+html:root[dir] :is(a, .dropdown-item)[data-ins-action="amend"]:not(button, .btn)::before {
+	@include ins-action-glyph(diamond);
+}
+
+html:root[dir] :is(a, .dropdown-item):is([data-ins-action="cancel"], [data-ins-action="reject"], [data-ins-action="delete"]):not(button, .btn) {
+	color: var(--ins-danger);
+	font-weight: var(--ins-weight-medium);
+}
+
+html:root[dir] :is(a, .dropdown-item):is([data-ins-action="cancel"], [data-ins-action="reject"], [data-ins-action="delete"]):not(button, .btn):is(:hover, :focus) {
+	background: var(--ins-feedback-danger-bg);
+	color: var(--ins-danger-hover);
+}

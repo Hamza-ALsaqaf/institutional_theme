@@ -1,2 +1,44 @@
-// Role-masked fields (css-C).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Role-masked fields (ADR 0008 section 4): the shell script marks the control wrapper; CSS shows the reason beside a lock.
+// Core sends `XXXXXXXX` and forces the field read-only (findings 4), so the value itself is never meaningful.
+
+// The wrapper is `.frappe-control` (masked_fields.js:16-17). Artboard `.masked`: dashed strong border, hatched fill, secondary text.
+// Hatching uses two surface tokens, so it follows both modes. (0,5,1) and above; core's `.like-disabled-input` is (0,1,0)
+// and `.form-control` (0,1,0), and _controls.scss read-only rules are (0,4,1).
+html:root[dir] .frappe-control[data-ins-masked] :is(.control-value.like-disabled-input, input.form-control) {
+	background: repeating-linear-gradient(135deg, var(--ins-surface-sunken) 0 6px, var(--ins-surface-base) 6px 12px);
+	border: 1px dashed var(--ins-border-strong);
+	border-radius: var(--ins-radius-sm);
+	color: var(--ins-text-secondary);
+	cursor: not-allowed;
+	user-select: none;
+}
+
+// Lock before the label, drawn with currentColor gradients (a shackle arc over a solid body): no image, no literal colour.
+html:root[dir] .frappe-control[data-ins-masked] .control-label::before {
+	content: "";
+	display: inline-block;
+	inline-size: 10px;
+	block-size: 12px;
+	margin-inline-end: var(--ins-space-15);
+	vertical-align: -2px;
+	background:
+		radial-gradient(circle at 50% 100%, transparent 2px, currentColor 2.2px 3.6px, transparent 3.8px) top / 10px 6px no-repeat,
+		linear-gradient(currentColor, currentColor) bottom / 10px 6px no-repeat;
+}
+
+// The reason, as generated text from the attribute on the wrapper itself (already translated by the script).
+html:root[dir] .frappe-control[data-ins-masked]::after {
+	content: attr(data-ins-masked-label);
+	display: block;
+	margin-block-start: var(--ins-space-1);
+	font-size: var(--ins-text-xs);
+	line-height: var(--ins-leading);
+	color: var(--ins-text-muted);
+}
+
+// Forced colours: the hatch is dropped with the background; the dashed border and the text reason remain.
+@media (forced-colors: active) {
+	html:root[dir] .frappe-control[data-ins-masked] :is(.control-value.like-disabled-input, input.form-control) {
+		border-color: CanvasText;
+	}
+}

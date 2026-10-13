@@ -1,2 +1,53 @@
-// Environment ribbon (css-C).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Environment ribbon (ADR 0008 section 5, ADR 0005): a fixed strip at the top, shown when the shell script appends it.
+// CSS keys on `html[data-ins-environment]` and `.ins-env-ribbon` only; hidden in print; never above the modal backdrop (1040).
+
+html:root[dir] {
+	--ins-ribbon-height: 0px;
+}
+
+html:root[dir][data-ins-environment] {
+	--ins-ribbon-height: 24px;
+	// The ribbon is fixed above the page: focused elements and anchors must stop below it. Adds to the _base.scss value (0,2,1).
+	scroll-padding-block-start: calc(var(--ins-page-head-height) + var(--ins-space-2) + var(--ins-ribbon-height));
+}
+
+html:root[dir][data-ins-environment] body {
+	padding-block-start: var(--ins-ribbon-height);
+}
+
+html:root[dir] .ins-env-ribbon {
+	position: fixed;
+	inset-block-start: 0;
+	inset-inline: 0;
+	z-index: var(--ins-z-ribbon);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	block-size: var(--ins-ribbon-height);
+	margin: 0;
+	padding-inline: var(--ins-space-4);
+	background: var(--ins-accent-subtle);
+	color: var(--ins-accent-text);
+	border-block-end: 1px solid var(--ins-accent);
+	font-size: var(--ins-text-xs);
+	font-weight: var(--ins-weight-strong);
+	line-height: 1;
+	letter-spacing: 0;
+	pointer-events: none;
+}
+
+@media print {
+	html:root[dir] .ins-env-ribbon {
+		display: none;
+	}
+
+	html:root[dir][data-ins-environment] body {
+		padding-block-start: 0;
+	}
+}
+
+@media (forced-colors: active) {
+	html:root[dir] .ins-env-ribbon {
+		border-block-end-color: CanvasText;
+	}
+}

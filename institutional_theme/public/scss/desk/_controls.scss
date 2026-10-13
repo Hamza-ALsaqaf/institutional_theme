@@ -12,3 +12,155 @@
 .form-control {
 	border: 1px solid var(--ins-border-control);
 }
+
+// States below never apply inside datatable cells or editable grid rows, where the border is `none` on purpose
+// (a dashed or thicker border there would change the cell box that frappe-datatable measures).
+// The exclusion is structural, so no specificity race with core's `.datatable .form-control` blocks.
+$ins-cell-scope: ':not(:is(.datatable, .grid-body .editable-row) *)';
+
+// ---- Hover: stronger boundary on enabled, writable fields. (0,4,1) with the scope; core has no hover rule.
+html:root .form-control:hover:not(:disabled, [readonly], :focus)#{$ins-cell-scope} {
+	border-color: var(--ins-border-control-hover);
+}
+
+// ---- Focus: keep the boundary colour. Bootstrap's `.form-control:focus` (0,2,0) turns it to --gray-500 and
+// core adds a box-shadow; the outline ring from _base.scss is the one cue, so the border stays put.
+html:root .form-control:focus#{$ins-cell-scope} {
+	border-color: var(--ins-border-control);
+	background-color: var(--control-bg);
+	color: var(--ins-text);
+}
+
+// ---- Disabled: filled, dashed boundary, dimmed text. Not a colour-only cue: the dash survives forced colours
+// and greyscale. Core `.form-control:disabled` (0,2,0) sets text-muted and `not-allowed`; the background is
+// --input-disabled-bg through the map.
+html:root .form-control:disabled#{$ins-cell-scope} {
+	border: 1px dashed var(--ins-border);
+	background-color: var(--ins-surface-disabled);
+	color: var(--ins-text-disabled);
+	cursor: not-allowed;
+}
+
+// ---- Read-only: flat text on the page with a hairline underline (artboard `.ro`), never filled and never
+// dashed, so it cannot be mistaken for disabled. Two renderings exist in 16.32:
+//   `.control-value.like-disabled-input` (base_input.js:29) and `input[readonly]`.
+html:root .frappe-control .control-value.like-disabled-input {
+	background-color: transparent;
+	color: var(--ins-text-strong);
+	border-radius: 0;
+	border-block-end: 1px solid var(--ins-border-hairline);
+	cursor: default;
+}
+
+html:root .form-control[readonly]:not(:disabled)#{$ins-cell-scope} {
+	background-color: transparent;
+	color: var(--ins-text-strong);
+	border-color: transparent;
+	border-block-end-color: var(--ins-border-hairline);
+	border-radius: 0;
+	cursor: default;
+}
+
+// ---- Required marker. Core: `.frappe-control .control-label.reqd:after` (0,3,1) paints --red-400.
+html:root .frappe-control .control-label.reqd::after {
+	color: var(--ins-danger);
+	font-weight: var(--ins-weight-strong);
+}
+
+// ---- Label and help.
+html:root .frappe-control .control-label {
+	color: var(--ins-text-secondary);
+	font-weight: var(--ins-weight-medium);
+}
+
+html:root .frappe-control .help-box,
+html:root .frappe-control .help-box.small {
+	color: var(--ins-text-muted);
+	font-size: var(--ins-text-xs);
+	line-height: var(--ins-leading);
+}
+
+// ---- Error. Core (controls.scss:222): border `--error-border` (mapped to --ins-danger) at (0,4,1) and a focus
+// box-shadow. Add a second, non-colour cue: an inner 1px line makes the boundary 2px thick. The focus reset in
+// _base.scss removes it while the ring is shown, and the ring then carries the focus cue.
+html:root .frappe-control.has-error :is(input, select, textarea).form-control#{$ins-cell-scope} {
+	border-color: var(--ins-danger);
+	box-shadow: inset 0 0 0 1px var(--ins-danger);
+}
+
+html:root .frappe-control.has-error .control-label {
+	color: var(--ins-danger);
+}
+
+// ---- Select and Link: the caret and awesomplete arrow are core's; the field itself follows .form-control.
+// Rich text, code and signature surfaces draw a boundary in border-control (core uses --border-color).
+html:root :is(.ql-toolbar.ql-snow, .ql-container.ql-snow) {
+	border-color: var(--ins-border-control);
+}
+
+html:root .ace_editor {
+	border: 1px solid var(--ins-border-control);
+	border-radius: var(--ins-radius-sm);
+}
+
+html:root .signature-field {
+	border-color: var(--ins-border-control);
+}
+
+// ---- Checkbox and radio. Core paints them with --checkbox-gradient and --checkbox-disabled-gradient, both mapped.
+// Only the cursor is added here; the disabled fill is core's gradient, mapped.
+html:root input[type="checkbox"]:disabled,
+html:root input[type="radio"]:disabled {
+	cursor: not-allowed;
+}
+
+// ---- Switch (controls.scss:709-806). The real input is clipped to 1px, so the ring goes on the track.
+// Unchecked track is --ink-gray-2: give it a boundary so it reads against the page (3:1).
+html:root .switch-control .switch-visual {
+	box-shadow: inset 0 0 0 1px var(--ins-border-control);
+}
+
+html:root .switch-control .input-area:has(input:focus-visible) ~ .switch-visual {
+	outline: var(--ins-focus-width) solid var(--ins-focus);
+	outline-offset: var(--ins-focus-offset);
+	box-shadow: inset 0 0 0 1px var(--ins-border-control);
+}
+
+html:root .switch-control:has(input:disabled) {
+	opacity: 1;
+}
+
+html:root .switch-control:has(input:disabled) .switch-visual {
+	background-color: var(--ins-surface-disabled);
+	box-shadow: inset 0 0 0 1px var(--ins-border);
+}
+
+html:root .switch-control:has(input:disabled) .label-area {
+	color: var(--ins-text-disabled);
+}
+
+// ---- Attach, address and contact boxes: boundary on surface-field.
+html:root .frappe-control[data-fieldtype="Attach"] .attached-file,
+html:root .frappe-control[data-fieldtype="Attach Image"] .attached-file {
+	border: 1px solid var(--ins-border);
+}
+
+// ---- Dark placeholder on the dialog surface is handled in _scoped_variables.scss (--control-bg on .modal).
+
+// ---- Forced colours: fields keep a visible boundary; the dashed disabled and flat read-only cues survive.
+@media (forced-colors: active) {
+	html:root .form-control:disabled#{$ins-cell-scope} {
+		border-color: GrayText;
+		color: GrayText;
+	}
+
+	html:root .form-control[readonly]:not(:disabled)#{$ins-cell-scope},
+	html:root .frappe-control .control-value.like-disabled-input {
+		border-block-end-color: CanvasText;
+	}
+
+	html:root .switch-control .switch-visual {
+		outline: 1px solid CanvasText;
+		outline-offset: -1px;
+	}
+}
