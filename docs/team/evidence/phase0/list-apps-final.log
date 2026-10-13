@@ -1,0 +1,6 @@
+$ bench_site --site midad.test list-apps
+
+frappe              16.32.0 HEAD
+erpnext             16.33.0 HEAD
+institutional_theme 0.1.0   build/midad-v1
+

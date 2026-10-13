@@ -5,7 +5,7 @@
 #   tools/bench/build_test_bench.sh            run every step
 #   tools/bench/build_test_bench.sh <step>...  run only the named steps
 #
-# Steps, in order: preflight user cli postgres bench services site erpnext app build
+# Steps, in order: preflight user cli postgres bench services site erpnext wizard app build
 # Each step is idempotent: it checks for its own result and skips when found.
 # Each step prints "STEP <name> START/END <seconds>s" so durations can be read from the log.
 #
@@ -21,7 +21,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=env.sh
 source "${HERE}/env.sh"
 
-ALL_STEPS=(preflight user cli postgres bench services site erpnext app build)
+ALL_STEPS=(preflight user cli postgres bench services site erpnext wizard app build)
 BENCH="${BENCH:-bench}"
 
 run_step() {
@@ -181,6 +181,28 @@ step_erpnext() {
 	bench_cmd --site "${SITE}" list-apps
 }
 
+step_wizard() {
+	# Without a finished setup wizard /app redirects to /desk/setup-wizard, which would be
+	# the only thing the screenshots show. Fictional data only.
+	local done
+	done="$(bench_cmd --site "${SITE}" execute frappe.is_setup_complete 2>/dev/null | tail -1)"
+	if [[ "${done,,}" == "true" ]]; then
+		echo "setup wizard already complete"
+		return 0
+	fi
+	local args="{'language': 'English', 'country': 'Saudi Arabia', 'timezone': 'Asia/Riyadh', 'currency': 'SAR', \
+'full_name': 'Test Administrator', 'email': 'admin@example.com', 'password': '${ADMIN_PASSWORD}', \
+'company_name': 'Test Institution', 'company_abbr': 'TI', 'fy_start_date': '2026-01-01', \
+'fy_end_date': '2026-12-31', 'chart_of_accounts': 'Standard', 'bank_account': 'Main Account'}"
+	if [[ "${WITH_ERPNEXT}" != "1" ]]; then
+		args="{'language': 'English', 'country': 'Saudi Arabia', 'timezone': 'Asia/Riyadh', 'currency': 'SAR', \
+'full_name': 'Test Administrator', 'email': 'admin@example.com', 'password': '${ADMIN_PASSWORD}'}"
+	fi
+	bench_cmd --site "${SITE}" execute frappe.desk.page.setup_wizard.setup_wizard.setup_complete \
+		--kwargs "{'args': ${args}}"
+	bench_cmd --site "${SITE}" execute frappe.is_setup_complete
+}
+
 step_app() {
 	local link="${BENCH_DIR}/apps/institutional_theme"
 	if [[ -e "${link}" && ! -L "${link}" ]]; then
@@ -203,6 +225,8 @@ step_build() {
 	# Links sites/assets/institutional_theme -> app public folder and builds every bundle.
 	bench_cmd build
 	ls -l "${BENCH_DIR}/sites/assets/" | grep -E "frappe|erpnext|institutional_theme" || true
+	# Apps pip-installed after the web server started are invisible to it.
+	"${HERE}/start_services.sh" restart-web
 }
 
 if [[ $# -gt 0 ]]; then

@@ -1,0 +1,784 @@
+# Test bench build log (assembled from the runs below; very long yarn/pip/vite output trimmed to head and tail, every error line kept)
+# Environment: root container, Python 3.14.6, Node 24.21.0 (bench user), PostgreSQL 16, Redis, Frappe v16.32.0, ERPNext v16.33.0
+# Not a single from-scratch run: failed attempts are listed first, in the order they happened.
+
+====================================================================================================
+== Attempt 1 (FAILED): bench init could not build mysqlclient (no libmariadb headers). Fix: apt-get install libmariadb-dev pkg-config (client headers only).
+== source: build-attempt-mysqlclient.log (119 lines)
+====================================================================================================
+STEP preflight START 2026-10-13T06:33:46Z
+v22.22.0
+1.22.22
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=e53ff17674aa6190
+git version 2.43.0
+uv 0.11.32 (x86_64-unknown-linux-gnu)
+STEP preflight END 0s
+STEP user START 2026-10-13T06:33:46Z
+Python 3.14.6
+STEP user END 0s
+STEP cli START 2026-10-13T06:33:46Z
+5.31.0
+STEP cli END 0s
+STEP postgres START 2026-10-13T06:33:46Z
+127.0.0.1:5432 - accepting connections
+STEP postgres END 0s
+STEP bench START 2026-10-13T06:33:46Z
+Setting Up Environment
+$ uv venv env --seed --python /opt/python3.14/bin/python3.14
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Using CPython 3.14.6 interpreter at: /opt/python3.14/bin/python3.14
+Creating virtual environment with seed packages at: env
+ + pip==26.2.1
+Activate with: source env/bin/activate
+Getting frappe
+$ git clone /home/user/src/frappe-16.32.0 --branch v16.32.0 --depth 1 --origin upstream
+Cloning into 'frappe-16.32.0'...
+warning: --depth is ignored in local clones; use file:// instead.
+Note: switching to '5cba016e86b54b57f34a3864282b92300ef20fb0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+[... 35 lines trimmed ...]
+  ├─▶ The build backend returned an error
+  ╰─▶ Call to `setuptools.build_meta.build_wheel` failed (exit status: 1)
+[... 2 lines trimmed ...]
+      Trying pkg-config --exists mysqlclient
+      Command 'pkg-config --exists mysqlclient' returned non-zero exit status
+      1.
+      Trying pkg-config --exists mariadb
+      Command 'pkg-config --exists mariadb' returned non-zero exit status 1.
+      Trying pkg-config --exists libmariadb
+      Command 'pkg-config --exists libmariadb' returned non-zero exit status
+      1.
+      Trying pkg-config --exists perconaserverclient
+      Command 'pkg-config --exists perconaserverclient' returned non-zero exit
+      status 1.
+
+      [stderr]
+      Traceback (most recent call last):
+        File "<string>", line 14, in <module>
+          requires = get_requires_for_build({})
+        File
+      "/home/frappe/.cache/uv/builds-v0/.tmpKu3lE6/lib/python3.14/site-packages/setuptools/build_meta.py",
+      line 333, in get_requires_for_build_wheel
+          return self._get_build_requires(config_settings, requirements=[])
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File
+      "/home/frappe/.cache/uv/builds-v0/.tmpKu3lE6/lib/python3.14/site-packages/setuptools/build_meta.py",
+      line 301, in _get_build_requires
+          self.run_setup()
+          ~~~~~~~~~~~~~~^^
+        File
+      "/home/frappe/.cache/uv/builds-v0/.tmpKu3lE6/lib/python3.14/site-packages/setuptools/build_meta.py",
+      line 317, in run_setup
+          exec(code, locals())  # noqa: S102 # exec is intentional here
+          ~~~~^^^^^^^^^^^^^^^^
+        File "<string>", line 156, in <module>
+        File "<string>", line 49, in get_config_posix
+        File "<string>", line 28, in find_package_name
+      Exception: Can not find valid pkg-config name.
+      Specify MYSQLCLIENT_CFLAGS and MYSQLCLIENT_LDFLAGS env vars manually
+
+
+hint: `mysqlclient` (v2.2.7) was included because `frappe` (v16.32.0) depends on `mysqlclient`
+hint: Build failures usually indicate a problem with the package or the build environmentError occured during app install: uv pip install --quiet -e /home/frappe/frappe-bench/apps/frappe  --python /home/frappe/frappe-bench/env/bin/python
+
+====================================================================================================
+== Attempt 2 (FAILED): yarn install rejected Node 22, Frappe 16.32.0 needs node >=24. Fix: unpack Node 24.21.0 (sha256-verified) to /opt/node24. (preflight step now also installs libmariadb-dev).
+== source: build-attempt-node22.log (191 lines)
+====================================================================================================
+STEP preflight START 2026-10-13T06:36:04Z
+v22.22.0
+1.22.22
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=e53ff17674aa6190
+git version 2.43.0
+uv 0.11.32 (x86_64-unknown-linux-gnu)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+pkg-config is already the newest version (1.8.1-2build1).
+gcc is already the newest version (4:13.2.0-7ubuntu1).
+The following additional packages will be installed:
+  libmariadb3 mariadb-common mysql-common
+The following NEW packages will be installed:
+  libmariadb-dev libmariadb3 mariadb-common mysql-common
+0 upgraded, 4 newly installed, 0 to remove and 47 not upgraded.
+Need to get 506 kB of archives.
+After this operation, 1717 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 mysql-common all 5.8+1.1.0build1 [6746 B]
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 mariadb-common all 1:10.11.14-0ubuntu0.24.04.1 [28.6 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libmariadb3 amd64 1:10.11.14-0ubuntu0.24.04.1 [196 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libmariadb-dev amd64 1:10.11.14-0ubuntu0.24.04.1 [274 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 506 kB in 1s (856 kB/s)
+Selecting previously unselected package mysql-common.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+[... 26 lines trimmed ...]
+STEP preflight END 4s
+STEP user START 2026-10-13T06:36:08Z
+[... 1 lines trimmed ...]
+STEP user END 0s
+STEP cli START 2026-10-13T06:36:08Z
+[... 1 lines trimmed ...]
+STEP cli END 1s
+STEP postgres START 2026-10-13T06:36:09Z
+[... 1 lines trimmed ...]
+STEP postgres END 0s
+STEP bench START 2026-10-13T06:36:09Z
+[... 58 lines trimmed ...]
+error frappe-framework@: The engine "node" is incompatible with this module. Expected version ">=24". Got "22.22.0"
+error Found incompatible module.
+[... 1 lines trimmed ...]
+subprocess.CalledProcessError: Command 'yarn install --check-files' returned non-zero exit status 1.
+[... 3 lines trimmed ...]
+Traceback (most recent call last):
+[... 8 lines trimmed ...]
+    )
+    ^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/render.py", line 105, in wrapper_fn
+    return fn(*args, **kwargs)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/system.py", line 87, in init
+    get_app(
+    ~~~~~~~^
+    	frappe_path,
+     ^^^^^^^^^^^^
+    ...<4 lines>...
+    	resolve_deps=False,
+     ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 787, in get_app
+    app.install(verbose=verbose, skip_assets=skip_assets, restart_bench=restart_bench)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/render.py", line 126, in wrapper_fn
+    return fn(*args, **kwargs)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 254, in install
+    install_app(
+    ~~~~~~~~~~~^
+    	app=app_name,
+     ^^^^^^^^^^^^^
+    ...<6 lines>...
+    	using_cached=using_cached,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 964, in install_app
+    bench.run(yarn_install, cwd=app_path)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/bench.py", line 50, in run
+    return exec_cmd(cmd, cwd=cwd or self.cwd, _raise=_raise, env=env)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/__init__.py", line 193, in exec_cmd
+    raise CommandFailedError(cmd) from subprocess.CalledProcessError(return_code, cmd)
+bench.exceptions.CommandFailedError: yarn install --check-files
+
+ERROR: There was a problem while creating frappe-bench
+Do you want to rollback these changes? [y/N]: Aborted!
+
+====================================================================================================
+== Attempt 3 (FAILED at the last bench-init step): no /usr/bin/crontab for the automatic backup cron job. Everything before it (yarn install, pip, asset build) succeeded, so bench init took about 68 s here (06:39:36 to 06:40:44). Fix: bench init --no-backups.
+== source: build-attempt-crontab.log (263 lines)
+====================================================================================================
+STEP preflight START 2026-10-13T06:39:29Z
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=e53ff17674aa6190
+git version 2.43.0
+uv 0.11.32 (x86_64-unknown-linux-gnu)
+STEP preflight END 0s
+STEP user START 2026-10-13T06:39:29Z
+node-v24.21.0-linux-x64.tar.xz: OK
+Python 3.14.6
+v24.21.0
+1.22.22
+STEP user END 7s
+STEP cli START 2026-10-13T06:39:36Z
+5.31.0
+STEP cli END 0s
+STEP postgres START 2026-10-13T06:39:36Z
+127.0.0.1:5432 - accepting connections
+STEP postgres END 0s
+STEP bench START 2026-10-13T06:39:36Z
+Setting Up Environment
+$ uv venv env --seed --python /opt/python3.14/bin/python3.14
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Using CPython 3.14.6 interpreter at: /opt/python3.14/bin/python3.14
+Creating virtual environment with seed packages at: env
+ + pip==26.2.1
+Activate with: source env/bin/activate
+Getting frappe
+$ git clone /home/user/src/frappe-16.32.0 --branch v16.32.0 --depth 1 --origin upstream
+Cloning into 'frappe-16.32.0'...
+warning: --depth is ignored in local clones; use file:// instead.
+Note: switching to '5cba016e86b54b57f34a3864282b92300ef20fb0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+[... 134 lines trimmed ...]
+ WARN  Cannot connect to redis_cache to update assets_json
+ WARN  Cannot connect to redis_cache to update assets_json
+ WARN  Cannot connect to redis_cache to update assets_json
+[... 41 lines trimmed ...]
+Traceback (most recent call last):
+[... 4 lines trimmed ...]
+     ^^^^^
+    ...<12 lines>...
+    	dev=dev,
+     ^^^^^^^^
+    )
+    ^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/render.py", line 105, in wrapper_fn
+    return fn(*args, **kwargs)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/system.py", line 115, in init
+    bench.setup.backups()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/render.py", line 126, in wrapper_fn
+    return fn(*args, **kwargs)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/bench.py", line 480, in backups
+    system_crontab = CronTab(user=user)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/crontab.py", line 228, in __init__
+    self.read(tabfile)
+    ~~~~~~~~~^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/crontab.py", line 291, in read
+    (out, err) = open_pipe(self.cron_command, l='', **self.user_opt).communicate()
+                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/crontab.py", line 190, in open_pipe
+    return sp.Popen(args, stdout=sp.PIPE, stderr=sp.PIPE, env=env)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/bin/crontab'
+
+ERROR: There was a problem while creating frappe-bench
+Do you want to rollback these changes? [y/N]: Aborted!
+
+====================================================================================================
+== Attempt 4 (FAILED, trivial): 'git remote set-url origin' failed because a bench made from a local clone has no origin. Fix: add the remote when set-url fails. Init was skipped (already built).
+== source: build-attempt-remote.log (22 lines)
+====================================================================================================
+STEP preflight START 2026-10-13T06:41:46Z
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=e53ff17674aa6190
+git version 2.43.0
+uv 0.11.32 (x86_64-unknown-linux-gnu)
+STEP preflight END 0s
+STEP user START 2026-10-13T06:41:46Z
+Python 3.14.6
+v24.21.0
+1.22.22
+STEP user END 0s
+STEP cli START 2026-10-13T06:41:46Z
+5.31.0
+STEP cli END 0s
+STEP postgres START 2026-10-13T06:41:46Z
+127.0.0.1:5432 - accepting connections
+STEP postgres END 0s
+STEP bench START 2026-10-13T06:41:46Z
+bench already initialised at /home/frappe/frappe-bench
+v16.32.0
+apps/frappe is pristine
+error: No such remote 'origin'
+
+====================================================================================================
+== Attempt 5 (OK): steps bench, services, site (PostgreSQL site created in 41 s).
+== source: build-part2.log (386 lines)
+====================================================================================================
+STEP bench START 2026-10-13T06:43:37Z
+bench already initialised at /home/frappe/frappe-bench
+v16.32.0
+apps/frappe is pristine
+STEP bench END 0s
+STEP services START 2026-10-13T06:43:37Z
+127.0.0.1:5432 - accepting connections
+redis cache on 13000: up
+redis queue on 11000: up
+site midad.test does not exist yet; web server not started
+STEP services END 0s
+STEP site START 2026-10-13T06:43:37Z
+
+Note: PostgreSQL support is currently in development and considered experimental.
+Please report issues with a full traceback here:
+https://github.com/frappe/frappe/issues
+
+
+Installing frappe...
+
+Updating DocTypes for frappe        : [                                        ] 0%
+Updating DocTypes for frappe        : [                                        ] 0%
+Updating DocTypes for frappe        : [                                        ] 0%
+Updating DocTypes for frappe        : [                                        ] 1%
+Updating DocTypes for frappe        : [                                        ] 1%
+Updating DocTypes for frappe        : [                                        ] 1%
+Updating DocTypes for frappe        : [                                        ] 1%
+Updating DocTypes for frappe        : [                                        ] 2%
+Updating DocTypes for frappe        : [=                                       ] 2%
+Updating DocTypes for frappe        : [=                                       ] 2%
+Updating DocTypes for frappe        : [=                                       ] 3%
+Updating DocTypes for frappe        : [=                                       ] 3%
+Updating DocTypes for frappe        : [=                                       ] 3%
+Updating DocTypes for frappe        : [=                                       ] 3%
+Updating DocTypes for frappe        : [=                                       ] 4%
+Updating DocTypes for frappe        : [=                                       ] 4%
+Updating DocTypes for frappe        : [=                                       ] 4%
+Updating DocTypes for frappe        : [==                                      ] 5%
+Updating DocTypes for frappe        : [==                                      ] 5%
+Updating DocTypes for frappe        : [==                                      ] 5%
+[... 306 lines trimmed ...]
+Updating DocTypes for frappe        : [====================================    ] 91%
+Updating DocTypes for frappe        : [====================================    ] 91%
+Updating DocTypes for frappe        : [====================================    ] 91%
+Updating DocTypes for frappe        : [====================================    ] 91%
+Updating DocTypes for frappe        : [====================================    ] 92%
+Updating DocTypes for frappe        : [====================================    ] 92%
+Updating DocTypes for frappe        : [=====================================   ] 92%
+Updating DocTypes for frappe        : [=====================================   ] 93%
+Updating DocTypes for frappe        : [=====================================   ] 93%
+Updating DocTypes for frappe        : [=====================================   ] 93%
+Updating DocTypes for frappe        : [=====================================   ] 93%
+Updating DocTypes for frappe        : [=====================================   ] 94%
+Updating DocTypes for frappe        : [=====================================   ] 94%
+Updating DocTypes for frappe        : [=====================================   ] 94%
+Updating DocTypes for frappe        : [=====================================   ] 94%
+Updating DocTypes for frappe        : [======================================  ] 95%
+Updating DocTypes for frappe        : [======================================  ] 95%
+Updating DocTypes for frappe        : [======================================  ] 95%
+Updating DocTypes for frappe        : [======================================  ] 96%
+Updating DocTypes for frappe        : [======================================  ] 96%
+Updating DocTypes for frappe        : [======================================  ] 96%
+Updating DocTypes for frappe        : [======================================  ] 96%
+Updating DocTypes for frappe        : [======================================  ] 97%
+Updating DocTypes for frappe        : [======================================  ] 97%
+Updating DocTypes for frappe        : [======================================= ] 97%
+Updating DocTypes for frappe        : [======================================= ] 98%
+Updating DocTypes for frappe        : [======================================= ] 98%
+Updating DocTypes for frappe        : [======================================= ] 98%
+Updating DocTypes for frappe        : [======================================= ] 98%
+Updating DocTypes for frappe        : [======================================= ] 99%
+Updating DocTypes for frappe        : [======================================= ] 99%
+Updating DocTypes for frappe        : [======================================= ] 99%
+Updating DocTypes for frappe        : [========================================] 100%
+Creating Workspace Sidebars
+Creating Desktop Icons
+Updating Dashboard for frappe
+*** Scheduler is disabled ***
+Current Site set to midad.test
+STEP site END 41s
+TOTAL 41s
+
+====================================================================================================
+== ERPNext attempt 1 (FAILED): 'bench get-app erpnext' could not resolve the short name (GitHub API not reachable through the proxy). Fix: pass the full git URL.
+== source: build-attempt-erpnext-1.log (64 lines)
+====================================================================================================
+STEP erpnext START 2026-10-13T06:47:35Z
+ERROR: erpnext not found under frappe or erpnext GitHub accounts
+Traceback (most recent call last):
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/__init__.py", line 489, in fetch_details_from_tag
+    org, repo = org_repo
+    ^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe/.local/bin/bench", line 10, in <module>
+    sys.exit(cli())
+             ~~~^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/cli.py", line 132, in cli
+    bench_command()
+    ~~~~~~~~~~~~~^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1830, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/commands/make.py", line 181, in get_app
+    get_app(
+    ~~~~~~~^
+    	git_url,
+     ^^^^^^^^
+    ...<7 lines>...
+    	compress_artifacts=compress_artifacts,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 687, in get_app
+    app = App(
+    	git_url, branch=branch, bench=bench, soft_link=soft_link, cache_key=cache_key
+    )
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 185, in __init__
+    super().__init__(name, branch, *args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 85, in __init__
+    self.setup_details()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 110, in setup_details
+    self._setup_details_from_name_tag()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 133, in _setup_details_from_name_tag
+    self.org, self.repo, self.tag = fetch_details_from_tag(self.name, using_cached)
+                                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/__init__.py", line 491, in fetch_details_from_tag
+    org, repo = find_org(org_repo, using_cached)
+                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/__init__.py", line 469, in find_org
+    raise InvalidRemoteException(
+    	f"{org_repo} not found under frappe or erpnext GitHub accounts"
+    )
+bench.exceptions.InvalidRemoteException: erpnext not found under frappe or erpnext GitHub accounts
+
+====================================================================================================
+== ERPNext attempt 2 (OK): get-app v16.33.0 and install-app on PostgreSQL, 185 s.
+== source: build-erpnext.log (1156 lines)
+====================================================================================================
+STEP erpnext START 2026-10-13T06:49:20Z
+Getting erpnext
+$ git clone https://github.com/frappe/erpnext --branch v16.33.0 --depth 1 --origin upstream
+Cloning into 'erpnext'...
+Note: switching to 'b24c9eba551905e256e336ff170a91a92d197a2f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  39% (2018/5159)
+Updating files:  40% (2064/5159)
+Updating files:  41% (2116/5159)
+Updating files:  42% (2167/5159)
+Updating files:  43% (2219/5159)
+Updating files:  43% (2261/5159)
+Updating files:  44% (2270/5159)
+Updating files:  45% (2322/5159)
+Updating files:  46% (2374/5159)
+Updating files:  47% (2425/5159)
+Updating files:  48% (2477/5159)
+Updating files:  49% (2528/5159)
+Updating files:  50% (2580/5159)
+Updating files:  51% (2632/5159)
+Updating files:  52% (2683/5159)
+Updating files:  53% (2735/5159)
+Updating files:  54% (2786/5159)
+Updating files:  55% (2838/5159)
+Updating files:  56% (2890/5159)
+[... 115 lines trimmed ...]
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+[... 44 lines trimmed ...]
+../erpnext/public/banking/assets/error-banner-CvMol9Ww.js                         357.94 kB │ gzip: 107.83 kB
+[... 915 lines trimmed ...]
+Updating DocTypes for erpnext       : [======================================  ] 96%
+Updating DocTypes for erpnext       : [======================================  ] 96%
+Updating DocTypes for erpnext       : [======================================  ] 96%
+Updating DocTypes for erpnext       : [======================================  ] 96%
+Updating DocTypes for erpnext       : [======================================  ] 97%
+Updating DocTypes for erpnext       : [======================================  ] 97%
+Updating DocTypes for erpnext       : [======================================  ] 97%
+Updating DocTypes for erpnext       : [======================================  ] 97%
+Updating DocTypes for erpnext       : [======================================= ] 97%
+Updating DocTypes for erpnext       : [======================================= ] 97%
+Updating DocTypes for erpnext       : [======================================= ] 97%
+Updating DocTypes for erpnext       : [======================================= ] 97%
+Updating DocTypes for erpnext       : [======================================= ] 97%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 98%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [======================================= ] 99%
+Updating DocTypes for erpnext       : [========================================] 100%
+Creating Workspace Sidebars
+Creating Desktop Icons
+Updating Dashboard for erpnext
+
+frappe  16.32.0 HEAD
+erpnext 16.33.0 HEAD
+
+STEP erpnext END 185s
+TOTAL 185s
+
+====================================================================================================
+== Step app (OK): symlink, pip install -e, apps.txt.
+== source: build-app.log (17 lines)
+====================================================================================================
+STEP app START 2026-10-13T06:52:56Z
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Using Python 3.14.6 environment at: /home/user/frappe-bench/env
+Resolved 1 package in 434ms
+   Building institutional-theme @ file:///home/user/frappe-bench/apps/institutional_theme
+      Built institutional-theme @ file:///home/user/frappe-bench/apps/institutional_theme
+Prepared 1 package in 213ms
+Installed 1 package in 0.95ms
+ + institutional-theme==0.1.0 (from file:///home/user/frappe-bench/apps/institutional_theme)
+frappe
+erpnext
+institutional_theme
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+institutional_theme
+STEP app END 2s
+TOTAL 2s
+
+====================================================================================================
+== Step build (OK): bench build, 31 s.
+== source: build-build.log (238 lines)
+====================================================================================================
+STEP build START 2026-10-13T06:53:04Z
+Assets for Release v16.32.0 don't exist
+Linking /home/frappe/frappe-bench/apps/frappe/frappe/public to ./assets/frappe  
+Linking /home/frappe/frappe-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                
+Linking /home/frappe/frappe-bench/apps/erpnext/erpnext/public to ./assets/erpnext                                                                                
+Linking /home/frappe/frappe-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                
+Linking /home/user/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                
+✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+erpnext/dist/js/
+├─ bank-reconciliation-tool.bundle.3OD5XE4B.js              17.65 Kb
+├─ erpnext.bundle.DZUIK47Y.js                               263.96 Kb
+├─ item-dashboard.bundle.7LUKZCYJ.js                        10.52 Kb
+├─ point-of-sale.bundle.USGGAUZO.js                         106.33 Kb
+└─ bom_configurator.bundle.ZQW56QWW.js                      10.69 Kb
+
+frappe/dist/js/
+├─ billing.bundle.WUY3N4ZW.js                               2.51 Kb
+├─ bootstrap-4-web.bundle.OGQ7JEDG.js                       1.72 Kb
+├─ calendar.bundle.4A4YITIU.js                              264.60 Kb
+├─ controls.bundle.2WG7Y7XR.js                              912.43 Kb
+├─ data_import_tools.bundle.ASV3X6NG.js                     132.96 Kb
+├─ desk.bundle.RY6OWFAD.js                                  1332.74 Kb
+├─ dialog.bundle.6GXPFWAU.js                                62.16 Kb
+├─ form.bundle.VHUACMX3.js                                  182.72 Kb
+├─ frappe-web.bundle.JTAQXGLM.js                            823.72 Kb
+├─ libs.bundle.JEM3HUCP.js                                  556.25 Kb
+├─ list.bundle.5EZUZLFN.js                                  236.26 Kb
+├─ logtypes.bundle.WKQH7KBM.js                              0.72 Kb
+├─ onboarding_tours.bundle.3QPQU5AO.js                      7.63 Kb
+├─ photoswipe.bundle.YSXZQA64.js                            60.50 Kb
+├─ print.bundle.27VKHZQE.js                                 62.76 Kb
+[... 58 lines trimmed ...]
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+[... 44 lines trimmed ...]
+../erpnext/public/banking/assets/error-banner-CvMol9Ww.js                         357.94 kB │ gzip: 107.83 kB
+[... 54 lines trimmed ...]
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/hi/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/sl/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/hu/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/eo/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/hr/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/ar/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/it/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/ru/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/zh_TW/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/nl/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/bg/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/pt_BR/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/da/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/fi/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/fa/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/ta/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/pt/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/zh/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/de/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/pl/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/nb/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/sr/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/my/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/sv/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/bs/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/es/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/sr_CS/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/ko/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/vi/LC_MESSAGES/erpnext.mo
+Compiling translations for institutional_theme
+-rw-r--r--  1 frappe frappe  996 Oct 13 06:53 assets-rtl.json
+-rw-r--r--  1 frappe frappe 3745 Oct 13 06:53 assets.json
+drwxr-xr-x  2 frappe frappe 4096 Oct 13 06:40 css
+lrwxrwxrwx  1 frappe frappe   53 Oct 13 06:53 erpnext -> /home/frappe/frappe-bench/apps/erpnext/erpnext/public
+lrwxrwxrwx  1 frappe frappe   51 Oct 13 06:53 frappe -> /home/frappe/frappe-bench/apps/frappe/frappe/public
+lrwxrwxrwx  1 frappe frappe   57 Oct 13 06:53 institutional_theme -> /home/user/institutional_theme/institutional_theme/public
+drwxr-xr-x  2 frappe frappe 4096 Oct 13 06:40 js
+drwxr-xr-x 41 frappe frappe 4096 Oct 13 06:40 locale
+STEP build END 31s
+TOTAL 31s
+
+====================================================================================================
+== Step wizard (OK): setup wizard completed non-interactively, 34 s (the app was installed at that moment; it was uninstalled again by the gate script before the 'before' capture).
+== source: build-wizard.log (8 lines)
+====================================================================================================
+STEP wizard START 2026-10-13T14:50:14Z
+Updating Dashboard for frappe
+Updating Dashboard for erpnext
+Updating Dashboard for institutional_theme
+{"status": "ok"}
+true
+STEP wizard END 34s
+TOTAL 34s
+
+====================================================================================================
+== Complete re-run of every step on the finished bench (idempotency check): TOTAL 44 s, every step skipped its work.
+== source: build-rerun.log (319 lines)
+====================================================================================================
+STEP preflight START 2026-10-13T14:53:07Z
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=e53ff17674aa6190
+git version 2.43.0
+uv 0.11.32 (x86_64-unknown-linux-gnu)
+STEP preflight END 0s
+STEP user START 2026-10-13T14:53:07Z
+Python 3.14.6
+v24.21.0
+1.22.22
+STEP user END 1s
+STEP cli START 2026-10-13T14:53:08Z
+5.31.0
+STEP cli END 0s
+STEP postgres START 2026-10-13T14:53:08Z
+127.0.0.1:5432 - accepting connections
+STEP postgres END 0s
+STEP bench START 2026-10-13T14:53:08Z
+bench already initialised at /home/frappe/frappe-bench
+v16.32.0
+apps/frappe is pristine
+STEP bench END 0s
+STEP services START 2026-10-13T14:53:08Z
+127.0.0.1:5432 - accepting connections
+redis cache on 13000: up
+redis queue on 11000: up
+web: up on port 8000
+STEP services END 0s
+STEP site START 2026-10-13T14:53:08Z
+site midad.test already exists
+Current Site set to midad.test
+STEP site END 3s
+STEP erpnext START 2026-10-13T14:53:11Z
+v16.33.0
+App erpnext already installed
+
+frappe              16.32.0 HEAD
+erpnext             16.33.0 HEAD
+institutional_theme 0.1.0   build/midad-v1
+
+STEP erpnext END 6s
+STEP wizard START 2026-10-13T14:53:17Z
+[... 1 lines trimmed ...]
+STEP wizard END 2s
+STEP app START 2026-10-13T14:53:19Z
+[... 13 lines trimmed ...]
+STEP app END 1s
+STEP build START 2026-10-13T14:53:20Z
+[... 115 lines trimmed ...]
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+[... 44 lines trimmed ...]
+../erpnext/public/banking/assets/error-banner-CvMol9Ww.js                         357.94 kB │ gzip: 107.83 kB
+[... 58 lines trimmed ...]
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/ru/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/zh_TW/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/nl/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/bg/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/pt_BR/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/da/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/fi/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/fa/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/ta/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/pt/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/zh/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/de/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/pl/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/nb/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/sr/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/my/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/sv/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/bs/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/es/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/sr_CS/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/ko/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/vi/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/id/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/uz/LC_MESSAGES/erpnext.mo
+MO file already up to date at /home/frappe/frappe-bench/sites/assets/locale/af/LC_MESSAGES/erpnext.mo
+Compiling translations for institutional_theme
+-rw-r--r--  1 frappe frappe 1834 Oct 13 14:53 assets-rtl.json
+-rw-r--r--  1 frappe frappe 4527 Oct 13 14:53 assets.json
+drwxr-xr-x  2 frappe frappe 4096 Oct 13 06:40 css
+lrwxrwxrwx  1 frappe frappe   53 Oct 13 14:53 erpnext -> /home/frappe/frappe-bench/apps/erpnext/erpnext/public
+lrwxrwxrwx  1 frappe frappe   51 Oct 13 14:53 frappe -> /home/frappe/frappe-bench/apps/frappe/frappe/public
+lrwxrwxrwx  1 frappe frappe   57 Oct 13 14:53 institutional_theme -> /home/user/institutional_theme/institutional_theme/public
+drwxr-xr-x  2 frappe frappe 4096 Oct 13 06:40 js
+drwxr-xr-x 41 frappe frappe 4096 Oct 13 06:40 locale
+127.0.0.1:5432 - accepting connections
+redis cache on 13000: up
+redis queue on 11000: up
+web: up on port 8000
+STEP build END 31s
+TOTAL 44s

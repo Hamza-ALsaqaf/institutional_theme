@@ -1,0 +1,9 @@
+### diff assets-before.txt assets-installed.txt (first line, the label, excluded)
+(identical)
+
+### diff assets-before.txt assets-after-uninstall.txt (first line, the label, excluded)
+(identical)
+
+### diff assets-installed.txt assets-after-uninstall.txt (first line, the label, excluded)
+(identical)
+

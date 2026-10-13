@@ -104,7 +104,7 @@ async function rawHtml(url) {
 	lines.push(section("/app data-theme attributes (raw html)", found.themes));
 
 	const page = await context.newPage();
-	await page.goto(`${baseUrl}/app/todo`, { waitUntil: "networkidle" });
+	await page.goto(`${baseUrl}/app/todo`, { waitUntil: "load" });
 	await page.waitForSelector(".page-head", { timeout: 60000 });
 	await page.waitForTimeout(1500);
 	const live = await page.evaluate(() => ({

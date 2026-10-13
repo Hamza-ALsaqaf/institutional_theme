@@ -47,6 +47,13 @@ capture() {
 
 bench_site() { as_bench bash -c 'cd "$1" && shift && bench "$@"' _ "${BENCH_DIR}" "$@"; }
 
+# The "before" state needs the app absent. Uninstall it first when a previous run left it installed.
+if bench_site --site "${SITE}" list-apps 2>/dev/null | grep -q "^${APP}"; then
+	timed preclean-uninstall "${EVIDENCE}/preclean-uninstall.log" \
+		bench_site --site "${SITE}" uninstall-app "${APP}" --yes --no-backup
+fi
+timed list-apps-before "${EVIDENCE}/list-apps-before.log" bench_site --site "${SITE}" list-apps
+
 capture before
 
 timed install "${EVIDENCE}/install.log" bench_site --site "${SITE}" install-app "${APP}"
@@ -55,12 +62,12 @@ capture installed
 timed uninstall "${EVIDENCE}/uninstall.log" bench_site --site "${SITE}" uninstall-app "${APP}" --yes --no-backup
 capture after-uninstall
 
-# Strip the base-url header so lists compare on content only (it is identical anyway).
+# The first line of each list is its own label, so it is excluded from the comparison.
 {
 	for pair in "before installed" "before after-uninstall" "installed after-uninstall"; do
 		set -- ${pair}
 		echo "### diff assets-$1.txt assets-$2.txt"
-		diff -u "${EVIDENCE}/assets-$1.txt" "${EVIDENCE}/assets-$2.txt" && echo "(identical)"
+		diff -u <(tail -n +2 "${EVIDENCE}/assets-$1.txt") <(tail -n +2 "${EVIDENCE}/assets-$2.txt") && echo "(identical)"
 		echo
 	done
 } >"${EVIDENCE}/assets-diff.txt" 2>&1

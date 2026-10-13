@@ -4,6 +4,7 @@
 # answers. Safe to run repeatedly: a service that is already up is left alone.
 #
 #   tools/bench/start_services.sh          start everything
+#   tools/bench/start_services.sh restart-web   restart only the web server
 #   tools/bench/start_services.sh stop     stop the web server, Redis and PostgreSQL
 #
 # The site is served for the Host header "midad.test" (also the bench default
@@ -30,7 +31,14 @@ stop_all() {
 	echo "stopped"
 }
 
-if [[ "${1:-}" == "stop" ]]; then
+if [[ "${1:-}" == "restart-web" ]]; then
+	# A running server does not see apps pip-installed after it started: restart it.
+	if [[ -f "${LOGS}/web.pid" ]]; then
+		kill "$(cat "${LOGS}/web.pid")" 2>/dev/null || true
+		rm -f "${LOGS}/web.pid"
+		sleep 2
+	fi
+elif [[ "${1:-}" == "stop" ]]; then
 	stop_all
 	exit 0
 fi

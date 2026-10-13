@@ -1,0 +1,6 @@
+$ bench_site --site midad.test install-app institutional_theme
+
+Installing institutional_theme...
+Creating Workspace Sidebars
+Creating Desktop Icons
+Updating Dashboard for institutional_theme

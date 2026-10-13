@@ -15,7 +15,7 @@ unformatted: File would be reformatted
 7 | app_email = ""
   |
 
-1 file would be reformatted, 23 files already formatted
+1 file would be reformatted, 63 files already formatted
 exit=1
 $ yaml parse .github/workflows/ci.yml
 parsed OK; jobs: ['lint', 'audits'] ; triggers: ['push', 'pull_request']
