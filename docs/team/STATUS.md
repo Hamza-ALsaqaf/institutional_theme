@@ -16,18 +16,16 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 | 1 Analysis and discussion | PASSED (ADR 0002-0009 accepted, `docs/team/PLAN.md`) | e4015f7 |
 | 2 Foundations | PASSED 19:18 UTC: audits pass (contrast 0 failing over 426 pairs, parity 51/0, colour vision 0 failures + 99 baselined gaps, dead tokens 0); 140 unit tests OK; 88 Frappe tests OK; cascade 4256/4256 (static core build); install/uninstall gate clean (`docs/team/evidence/resume/`) | ceb4128..HEAD |
 | 3 P0 | PASSED 20:00 UTC: both reviews (upgrade 0 blocking; a11y 2 blocking fixed and re-checked on the real build); 109 Frappe + 140 unit tests OK; cascade 4256/4256; gate clean, residue none; 48 P0 desk screenshots (en/ar, Light/Dark, comfortable/compact) on the real build (`docs/team/evidence/phase3/`) | HEAD at 20:00 |
-| 4 P1, P2, proof | not started | |
-| 5 Documentation and hostile review | not started | |
+| 4 P1, P2, proof | PARTIAL: charts (dashes), Kanban, Calendar verified; Tree, Gantt, states written not rendered; print, email, Letter Head, proof, budgets NOT delivered | |
+| 5 Documentation and hostile review | NOT PASSED: docs written, both final reviews have 0 blocking; two dimensions score 3 (clarity and hierarchy, dark parity), see `docs/team/OWNER_REVIEW.md` | |
 
-## Tasks in flight (20:00 UTC)
+## Tasks in flight
 
-- scribe: `docs/DEPENDENCY_MANIFEST.md`, `docs/UPGRADE_AND_QA_CHECKLIST.md`, README install section.
-- theme-architect: `docs/DESIGN_SYSTEM.md` prose and design deviations.
-- css-engineer (Phase 4, only what fits by 20:35): charts in dashboards (ADR 0010 dashes, dark chart-container re-declarations).
+None. Run ended 20:45 UTC; final report in `docs/team/OWNER_REVIEW.md` (Arabic) and on pull request #2.
 
 ## Next step
 
-When they report: commit; lead writes `docs/team/OWNER_REVIEW.md` (Arabic) and updates the open PR body; push. Not delivered so far: Phase 4 print, email, Letter Head, proof, P1 views other than charts; extra font pairings stay as built in Phase 2 but unverified in the desk.
+Owner reviews pull request #2. To continue: fix the two score-3 items in `docs/team/reviews/a11y-final.md` (Appearance page heading and selected tag; calendar chips in Dark), then the "Not delivered" list in OWNER_REVIEW.md section 3 in this order: Print Style and Letter Head, email bundle, proof, size budgets, P2 website pages.
 
 ## Bench
 
@@ -65,3 +63,4 @@ When they report: commit; lead writes `docs/team/OWNER_REVIEW.md` (Arabic) and u
 28. The custom brand preset's contrast rejection cannot fire for any hex input (lightness comes from the approved curves; `#FFFFFF` on `#FFFFFF` saves). Kept as a safeguard (decision 12), not a bug.
 29. 20:00 UTC: Phase 3 gate passed. Login a11y blockers fixed inside this app: a small web script wraps core's pointer-only password icon in a real button (label rendered server-side, because `__()` has no messages on website pages); Arabic login letter-spacing reset by repeating the body class (no `!important`). App rows in `ar.csv` that only repeated core's Arabic were dropped; rows that correct core's Arabic (Light, Dark, Automatic, Draft, Submitted, Cancelled, Completed) were kept and apply desk-wide.
 30. Phase 4 cut to charts only because of the deadline (sacrifice order: P2 first, then P1). Print Style, Letter Head, email bundle, the interactive proof, Kanban, Calendar, Tree, Gantt and the global-state pages are not delivered.
+31-33. See `docs/team/OWNER_REVIEW.md` section 4 (error-page link, desktop icons, background agents cut off at 17:45).
