@@ -27,7 +27,7 @@ jobs:
           python-version: "3.14"
 
       - name: Install ruff
-        run: python -m pip install ruff
+        run: python -m pip install ruff==0.16.8
 
       - name: ruff check
         run: ruff check .
@@ -51,8 +51,13 @@ jobs:
       - name: Unit tests (colour package, emitter, fonts)
         run: python -m unittest discover -s institutional_theme/midad/tests -t .
 
+      - name: Unit tests (audits)
+        run: python -m unittest discover -s institutional_theme/audits/tests -t .
+
       - name: Generated files are current
         run: python -m institutional_theme.midad.build --check
 
-      - name: Audits (contrast, parity, colour vision)
+      # The dead-token audit reads the committed snapshot of core variable names
+      # (institutional_theme/audits/data), so it needs no bench.
+      - name: Audits (contrast, parity, colour vision, dead tokens)
         run: python -m institutional_theme.audits

@@ -1,12 +1,15 @@
 """Audit runner.
 
-    python -m institutional_theme.audits [--core-css PATH ...] [--no-write] [--strict]
+    python -m institutional_theme.audits [--core-css PATH ...] [--write-core-snapshot]
+                                         [--no-write] [--strict]
 
-Runs the contrast, parity, colour-vision and (with `--core-css`) dead-token audits against the
-generated model and stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED
-preset fails a contrast pair or the status check, when a generated file breaks parity, or when a
-core variable the theme overrides does not exist. Chart-series gaps are reported and only fatal
-with `--strict`. Never imports Frappe.
+Runs the contrast, parity, colour-vision and dead-token audits against the generated model and
+stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED preset fails a contrast
+pair or the status check, when a generated file breaks parity, or when a variable the theme
+overrides is neither in core nor used by the theme. Core is read from the committed snapshot
+(`audits/data/core_vars_frappe_16.32.0.json`) unless `--core-css` names compiled stylesheets;
+`--write-core-snapshot` (with `--core-css`) refreshes the snapshot. Chart-series gaps are
+reported and only fatal with `--strict`. Never imports Frappe.
 """
 
 from __future__ import annotations
@@ -32,7 +35,12 @@ def main(argv: list[str] | None = None) -> int:
 		action="append",
 		default=[],
 		metavar="PATH",
-		help="compiled core CSS file or folder; enables the dead-token audit (repeatable)",
+		help="compiled core CSS file or folder to scan instead of the committed snapshot (repeatable)",
+	)
+	parser.add_argument(
+		"--write-core-snapshot",
+		action="store_true",
+		help="with --core-css, rewrite the committed snapshot of core variable names",
 	)
 	parser.add_argument("--no-write", action="store_true", help="print results without writing docs/audits")
 	parser.add_argument("--strict", action="store_true", help="treat chart-series gaps as failures")
@@ -80,13 +88,28 @@ def main(argv: list[str] | None = None) -> int:
 	# Dead tokens
 	if args.core_css:
 		core_paths = [Path(p) for p in args.core_css]
-		results = dead_tokens.audit(model, core_paths, PACKAGE_DIR / "public")
-		outputs["dead_tokens.txt"] = dead_tokens.render_text(results, core_paths)
-		dead = [r for r in results if r.where == "dead"]
-		print(f"dead-tokens: {len(results)} variables checked, {len(dead)} dead")
-		failures += len(dead)
+		core = dead_tokens.scan_core(core_paths)
+		origin = "live stylesheets"
+		if args.write_core_snapshot:
+			dead_tokens.write_snapshot(
+				core, dead_tokens.DEFAULT_SNAPSHOT, {"frappe": "16.32.0", "erpnext": "16.33.0"}
+			)
+			print(f"wrote {dead_tokens.DEFAULT_SNAPSHOT.relative_to(REPO_ROOT)}")
+			origin = "live stylesheets (snapshot refreshed)"
+	elif args.write_core_snapshot:
+		parser.error("--write-core-snapshot needs --core-css")
 	else:
-		print("dead-tokens: not run (no --core-css PATH given)")
+		core = dead_tokens.load_snapshot()
+		origin = f"committed snapshot {dead_tokens.DEFAULT_SNAPSHOT.relative_to(REPO_ROOT)}"
+	results = dead_tokens.audit(model, core, PACKAGE_DIR / "public")
+	outputs["dead_tokens.txt"] = dead_tokens.render_text(results, core, origin)
+	total = dead_tokens.counts(results)
+	print(
+		f"dead-tokens: {len(results)} variables: {total['declared-read']} declared and read by core, "
+		f"{total['declared-only']} declared only, {total['read-only']} read only, "
+		f"{total['theme']} consumed by the theme, {total['dead']} dead"
+	)
+	failures += total["dead"]
 
 	if not args.no_write:
 		AUDITS_DIR.mkdir(parents=True, exist_ok=True)
