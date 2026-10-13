@@ -1,0 +1,129 @@
+{
+  "name": "fe_errors",
+  "checks": [
+    {
+      "label": "en: no aria-invalid on load",
+      "ok": true,
+      "detail": "{\"hasError\":false,\"ariaInvalid\":null,\"describedby\":null}"
+    },
+    {
+      "label": "en: core has-error and aria-invalid=\"true\" after Save with a required field empty",
+      "ok": true,
+      "detail": "{\"hasError\":true,\"ariaInvalid\":\"true\",\"describedby\":null}"
+    },
+    {
+      "label": "en: every has-error control with an input is aria-invalid, and nothing else is",
+      "ok": true,
+      "detail": "{\"ariaInvalidFields\":[\"customer_name\"],\"hasErrorFields\":[\"customer_name\"]}"
+    },
+    {
+      "label": "en: the accessibility tree reports the textbox invalid",
+      "ok": true,
+      "detail": "{\"role\":\"textbox\",\"name\":\"\",\"properties\":{\"invalid\":\"true\",\"focusable\":true,\"editable\":\"plaintext\",\"settable\":true,\"multiline\":false,\"readonly\":false,\"required\":false}}"
+    },
+    {
+      "label": "en: aria-invalid removed when the value is back",
+      "ok": true,
+      "detail": "{\"hasError\":false,\"ariaInvalid\":null,\"describedby\":null}"
+    },
+    {
+      "label": "ar: no aria-invalid on load",
+      "ok": true,
+      "detail": "{\"hasError\":false,\"ariaInvalid\":null,\"describedby\":null}"
+    },
+    {
+      "label": "ar: core has-error and aria-invalid=\"true\" after Save with a required field empty",
+      "ok": true,
+      "detail": "{\"hasError\":true,\"ariaInvalid\":\"true\",\"describedby\":null}"
+    },
+    {
+      "label": "ar: every has-error control with an input is aria-invalid, and nothing else is",
+      "ok": true,
+      "detail": "{\"ariaInvalidFields\":[\"customer_name\"],\"hasErrorFields\":[\"customer_name\"]}"
+    },
+    {
+      "label": "ar: the accessibility tree reports the textbox invalid",
+      "ok": true,
+      "detail": "{\"role\":\"textbox\",\"name\":\"\",\"properties\":{\"invalid\":\"true\",\"focusable\":true,\"editable\":\"plaintext\",\"settable\":true,\"multiline\":false,\"readonly\":false,\"required\":false}}"
+    },
+    {
+      "label": "ar: aria-invalid removed when the value is back",
+      "ok": true,
+      "detail": "{\"hasError\":false,\"ariaInvalid\":null,\"describedby\":null}"
+    }
+  ],
+  "data": {
+    "en_initial": {
+      "hasError": false,
+      "ariaInvalid": null,
+      "describedby": null
+    },
+    "en_after_save": {
+      "hasError": true,
+      "ariaInvalid": "true",
+      "describedby": null
+    },
+    "en_save_fields": {
+      "ariaInvalidFields": [
+        "customer_name"
+      ],
+      "hasErrorFields": [
+        "customer_name"
+      ]
+    },
+    "en_ax_invalid": {
+      "role": "textbox",
+      "name": "",
+      "properties": {
+        "invalid": "true",
+        "focusable": true,
+        "editable": "plaintext",
+        "settable": true,
+        "multiline": false,
+        "readonly": false,
+        "required": false
+      }
+    },
+    "en_filled": {
+      "hasError": false,
+      "ariaInvalid": null,
+      "describedby": null
+    },
+    "ar_initial": {
+      "hasError": false,
+      "ariaInvalid": null,
+      "describedby": null
+    },
+    "ar_after_save": {
+      "hasError": true,
+      "ariaInvalid": "true",
+      "describedby": null
+    },
+    "ar_save_fields": {
+      "ariaInvalidFields": [
+        "customer_name"
+      ],
+      "hasErrorFields": [
+        "customer_name"
+      ]
+    },
+    "ar_ax_invalid": {
+      "role": "textbox",
+      "name": "",
+      "properties": {
+        "invalid": "true",
+        "focusable": true,
+        "editable": "plaintext",
+        "settable": true,
+        "multiline": false,
+        "readonly": false,
+        "required": false
+      }
+    },
+    "ar_filled": {
+      "hasError": false,
+      "ariaInvalid": null,
+      "describedby": null
+    }
+  }
+}

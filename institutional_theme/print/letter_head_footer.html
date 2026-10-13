@@ -1,6 +1,7 @@
 {#- Letter Head footer (ADR 0005). Same contract as letter_head.html. Page X of Y is added by core when the
-    Print Settings "repeat header and footer" option is on (standard.html), so it is not repeated here. -#}
-{%- set ins = ins_identity() or {} -%}
+    Print Settings "repeat header and footer" option is on (standard.html), so it is not repeated here.
+    The guard on the first line keeps a kept record printable after the app is uninstalled. -#}
+{%- set ins = (ins_identity() if ins_identity is defined else {}) or {} -%}
 {%- set arabic = (frappe.lang or "en")[:2] == "ar" -%}
 {%- set name_en = ins.get("institution_name", "") -%}
 {%- set name_ar = ins.get("institution_name_ar", "") -%}

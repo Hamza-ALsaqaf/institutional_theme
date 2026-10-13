@@ -1,16 +1,22 @@
 {#- Letter Head content (ADR 0005). Rendered by Frappe with Jinja at print time (printview.py:231-241).
     `ins_identity()` returns strings only, possibly empty; every key is read with a default and escaped.
+    If the app is uninstalled and this record is kept, `ins_identity` is undefined (the `jinja` hook is gone):
+    the guard below makes it render nothing (no emblem either, whose file is gone) instead of failing the print.
     A table, not flex: wkhtmltopdf has no flex. The emblem is the placeholder until Settings has one. -#}
-{%- set ins = ins_identity() or {} -%}
+{%- set has_app = ins_identity is defined -%}
+{%- set ins = (ins_identity() if has_app else {}) or {} -%}
 {%- set arabic = (frappe.lang or "en")[:2] == "ar" -%}
 {%- set name_en = ins.get("institution_name", "") -%}
 {%- set name_ar = ins.get("institution_name_ar", "") -%}
 {%- set first = (name_ar or name_en) if arabic else (name_en or name_ar) -%}
 {%- set second = (name_en if first == name_ar else name_ar) if (name_en and name_ar) else "" -%}
+{%- if has_app or first or second -%}
 <table class="ins-lh" cellpadding="0" cellspacing="0">
 	<tr>
+		{%- if has_app %}
 		<td class="ins-lh-emblem"><img src="{{ (ins.get('emblem_url') or '/assets/institutional_theme/images/ins_emblem_placeholder.svg') | e }}" alt="" width="52" height="52"></td>
 		<td class="ins-lh-gap"></td>
+		{%- endif %}
 		<td>
 			{%- if first %}
 			<div class="ins-lh-name">{{ first | e }}</div>
@@ -24,3 +30,4 @@
 		</td>
 	</tr>
 </table>
+{%- endif %}

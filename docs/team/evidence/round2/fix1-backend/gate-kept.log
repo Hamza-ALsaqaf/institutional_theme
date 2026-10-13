@@ -1,0 +1,30 @@
+queue default: 10
+$ docs/team/evidence/round2/fix1-backend/run_py.sh /home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py kept-seed midad.test /tmp/fix1-gate-state.json
+{"letter_head_edited": true, "note": "1ke1ueci5o"}
+[exit 0]
+$ tools/bench/b.sh uninstall-app institutional_theme --yes --no-backup
+* removing DocType 'Institutional Theme Settings'...
+* removing Page 'ins-appearance'...
+* removing Module Def 'Institutional Theme'...
+Deleting Desktop Icons
+Deleting Workspace Sidebars
+Uninstalled App institutional_theme from Site midad.test
+[exit 0]
+$ docs/team/evidence/round2/fix1-backend/run_py.sh /home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py kept-render midad.test /tmp/fix1-gate-state.json
+printed en: html 7164 bytes, pdf 10511 bytes
+printed ar: html 7175 bytes, pdf 16995 bytes
+KEPT PRINT: ok
+[exit 0]
+$ tools/bench/b.sh install-app institutional_theme
+Creating Workspace Sidebars
+Creating Desktop Icons
+Updating Dashboard for institutional_theme
+[exit 0]
+$ tools/bench/b.sh build --app institutional_theme
+
+Done in 2.15s.
+Compiling translations for institutional_theme
+[exit 0]
+$ docs/team/evidence/round2/fix1-backend/run_py.sh /home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py kept-cleanup midad.test /tmp/fix1-gate-state.json
+ship again: {'print_style': 'unchanged', 'letter_head': 'created'}
+[exit 0]

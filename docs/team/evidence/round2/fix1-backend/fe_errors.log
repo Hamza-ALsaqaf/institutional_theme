@@ -1,0 +1,10 @@
+PASS en: no aria-invalid on load {"hasError":false,"ariaInvalid":null,"describedby":null}
+PASS en: core has-error and aria-invalid="true" after Save with a required field empty {"hasError":true,"ariaInvalid":"true","describedby":null}
+PASS en: every has-error control with an input is aria-invalid, and nothing else is {"ariaInvalidFields":["customer_name"],"hasErrorFields":["customer_name"]}
+PASS en: the accessibility tree reports the textbox invalid {"role":"textbox","name":"","properties":{"invalid":"true","focusable":true,"editable":"plaintext","settable":true,"multiline":false,"readonly":false,"required":false}}
+PASS en: aria-invalid removed when the value is back {"hasError":false,"ariaInvalid":null,"describedby":null}
+PASS ar: no aria-invalid on load {"hasError":false,"ariaInvalid":null,"describedby":null}
+PASS ar: core has-error and aria-invalid="true" after Save with a required field empty {"hasError":true,"ariaInvalid":"true","describedby":null}
+PASS ar: every has-error control with an input is aria-invalid, and nothing else is {"ariaInvalidFields":["customer_name"],"hasErrorFields":["customer_name"]}
+PASS ar: the accessibility tree reports the textbox invalid {"role":"textbox","name":"","properties":{"invalid":"true","focusable":true,"editable":"plaintext","settable":true,"multiline":false,"readonly":false,"required":false}}
+PASS ar: aria-invalid removed when the value is back {"hasError":false,"ariaInvalid":null,"describedby":null}

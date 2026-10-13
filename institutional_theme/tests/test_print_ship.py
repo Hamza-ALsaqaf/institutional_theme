@@ -10,6 +10,7 @@ from unittest import mock
 
 import frappe
 from frappe.tests import IntegrationTestCase
+from jinja2 import DebugUndefined, Environment
 
 from institutional_theme.print import ship
 
@@ -20,6 +21,10 @@ HEADER = "<div style=\"direction: rtl; font-family: 'Midad Print Plex Sans Arabi
 FOOTER = (
 	'<div class="ins-footer"><style>.ins-footer { color: #333; }</style>{{ ins_identity().contact }}</div>'
 )
+# What the templates held before they guarded `ins_identity` (a site that shipped them has this stored).
+UNGUARDED_HEADER = "{%- set ins = ins_identity() or {} -%}<div>{{ ins.get('system_name', '') | e }}</div>"
+UNGUARDED_FOOTER = "{%- set ins = ins_identity() or {} -%}<div>{{ ins.get('contact', '') | e }}</div>"
+DOCTYPES = (ship.STYLE_DOCTYPE, ship.LETTER_DOCTYPE)
 
 
 class TestDecide(IntegrationTestCase):
@@ -50,6 +55,9 @@ class TestDecide(IntegrationTestCase):
 class TestShip(IntegrationTestCase):
 	def setUp(self) -> None:
 		frappe.set_user("Administrator")
+		# The site may use real "Midad" records, a Print Settings choice and the shipped checksums: keep them,
+		# empty the way for the test, and put them back (and assert so) in tearDown.
+		self.before = self.snapshot()
 		self.clean()
 		self.bundle_dir = tempfile.TemporaryDirectory()
 		self.bundle_file = os.path.join(self.bundle_dir.name, "ins_print.bundle.css")
@@ -59,14 +67,54 @@ class TestShip(IntegrationTestCase):
 	def tearDown(self) -> None:
 		self.bundle_dir.cleanup()
 		self.clean()
+		self.restore(self.before)
+		self.assertEqual(self.snapshot(), self.before, "the site's own records are back as they were")
+
+	def snapshot(self) -> dict:
+		"""Everything the tests touch: the two records, the Print Settings choice, the checksums."""
+		return {
+			"docs": {
+				doctype: (
+					frappe.get_doc(doctype, ship.NAME).as_dict()
+					if frappe.db.exists(doctype, ship.NAME)
+					else None
+				)
+				for doctype in DOCTYPES
+			},
+			"print_style": frappe.db.get_single_value("Print Settings", "print_style"),
+			"global": frappe.db.get_global(ship.GLOBAL_KEY),
+			"deleted": self.deleted_documents(),
+			"defaults": sorted(frappe.get_all("Letter Head", filters={"is_default": 1}, pluck="name")),
+		}
+
+	def deleted_documents(self) -> list[str]:
+		return sorted(
+			frappe.get_all(
+				"Deleted Document",
+				filters={"deleted_doctype": ["in", list(DOCTYPES)], "deleted_name": ship.NAME},
+				pluck="name",
+			)
+		)
 
 	def clean(self) -> None:
-		if frappe.db.get_single_value("Print Settings", "print_style") == ship.NAME:
-			frappe.db.set_single_value("Print Settings", "print_style", None)
-		for doctype in (ship.STYLE_DOCTYPE, ship.LETTER_DOCTYPE):
-			if frappe.db.exists(doctype, ship.NAME):
-				frappe.delete_doc(doctype, ship.NAME, force=True, ignore_permissions=True)
+		"""Remove the test's records without a trace (no `Deleted Document`, no link checks)."""
+		frappe.db.set_single_value("Print Settings", "print_style", None)
+		for doctype in DOCTYPES:
+			frappe.db.delete(doctype, {"name": ship.NAME})
 		frappe.defaults.clear_default(key=ship.GLOBAL_KEY, parent="__global")
+		keep = self.before["deleted"]
+		for name in self.deleted_documents():
+			if name not in keep:
+				frappe.db.delete("Deleted Document", {"name": name})
+
+	def restore(self, before: dict) -> None:
+		for doctype in DOCTYPES:
+			row = before["docs"][doctype]
+			if row is not None:
+				frappe.get_doc(row).db_insert()
+		frappe.db.set_single_value("Print Settings", "print_style", before["print_style"])
+		if before["global"]:
+			frappe.db.set_global(ship.GLOBAL_KEY, before["global"])
 
 	def write_bundle(self, css: str) -> None:
 		with open(self.bundle_file, "w", encoding="utf-8") as handle:
@@ -163,7 +211,7 @@ class TestShip(IntegrationTestCase):
 
 	def test_a_deleted_record_is_not_created_again(self) -> None:
 		self.ship()
-		frappe.delete_doc("Print Style", ship.NAME, force=True, ignore_permissions=True)
+		frappe.db.delete("Print Style", {"name": ship.NAME})
 		self.assertEqual(self.ship()["print_style"], "skipped: deleted by an administrator")
 		self.assertFalse(frappe.db.exists("Print Style", ship.NAME))
 
@@ -225,6 +273,33 @@ class TestShip(IntegrationTestCase):
 		self.assertTrue(result["print_style"].startswith("kept"), result)
 		self.assertTrue(frappe.db.exists("Print Style", ship.NAME))
 		self.assertEqual(result["letter_head"], "removed")
+
+	def test_the_shipped_templates_print_without_the_app(self) -> None:
+		"""A kept Letter Head must still render after uninstall, when `ins_identity` is no longer registered."""
+		header, footer = ship.letter_head_html()
+		env = Environment(undefined=DebugUndefined)
+		context = {"frappe": frappe._dict(lang="ar")}
+		for source in (header, footer):
+			self.assertEqual(env.from_string(source).render(context).strip(), "", "nothing to show, no error")
+		for source in (header, footer):
+			rendered = frappe.render_template(source, {"frappe": frappe})
+			self.assertNotIn("Context Error", rendered)
+
+	def test_the_header_with_the_app_still_shows_the_emblem(self) -> None:
+		header, _ = ship.letter_head_html()
+		rendered = frappe.render_template(header, {"frappe": frappe})
+		self.assertIn('class="ins-lh"', rendered)
+		self.assertIn("<img", rendered)
+
+	def test_a_record_shipped_before_the_guard_is_updated_not_flagged(self) -> None:
+		with mock.patch.object(ship, "letter_head_html", return_value=(UNGUARDED_HEADER, UNGUARDED_FOOTER)):
+			with mock.patch.object(ship, "bundle_path", return_value=self.bundle_file):
+				self.assertEqual(ship.ship()["letter_head"], "created")
+		header, footer = ship.letter_head_html()
+		with mock.patch.object(ship, "bundle_path", return_value=self.bundle_file):
+			self.assertEqual(ship.ship()["letter_head"], "updated")
+		self.assertEqual(self.letter().content, header)
+		self.assertEqual(self.letter().footer, footer)
 
 	def test_the_installed_hooks_are_registered(self) -> None:
 		self.assertIn("institutional_theme.install.after_install", frappe.get_hooks("after_install"))

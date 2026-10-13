@@ -1,0 +1,112 @@
+$ docs/team/evidence/round2/fix1-backend/run_py.sh /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round2/fix1-backend/uninstall_proof.py setup /tmp/fix1out
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+SHIP {'print_style': 'updated', 'letter_head': 'updated'}
+STATE_BEFORE {"letter_head": true, "print_style": true, "ins_identity_registered": true, "installed_apps": ["frappe", "erpnext", "institutional_theme"]}
+ADMIN_EDIT_KEPT_JINJA_GUARD True | shipped chars 1726 | after save chars 1784
+QUOTATION SAL-QTN-2026-00004 letter_head Midad
+[exit 0]
+$ tools/bench/b.sh uninstall-app institutional_theme --yes --no-backup
+    	_("Too many queued background jobs ({0}). Please retry after some time.").format(max_jobs),
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    	primary_action=primary_action if frappe.has_permission("System Health Report") else None,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/messages.py", line 159, in throw
+    msgprint(
+    ~~~~~~~~^
+    	msg,
+     ^^^^
+    ...<7 lines>...
+    	allow_dangerous_html=allow_dangerous_html,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/messages.py", line 118, in msgprint
+    _raise_exception()
+    ~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/messages.py", line 59, in _raise_exception
+    raise exc
+frappe.exceptions.QueueOverloaded: Too many queued background jobs (550). Please retry after some time.
+
+Too many queued background jobs (550). Please retry after some time.
+[exit 1]
+# uninstall failed: QueueOverloaded, 550 jobs queued with no worker on the test bench (never consumed). Draining the default queue:
+$ redis-cli -p 11000 llen rq:queue:home-frappe-frappe-bench:default
+550
+$ redis-cli -p 11000 del rq:queue:home-frappe-frappe-bench:default
+1
+$ tools/bench/b.sh uninstall-app institutional_theme --yes --no-backup
+Uninstalling App institutional_theme from Site midad.test...
+Deleting Module 'Institutional Theme'
+* removing DocType 'Institutional Theme Settings'...
+* removing Page 'ins-appearance'...
+* removing Module Def 'Institutional Theme'...
+Deleting Desktop Icons
+Deleting Workspace Sidebars
+Uninstalled App institutional_theme from Site midad.test
+[exit 0]
+$ docs/team/evidence/round2/fix1-backend/run_py.sh /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round2/fix1-backend/uninstall_proof.py render /tmp/fix1out
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+STATE_AFTER_UNINSTALL {"letter_head": true, "print_style": false, "ins_identity_registered": false, "installed_apps": ["frappe", "erpnext"]}
+QUOTATION SAL-QTN-2026-00004 letter_head Midad
+HTML en 12507 problem markers: none | admin note present: True
+PDF en 27342 b'%PDF-'
+HTML ar 12525 problem markers: none | admin note present: True
+PDF ar 29916 b'%PDF-'
+[exit 0]
+Producer:        pypdf
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+$ pdftotext kept-letterhead-en.pdf - | head -5
+Edited by an administrator
+
+DRAFT
+
+Customer Name:
+
+$ pdftoppm png
+$ tools/bench/b.sh install-app institutional_theme
+
+Installing institutional_theme...
+Updating DocTypes for institutional_theme..
+Creating Workspace Sidebars
+Creating Desktop Icons
+Updating Dashboard for institutional_theme
+[exit 0]
+$ tools/bench/b.sh build --app institutional_theme
+├─ ins_palette_graphite.bundle.MHP6NWEJ.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.V4U7XAIO.css                   8.16 Kb
+└─ ins_palette_plum.bundle.VF6GURN7.css                     8.16 Kb
+
+ DONE  Total Build Time: 1.162s
+
+Done in 1.77s.
+Compiling translations for institutional_theme
+[exit 0]
+$ sudo -E env PATH=/opt/hostedtoolcache/uv/0.13.0/x86_64:/home/runner/.local/bin:/opt/hostedtoolcache/node/24.21.0/x64/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin flock -o /tmp/ins-bench.lock tools/bench/start_services.sh restart-web
+127.0.0.1:5432 - accepting connections
+redis cache on 13000: up
+redis queue on 11000: up
+web: up on port 8000
+[exit 0]
+$ docs/team/evidence/round2/fix1-backend/run_py.sh /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round2/fix1-backend/uninstall_proof.py cleanup /tmp/fix1out
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+SHIP_AGAIN {'print_style': 'unchanged', 'letter_head': 'created'}
+LEFT 0 None 0
+STATE_END {"letter_head": true, "print_style": true, "ins_identity_registered": true, "installed_apps": ["frappe", "erpnext", "institutional_theme"]}
+[exit 0]
+$ tools/bench/b.sh list-apps
+erpnext             16.33.0 HEAD
+institutional_theme 0.1.0   build/midad-v1
+
+[exit 0]
+$ curl -s -o /dev/null -w ping %{http_code}\n http://midad.test:8000/api/method/ping --resolve midad.test:8000:127.0.0.1
+ping 200
+[exit 0]
