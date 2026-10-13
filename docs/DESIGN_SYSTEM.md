@@ -1,6 +1,46 @@
 # Midad design system
 
-The prose of this document is written in Phase 5. The tables between the markers are generated.
+This document describes the Midad theme as built for Frappe 16.32.0. The prose sections are maintained by hand; the tables between the `tokens:begin` and `tokens:end` markers are generated from `design/tokens.json` and must not be edited.
+
+## Thesis and principles
+
+Midad ("ink") is ink on paper, closed with a seal: a calm, authoritative desk for officers who work in it all day and for officials who must trust what it shows. The approved design is in `design/`; `midad` is the default preset in Light and Dark and its values are frozen (ADR 0001, D3).
+
+Conflicts are settled in the order of `docs/BRIEF.md` section 3: correctness and unmistakable state, accessibility, upgrade-safety, density, aesthetics. Aesthetics never wins against the first three. In practice:
+
+- **One status language**: colour, a text label and a CSS-drawn shape, the same everywhere.
+- **Brass is a seal, not a colour**: under 5% of a screen, never text.
+- **Dark is its own design**: tonal elevation and hairlines, no pure black, no pure white text.
+- **Zero core edits**: everything is CSS custom properties, a few selectors and small idempotent scripts in this app.
+- **Customisation without risk**: users choose among audited presets; the site may add one custom brand preset generated on the approved lightness curves (ADR 0001, D4, D5).
+
+## Architecture
+
+**Token pipeline.** `design/tokens.json` is the single source. `python -m institutional_theme.midad.build` resolves it with the dependency-free colour package `institutional_theme/midad/` (ADR 0001 D6, ADR 0004) into `institutional_theme/public/scss/generated/`: `_tokens.scss` (the `--ins-*` colours), `_scale.scss` (type, spacing, density, motion), `_frappe_map.scss` (Frappe variables pointed at `var(--ins-…)`) and one `ins_palette_<name>.bundle.scss` per shipped preset. `--check` fails when any generated file is stale. The same package runs the audits (`python -m institutional_theme.audits`) and validates the custom preset on save.
+
+**Bundles.** `ins_desk.bundle.scss` imports the generated partials, then one hand-written partial per concern under `public/scss/desk/`. `ins_web.bundle.scss` serves login and website pages. Both are wrapped in `rtl:begin:ignore` and use logical properties only, so Frappe's rtlcss pass produces an identical RTL file.
+
+**Palette delivery (ADR 0003).** No script runs before the desk splash paints, so a root attribute cannot select a palette in time. Instead, the server hook `update_website_context` appends the user's palette stylesheet (and the site's font file) to `app_include_css`. The palette files hold only `--ins-*` declarations, so a preset changes values, never selectors. A failed hook or a missing asset falls back to `midad`. Changing preset reloads the page. Preferences live in two user defaults, `ins_palette` and `ins_density`; the User doctype is untouched (ADR 0002).
+
+**Cascade (findings section 2).** Core declares its variables at (0,1,0) and lets dark win by source order. The theme never relies on order. Light blocks sit on `html:root`, dark on `html:root[data-theme="dark"]`, Automatic inside `prefers-color-scheme`, and the Frappe mapping one step higher on `html:root[dir]…`, so a later-installed app at (0,1,1) cannot displace it. Because `html:root` also matches a dark root, every key set in Light is set in Dark and Automatic; the parity audit enforces it. Variables that core re-declares on descendants (dialogs, grid rows, charts) are re-declared in `_scoped_variables.scss`.
+
+## Modes, density, RTL and Arabic typography
+
+- **Modes** stay Frappe's `desk_theme` (Light, Dark, Automatic). Each mode block sets `color-scheme`, so native controls and scrollbars follow it.
+- **Density** is the `data-ins-density` attribute on `<html>`, set by the shell script before the desk is built. Compact lowers the scale tokens (13px base, 28px controls, 48px page head). Under `pointer: coarse` targets grow to 44px in either density. The datatable keeps core's row height: compact changes only padding and type (findings section 5).
+- **RTL** needs no mirrored stylesheet. Direction-implying icons are flipped with a transform under `[dir="rtl"]`.
+- **Arabic typography** (`desk/_typography.scss`): letter-spacing is forced to 0 for Arabic and RTL documents at (0,6,1), above core's tracking rules; Arabic body and text containers use `--ins-leading-arabic` (1.65), except datatable cells and fixed-height controls; numeric fields, report cells and `kbd` use lining tabular numerals. `font-synthesis: none` prevents synthetic bold and italic (`desk/_base.scss`). Faces are self-hosted under private names (`Midad Plex Sans Arabic`, `Midad Plex Sans`, `Midad Plex Mono`); Arabic and Latin are split by `unicode-range`, so Latin digits come from the Latin face. Size compensation between Arabic and Latin is not implemented as a separate rule: both scripts render at the same nominal size.
+
+## Accessibility approach and limits
+
+Midad is **designed to meet WCAG 2.2 AA; a formal audit is recommended.** No certification is claimed.
+
+- **Contrast** is computed, not eyeballed: every declared pair in `tokens.json` → `contrast.groups` is checked in both modes for every shipped preset, and the build drops any preset that fails (`umber` was dropped this way, STATUS decision 10). Results: section 4 below and `docs/audits/`.
+- **Focus**: one ring, an `outline` of `--ins-focus-width` at `--ins-focus-offset`, on every focusable element. Core's grey focus box-shadows are removed so only one ring shows. Inside clipped scroll containers the ring is drawn inset, except on checkboxes and radios. `scroll-padding-block-start` clears the sticky page head.
+- **Motion** collapses under `prefers-reduced-motion`; looping spinners get a static busy cue.
+- **Forced colours**: focus, selection, selected rows and status pills fall back to system colours. These rules are ASSUMED: Chromium forced-colours emulation was not run.
+- **Charts (ADR 0010)**: the default series order is 1, 5, 3, 2, 6, 4, so every neighbouring pair reaches an OKLab distance of 5.0 in every vision type, mode and preset. Direct labels come from the Dashboard Chart setting `show_values_over_chart`. Line series 2-6 carry distinct dash patterns (`desk/_dashboard.scss`; computed values VERIFIED on a synthetic 7-series chart, `docs/team/evidence/phase4/charts/`); bars are never dashed. **Known gaps:** some non-neighbour pairs under grayscale (as low as 0.3) and protanopia (chart-3/6 at 4.4, Dark); series 7 and 8; bar and pie charts carry labels only; no data-table alternative. The colour-vision audit baselines these gaps and fails on any new one.
+- **Not covered**: calendar event text keeps core's `!important` blue (`calendar.scss:99`) and its contrast is not computed; P1 views other than charts, print and email were not delivered in this version.
 
 <!-- tokens:begin -->
 ## 1. Primitive ramps
@@ -1125,3 +1165,36 @@ Parity audit, from `docs/audits/parity.txt`: 51 checks, 0 failed.
 - scale token `--ins-font-mono`: not declared in _scale.scss
 
 <!-- tokens:end -->
+
+## Design deviations
+
+Every place where the build differs from the approved design, with the record that decided it. `design/reference/tokens.resolved.json` stays the approved record. `institutional_theme/midad/deviations.py` lists the token-level deviations, and the fixture test asserts the new values for exactly those keys.
+
+| # | Approved design | As built | Reason (BRIEF section 3 rule) | Record |
+|---|---|---|---|---|
+| 1 | `surface-selected-strong`, Dark: `oklch(0.35 0.065 252)` `#1f3c5b` | `oklch(0.34 0.065 252)` `#1d3958` | Muted text on a selected-and-hovered row was 4.49:1; it is now 4.69:1 (rule 2) | ADR 0010; `deviations.py` |
+| 2 | Chart series 1-6 in tokens order | Order 1, 5, 3, 2, 6, 4: `chart-2` purple, `chart-4` amber, `chart-5` orange, `chart-6` red (hex in `deviations.py`) | Neighbouring series were not distinguishable under colour-vision deficiency (rule 2) | ADR 0010; `deviations.py` |
+| 3 | `tokens.json` mapped `--control-bg` to `surface-fill` and `--control-bg-on-gray` to `surface-fill-hover` | Both map to `surface-field`, as the artboards draw; buttons and chips keep `surface-fill`; `.form-control` gets a `border-control` border | The old mapping put placeholder text below 4.5:1 and contradicted the artboards (rule 2). No colour value changed | ADR 0010 |
+| 4 | System name inside the login card | System name above the card | Uses core's `banner_html` slot instead of replacing the login template (rule 3) | ADR 0009; STATUS decision 8 |
+| 5 | One focus ring; the comps do not draw core's inset highlight on a focused `.btn-default` | The inset highlight is gone: core's grey focus box-shadows are removed | Exactly one focus ring (rule 2) | STATUS decision 13 |
+| 6 | Weight 600 in every pairing | Tajawal has no 600; its 700 file serves 600-700, only when Tajawal is selected | No synthetic bold (rule 2 over 5) | STATUS decision 14 |
+| 7 | Calendar events in theme colours | Event text keeps core's `rgb(0, 112, 204) !important` (`calendar.scss:99`); contrast not computed | Overriding it needs a counter-`!important` (rule 3); listed as a P1 gap | STATUS decision 26 |
+| 8 | Desktop (apps) screen not drawn; theme colours expected | App icons keep core's inline colours, set per icon by JS (`utils.js:1372-1390`, `desktop_icon_style`); CSS cannot override an inline colour without `!important` | Rule 3. No decision record yet: **owner to decide** whether to accept core's icon colours | `docs/team/evidence/phase3/css-shell/evidence.md` |
+| 9 | Table rows 36px comfortable, 28px compact | The datatable keeps core's fixed row height; compact changes only padding and type | Overriding datatable height breaks scrolling (rule 1) | ADR 0003; findings section 5 |
+
+The `umber` preset is absent because it failed the status-distinguishability audit. This is not a deviation: the brief makes every non-default preset conditional on passing (STATUS decision 10).
+
+## Decision log
+
+| Record | Decision |
+|---|---|
+| [0001](adr/0001-owner-decisions.md) | Owner decisions: target versions, navigation model, frozen `midad`, per-user presets, fonts, one colour-maths implementation, opt-in behaviour, autonomous delivery |
+| [0002](adr/0002-user-preference-storage.md) | Preset and density stored as user defaults; an accessible Appearance page replaces core's theme dialog |
+| [0003](adr/0003-palette-delivery-no-flash.md) | The server links the user's palette stylesheet in `<head>`; deterministic selector shapes and key-set parity |
+| [0004](adr/0004-generated-site-css-and-fonts.md) | Custom preset and uploaded fonts are per-site generated CSS files, regenerated after a restore |
+| [0005](adr/0005-settings-doctype.md) | The settings doctype: fields, permissions, bilingual validation; environment ribbon from `site_config` |
+| [0006](adr/0006-test-bench.md) | The reproducible test bench for cloud sessions |
+| [0007](adr/0007-interactive-proof.md) | The interactive proof is built from the real compiled CSS (not delivered in this version) |
+| [0008](adr/0008-action-and-status-hooks.md) | Consequential-action and status hooks in the shell script |
+| [0009](adr/0009-login-and-error-page-content.md) | Login and error-page content through core's template slots |
+| [0010](adr/0010-contrast-corrections-phase2.md) | Fields on `surface-field`, one Dark value changed, chart series reordered, remaining chart gaps accepted |
