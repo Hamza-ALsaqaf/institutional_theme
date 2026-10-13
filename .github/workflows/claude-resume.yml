@@ -1,7 +1,12 @@
-# Resumes the autonomous Midad build with Claude Code, billed to the owner's Anthropic API key in the
-# INSTITUTIONAL_THEME repository secret. It starts when a pull request from build/midad-v1 is opened or
-# reopened, or when the label "claude-resume" is added to it. Pushes made by the run
-# itself (GITHUB_TOKEN) do not start new runs. The run never changes main.
+# Resumes the autonomous Midad build with Claude, billed to the owner's Anthropic API key in the
+# INSTITUTIONAL_THEME repository secret. Claude runs through the Claude Agent SDK
+# (tools/ci/run_agent.mjs), not through claude-code-action, because the key's promotional
+# credits cover the Agent SDK and the API but not Claude Code. A one-turn smoke test must pass
+# before the build starts; if the Agent SDK is not covered, `claude -p` is tried instead.
+#
+# Starts when a pull request from build/midad-v1 is opened or reopened, or when the label
+# "claude-resume" is added to it. Pushes made by the run itself (GITHUB_TOKEN) do not start
+# new runs. A pre-push hook refuses pushes to main.
 name: Claude resume (Midad build)
 
 on:
@@ -18,7 +23,6 @@ permissions:
   pull-requests: write
   issues: write
   actions: read
-  id-token: write
 
 jobs:
   resume:
@@ -50,31 +54,7 @@ jobs:
           HOOK
           chmod +x .git/hooks/pre-push
 
-      - name: System packages for the test bench
-        run: |
-          sudo apt-get update -q
-          sudo apt-get install -y -q redis-server libmariadb-dev pkg-config postgresql-16
-          sudo systemctl stop redis-server postgresql || true
-          sudo systemctl disable redis-server postgresql || true
-
-      - uses: astral-sh/setup-uv@v6
-
-      - name: Python 3.14
-        run: uv python install 3.14
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: Playwright Chromium
-        run: |
-          sudo mkdir -p /opt/pw-browsers
-          sudo chown "$(id -u):$(id -g)" /opt/pw-browsers
-          npx -y playwright@1.56.1 install --with-deps chromium
-
       # Prints only the kind of credential and the API's answer, never the credential itself.
-      # An API key (sk-ant-api…) is billed to the Anthropic API account; a Claude Code OAuth
-      # token (sk-ant-oat…) is billed to the Claude subscription that created it.
       - name: Check the credential and pick a model
         id: key
         env:
@@ -82,12 +62,9 @@ jobs:
         run: |
           case "$KEY" in
             "") echo "::error::The INSTITUTIONAL_THEME secret is empty or not available to this workflow."; exit 1 ;;
-            sk-ant-oat*) echo "Credential type: Claude Code OAuth token (billed to the Claude subscription)."
-                         echo "oauth=true" >> "$GITHUB_OUTPUT"; echo "model=opus" >> "$GITHUB_OUTPUT"; exit 0 ;;
-            sk-ant-api*) echo "Credential type: Anthropic API key (billed to the API account)." ;;
-            *) echo "Credential type: unrecognised format (not an Anthropic key prefix)." ;;
+            sk-ant-api*) echo "Credential type: Anthropic API key." ;;
+            *) echo "::error::INSTITUTIONAL_THEME does not hold an Anthropic API key (sk-ant-api...)."; exit 1 ;;
           esac
-          echo "oauth=false" >> "$GITHUB_OUTPUT"
           for model in claude-opus-5-5 claude-sonnet-5-5; do
             body=$(curl -sS https://api.anthropic.com/v1/messages \
               -H "x-api-key: ${KEY}" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" \
@@ -101,19 +78,57 @@ jobs:
           echo "::error::The Anthropic API rejected this credential for every model tried (see the lines above)."
           exit 1
 
-      - uses: anthropics/claude-code-action@v1
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
         with:
-          anthropic_api_key: ${{ steps.key.outputs.oauth != 'true' && secrets.INSTITUTIONAL_THEME || '' }}
-          claude_code_oauth_token: ${{ steps.key.outputs.oauth == 'true' && secrets.INSTITUTIONAL_THEME || '' }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Full output so the owner can follow the run and any API error is visible.
-          # GitHub masks registered secrets in logs.
-          show_full_output: true
-          prompt: |
-            Read docs/team/RESUME_PROMPT.md in this repository and follow it exactly, from the first step to the final report.
-          claude_args: >-
-            --model ${{ steps.key.outputs.model }}
-            --max-turns 2000
-            --allowedTools "Bash,Read,Write,Edit,MultiEdit,Glob,Grep,Task,Agent,TodoWrite,WebFetch"
+          node-version: 24
+
+      - name: Install the Claude Agent SDK
+        run: |
+          npm install --prefix tools/ci --no-audit --no-fund --no-package-lock
+          node -p "'Claude Agent SDK ' + require('./tools/ci/node_modules/@anthropic-ai/claude-agent-sdk/package.json').version"
+
+      - name: Smoke test with the Agent SDK (one turn, must succeed before the build)
+        id: smoke_sdk
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.INSTITUTIONAL_THEME }}
+        run: node tools/ci/run_agent.mjs --engine sdk --smoke --model "${{ steps.key.outputs.model }}"
+
+      - name: Smoke test with claude -p (only when the Agent SDK smoke test failed)
+        id: smoke_cli
+        if: steps.smoke_sdk.outcome == 'failure'
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.INSTITUTIONAL_THEME }}
+        run: node tools/ci/run_agent.mjs --engine cli --smoke --model "${{ steps.key.outputs.model }}"
+
+      - name: Stop when no engine is covered by the credits
+        if: steps.smoke_sdk.outcome != 'success' && steps.smoke_cli.outcome != 'success'
+        run: |
+          echo "::error::Neither the Agent SDK nor claude -p could run on this key's credits. See the smoke-test steps."
+          exit 1
+
+      - name: System packages for the test bench
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q redis-server libmariadb-dev pkg-config postgresql-16
+          sudo systemctl stop redis-server postgresql || true
+          sudo systemctl disable redis-server postgresql || true
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Python 3.14
+        run: uv python install 3.14
+
+      - name: Playwright Chromium
+        run: |
+          sudo mkdir -p /opt/pw-browsers
+          sudo chown "$(id -u):$(id -g)" /opt/pw-browsers
+          npx -y playwright@1.56.1 install --with-deps chromium
+
+      - name: Run the Midad build
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.INSTITUTIONAL_THEME }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENGINE: ${{ steps.smoke_sdk.outcome == 'success' && 'sdk' || 'cli' }}
+        run: node tools/ci/run_agent.mjs --engine "$ENGINE" --model "${{ steps.key.outputs.model }}" --max-turns 2000
