@@ -1,0 +1,25 @@
+STEP preflight START 2026-10-13T18:56:12Z
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-1.pgdg24.04+2)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92
+git version 2.55.0
+uv 0.13.0 (x86_64-unknown-linux-gnu)
+STEP preflight END 0s
+STEP user START 2026-10-13T18:56:12Z
+node-v24.21.0-linux-x64.tar.xz: OK
+Python 3.14.8
+v24.21.0
+1.22.22
+STEP user END 3s
+STEP cli START 2026-10-13T18:56:15Z
+5.31.0
+STEP cli END 0s
+STEP postgres START 2026-10-13T18:56:15Z
+waiting for server to start.... done
+server started
+127.0.0.1:5432 - accepting connections
+STEP postgres END 0s
+TOTAL 3s
+
+real	0m3.048s
+user	0m2.134s
+sys	0m0.735s

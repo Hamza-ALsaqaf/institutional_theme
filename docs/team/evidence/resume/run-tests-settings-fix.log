@@ -1,0 +1,64 @@
+Starting test run with parameters: site=midad.test, app=institutional_theme, module=institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 43 integration tests for institutional_theme
+
+institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings.TestInstitutionalThemeSettings
+[90m  Test Records created: Institutional Theme Settings (0)[0m
+   [32m ✔ [0m test_a_changed_font_is_checked_while_the_pairing_stays_uploaded
+   [32m ✔ [0m test_audit_text_uses_labels_not_token_names
+   [32m ✔ [0m test_before_uninstall_continues_after_a_failing_step
+   [32m ✔ [0m test_before_uninstall_leaves_nothing_behind_and_is_idempotent [31m (2.55s)[0m
+   [32m ✔ [0m test_behaviour_ships_disabled
+   [32m ✔ [0m test_broken_website_settings_does_not_block_saving
+   [32m ✔ [0m test_clearing_a_field_restores_the_original
+   [32m ✔ [0m test_clearing_does_not_overwrite_an_administrators_later_edit
+   [32m ✔ [0m test_contrast_line_wording_for_a_maximum
+   [32m ✔ [0m test_custom_colours_are_required_and_must_be_hex
+   [32m ✔ [0m test_custom_default_needs_allow_custom
+   [32m ✔ [0m test_custom_palette_failing_a_pair_is_rejected_naming_every_pair
+   [32m ✔ [0m test_custom_palette_that_passes_is_saved_with_its_audit
+   [32m ✔ [0m test_default_must_be_allowed
+   [32m ✔ [0m test_defaults_save
+   [32m ✔ [0m test_delete_attachments_removes_only_this_doctypes_files
+   [32m ✔ [0m test_doctype_lists_exactly_the_shipped_presets
+   [32m ✔ [0m test_dropped_preset_is_not_a_valid_default
+   [32m ✔ [0m test_environment_comes_from_site_config_and_is_not_stored
+   [32m ✔ [0m test_environment_labels
+   [32m ✔ [0m test_external_font_url_is_rejected
+   [32m ✔ [0m test_file_that_is_not_a_font_is_rejected
+   [32m ✔ [0m test_form_shows_the_audit_in_words_and_storage_stays_neutral
+   [32m ✔ [0m test_hook_is_registered
+   [32m ✔ [0m test_identity_changed_elsewhere_is_not_overwritten_by_an_unrelated_save
+   [32m ✔ [0m test_identity_is_written_through_by_a_system_manager_without_website_manager [31m (2.11s)[0m
+   [32m ✔ [0m test_idle_warning_range
+   [32m ✔ [0m test_missing_upload_is_named_on_the_form
+   [32m ✔ [0m test_only_system_manager_has_permissions
+       ▸  /home/frappe/frappe-bench/apps/frappe/frappe/model/qb_query.py:153: V17FrappeDeprecationWarning: This codepath was marked (DATE: 2024-01-01) deprecated for removal (from v17 onwards); note:
+       ▸   The 'limit_page_length' parameter is deprecated. Use 'limit' instead.
+       ▸  
+       ▸    deprecation_warning(
+   [32m ✔ [0m test_other_pairings_do_not_check_stale_font_fields
+   [32m ✔ [0m test_other_shipped_default_saves_when_allowed
+   [32m ✔ [0m test_pale_custom_colour_keeps_curve_lightness_and_passes
+   [32m ✔ [0m test_private_emblem_is_rejected
+   [32m ✔ [0m test_private_font_is_rejected
+   [32m ✔ [0m test_restore_gives_back_prior_values_and_is_idempotent [31m (2.21s)[0m
+   [32m ✔ [0m test_restore_leaves_a_value_an_administrator_changed
+   [32m ✔ [0m test_restore_without_files_still_saves_with_another_pairing
+   [32m ✔ [0m test_save_without_identity_change_writes_nothing
+   [32m ✔ [0m test_track_changes_is_on
+   [32m ✔ [0m test_truetype_is_accepted
+   [32m ✔ [0m test_uploaded_pairing_requires_all_four_files
+   [32m ✔ [0m test_uploaded_pairing_with_real_fonts_saves
+   [32m ✔ [0m test_website_manager_cannot_write_the_settings
+
+
+----------------------------------------------------------------------
+Ran 43 tests in 34.601s
+
+OK
+
+real	0m36.631s
+user	0m15.517s
+sys	0m2.103s

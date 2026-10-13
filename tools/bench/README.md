@@ -10,6 +10,8 @@ Everything lives outside the repository except these scripts.
 | `build_test_bench.sh [step...]` | Builds the bench. Steps, in order: `preflight user cli postgres bench services site erpnext wizard app build`. Idempotent: a finished step skips its work. Prints `STEP name END <seconds>`. |
 | `start_services.sh [stop\|restart-web]` | Starts PostgreSQL, the two bench Redis servers and the web server in the background on port 8000. |
 | `gate_install_uninstall.sh [dir]` | Phase 0 gate: capture, install, capture, uninstall, capture, diff, reinstall. Leaves the app installed. |
+| `b.sh <bench args>` | One bench command for the test site as the bench user, under the lock, from the runner or the root container. |
+| `ci_prereqs.sh` | Playwright-core and a Pillow venv for the gate captures on a machine without them (GitHub runner). |
 | `capture.mjs`, `pixel_diff.py` | Playwright capture of asset lists and screenshots; pixel comparison. |
 
 ## Why it looks the way it does
@@ -61,3 +63,11 @@ Browser: `http://midad.test:8000` (the script adds it to `/etc/hosts`) or `http:
 Login `Administrator` / `admin`.
 
 If `/home/user/src/frappe-16.32.0` (a clone at the tag) does not exist, `bench init` clones Frappe from GitHub instead.
+
+## Lock
+
+Use `flock -o /tmp/ins-bench.lock <command>` (`-o` keeps the lock descriptor away from the command). Without `-o`, daemons started by the command (PostgreSQL, Redis, web) inherit the descriptor and hold the lock for ever.
+
+## GitHub Actions runner
+
+`sudo -E flock -o /tmp/ins-bench.lock tools/bench/build_test_bench.sh`, then `tools/bench/b.sh <command>`. The gate needs `PW_NODE_PATH=/opt/pw-node/node_modules PIXDIFF_PYTHON=/opt/pixvenv/bin/python` (from `ci_prereqs.sh`) and `env PATH="$PATH"` after sudo so Node 24 is found. `as_bench` unsets `SUDO_USER`: yarn otherwise reads the invoking user's home.
