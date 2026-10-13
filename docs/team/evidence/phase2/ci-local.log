@@ -1,0 +1,25 @@
+$ python3.14 -m unittest discover -s institutional_theme/midad/tests -t .
+----------------------------------------------------------------------
+Ran 122 tests in 1.291s
+
+OK
+exit=0
+$ python3.14 -m institutional_theme.midad.build --check
+build --check: 10 file(s) checked, 0 stale
+exit=0
+$ python3.14 -m institutional_theme.audits
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+parity: 51 checks, 0 failed
+colour-vision: 0 status failure(s), 67 chart gap(s) in shipped presets
+dead-tokens: not run (no --core-css PATH given)
+wrote contrast.txt, contrast.json, parity.txt, colour_vision.txt to docs/audits
+audits: passed
+exit=0
+$ ruff check . && ruff format --check .
+All checks passed!
+exit=0
+71 files already formatted
+exit=0
+ci.yml parses; jobs ['lint', 'audits']

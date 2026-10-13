@@ -36,7 +36,7 @@ jobs:
         run: ruff format --check .
 
   audits:
-    name: Audits
+    name: Tests and audits
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,12 +45,14 @@ jobs:
         with:
           python-version: "3.14"
 
-      # The audits are dependency-free Python and must not import Frappe. The module does not
-      # exist before Phase 2; the step then reports that and passes.
-      - name: Run audits (python -m institutional_theme.audits)
-        run: |
-          if [ -f institutional_theme/audits/__main__.py ] || [ -f institutional_theme/audits.py ]; then
-            python -m institutional_theme.audits
-          else
-            echo "institutional_theme.audits does not exist yet; nothing to run."
-          fi
+      # The colour package and the audits are dependency-free Python and never import Frappe,
+      # so these steps need no bench and no pip install. Tests that need a site
+      # (the Settings doctype) run on the test bench: tools/bench/README.md.
+      - name: Unit tests (colour package, emitter, fonts)
+        run: python -m unittest discover -s institutional_theme/midad/tests -t .
+
+      - name: Generated files are current
+        run: python -m institutional_theme.midad.build --check
+
+      - name: Audits (contrast, parity, colour vision)
+        run: python -m institutional_theme.audits

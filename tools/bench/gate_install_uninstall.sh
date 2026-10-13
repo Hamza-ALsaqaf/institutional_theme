@@ -56,10 +56,14 @@ timed list-apps-before "${EVIDENCE}/list-apps-before.log" bench_site --site "${S
 
 capture before
 
+doctype_exists() { bench_site --site "${SITE}" execute frappe.db.exists --args "['DocType', 'Institutional Theme Settings']"; }
+
 timed install "${EVIDENCE}/install.log" bench_site --site "${SITE}" install-app "${APP}"
+timed doctype-after-install "${EVIDENCE}/doctype-after-install.log" doctype_exists
 capture installed
 
 timed uninstall "${EVIDENCE}/uninstall.log" bench_site --site "${SITE}" uninstall-app "${APP}" --yes --no-backup
+timed doctype-after-uninstall "${EVIDENCE}/doctype-after-uninstall.log" doctype_exists
 capture after-uninstall
 
 # The first line of each list is its own label, so it is excluded from the comparison.

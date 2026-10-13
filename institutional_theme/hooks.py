@@ -1,7 +1,9 @@
 app_name = "institutional_theme"
 app_title = "Institutional Theme"
 app_publisher = "Hamza ALsaqaf"
-app_description = "Midad: an upgrade-safe institutional visual identity and UI theme for the Frappe / ERPNext v16 desk"
+app_description = (
+	"Midad: an upgrade-safe institutional visual identity and UI theme for the Frappe / ERPNext v16 desk"
+)
 app_email = ""
 app_license = "mit"
 

@@ -1,0 +1,12 @@
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	3.6
+list-apps-before	bench_site --site midad.test list-apps	0	1.6
+capture-before	env NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/user/institutional_theme/tools/bench/capture.mjs before /home/user/institutional_theme/docs/team/evidence/phase2/gate http://midad.test:8000	0	7.8
+install	bench_site --site midad.test install-app institutional_theme	0	4.3
+doctype-after-install	doctype_exists	0	1.5
+capture-installed	env NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/user/institutional_theme/tools/bench/capture.mjs installed /home/user/institutional_theme/docs/team/evidence/phase2/gate http://midad.test:8000	0	8.2
+uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	3.5
+doctype-after-uninstall	doctype_exists	0	1.5
+capture-after-uninstall	env NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/user/institutional_theme/tools/bench/capture.mjs after-uninstall /home/user/institutional_theme/docs/team/evidence/phase2/gate http://midad.test:8000	0	7.9
+reinstall	bench_site --site midad.test install-app institutional_theme	0	4.5
+list-apps	bench_site --site midad.test list-apps	0	1.9

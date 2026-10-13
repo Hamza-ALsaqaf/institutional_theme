@@ -1,0 +1,329 @@
+{
+ "actions": [],
+ "creation": "2026-10-13 15:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "colour_section",
+  "default_palette",
+  "allowed_column",
+  "allow_midad",
+  "allow_graphite",
+  "allow_petrol",
+  "allow_forest",
+  "allow_plum",
+  "allow_custom",
+  "custom_section",
+  "custom_label_en",
+  "custom_label_ar",
+  "custom_column",
+  "custom_primary",
+  "custom_accent",
+  "custom_audit",
+  "typography_section",
+  "font_pairing",
+  "uploaded_fonts_section",
+  "font_arabic_regular",
+  "font_arabic_semibold",
+  "fonts_column",
+  "font_latin_regular",
+  "font_latin_semibold",
+  "identity_section",
+  "system_name",
+  "emblem",
+  "identity_column",
+  "favicon",
+  "institution_section",
+  "institution_name",
+  "institution_name_ar",
+  "wordmark",
+  "wordmark_dark",
+  "institution_column",
+  "authorised_use_notice",
+  "authorised_use_notice_ar",
+  "support_contact",
+  "behaviour_section",
+  "default_density",
+  "enable_idle_warning",
+  "idle_warning_minutes",
+  "behaviour_column",
+  "enable_connection_banner",
+  "environment"
+ ],
+ "fields": [
+  {
+   "fieldname": "colour_section",
+   "fieldtype": "Section Break",
+   "label": "Colour"
+  },
+  {
+   "fieldname": "default_palette",
+   "fieldtype": "Select",
+   "label": "Default colour preset",
+   "options": "midad\ngraphite\npetrol\nforest\nplum\ncustom",
+   "default": "midad",
+   "description": "Used by every user who has not chosen another preset."
+  },
+  {
+   "fieldname": "allowed_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "allow_midad",
+   "fieldtype": "Check",
+   "label": "Allow Midad ink",
+   "default": "1"
+  },
+  {
+   "fieldname": "allow_graphite",
+   "fieldtype": "Check",
+   "label": "Allow Graphite",
+   "default": "1"
+  },
+  {
+   "fieldname": "allow_petrol",
+   "fieldtype": "Check",
+   "label": "Allow Petrol",
+   "default": "1"
+  },
+  {
+   "fieldname": "allow_forest",
+   "fieldtype": "Check",
+   "label": "Allow Forest",
+   "default": "1"
+  },
+  {
+   "fieldname": "allow_plum",
+   "fieldtype": "Check",
+   "label": "Allow Plum",
+   "default": "1"
+  },
+  {
+   "fieldname": "allow_custom",
+   "fieldtype": "Check",
+   "label": "Allow a custom colour preset",
+   "default": "0"
+  },
+  {
+   "fieldname": "custom_section",
+   "fieldtype": "Section Break",
+   "label": "Custom colour preset",
+   "depends_on": "eval:doc.allow_custom || doc.default_palette==\"custom\""
+  },
+  {
+   "fieldname": "custom_label_en",
+   "fieldtype": "Data",
+   "label": "Name (English)"
+  },
+  {
+   "fieldname": "custom_label_ar",
+   "fieldtype": "Data",
+   "label": "Name (Arabic)"
+  },
+  {
+   "fieldname": "custom_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_primary",
+   "fieldtype": "Color",
+   "label": "Primary colour",
+   "mandatory_depends_on": "eval:doc.allow_custom || doc.default_palette==\"custom\"",
+   "description": "Only the hue and chroma are used. Lightness follows the approved curves, so contrast is kept."
+  },
+  {
+   "fieldname": "custom_accent",
+   "fieldtype": "Color",
+   "label": "Accent colour",
+   "mandatory_depends_on": "eval:doc.allow_custom || doc.default_palette==\"custom\""
+  },
+  {
+   "fieldname": "custom_audit",
+   "fieldtype": "Small Text",
+   "label": "Contrast check",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Passed pairs out of all pairs, and the lowest ratio. Set when the settings are saved."
+  },
+  {
+   "fieldname": "typography_section",
+   "fieldtype": "Section Break",
+   "label": "Typography"
+  },
+  {
+   "fieldname": "font_pairing",
+   "fieldtype": "Select",
+   "label": "Font pairing",
+   "options": "IBM Plex\nNoto\nTajawal\nUploaded",
+   "default": "IBM Plex"
+  },
+  {
+   "fieldname": "uploaded_fonts_section",
+   "fieldtype": "Section Break",
+   "label": "Uploaded fonts",
+   "depends_on": "eval:doc.font_pairing==\"Uploaded\"",
+   "description": "WOFF2 or TrueType files, public. All four are required for the Uploaded pairing."
+  },
+  {
+   "fieldname": "font_arabic_regular",
+   "fieldtype": "Attach",
+   "label": "Arabic regular",
+   "mandatory_depends_on": "eval:doc.font_pairing==\"Uploaded\""
+  },
+  {
+   "fieldname": "font_arabic_semibold",
+   "fieldtype": "Attach",
+   "label": "Arabic semibold",
+   "mandatory_depends_on": "eval:doc.font_pairing==\"Uploaded\""
+  },
+  {
+   "fieldname": "fonts_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "font_latin_regular",
+   "fieldtype": "Attach",
+   "label": "Latin regular",
+   "mandatory_depends_on": "eval:doc.font_pairing==\"Uploaded\""
+  },
+  {
+   "fieldname": "font_latin_semibold",
+   "fieldtype": "Attach",
+   "label": "Latin semibold",
+   "mandatory_depends_on": "eval:doc.font_pairing==\"Uploaded\""
+  },
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "System identity",
+   "description": "Copied to the Frappe settings that show it (login page, navbar, browser tab) when changed here."
+  },
+  {
+   "fieldname": "system_name",
+   "fieldtype": "Data",
+   "label": "System name"
+  },
+  {
+   "fieldname": "emblem",
+   "fieldtype": "Attach Image",
+   "label": "Emblem"
+  },
+  {
+   "fieldname": "identity_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "favicon",
+   "fieldtype": "Attach Image",
+   "label": "Favicon"
+  },
+  {
+   "fieldname": "institution_section",
+   "fieldtype": "Section Break",
+   "label": "Institution identity",
+   "description": "Used by this app only, for example in the Letter Head."
+  },
+  {
+   "fieldname": "institution_name",
+   "fieldtype": "Data",
+   "label": "Institution name"
+  },
+  {
+   "fieldname": "institution_name_ar",
+   "fieldtype": "Data",
+   "label": "Institution name (Arabic)"
+  },
+  {
+   "fieldname": "wordmark",
+   "fieldtype": "Attach Image",
+   "label": "Wordmark"
+  },
+  {
+   "fieldname": "wordmark_dark",
+   "fieldtype": "Attach Image",
+   "label": "Wordmark for dark backgrounds"
+  },
+  {
+   "fieldname": "institution_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "authorised_use_notice",
+   "fieldtype": "Small Text",
+   "label": "Authorised use notice"
+  },
+  {
+   "fieldname": "authorised_use_notice_ar",
+   "fieldtype": "Small Text",
+   "label": "Authorised use notice (Arabic)"
+  },
+  {
+   "fieldname": "support_contact",
+   "fieldtype": "Small Text",
+   "label": "Support contact"
+  },
+  {
+   "fieldname": "behaviour_section",
+   "fieldtype": "Section Break",
+   "label": "Behaviour"
+  },
+  {
+   "fieldname": "default_density",
+   "fieldtype": "Select",
+   "label": "Default density",
+   "options": "Comfortable\nCompact",
+   "default": "Comfortable"
+  },
+  {
+   "fieldname": "enable_idle_warning",
+   "fieldtype": "Check",
+   "label": "Warn before the session expires",
+   "default": "0"
+  },
+  {
+   "fieldname": "idle_warning_minutes",
+   "fieldtype": "Int",
+   "label": "Minutes of warning",
+   "default": "5",
+   "depends_on": "enable_idle_warning",
+   "description": "Between 1 and 30 minutes before the session expires."
+  },
+  {
+   "fieldname": "behaviour_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_connection_banner",
+   "fieldtype": "Check",
+   "label": "Show a banner when the connection is lost",
+   "default": "0"
+  },
+  {
+   "fieldname": "environment",
+   "fieldtype": "Data",
+   "label": "Environment",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Set by ins_environment in site_config.json: Training, UAT or Staging. Empty means production."
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "make_attachments_public": 1,
+ "modified": "2026-10-13 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Institutional Theme",
+ "name": "Institutional Theme Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
