@@ -98,3 +98,62 @@ No dimension I own is below 4. I do not score upgrade-safety, performance, docum
 ## 4. Not tested
 
 Forced colours on the new shapes (read, not run); real browser zoom and pinch zoom (320 CSS px stand-in at DPR 2 to 4); Arabic session on the live bench (the Arabic captures are the team's; my own run was English, and the `dir` flip I tried was discarded as unfaithful); real data (rows were injected client-side; the v16.52.0 bench at 8001 was down and 8002 had no ToDo records); the side panel opened live (read the script and core, read the team's captures); keyboard behaviour of the side panel; compact density; coarse pointer; screen readers (NVDA, JAWS, VoiceOver, TalkBack); real Windows High Contrast; the Work Order form with a real record (the team could not create one on PostgreSQL); HRMS 16.20.1; whether finding 3 appears with the theme blocked (core code and CSS read, theme not disabled); PDF printing on paper or photocopy, Letter size, and the wkhtmltopdf path (the team shows it is core's clip). Designed to meet WCAG 2.2 AA; formal audit recommended.
+
+---
+
+# Re-check after fix rounds
+
+Designed to meet WCAG 2.2 AA; formal audit recommended. Same reviewer. Diff read: `git diff af3388d..HEAD -- institutional_theme/public tests/browser docs/DEPENDENCY_MANIFEST.md` (code in `5d00af9` and `e17dd5d`; evidence `docs/team/evidence/round5/v1652-items/fix1/` and `fix2/`).
+
+Environment. All three benches answered this time. I probed v16.52.0 at `midad52.test:8001` (served bundle `ins_desk.bundle.C3CZGC3A.css`) and, when 8001 timed out under the release-gate load, at 8002; read only, Administrator, the same three to four fictional rows injected client-side (`cur_list.render()`), no writes, no builds. Scripts and captures are in `/tmp/a11y-r5/` (`r.mjs`, `r2*.mjs`, `rc-row.png`, `rc-drawer.png`), numbers copied below.
+
+## A. State of each finding
+
+| # | Finding | State | Evidence |
+|---|---|---|---|
+| 1 | Subject clipped without ellipsis, Latin subject loses its first letter in Arabic | **Closed** (new side effect, finding 5) | below |
+| 2 | Row focus ring clipped at 320 px | **Closed** | below |
+| 3 | Closed sidebar controls focusable while invisible at 320 px | **Closed** | below |
+| 4 | Embedded-list Cancelled is a red cross, list Cancelled a muted square | **Closed** (arm removed; every cell neutral) | below |
+| 5 (old note) | Kanban v1 dot shapes on user-chosen colours | **Accepted by the lead**, no change | this report's note 5 stands as the record |
+| 6 (old note) | Embedded host broader than status cells | **Closed** by the same removal | below |
+| 7 | Neutral badge on a hovered row loses its fill | Open, NOTE, approved token pair | unchanged |
+| 8 | Side-panel script | **Closed**, re-read | below |
+| 9 | Watermark partly behind totals on v16.52.0 | **Accepted by the lead** (that format prints "Status: Draft" as text) | my judgement stands: legibility, not status communication |
+
+**1 and 2, subject and ring (VERIFIED on v16.52.0, 320 px, DPR 2).** `.result-container` 277 px (x 17 to 294), `scrollWidth 277 = clientWidth 277`, page overflow 0. All four injected rows (three English, one long Arabic subject) sit at x 17 to 294, so the row is no wider than the container (before: 318 to 561 px). Every subject `a` computes `text-overflow: ellipsis`, `unicode-bidi: plaintext`, and `scrollWidth > clientWidth` (514, 112 and 233 against 77) in the three truncated rows, so truncation always has an ellipsis; "Short" (37 against 37) is not truncated. Keyboard Tab from the top: stops 1 to 4 are the four list rows, `outline 2px solid`, offset `-2px`, ring edge inside the container (`ringClip false` for all four), `checkVisibility` true; stops 5 to 9 are the page-head controls (sidebar toggle, search, view switcher, menu, "Add ToDo"), all visible, none covered. The team's Arabic capture (`fix1/16.52.0-after/ar-light-todo.png`, viewed): "Probe tas..." starts at its own first letter in the Arabic row and the ellipsis is at its end; the long Arabic subject ends with its ellipsis; the status badges are inside the row at the inline end (x 138 to 297 of 1000 in the capture). The 400% badge fix still holds (badge x 193 to 276, 211 to 276, 218 to 276).
+
+**3, closed drawer (VERIFIED).** At 320 px the first stops are rows then the page-head controls: 0 invisible stops (before: 11, with `opacity: 0` ancestors). At 700 px with the drawer closed every `.body-sidebar > *` computes `visibility: hidden`, `opacity: 0`, and the first sidebar link `checkVisibility` is false, so it is out of the tab order and the accessibility tree. Opening it with the toggle: container class `body-sidebar-container expanded`, child `visibility: visible`, the first control `checkVisibility` true (`/tmp/a11y-r5/rc-drawer.png`). At 1280 px: container `expanded`, all five children `visible/1`, first link visible, so the 767.98 px scope does not touch the desktop rail.
+
+**4 and 6, embedded lists (COMPUTED, `fix2/16.52.0-after/probe-embedded.json`).** 48 badges across the Work Order-style table and the Role Documents tab, en and ar, Light and Dark: 0 not neutral (fill `rgb(241,244,248)` Light, `rgb(29,37,47)` Dark), `::before` width `auto` (no shape), the label printed in every cell. "Cancelled" is therefore no longer a red cross in an embedded list; a Work Order's Draft, Submitted and Cancelled cells all read as neutral text. That removes the state-language split and the ring on "Standard". It also means those cells carry the label only; the manifest row now says "NOT a status host". The Kanban v1 arm stays in `$ins-badge-host` (`_status.scss`, host line).
+
+**8, side-panel script (read).** `side_panel_status.js` now uses `frappe.ui.get_side_panel()` when it exists (falling back to the private name), one `childList` observer on `<body>` without `subtree` that reads only added nodes and disconnects when it finds `.side-panel-indicator`, and uses an existing host directly. This removes the per-mutation `querySelector` I flagged. The attribute logic is unchanged (`docstatus,=,[02]` only, `setAttr(..., null)` otherwise); the 12 recorded probes (`fix2/16.52.0-after/probe.json`, `side-*`) still show Draft neutral ring, Submitted blue dot, Cancelled muted square, en and ar, Light and Dark. Not re-run by me on the live side panel.
+
+**Code hygiene of the fix diff.** My grep of the added lines in `institutional_theme/public` finds no `!important`, no physical property (`inline-size`, `min-inline-size`, `max-inline-size`, `text-overflow`, `unicode-bidi` only), no height on a row or cell; the `767.98px` and `576px` media widths are core's breakpoints; the `visibility` transition repeats core's two transitions so the fade is kept, and under `prefers-reduced-motion` the `_base.scss` collapse still applies (not re-measured). `ins_desk.bundle.scss` still wraps in `rtl:ignore`.
+
+## B. New finding
+
+**5. SHOULD-FIX. The date in the list row's second line is now cut to an ellipsis at 320 px (v16.52.0, ToDo list).**
+- Observed (VERIFIED, `/tmp/a11y-r5/rc-row.png`, one injected row, DPR 3): the second line reads "[Low] • …": the priority chip, the separator dot and a lone ellipsis wrapped under the dot; "14-10-2026" is not visible. The date `a.filterable.ellipsis` has `clientWidth 0` inside its `.ellipsis` column (x 118, width 79). The team's own Arabic capture shows the same stacked "•" and "…" on every row (`fix1/16.52.0-after/ar-light-todo.png`), not flagged in their README.
+- Before the fixes, on the same bench at the same size (my round-5 capture `/tmp/a11y-r5/f-ltr-light-0.png`), the second line read "[Medium] • 14-10-2026" for every row, so this is new with `5d00af9` (rows made no wider than the container). The cause is not isolated: three in-page overrides (undoing the row `max-inline-size`, the table layout, the subject `display`) did not bring the date back while the bench was under load, so I cannot say which of the five new rules does it. Core already loses the tail of this line on other doctypes and on 16.32.0 (the slip list, round-5 first report), so the date was only ever visible here by luck of width.
+- Impact: at 400% the due date (for other lists: the modified time) is unreadable and nothing says why; the primary status and the subject are intact, the document opens to the full data. Not a content-reachability blocker, but a regression of a visible field.
+- Fix suggestion: in the same media query let the meta line wrap instead of clipping: `.list-row-container .list-row .level-left { flex-wrap: wrap }` and `.list-row-col.ellipsis:has(> a.filterable) { flex: 0 0 auto; overflow: visible }` (the date is short and fixed in width), or allow the date column `min-inline-size: max-content`. Add a probe: for each row, `date.getClientRects()[0].width > 0` in the narrow probe.
+
+## C. Final scores, BRIEF section 10 (dimensions I own)
+
+| Dimension | Round 4 after fixes | Round 5 first report | Final | Evidence and what holds it |
+|---|---|---|---|---|
+| Accessibility | 4 | 4 | **4** | Findings 1 to 3 closed with measurements: subject ellipsis in every truncated row, row ring inside the clip on 4 of 4 stops, 0 invisible stops before the first row, drawer restores when opened, desktop rail unchanged. Held at 4: finding 5 (due date lost at 400%), round-4 items still open from before (tab order starts in the list, login Light only) |
+| RTL parity | 4 | 4 | **4** | Latin subject starts at its own first letter in an Arabic row and the ellipsis is at its end (team capture, viewed); logical properties only; badges at the inline end. Not re-run in a real Arabic session by me |
+| Dark-mode parity | 4 | 4 | **4** | New neutral embedded cells `rgb(29,37,47)` with ink 10.47; the side-panel and Kanban Dark values unchanged (6.74 to 10.71); login and email still Light only (lead decision) |
+| Density and productivity | 4 | 4 | **4** | No size change; the 400% list keeps subject, status and priority in view; the date is the regression (finding 5) |
+| Clarity and hierarchy | 4 | 4 | **4** | Embedded cells now carry the label only, so there is no second Cancelled symbol; side-panel Draft and Cancelled match the list |
+| Calm | 4 | 4 | **4** | No new motion or saturation; one delayed `visibility` on the closed drawer |
+| Consistency | 4 | 4 | **4** | One status language: list, page head, side panel and Kanban dot draw shapes; embedded cells are plain labels (documented) |
+| Credibility | 4 | 4 | **4** | The 400% list reads cleanly except for the clipped date line |
+
+No dimension I own is below 4. **Open blocking: none.** Open should-fix: finding 5 (new, date at 400%). Open notes: 7 (hover fill), plus the round-4 items outside this diff.
+
+## D. Not tested in the re-check
+
+An Arabic session on the live bench (Arabic read from the team's captures); real records (injected rows again); the side panel opened live after the observer change (read and the team's 12 probes); forced colours; `prefers-reduced-motion` on the delayed `visibility`; real browser zoom; screen readers; whether the drawer's `visibility: hidden` hides anything a user needs when the drawer is open on 16.32.0 (read only, the rule matches there at ≤767.98 px where core already closes to width 0; not measured); 16.32.0 live (not probed this round); the cause of finding 5. Designed to meet WCAG 2.2 AA; formal audit recommended.
