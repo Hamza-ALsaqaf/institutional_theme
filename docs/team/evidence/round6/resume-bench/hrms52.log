@@ -4,3 +4,33 @@ site_config: exit 0 in 7s (/home/user/institutional_theme/docs/team/evidence/rou
 site_host: exit 0 in 1s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/site_host.log)
 STEP site END
 STEP erpnext START 2026-10-14T19:25:35Z
+erpnext: exit 0 in 91s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/erpnext.log)
+STEP erpnext END
+STEP wizard START 2026-10-14T19:27:06Z
+wizard: exit 0 in 48s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/wizard.log)
+STEP wizard END
+STEP theme START 2026-10-14T19:27:54Z
+theme: exit 0 in 34s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/theme.log)
+STEP theme END
+STEP get START 2026-10-14T19:28:28Z
+get: exit 0 in 95s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/get.log)
+get_describe: exit 0 in 8s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/get_describe.log)
+STEP get END
+STEP install START 2026-10-14T19:30:11Z
+install: exit 0 in 75s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/install.log)
+STEP install END
+STEP build START 2026-10-14T19:31:26Z
+build: exit 0 in 34s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/build.log)
+STEP build END
+STEP web START 2026-10-14T19:32:00Z
+web: exit 0 in 6s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/web.log)
+STEP web END
+STEP seed START 2026-10-14T19:32:06Z
+seed: exit 0 in 11s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/seed.log)
+STEP seed END
+STEP verify START 2026-10-14T19:32:17Z
+list_apps: exit 0 in 6s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/list_apps.log)
+hrms                16.50.0 HEAD
+ping: exit 0 in 3s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/ping.log)
+check: exit 0 in 31s (/home/user/institutional_theme/docs/team/evidence/round6/resume-bench/hrms52/check.log)
+STEP verify END

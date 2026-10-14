@@ -1,0 +1,12 @@
+STAGE install START 2026-10-14T19:27:54Z
+
+Installing institutional_theme...
+Updating DocTypes for institutional_theme: [====================                    ] 50%Updating DocTypes for institutional_theme: [========================================] 100%
+Updating Dashboard for institutional_theme
+
+frappe              16.52.0 HEAD
+erpnext             16.50.0 HEAD
+institutional_theme 1.0.0   claude/exciting-ride-33ufyd
+
+STAGE install END exit 0
+TOTAL 34s
