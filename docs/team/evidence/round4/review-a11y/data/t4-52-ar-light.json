@@ -1,0 +1,120 @@
+{
+ "weights_list": {
+  "400": 171,
+  "500": 20,
+  "600": 7
+ },
+ "fontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+ "weights_form": {
+  "400": 299,
+  "500": 34,
+  "600": 15
+ },
+ "formUrl": "http://midad52.test:8001/desk/build/todo/1k8cjl5ks5",
+ "crumbs": [
+  {
+   "tag": "SPAN",
+   "txt": "قائمة المهام",
+   "w": 0,
+   "h": 0,
+   "x": 0,
+   "fg": "rgb(20,27,37)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 17.31,
+   "fs": "18px",
+   "fw": "600",
+   "ls": "normal",
+   "disp": "flex"
+  },
+  {
+   "tag": "A",
+   "txt": "قائمة المهام",
+   "w": 64,
+   "h": 29,
+   "x": 1006,
+   "fg": "rgb(88,97,109)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 6.28,
+   "fs": "13px",
+   "fw": "400",
+   "ls": "normal",
+   "disp": "flex"
+  },
+  {
+   "tag": "SPAN",
+   "txt": "Render check cancelled",
+   "w": 202,
+   "h": 38,
+   "x": 795,
+   "fg": "rgb(20,27,37)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 17.31,
+   "fs": "18px",
+   "fw": "600",
+   "ls": "normal",
+   "disp": "flex"
+  }
+ ],
+ "crumbBefore": [
+  {
+   "content": "\"/\" / \"\"",
+   "color": "rgb(106, 114, 125)",
+   "ml": "2px",
+   "mr": "2px",
+   "tf": "none",
+   "nt": {
+    "fg": "rgb(106,114,125)",
+    "bg": "rgb(255,255,255)",
+    "ratio": 4.87
+   }
+  }
+ ],
+ "pageIndicator": {
+  "txt": "ملغى",
+  "th": "gray",
+  "fg": "rgb(66,75,87)",
+  "bg": "rgb(241,244,248)",
+  "ratio": 8.01,
+  "before": "\"\" 9pxx9px",
+  "ls": "normal"
+ },
+ "crumbFocus": {
+  "el": "es-breadcrumbs__item قائمة المهام",
+  "fv": true,
+  "outline": "solid 2px rgb(47, 106, 167) off -2px",
+  "rect": [
+   1006,
+   13,
+   64,
+   29
+  ],
+  "olRect": [
+   795,
+   9,
+   275,
+   38
+  ],
+  "olOverflow": "visible",
+  "navOverflow": "visible"
+ },
+ "menu": null,
+ "menuKb": null,
+ "toast": {
+  "bg": "rgb(255,255,255)",
+  "fg": "rgb(40,49,60)",
+  "ratio": 13.17,
+  "border": "rgb(218, 222, 229)",
+  "icon": {
+   "stroke": "rgb(66, 75, 87)",
+   "color": "rgb(14, 131, 82)",
+   "nt": {
+    "fg": "rgb(66,75,87)",
+    "bg": "rgb(255,255,255)",
+    "ratio": 8.84
+   }
+  },
+  "role": "status",
+  "live": null,
+  "html": "<div class=\"es-toast\" data-type=\"success\" role=\"status\"><svg class=\"icon  icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\">\n\t\t\t<use class=\"\" href=\"#icon-circle-check\">\n\t\t\t</use>\n\t\t</svg><div class=\"es-toast__content\"><div class=\"es-toast__message\">Saved successfully</div></div><button class=\"es-toast__close close\" type=\"button\" aria-label=\"أغلق\"><svg class=\"icon  icon-sm\" stroke=\"current"
+ }
+}

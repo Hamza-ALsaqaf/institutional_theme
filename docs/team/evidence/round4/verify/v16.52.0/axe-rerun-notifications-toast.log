@@ -1,0 +1,23 @@
+$ node axe.mjs --variant=both --screens=notifications,toast --out=/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/v16.52.0/axe-rerun
+axe-en-light@midad.test updated 200
+axe-en-dark@midad.test updated 200
+axe-ar-light@midad.test updated 200
+axe-ar-dark@midad.test updated 200
+themed en-light notifications: 0 rules, 0 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-light toast: 0 rules, 0 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-dark notifications: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark toast: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed ar-light notifications: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light toast: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-dark notifications: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark toast: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=1)
+core en-light notifications: 1 rules, 2 nodes (theme=light, dir=ltr, ins sheets=0)
+core en-light toast: 0 rules, 0 nodes (theme=light, dir=ltr, ins sheets=0)
+core en-dark notifications: 1 rules, 2 nodes (theme=dark, dir=ltr, ins sheets=0)
+core en-dark toast: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=0)
+core ar-light notifications: 1 rules, 1 nodes (theme=light, dir=rtl, ins sheets=0)
+core ar-light toast: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=0)
+core ar-dark notifications: 1 rules, 1 nodes (theme=dark, dir=rtl, ins sheets=0)
+core ar-dark toast: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=0)
+summary: 0 nodes, theme 0, core 0
+exit 0, 77 s

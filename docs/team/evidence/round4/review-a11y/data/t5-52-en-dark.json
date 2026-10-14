@@ -1,0 +1,278 @@
+{
+ "toasts": [
+  {
+   "ind": "green",
+   "type": "success",
+   "text": {
+    "fg": "rgb(223,227,232)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 12
+   },
+   "iconColor": "rgb(104, 190, 143)",
+   "iconStroke": "rgb(185, 190, 198)",
+   "iconColorNt": {
+    "fg": "rgb(104,190,143)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.89
+   },
+   "iconStrokeNt": {
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   },
+   "tbg": "rgb(29, 37, 47)",
+   "border": "rgb(46, 54, 65)",
+   "closeBtn": {
+    "w": 24,
+    "h": 24,
+    "nt": {
+     "fg": "rgb(185,190,198)",
+     "bg": "rgb(29,37,47)",
+     "ratio": 8.28
+    },
+    "label": "Close"
+   }
+  },
+  {
+   "ind": "red",
+   "type": "error",
+   "text": {
+    "fg": "rgb(223,227,232)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 12
+   },
+   "iconColor": "rgb(251, 126, 119)",
+   "iconStroke": "rgb(185, 190, 198)",
+   "iconColorNt": {
+    "fg": "rgb(251,126,119)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.15
+   },
+   "iconStrokeNt": {
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   },
+   "tbg": "rgb(29, 37, 47)",
+   "border": "rgb(46, 54, 65)",
+   "closeBtn": {
+    "w": 24,
+    "h": 24,
+    "nt": {
+     "fg": "rgb(185,190,198)",
+     "bg": "rgb(29,37,47)",
+     "ratio": 8.28
+    },
+    "label": "Close"
+   }
+  },
+  {
+   "ind": "orange",
+   "type": "warning",
+   "text": {
+    "fg": "rgb(223,227,232)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 12
+   },
+   "iconColor": "rgb(219, 187, 84)",
+   "iconStroke": "rgb(185, 190, 198)",
+   "iconColorNt": {
+    "fg": "rgb(219,187,84)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   },
+   "iconStrokeNt": {
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   },
+   "tbg": "rgb(29, 37, 47)",
+   "border": "rgb(46, 54, 65)",
+   "closeBtn": {
+    "w": 24,
+    "h": 24,
+    "nt": {
+     "fg": "rgb(185,190,198)",
+     "bg": "rgb(29,37,47)",
+     "ratio": 8.28
+    },
+    "label": "Close"
+   }
+  },
+  {
+   "ind": "blue",
+   "type": "info",
+   "text": {
+    "fg": "rgb(223,227,232)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 12
+   },
+   "iconColor": "rgb(94, 183, 208)",
+   "iconStroke": "rgb(185, 190, 198)",
+   "iconColorNt": {
+    "fg": "rgb(94,183,208)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.75
+   },
+   "iconStrokeNt": {
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   },
+   "tbg": "rgb(29, 37, 47)",
+   "border": "rgb(46, 54, 65)",
+   "closeBtn": {
+    "w": 24,
+    "h": 24,
+    "nt": {
+     "fg": "rgb(185,190,198)",
+     "bg": "rgb(29,37,47)",
+     "ratio": 8.28
+    },
+    "label": "Close"
+   }
+  }
+ ],
+ "menu": {
+  "cls": "es-menu",
+  "bg": "rgb(29, 37, 47)",
+  "border": "rgb(46, 54, 65) 1px",
+  "radius": "6px",
+  "shadow": "rgb(46, 54, 65) 0px 0px 0px 1px",
+  "items": [
+   {
+    "txt": "User Permissions",
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28,
+    "h": 28,
+    "fw": "400",
+    "hl": null,
+    "ls": "normal"
+   },
+   {
+    "txt": "Role Permissions Man",
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28,
+    "h": 28,
+    "fw": "400",
+    "hl": null,
+    "ls": "normal"
+   },
+   {
+    "txt": "CustomizeCtrl+Y",
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28,
+    "h": 36,
+    "fw": "400",
+    "hl": null,
+    "ls": "normal"
+   },
+   {
+    "txt": "Settings",
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28,
+    "h": 28,
+    "fw": "400",
+    "hl": null,
+    "ls": "normal"
+   },
+   {
+    "txt": "Edit DocType",
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28,
+    "h": 28,
+    "fw": "400",
+    "hl": null,
+    "ls": "normal"
+   }
+  ]
+ },
+ "menuKb": {
+  "active": "es-menu__item|menuitem",
+  "fvActive": true,
+  "hl": {
+   "txt": "User Permissions",
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(37,44,55)",
+   "ratio": 7.53,
+   "outline": "solid 2px rgb(167, 201, 240) off -2px",
+   "isActive": true,
+   "bgc": "rgb(37, 44, 55)"
+  },
+  "actOutline": "solid 2px rgb(167, 201, 240) off -2px bg rgb(37, 44, 55)"
+ },
+ "menuAll": [
+  {
+   "t": "User Permissions",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(37,44,55)",
+   "ratio": 7.53,
+   "ic": null
+  },
+  {
+   "t": "Role Permissions Manag",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 8.28,
+   "ic": null
+  },
+  {
+   "t": "CustomizeCtrl+Y",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 8.28,
+   "ic": null
+  },
+  {
+   "t": "Settings",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 8.28,
+   "ic": null
+  },
+  {
+   "t": "Edit DocType",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 8.28,
+   "ic": null
+  },
+  {
+   "t": "Customize Quick Filter",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 8.28,
+   "ic": null
+  },
+  {
+   "t": "List Settings",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 8.28,
+   "ic": null
+  },
+  {
+   "t": "Documentation",
+   "th": null,
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 8.28,
+   "ic": {
+    "stroke": "rgb(185, 190, 198)",
+    "color": "rgb(185, 190, 198)"
+   }
+  }
+ ]
+}

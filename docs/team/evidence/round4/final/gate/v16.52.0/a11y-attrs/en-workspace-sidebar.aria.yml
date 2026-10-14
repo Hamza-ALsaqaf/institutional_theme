@@ -1,0 +1,23 @@
+- text: Build
+- button "Sidebar Menu"
+- text: Search Notification
+- link "Home":
+  - /url: /desk/build
+- link "DocType":
+  - /url: /desk/build/doctype
+- text: Customization
+- button "Expand Customization"
+- text: Scripting
+- button "Expand Scripting"
+- text: Views
+- button "Expand Views"
+- text: Desk
+- button "Expand Desk"
+- text: Modules
+- button "Expand Modules"
+- text: Packages
+- button "Expand Packages"
+- text: Settings
+- button "Expand Settings"
+- text: Reports
+- button "Expand Reports"

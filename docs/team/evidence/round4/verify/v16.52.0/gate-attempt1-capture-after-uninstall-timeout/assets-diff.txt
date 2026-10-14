@@ -1,0 +1,185 @@
+### diff assets-before.txt assets-installed.txt
+--- /dev/fd/63	2026-10-14 07:00:33.306461588 +0000
++++ /dev/fd/62	2026-10-14 07:00:33.306461588 +0000
+@@ -2,14 +2,16 @@
+ 
+ # GET /login -> 200
+ 
+-## /login stylesheets (3)
++## /login stylesheets (4)
+ /assets/frappe/dist/css/website.bundle.62333OGE.css
+ /assets/erpnext/dist/css/erpnext-web.bundle.L6ETKGXX.css
++/assets/institutional_theme/dist/css/ins_web.bundle.2Q4EDVKI.css
+ /assets/frappe/dist/css/login.bundle.XSXVTDPA.css
+ 
+-## /login scripts (2)
++## /login scripts (3)
+ /assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+ /website_script.js
++/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js
+ 
+ ## /login data-theme attributes (raw html) (5)
+ data-theme="red"
+@@ -25,12 +27,13 @@
+ 
+ # GET /app -> 200
+ 
+-## /app stylesheets (3)
++## /app stylesheets (4)
+ /assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+ /assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+ /assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.FUV47A7O.css
+ 
+-## /app scripts (9)
++## /app scripts (10)
+ /assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+ /assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+ /assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+@@ -40,6 +43,7 @@
+ /assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+ /assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+ /assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js
++/assets/institutional_theme/dist/js/ins_shell.bundle.3MQA57WQ.js
+ 
+ ## /app data-theme attributes (raw html) (2)
+ data-theme-mode="light"
+@@ -48,8 +52,9 @@
+ ## /app/todo data-theme (live DOM)
+ {"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+ 
+-## /app/todo stylesheets (live DOM) (3)
++## /app/todo stylesheets (live DOM) (4)
+ /assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+ /assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+ /assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.FUV47A7O.css
+ 
+
+### diff assets-before.txt assets-after-uninstall.txt
+tail: cannot open '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/v16.52.0/gate/assets-after-uninstall.txt' for reading: No such file or directory
+--- /dev/fd/63	2026-10-14 07:00:33.308461600 +0000
++++ /dev/fd/62	2026-10-14 07:00:33.308461600 +0000
+@@ -1,55 +0,0 @@
+-# base url: http://midad52.test:8001
+-
+-# GET /login -> 200
+-
+-## /login stylesheets (3)
+-/assets/frappe/dist/css/website.bundle.62333OGE.css
+-/assets/erpnext/dist/css/erpnext-web.bundle.L6ETKGXX.css
+-/assets/frappe/dist/css/login.bundle.XSXVTDPA.css
+-
+-## /login scripts (2)
+-/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+-/website_script.js
+-
+-## /login data-theme attributes (raw html) (5)
+-data-theme="red"
+-data-theme="green"
+-data-theme="red"
+-data-theme="green"
+-data-theme="red"
+-
+-## /login data-theme (live DOM)
+-{"dataTheme":null,"dataThemeMode":null,"bodyDataTheme":null}
+-
+-# POST /api/method/login -> 200
+-
+-# GET /app -> 200
+-
+-## /app stylesheets (3)
+-/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+-/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+-/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+-
+-## /app scripts (9)
+-/assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+-/assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+-/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+-/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js
+-/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js
+-/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js
+-/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+-/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+-/assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js
+-
+-## /app data-theme attributes (raw html) (2)
+-data-theme-mode="light"
+-data-theme="light"
+-
+-## /app/todo data-theme (live DOM)
+-{"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+-
+-## /app/todo stylesheets (live DOM) (3)
+-/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+-/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+-/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+-
+
+### diff assets-installed.txt assets-after-uninstall.txt
+tail: cannot open '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/v16.52.0/gate/assets-after-uninstall.txt' for reading: No such file or directory
+--- /dev/fd/63	2026-10-14 07:00:33.311267227 +0000
++++ /dev/fd/62	2026-10-14 07:00:33.311267227 +0000
+@@ -1,60 +0,0 @@
+-# base url: http://midad52.test:8001
+-
+-# GET /login -> 200
+-
+-## /login stylesheets (4)
+-/assets/frappe/dist/css/website.bundle.62333OGE.css
+-/assets/erpnext/dist/css/erpnext-web.bundle.L6ETKGXX.css
+-/assets/institutional_theme/dist/css/ins_web.bundle.2Q4EDVKI.css
+-/assets/frappe/dist/css/login.bundle.XSXVTDPA.css
+-
+-## /login scripts (3)
+-/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+-/website_script.js
+-/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js
+-
+-## /login data-theme attributes (raw html) (5)
+-data-theme="red"
+-data-theme="green"
+-data-theme="red"
+-data-theme="green"
+-data-theme="red"
+-
+-## /login data-theme (live DOM)
+-{"dataTheme":null,"dataThemeMode":null,"bodyDataTheme":null}
+-
+-# POST /api/method/login -> 200
+-
+-# GET /app -> 200
+-
+-## /app stylesheets (4)
+-/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+-/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+-/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.FUV47A7O.css
+-
+-## /app scripts (10)
+-/assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+-/assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+-/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+-/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js
+-/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js
+-/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js
+-/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+-/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+-/assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js
+-/assets/institutional_theme/dist/js/ins_shell.bundle.3MQA57WQ.js
+-
+-## /app data-theme attributes (raw html) (2)
+-data-theme-mode="light"
+-data-theme="light"
+-
+-## /app/todo data-theme (live DOM)
+-{"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+-
+-## /app/todo stylesheets (live DOM) (4)
+-/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+-/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+-/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.FUV47A7O.css
+-
+

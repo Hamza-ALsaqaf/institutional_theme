@@ -1,0 +1,90 @@
+[
+ {
+  "ver": "16.32.0",
+  "mode": "Light",
+  "ind": "blue",
+  "cls": "alert desk-alert blue",
+  "bg": "rgb(240, 248, 255)",
+  "text": "rgb(66, 75, 87)",
+  "icon": null,
+  "textContrast": "8.24",
+  "iconContrast": null
+ },
+ {
+  "ver": "16.32.0",
+  "mode": "Light",
+  "ind": "green",
+  "cls": "alert desk-alert green",
+  "bg": "rgb(240, 249, 244)",
+  "text": "rgb(66, 75, 87)",
+  "icon": null,
+  "textContrast": "8.23",
+  "iconContrast": null
+ },
+ {
+  "ver": "16.32.0",
+  "mode": "Light",
+  "ind": "orange",
+  "cls": "alert desk-alert orange",
+  "bg": "rgb(253, 248, 234)",
+  "text": "rgb(66, 75, 87)",
+  "icon": null,
+  "textContrast": "8.33",
+  "iconContrast": null
+ },
+ {
+  "ver": "16.32.0",
+  "mode": "Light",
+  "ind": "red",
+  "cls": "alert desk-alert red",
+  "bg": "rgb(255, 244, 243)",
+  "text": "rgb(66, 75, 87)",
+  "icon": null,
+  "textContrast": "8.20",
+  "iconContrast": null
+ },
+ {
+  "ver": "16.32.0",
+  "mode": "Dark",
+  "ind": "blue",
+  "cls": "alert desk-alert blue",
+  "bg": "rgb(0, 31, 58)",
+  "text": "rgb(185, 190, 198)",
+  "icon": null,
+  "textContrast": "8.94",
+  "iconContrast": null
+ },
+ {
+  "ver": "16.32.0",
+  "mode": "Dark",
+  "ind": "green",
+  "cls": "alert desk-alert green",
+  "bg": "rgb(2, 37, 20)",
+  "text": "rgb(185, 190, 198)",
+  "icon": null,
+  "textContrast": "8.80",
+  "iconContrast": null
+ },
+ {
+  "ver": "16.32.0",
+  "mode": "Dark",
+  "ind": "orange",
+  "cls": "alert desk-alert orange",
+  "bg": "rgb(41, 31, 0)",
+  "text": "rgb(185, 190, 198)",
+  "icon": null,
+  "textContrast": "8.71",
+  "iconContrast": null
+ },
+ {
+  "ver": "16.32.0",
+  "mode": "Dark",
+  "ind": "red",
+  "cls": "alert desk-alert red",
+  "bg": "rgb(58, 11, 11)",
+  "text": "rgb(185, 190, 198)",
+  "icon": null,
+  "textContrast": "9.12",
+  "iconContrast": null
+ }
+]

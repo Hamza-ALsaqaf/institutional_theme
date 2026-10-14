@@ -251,6 +251,40 @@ class Shipping(unittest.TestCase):
 		self.assertNotIn(leftover, files)
 
 
+class DeskScope(unittest.TestCase):
+	def test_only_desk_is_a_scope(self):
+		frappe = {"vars": {"--x": {"both": "@primary", "scope": "web"}}}
+		with self.assertRaises(build.BuildError):
+			build._frappe_vars(frappe)
+		ok = build._frappe_vars(
+			{"vars": {"--x": {"both": "@primary", "scope": "desk"}, "--y": {"both": "@primary"}}}
+		)
+		self.assertEqual(ok["--x"]["scope"], "desk")
+		self.assertNotIn("scope", ok["--y"])
+
+	def test_the_web_map_drops_a_desk_variable_and_the_full_map_keeps_it(self):
+		marked = copy.deepcopy(MODEL)
+		for entry in marked["frappe"]["vars"].values():
+			entry.pop("scope", None)
+		name = next(iter(marked["frappe"]["vars"]))
+		marked["frappe"]["vars"][name]["scope"] = "desk"
+		full = [n for n, _ in model.frappe_map(marked).declarations["light"]]
+		web = [n for n, _ in model.frappe_map(marked, model.WEB).declarations["light"]]
+		self.assertIn(name, full)
+		self.assertNotIn(name, web)
+		self.assertEqual([n for n in full if n != name], web)
+		self.assertEqual(model.desk_only(marked), [name])
+
+	def test_the_shipped_model_marks_the_desk_only_variables_in_model_json(self):
+		marked = [
+			n
+			for n, e in TOKENS["frappe"]["vars"].items()
+			if not n.startswith("_") and e.get("scope") == "desk"
+		]
+		self.assertEqual(model.desk_only(MODEL), marked)
+		self.assertGreaterEqual(len(marked), 50)
+
+
 class LightOnlyPartials(unittest.TestCase):
 	"""The website bundle imports the light-only partials; they must equal the light blocks."""
 
@@ -263,12 +297,34 @@ class LightOnlyPartials(unittest.TestCase):
 
 	def test_light_file_is_the_light_block_of_the_full_file(self):
 		files = build.render_all(TOKENS)
-		for full, light in self.PAIRS:
-			full_text, light_text = files[build.SCSS_DIR / full], files[build.SCSS_DIR / light]
-			block = self._light_block(full_text)
-			self.assertTrue(light_text.endswith("\n\n" + block), light)
-			self.assertEqual(light_text.count("{"), 1)
-			self.assertEqual(light_text.splitlines()[0], full_text.splitlines()[0])
+		full_text, light_text = (files[build.SCSS_DIR / name] for name in self.PAIRS[0])
+		block = self._light_block(full_text)
+		self.assertTrue(light_text.endswith("\n\n" + block))
+		self.assertEqual(light_text.count("{"), 1)
+		self.assertEqual(light_text.splitlines()[0], full_text.splitlines()[0])
+
+	def test_website_map_is_the_light_block_without_the_desk_only_names(self):
+		files = build.render_all(TOKENS)
+		full_text, web_text = (files[build.SCSS_DIR / name] for name in self.PAIRS[1])
+		full = parity.parse_blocks(full_text)[0]
+		web = parity.parse_blocks(web_text)[0]
+		desk_only = set(model.desk_only(MODEL))
+		self.assertTrue(desk_only, "the map marks desk-only variables")
+		self.assertEqual(web.selectors, full.selectors)
+		self.assertEqual(web.declarations, [d for d in full.declarations if d[0] not in desk_only])
+		self.assertTrue(desk_only.isdisjoint(prop for prop, _ in web.declarations))
+		self.assertTrue(desk_only <= {prop for prop, _ in full.declarations})
+		self.assertEqual(web_text.splitlines()[0], full_text.splitlines()[0])
+
+	def test_the_full_map_keeps_every_desk_only_name_in_light_and_dark(self):
+		fmap = model.frappe_map(MODEL)
+		self.assertEqual(
+			[n for n, _ in fmap.declarations["light"]], [n for n, _ in fmap.declarations["dark"]]
+		)
+		names = {n for n, _ in fmap.declarations["light"]}
+		self.assertTrue(set(model.desk_only(MODEL)) <= names)
+		web = {n for n, _ in model.frappe_map(MODEL, model.WEB).declarations["light"]}
+		self.assertEqual(names - web, set(model.desk_only(MODEL)))
 
 	def test_light_files_have_no_dark_or_automatic_selector(self):
 		files = build.render_all(TOKENS)

@@ -1,0 +1,120 @@
+{
+ "weights_list": {
+  "400": 173,
+  "500": 20,
+  "600": 7
+ },
+ "fontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+ "weights_form": {
+  "400": 303,
+  "500": 34,
+  "600": 15
+ },
+ "formUrl": "http://midad52.test:8001/desk/build/todo/1k8cjl5ks5",
+ "crumbs": [
+  {
+   "tag": "SPAN",
+   "txt": "To Do",
+   "w": 0,
+   "h": 0,
+   "x": 0,
+   "fg": "rgb(236,239,242)",
+   "bg": "rgb(17,24,32)",
+   "ratio": 15.48,
+   "fs": "18px",
+   "fw": "600",
+   "ls": "0.28px",
+   "disp": "flex"
+  },
+  {
+   "tag": "A",
+   "txt": "ToDo",
+   "w": 34,
+   "h": 28,
+   "x": 296,
+   "fg": "rgb(157,164,172)",
+   "bg": "rgb(17,24,32)",
+   "ratio": 7.1,
+   "fs": "13px",
+   "fw": "400",
+   "ls": "0.28px",
+   "disp": "flex"
+  },
+  {
+   "tag": "SPAN",
+   "txt": "Render check cancelled",
+   "w": 208,
+   "h": 35,
+   "x": 339,
+   "fg": "rgb(236,239,242)",
+   "bg": "rgb(17,24,32)",
+   "ratio": 15.48,
+   "fs": "18px",
+   "fw": "600",
+   "ls": "0.28px",
+   "disp": "flex"
+  }
+ ],
+ "crumbBefore": [
+  {
+   "content": "\"/\" / \"\"",
+   "color": "rgb(137, 144, 153)",
+   "ml": "2px",
+   "mr": "2px",
+   "tf": "none",
+   "nt": {
+    "fg": "rgb(137,144,153)",
+    "bg": "rgb(17,24,32)",
+    "ratio": 5.54
+   }
+  }
+ ],
+ "pageIndicator": {
+  "txt": "Cancelled",
+  "th": "gray",
+  "fg": "rgb(208,213,219)",
+  "bg": "rgb(29,37,47)",
+  "ratio": 10.47,
+  "before": "\"\" 9pxx9px",
+  "ls": "0.28px"
+ },
+ "crumbFocus": {
+  "el": "es-breadcrumbs__item ToDo",
+  "fv": true,
+  "outline": "solid 2px rgb(167, 201, 240) off -2px",
+  "rect": [
+   296,
+   14,
+   34,
+   28
+  ],
+  "olRect": [
+   296,
+   11,
+   252,
+   35
+  ],
+  "olOverflow": "visible",
+  "navOverflow": "visible"
+ },
+ "menu": null,
+ "menuKb": null,
+ "toast": {
+  "bg": "rgb(29,37,47)",
+  "fg": "rgb(223,227,232)",
+  "ratio": 12,
+  "border": "rgb(46, 54, 65)",
+  "icon": {
+   "stroke": "rgb(185, 190, 198)",
+   "color": "rgb(104, 190, 143)",
+   "nt": {
+    "fg": "rgb(185,190,198)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   }
+  },
+  "role": "status",
+  "live": null,
+  "html": "<div class=\"es-toast\" data-type=\"success\" role=\"status\"><svg class=\"icon  icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\">\n\t\t\t<use class=\"\" href=\"#icon-circle-check\">\n\t\t\t</use>\n\t\t</svg><div class=\"es-toast__content\"><div class=\"es-toast__message\">Saved successfully</div></div><button class=\"es-toast__close close\" type=\"button\" aria-label=\"Close\"><svg class=\"icon  icon-sm\" stroke=\"curren"
+ }
+}

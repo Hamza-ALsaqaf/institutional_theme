@@ -1,0 +1,3 @@
+$ /opt/python3.14/bin/python3.14 -m institutional_theme.midad.build --check
+build --check: 12 file(s) checked, 0 stale
+exit 0

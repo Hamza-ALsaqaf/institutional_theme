@@ -10,6 +10,11 @@
 //   <label>-login.png    /login at 1366x768
 //   <label>-todo.png     /app/todo at 1366x768, logged in
 //
+// SITE_THEME=Light|Dark|Automatic switches the Administrator's desk theme (the whitelisted
+// frappe.core.doctype.user.user.switch_theme, what the theme switcher calls) before the desk is
+// captured and puts the previous value back at the end, so a Light and a Dark capture of the same
+// site differ only in that setting.
+//
 // Test-only credentials: Administrator / admin (see tools/bench/env.sh).
 import { createRequire } from "node:module";
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -31,6 +36,9 @@ if (!label || !outDir) {
 	process.exit(2);
 }
 mkdirSync(outDir, { recursive: true });
+// The site's host name is mapped to the loopback address, so the browser needs no /etc/hosts entry
+// (midad.test on the 16.32.0 bench, midad52.test on the newest-tag bench).
+const siteHost = new URL(baseUrl).hostname;
 
 const VIEWPORT = { width: 1366, height: 768 };
 const user = process.env.SITE_USER || "Administrator";
@@ -55,7 +63,7 @@ function section(title, items) {
 }
 
 const browser = await chromium.launch({
-	args: ["--no-sandbox", "--no-proxy-server", "--host-resolver-rules=MAP midad.test 127.0.0.1"],
+	args: ["--no-sandbox", "--no-proxy-server", `--host-resolver-rules=MAP ${siteHost} 127.0.0.1`],
 });
 const context = await browser.newContext({ viewport: VIEWPORT, locale: "en-US" });
 const lines = [`# asset list: ${label}`, `# base url: ${baseUrl}`, ""];
@@ -101,6 +109,30 @@ async function rawHtml(url) {
 	}
 }
 
+// Optional desk theme for this capture (SITE_THEME), restored at the end.
+const wantedTheme = process.env.SITE_THEME;
+let previousTheme = null;
+async function setTheme(theme) {
+	// A POST after the desk has loaded needs the CSRF token of the desk's own boot data.
+	const shell = await (await context.request.get(`${baseUrl}/app`)).text();
+	const token = (shell.match(/csrf_token\s*=\s*["']([^"']+)["']/) || [])[1] || "";
+	const response = await context.request.post(`${baseUrl}/api/method/frappe.core.doctype.user.user.switch_theme`, {
+		form: { theme },
+		headers: { "X-Frappe-CSRF-Token": token },
+	});
+	lines.push(`# switch_theme ${theme} -> ${response.status()}`, "");
+	if (!response.ok()) {
+		throw new Error(`switch_theme ${theme} failed: ${response.status()} ${(await response.text()).slice(0, 300)}`);
+	}
+}
+if (wantedTheme) {
+	// The mode the desk renders now, read from the server HTML (frappe.client.get_value may be cached).
+	const shell = await (await context.request.get(`${baseUrl}/app`)).text();
+	const mode = (shell.match(/data-theme-mode=["']([a-z]+)["']/) || [])[1] || "light";
+	previousTheme = mode.charAt(0).toUpperCase() + mode.slice(1);
+	await setTheme(wantedTheme);
+}
+
 // Logged-in /app (raw HTML of the desk shell) and the rendered ToDo list.
 {
 	const { status, html } = await rawHtml(`${baseUrl}/app`);
@@ -111,8 +143,19 @@ async function rawHtml(url) {
 	lines.push(section("/app data-theme attributes (raw html)", found.themes));
 
 	const page = await context.newPage();
+	const seen = [];
+	page.on("pageerror", (e) => seen.push(`pageerror: ${String(e.message).slice(0, 200)}`));
+	page.on("requestfailed", (r) => seen.push(`requestfailed: ${r.url().slice(0, 160)} ${r.failure()?.errorText}`));
 	await page.goto(`${baseUrl}/app/todo`, { waitUntil: "load" });
-	await page.waitForSelector(".page-head", { timeout: 60000 });
+	try {
+		await page.waitForSelector(".page-head", { timeout: 60000 });
+	} catch (error) {
+		// Say what the page showed instead, so a timeout can be told apart from a broken desk.
+		await page.screenshot({ path: path.join(outDir, `${label}-todo-FAILED.png`), animations: "disabled", caret: "hide" }).catch(() => {});
+		const text = await page.evaluate(() => (document.body ? document.body.innerText : "").replace(/\s+/g, " ").slice(0, 400)).catch(() => "");
+		console.error(`todo did not render .page-head within 60 s at ${page.url()}; page text: ${text}; events: ${JSON.stringify(seen.slice(0, 10))}`);
+		throw error;
+	}
 	await page.waitForTimeout(3000);
 	const live = await page.evaluate(() => ({
 		dataTheme: document.documentElement.getAttribute("data-theme"),
@@ -126,6 +169,7 @@ async function rawHtml(url) {
 	await page.close();
 }
 
+if (wantedTheme) await setTheme(previousTheme);
 writeFileSync(path.join(outDir, `assets-${label}.txt`), lines.join("\n") + "\n");
 await browser.close();
 console.log(`captured ${label} into ${outDir}`);

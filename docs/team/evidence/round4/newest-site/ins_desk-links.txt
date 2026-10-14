@@ -1,0 +1,4 @@
+/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.YGN7BQDV.css
+/assets/institutional_theme/dist/css/ins_desk.bundle.NGMPOG6O.css
+ins_desk.bundle.css
+rtl_ins_desk.bundle.css

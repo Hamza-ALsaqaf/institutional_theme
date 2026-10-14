@@ -1,0 +1,15 @@
+import { chromium, BENCH, OUT } from "./lib.mjs";
+const [which, lang] = process.argv.slice(2);
+const base = BENCH[which];
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const ctx = await b.newContext({ locale: lang==="ar"?"ar":"en-US", viewport: { width: 1366, height: 800 } });
+const page = await ctx.newPage();
+await page.goto(`${base}/login?_lang=${lang}`, { waitUntil: "networkidle" });
+await page.waitForSelector("#login_email");
+console.log(which, lang, await page.evaluate(()=>{ const e=document.querySelector('#login_email'); const cs=getComputedStyle(e); const p=document.querySelector('#login_password'); const pc=getComputedStyle(p); return { dirAttr:e.getAttribute('dir'), dir:cs.direction, pl:cs.paddingLeft, pr:cs.paddingRight, ta:cs.textAlign, pdirAttr:p.getAttribute('dir'), pdir:pc.direction, ppl:pc.paddingLeft, ppr:pc.paddingRight, pta:pc.textAlign, ptype:p.type }; }));
+await page.fill("#login_email","jane.doe@example.com");
+await page.fill("#login_password","secret-pass");
+await page.evaluate(()=>document.activeElement.blur());
+const clip={x:500,y:190,width:370,height:190};
+await page.screenshot({ path: OUT + `login-filled-${which}-${lang}.png`, clip });
+await b.close();

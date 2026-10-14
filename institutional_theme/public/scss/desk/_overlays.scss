@@ -24,8 +24,12 @@ html:root[dir] #freeze .freeze-message-container {
 }
 
 // ---- Dropdowns, popovers, tooltips: overlay surface, hairline, overlay elevation (design .overlay).
+// v16.52.0 renders menus and popovers as `.es-menu` and `.es-popover` panels (ui/components/menu.js:332, popover.js; css/espresso/components/menu.css:44,
+// popover.css:28) that sit on `--surface-elevation-2` with a 1px ring and `--radius-lg`; the Bootstrap classes remain only as hidden item stores.
 html:root[dir] .dropdown-menu,
-html:root[dir] .popover {
+html:root[dir] .popover,
+html:root[dir] .es-menu,
+html:root[dir] .es-popover {
 	background-color: var(--ins-surface-overlay);
 	border: 1px solid var(--ins-border);
 	border-radius: var(--ins-radius-md);
@@ -40,11 +44,50 @@ html:root[dir] .tooltip-content {
 }
 
 // ---- Toast: raised surface with the feedback colour as an inline-start bar would need markup core lacks, so the --toast-bg
-// feedback surface stays and gets a hairline plus the dialog elevation (toast.scss:12-40).
-html:root[dir] .desk-alert {
+// feedback surface stays and gets a hairline plus the dialog elevation (16.32.0: `.desk-alert`, desk/toast.scss:12-40, messages.js:443).
+// v16.52.0 deleted both: `frappe.show_alert` (ui/messages.js:430) builds `.es-toast` (ui/components/toast.js, css/espresso/components/toast.css:34), an ink pill whose
+// colours come from --surface-gray-9 / --ink-base, so only its shape is written here.
+html:root[dir] .desk-alert,
+html:root[dir] .es-toast {
 	border: 1px solid var(--ins-border);
 	border-radius: var(--ins-radius-md);
 	box-shadow: var(--ins-elevation-dialog);
+}
+
+// v16.52.0 toast colours are local reads of global gray tokens (css/espresso/components/toast.css:34-52,133-223: --surface-gray-9, --ink-base,
+// --surface-gray-8, --ink-gray-3, --outline-gray-3). Those tokens mean something else elsewhere (ADR 0011 R3c), so the toast repoints its own
+// copies (R4) to the overlay surface with ink text, as a dialog. Core is (0,1,0); this is (0,2,1). 16.32.0 has no `.es-toast`.
+html:root[dir] .es-toast {
+	--surface-gray-9: var(--ins-surface-overlay);
+	--surface-gray-8: var(--ins-surface-hover);
+	--ink-base: var(--ins-text);
+	--ink-gray-3: var(--ins-text-muted);
+	--outline-gray-3: var(--ins-border);
+}
+
+// The type icons read --ink-{blue,green,amber,red}-5, raw 400 steps (1.9 to 2.5:1 on the overlay surface). Status ink tokens
+// give 3:1 or more in both modes. Written on the type selectors, so no global token is repurposed (ADR 0011 R4). Core is (0,2,0); this is (0,3,1).
+html:root[dir] .es-toast[data-type="info"] {
+	--es-toast-icon: var(--ins-status-info-solid);
+}
+
+html:root[dir] .es-toast[data-type="success"] {
+	--es-toast-icon: var(--ins-status-success-solid);
+}
+
+html:root[dir] .es-toast[data-type="warning"] {
+	--es-toast-icon: var(--ins-status-warning-solid);
+}
+
+html:root[dir] .es-toast[data-type="error"] {
+	--es-toast-icon: var(--ins-status-danger-solid);
+}
+
+// The icon is drawn with `stroke`, and core's `.icon { stroke: var(--icon-stroke) }` wins over the `stroke="currentColor"` attribute. The desk maps
+// --icon-stroke to the secondary text colour, so the status ink above only reached `color` and the drawn glyph stayed grey. The toast restores
+// core's own `currentColor` (css/espresso/legacy.css:46) on its type icon, so the stroke is the status ink. Core is (0,1,0); this is (0,3,2).
+html:root[dir] .es-toast[data-type] > svg {
+	--icon-stroke: currentColor;
 }
 
 // ---- Awesomplete list (link and awesomebar suggestions): same overlay surface.

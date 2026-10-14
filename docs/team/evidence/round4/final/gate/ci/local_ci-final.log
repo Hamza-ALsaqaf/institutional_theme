@@ -1,0 +1,2 @@
+$ tools/ci/local_ci.sh docs/team/evidence/round4/final/gate/ci/local_ci-final.inner.log
+exit 0, 8 s

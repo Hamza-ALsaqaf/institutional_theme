@@ -1,0 +1,631 @@
+$ tools/bench/b52.sh run-tests --app institutional_theme
+Starting test run with parameters: site=midad52.test, app=institutional_theme, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/newest-bench/logs/frappe.testing.log
+
+Running 148 integration tests for institutional_theme
+
+institutional_theme.tests.test_api.TestSetAppearance
+   [32m ✔ [0m test_a_disallowed_palette_is_a_validation_error
+   [32m ✔ [0m test_a_value_is_stored_for_the_session_user_only
+   [32m ✔ [0m test_a_value_left_out_is_not_changed
+   [32m ✔ [0m test_an_unknown_palette_and_a_bad_density_are_rejected
+   [32m ✔ [0m test_guest_gets_a_permission_error
+   [32m ✔ [0m test_it_is_whitelisted_for_post_only
+   [32m ✔ [0m test_the_result_is_the_effective_value
+
+institutional_theme.tests.test_web_content.TestWebContent
+   [32m ✔ [0m test_default_notice_in_both_languages
+   [32m ✔ [0m test_environment_words
+   [32m ✔ [0m test_error_page_reference
+   [32m ✔ [0m test_existing_values_are_kept
+   [32m ✔ [0m test_forged_reference_falls_back_to_time_of_error
+   [32m ✔ [0m test_hook_never_raises
+   [32m ✔ [0m test_language_links_keep_the_query
+   [32m ✔ [0m test_login_gets_masthead_footer_and_classes [31m (2.2s)[0m
+   [32m ✔ [0m test_login_title_is_translated
+   [32m ✔ [0m test_message_reference_only_on_error_status
+   [32m ✔ [0m test_message_with_red_indicator_is_an_error
+   [32m ✔ [0m test_not_found_has_no_reference
+   [32m ✔ [0m test_notice_follows_page_language_with_fallback
+   [32m ✔ [0m test_other_templates_are_left_alone
+   [32m ✔ [0m test_release_line
+   [32m ✔ [0m test_settings_values_are_escaped
+   [32m ✔ [0m test_support_is_omitted_when_empty_and_kept_when_set
+   [32m ✔ [0m test_web_page_left_becomes_start_in_arabic_only
+
+institutional_theme.tests.test_boot.TestBoot
+   [32m ✔ [0m test_a_different_failure_is_logged_again
+   [32m ✔ [0m test_a_failure_is_logged_and_leaves_the_boot_without_ins
+   [32m ✔ [0m test_a_log_call_that_raises_never_leaves_the_guard
+   [32m ✔ [0m test_a_persistent_failure_is_logged_once_per_process
+   [32m ✔ [0m test_behaviour_changes_ship_disabled
+   [32m ✔ [0m test_bootinfo_ins_has_the_documented_keys
+   [32m ✔ [0m test_environment_comes_from_site_config_only
+   [32m ✔ [0m test_the_appearance_page_is_open_to_every_desk_user
+   [32m ✔ [0m test_the_behaviour_flags_follow_the_settings
+
+institutional_theme.tests.test_website_hook.TestWebsiteHook
+   [32m ✔ [0m test_a_context_without_a_list_is_left_alone
+   [32m ✔ [0m test_a_custom_palette_is_linked_by_its_generated_file
+   [32m ✔ [0m test_a_font_pairing_bundle_is_linked_with_the_palette
+   [32m ✔ [0m test_a_missing_manifest_key_gives_no_link
+   [32m ✔ [0m test_a_raising_hook_logs_once_and_changes_nothing
+   [32m ✔ [0m test_the_desk_links_the_users_palette_after_the_existing_links
+   [32m ✔ [0m test_the_midad_palette_adds_no_link
+   [32m ✔ [0m test_website_pages_get_the_site_default_in_a_new_list
+
+institutional_theme.tests.test_preferences.TestPreferences
+   [32m ✔ [0m test_a_custom_card_is_never_nameless
+   [32m ✔ [0m test_a_missing_settings_document_gives_the_stock_values
+   [32m ✔ [0m test_a_palette_the_site_does_not_allow_falls_back_and_comes_back
+   [32m ✔ [0m test_a_palette_without_a_stylesheet_is_never_effective
+   [32m ✔ [0m test_a_stored_value_is_read_back
+   [32m ✔ [0m test_allowed_presets_keep_the_shipped_order_and_never_come_back_empty
+   [32m ✔ [0m test_an_unknown_stored_value_is_ignored
+   [32m ✔ [0m test_cards_carry_a_name_and_two_swatches
+   [32m ✔ [0m test_custom_is_offered_only_when_its_palette_passes
+   [32m ✔ [0m test_defaults_are_midad_and_comfortable
+   [32m ✔ [0m test_guest_gets_the_site_defaults
+   [32m ✔ [0m test_site_default_density
+   [32m ✔ [0m test_the_fallback_is_the_site_default_palette
+
+institutional_theme.tests.test_site_files.TestSiteFiles
+   [32m ✔ [0m test_a_deleted_folder_is_regenerated
+   [32m ✔ [0m test_a_failure_after_the_commit_is_logged_once_and_does_not_raise
+   [32m ✔ [0m test_a_palette_that_fails_its_audit_is_never_written
+   [32m ✔ [0m test_a_read_only_folder_gives_no_link_and_no_error
+   [32m ✔ [0m test_after_migrate_regenerates
+   [32m ✔ [0m test_changing_the_colours_writes_a_new_name_and_keeps_one_previous
+   [32m ✔ [0m test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name
+   [32m ✔ [0m test_ensure_never_writes_the_database
+   [32m ✔ [0m test_nothing_is_written_when_nothing_is_wanted
+   [32m ✔ [0m test_old_temporary_files_are_pruned_and_young_ones_kept
+   [32m ✔ [0m test_saving_the_settings_writes_the_file_through_the_on_update_hook
+   [32m ✔ [0m test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing
+   [32m ✔ [0m test_the_name_is_the_hash_of_the_content_and_deterministic
+   [32m ✔ [0m test_uploaded_fonts_are_written_and_a_missing_semibold_drops_that_script
+
+institutional_theme.tests.test_print_ship.TestDecide
+   [32m ✔ [0m test_decisions
+   [32m ✔ [0m test_the_checksum_separates_its_parts
+   [32m ✔ [0m test_the_source_map_comment_is_dropped
+
+institutional_theme.tests.test_print_ship.TestShip
+   [32m ✔ [0m test_a_deleted_record_is_not_created_again
+   [32m ✔ [0m test_a_missing_bundle_skips_without_error
+   [32m ✔ [0m test_a_record_shipped_before_the_guard_is_updated_not_flagged [31m (2.41s)[0m
+   [32m ✔ [0m test_an_administrators_edit_is_not_overwritten
+   [32m ✔ [0m test_an_existing_record_the_theme_did_not_ship_is_left_alone
+   [32m ✔ [0m test_an_unbuilt_manifest_entry_skips
+   [32m ✔ [0m test_an_untouched_record_is_updated_when_the_content_changes [31m (2.39s)[0m
+   [32m ✔ [0m test_missing_templates_skip_without_error
+   [32m ✔ [0m test_nothing_becomes_the_default
+   [32m ✔ [0m test_ships_once
+   [32m ✔ [0m test_the_bundle_is_found_through_the_manifest
+   [32m ✔ [0m test_the_font_block_follows_the_pairing
+   [32m ✔ [0m test_the_header_with_the_app_still_shows_the_emblem
+   [32m ✔ [0m test_the_installed_hooks_are_registered
+   [32m ✔ [0m test_the_second_run_changes_nothing
+   [32m ✔ [0m test_the_shipped_templates_print_without_the_app
+   [32m ✔ [0m test_uninstall_keeps_a_linked_record [31m (4.73s)[0m
+   [32m ✔ [0m test_uninstall_removes_untouched_and_keeps_changed [31m (3.98s)[0m
+
+institutional_theme.tests.test_identity.TestIdentity
+   [32m ✔ [0m test_a_private_or_foreign_emblem_is_not_offered
+   [32m ✔ [0m test_an_emblem_url_cannot_end_an_attribute
+   [32m ✔ [0m test_everything_is_empty_without_settings_and_company
+   [32m ✔ [0m test_fallbacks_when_the_settings_are_empty
+   [32m ✔ [0m test_it_never_raises
+   [32m ✔ [0m test_the_jinja_hook_exposes_the_function
+   [32m ✔ [0m test_the_keys_are_exactly_the_contract
+   [32m ✔ [0m test_the_real_settings_give_strings
+   [32m ✔ [0m test_values_come_from_the_settings
+
+institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings.TestInstitutionalThemeSettings
+[90m  Test Records created: Institutional Theme Settings (0)[0m
+   [32m ✔ [0m test_a_changed_font_is_checked_while_the_pairing_stays_uploaded [31m (2.67s)[0m
+   [32m ✔ [0m test_a_website_copy_that_is_still_shown_stays [31m (6.28s)[0m
+   [32m ✔ [0m test_an_administrators_file_with_the_emblems_bytes_survives_uninstall [31m (6.09s)[0m
+   [32m ✔ [0m test_audit_text_uses_labels_not_token_names
+   [32m ✔ [0m test_before_uninstall_continues_after_a_failing_step [31m (6.82s)[0m
+   [32m ✔ [0m test_before_uninstall_leaves_nothing_behind_and_is_idempotent [31m (11.4s)[0m
+   [32m ✔ [0m test_behaviour_ships_disabled
+   [32m ✔ [0m test_broken_website_settings_does_not_block_saving [31m (4.21s)[0m
+   [32m ✔ [0m test_clearing_a_field_restores_the_original [31m (4.36s)[0m
+   [32m ✔ [0m test_clearing_does_not_overwrite_an_administrators_later_edit [31m (4.05s)[0m
+   [32m ✔ [0m test_contrast_line_wording_for_a_maximum
+   [32m ✔ [0m test_custom_colours_are_required_and_must_be_hex
+   [32m ✔ [0m test_custom_default_needs_allow_custom
+   [32m ✔ [0m test_custom_palette_failing_a_pair_is_rejected_naming_every_pair
+   [32m ✔ [0m test_custom_palette_that_passes_is_saved_with_its_audit
+   [32m ✔ [0m test_default_must_be_allowed
+   [32m ✔ [0m test_defaults_save
+   [32m ✔ [0m test_delete_attachments_keeps_a_navbar_copy_that_is_showing [31m (5.88s)[0m
+   [32m ✔ [0m test_delete_attachments_removes_only_this_doctypes_files [31m (2.11s)[0m
+   [32m ✔ [0m test_delete_attachments_removes_the_navbar_copies_core_made [31m (5.95s)[0m
+   [32m ✔ [0m test_doctype_lists_exactly_the_shipped_presets
+   [32m ✔ [0m test_dropped_preset_is_not_a_valid_default
+   [32m ✔ [0m test_environment_comes_from_site_config_and_is_not_stored
+   [32m ✔ [0m test_environment_labels
+   [32m ✔ [0m test_external_font_url_is_rejected
+   [32m ✔ [0m test_file_that_is_not_a_font_is_rejected [31m (2.09s)[0m
+   [32m ✔ [0m test_form_shows_the_audit_in_words_and_storage_stays_neutral
+   [32m ✔ [0m test_hook_is_registered
+   [32m ✔ [0m test_identity_changed_elsewhere_is_not_overwritten_by_an_unrelated_save [31m (3.07s)[0m
+   [32m ✔ [0m test_identity_is_written_through_by_a_system_manager_without_website_manager [31m (5.04s)[0m
+   [32m ✔ [0m test_idle_warning_range
+   [32m ✔ [0m test_missing_upload_is_named_on_the_form [31m (2.24s)[0m
+   [32m ✔ [0m test_only_system_manager_has_permissions
+       ▸  /home/frappe/newest-bench/apps/frappe/frappe/model/qb_query.py:163: V17FrappeDeprecationWarning: This codepath was marked (DATE: 2024-01-01) deprecated for removal (from v17 onwards); note:
+       ▸   The 'limit_page_length' parameter is deprecated. Use 'limit' instead.
+       ▸  
+       ▸    deprecation_warning(
+   [32m ✔ [0m test_other_pairings_do_not_check_stale_font_fields
+   [32m ✔ [0m test_other_shipped_default_saves_when_allowed
+   [32m ✔ [0m test_pale_custom_colour_keeps_curve_lightness_and_passes
+   [32m ✔ [0m test_private_emblem_is_rejected
+   [32m ✔ [0m test_private_font_is_rejected [31m (2.45s)[0m
+   [32m ✔ [0m test_restore_gives_back_prior_values_and_is_idempotent [31m (4.78s)[0m
+   [32m ✔ [0m test_restore_leaves_a_value_an_administrator_changed [31m (2.86s)[0m
+   [32m ✔ [0m test_restore_without_files_still_saves_with_another_pairing [31m (2.35s)[0m
+   [32m ✔ [0m test_save_without_identity_change_writes_nothing [31m (2.86s)[0m
+   [32m ✔ [0m test_the_theme_copies_go_while_an_administrators_same_bytes_row_stays [31m (5.86s)[0m
+   [32m ✔ [0m test_track_changes_is_on
+   [32m ✔ [0m test_truetype_is_accepted [31m (2.91s)[0m
+   [32m ✔ [0m test_uploaded_pairing_requires_all_four_files
+   [32m ✔ [0m test_uploaded_pairing_with_real_fonts_saves [31m (2.91s)[0m
+   [32m ✔ [0m test_website_manager_cannot_write_the_settings
+   [32m ✔ [0m test_website_settings_copies_made_by_a_later_save_are_removed [31m (6.39s)[0m
+
+
+----------------------------------------------------------------------
+Ran 148 tests in 173.763s
+
+OK
+
+Running 322 unspecified-category tests for institutional_theme
+
+institutional_theme.audits.tests.test_counterparts.CommittedTable
+   [32m ✔ [0m test_a_differs_pair_really_differs
+   [32m ✔ [0m test_every_differs_pair_says_why
+   [32m ✔ [0m test_the_committed_table_passes_against_both_snapshots
+   [32m ✔ [0m test_the_table_has_the_30_pairs_of_the_token_map
+   [32m ✔ [0m test_the_table_names_the_version_keys
+
+institutional_theme.audits.tests.test_counterparts.MissingFromItsSnapshot
+   [32m ✔ [0m test_a_new_name_that_16_52_0_does_not_read_fails
+   [32m ✔ [0m test_a_version_without_a_snapshot_is_reported
+   [32m ✔ [0m test_an_old_name_that_16_32_0_neither_declares_nor_reads_fails
+   [32m ✔ [0m test_an_old_name_that_is_only_declared_passes_the_snapshot_check
+
+institutional_theme.audits.tests.test_counterparts.OneSideMapped
+   [32m ✔ [0m test_dropping_the_new_side_of_a_pair_fails
+   [32m ✔ [0m test_dropping_the_old_side_of_a_pair_fails
+   [32m ✔ [0m test_neither_side_mapped_is_not_a_finding
+
+institutional_theme.audits.tests.test_counterparts.SamePairsAgree
+   [32m ✔ [0m test_a_differs_pair_with_a_reason_passes
+   [32m ✔ [0m test_a_differs_pair_without_a_reason_fails
+   [32m ✔ [0m test_a_same_pair_that_differs_in_dark_fails
+   [32m ✔ [0m test_a_same_pair_that_differs_in_light_fails_and_names_the_mode
+   [32m ✔ [0m test_a_stale_differs_pair_is_noted
+   [32m ✔ [0m test_scale_and_shadow_values_resolve
+   [32m ✔ [0m test_two_expressions_with_the_same_resolved_value_are_the_same
+
+institutional_theme.audits.tests.test_counterparts.TableFile
+   [32m ✔ [0m test_a_bad_value_is_rejected
+   [32m ✔ [0m test_a_duplicate_pair_is_rejected
+   [32m ✔ [0m test_a_good_row_loads
+   [32m ✔ [0m test_a_missing_name_is_rejected
+   [32m ✔ [0m test_a_name_that_is_not_a_custom_property_is_rejected
+
+institutional_theme.audits.tests.test_counterparts.UnmappedReads
+   [32m ✔ [0m test_mapped_and_listed_names_are_left_out
+   [32m ✔ [0m test_the_report_lists_names_read_in_one_version_only
+   [32m ✔ [0m test_the_text_report_has_counts_findings_and_the_unmapped_lists
+
+institutional_theme.audits.tests.test_avatars.Failures
+   [32m ✔ [0m test_a_low_contrast_pair_fails_in_a_shipped_preset
+   [32m ✔ [0m test_a_missing_colour_is_a_problem
+   [32m ✔ [0m test_a_missing_file_is_a_problem
+   [32m ✔ [0m test_a_tenth_colour_is_a_problem
+   [32m ✔ [0m test_an_unknown_token_or_a_literal_is_a_problem
+   [32m ✔ [0m test_desk_and_website_must_agree
+   [32m ✔ [0m test_good_synthetic_files_pass
+   [32m ✔ [0m test_the_report_names_each_pair
+
+institutional_theme.audits.tests.test_avatars.ShippedFiles
+   [32m ✔ [0m test_both_modes_and_all_shipped_presets_are_measured
+   [32m ✔ [0m test_every_pair_passes_in_every_preset_and_mode
+   [32m ✔ [0m test_nine_colours_are_the_core_ones
+   [32m ✔ [0m test_the_approved_midad_ratios_are_computed_from_the_reference_values
+
+institutional_theme.audits.tests.test_manifest_selectors.TestManifestSelectors
+   [32m ✔ [0m test_a_future_section_and_an_unknown_header_are_handled
+   [32m ✔ [0m test_every_2x_section_of_the_manifest_is_read_in_full
+
+institutional_theme.audits.tests.test_source_readers.ReadersInText
+   [32m ✔ [0m test_a_declaration_is_not_a_read
+   [32m ✔ [0m test_comments_are_not_reads
+   [32m ✔ [0m test_html_comments_are_not_reads
+   [32m ✔ [0m test_line_numbers_survive_a_block_comment
+   [32m ✔ [0m test_var_reads_and_quoted_names_are_reads
+
+institutional_theme.audits.tests.test_source_readers.Scan
+   [32m ✔ [0m test_a_name_only_in_a_comment_has_no_reader
+   [32m ✔ [0m test_a_single_file_is_a_tree
+   [32m ✔ [0m test_all_names_when_none_given
+   [32m ✔ [0m test_excluded_prefixes_node_modules_and_dist_are_skipped
+   [32m ✔ [0m test_locations_are_capped
+   [32m ✔ [0m test_names_are_filtered_and_located
+
+institutional_theme.audits.tests.test_source_readers.Snapshot
+   [32m ✔ [0m test_round_trip_and_missing_version
+   [32m ✔ [0m test_the_command_writes_a_snapshot_for_a_tree
+   [32m ✔ [0m test_the_committed_snapshots_cover_the_libraries_and_the_dynamic_avatar_names
+   [32m ✔ [0m test_the_committed_snapshots_hold_the_two_16_32_0_radius_readers
+
+institutional_theme.audits.tests.test_effective_diff.Compare
+   [32m ✔ [0m test_a_changed_token_value_that_existed_before_is_a_movement
+   [32m ✔ [0m test_a_core_that_reads_none_of_the_changes_does_not_move
+   [32m ✔ [0m test_changed_removed_and_added_reads_are_reported_and_unread_ones_are_only_counted
+   [32m ✔ [0m test_the_report_names_each_movement
+   [32m ✔ [0m test_the_same_text_never_moves
+
+institutional_theme.audits.tests.test_effective_diff.GeneratedMap
+   [32m ✔ [0m test_comparing_the_working_map_with_itself_does_not_move_16_32_0
+   [32m ✔ [0m test_the_real_map_parses_into_every_block_with_every_variable
+
+institutional_theme.audits.tests.test_effective_diff.Parse
+   [32m ✔ [0m test_blocks_media_and_selector_lists_get_one_key_each
+   [32m ✔ [0m test_comments_are_ignored
+
+institutional_theme.audits.tests.test_effective_diff.SourceReaders
+   [32m ✔ [0m test_16_52_0_is_not_excused
+   [32m ✔ [0m test_a_name_the_compiled_css_reads_is_never_accepted
+   [32m ✔ [0m test_a_name_without_a_source_reader_cannot_be_accepted
+   [32m ✔ [0m test_a_source_reader_makes_an_added_declaration_a_movement
+   [32m ✔ [0m test_an_accepted_name_is_listed_apart_and_does_not_move_the_version
+   [32m ✔ [0m test_an_unaccepted_source_move_is_not_hidden_by_other_acceptances
+   [32m ✔ [0m test_load_accepted_reads_a_version_and_tolerates_none
+   [32m ✔ [0m test_the_two_16_32_0_radius_readers_are_covered_explicitly
+
+institutional_theme.audits.tests.test_web_scope.Check
+   [32m ✔ [0m test_a_desk_only_name_nobody_reads_passes
+   [32m ✔ [0m test_a_desk_only_name_read_by_a_website_page_of_any_version_fails
+   [32m ✔ [0m test_a_desk_only_name_read_by_the_theme_website_sources_fails
+   [32m ✔ [0m test_a_name_read_in_only_one_of_two_versions_is_still_a_web_read
+   [32m ✔ [0m test_the_report_lists_problems_and_the_marked_names
+   [32m ✔ [0m test_unmarked_names_no_page_reads_are_candidates_not_failures
+   [32m ✔ [0m test_without_a_snapshot_nothing_can_be_proven
+
+institutional_theme.audits.tests.test_web_scope.Committed
+   [32m ✔ [0m test_every_supported_version_has_a_web_snapshot
+   [32m ✔ [0m test_marking_a_name_a_page_reads_makes_the_check_fail
+   [32m ✔ [0m test_the_command_fails_when_the_marks_collide_with_a_read
+   [32m ✔ [0m test_the_compiled_files_the_pages_load_are_recorded_with_hashes
+   [32m ✔ [0m test_the_names_the_task_called_desk_only_that_a_page_reads_stay_in_the_website_map
+   [32m ✔ [0m test_the_shipped_marks_pass_and_cover_every_unread_name
+
+institutional_theme.audits.tests.test_web_scope.Scanning
+   [32m ✔ [0m test_a_missing_bundle_is_an_error_not_an_empty_scan
+   [32m ✔ [0m test_compiled_files_are_found_by_stem_and_maps_are_ignored
+   [32m ✔ [0m test_css_reads_need_var_but_scripts_also_count_quoted_names
+   [32m ✔ [0m test_snapshot_round_trip_and_missing_version
+   [32m ✔ [0m test_the_real_theme_website_sources_read_no_desk_only_name
+   [32m ✔ [0m test_theme_website_reads_skip_comments_and_the_desk_partials
+
+institutional_theme.audits.tests.test_dead_tokens.Categories
+   [32m ✔ [0m test_a_variable_the_theme_reads_is_not_dead
+   [32m ✔ [0m test_counts_add_up
+   [32m ✔ [0m test_each_category
+   [32m ✔ [0m test_report_names_the_origin_and_hashes
+
+institutional_theme.audits.tests.test_dead_tokens.CommandLine
+   [32m ✔ [0m test_a_bare_path_is_the_default_version
+   [32m ✔ [0m test_a_live_scan_of_a_version_replaces_its_snapshot_and_a_dead_name_fails
+   [32m ✔ [0m test_a_live_scan_without_the_scoped_names_fails_on_them
+   [32m ✔ [0m test_default_run_audits_every_committed_snapshot
+   [32m ✔ [0m test_labelled_paths_group_by_version
+   [32m ✔ [0m test_one_live_version_is_combined_with_the_other_snapshot
+   [32m ✔ [0m test_snapshot_is_named_after_its_version
+   [32m ✔ [0m test_write_core_snapshot_needs_core_css
+   [32m ✔ [0m test_write_core_snapshot_writes_one_file_per_version_named_after_it
+
+institutional_theme.audits.tests.test_dead_tokens.DualVersion
+   [32m ✔ [0m test_a_name_one_version_reads_is_not_reported_inert_in_the_combined_verdict
+   [32m ✔ [0m test_a_single_version_has_nothing_version_specific
+   [32m ✔ [0m test_dead_in_every_version_is_fatal
+   [32m ✔ [0m test_dead_in_one_version_only_is_not_fatal
+   [32m ✔ [0m test_declared_but_unread_elsewhere_counts_as_version_specific
+   [32m ✔ [0m test_report_has_one_table_column_per_version_and_the_verdict
+   [32m ✔ [0m test_strongest_category_wins
+   [32m ✔ [0m test_the_old_merge_order_would_have_labelled_it_inert
+   [32m ✔ [0m test_version_specific_reads
+   [32m ✔ [0m test_versions_are_ordered_numerically
+
+institutional_theme.audits.tests.test_dead_tokens.ScopedDeclarations
+   [32m ✔ [0m test_a_scoped_name_no_core_knows_and_the_theme_never_reads_is_dead
+   [32m ✔ [0m test_declarations_outside_the_ins_namespace_are_found
+   [32m ✔ [0m test_generated_files_comments_and_reads_are_ignored
+   [32m ✔ [0m test_scoped_names_are_live_through_either_version
+   [32m ✔ [0m test_the_theme_declares_the_names_the_round_4_map_asks_for
+   [32m ✔ [0m test_watched_names_are_the_map_then_the_scoped_ones_without_duplicates
+
+institutional_theme.audits.tests.test_dead_tokens.Snapshot
+   [32m ✔ [0m test_a_name_dead_in_16_32_0_alone_is_live_in_16_52_0
+   [32m ✔ [0m test_a_variable_core_dropped_would_fail
+   [32m ✔ [0m test_committed_snapshots_have_a_generated_header_and_sources
+   [32m ✔ [0m test_every_overridden_variable_is_in_core_or_used_by_the_theme_in_some_version
+   [32m ✔ [0m test_scan_and_round_trip
+   [32m ✔ [0m test_the_map_that_predates_round_4_is_still_live_in_16_32_0
+   [32m ✔ [0m test_two_versions_have_a_committed_snapshot
+
+institutional_theme.audits.tests.test_dead_tokens.ThemeComments
+   [32m ✔ [0m test_a_name_used_only_in_a_comment_is_dead_not_theme
+   [32m ✔ [0m test_css_keeps_double_slash_but_drops_block_comments
+   [32m ✔ [0m test_js_comments_are_not_use
+   [32m ✔ [0m test_scss_comments_are_not_use
+   [32m ✔ [0m test_the_declared_scan_uses_the_same_stripping
+   [32m ✔ [0m test_the_raw_scan_would_have_counted_every_comment
+
+institutional_theme.audits.tests.test_dead_tokens.UnreadEverywhere
+   [32m ✔ [0m test_a_compiled_reader_in_any_version_makes_it_live
+   [32m ✔ [0m test_a_declared_name_that_nothing_reads_is_reported
+   [32m ✔ [0m test_a_missing_allowlist_file_is_empty
+   [32m ✔ [0m test_a_name_core_never_declares_is_dead_not_unread
+   [32m ✔ [0m test_a_source_reader_in_any_version_makes_it_live
+   [32m ✔ [0m test_a_stale_entry_fails
+   [32m ✔ [0m test_an_entry_without_a_reason_fails
+   [32m ✔ [0m test_the_command_fails_for_an_unlisted_name_and_passes_with_the_list
+   [32m ✔ [0m test_the_committed_allowlist_covers_exactly_the_committed_findings
+   [32m ✔ [0m test_the_report_lists_each_unread_name_with_its_reason
+   [32m ✔ [0m test_unlisted_unread_names_fail_and_listed_ones_pass
+
+institutional_theme.audits.tests.test_budgets.Checks
+   [32m ✔ [0m test_gzip_excess_fails
+   [32m ✔ [0m test_justified_excess_passes_and_is_empty_by_default
+   [32m ✔ [0m test_raw_excess_fails
+   [32m ✔ [0m test_unknown_bundle_fails
+   [32m ✔ [0m test_within_budget
+
+institutional_theme.audits.tests.test_budgets.Figures
+   [32m ✔ [0m test_gzip_size_matches_gzip
+   [32m ✔ [0m test_logical_name
+   [32m ✔ [0m test_patterns_and_unknown_bundles
+   [32m ✔ [0m test_the_brief_figures
+   [32m ✔ [0m test_the_brief_still_says_so
+
+institutional_theme.audits.tests.test_budgets.Fonts
+   [32m ✔ [0m test_font_excess_fails
+   [32m ✔ [0m test_shipped_pairings_are_within_the_budget
+
+institutional_theme.audits.tests.test_budgets.Run
+   [32m ✔ [0m test_a_missing_rtl_folder_is_not_an_error
+   [32m ✔ [0m test_bench_lookup_uses_assets_json
+   [32m ✔ [0m test_empty_dist_is_a_skip
+   [32m ✔ [0m test_fails_when_exceeded
+   [32m ✔ [0m test_newest_hashed_build_is_measured
+   [32m ✔ [0m test_not_built_is_a_skip
+   [32m ✔ [0m test_passes_within_budget
+
+institutional_theme.audits.tests.test_colour_vision.Baseline
+   [32m ✔ [0m test_a_gap_missing_from_the_baseline_is_fatal
+   [32m ✔ [0m test_a_gap_that_got_worse_is_fatal
+   [32m ✔ [0m test_audit_passes_with_the_committed_baseline
+   [32m ✔ [0m test_baseline_covers_exactly_the_measured_gaps_of_every_shipped_preset
+   [32m ✔ [0m test_no_baseline_means_every_gap_is_new
+
+institutional_theme.audits.tests.test_colour_vision.Neighbours
+   [32m ✔ [0m test_every_neighbour_pair_passes_in_every_shipped_preset
+   [32m ✔ [0m test_neighbour_pairs_are_the_default_series_wrapping_6_to_1
+
+institutional_theme.midad.tests.test_round4_map.Counts
+   [32m ✔ [0m test_every_remap_moved_and_every_addition_is_new
+   [32m ✔ [0m test_light_and_dark_define_the_same_names
+   [32m ✔ [0m test_raw_ramps_emit_step_950
+   [32m ✔ [0m test_the_map_has_26_remaps_35_additions_and_12_new_raw_steps
+
+institutional_theme.midad.tests.test_round4_map.DarkSpecificity
+   [32m ✔ [0m test_the_dark_shapes_beat_core
+   [32m ✔ [0m test_the_generated_dark_block_declares_the_sidebar_background
+
+institutional_theme.midad.tests.test_round4_map.Frappe1632DoesNotMove
+   [32m ✔ [0m test_every_addition_is_absent_from_the_16_32_0_stylesheets
+   [32m ✔ [0m test_every_changed_key_is_inert_on_16_32_0_or_unchanged
+   [32m ✔ [0m test_every_remap_is_declared_only_in_16_32_0
+   [32m ✔ [0m test_source_readers_outside_the_scanned_css_are_listed_and_real
+   [32m ✔ [0m test_the_check_reports_a_name_core_reads_whose_value_moved
+   [32m ✔ [0m test_the_same_holds_for_the_names_its_source_reads_except_the_accepted_two
+
+institutional_theme.midad.tests.test_round4_map.Frappe1652IsMapped
+   [32m ✔ [0m test_every_addition_is_read_by_v16_52_0
+   [32m ✔ [0m test_every_remap_is_read_by_v16_52_0
+   [32m ✔ [0m test_semantic_remaps_point_at_the_role_not_a_step
+   [32m ✔ [0m test_the_sidebar_background_uses_the_sunken_surface_in_both_modes
+
+institutional_theme.midad.tests.test_colour.ColourMaths
+   [32m ✔ [0m test_black_and_white
+   [32m ✔ [0m test_colour_vision_simulation_matches_the_reference
+   [32m ✔ [0m test_composite_matches_the_reference
+   [32m ✔ [0m test_contrast_matches_the_reference
+   [32m ✔ [0m test_delta_e_matches_the_reference
+   [32m ✔ [0m test_hex_parsing
+   [32m ✔ [0m test_hex_to_oklch_matches_the_reference
+   [32m ✔ [0m test_oklch_to_hex_matches_the_reference
+   [32m ✔ [0m test_rgba_text_matches_javascript_number_formatting
+   [32m ✔ [0m test_round_trip_through_oklch
+   [32m ✔ [0m test_rounding_is_half_up_like_javascript
+   [32m ✔ [0m test_unknown_simulation_is_rejected
+
+institutional_theme.midad.tests.test_colour.FixtureReproduction
+   [32m ✔ [0m test_deviations_are_exactly_the_adr_0010_list
+   [32m ✔ [0m test_every_primitive_hex_is_reproduced
+   [32m ✔ [0m test_every_semantic_hex_is_reproduced_in_both_modes
+   [32m ✔ [0m test_fixture_and_palette_define_the_same_tokens
+   [32m ✔ [0m test_non_hex_semantic_values_resolve
+   [32m ✔ [0m test_reordered_series_reuse_the_approved_series_colours
+
+institutional_theme.midad.tests.test_model.BrandEntryPoint
+   [32m ✔ [0m test_brand_hex_changes_the_default_preset_only_when_set
+
+institutional_theme.midad.tests.test_model.Contrast
+   [32m ✔ [0m test_every_pair_is_measured_in_both_modes
+   [32m ✔ [0m test_every_shipped_preset_passes_every_pair
+   [32m ✔ [0m test_max_rule_fails_above_its_limit
+   [32m ✔ [0m test_midad_passes_every_pair_in_both_modes
+   [32m ✔ [0m test_ratio_text_rounds_towards_the_failing_side
+   [32m ✔ [0m test_status_check_is_part_of_shipping
+
+institutional_theme.midad.tests.test_model.CustomPreset
+   [32m ✔ [0m test_a_dull_input_lowers_the_chroma_multiplier
+   [32m ✔ [0m test_a_failing_palette_is_reported_with_every_pair_and_human_labels
+   [32m ✔ [0m test_a_rejected_palette_is_never_turned_into_css
+   [32m ✔ [0m test_accent_pairs_ask_for_the_accent_colour
+   [32m ✔ [0m test_an_accepted_palette_becomes_css
+   [32m ✔ [0m test_bad_input_is_rejected
+   [32m ✔ [0m test_hue_is_kept_and_chroma_never_exceeds_the_ramp
+   [32m ✔ [0m test_lightness_follows_the_approved_curves
+   [32m ✔ [0m test_missing_input_keeps_the_midad_value
+   [32m ✔ [0m test_no_input_change_gives_empty_blocks_only
+   [32m ✔ [0m test_the_midad_colours_give_back_midad
+
+institutional_theme.midad.tests.test_model.FrappeMap
+   [32m ✔ [0m test_every_scale_reference_is_defined_or_left_to_the_font_partials
+   [32m ✔ [0m test_light_and_dark_declare_the_same_variables_in_the_same_order
+   [32m ✔ [0m test_names_do_not_collide
+   [32m ✔ [0m test_sets_exactly_the_variables_of_tokens_json
+   [32m ✔ [0m test_unknown_reference_is_an_error
+   [32m ✔ [0m test_values_reference_ins_tokens_only
+
+institutional_theme.midad.tests.test_model.GeneratedModel
+   [32m ✔ [0m test_default_preset_is_shipped_and_first
+   [32m ✔ [0m test_every_preset_hits_the_indicative_values_of_tokens_json
+   [32m ✔ [0m test_header_key_comes_first
+   [32m ✔ [0m test_model_json_matches_tokens_json
+   [32m ✔ [0m test_shipped_and_dropped_partition_the_presets
+
+institutional_theme.midad.tests.test_model.Labels
+   [32m ✔ [0m test_every_token_in_a_contrast_pair_has_a_label
+   [32m ✔ [0m test_labels_are_unique_plain_english
+   [32m ✔ [0m test_the_adr_example_label
+   [32m ✔ [0m test_unknown_token_falls_back_to_its_name
+
+institutional_theme.midad.tests.test_fonts.BundledFiles
+   [32m ✔ [0m test_default_pairing_stays_inside_the_woff2_budget
+   [32m ✔ [0m test_each_family_folder_has_its_licence
+   [32m ✔ [0m test_every_woff2_is_woff2_and_every_ttf_is_truetype
+   [32m ✔ [0m test_the_licence_record_matches_the_files
+
+institutional_theme.midad.tests.test_fonts.FrappeVariables
+   [32m ✔ [0m test_every_ins_font_variable_the_map_uses_is_defined_by_a_font_partial
+   [32m ✔ [0m test_font_stack_and_weights_are_mapped
+   [32m ✔ [0m test_regular_is_400_and_strong_is_600
+
+institutional_theme.midad.tests.test_fonts.MagicNumbers
+   [32m ✔ [0m test_accepted_formats
+   [32m ✔ [0m test_everything_else_is_rejected
+   [32m ✔ [0m test_file_kind_reads_from_disk
+
+institutional_theme.midad.tests.test_fonts.PrintBlock
+   [32m ✔ [0m test_every_print_ttf_exists
+   [32m ✔ [0m test_font_families
+   [32m ✔ [0m test_incomplete_upload_prints_in_plex
+   [32m ✔ [0m test_mixed_uploads
+   [32m ✔ [0m test_noto_and_tajawal_print_in_plex
+   [32m ✔ [0m test_plex_pairing_declares_one_ttf_url_per_face_and_no_format
+   [32m ✔ [0m test_print_faces_never_reuse_a_screen_family_name
+   [32m ✔ [0m test_unknown_pairing
+   [32m ✔ [0m test_uploaded_pairing_without_uploads_is_plex
+   [32m ✔ [0m test_uploaded_ttf_files_are_used_per_script
+   [32m ✔ [0m test_woff2_only_uploads_print_in_plex
+
+institutional_theme.midad.tests.test_fonts.ScssFaces
+   [32m ✔ [0m test_arabic_faces_use_the_arabic_range_and_the_rest_the_latin_range
+   [32m ✔ [0m test_bundle_names_match_the_python_table
+   [32m ✔ [0m test_every_face_points_at_a_bundled_file
+   [32m ✔ [0m test_family_names_are_private
+   [32m ✔ [0m test_pairing_bundles_win_by_specificity_and_are_wrapped_for_rtlcss
+   [32m ✔ [0m test_plex_partial_sets_the_stacks_and_disables_synthesis
+   [32m ✔ [0m test_python_family_names_are_declared_in_the_scss
+   [32m ✔ [0m test_swap_everywhere_and_asset_paths_are_absolute
+   [32m ✔ [0m test_tajawal_semibold_uses_the_700_file
+   [32m ✔ [0m test_the_arabic_range_matches_adr_0004_and_the_python_constant
+   [32m ✔ [0m test_weights_are_400_500_600_only
+
+institutional_theme.midad.tests.test_fonts.UploadedCss
+   [32m ✔ [0m test_a_script_missing_a_file_loses_both_faces
+   [32m ✔ [0m test_complete_set
+   [32m ✔ [0m test_no_forbidden_syntax
+   [32m ✔ [0m test_nothing_usable_gives_no_stylesheet
+   [32m ✔ [0m test_output_is_deterministic_and_changes_with_content
+   [32m ✔ [0m test_truetype_files_declare_truetype
+   [32m ✔ [0m test_variables_sit_at_the_pairing_specificity_with_weights_at_600
+
+institutional_theme.midad.tests.test_fonts.UploadedUrls
+   [32m ✔ [0m test_safe_urls
+   [32m ✔ [0m test_unknown_kind
+   [32m ✔ [0m test_unsafe_urls_cannot_reach_the_stylesheet
+
+institutional_theme.midad.tests.test_emit.DeskScope
+   [32m ✔ [0m test_only_desk_is_a_scope
+   [32m ✔ [0m test_the_shipped_model_marks_the_desk_only_variables_in_model_json
+   [32m ✔ [0m test_the_web_map_drops_a_desk_variable_and_the_full_map_keeps_it
+
+institutional_theme.midad.tests.test_emit.Emitter
+   [32m ✔ [0m test_a_key_missing_from_either_mode_is_an_error
+   [32m ✔ [0m test_automatic_block_repeats_the_dark_values
+   [32m ✔ [0m test_blocks_use_the_selector_shapes_of_adr_0003
+   [32m ✔ [0m test_color_scheme_in_light_dark_and_automatic
+   [32m ✔ [0m test_color_scheme_is_absent_unless_asked_for
+   [32m ✔ [0m test_header
+   [32m ✔ [0m test_literals
+   [32m ✔ [0m test_one_key_list_gives_three_blocks_with_the_same_keys
+   [32m ✔ [0m test_rtl_wrapper
+   [32m ✔ [0m test_scale_blocks
+
+institutional_theme.midad.tests.test_emit.GeneratedFiles
+   [32m ✔ [0m test_a_stale_file_is_detected
+   [32m ✔ [0m test_build_is_deterministic
+   [32m ✔ [0m test_every_generated_file_starts_with_the_header
+   [32m ✔ [0m test_files_on_disk_are_not_stale
+   [32m ✔ [0m test_literals_hold_the_light_midad_values
+   [32m ✔ [0m test_no_generated_stylesheet_uses_forbidden_syntax
+   [32m ✔ [0m test_palette_bundles_are_wrapped_in_the_rtl_ignore_pair
+   [32m ✔ [0m test_palette_bundles_exist_only_for_shipped_non_default_presets
+   [32m ✔ [0m test_the_parity_audit_passes_on_the_files_on_disk
+   [32m ✔ [0m test_tokens_scss_carries_the_fixture_primitives_the_map_uses
+   [32m ✔ [0m test_tokens_scss_midad_values_equal_the_fixture_byte_for_byte
+
+institutional_theme.midad.tests.test_emit.LightOnlyPartials
+   [32m ✔ [0m test_emit_light_family_equals_first_block_of_emit_family
+   [32m ✔ [0m test_light_file_is_the_light_block_of_the_full_file
+   [32m ✔ [0m test_light_files_are_deterministic_and_fresh
+   [32m ✔ [0m test_light_files_have_no_dark_or_automatic_selector
+   [32m ✔ [0m test_light_tokens_keep_color_scheme_light_and_map_has_none
+   [32m ✔ [0m test_the_full_map_keeps_every_desk_only_name_in_light_and_dark
+   [32m ✔ [0m test_website_map_is_the_light_block_without_the_desk_only_names
+
+institutional_theme.midad.tests.test_emit.ParityOfEveryPreset
+   [32m ✔ [0m test_a_broken_family_is_detected
+   [32m ✔ [0m test_a_key_that_changes_in_one_mode_is_written_in_both
+   [32m ✔ [0m test_a_sample_custom_preset_emits_equal_key_sets
+   [32m ✔ [0m test_every_preset_emits_equal_key_sets_in_all_three_blocks
+   [32m ✔ [0m test_midad_emits_no_palette_overrides
+
+institutional_theme.midad.tests.test_emit.ParserHelpers
+   [32m ✔ [0m test_parse_blocks_handles_media_and_comments
+   [32m ✔ [0m test_unbalanced_braces_raise
+
+institutional_theme.midad.tests.test_emit.Shipping
+   [32m ✔ [0m test_a_leftover_bundle_of_a_dropped_preset_is_stale
+   [32m ✔ [0m test_a_preset_below_a_minimum_is_dropped_with_the_failing_pair
+   [32m ✔ [0m test_the_default_preset_is_never_dropped
+   [32m ✔ [0m test_umber_is_dropped_by_the_status_check_and_forest_ships
+
+
+----------------------------------------------------------------------
+Ran 322 tests in 6.590s
+
+OK
+exit 0, 183 s

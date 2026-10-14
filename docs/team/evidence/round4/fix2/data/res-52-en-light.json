@@ -1,0 +1,150 @@
+{
+ "which": "52",
+ "lang": "en",
+ "theme": "light",
+ "mode": "light",
+ "heights": {
+  "primary": "102x32",
+  "menu": "32x32",
+  "pill": "32x28",
+  "btn": "0x0",
+  "input": "107x32"
+ },
+ "pills": {
+  "activeShadow": "rgb(133, 141, 151) 0px 0px 0px 1px inset",
+  "activeWeight": "500",
+  "inactiveWeight": "400",
+  "inactiveShadow": "none",
+  "ringVsRail": 3.04,
+  "ringVsActiveFill": 2.81,
+  "railBg": [
+   241,
+   244,
+   248
+  ],
+  "activeBg": "rgb(232, 235, 241)",
+  "text": 14.49
+ },
+ "toasts": [
+  {
+   "ind": "blue",
+   "type": "info",
+   "stroke": "rgb(0, 124, 148)",
+   "color": "rgb(0, 124, 148)",
+   "strokeContrast": 4.87
+  },
+  {
+   "ind": "green",
+   "type": "success",
+   "stroke": "rgb(14, 131, 82)",
+   "color": "rgb(14, 131, 82)",
+   "strokeContrast": 4.79
+  },
+  {
+   "ind": "orange",
+   "type": "warning",
+   "stroke": "rgb(158, 128, 2)",
+   "color": "rgb(158, 128, 2)",
+   "strokeContrast": 3.79
+  },
+  {
+   "ind": "red",
+   "type": "error",
+   "stroke": "rgb(190, 55, 55)",
+   "color": "rgb(190, 55, 55)",
+   "strokeContrast": 5.54
+  }
+ ],
+ "disabled": {
+  "solid": {
+   "border": "dashed 2px rgb(133, 141, 151)",
+   "bg": "rgb(241, 244, 248)",
+   "color": "rgb(106, 114, 125)",
+   "textContrast": 4.41,
+   "borderVsPage": 3.04,
+   "h": 32
+  },
+  "subtle": {
+   "border": "dashed 1px rgb(133, 141, 151)",
+   "bg": "rgb(241, 244, 248)",
+   "color": "rgb(106, 114, 125)",
+   "textContrast": 4.41,
+   "borderVsPage": 3.04,
+   "h": 32
+  }
+ },
+ "forced": {
+  "sbActive": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "solid 1px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(5, 0, 73, 0.8)",
+    "w": "3px"
+   }
+  },
+  "sbPlain": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  },
+  "dockActive": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "solid 1px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(5, 0, 73, 0.8)",
+    "w": "3px"
+   }
+  },
+  "dockPlain": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  },
+  "pillActive": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "border": "solid 1px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  },
+  "pillIdle": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  }
+ },
+ "coarse": {
+  "coarse": true,
+  "primary": "102x44",
+  "menu": "44x44",
+  "pill": "32x44",
+  "input": "107x44"
+ },
+ "weights": {
+  "discard": null,
+  "kbd": null,
+  "menuShortcut": "400"
+ }
+}

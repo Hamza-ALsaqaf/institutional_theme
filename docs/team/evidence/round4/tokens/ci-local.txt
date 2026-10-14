@@ -1,0 +1,43 @@
+# CI checks of .github/workflows/ci.yml, run in a clean worktree of 3294b31 (python 3.12.3; CI uses 3.14)
+$ uvx ruff@0.16.8 check .
+All checks passed!
+$ uvx ruff@0.16.8 format --check .
+131 files already formatted
+$ python3 -m unittest discover -s institutional_theme/midad/tests -t .
+----------------------------------------------------------------------
+Ran 145 tests in 2.713s
+
+OK
+$ python3 -m unittest discover -s institutional_theme/audits/tests -t .
+----------------------------------------------------------------------
+Ran 110 tests in 3.801s
+
+OK
+$ python3 -m institutional_theme.midad.build --check
+build --check: 12 file(s) checked, 0 stale
+$ python3 -m institutional_theme.audits --dist /nonexistent (CI has no build; the budgets are skipped)
+contrast  midad     dark  pass (0 failing)
+contrast  graphite  light pass (0 failing)
+contrast  graphite  dark  pass (0 failing)
+contrast  petrol    light pass (0 failing)
+contrast  petrol    dark  pass (0 failing)
+contrast  forest    light pass (0 failing)
+contrast  forest    dark  pass (0 failing)
+contrast  plum      light pass (0 failing)
+contrast  plum      dark  pass (0 failing)
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+avatars: 216 pair measurements, 0 failing in shipped presets, 0 problem(s)
+parity: 55 checks, 0 failed
+colour-vision: 0 failure(s) (status, neighbouring series, gap not in the baseline), 99 baselined chart gap(s) in shipped presets
+dead-tokens 16.32.0: 483 variables: 268 declared and read by core, 131 declared only, 0 read only, 1 consumed by the theme, 83 dead in this version
+dead-tokens 16.52.0: 483 variables: 429 declared and read by core, 33 declared only, 6 read only, 0 consumed by the theme, 15 dead in this version
+dead-tokens 16.32.0: 14 variable(s) read by core only in this version
+dead-tokens 16.52.0: 181 variable(s) read by core only in this version
+dead-tokens: combined over 16.32.0, 16.52.0: 483 variables: 448 declared and read by core, 35 declared only, 0 read only, 0 consumed by the theme, 0 dead in every version
+counterparts: 30 pair(s), 0 finding(s)
+budgets: not built (--dist /nonexistent has no ins_* bundles); skipped
+wrote contrast.txt, contrast.json, avatar_contrast.txt, parity.txt, colour_vision.txt, dead_tokens.txt to docs/audits
+audits: passed
+exit=0

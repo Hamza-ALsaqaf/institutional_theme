@@ -1,19 +1,39 @@
 """Dead-token audit: every Frappe variable this theme overrides must exist in core or be used here.
 
-Core's compiled CSS is reduced to two sets: the custom properties it declares (`--name:`) and the
-ones it reads (`var(--name)`). Each variable the theme sets falls into one category:
+The theme supports more than one Frappe version, so core is scanned once per supported version.
+Each version's compiled CSS is reduced to two sets: the custom properties it declares (`--name:`)
+and the ones it reads (`var(--name)`). Each variable the theme sets falls, per version, into one
+category:
 
-- `declared-read`: declared by core and read by core. The override has an effect.
-- `declared-only`: declared by core but never read by any compiled stylesheet scanned. The override
-  is inert today (it may serve a template or an app that is not scanned); reported, not fatal.
+- `declared-read`: declared by core and read by core (compiled CSS or source). The override has an effect.
+- `declared-only`: declared by core but read by no compiled stylesheet scanned and no source reader. The
+  override is inert in that version (it may serve an app that is not scanned); reported, not fatal per
+  version. Inert in every version is fatal unless `data/unread_allowlist.json` gives a reason.
 - `read-only`: read by core with no declaration (it relies on a fallback). The override defines it.
 - `theme`: not in core, consumed by this theme's own stylesheets (`var(--name)` outside generated/).
-- `dead`: none of the above. The override would do nothing: a typo, or a variable a Frappe upgrade
-  removed. Fatal.
+- `dead`: none of the above. The override would do nothing in that version.
 
-Core is scanned from a committed snapshot (`data/core_vars_frappe_16.32.0.json`, written by
-`--write-core-snapshot` from a bench build) so CI needs no bench; `--core-css PATH` scans live
-stylesheets instead. Never imports Frappe.
+The audited names are every `frappe.vars` key and the raw ramps, plus every custom property the theme
+declares in its own hand-written SCSS outside the `--ins-` namespace (`--bt-*`, `--c-*`, `--g-*`,
+`--control-bg`, `--charts-*` and others: ADR 0011 R5, finding F1). The counterpart table
+(`counterparts.py`, finding F2) is checked beside it.
+
+The combined verdict takes, for each variable, its strongest category over all versions, so a variable
+is DEAD (fatal) only when no supported version's core declares or reads it and the theme does not use
+it. A variable that is dead in one version only is reported (it is live elsewhere, a deliberate
+side-by-side mapping), and so is every variable that core reads in one version only: ADR 0011 requires
+those to have a counterpart mapping for the other versions.
+
+Two kinds of reader are not in the compiled CSS and are taken from committed snapshots too
+(`source_readers.py`): the source of Frappe, ERPNext and HRMS (inline `<style>` blocks, JavaScript that builds
+`var(--name)` or names a property, Vue components) and the libraries that style themselves (frappe-gantt,
+FullCalendar). A name that only such a reader uses counts as read. A mapped name that nothing in any version
+reads, compiled or source, fails unless `data/unread_allowlist.json` lists it with a reason (finding N3b).
+
+Core is scanned from committed snapshots, one per version (`data/core_vars_frappe_<version>.json`,
+written by `--write-core-snapshot` from a bench build) so CI needs no bench;
+`--core-css [VERSION=]PATH` scans live stylesheets of that version instead (several versions in one
+run). Never imports Frappe.
 """
 
 from __future__ import annotations
@@ -29,11 +49,61 @@ from institutional_theme.midad.model import Model
 
 _DECLARED = re.compile(r"(--[A-Za-z0-9_-]+)\s*:")
 _READ = re.compile(r"var\(\s*(--[A-Za-z0-9_-]+)")
+_BLOCK_COMMENT = re.compile(r"/\*.*?\*/", re.DOTALL)
+_LINE_COMMENT = re.compile(r"^[ \t]*//.*$", re.MULTILINE)
+# A `//` comment that follows code on the same line (SCSS and JavaScript). It must start after whitespace, `;`,
+# `{` or `}`, so `url(//cdn)` and `https://` are not cut. A string that holds ` // ` loses the rest of its line,
+# which can only turn a use into a miss, and a miss is loud (F1 fails), never silent.
+_TRAILING_COMMENT = re.compile(r"(?<=[\s;{}])//[^\n]*")
+_LABELLED = re.compile(r"^(\d+\.\d+\.\d+[0-9A-Za-z.+-]*)=(.+)$", re.DOTALL)
+_SNAPSHOT_NAME = re.compile(r"^core_vars_frappe_(\d+\.\d+\.\d+[0-9A-Za-z.+-]*)\.json$")
 
 DATA_DIR = Path(__file__).with_name("data")
-DEFAULT_SNAPSHOT = DATA_DIR / "core_vars_frappe_16.32.0.json"
+# The version an unlabelled `--core-css` path stands for: the owner's verified target.
+DEFAULT_VERSION = "16.32.0"
+# ERPNext tag that was built next to each Frappe tag when its snapshot was taken.
+ERPNEXT_FOR = {"16.32.0": "16.33.0", "16.52.0": "16.50.0"}
 CATEGORIES = ("declared-read", "declared-only", "read-only", "theme", "dead")
+# Strongest first: the order used to merge the per-version categories of one variable. A name some version
+# reads (`declared-read`, `read-only`) is live and outranks one that another version only declares; a name the
+# theme consumes outranks one core declares and nothing reads (finding N3c).
+_MERGE_ORDER = ("declared-read", "read-only", "theme", "declared-only", "dead")
+_STRENGTH = {kind: rank for rank, kind in enumerate(_MERGE_ORDER)}
+UNREAD_ALLOWLIST = DATA_DIR / "unread_allowlist.json"
 GENERATED = "generated by python -m institutional_theme.audits --write-core-snapshot; do not edit"
+
+
+def strip_comments(text: str, *, line_comments: bool = True) -> str:
+	"""`text` without block comments and, for SCSS and JavaScript, without `//` comments.
+
+	A custom property written in a comment is documentation, not use: it must not keep a name alive (N3a).
+	Plain `.css` has no `//` comments, so callers pass `line_comments=False` for it.
+	"""
+	text = _BLOCK_COMMENT.sub("", text)
+	if line_comments:
+		text = _TRAILING_COMMENT.sub("", _LINE_COMMENT.sub("", text))
+	return text
+
+
+def snapshot_path(version: str) -> Path:
+	"""The committed snapshot of one Frappe version, named after it."""
+	return DATA_DIR / f"core_vars_frappe_{version}.json"
+
+
+DEFAULT_SNAPSHOT = snapshot_path(DEFAULT_VERSION)
+
+
+def _version_key(version: str) -> tuple[int, ...]:
+	return tuple(int(part) for part in re.findall(r"\d+", version))
+
+
+def snapshot_versions(data_dir: Path | None = None) -> list[str]:
+	"""Versions that have a committed snapshot, oldest first."""
+	data_dir = DATA_DIR if data_dir is None else data_dir
+	found = [
+		m.group(1) for p in data_dir.glob("core_vars_frappe_*.json") if (m := _SNAPSHOT_NAME.match(p.name))
+	]
+	return sorted(found, key=_version_key)
 
 
 @dataclass(frozen=True)
@@ -54,6 +124,44 @@ class CoreVars:
 
 	def describe(self) -> str:
 		return ", ".join(f"{src['file']} ({src['sha256'][:12]})" for src in self.sources)
+
+
+@dataclass(frozen=True)
+class VersionAudit:
+	"""The audit of one supported version: its core, where that came from, and each variable's category."""
+
+	version: str
+	core: CoreVars
+	origin: str
+	results: list[Result]
+	# Names read by source outside the compiled CSS (`source_readers.py`), empty when no snapshot exists.
+	source_reads: frozenset[str] = frozenset()
+
+
+@dataclass(frozen=True)
+class Combined:
+	"""The audit over all supported versions."""
+
+	versions: list[VersionAudit]
+	results: list[Result]
+
+	@property
+	def dead(self) -> list[str]:
+		return [r.name for r in self.results if r.where == "dead"]
+
+
+def parse_core_css(specs: list[str], default_version: str = DEFAULT_VERSION) -> dict[str, list[Path]]:
+	"""Group `--core-css` arguments by version.
+
+	`16.52.0=/path/to/css` belongs to 16.52.0; a bare `/path` belongs to `default_version`, so the
+	single-path form keeps working. Paths of one version are scanned together (files and folders).
+	"""
+	groups: dict[str, list[Path]] = {}
+	for spec in specs:
+		match = _LABELLED.match(spec)
+		version, raw = (match.group(1), match.group(2)) if match else (default_version, spec)
+		groups.setdefault(version, []).append(Path(raw))
+	return groups
 
 
 def core_stylesheets(paths: list[Path]) -> list[Path]:
@@ -86,7 +194,7 @@ def scan_core(paths: list[Path]) -> CoreVars:
 
 
 def write_snapshot(core: CoreVars, path: Path, versions: dict[str, str]) -> None:
-	"""Write the committed snapshot: names only, sorted, with the stylesheets it came from."""
+	"""Write a committed snapshot: names only, sorted, with the stylesheets it came from."""
 	data = {
 		"_generated": GENERATED,
 		"versions": versions,
@@ -98,35 +206,80 @@ def write_snapshot(core: CoreVars, path: Path, versions: dict[str, str]) -> None
 	path.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
+def snapshot_versions_for(version: str) -> dict[str, str]:
+	"""The `versions` block written into the snapshot of a Frappe version."""
+	versions = {"frappe": version}
+	if version in ERPNEXT_FOR:
+		versions["erpnext"] = ERPNEXT_FOR[version]
+	return versions
+
+
 def load_snapshot(path: Path = DEFAULT_SNAPSHOT) -> CoreVars:
 	data = json.loads(path.read_text(encoding="utf-8"))
 	return CoreVars(frozenset(data["declared"]), frozenset(data["read"]), tuple(data["sources"]))
 
 
 def scan_theme(scss_root: Path) -> set[str]:
-	"""Custom properties this theme reads outside its generated folder (SCSS and JS sources)."""
+	"""Custom properties this theme reads outside its generated folder (SCSS and JS sources), comments excluded."""
 	used: set[str] = set()
 	for pattern in ("**/*.scss", "**/*.css", "**/*.js"):
 		for path in scss_root.glob(pattern):
 			if "generated" in path.parts or "node_modules" in path.parts or "dist" in path.parts:
 				continue
-			used.update(_READ.findall(path.read_text(encoding="utf-8", errors="replace")))
+			text = path.read_text(encoding="utf-8", errors="replace")
+			used.update(_READ.findall(strip_comments(text, line_comments=path.suffix != ".css")))
 	return used
 
 
+def scan_theme_declared(theme_root: Path) -> set[str]:
+	"""Custom properties the theme declares in hand-written SCSS, outside the `--ins-` namespace.
+
+	Generated files are skipped (they are the map, audited as such) and so are comments. These are the
+	names the theme sets on a component or a scope (`--bt-solid-bg`, `--c-fill`, `--g-bar-color`), so
+	they are watched like the mapped ones: a name that no supported core knows is dead.
+	"""
+	declared: set[str] = set()
+	for path in sorted(theme_root.glob("**/*.scss")):
+		if "generated" in path.parts or "node_modules" in path.parts or "dist" in path.parts:
+			continue
+		text = strip_comments(path.read_text(encoding="utf-8", errors="replace"))
+		declared.update(name for name in _DECLARED.findall(text) if not name.startswith(model_mod.INS))
+	return declared
+
+
 def overridden_variables(model: Model) -> list[str]:
-	"""Every Frappe variable the theme sets, in map order, without duplicates."""
+	"""Every Frappe variable the theme sets from the map, in map order, without duplicates."""
 	names = [name for name, _ in model_mod.frappe_map(model).declarations["light"]]
 	return list(dict.fromkeys(names))
 
 
-def audit(model: Model, core: CoreVars, theme_root: Path) -> list[Result]:
-	theme = scan_theme(theme_root)
+def watched_variables(model: Model, theme_root: Path, declared: set[str] | None = None) -> list[str]:
+	"""The audited names: the map first, then the scoped declarations of hand-written SCSS (sorted)."""
+	declared = scan_theme_declared(theme_root) if declared is None else declared
+	names = overridden_variables(model)
+	return [*names, *sorted(declared - set(names))]
+
+
+def audit(
+	model: Model,
+	core: CoreVars,
+	theme_root: Path,
+	theme: set[str] | None = None,
+	watched: list[str] | None = None,
+	source_reads: frozenset[str] = frozenset(),
+) -> list[Result]:
+	"""Categorise every watched variable (the map and the scoped declarations) against one core.
+
+	`source_reads` are names the version's source reads outside the compiled CSS; they count as read.
+	"""
+	theme = scan_theme(theme_root) if theme is None else theme
+	watched = watched_variables(model, theme_root) if watched is None else watched
+	reads = core.read | source_reads
 	results = []
-	for name in overridden_variables(model):
+	for name in watched:
 		if name in core.declared:
-			where = "declared-read" if name in core.read else "declared-only"
-		elif name in core.read:
+			where = "declared-read" if name in reads else "declared-only"
+		elif name in reads:
 			where = "read-only"
 		elif name in theme:
 			where = "theme"
@@ -136,42 +289,220 @@ def audit(model: Model, core: CoreVars, theme_root: Path) -> list[Result]:
 	return results
 
 
+def combine(per_version: list[list[Result]]) -> list[Result]:
+	"""Merge per-version results: each variable keeps its strongest category, so `dead` means dead everywhere."""
+	if not per_version:
+		return []
+	merged = []
+	for column in zip(*per_version, strict=True):
+		best = min(column, key=lambda r: _STRENGTH[r.where])
+		merged.append(Result(best.name, best.where))
+	return merged
+
+
+def audit_versions(
+	model: Model,
+	cores: dict[str, tuple[CoreVars, str]],
+	theme_root: Path,
+	source_reads: dict[str, frozenset[str]] | None = None,
+) -> Combined:
+	"""Audit every supported version. `cores` maps a version to its core and a description of its origin.
+
+	`source_reads` maps a version to the names its source reads outside the compiled CSS.
+	"""
+	source_reads = source_reads or {}
+	theme = scan_theme(theme_root)
+	watched = watched_variables(model, theme_root)
+	versions = [
+		VersionAudit(
+			version,
+			core,
+			origin,
+			audit(model, core, theme_root, theme, watched, source_reads.get(version, frozenset())),
+			source_reads.get(version, frozenset()),
+		)
+		for version, (core, origin) in sorted(cores.items(), key=lambda item: _version_key(item[0]))
+	]
+	return Combined(versions, combine([v.results for v in versions]))
+
+
+def _where_in(entry: VersionAudit, name: str) -> str:
+	for result in entry.results:
+		if result.name == name:
+			return result.where
+	return "not overridden"
+
+
+def reads_of(entry: VersionAudit) -> frozenset[str]:
+	"""Every name a version's core reads: its compiled stylesheets and its source."""
+	return entry.core.read | entry.source_reads
+
+
+def version_specific(combined: Combined) -> dict[str, list[tuple[str, str]]]:
+	"""Overridden variables that core reads in exactly one version.
+
+	Returns, per version, `(name, note)` pairs where the note says what the other versions' core does
+	with the name. Those overrides take effect in one version only; ADR 0011 requires a counterpart
+	mapping for the others. Empty when only one version is audited.
+	"""
+	found: dict[str, list[tuple[str, str]]] = {v.version: [] for v in combined.versions}
+	if len(combined.versions) < 2:
+		return found
+	for entry in combined.versions:
+		others = [o for o in combined.versions if o is not entry]
+		for result in entry.results:
+			if result.name not in reads_of(entry):
+				continue
+			if any(result.name in reads_of(o) for o in others):
+				continue
+			note = ", ".join(f"{o.version}: {_where_in(o, result.name)}" for o in others)
+			found[entry.version].append((result.name, note))
+	return found
+
+
+def dead_in_some(combined: Combined) -> dict[str, list[str]]:
+	"""Per version, the variables dead there although another supported version makes them live."""
+	live = {r.name for r in combined.results if r.where != "dead"}
+	return {
+		v.version: [r.name for r in v.results if r.where == "dead" and r.name in live]
+		for v in combined.versions
+	}
+
+
+def unread_everywhere(combined: Combined) -> list[str]:
+	"""Watched names that core declares in some version and that nothing reads in any version.
+
+	"Nothing" is the compiled stylesheets of every audited version, the source readers of each, and this
+	theme's own stylesheets. Such an override changes no pixel: the audit lists it (N3b).
+	"""
+	return [r.name for r in combined.results if r.where == "declared-only"]
+
+
+def load_unread_allowlist(path: Path = UNREAD_ALLOWLIST) -> dict[str, str]:
+	"""`{name: reason}` of the names allowed to be unread everywhere. A missing file is an empty list."""
+	if not path.is_file():
+		return {}
+	data = json.loads(path.read_text(encoding="utf-8"))
+	return {name: str(entry.get("reason", "")).strip() for name, entry in data.get("names", {}).items()}
+
+
+def check_unread(combined: Combined, allowlist: dict[str, str]) -> list[str]:
+	"""Problems of the unread-everywhere check, empty when it passes.
+
+	A name unread everywhere needs an allowlist entry with a reason. An entry is stale (and fails) when its
+	name is no longer watched, is read somewhere, or has no reason, so the list cannot outlive the fact.
+	"""
+	unread = unread_everywhere(combined)
+	watched = {r.name for r in combined.results}
+	problems = [
+		f"{name}: declared by core, read by nothing in any version and not in unread_allowlist.json"
+		for name in unread
+		if name not in allowlist
+	]
+	for name, reason in allowlist.items():
+		if name not in watched:
+			problems.append(f"{name}: in unread_allowlist.json but not a watched variable (stale entry)")
+		elif name not in unread:
+			problems.append(f"{name}: in unread_allowlist.json but something reads it (stale entry)")
+		elif not reason.strip():
+			problems.append(f"{name}: in unread_allowlist.json without a reason")
+	return problems
+
+
 def counts(results: list[Result]) -> dict[str, int]:
 	return {kind: sum(1 for r in results if r.where == kind) for kind in CATEGORIES}
 
 
-def render_text(results: list[Result], core: CoreVars, origin: str) -> str:
-	total = counts(results)
+_TITLES = {
+	"declared-read": "declared and read by core (the override has an effect)",
+	"declared-only": "declared by core, never read by it or the theme (inert)",
+	"read-only": "read by core, never declared (relies on a fallback)",
+	"theme": "consumed by this theme only",
+	"dead": "dead (neither in core nor consumed by the theme)",
+}
+
+
+def render_text(combined: Combined, allowlist: dict[str, str] | None = None) -> str:
+	allowlist = {} if allowlist is None else allowlist
+	total = counts(combined.results)
+	labels = [v.version for v in combined.versions]
 	lines = [
 		"Dead-token audit",
 		"Generated by python -m institutional_theme.audits; do not edit.",
 		"",
-		f"Core variables from: {origin}",
-		f"Core stylesheets: {core.describe()}",
-		f"Variables overridden by the theme: {len(results)}",
-		f"  declared and read by core (the override has an effect): {total['declared-read']}",
-		f"  declared by core, never read by it (inert today): {total['declared-only']}",
-		f"  read by core, never declared (relies on a fallback): {total['read-only']}",
-		f"  consumed by this theme only: {total['theme']}",
-		f"  dead (neither in core nor consumed by the theme): {total['dead']}",
+		f"Supported versions audited: {', '.join(labels)}",
+		f"Variables watched (the Frappe map plus the custom properties of hand-written SCSS): {len(combined.results)}",
 		"",
-		"The audit fails only on dead variables.",
+		"A variable is dead only when no audited version's core declares or reads it and the theme does not",
+		"use it. The audit fails on dead variables in the combined verdict and on variables that core declares",
+		"but nothing reads in any version, unless data/unread_allowlist.json gives a reason. A read is a compiled",
+		"stylesheet, a source reader outside it (data/source_readers_frappe_<version>.json) or this theme.",
 		"",
 	]
-	for kind, title in (
-		(
-			"declared-only",
-			"Declared by core but never read by any scanned stylesheet (inert unless an unscanned template reads them):",
-		),
-		("read-only", "Read by core but never declared (the override defines them; verify the intent):"),
-		("theme", "Not in core, consumed by this theme:"),
-		("dead", "DEAD:"),
+	width = max(len(title) for title in _TITLES.values()) + 6
+	lines.append("Counts per version and combined")
+	lines.append(f"  {'':{width}}  " + "  ".join(f"{label:>8}" for label in [*labels, "combined"]))
+	for kind in CATEGORIES:
+		cells = [counts(v.results)[kind] for v in combined.versions] + [total[kind]]
+		lines.append(f"  {_TITLES[kind]:{width}}  " + "  ".join(f"{n:>8}" for n in cells))
+	for title, size in (
+		("custom properties declared by core", lambda c: len(c.declared)),
+		("custom properties read by core", lambda c: len(c.read)),
 	):
-		names = [r.name for r in results if r.where == kind]
-		if names:
-			lines.append(title)
-			lines += [f"  {name}" for name in names]
-			lines.append("")
-	if not total["dead"]:
+		cells = [size(v.core) for v in combined.versions]
+		lines.append(f"  {title:{width}}  " + "  ".join(f"{n:>8}" for n in cells))
+	lines.append("")
+	for entry in combined.versions:
+		lines += [
+			f"Frappe {entry.version}",
+			f"  Core variables from: {entry.origin}",
+			f"  Core stylesheets: {entry.core.describe()}",
+		]
+		for kind, title in (
+			("declared-only", "Declared by core but never read by any scanned stylesheet (inert here)"),
+			("read-only", "Read by core but never declared (the override defines them; verify the intent)"),
+			("theme", "Not in core, consumed by this theme"),
+			("dead", "Dead in this version"),
+		):
+			names = [r.name for r in entry.results if r.where == kind]
+			if names:
+				lines.append(f"  {title} ({len(names)}):")
+				lines += [f"    {name}" for name in names]
+		lines.append("")
+	if len(labels) > 1:
+		specific = version_specific(combined)
+		lines.append(
+			"Read by core in one version only (ADR 0011: each needs a counterpart mapping for the others)"
+		)
+		for label in labels:
+			lines.append(f"  only in {label} ({len(specific[label])}):")
+			lines += [f"    {name}  [{note}]" for name, note in specific[label]]
+		lines.append("")
+		lines.append("Dead in one version but live in another (the side-by-side mappings)")
+		partial = dead_in_some(combined)
+		for label in labels:
+			lines.append(f"  dead in {label} only ({len(partial[label])}):")
+			lines += [f"    {name}" for name in partial[label]]
+		lines.append("")
+	for entry in combined.versions:
+		outside = sorted(
+			r.name
+			for r in entry.results
+			if r.name in entry.source_reads and r.name not in entry.core.read and r.where != "dead"
+		)
+		lines.append(
+			f"Read in Frappe {entry.version} only by source outside the compiled CSS ({len(outside)}):"
+		)
+		lines += [f"  {name}" for name in outside]
+	lines.append("")
+	unread = unread_everywhere(combined)
+	lines.append(f"Declared by core and read by nothing in any version ({len(unread)}; each needs a reason):")
+	for name in unread:
+		lines.append(f"  {name}: {allowlist.get(name) or 'NO REASON GIVEN'}")
+	lines.append("")
+	if total["dead"]:
+		lines.append(f"DEAD in every version ({total['dead']}):")
+		lines += [f"  {name}" for name in combined.dead]
+	else:
 		lines.append("No dead variables.")
 	return "\n".join(lines) + "\n"

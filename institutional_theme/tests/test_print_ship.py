@@ -48,8 +48,8 @@ class TestDecide(IntegrationTestCase):
 		self.assertNotIn("sourceMappingURL", css)
 		self.assertIn(".ins-sig", css)
 		self.assertLess(css.index("@font-face"), css.index("body {"), "the faces come first")
-		self.assertIn('.print-format {\n\tfont-family: "Midad Print Plex Sans";', css)
-		self.assertLess(css.index(".print-format {"), css.index("body {"), "the bundle can still override it")
+		self.assertIn('.print-format,\nbody.print-format-doc {\n\tfont-family: "Midad Print Plex Sans";', css)
+		self.assertLess(css.index(".print-format,"), css.index("body {"), "the bundle can still override it")
 
 
 class TestShip(IntegrationTestCase):
@@ -152,7 +152,7 @@ class TestShip(IntegrationTestCase):
 		self.assertNotIn("format(", css, "wkhtmltopdf: one TTF url() per face, no format()")
 		self.assertRegex(
 			css,
-			r'\.print-format \{\s*font-family: "Midad Print Plex Sans Arabic", "Midad Print Plex Sans", sans-serif;',
+			r'\.print-format,\s*body\.print-format-doc \{\s*font-family: "Midad Print Plex Sans Arabic", "Midad Print Plex Sans", sans-serif;',
 		)
 		self.assertIn(".ins-sig { border-top: 1px solid #000; }", css)
 		letter = self.letter()

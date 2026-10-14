@@ -1,0 +1,80 @@
+N2: readers of the 26 R3(b) names (design/tokens.json notes 'ADR 0011 R3b') in Frappe v16.32.0, ERPNext 16.33.0, HRMS 16.20.1, and the built dist of the 16.32.0 bench.
+Command: python3 tools/bench/source_scan.py names.txt <trees>; then a grep of the built CSS and JS. A name is a reader when it appears as var(--name) or in quotes; 'declared' lines are core's own declarations.
+
+files scanned: 8681 under /tmp/src/frappe-16.32.0/frappe, /home/frappe/frappe-bench/apps/erpnext/erpnext, /tmp/r4src/hrms-16.20.1/hrms
+
+--surface-gray-5
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-gray-6
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-red-5
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 4
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-red-6
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-red-7
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-green-3
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-amber-3
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-white
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 8
+  frappe/public/scss/espresso/_colors.scss: declared 1
+--ink-red-1
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/public/scss/espresso/_colors.scss: declared 1
+--ink-red-2
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-red-3
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 7
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-green-2
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-amber-2
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-blue-2
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-cyan-1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-pink-1
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-violet-1
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-gray-5
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 3
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-red-1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-red-3
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 3
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-green-1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-green-2
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-amber-1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-amber-2
+  erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-blue-1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-orange-1
+  frappe/public/scss/espresso/_colors.scss: declared 2
+
+Built dist (frappe, erpnext; css, css-rtl, js) of /home/frappe/frappe-bench: files that READ any of the names (var(--name) or quoted):
+(end of list; empty means none)

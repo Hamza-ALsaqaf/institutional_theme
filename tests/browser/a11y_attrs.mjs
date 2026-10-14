@@ -36,6 +36,13 @@ const attr = (page, selector, name, nth = 0) => page.evaluate(({ selector, name,
 const count = (page, selector) => page.evaluate((s) => document.querySelectorAll(s).length, selector);
 const labels = (page, selector, name = "aria-label") => page.evaluate(({ selector, name }) => [...document.querySelectorAll(selector)].map((e) => e.getAttribute(name)), { selector, name });
 
+// v16.52.0 renders the shell with Espresso components (`nav.es-breadcrumbs`, `es-button`) that carry their own accessible
+// names, and its markup no longer has the elements the shell script of 16.32.0 labels. On that markup the checks below
+// ask for a non-empty name from core and, in Arabic, for a name that is not plain English (a core string with no Arabic
+// translation is reported by its own check). On 16.32.0 markup every check is exactly as it was.
+const espresso = (page) => page.evaluate(() => !!document.querySelector("nav.es-breadcrumbs"));
+const asciiOnly = (s) => typeof s === "string" && /^[\x20-\x7e]+$/.test(s);
+
 async function login(browser, lang, blockShell = false) {
 	const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, locale: lang === "ar" ? "ar-SA" : "en-US", extraHTTPHeaders: { "Accept-Language": lang }, reducedMotion: "reduce" });
 	if (blockShell) await ctx.route(/ins_shell\.bundle\./, (r) => r.abort());
@@ -44,7 +51,7 @@ async function login(browser, lang, blockShell = false) {
 	await page.goto(`${BASE}/login`);
 	await page.fill("#login_email", `${PREFIX}-${lang}-light@midad.test`);
 	await page.fill("#login_password", PASSWORD);
-	await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.click(".btn-login")]);
+	await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.press("#login_password", "Enter")]);
 	return { ctx, page };
 }
 
@@ -80,9 +87,23 @@ async function run(browser, lang) {
 	check(`${tag} list: name is "Select" + row title + document name`, rows.every((r, i) => r === t.pick(full[i] === names[i] ? names[i] : `${full[i]} (${names[i]})`)), JSON.stringify(rows.slice(0, 3)));
 	check(`${tag} list: row names are unique`, new Set(rows).size === rows.length, "");
 	check(`${tag} list: select-all keeps core's title and gets no aria-label`, (await attr(page, ".list-check-all", "aria-label")) === null && !!(await attr(page, ".list-check-all", "title")), "");
-	check(`${tag} list: breadcrumb home link`, (await attr(page, ".navbar-breadcrumbs > li:first-child > a", "aria-label")) === t.home, await attr(page, ".navbar-breadcrumbs > li:first-child > a", "aria-label"));
-	check(`${tag} list: sidebar logo is decorative`, (await attr(page, ".sidebar-header .header-logo > img", "alt")) === "", String(await attr(page, ".sidebar-header .header-logo > img", "alt")));
-	check(`${tag} list: sidebar header button`, (await attr(page, ".sidebar-header > button.drop-icon", "aria-label")) === t.menu, "");
+	const newShell = await espresso(page);
+	if (!newShell) {
+		check(`${tag} list: breadcrumb home link`, (await attr(page, ".navbar-breadcrumbs > li:first-child > a", "aria-label")) === t.home, await attr(page, ".navbar-breadcrumbs > li:first-child > a", "aria-label"));
+		check(`${tag} list: sidebar logo is decorative`, (await attr(page, ".sidebar-header .header-logo > img", "alt")) === "", String(await attr(page, ".sidebar-header .header-logo > img", "alt")));
+		check(`${tag} list: sidebar header button`, (await attr(page, ".sidebar-header > button.drop-icon", "aria-label")) === t.menu, "");
+	} else {
+		const crumb = await attr(page, "nav.es-breadcrumbs", "aria-label");
+		const menuName = await attr(page, ".sidebar-header button.drop-icon", "aria-label");
+		const logoHidden = await page.evaluate(() => { const l = document.querySelector(".sidebar-header .header-logo"); return !!l && !l.querySelector("img") && [...l.querySelectorAll("svg")].every((x) => x.getAttribute("aria-hidden") === "true"); });
+		check(`${tag} list (espresso shell): the breadcrumb landmark is named by core`, !!crumb, String(crumb));
+		check(`${tag} list (espresso shell): the sidebar logo is a decorative icon`, logoHidden, "");
+		check(`${tag} list (espresso shell): the sidebar header button is named by core`, !!menuName, String(menuName));
+		if (lang === "ar") {
+			check(`${tag} list (espresso shell): the breadcrumb landmark name is translated`, !asciiOnly(crumb), String(crumb));
+			check(`${tag} list (espresso shell): the sidebar header button name is translated`, !asciiOnly(menuName), String(menuName));
+		}
+	}
 	const reload = await page.evaluate(() => { const b = document.querySelector(".page-icon-group .icon-btn"); return b && [b.getAttribute("aria-label"), b.getAttribute("data-original-title")]; });
 	check(`${tag} list: reload button named from its tooltip`, reload && reload[0] && reload[0] === reload[1], JSON.stringify(reload));
 	const toggles = await page.evaluate(() => [...document.querySelectorAll(".item-anchor > .sidebar-item-control > button.drop-icon")].map((b) => [b.getAttribute("aria-label"), b.closest(".item-anchor").querySelector(".sidebar-item-label").textContent.trim(), b.getAttribute("data-state")]));
@@ -164,7 +185,12 @@ async function run(browser, lang) {
 		top: document.querySelector(".scroll-to-top")?.getAttribute("aria-label"),
 		edit: [...document.querySelectorAll(".form-sidebar button.icon-btn[data-original-title]")].map((b) => [b.getAttribute("aria-label"), b.getAttribute("data-original-title")]),
 	}));
-	check(`${tag} form: Assign / Add Attachment / Share / Add Tags / Scroll to top`, side.assign === t.assign && side.attach === t.attach && side.share === t.share && side.tags === t.tags && side.top === t.top, JSON.stringify(side));
+	if (!newShell) {
+		check(`${tag} form: Assign / Add Attachment / Share / Add Tags / Scroll to top`, side.assign === t.assign && side.attach === t.attach && side.share === t.share && side.tags === t.tags && side.top === t.top, JSON.stringify(side));
+	} else {
+		check(`${tag} form (espresso shell): Assign / Add attachment / Share / Add Tags / Scroll to top are named`, [side.assign, side.attach, side.share, side.tags, side.top].every(Boolean), JSON.stringify(side));
+		if (lang === "ar") check(`${tag} form (espresso shell): the sidebar button names are translated`, [side.assign, side.attach, side.share, side.tags, side.top].every((v) => v && !asciiOnly(v)), JSON.stringify(side));
+	}
 	check(`${tag} form: sidebar tooltip buttons copy their tooltip`, side.edit.length > 0 && side.edit.every(([l, o]) => l && l === o), JSON.stringify(side.edit));
 	await snap(page, lang, "form-tabs", ".form-tabs-list");
 	await snap(page, lang, "form-sidebar", ".layout-side-section");
@@ -245,7 +271,7 @@ async function run(browser, lang) {
 			return { field: w.getAttribute("data-fieldname"), tag: c.tagName, labelledby: id && document.getElementById(id) ? document.getElementById(id).textContent.trim() : null, own: lab ? lab.textContent.trim() : null };
 		}).filter(Boolean),
 	}));
-	check(`${tag} row editor: the icon-only collapse button is named`, editor.collapse === t.rowEditorCollapse, String(editor.collapse));
+	check(`${tag} row editor: the icon-only collapse button is named`, newShell ? !!editor.collapse && (lang === "en" || !asciiOnly(editor.collapse)) : editor.collapse === t.rowEditorCollapse, String(editor.collapse));
 	check(`${tag} row editor: every control is named by its visible label (select, link, Ace textareas, data)`, editor.controls.length >= 4 && editor.controls.every((c) => c.labelledby && c.labelledby === c.own), JSON.stringify(editor.controls));
 	await snap(page, lang, "row-editor", ".form-in-grid");
 

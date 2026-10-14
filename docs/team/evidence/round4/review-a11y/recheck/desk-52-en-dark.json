@@ -1,0 +1,205 @@
+{
+ "heights": {
+  "comfortable": {
+   "primary": "102x32",
+   "menu": "32x32",
+   "btn": "124x32",
+   "pill": "32x28",
+   "dock": "34x34",
+   "crumb": null,
+   "input": "107x32",
+   "btnAny": "32x32",
+   "coarse": false,
+   "density": "comfortable"
+  },
+  "compact": {
+   "primary": "98x28",
+   "menu": "28x28",
+   "btn": "118x28",
+   "pill": "32x26",
+   "dock": "34x34",
+   "crumb": null,
+   "input": "107x28",
+   "btnAny": "28x28",
+   "coarse": false,
+   "density": "compact"
+  },
+  "coarse": {
+   "primary": "102x44",
+   "menu": "44x44",
+   "btn": "44x44",
+   "pill": "32x44",
+   "dock": "34x34",
+   "crumb": null,
+   "input": "107x44",
+   "btnAny": "44x44",
+   "coarse": true,
+   "density": "comfortable"
+  },
+  "coarseCompact": {
+   "primary": "98x44",
+   "menu": "44x44",
+   "btn": "44x44",
+   "pill": "32x44",
+   "dock": "34x34",
+   "crumb": null,
+   "input": "107x44",
+   "btnAny": "44x44",
+   "coarse": true,
+   "density": "compact"
+  }
+ },
+ "pills": {
+  "on": {
+   "fw": "500",
+   "shadow": "rgb(111, 119, 129) 0px 0px 0px 1px inset",
+   "bg": "rgb(46, 54, 65)",
+   "fill": "rgb(46,54,65)",
+   "text": {
+    "fg": "rgb(236,239,242)",
+    "bg": "rgb(46,54,65)",
+    "ratio": 10.58
+   }
+  },
+  "off": {
+   "fw": "400",
+   "shadow": "none",
+   "fill": "rgb(37,44,55)",
+   "text": {
+    "fg": "rgb(157,164,172)",
+    "bg": "rgb(37,44,55)",
+    "ratio": 5.58
+   }
+  },
+  "container": {
+   "bg": "rgb(37,44,55)",
+   "border": "rgb(185, 190, 198) 0px"
+  },
+  "ringVsOwnFill": 2.69,
+  "ringVsInactiveFill": 3.1,
+  "ringVsContainer": 3.1,
+  "fillOnVsOff": 1.15,
+  "textOnVsOff": null,
+  "minH": "28px",
+  "h": 28
+ },
+ "disabled": {
+  "solid": {
+   "cls": "es-button primary-action",
+   "color": "rgb(111, 119, 129)",
+   "bg": "rgb(23, 30, 40)",
+   "text": 3.7,
+   "border": "dashed 2px rgb(111, 119, 129)",
+   "borderVsBg": 3.7,
+   "borderVsPage": 3.94,
+   "fillVsPage": 1.07,
+   "h": 32,
+   "w": 104,
+   "cursor": "not-allowed",
+   "opacity": "1",
+   "variant": "solid"
+  },
+  "subtle": {
+   "cls": "es-button icon-btn menu-more-button",
+   "color": "rgb(111, 119, 129)",
+   "bg": "rgb(23, 30, 40)",
+   "text": 3.7,
+   "border": "dashed 1px rgb(111, 119, 129)",
+   "borderVsBg": 3.7,
+   "borderVsPage": 3.94,
+   "fillVsPage": 1.07,
+   "h": 32,
+   "w": 32,
+   "cursor": "not-allowed",
+   "opacity": "1"
+  },
+  "btnDefault": {
+   "cls": "btn btn-default more-button hide",
+   "color": "rgb(223, 227, 232)",
+   "bg": "rgb(29, 37, 47)",
+   "text": 12,
+   "border": "none 0px rgb(243, 243, 243)",
+   "borderVsBg": null,
+   "borderVsPage": 16.1,
+   "fillVsPage": 1.16,
+   "h": 0,
+   "w": 0,
+   "cursor": "default",
+   "opacity": "0.65"
+  }
+ },
+ "toasts": [
+  {
+   "ind": "green",
+   "cls": "es-toast",
+   "type": "success",
+   "iconColor": "rgb(104, 190, 143)",
+   "iconStroke": "rgb(104, 190, 143)",
+   "strokeEqColor": true,
+   "strokeVsToast": {
+    "fg": "rgb(104,190,143)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.89
+   },
+   "colorVsToast": {
+    "fg": "rgb(104,190,143)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.89
+   }
+  },
+  {
+   "ind": "red",
+   "cls": "es-toast",
+   "type": "error",
+   "iconColor": "rgb(251, 126, 119)",
+   "iconStroke": "rgb(251, 126, 119)",
+   "strokeEqColor": true,
+   "strokeVsToast": {
+    "fg": "rgb(251,126,119)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.15
+   },
+   "colorVsToast": {
+    "fg": "rgb(251,126,119)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.15
+   }
+  },
+  {
+   "ind": "orange",
+   "cls": "es-toast",
+   "type": "warning",
+   "iconColor": "rgb(219, 187, 84)",
+   "iconStroke": "rgb(219, 187, 84)",
+   "strokeEqColor": true,
+   "strokeVsToast": {
+    "fg": "rgb(219,187,84)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   },
+   "colorVsToast": {
+    "fg": "rgb(219,187,84)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 8.28
+   }
+  },
+  {
+   "ind": "blue",
+   "cls": "es-toast",
+   "type": "info",
+   "iconColor": "rgb(94, 183, 208)",
+   "iconStroke": "rgb(94, 183, 208)",
+   "strokeEqColor": true,
+   "strokeVsToast": {
+    "fg": "rgb(94,183,208)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.75
+   },
+   "colorVsToast": {
+    "fg": "rgb(94,183,208)",
+    "bg": "rgb(29,37,47)",
+    "ratio": 6.75
+   }
+  }
+ ]
+}

@@ -1,16 +1,21 @@
 """Audit runner.
 
-    python -m institutional_theme.audits [--core-css PATH ...] [--write-core-snapshot]
+    python -m institutional_theme.audits [--core-css [VERSION=]PATH ...] [--write-core-snapshot]
                                          [--dist DIR] [--no-write] [--strict]
 
 Runs the contrast, avatar, parity, colour-vision and dead-token audits against the generated model and
 stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED preset fails a contrast
 pair (or one of the nine desk avatar pairs, `avatars.py`) or the status check, when a built bundle or the fonts exceed a size budget (`budgets.py`;
-skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, or when a variable the theme
-overrides is neither in core nor used by the theme. Core is read from the committed snapshot
-(`audits/data/core_vars_frappe_16.32.0.json`) unless `--core-css` names compiled stylesheets;
-`--write-core-snapshot` (with `--core-css`) refreshes the snapshot. Chart-series gaps are
-reported and only fatal with `--strict`. Never imports Frappe.
+skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, when a variable the theme
+overrides or declares in its hand-written SCSS is neither in core nor used by the theme of ANY supported Frappe version (F1), or
+when core declares such a variable and nothing in any version reads it (compiled CSS, source readers, the theme) and `data/unread_allowlist.json`
+gives no reason (N3b), or when a variable marked `scope: desk` in tokens.json is read by a website page of a supported version (`web_scope.py`), or
+when the counterpart table breaks one of its checks (`counterparts.py`, F2). Core is read
+from one committed snapshot per version (`audits/data/core_vars_frappe_<version>.json`); `--core-css`
+names compiled stylesheets of a version (`16.52.0=PATH`; a bare PATH stands for 16.32.0) and replaces that
+version's snapshot for the run, so several builds can be scanned at once. `--write-core-snapshot` (with
+`--core-css`) writes the snapshot of each version named. Chart-series gaps are reported and only fatal
+with `--strict`. Never imports Frappe.
 """
 
 from __future__ import annotations
@@ -21,12 +26,27 @@ from pathlib import Path
 
 from institutional_theme.midad import model as model_mod
 
-from . import avatars, budgets, colour_vision, contrast, dead_tokens, parity
+from . import (
+	avatars,
+	budgets,
+	colour_vision,
+	contrast,
+	counterparts,
+	dead_tokens,
+	parity,
+	source_readers,
+	web_scope,
+)
 
 PACKAGE_DIR = Path(__file__).resolve().parents[1]
 REPO_ROOT = PACKAGE_DIR.parent
 SCSS_DIR = PACKAGE_DIR / "public" / "scss" / "generated"
 AUDITS_DIR = REPO_ROOT / "docs" / "audits"
+
+
+def _shown(path: Path) -> Path:
+	"""The path relative to the repository when it is inside it."""
+	return path.relative_to(REPO_ROOT) if path.is_relative_to(REPO_ROOT) else path
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -41,7 +61,7 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument(
 		"--write-core-snapshot",
 		action="store_true",
-		help="with --core-css, rewrite the committed snapshot of core variable names",
+		help="with --core-css, write the committed snapshot of each version named (core_vars_frappe_<version>.json)",
 	)
 	parser.add_argument(
 		"--dist",
@@ -110,31 +130,84 @@ def main(argv: list[str] | None = None) -> int:
 	if args.strict:
 		failures += chart_gaps
 
-	# Dead tokens
-	if args.core_css:
-		core_paths = [Path(p) for p in args.core_css]
-		core = dead_tokens.scan_core(core_paths)
+	# Dead tokens: one core per supported version, combined verdict
+	groups = dead_tokens.parse_core_css(args.core_css)
+	if args.write_core_snapshot and not groups:
+		parser.error("--write-core-snapshot needs --core-css")
+	cores: dict[str, tuple[dead_tokens.CoreVars, str]] = {}
+	for version in dead_tokens.snapshot_versions():
+		path = dead_tokens.snapshot_path(version)
+		cores[version] = (dead_tokens.load_snapshot(path), f"committed snapshot {_shown(path)}")
+	for version, paths in groups.items():
+		core = dead_tokens.scan_core(paths)
 		origin = "live stylesheets"
 		if args.write_core_snapshot:
-			dead_tokens.write_snapshot(
-				core, dead_tokens.DEFAULT_SNAPSHOT, {"frappe": "16.32.0", "erpnext": "16.33.0"}
-			)
-			print(f"wrote {dead_tokens.DEFAULT_SNAPSHOT.relative_to(REPO_ROOT)}")
-			origin = "live stylesheets (snapshot refreshed)"
-	elif args.write_core_snapshot:
-		parser.error("--write-core-snapshot needs --core-css")
-	else:
-		core = dead_tokens.load_snapshot()
-		origin = f"committed snapshot {dead_tokens.DEFAULT_SNAPSHOT.relative_to(REPO_ROOT)}"
-	results = dead_tokens.audit(model, core, PACKAGE_DIR / "public")
-	outputs["dead_tokens.txt"] = dead_tokens.render_text(results, core, origin)
-	total = dead_tokens.counts(results)
-	print(
-		f"dead-tokens: {len(results)} variables: {total['declared-read']} declared and read by core, "
-		f"{total['declared-only']} declared only, {total['read-only']} read only, "
-		f"{total['theme']} consumed by the theme, {total['dead']} dead"
+			target = dead_tokens.snapshot_path(version)
+			dead_tokens.write_snapshot(core, target, dead_tokens.snapshot_versions_for(version))
+			print(f"wrote {_shown(target)}")
+			origin = "live stylesheets (snapshot written)"
+		cores[version] = (core, origin)
+	if not cores:
+		parser.error("no committed core snapshot and no --core-css")
+	source_reads = {version: frozenset(source_readers.load_snapshot(version)) for version in cores}
+	combined = dead_tokens.audit_versions(model, cores, PACKAGE_DIR / "public", source_reads)
+	allowlist = dead_tokens.load_unread_allowlist()
+	pairs = counterparts.load_pairs()
+	core_vars = {version: core for version, (core, _) in cores.items()}
+	pair_findings = counterparts.check(model, pairs, core_vars)
+	outputs["dead_tokens.txt"] = dead_tokens.render_text(combined, allowlist) + counterparts.render_text(
+		pairs,
+		pair_findings,
+		counterparts.unmapped_reads(model, pairs, core_vars, PACKAGE_DIR / "public"),
+		counterparts.stale_differs(model, pairs),
 	)
+	for entry in combined.versions:
+		total = dead_tokens.counts(entry.results)
+		print(
+			f"dead-tokens {entry.version}: {len(entry.results)} variables: {total['declared-read']} declared and "
+			f"read by core, {total['declared-only']} declared only, {total['read-only']} read only, "
+			f"{total['theme']} consumed by the theme, {total['dead']} dead in this version"
+		)
+	specific = dead_tokens.version_specific(combined)
+	for version, names in specific.items():
+		if len(combined.versions) > 1:
+			print(f"dead-tokens {version}: {len(names)} variable(s) read by core only in this version")
+	total = dead_tokens.counts(combined.results)
+	print(
+		f"dead-tokens: combined over {', '.join(v.version for v in combined.versions)}: "
+		f"{len(combined.results)} variables: {total['declared-read']} declared and read by core, "
+		f"{total['declared-only']} declared only, {total['read-only']} read only, "
+		f"{total['theme']} consumed by the theme, {total['dead']} dead in every version"
+	)
+	for name in combined.dead:
+		print(f"dead-tokens FAIL {name}: in no supported version's core and not used by the theme")
 	failures += total["dead"]
+	unread_problems = dead_tokens.check_unread(combined, allowlist)
+	for problem in unread_problems:
+		print(f"dead-tokens FAIL {problem}")
+	print(
+		f"dead-tokens: {len(dead_tokens.unread_everywhere(combined))} variable(s) declared by core and read by nothing "
+		f"in any version, {len(allowlist)} allowed with a reason, {len(unread_problems)} problem(s)"
+	)
+	failures += len(unread_problems)
+
+	# Website scope: no variable left out of the website map is read by a website page of any version
+	web_reads = {version: web_scope.load_reads(version) for version in dead_tokens.snapshot_versions()}
+	scope = web_scope.check(model, web_reads, web_scope.theme_reads(PACKAGE_DIR / "public"))
+	outputs["web_scope.txt"] = web_scope.render_text(scope, len(dead_tokens.overridden_variables(model)))
+	for problem in scope.problems:
+		print(f"web-scope FAIL {problem}")
+	print(
+		f"web-scope: {len(scope.desk_only)} desk-only variable(s) left out of the website map, "
+		f"{len(scope.problems)} problem(s), {len(scope.candidates)} unmarked variable(s) no website page reads"
+	)
+	failures += len(scope.problems)
+
+	# Counterpart table (F2)
+	for finding in pair_findings:
+		print(f"counterparts FAIL {finding.rule} {finding.pair}: {finding.message}"[:300])
+	print(f"counterparts: {len(pairs)} pair(s), {len(pair_findings)} finding(s)")
+	failures += len(pair_findings)
 
 	# Size budgets: only when a build exists; the committed report is kept otherwise.
 	sizes = budgets.run(args.dist)

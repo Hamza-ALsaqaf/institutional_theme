@@ -1,0 +1,15 @@
+import { chromium, BENCH, login } from "./lib.mjs";
+import { HELPERS } from "./measure.mjs";
+const [which, user, lang] = process.argv.slice(2);
+const base = BENCH[which];
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const ctx = await b.newContext({ locale: lang==="ar"?"ar":"en-US", viewport: { width: 1366, height: 768 }, reducedMotion: "reduce" });
+const page = await ctx.newPage();
+await login(page, base, user, "Rev4-pass-9X!q");
+await page.goto(base + "/desk/todo"); await page.waitForTimeout(3500); await page.evaluate(HELPERS);
+const el = (await page.$$('.dock .dock-item:not(.active)'))[1];
+await el.hover(); await page.waitForTimeout(400);
+console.log(user, JSON.stringify(await el.evaluate(e=>{ const s=e.querySelector('svg'); const c=getComputedStyle(e); const sc=getComputedStyle(s); const bg=__bg(e); return { bg:c.backgroundColor, bgC:__rgb(bg), stroke:sc.stroke, nt:__nt(sc.stroke==='none'?sc.color:sc.stroke, e), shadow:c.boxShadow }; })));
+const tip = await page.evaluate(()=>{ const t=document.querySelector('.tooltip-inner, [role=tooltip], .es-tooltip'); return t? {cls:t.className, ...__text(t)}:null; });
+console.log('tooltip', JSON.stringify(tip));
+await b.close();

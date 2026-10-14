@@ -1,0 +1,58 @@
+- checkbox "Select All"
+- text: Full Name Status User Type ID 11 of 11
+- img
+- checkbox "Select Rev4 end@ (rev4end@example.com)"
+- link "Rev4 end@":
+  - /url: /desk/user/rev4end%40example.com
+- text: Active System User rev4end@example.com 5 m 0 ·
+- img
+- checkbox "Select Rev4 en@e (rev4en@example.com)"
+- link "Rev4 en@e":
+  - /url: /desk/user/rev4en%40example.com
+- text: Active System User rev4en@example.com 5 m 0 ·
+- img
+- checkbox "Select Rev4 ard@ (rev4ard@example.com)"
+- link "Rev4 ard@":
+  - /url: /desk/user/rev4ard%40example.com
+- text: Active System User rev4ard@example.com 5 m 0 ·
+- img
+- checkbox "Select Rev4 ar@e (rev4ar@example.com)"
+- link "Rev4 ar@e":
+  - /url: /desk/user/rev4ar%40example.com
+- text: Active System User rev4ar@example.com 5 m 0 ·
+- img
+- checkbox "Select Grid (grid-ar@midad.test)"
+- link "Grid":
+  - /url: /desk/user/grid-ar%40midad.test
+- text: Active System User grid-ar@midad.test 14 m 0 ·
+- img
+- checkbox "Select Grid (grid-en@midad.test)"
+- link "Grid":
+  - /url: /desk/user/grid-en%40midad.test
+- text: Active System User grid-en@midad.test 14 m 0 ·
+- img
+- checkbox "Select Axe ar-dark (axe-ar-dark@midad.test)"
+- link "Axe ar-dark":
+  - /url: /desk/user/axe-ar-dark%40midad.test
+- text: Active System User axe-ar-dark@midad.test 29 m 0 ·
+- img
+- checkbox "Select Axe ar-light (axe-ar-light@midad.test)"
+- link "Axe ar-light":
+  - /url: /desk/user/axe-ar-light%40midad.test
+- text: Active System User axe-ar-light@midad.test 29 m 0 ·
+- img
+- checkbox "Select Axe en-dark (axe-en-dark@midad.test)"
+- link "Axe en-dark":
+  - /url: /desk/user/axe-en-dark%40midad.test
+- text: Active System User axe-en-dark@midad.test 29 m 0 ·
+- img
+- checkbox "Select Axe en-light (axe-en-light@midad.test)"
+- link "Axe en-light":
+  - /url: /desk/user/axe-en-light%40midad.test
+- text: Active System User axe-en-light@midad.test 29 m 0 ·
+- img
+- checkbox "Select Test Administrator (admin@example.com)"
+- link "Test Administrator":
+  - /url: /desk/user/admin%40example.com
+- text: Active System User admin@example.com 1 h 0 ·
+- img

@@ -1,0 +1,17 @@
+$ python -m institutional_theme.audits.effective_diff --ref 11a3a36 --version 16.32.0   (HEAD f399578)
+Frappe 16.32.0: generated declarations of variables core reads (compiled CSS and source), 11a3a36 against the working tree
+  effective declarations before: 816
+  effective declarations after:  822
+  changed: 0   removed: 0   added: 0
+  declarations the version does not read: 78 changed, 135 added (inert here)
+  --ins-* values that existed before and changed: 0
+  ACCEPTED ADDED --radius-md in @media (prefers-color-scheme: dark) html:root[dir][data-theme="automatic"]: var(--ins-radius-md)
+  ACCEPTED ADDED --radius-lg in @media (prefers-color-scheme: dark) html:root[dir][data-theme="automatic"]: var(--ins-radius-md)
+  ACCEPTED ADDED --radius-md in html:root[dir], html[dir] [data-theme="light"]: var(--ins-radius-md)
+  ACCEPTED ADDED --radius-lg in html:root[dir], html[dir] [data-theme="light"]: var(--ins-radius-md)
+  ACCEPTED ADDED --radius-md in html:root[dir][data-theme="dark"], html[dir] [data-theme="dark"]: var(--ins-radius-md)
+  ACCEPTED ADDED --radius-lg in html:root[dir][data-theme="dark"], html[dir] [data-theme="dark"]: var(--ins-radius-md)
+  ACCEPTED because --radius-lg is read only by source: frappe/core/doctype/error_log/error_log.js:78,86 gives two inline blocks of the Error Log form border-radius: var(--radius-lg), a name 16.32.0 never declares, so it computes to 0. The map now declares it as the 6px container tier (tokens.json radius-md).
+  ACCEPTED because --radius-md is read only by source: frappe/desk/page/desktop/desktop.css:69 gives .desktop-cloud-settings (Frappe Cloud only) border-radius: var(--radius-md), a name 16.32.0 never declares, so it computes to 0. The map now declares it as the 6px container tier (tokens.json radius-md).
+  RESULT: Frappe 16.32.0 does not move except 6 accepted declaration(s) of 2 name(s) that only its source reads: --radius-lg, --radius-md
+exit 0

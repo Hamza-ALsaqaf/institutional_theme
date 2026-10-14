@@ -1,0 +1,56 @@
+# asset list: after-uninstall
+# base url: http://midad52.test:8001
+
+# GET /login -> 200
+
+## /login stylesheets (3)
+/assets/frappe/dist/css/website.bundle.62333OGE.css
+/assets/erpnext/dist/css/erpnext-web.bundle.L6ETKGXX.css
+/assets/frappe/dist/css/login.bundle.XSXVTDPA.css
+
+## /login scripts (2)
+/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+/website_script.js
+
+## /login data-theme attributes (raw html) (5)
+data-theme="red"
+data-theme="green"
+data-theme="red"
+data-theme="green"
+data-theme="red"
+
+## /login data-theme (live DOM)
+{"dataTheme":null,"dataThemeMode":null,"bodyDataTheme":null}
+
+# POST /api/method/login -> 200
+
+# GET /app -> 200
+
+## /app stylesheets (3)
+/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+
+## /app scripts (9)
+/assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+/assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js
+/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js
+/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js
+/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+/assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js
+
+## /app data-theme attributes (raw html) (2)
+data-theme-mode="light"
+data-theme="light"
+
+## /app/todo data-theme (live DOM)
+{"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+
+## /app/todo stylesheets (live DOM) (3)
+/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+

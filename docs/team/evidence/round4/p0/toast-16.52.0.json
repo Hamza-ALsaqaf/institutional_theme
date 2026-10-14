@@ -1,0 +1,98 @@
+[
+ {
+  "ver": "16.52.0",
+  "mode": "Light",
+  "ind": "blue",
+  "cls": "es-toast",
+  "type": "info",
+  "bg": "rgb(255, 255, 255)",
+  "text": "rgb(40, 49, 60)",
+  "icon": "rgb(0, 124, 148)",
+  "textContrast": "13.17",
+  "iconContrast": "4.87"
+ },
+ {
+  "ver": "16.52.0",
+  "mode": "Light",
+  "ind": "green",
+  "cls": "es-toast",
+  "type": "success",
+  "bg": "rgb(255, 255, 255)",
+  "text": "rgb(40, 49, 60)",
+  "icon": "rgb(14, 131, 82)",
+  "textContrast": "13.17",
+  "iconContrast": "4.79"
+ },
+ {
+  "ver": "16.52.0",
+  "mode": "Light",
+  "ind": "orange",
+  "cls": "es-toast",
+  "type": "warning",
+  "bg": "rgb(255, 255, 255)",
+  "text": "rgb(40, 49, 60)",
+  "icon": "rgb(158, 128, 2)",
+  "textContrast": "13.17",
+  "iconContrast": "3.79"
+ },
+ {
+  "ver": "16.52.0",
+  "mode": "Light",
+  "ind": "red",
+  "cls": "es-toast",
+  "type": "error",
+  "bg": "rgb(255, 255, 255)",
+  "text": "rgb(40, 49, 60)",
+  "icon": "rgb(190, 55, 55)",
+  "textContrast": "13.17",
+  "iconContrast": "5.54"
+ },
+ {
+  "ver": "16.52.0",
+  "mode": "Dark",
+  "ind": "blue",
+  "cls": "es-toast",
+  "type": "info",
+  "bg": "rgb(29, 37, 47)",
+  "text": "rgb(223, 227, 232)",
+  "icon": "rgb(94, 183, 208)",
+  "textContrast": "12.00",
+  "iconContrast": "6.75"
+ },
+ {
+  "ver": "16.52.0",
+  "mode": "Dark",
+  "ind": "green",
+  "cls": "es-toast",
+  "type": "success",
+  "bg": "rgb(29, 37, 47)",
+  "text": "rgb(223, 227, 232)",
+  "icon": "rgb(104, 190, 143)",
+  "textContrast": "12.00",
+  "iconContrast": "6.89"
+ },
+ {
+  "ver": "16.52.0",
+  "mode": "Dark",
+  "ind": "orange",
+  "cls": "es-toast",
+  "type": "warning",
+  "bg": "rgb(29, 37, 47)",
+  "text": "rgb(223, 227, 232)",
+  "icon": "rgb(219, 187, 84)",
+  "textContrast": "12.00",
+  "iconContrast": "8.28"
+ },
+ {
+  "ver": "16.52.0",
+  "mode": "Dark",
+  "ind": "red",
+  "cls": "es-toast",
+  "type": "error",
+  "bg": "rgb(29, 37, 47)",
+  "text": "rgb(223, 227, 232)",
+  "icon": "rgb(251, 126, 119)",
+  "textContrast": "12.00",
+  "iconContrast": "6.15"
+ }
+]

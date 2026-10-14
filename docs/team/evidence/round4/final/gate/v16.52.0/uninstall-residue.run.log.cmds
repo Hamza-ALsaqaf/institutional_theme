@@ -1,0 +1,1 @@
+bash -c source tools/bench/env52.sh; exec tools/bench/uninstall_residue.sh throwaway	0	36	2026-10-14T09:15:35Z

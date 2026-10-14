@@ -1,0 +1,13 @@
+$ tools/bench/uninstall_residue.sh throwaway
+new-site               exit 0     18s
+snapshot-before        exit 0      1s
+install-app            exit 0      3s
+seed                   exit 0      3s
+uninstall-app          exit 0      4s
+residue                exit 0      2s
+files-on-disk          exit 0      0s
+snapshot-after         exit 0      0s
+table-diff             exit 0      0s
+drop-site              exit 0      1s
+failed steps: 0 (residue and table-diff exit 1 when something is left)
+exit 0, 32 s

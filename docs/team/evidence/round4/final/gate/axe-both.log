@@ -1,0 +1,6 @@
+$ docs/team/evidence/round4/verify/scripts/axe_both.sh /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate
+axe v16.52.0: exit 0
+axe 16.32.0: exit 0
+a11y_attrs v16.52.0: exit 0
+a11y_attrs 16.32.0: exit 0
+exit 0, 1038 s

@@ -22,6 +22,11 @@ html:root[dir][data-ins-environment] .main-section {
 	padding-block-start: var(--ins-ribbon-height);
 }
 
+// v16.52.0: a pinned dock is a third full-height column (desk/dock.scss:223-232); it clears the ribbon the same way, on top of its own 8px.
+html:root[dir][data-ins-environment] body.dock-pinned .dock {
+	padding-block-start: calc(var(--ins-space-2) + var(--ins-ribbon-height));
+}
+
 html:root[dir][data-ins-environment] .page-head {
 	top: 0;
 }

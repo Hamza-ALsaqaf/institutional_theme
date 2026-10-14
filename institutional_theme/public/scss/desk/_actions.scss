@@ -51,6 +51,60 @@ html:root[dir] .btn.btn-primary:active {
 	border-color: var(--ins-primary-active);
 }
 
+// ---- v16.52.0 `.es-button` (ui/components/button.js; page primary action `ui/page.html:61`, `variant: "solid"`). Core paints solid from the local
+// --bt-solid-* (css/espresso/components/button.css:31-47, gray default --surface-gray-10, near-black), red from `[data-theme="red"]` (:104-109).
+// Repointing the locals keeps core's own hover, active and focus rules (:149-162) and needs no property rule. Core is (0,1,0); this is (0,4,1).
+// The red theme keeps its own values. 16.32.0 has no styled `.es-button` (core ships no CSS for it); its primary is `.btn-primary` above.
+html:root[dir] .es-button:not([data-theme="red"]) {
+	--bt-solid-bg: var(--ins-primary);
+	--bt-solid-bg-hover: var(--ins-primary-hover);
+	--bt-solid-bg-active: var(--ins-primary-active);
+	--bt-solid-fg: var(--ins-on-primary);
+	--bt-fill-bg: var(--ins-surface-fill);
+	--bt-fill-bg-hover: var(--ins-surface-fill-hover);
+	--bt-fill-bg-active: var(--ins-surface-active);
+}
+
+// Core's icons stroke from --icon-stroke (common/icons.scss:11), and v16.52.0 relies on `:root { --icon-stroke: currentColor }` (css/espresso/legacy.css:46) so that
+// a button glyph follows the button text. The theme maps --icon-stroke to the secondary text colour for the rest of the desk, which left the
+// glyph of the solid primary button dark on dark (seen on the To Do list "Add ToDo"). The button restores core's own value.
+html:root[dir] .es-button {
+	--bt-disabled-bg: var(--ins-surface-disabled);
+	--bt-disabled-fg: var(--ins-text-disabled);
+}
+
+// Control height. Core sizes `.es-button` from the local --es-bt-h (css/espresso/components/button.css:51 sm 28px, :125 xs 24px, :133 md 32px),
+// so it stayed 28px on touch while inputs grew to 44px. The theme's own scale carries comfortable 32px, compact 28px and coarse 44px:
+// the default (sm) and md take --ins-control-height, xs takes the small step. lg (40px) is left to core. Icon buttons are square by --es-bt-h (:202).
+// Core is (0,1,0) and (0,2,0); this is (0,3,1) and (0,4,1). 16.32.0 has no styled `.es-button`.
+html:root[dir] .es-button:not([data-size]),
+html:root[dir] .es-button[data-size="md"] {
+	--es-bt-h: var(--ins-control-height);
+}
+
+html:root[dir] .es-button[data-size="xs"] {
+	--es-bt-h: var(--ins-control-height-sm);
+}
+
+// Disabled: the fill alone could not tell a disabled subtle button from an enabled one (--ins-surface-fill and --ins-surface-disabled are both #f1f4f8 in Light),
+// nor solid from subtle. Same cue as `.form-control:disabled` (_controls.scss): a dashed boundary, which survives forced colours and greyscale, in the
+// control colour (3:1). Solid takes a 2px dash and subtle a 1px dash, so the two stay apart. Outline keeps core's own disabled border; ghost has no
+// boundary to dash. Text stays on the --ins-text-disabled pair above (4.41:1 Light, 3.70:1 Dark, the approved pair, over the 3:1 floor of the contrast rule).
+// Core's border is `1px solid transparent` in a border-box, so the 2px dash takes its width from the content, not from the height.
+html:root[dir] .es-button:is(:disabled, .disabled):not([data-variant="outline"], [data-variant="ghost"]) {
+	border: 1px dashed var(--ins-border-control);
+}
+
+html:root[dir] .es-button[data-variant="solid"]:is(:disabled, .disabled) {
+	border-width: 2px;
+}
+
+// 16.32.0 does have one `.es-button`, the About dialog's copy-versions button (ui/toolbar/about.js:62, no core CSS for it), and it keeps the
+// round-3 glyph colour; so the glyph rule skips that button's header row (also in v16.52.0, about.js:68).
+html:root[dir] .es-button:not(.about-section-header .es-button) {
+	--icon-stroke: currentColor;
+}
+
 // Solid danger button (grid "Delete", dialog destructive): core draws $white on --danger (buttons.scss:130-133), which is
 // 2.51:1 on the Dark danger. The on-colour is a token pair, so both modes pass. Ties with the outline rule below at (0,4,1);
 // that rule is later and wins for tagged buttons. Pressed state: core's `.btn:active { color; background-color; box-shadow }`

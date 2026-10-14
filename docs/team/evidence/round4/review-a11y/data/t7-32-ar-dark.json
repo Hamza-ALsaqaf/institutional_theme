@@ -1,0 +1,119 @@
+{
+ "row_normal": {
+  "state": "normal",
+  "rowBg": "rgb(17,24,32)",
+  "subj": {
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(17,24,32)",
+   "ratio": 9.57
+  },
+  "muted": {
+   "fg": "rgb(192,232,207)",
+   "bg": "rgb(0,52,29)",
+   "ratio": 10.39
+  },
+  "pill": {
+   "fg": "rgb(192,232,207)",
+   "bg": "rgb(0,52,29)",
+   "ratio": 10.39,
+   "cls": "indicator-pill green filterable no-indic",
+   "txt": "نشط"
+  }
+ },
+ "row_hover": {
+  "state": "hover",
+  "rowBg": "rgb(37,44,55)",
+  "subj": {
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(37,44,55)",
+   "ratio": 7.53
+  },
+  "muted": {
+   "fg": "rgb(192,232,207)",
+   "bg": "rgb(0,52,29)",
+   "ratio": 10.39
+  },
+  "pill": {
+   "fg": "rgb(192,232,207)",
+   "bg": "rgb(0,52,29)",
+   "ratio": 10.39,
+   "cls": "indicator-pill green filterable no-indic",
+   "txt": "نشط"
+  }
+ },
+ "row_selected": {
+  "state": "selected",
+  "rowBg": "rgb(26,47,70)",
+  "subj": {
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(26,47,70)",
+   "ratio": 7.31
+  },
+  "muted": {
+   "fg": "rgb(192,232,207)",
+   "bg": "rgb(0,52,29)",
+   "ratio": 10.39
+  },
+  "pill": {
+   "fg": "rgb(192,232,207)",
+   "bg": "rgb(0,52,29)",
+   "ratio": 10.39,
+   "cls": "indicator-pill green filterable no-indic",
+   "txt": "نشط"
+  }
+ },
+ "breadcrumbHome": {
+  "w": 24,
+  "h": 24,
+  "left": 1021,
+  "right": 1045
+ },
+ "primary": {
+  "cls": "btn btn-primary btn-sm primary-action",
+  "fg": "rgb(6,26,48)",
+  "bg": "rgb(167,201,240)",
+  "ratio": 10.23,
+  "h": 32
+ },
+ "weights": {
+  "400": 134,
+  "420": 2,
+  "500": 44,
+  "600": 17
+ },
+ "sbActive": {
+  "fg": "rgb(236,239,242)",
+  "bg": "rgb(37,44,55)",
+  "ratio": 12.18,
+  "itemBg": "rgb(37, 44, 55)",
+  "shadow": "rgb(46, 54, 65) 0px 0px 0px 1px",
+  "bar": "rgb(213, 174, 99)",
+  "barW": "3px"
+ },
+ "danger": [
+  {
+   "state": "normal",
+   "fg": "rgb(58,11,11)",
+   "bg": "rgb(251, 126, 119)",
+   "ratio": 6.78
+  },
+  {
+   "state": "hover",
+   "fg": "rgb(58,11,11)",
+   "bg": "rgb(255, 173, 166)",
+   "ratio": 9.56
+  },
+  {
+   "state": "focus",
+   "fg": "rgb(58,11,11)",
+   "bg": "rgb(251, 126, 119)",
+   "ratio": 6.78
+  }
+ ],
+ "primaryForm": {
+  "fg": "rgb(6,26,48)",
+  "bg": "rgb(167,201,240)",
+  "ratio": 10.23,
+  "cls": "btn btn-primary btn-sm primary-action"
+ }
+}

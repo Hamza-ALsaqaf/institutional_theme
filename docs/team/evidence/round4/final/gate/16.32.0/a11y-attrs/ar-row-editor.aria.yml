@@ -1,0 +1,173 @@
+- text: "صف التحرير #1"
+- button "طيّ"
+- button "حرك"
+- button "مكررة"
+- button "أدخل أعلاه"
+- button "أدخل أدناه"
+- button "حذف"
+- text: المتلقي حسب حقل المستند
+- combobox "المتلقي حسب حقل المستند"
+- text: receiver_by_document_field المتلقي حسب الدور
+- combobox "المتلقي حسب الدور" [expanded]:
+  - listbox:
+    - option "Guest" [selected]:
+      - paragraph:
+        - strong: Guest
+    - option "إعداد تقرير المستخدم":
+      - paragraph:
+        - strong: إعداد تقرير المستخدم
+    - option "التحليلات":
+      - paragraph:
+        - strong: التحليلات
+    - option "العميل":
+      - paragraph:
+        - strong: العميل
+    - option "الكل":
+      - paragraph:
+        - strong: الكل
+    - option "المدير الرئيسي للمبيعات":
+      - paragraph:
+        - strong: المدير الرئيسي للمبيعات
+    - option "المدير الرئيسي للمشتريات":
+      - paragraph:
+        - strong: المدير الرئيسي للمشتريات
+    - option "المستخدمين الأكادميين":
+      - paragraph:
+        - strong: المستخدمين الأكادميين
+    - option "المورد":
+      - paragraph:
+        - strong: المورد
+    - option "الموظف":
+      - paragraph:
+        - strong: الموظف
+    - option "حسابات المستخدمين":
+      - paragraph:
+        - strong: حسابات المستخدمين
+    - option "عضو الشراء":
+      - paragraph:
+        - strong: عضو الشراء
+    - option "عضو الصيانة":
+      - paragraph:
+        - strong: عضو الصيانة
+    - option "عضو المبيعات":
+      - paragraph:
+        - strong: عضو المبيعات
+    - option "عضو المخزن":
+      - paragraph:
+        - strong: عضو المخزن
+    - option "عضو المشاريع":
+      - paragraph:
+        - strong: عضو المشاريع
+    - option "فريق الدعم":
+      - paragraph:
+        - strong: فريق الدعم
+    - option "مترجم":
+      - paragraph:
+        - strong: مترجم
+    - option "محرر قاعدة المعرفة":
+      - paragraph:
+        - strong: محرر قاعدة المعرفة
+    - option "مدقق الحسابات":
+      - paragraph:
+        - strong: مدقق الحسابات
+    - option "مدير":
+      - paragraph:
+        - strong: مدير
+    - option "مدير البرنامج النصي":
+      - paragraph:
+        - strong: مدير البرنامج النصي
+    - option "مدير التسويق":
+      - paragraph:
+        - strong: مدير التسويق
+    - option "مدير التصنيع":
+      - paragraph:
+        - strong: مدير التصنيع
+    - option "مدير التقارير":
+      - paragraph:
+        - strong: مدير التقارير
+    - option "مدير التوصيل":
+      - paragraph:
+        - strong: مدير التوصيل
+    - option "مدير الجودة":
+      - paragraph:
+        - strong: مدير الجودة
+    - option "مدير الصنف":
+      - paragraph:
+        - strong: مدير الصنف
+    - option "مدير الصيانة":
+      - paragraph:
+        - strong: مدير الصيانة
+    - option "مدير المبيعات":
+      - paragraph:
+        - strong: مدير المبيعات
+    - option "مدير المخزن":
+      - paragraph:
+        - strong: مدير المخزن
+    - option "مدير المشاريع":
+      - paragraph:
+        - strong: مدير المشاريع
+    - option "مدير المشتريات":
+      - paragraph:
+        - strong: مدير المشتريات
+    - option "مدير الموارد البشرية":
+      - paragraph:
+        - strong: مدير الموارد البشرية
+    - option "مدير الموقع":
+      - paragraph:
+        - strong: مدير الموقع
+    - option "مدير النشرة الإخبارية":
+      - paragraph:
+        - strong: مدير النشرة الإخبارية
+    - option "مدير النظام":
+      - paragraph:
+        - strong: مدير النظام
+    - option "مدير حسابات":
+      - paragraph:
+        - strong: مدير حسابات
+    - option "مدير قافلة المركبات":
+      - paragraph:
+        - strong: مدير قافلة المركبات
+    - option "مدير لوحة القيادة":
+      - paragraph:
+        - strong: مدير لوحة القيادة
+    - option "مدير مساحة العمل":
+      - paragraph:
+        - strong: مدير مساحة العمل
+    - option "مسؤل علبة الوارد":
+      - paragraph:
+        - strong: مسؤل علبة الوارد
+    - option "مستخدم التصنيع":
+      - paragraph:
+        - strong: مستخدم التصنيع
+    - option "مستخدم التوصيل":
+      - paragraph:
+        - strong: مستخدم التوصيل
+    - option "مستخدم المكتب":
+      - paragraph:
+        - strong: مستخدم المكتب
+    - option "مستخدم الموارد البشرية":
+      - paragraph:
+        - strong: مستخدم الموارد البشرية
+    - option "مشارك قاعدة المعرفة":
+      - paragraph:
+        - strong: مشارك قاعدة المعرفة
+    - option "وفاء المستخدم":
+      - paragraph:
+        - strong: وفاء المستخدم
+    - option " انشاء جديد صلاحية":
+      - paragraph:  انشاء جديد صلاحية
+    - option " البحث المتقدم":
+      - paragraph:  البحث المتقدم
+- status: 50 results found
+- text: receiver_by_role نسخة
+- textbox "نسخة"
+- text: "اختياري: إرسال دوما إلى هذه المعرفات. كل عنوان البريد الإلكتروني على صف جديد"
+- button "وسعت"
+- text: cc بي سي سي
+- textbox "بي سي سي"
+- button "وسعت"
+- text: bcc الحالة
+- textbox "الحالة":
+  - /placeholder: ""
+- text: "التعبير والاختياري condition اختصارات: Ctrl + لأعلى . Ctrl + السهم لأسفل . خروج"
+- button "أدخل أدناه"

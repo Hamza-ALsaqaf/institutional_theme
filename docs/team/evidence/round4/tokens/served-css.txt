@@ -1,0 +1,6 @@
+== 16.32.0
+200 /assets/institutional_theme/dist/css/ins_desk.bundle.SJUYZ6UF.css 142560B desk-sidebar-bg:1 elevation-3:1 gray-950:1
+200 /assets/institutional_theme/dist/css/ins_web.bundle.AU6H4SAF.css 61328B desk-sidebar-bg:1 elevation-3:1 gray-950:1
+== 16.52.0
+200 /assets/institutional_theme/dist/css/ins_desk.bundle.SJUYZ6UF.css 142560B desk-sidebar-bg:1 elevation-3:1 gray-950:1
+200 /assets/institutional_theme/dist/css/ins_web.bundle.AU6H4SAF.css 61328B desk-sidebar-bg:1 elevation-3:1 gray-950:1

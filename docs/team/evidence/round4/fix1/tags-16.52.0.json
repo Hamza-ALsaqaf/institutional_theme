@@ -1,0 +1,386 @@
+[
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Light",
+  "density": "comfortable",
+  "file": "tags-16.52.0-en-light-comfortable.png",
+  "dir": "ltr",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Light",
+  "density": "compact",
+  "file": "tags-16.52.0-en-light-compact.png",
+  "dir": "ltr",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Dark",
+  "density": "comfortable",
+  "file": "tags-16.52.0-en-dark-comfortable.png",
+  "dir": "ltr",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Dark",
+  "density": "compact",
+  "file": "tags-16.52.0-en-dark-compact.png",
+  "dir": "ltr",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Light",
+  "density": "comfortable",
+  "file": "tags-16.52.0-ar-light-comfortable.png",
+  "dir": "rtl",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Light",
+  "density": "compact",
+  "file": "tags-16.52.0-ar-light-compact.png",
+  "dir": "rtl",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(241, 244, 248)",
+    "fg": "rgb(66, 75, 87)",
+    "before": "none",
+    "contrast": 8.01
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Dark",
+  "density": "comfortable",
+  "file": "tags-16.52.0-ar-dark-comfortable.png",
+  "dir": "rtl",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Dark",
+  "density": "compact",
+  "file": "tags-16.52.0-ar-dark-compact.png",
+  "dir": "rtl",
+  "tags": [
+   {
+    "label": "Approved",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Urgent",
+    "theme": "blue",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Plan",
+    "theme": "green",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   },
+   {
+    "label": "Audit",
+    "theme": "red",
+    "bg": "rgb(29, 37, 47)",
+    "fg": "rgb(208, 213, 219)",
+    "before": "none",
+    "contrast": 10.47
+   }
+  ],
+  "status": {
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "before": "\"\"",
+   "width": "9px"
+  }
+ }
+]

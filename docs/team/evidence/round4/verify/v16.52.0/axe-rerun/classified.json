@@ -1,0 +1,153 @@
+{
+ "rows": [],
+ "fixedByTheme": [
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "notifications",
+   "rule": "color-contrast",
+   "target": ".panel-notifications > div > .min-h-80.text-center.gap-3 > .gap-1.flex-col.items-center > .text-p-sm.max-w-sm.text-ink-gray-5",
+   "contrast": {
+    "fg": "#7a7a7a",
+    "bg": "#171717",
+    "ratio": 4.17,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "notifications",
+   "rule": "color-contrast",
+   "target": ".panel-notifications > div > .min-h-80.text-center.gap-3 > .gap-1.flex-col.items-center > .text-p-sm.max-w-sm.text-ink-gray-5",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#ffffff",
+    "ratio": 4.17,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "notifications",
+   "rule": "color-contrast",
+   "target": "div[aria-label=\"Notification categories\"] > .es-pill[data-state=\"inactive\"][role=\"radio\"]",
+   "contrast": {
+    "fg": "#7a7a7a",
+    "bg": "#292929",
+    "ratio": 3.38,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "notifications",
+   "rule": "color-contrast",
+   "target": ".panel-notifications > div > .min-h-80.text-center.gap-3 > .gap-1.flex-col.items-center > .text-p-sm.max-w-sm.text-ink-gray-5",
+   "contrast": {
+    "fg": "#7a7a7a",
+    "bg": "#171717",
+    "ratio": 4.17,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "notifications",
+   "rule": "color-contrast",
+   "target": "div[aria-label=\"Notification categories\"] > .es-pill[data-state=\"inactive\"][role=\"radio\"]",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#f3f3f3",
+    "ratio": 3.76,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "notifications",
+   "rule": "color-contrast",
+   "target": ".panel-notifications > div > .min-h-80.text-center.gap-3 > .gap-1.flex-col.items-center > .text-p-sm.max-w-sm.text-ink-gray-5",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#ffffff",
+    "ratio": 4.17,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  }
+ ],
+ "coverage": [
+  {
+   "variant": "core",
+   "lang": "ar",
+   "mode": "dark",
+   "screens": 2,
+   "errors": []
+  },
+  {
+   "variant": "core",
+   "lang": "ar",
+   "mode": "light",
+   "screens": 2,
+   "errors": []
+  },
+  {
+   "variant": "core",
+   "lang": "en",
+   "mode": "dark",
+   "screens": 2,
+   "errors": []
+  },
+  {
+   "variant": "core",
+   "lang": "en",
+   "mode": "light",
+   "screens": 2,
+   "errors": []
+  },
+  {
+   "variant": "themed",
+   "lang": "ar",
+   "mode": "dark",
+   "screens": 2,
+   "errors": []
+  },
+  {
+   "variant": "themed",
+   "lang": "ar",
+   "mode": "light",
+   "screens": 2,
+   "errors": []
+  },
+  {
+   "variant": "themed",
+   "lang": "en",
+   "mode": "dark",
+   "screens": 2,
+   "errors": []
+  },
+  {
+   "variant": "themed",
+   "lang": "en",
+   "mode": "light",
+   "screens": 2,
+   "errors": []
+  }
+ ]
+}

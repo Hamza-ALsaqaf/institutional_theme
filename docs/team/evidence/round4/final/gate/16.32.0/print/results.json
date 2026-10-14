@@ -1,0 +1,62 @@
+{
+ "wkhtmltopdf-A4-en": {
+  "ok": true,
+  "bytes": 27075
+ },
+ "wkhtmltopdf-A4-ar": {
+  "ok": true,
+  "bytes": 32933
+ },
+ "chrome-A4-en": {
+  "ok": true,
+  "bytes": 106499
+ },
+ "chrome-A4-ar": {
+  "ok": true,
+  "bytes": 150817
+ },
+ "wkhtmltopdf-A4-en-standard": {
+  "ok": true,
+  "bytes": 20507
+ },
+ "wkhtmltopdf-A4-ar-standard": {
+  "ok": true,
+  "bytes": 29620
+ },
+ "chrome-A4-en-standard": {
+  "ok": true,
+  "bytes": 106531
+ },
+ "chrome-A4-ar-standard": {
+  "ok": true,
+  "bytes": 168563
+ },
+ "wkhtmltopdf-A4-en-standard-core": {
+  "ok": true,
+  "bytes": 28552
+ },
+ "wkhtmltopdf-A4-ar-standard-core": {
+  "ok": true,
+  "bytes": 33645
+ },
+ "chrome-A4-en-standard-core": {
+  "ok": true,
+  "bytes": 50991
+ },
+ "chrome-A4-ar-standard-core": {
+  "ok": true,
+  "bytes": 110980
+ },
+ "email-en": {
+  "bytes": 10365,
+  "has_var_function": false,
+  "has_theme_brand_rule": true,
+  "has_unicode_bidi_plaintext": true
+ },
+ "email-ar": {
+  "bytes": 10330,
+  "has_var_function": false,
+  "has_theme_brand_rule": true,
+  "has_unicode_bidi_plaintext": true
+ }
+}

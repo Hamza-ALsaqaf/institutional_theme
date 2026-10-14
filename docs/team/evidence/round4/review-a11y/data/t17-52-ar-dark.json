@@ -1,0 +1,129 @@
+{
+ "row_normal": {
+  "state": "normal",
+  "rowBg": "rgb(17,24,32)",
+  "subj": {
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(17,24,32)",
+   "ratio": 9.57
+  },
+  "badge": {
+   "fg": "rgb(208,213,219)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 10.47
+  }
+ },
+ "row_hover": {
+  "state": "hover",
+  "rowBg": "rgb(37,44,55)",
+  "subj": {
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(37,44,55)",
+   "ratio": 7.53
+  },
+  "badge": {
+   "fg": "rgb(208,213,219)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 10.47
+  }
+ },
+ "row_selected": {
+  "state": "selected",
+  "rowBg": "rgb(26,47,70)",
+  "subj": {
+   "fg": "rgb(185,190,198)",
+   "bg": "rgb(26,47,70)",
+   "ratio": 7.31
+  },
+  "badge": {
+   "fg": "rgb(208,213,219)",
+   "bg": "rgb(29,37,47)",
+   "ratio": 10.47
+  }
+ },
+ "checkbox": {
+  "checked": false,
+  "bg": "rgb(223, 227, 232)",
+  "border": "rgb(255, 255, 255) 0px",
+  "nt": {
+   "fg": "rgb(255,255,255)",
+   "bg": "rgb(37,44,55)",
+   "ratio": 14.06
+  },
+  "w": 16
+ },
+ "pillFocus": {
+  "active": false,
+  "fv": false,
+  "outline": "none 0px rgb(157, 164, 172) off 0px",
+  "role": "radio",
+  "checked": "false",
+  "rect": [
+   992,
+   733,
+   40,
+   26
+  ],
+  "ring": {
+   "fg": "rgb(157,164,172)",
+   "bg": "rgb(37,44,55)",
+   "ratio": 5.58
+  }
+ },
+ "pillAttrs": [
+  {
+   "t": "20",
+   "role": "radio",
+   "checked": "true",
+   "state": "active",
+   "fw": "400",
+   "shadow": "none",
+   "ul": "none"
+  },
+  {
+   "t": "100",
+   "role": "radio",
+   "checked": "false",
+   "state": "inactive",
+   "fw": "400",
+   "shadow": "none",
+   "ul": "none"
+  },
+  {
+   "t": "500",
+   "role": "radio",
+   "checked": "false",
+   "state": "inactive",
+   "fw": "400",
+   "shadow": "none",
+   "ul": "none"
+  },
+  {
+   "t": "2500",
+   "role": "radio",
+   "checked": "false",
+   "state": "inactive",
+   "fw": "400",
+   "shadow": "none",
+   "ul": "none"
+  }
+ ],
+ "sbWeights": {
+  "active": {
+   "fw": "400",
+   "txt": "قائمة المهام",
+   "ariaCur": null
+  },
+  "plain": {
+   "fw": "400"
+  },
+  "anyAriaCurrent": 2
+ },
+ "badgeFocus": {
+  "tabindex": null,
+  "role": null,
+  "tag": "SPAN",
+  "cursor": "pointer"
+ },
+ "tags": []
+}

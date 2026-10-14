@@ -1,0 +1,2 @@
+build --check: 12 file(s) checked, 0 stale
+exit=0

@@ -1,0 +1,178 @@
+{
+  "label": "v1632",
+  "base": "http://midad.test:8000",
+  "pages": {
+    "en": {
+      "login": {
+        "dir": "ltr",
+        "lang": "en",
+        "button": {
+          "class": "btn btn-sm btn-default btn-block btn-login",
+          "bg": "rgb(27, 80, 134)",
+          "color": "rgb(255, 255, 255)",
+          "height": "40px",
+          "radius": "4px",
+          "contrast": "8.27"
+        },
+        "link": {
+          "color": "rgb(0, 88, 149)",
+          "size": "13px",
+          "align": "end",
+          "bg": "rgb(255, 255, 255)",
+          "contrast": "7.42"
+        },
+        "label": {
+          "color": "rgb(66, 75, 87)",
+          "contrast": "8.84"
+        },
+        "inputBorder": "rgb(47, 106, 167)",
+        "cardBg": "rgb(255, 255, 255)",
+        "fieldIconBefore": {
+          "content": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "w": "auto",
+          "inlineStart": "auto"
+        },
+        "fieldIconSvg": true,
+        "revealButton": true,
+        "revealInput": "Show password",
+        "masthead": true,
+        "trustFooter": true,
+        "buttonCountEsButton": 0,
+        "focusInput": {
+          "outline": "solid 2px rgb(47, 106, 167)",
+          "border": "rgb(47, 106, 167)"
+        },
+        "focusAfterTabs": {
+          "tag": "A",
+          "id": "",
+          "cls": "",
+          "outline": "solid 2px rgb(47, 106, 167)"
+        }
+      },
+      "forgot": {
+        "button": {
+          "disabled": true,
+          "bg": "rgb(241, 244, 248)",
+          "color": "rgb(106, 114, 125)",
+          "border": "dashed rgb(184, 190, 199)",
+          "height": "40px"
+        },
+        "back": {
+          "color": "rgb(0, 88, 149)",
+          "bg": "rgb(255, 255, 255)",
+          "contrast": "7.42"
+        },
+        "fieldIconBefore": "none",
+        "enabled": {
+          "disabled": false,
+          "bg": "rgb(27, 80, 134)",
+          "color": "rgb(255, 255, 255)",
+          "contrast": "8.27"
+        }
+      },
+      "twofa": {
+        "bg": "rgb(27, 80, 134)",
+        "color": "rgb(255, 255, 255)",
+        "height": "40px",
+        "contrast": "8.27"
+      },
+      "update": {
+        "status": 200,
+        "button": {
+          "bg": "rgb(241, 244, 248)",
+          "color": "rgb(106, 114, 125)",
+          "disabled": true
+        },
+        "indicatorColor": null,
+        "reveals": 3
+      }
+    },
+    "ar": {
+      "login": {
+        "dir": "rtl",
+        "lang": "ar",
+        "button": {
+          "class": "btn btn-sm btn-default btn-block btn-login",
+          "bg": "rgb(27, 80, 134)",
+          "color": "rgb(255, 255, 255)",
+          "height": "40px",
+          "radius": "4px",
+          "contrast": "8.27"
+        },
+        "link": {
+          "color": "rgb(0, 88, 149)",
+          "size": "13px",
+          "align": "end",
+          "bg": "rgb(255, 255, 255)",
+          "contrast": "7.42"
+        },
+        "label": {
+          "color": "rgb(66, 75, 87)",
+          "contrast": "8.84"
+        },
+        "inputBorder": "rgb(47, 106, 167)",
+        "cardBg": "rgb(255, 255, 255)",
+        "fieldIconBefore": {
+          "content": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "w": "auto",
+          "inlineStart": "auto"
+        },
+        "fieldIconSvg": true,
+        "revealButton": true,
+        "revealInput": "إظهار كلمة المرور",
+        "masthead": true,
+        "trustFooter": true,
+        "buttonCountEsButton": 0,
+        "focusInput": {
+          "outline": "solid 2px rgb(47, 106, 167)",
+          "border": "rgb(47, 106, 167)"
+        },
+        "focusAfterTabs": {
+          "tag": "A",
+          "id": "",
+          "cls": "",
+          "outline": "solid 2px rgb(47, 106, 167)"
+        }
+      },
+      "forgot": {
+        "button": {
+          "disabled": true,
+          "bg": "rgb(241, 244, 248)",
+          "color": "rgb(106, 114, 125)",
+          "border": "dashed rgb(184, 190, 199)",
+          "height": "40px"
+        },
+        "back": {
+          "color": "rgb(0, 88, 149)",
+          "bg": "rgb(255, 255, 255)",
+          "contrast": "7.42"
+        },
+        "fieldIconBefore": "none",
+        "enabled": {
+          "disabled": false,
+          "bg": "rgb(27, 80, 134)",
+          "color": "rgb(255, 255, 255)",
+          "contrast": "8.27"
+        }
+      },
+      "twofa": {
+        "bg": "rgb(27, 80, 134)",
+        "color": "rgb(255, 255, 255)",
+        "height": "40px",
+        "contrast": "8.27"
+      },
+      "update": {
+        "status": 200,
+        "button": {
+          "bg": "rgb(241, 244, 248)",
+          "color": "rgb(106, 114, 125)",
+          "disabled": true
+        },
+        "indicatorColor": null,
+        "reveals": 3
+      }
+    }
+  }
+}

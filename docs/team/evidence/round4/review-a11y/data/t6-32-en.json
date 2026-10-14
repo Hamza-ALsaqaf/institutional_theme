@@ -1,0 +1,93 @@
+{
+ "primary": {
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgb(255, 255, 255)",
+  "border": "solid 1px rgb(0, 0, 0)",
+  "outline": "none 0px rgb(0, 0, 0)",
+  "shadow": "none",
+  "fca": "auto",
+  "before": {
+   "content": "none",
+   "bg": "rgba(255, 255, 255, 0)",
+   "bgi": "none",
+   "bs": "none 0px rgb(0, 0, 0)",
+   "w": "auto",
+   "h": "auto"
+  }
+ },
+ "subtle": {
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgb(255, 255, 255)",
+  "border": "solid 1px rgb(0, 0, 0)",
+  "outline": "none 0px rgb(0, 0, 0)",
+  "shadow": "none",
+  "fca": "auto",
+  "before": {
+   "content": "none",
+   "bg": "rgba(255, 255, 255, 0)",
+   "bgi": "none",
+   "bs": "none 0px rgb(0, 0, 0)",
+   "w": "auto",
+   "h": "auto"
+  }
+ },
+ "badgeRed": null,
+ "badgeGreen": null,
+ "badgeAmber": null,
+ "badgeGray": null,
+ "sbActive": {
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgb(255, 255, 255)",
+  "border": "none 0px rgb(0, 0, 0)",
+  "outline": "none 0px rgb(0, 0, 0)",
+  "shadow": "none",
+  "fca": "auto",
+  "before": {
+   "content": "\"\"",
+   "bg": "rgb(255, 255, 255)",
+   "bgi": "none",
+   "bs": "none 0px rgb(0, 0, 0)",
+   "w": "3px",
+   "h": "16px"
+  }
+ },
+ "sbPlain": {
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgba(255, 255, 255, 0)",
+  "border": "none 0px rgb(0, 0, 0)",
+  "outline": "none 0px rgb(0, 0, 0)",
+  "shadow": "none",
+  "fca": "auto",
+  "before": {
+   "content": "none",
+   "bg": "rgba(255, 255, 255, 0)",
+   "bgi": "none",
+   "bs": "none 0px rgb(0, 0, 0)",
+   "w": "auto",
+   "h": "auto"
+  }
+ },
+ "dockActive": null,
+ "dockPlain": null,
+ "pillActive": null,
+ "pillInactive": null,
+ "input": {
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgb(255, 255, 255)",
+  "border": "solid 1px rgb(0, 0, 0)",
+  "outline": "none 0px rgb(0, 0, 0)",
+  "shadow": "none",
+  "fca": "auto",
+  "before": {
+   "content": "none",
+   "bg": "rgba(255, 255, 255, 0)",
+   "bgi": "none",
+   "bs": "none 0px rgb(0, 0, 0)",
+   "w": "auto",
+   "h": "auto"
+  }
+ },
+ "toast": null,
+ "menuPanel": null,
+ "menuHl": null
+}

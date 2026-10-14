@@ -30,10 +30,14 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 		display: none;
 	}
 
+	// `[class*="for-"]` stands for core's six section wrappers (`.for-login`, `.for-forgot`,
+	// `.for-login-with-email-link`, `.for-signup`, `.for-email-login`, `.for-reset-password`): the
+	// substring match holds when a utility class is placed before the name. It weighs the same as the class
+	// list it replaces and is far shorter, which keeps this bundle inside its size budget.
 	// `.for-*` wrappers exist only in core's login.html and update-password.html (VERIFIED, 16.32.0), so the
 	// card rules need no page prefix beyond `body[data-path]`: it has the specificity of the page attribute
 	// and halves the length of every selector below.
-	@at-root html body[data-path] :is(.for-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-email-login, .for-reset-password) {
+	@at-root html body[data-path] [class*="for-"] {
 		.page-card {
 			box-sizing: border-box;
 			max-inline-size: 408px;
@@ -80,16 +84,15 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 			}
 
 			.page-card-body {
-				.form-label {
+				// 16.32.0 marks the label `.form-label`; v16.52.0 has a bare `label.text-base` per group.
+				:is(.form-label, .form-group > label, .form-group > div > label) {
 					color: var(--ins-text-secondary);
 					font-size: var(--ins-text-sm);
 					font-weight: var(--ins-weight-medium);
 					line-height: var(--ins-leading);
 				}
 
-				input[type="text"],
-				input[type="email"],
-				input[type="password"] {
+				input:is([type="text"], [type="email"], [type="password"]) {
 					box-sizing: border-box;
 					block-size: 40px;
 					padding-block: 0;
@@ -158,7 +161,9 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 						}
 
 						svg {
+							// v16.52.0 keeps `.icon` on this filled glyph; its 1.5px stroke thickens it.
 							fill: currentcolor;
+							stroke: none;
 							inline-size: 16px;
 							block-size: 16px;
 							pointer-events: none;
@@ -172,8 +177,16 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 					fill: var(--ins-text-muted);
 				}
 
-				.email-field input,
-				.password-field input {
+				// Icon at the start of both fields, reveal button at the end of the password field only.
+				// The input is forced `direction: ltr`, so its inline start is always its left edge. In an
+				// Arabic page the icon sits at the field's inline start, the right edge; that case is the
+				// `html[dir="rtl"]` rule at the end of this file.
+				.email-field input {
+					padding-inline-start: 38px;
+				}
+
+				// 16.32.0 also pads the email field's end (`.field-icon` is its marker); v16.52.0 does not.
+				:is(.password-field, .email-field:has(> .field-icon)) input {
 					padding-inline: 38px;
 				}
 
@@ -186,18 +199,56 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 					}
 				}
 
-				.forgot-password-message {
-					text-align: end;
+				// v16.52.0 draws no field icons (16.32.0 ships `.field-icon` svgs). Where core draws none, a
+				// masked pseudo-element supplies the envelope and the lock; where it does, nothing is added.
+				:is(.email-field, .password-field):not(:has(> .field-icon))::before {
+					content: "";
+					position: absolute;
+					inset-inline-start: var(--ins-space-3);
+					inset-block-start: 50%;
+					transform: translateY(-50%);
+					inline-size: 16px;
+					block-size: 16px;
+					background-color: var(--ins-text-muted);
+					mask-repeat: no-repeat;
+					mask-position: center;
+					mask-size: contain;
+					pointer-events: none;
+					z-index: 1;
+					mask-image: var(--ins-mask);
+				}
 
-					> * {
-						color: var(--ins-text-link);
-						font-size: var(--ins-text-sm);
+				.email-field:not(:has(> .field-icon))::before {
+					--ins-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7'/%3E%3C/svg%3E");
+				}
+
+				.password-field:not(:has(> .field-icon))::before {
+					--ins-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E");
+				}
+
+				// 16.32.0: `p.forgot-password-message > a`. v16.52.0: a bare `p.text-right > a[href="#forgot"]`
+				// (core sets `text-align: right`, which is the wrong edge in RTL) in `text-ink-gray-5` grey.
+				:is(.forgot-password-message, p:has(> a[href="#forgot"])) {
+					text-align: end;
+				}
+
+				:is(.forgot-password-message > *, a[href="#forgot"]) {
+					color: var(--ins-text-link);
+					font-size: var(--ins-text-sm);
+
+					&:hover {
+						color: var(--ins-text-link-hover);
 					}
 				}
 
+				// v16.52.0 update-password: text indicators replace the strength bar.
+				:is(.password-strength-indicator, .password-hint, .password-mismatch-message) {
+					color: var(--ins-text-secondary);
+					font-size: var(--ins-text-sm);
+				}
+
 				// Errors carry an icon, a border and text, never a tint alone.
-				.login-error-banner,
-				.login-success-banner {
+				:is(.login-error-banner, .login-success-banner) {
 					padding: var(--ins-space-2) var(--ins-space-3);
 					border: 1px solid var(--ins-status-danger-border);
 					border-inline-start-width: 4px;
@@ -228,18 +279,26 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 
 				.form-group.invalid,
 				&.invalid {
-					input[type="text"],
-					input[type="email"],
-					input[type="password"] {
+					input:is([type="text"], [type="email"], [type="password"]) {
 						border: 2px solid var(--ins-danger);
 					}
 				}
 			}
 
 			.page-card-actions {
-				.btn-login,
-				.btn-ldap-login,
-				.btn-signup:not(:disabled) {
+				// v16.52.0 buttons are `.es-button[data-variant="solid"]` (no `.btn-login`). The local
+				// `--bt-*` variables are what core's hover, active, focus and disabled rules read, so the
+				// state colours follow the theme without repeating them here.
+				.es-button {
+					--bt-solid-bg: var(--ins-primary);
+					--bt-solid-bg-hover: var(--ins-primary-hover);
+					--bt-solid-bg-active: var(--ins-primary-active);
+					--bt-solid-fg: var(--ins-on-primary);
+					--bt-focus: var(--ins-focus-width) solid var(--ins-focus);
+					--es-bt-h: 40px;
+				}
+
+				:is(.es-button[data-variant="solid"], .btn-login, .btn-ldap-login, .btn-signup:not(:disabled)) {
 					box-sizing: border-box;
 					min-block-size: 40px;
 					padding-inline: var(--ins-space-4);
@@ -266,7 +325,7 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 				}
 
 				// Core shows the first action as a neutral button when other sign-in methods exist.
-				.btn-login-option {
+				:is(.btn-login-option, .es-button.btn-login-option) {
 					min-block-size: 40px;
 					border: 1px solid var(--ins-border-control);
 					border-radius: var(--ins-radius-sm);
@@ -286,7 +345,7 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 				}
 
 				// A disabled button is dashed and muted: state by border, not by tint.
-				.btn-signup:disabled {
+				:is(.btn-signup, .es-button):disabled {
 					min-block-size: 40px;
 					border: 1px dashed var(--ins-border-strong);
 					background: var(--ins-surface-disabled);
@@ -382,7 +441,7 @@ html body[data-path="update-password"] .ins-trust {
 }
 
 @media (forced-colors: active) {
-	html body[data-path] :is(.for-login, .for-forgot, .for-reset-password) .page-card {
+	html body[data-path] [class*="for-"] .page-card {
 		border-color: CanvasText;
 	}
 }
@@ -397,6 +456,21 @@ html body[data-path="update-password"] .ins-trust {
 html[dir="rtl"] body[data-path="login"] .page-card-body :is(#login_email, #login_password),
 html[dir="rtl"] body[data-path="update-password"] .page-card-body input[type="password"] {
 	text-align: end;
+}
+
+// RTL: the icon is drawn at the right edge of the field while the email input stays `direction: ltr`.
+// Logical properties follow the input's own direction (ltr), not the field's, so they would reserve
+// the left edge. This is the one place where physical `padding-left` and `padding-right` are the correct
+// choice: they name the edge where the icon is. The 38px padding moves from the left to the right edge.
+// The chain repeats the base rule's (`[class*=for-] .page-card ...`) behind `html[dir]`, so it out-ranks it.
+html[dir="rtl"] body[data-path] [class*="for-"] .page-card .page-card-body .email-field input {
+	padding-left: var(--ins-space-3);
+	padding-right: 38px;
+}
+
+// 16.32.0 pads both edges of the email field (`.field-icon` is its marker); keep that symmetric.
+html[dir="rtl"] body[data-path] [class*="for-"] .page-card .page-card-body .email-field:has(> .field-icon) input {
+	padding-left: 38px;
 }
 
 // Each heading and subtitle takes its direction from its own first strong character, so a string that

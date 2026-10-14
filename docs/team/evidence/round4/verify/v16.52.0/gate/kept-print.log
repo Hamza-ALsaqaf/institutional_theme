@@ -1,0 +1,4 @@
+$ bench_state kept-render midad52.test /tmp/ins-gate-state.json
+printed en: html 7824 bytes, pdf 11549 bytes
+printed ar: html 7837 bytes, pdf 18226 bytes
+KEPT PRINT: ok

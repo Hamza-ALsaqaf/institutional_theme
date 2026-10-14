@@ -1,0 +1,5 @@
+$ python -m institutional_theme.audits.effective_diff --ref 11a3a36 --version 16.52.0   (v16.52.0 moves by design: the round remaps and adds names it reads)
+  ADDED --radius-md in html:root[dir][data-theme="dark"], html[dir] [data-theme="dark"]: var(--ins-radius-md)
+  ADDED --radius-lg in html:root[dir][data-theme="dark"], html[dir] [data-theme="dark"]: var(--ins-radius-md)
+  ADDED --radius-xl in html:root[dir][data-theme="dark"], html[dir] [data-theme="dark"]: var(--ins-radius-lg)
+  RESULT: moved

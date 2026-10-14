@@ -1,0 +1,21 @@
+	<!-- Round-4 accessibility fix 2. Markup quoted from the source named next to each element. -->
+	<!-- 16.32.0 common/buttons.scss:154 (.btn-outline; sidebar.html:36 puts it in .body-sidebar-container) and desk/sidebar.scss:396-398 (.sidebar-item-suffix .keyboard-shortcut) -->
+	<div class="body-sidebar-container"><button class="btn-outline btn-sm discard-button" id="fx2-outline" type="button" tabindex="-1">Discard</button></div>
+	<!-- another app's .btn-outline outside core containers keeps core's weight -->
+	<button class="btn btn-sm btn-outline" id="fx2-outline-app" type="button" tabindex="-1">Other app</button>
+	<div class="sidebar-item-suffix"><span class="keyboard-shortcut" id="fx2-kbd">G</span></div>
+	<!-- v16.52.0 ui/components/toast.js:57-97: the type icon is a direct child svg of .es-toast -->
+	<div class="es-toast" id="fx2-toast-success" data-type="success"><svg class="icon icon-sm" id="fx2-toast-icon-success" stroke="currentColor" aria-hidden="true"><use href="#icon-check"></use></svg><div class="es-toast__content"><div class="es-toast__message">Saved</div></div></div>
+	<div class="es-toast" id="fx2-toast-error" data-type="error"><svg class="icon icon-sm" id="fx2-toast-icon-error" stroke="currentColor" aria-hidden="true"><use href="#icon-close"></use></svg><div class="es-toast__content"><div class="es-toast__message">Failed</div></div></div>
+	<!-- v16.52.0 ui/components/button.js: default size (sm), xs, md, solid and subtle disabled -->
+	<button class="es-button" id="fx2-bt-default" data-variant="solid" type="button" tabindex="-1">Save</button>
+	<button class="es-button" id="fx2-bt-xs" data-size="xs" type="button" tabindex="-1">x</button>
+	<button class="es-button" id="fx2-bt-md" data-size="md" type="button" tabindex="-1">m</button>
+	<button class="es-button" id="fx2-bt-icon" data-icon-button="true" type="button" tabindex="-1">i</button>
+	<button class="es-button" id="fx2-dis-solid" data-variant="solid" type="button" tabindex="-1" disabled>Save</button>
+	<button class="es-button" id="fx2-dis-subtle" type="button" tabindex="-1" disabled>Menu</button>
+	<!-- v16.52.0 list/base_list.js:380-399, tab_buttons.css -->
+	<div class="list-paging-area"><div class="es-tab-buttons" role="radiogroup"><button class="es-pill" id="fx2-pill-on" role="radio" aria-checked="true" data-state="active" type="button" tabindex="-1">20</button><button class="es-pill" id="fx2-pill-off" role="radio" aria-checked="false" data-state="inactive" type="button" tabindex="-1">100</button></div></div>
+	<!-- v16.52.0 dock.html: .dock > .dock-items > .dock-item.active; sidebar row as in fixture_v52 -->
+	<div class="dock" id="fx2-dock"><div class="dock-items"><a class="dock-item active" id="fx2-dock-active" href="#a" tabindex="-1">A</a><a class="dock-item" id="fx2-dock-idle" href="#b" tabindex="-1">B</a></div></div>
+	<div class="body-sidebar-container expanded"><div class="body-sidebar"><div class="sidebar-item-container"><div class="standard-sidebar-item active-sidebar" id="fx2-sb-active"><a class="item-anchor" href="#a" tabindex="-1">Current</a></div></div></div></div>

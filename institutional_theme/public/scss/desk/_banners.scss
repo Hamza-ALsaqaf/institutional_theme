@@ -15,9 +15,15 @@ html:root[dir] body:has(> .ins-banner) > .ins-banner {
 	grid-column: 1 / -1;
 }
 
+// v16.52.0 with a pinned dock (`body.dock-pinned .dock`, desk/dock.scss:223) has a third in-flow column, the dock tray, before the sidebar.
+html:root[dir] body.dock-pinned:has(> .ins-banner) {
+	grid-template-columns: auto auto minmax(0, 1fr);
+}
+
 // Core gives both columns `height: 100vh` (sidebar.scss:49, main.scss:39); in the grid they take the row instead.
 html:root[dir] body:has(> .ins-banner) > .body-sidebar-container,
-html:root[dir] body:has(> .ins-banner) > .main-section {
+html:root[dir] body:has(> .ins-banner) > .main-section,
+html:root[dir] body.dock-pinned:has(> .ins-banner) > .dock {
 	block-size: auto;
 	min-block-size: 0;
 }

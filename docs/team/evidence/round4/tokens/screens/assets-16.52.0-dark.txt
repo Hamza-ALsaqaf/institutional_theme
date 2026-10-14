@@ -1,0 +1,65 @@
+# asset list: 16.52.0-dark
+# base url: http://midad52.test:8001
+
+# GET /login -> 200
+
+## /login stylesheets (4)
+/assets/frappe/dist/css/website.bundle.62333OGE.css
+/assets/erpnext/dist/css/erpnext-web.bundle.L6ETKGXX.css
+/assets/institutional_theme/dist/css/ins_web.bundle.AU6H4SAF.css
+/assets/frappe/dist/css/login.bundle.XSXVTDPA.css
+
+## /login scripts (3)
+/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+/website_script.js
+/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js
+
+## /login data-theme attributes (raw html) (5)
+data-theme="red"
+data-theme="green"
+data-theme="red"
+data-theme="green"
+data-theme="red"
+
+## /login data-theme (live DOM)
+{"dataTheme":null,"dataThemeMode":null,"bodyDataTheme":null}
+
+# POST /api/method/login -> 200
+
+# switch_theme Dark -> 200
+
+# GET /app -> 200
+
+## /app stylesheets (4)
+/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+/assets/institutional_theme/dist/css/ins_desk.bundle.SJUYZ6UF.css
+
+## /app scripts (10)
+/assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+/assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js
+/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js
+/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js
+/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+/assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js
+/assets/institutional_theme/dist/js/ins_shell.bundle.3MQA57WQ.js
+
+## /app data-theme attributes (raw html) (2)
+data-theme-mode="dark"
+data-theme="dark"
+
+## /app/todo data-theme (live DOM)
+{"dataTheme":"dark","dataThemeMode":"dark","bodyDataTheme":null}
+
+## /app/todo stylesheets (live DOM) (4)
+/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css
+/assets/frappe/dist/css/report.bundle.F2KC6UXK.css
+/assets/erpnext/dist/css/erpnext.bundle.VMF6KJWU.css
+/assets/institutional_theme/dist/css/ins_desk.bundle.SJUYZ6UF.css
+
+# switch_theme Light -> 200
+

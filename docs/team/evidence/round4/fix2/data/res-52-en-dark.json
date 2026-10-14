@@ -1,0 +1,150 @@
+{
+ "which": "52",
+ "lang": "en",
+ "theme": "dark",
+ "mode": "dark",
+ "heights": {
+  "primary": "102x32",
+  "menu": "32x32",
+  "pill": "32x28",
+  "btn": "0x0",
+  "input": "107x32"
+ },
+ "pills": {
+  "activeShadow": "rgb(111, 119, 129) 0px 0px 0px 1px inset",
+  "activeWeight": "500",
+  "inactiveWeight": "400",
+  "inactiveShadow": "none",
+  "ringVsRail": 3.1,
+  "ringVsActiveFill": 2.69,
+  "railBg": [
+   37,
+   44,
+   55
+  ],
+  "activeBg": "rgb(46, 54, 65)",
+  "text": 10.58
+ },
+ "toasts": [
+  {
+   "ind": "blue",
+   "type": "info",
+   "stroke": "rgb(94, 183, 208)",
+   "color": "rgb(94, 183, 208)",
+   "strokeContrast": 6.75
+  },
+  {
+   "ind": "green",
+   "type": "success",
+   "stroke": "rgb(104, 190, 143)",
+   "color": "rgb(104, 190, 143)",
+   "strokeContrast": 6.89
+  },
+  {
+   "ind": "orange",
+   "type": "warning",
+   "stroke": "rgb(219, 187, 84)",
+   "color": "rgb(219, 187, 84)",
+   "strokeContrast": 8.28
+  },
+  {
+   "ind": "red",
+   "type": "error",
+   "stroke": "rgb(251, 126, 119)",
+   "color": "rgb(251, 126, 119)",
+   "strokeContrast": 6.15
+  }
+ ],
+ "disabled": {
+  "solid": {
+   "border": "dashed 2px rgb(111, 119, 129)",
+   "bg": "rgb(23, 30, 40)",
+   "color": "rgb(111, 119, 129)",
+   "textContrast": 3.7,
+   "borderVsPage": 3.7,
+   "h": 32
+  },
+  "subtle": {
+   "border": "dashed 1px rgb(111, 119, 129)",
+   "bg": "rgb(23, 30, 40)",
+   "color": "rgb(111, 119, 129)",
+   "textContrast": 3.7,
+   "borderVsPage": 3.7,
+   "h": 32
+  }
+ },
+ "forced": {
+  "sbActive": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "solid 1px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(5, 0, 73, 0.8)",
+    "w": "3px"
+   }
+  },
+  "sbPlain": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  },
+  "dockActive": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "solid 1px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(5, 0, 73, 0.8)",
+    "w": "3px"
+   }
+  },
+  "dockPlain": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  },
+  "pillActive": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "border": "solid 1px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  },
+  "pillIdle": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  }
+ },
+ "coarse": {
+  "coarse": true,
+  "primary": "102x44",
+  "menu": "44x44",
+  "pill": "32x44",
+  "input": "107x44"
+ },
+ "weights": {
+  "discard": null,
+  "kbd": null,
+  "menuShortcut": "400"
+ }
+}

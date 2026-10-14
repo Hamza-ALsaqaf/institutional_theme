@@ -1,0 +1,125 @@
+{
+ "z200": {
+  "list": {
+   "sw": 640,
+   "iw": 640,
+   "coarse": false,
+   "nControls": 24,
+   "small": [
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "A.title-text 47x18",
+    "BUTTON.btn btn-default btn-sm ellipsi 16x32",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 16x16",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 159x21",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 138x21",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 128x21"
+   ],
+   "sizes": {
+    "primary": "60x32",
+    "menu": "32x32",
+    "input": "185x32"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 640,
+   "iw": 640,
+   "coarse": false,
+   "nControls": 30,
+   "small": [
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "A.title-text-form ellipsis 60x13"
+   ],
+   "sizes": {
+    "primary": "47x32",
+    "input": "269x32"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ },
+ "z400": {
+  "list": {
+   "sw": 320,
+   "iw": 320,
+   "coarse": false,
+   "nControls": 20,
+   "small": [
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "A.title-text 47x18",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 15x15",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 159x21"
+   ],
+   "sizes": {
+    "primary": "60x32",
+    "menu": "32x32",
+    "input": "110x32"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 320,
+   "iw": 320,
+   "coarse": false,
+   "nControls": 7,
+   "small": [
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "A.title-text-form ellipsis 60x20"
+   ],
+   "sizes": {
+    "primary": "47x32",
+    "input": "247x32"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ },
+ "touch": {
+  "list": {
+   "sw": 390,
+   "iw": 390,
+   "coarse": true,
+   "nControls": 24,
+   "small": [
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "A.title-text 47x18",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 15x15",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 159x21",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 138x21",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 128x21"
+   ],
+   "sizes": {
+    "primary": "60x44",
+    "menu": "44x44",
+    "input": "110x44"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 390,
+   "iw": 390,
+   "coarse": true,
+   "nControls": 30,
+   "small": [
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "A.title-text-form ellipsis 60x20"
+   ],
+   "sizes": {
+    "primary": "47x44",
+    "input": "327x44"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ }
+}

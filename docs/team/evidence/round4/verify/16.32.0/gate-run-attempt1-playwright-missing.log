@@ -1,0 +1,91 @@
+$ sudo env PATH=/opt/hostedtoolcache/uv/0.13.0/x86_64:/home/runner/.local/bin:/opt/hostedtoolcache/node/24.21.0/x64/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin PW_NODE_PATH=/opt/pw-node/node_modules PIXDIFF_PYTHON=/opt/pixvenv/bin/python tools/bench/gate_install_uninstall.sh /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate
+[preclean-uninstall] exit=0
+[list-apps-before] exit=0
+[capture-before] exit=1
+[install] exit=0
+[doctype-after-install] exit=0
+[capture-installed] exit=1
+[seed-state] exit=0
+[uninstall] exit=0
+[doctype-after-uninstall] exit=0
+[residue-after-uninstall] exit=0
+[capture-after-uninstall] exit=1
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 68, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 62, in main
+    result, code = compare(args.a, args.b, args.out)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 19, in compare
+    a = Image.open(path_a).convert("RGB")
+        ~~~~~~~~~~^^^^^^^^
+  File "/opt/pixvenv/lib/python3.14/site-packages/PIL/Image.py", line 3639, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate/before-login.png'
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 68, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 62, in main
+    result, code = compare(args.a, args.b, args.out)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 19, in compare
+    a = Image.open(path_a).convert("RGB")
+        ~~~~~~~~~~^^^^^^^^
+  File "/opt/pixvenv/lib/python3.14/site-packages/PIL/Image.py", line 3639, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate/before-login.png'
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 68, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 62, in main
+    result, code = compare(args.a, args.b, args.out)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 19, in compare
+    a = Image.open(path_a).convert("RGB")
+        ~~~~~~~~~~^^^^^^^^
+  File "/opt/pixvenv/lib/python3.14/site-packages/PIL/Image.py", line 3639, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate/before-todo.png'
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 68, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 62, in main
+    result, code = compare(args.a, args.b, args.out)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/pixel_diff.py", line 19, in compare
+    a = Image.open(path_a).convert("RGB")
+        ~~~~~~~~~~^^^^^^^^
+  File "/opt/pixvenv/lib/python3.14/site-packages/PIL/Image.py", line 3639, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate/before-todo.png'
+[reinstall] exit=0
+[kept-seed] exit=0
+[kept-uninstall] exit=0
+[kept-print] exit=0
+[final-install] exit=0
+[kept-cleanup] exit=0
+[list-apps] exit=0
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	4.2
+list-apps-before	bench_site --site midad.test list-apps	0	1.2
+capture-before	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs before /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate http://midad.test:8000	1	0.0
+install	bench_site --site midad.test install-app institutional_theme	0	3.1
+doctype-after-install	doctype_exists	0	1.1
+capture-installed	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs installed /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate http://midad.test:8000	1	0.0
+seed-state	bench_state seed midad.test /tmp/ins-gate-state.json	0	4.8
+uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	7.0
+doctype-after-uninstall	doctype_exists	0	1.2
+residue-after-uninstall	bench_state residue midad.test /tmp/ins-gate-state.json	0	1.5
+capture-after-uninstall	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/gate http://midad.test:8000	1	0.0
+reinstall	bench_site --site midad.test install-app institutional_theme	0	3.9
+kept-seed	bench_state kept-seed midad.test /tmp/ins-gate-state.json	0	2.0
+kept-uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	4.3
+kept-print	bench_state kept-render midad.test /tmp/ins-gate-state.json	0	1.9
+final-install	bench_site --site midad.test install-app institutional_theme	0	3.0
+kept-cleanup	bench_state kept-cleanup midad.test /tmp/ins-gate-state.json	0	2.7
+list-apps	bench_site --site midad.test list-apps	0	1.2
+exit 0, 45 s

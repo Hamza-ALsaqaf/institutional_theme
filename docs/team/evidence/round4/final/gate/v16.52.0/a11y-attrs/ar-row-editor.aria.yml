@@ -1,0 +1,58 @@
+- text: "صف التحرير #1"
+- button "طيّ"
+- button "حرك"
+- button "مكررة"
+- button "أدخل أعلاه"
+- button "أدخل أدناه"
+- button "حذف"
+- text: المتلقي حسب حقل المستند
+- combobox "المتلقي حسب حقل المستند"
+- text: receiver_by_document_field المتلقي حسب الدور
+- combobox "المتلقي حسب الدور" [expanded]:
+  - listbox:
+    - option "Guest" [selected]:
+      - paragraph:
+        - strong: Guest
+    - option "إعداد تقرير المستخدم":
+      - paragraph:
+        - strong: إعداد تقرير المستخدم
+    - option "التحليلات":
+      - paragraph:
+        - strong: التحليلات
+    - option "العميل":
+      - paragraph:
+        - strong: العميل
+    - option "الكل":
+      - paragraph:
+        - strong: الكل
+    - option "المدير الرئيسي للمبيعات":
+      - paragraph:
+        - strong: المدير الرئيسي للمبيعات
+    - option "المدير الرئيسي للمشتريات":
+      - paragraph:
+        - strong: المدير الرئيسي للمشتريات
+    - option "المستخدمين الأكادميين":
+      - paragraph:
+        - strong: المستخدمين الأكادميين
+    - option "المورد":
+      - paragraph:
+        - strong: المورد
+    - option "الموظف":
+      - paragraph:
+        - strong: الموظف
+    - option "انشاء جديد صلاحية":
+      - paragraph: انشاء جديد صلاحية
+    - option "البحث المتقدم":
+      - paragraph: البحث المتقدم
+- status: 12 results found
+- text: receiver_by_role نسخة
+- textbox "نسخة"
+- text: "اختياري: إرسال دوما إلى هذه المعرفات. كل عنوان البريد الإلكتروني على صف جديد"
+- button "وسعت"
+- text: cc بي سي سي
+- textbox "بي سي سي"
+- button "وسعت"
+- text: bcc الحالة
+- textbox "الحالة":
+  - /placeholder: ""
+- text: "التعبير والاختياري condition اختصارات: Ctrl + لأعلى . Ctrl + السهم لأسفل . خروج"

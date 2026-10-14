@@ -1,0 +1,4 @@
+32 en {"dirPage":"ltr","inputDir":"ltr","ta":"start","padL":"38px","padR":"38px","text":[551,838],"icon":[524,540],"iconKind":"svg","contentBox":[551,815],"textWidth":287,"overlap":false}
+32 ar {"dirPage":"rtl","inputDir":"ltr","ta":"end","padL":"38px","padR":"38px","text":[528,815],"icon":[826,842],"iconKind":"svg","contentBox":[551,815],"textWidth":287,"overlap":false}
+52 en {"dirPage":"ltr","inputDir":"ltr","ta":"start","padL":"38px","padR":"12px","text":[551,838],"icon":[524,540],"iconKind":"::before","contentBox":[551,841],"textWidth":287,"overlap":false}
+52 ar {"dirPage":"rtl","inputDir":"ltr","ta":"end","padL":"12px","padR":"38px","text":[528,815],"icon":[826,842],"iconKind":"::before","contentBox":[525,815],"textWidth":287,"overlap":false}

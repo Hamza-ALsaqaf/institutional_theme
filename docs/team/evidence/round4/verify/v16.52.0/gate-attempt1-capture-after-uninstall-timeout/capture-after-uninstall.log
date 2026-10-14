@@ -1,0 +1,14 @@
+$ env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/v16.52.0/gate http://midad52.test:8001
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForSelector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator('.page-head') to be visible
+
+    at /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs:147:13 {
+  name: 'TimeoutError'
+}
+
+Node.js v24.21.0

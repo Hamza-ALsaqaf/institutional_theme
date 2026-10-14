@@ -1,5 +1,7 @@
 // Computed-style proof that the theme wins over the real compiled Frappe desk CSS.
-// Usage: PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node cascade.mjs [--out DIR] [--bench /home/user/frappe-bench]
+// Usage: PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node cascade.mjs [--out DIR] [--bench /home/user/frappe-bench] [--tag 16.52.0]
+// ADR 0011 R6: one run per Frappe version, on that bench's compiled core CSS and the theme CSS built here, LTR and RTL, Light and Dark.
+// Each assertion lists the versions it applies to (`only(...)`); the default is both. A selector that matches nothing fails.
 import { chromium } from "playwright-core";
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
@@ -12,7 +14,11 @@ const repo = resolve(here, "../..");
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : d; };
 const bench = arg("--bench", "/home/user/frappe-bench");
 const outDir = resolve(arg("--out", join(process.env.TMPDIR || "/tmp", "ins-cascade")));
-const evidence = resolve(arg("--evidence", join(repo, "docs/team/evidence/phase2")));
+const evidence = resolve(arg("--evidence", join(repo, "docs/team/evidence/round4/desk")));
+// The version under test comes from the bench's frappe package (`__version__ = "16.52.0"`), unless --tag overrides it.
+const tag = arg("--tag", (readFileSync(join(bench, "apps/frappe/frappe/__init__.py"), "utf8").match(/__version__\s*=\s*"([^"]+)"/) || [])[1]);
+if (!tag) throw new Error("cannot read the Frappe version of " + bench);
+const only = (versions) => versions.includes(tag);
 const scss = join(repo, "institutional_theme/public/scss");
 mkdirSync(outDir, { recursive: true });
 mkdirSync(evidence, { recursive: true });
@@ -78,7 +84,225 @@ function pageFor(dir, pal, mode) {
 }
 
 const results = [];
-const record = (scenario, check, expected, actual, pass) => results.push({ scenario, check, expected, actual, pass });
+const V52 = ["16.52.0"];
+const record = (scenario, check, expected, actual, pass, versions) => results.push({ version: tag, versions: versions || ["16.32.0", "16.52.0"], scenario, check, expected, actual, pass });
+// Core CSS is minified (`[data-variant=solid]`), so quotes are dropped on both sides before looking for a selector.
+const coreText = Object.fromEntries(Object.entries(core).map(([k, f]) => [k, readFileSync(f, "utf8").replace(/["']/g, "")]));
+const fixtureV52 = readFileSync(join(here, "harness/fixture_v52.html"), "utf8");
+
+// ---- v16.52.0 assertions (ADR 0011 R6 "New for v16.52.0"). Fixture markup is quoted from v16.52.0 source in the fixture's comments.
+// `selects` fails when a selector matches nothing: the fixture must contain it, and the compiled core CSS must still carry a rule that mentions it.
+// ---- Round-4 fix 1, both versions: N1 (16.32.0 renders as in round 3) and N8 (generic class names are not styled). Fixture: harness/fixture_fix1.html.
+const fixtureFix1 = readFileSync(join(here, "harness/fixture_fix1.html"), "utf8");
+async function fix1(page, scenario) {
+	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
+	const rec = (check, expected, actual, pass) => record(scenario, check, expected, actual, pass);
+	await page.evaluate((html) => { const d = document.createElement("div"); d.id = "fix1"; d.innerHTML = html; document.body.append(d); }, fixtureFix1);
+	const tok = (n, prop) => page.evaluate(([n, prop]) => { const e = document.createElement("i"); e.style[prop] = `var(${n})`; document.body.append(e); const c = getComputedStyle(e)[prop]; e.remove(); return c; }, [n, prop]);
+	const st = (id, p) => page.evaluate(([id, p]) => getComputedStyle(document.getElementById(id))[p], [id, p]);
+	const border = await tok("--ins-border", "color");
+	rec("gantt .tick.thick keeps the round-3 line colour (--ins-border)", border, await st("fx-tick-thick", "stroke"), (await st("fx-tick-thick", "stroke")) === border);
+	await page.keyboard.press("Shift");
+	const offset = async (id) => { await page.evaluate((i) => document.getElementById(i).focus(), id); return page.evaluate((i) => { const s = getComputedStyle(document.getElementById(i)); return `${s.outlineStyle} ${s.outlineOffset}`; }, id); };
+	const o32 = await offset("fx-sb32-a"), o52 = await offset("fx-sb52-a");
+	rec("sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px", "solid 2px", o32, o32 === "solid 2px");
+	rec("sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px", "solid -2px", o52, o52 === "solid -2px");
+	await page.evaluate(() => document.activeElement?.blur());
+	const sec = await tok("--ins-text-secondary", "color");
+	rec("About dialog copy button glyph strokes in --ins-text-secondary (round 3)", sec, await st("fx-about-icon", "stroke"), (await st("fx-about-icon", "stroke")) === sec);
+	// Core's own v16.52.0 rules may style a class-only element, so the check is that the THEME's values are not applied.
+	const fd = await page.evaluate(() => { const s = getComputedStyle(document.getElementById("fx-foreign-dock")); return { w: s.borderTopWidth, c: s.borderTopColor, r: s.borderTopLeftRadius }; });
+	const lg = await page.evaluate(() => { const e = document.createElement("i"); e.style.borderRadius = "var(--ins-radius-lg)"; document.body.append(e); const r = getComputedStyle(e).borderTopLeftRadius; e.remove(); return r; });
+	rec("foreign .dock: the theme hairline and overlay radius are not applied", `not (1px ${border} ${lg})`, `${fd.w} ${fd.c} ${fd.r}`, !(fd.w === "1px" && fd.c === border && fd.r === lg));
+	const elev = await tok("--ins-elevation-overlay", "boxShadow");
+	rec("foreign .sidebar-panel: the theme overlay shadow is not applied", `!= ${elev}`, await st("fx-foreign-panel", "boxShadow"), (await st("fx-foreign-panel", "boxShadow")) !== elev);
+	const sm = await page.evaluate(() => { const e = document.createElement("i"); e.style.borderRadius = "var(--ins-radius-sm)"; document.body.append(e); const r = getComputedStyle(e).borderTopLeftRadius; e.remove(); return r; });
+	rec("foreign .panel-header-actions span: the theme radius is not applied", `!= ${sm}`, await st("fx-foreign-span", "borderTopLeftRadius"), (await st("fx-foreign-span", "borderTopLeftRadius")) !== sm);
+}
+
+// ---- Round-4 accessibility fix 2 (items 2, 4, 5, 6, 7, 12). Fixture: harness/fixture_fix2.html. Items 2, 5, 6, 7 and the dock exist on v16.52.0 only.
+const fixtureFix2 = readFileSync(join(here, "harness/fixture_fix2.html"), "utf8");
+async function fix2(page, scenario) {
+	const rec = (check, expected, actual, pass, versions) => record(scenario, check, expected, actual, pass, versions);
+	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
+	await page.evaluate((html) => { const d = document.createElement("div"); d.id = "fix2"; d.innerHTML = html; document.body.append(d); }, fixtureFix2);
+	const tok = (n, prop) => page.evaluate(([n, prop]) => { const e = document.createElement("i"); e.style[prop] = `var(${n})`; document.body.append(e); const c = getComputedStyle(e)[prop]; e.remove(); return c; }, [n, prop]);
+	const cs = (id, props, pseudo) => page.evaluate(([id, props, pseudo]) => { const s = getComputedStyle(document.getElementById(id), pseudo || null); return Object.fromEntries(props.map((p) => [p, s[p]])); }, [id, props, pseudo]);
+	// 12: the literal 420 is replaced by the regular weight (both versions).
+	const reg = await tok("--ins-weight-regular", "fontWeight");
+	for (const id of ["fx2-outline", "fx2-kbd"]) rec(`#${id}: literal 420 replaced by --ins-weight-regular`, reg, (await cs(id, ["fontWeight"])).fontWeight, (await cs(id, ["fontWeight"])).fontWeight === reg);
+	if (only(["16.32.0"])) { const w = (await cs("fx2-outline-app", ["fontWeight"])).fontWeight; rec("another app's .btn-outline outside core containers keeps core's literal 420", "420", w, w === "420", ["16.32.0"]); }
+	if (!only(V52)) return;
+	const r52 = (check, expected, actual, pass) => rec(check, expected, actual, pass, V52);
+	// 2: the drawn stroke of the toast icon is the status ink (stroke == color == --ins-status-*-solid).
+	for (const [t, fam] of [["success", "success"], ["error", "danger"]]) {
+		const want = await tok(`--ins-status-${fam}-solid`, "color"), got = await cs(`fx2-toast-icon-${t}`, ["stroke", "color"]);
+		r52(`.es-toast[data-type=${t}] icon: stroke = --ins-status-${fam}-solid`, want, `${got.stroke} / color ${got.color}`, got.stroke === want && got.color === want);
+	}
+	// 5: control height from the theme scale (comfortable 32px here; compact and coarse come from the same token in _scale.scss).
+	const h = await tok("--ins-control-height", "height"), hs = await tok("--ins-control-height-sm", "height");
+	for (const [id, want] of [["fx2-bt-default", h], ["fx2-bt-md", h], ["fx2-bt-xs", hs]]) r52(`#${id} height = ${want === h ? "--ins-control-height" : "--ins-control-height-sm"}`, want, (await cs(id, ["height"])).height, (await cs(id, ["height"])).height === want);
+	const ib = await cs("fx2-bt-icon", ["width", "height"]);
+	r52("icon button is square at --ins-control-height", `${h} x ${h}`, `${ib.width} x ${ib.height}`, ib.width === h && ib.height === h);
+	const pm = await cs("fx2-pill-off", ["minHeight", "height"]);
+	r52("page-size pill min-height = --ins-control-height-sm, rendered height >= it", `>= ${hs}`, `${pm.height} (min ${pm.minHeight})`, pm.minHeight === hs && parseFloat(pm.height) >= parseFloat(hs));
+	// 6: the pressed pill has a ring in --ins-border-control and the medium weight; the idle pill has neither.
+	const on = await cs("fx2-pill-on", ["boxShadow", "fontWeight"]), off = await cs("fx2-pill-off", ["boxShadow", "fontWeight"]);
+	const bc = await tok("--ins-border-control", "color"), med = await tok("--ins-weight-medium", "fontWeight");
+	r52("pressed pill: inset 1px ring in --ins-border-control and medium weight", `${bc} inset 0 0 0 1px | ${med}`, `${on.boxShadow} | ${on.fontWeight}`, on.boxShadow === `${bc} 0px 0px 0px 1px inset` && on.fontWeight === med);
+	r52("idle pill: no ring, not the pressed weight", `shadow none, weight != ${med}`, `${off.boxShadow} | ${off.fontWeight}`, off.boxShadow === "none" && off.fontWeight !== med);
+	// 7: disabled buttons: dashed boundary (solid in the control colour, subtle in the hairline), different from each other, text on the disabled pair.
+	const ds = await cs("fx2-dis-solid", ["borderTopStyle", "borderTopWidth", "borderTopColor", "color"]), db = await cs("fx2-dis-subtle", ["borderTopStyle", "borderTopWidth", "borderTopColor", "color"]);
+	const td = await tok("--ins-text-disabled", "color");
+	r52("disabled solid .es-button: 2px dashed boundary in --ins-border-control, text --ins-text-disabled", `dashed 2px ${bc} ${td}`, `${ds.borderTopStyle} ${ds.borderTopWidth} ${ds.borderTopColor} ${ds.color}`, ds.borderTopStyle === "dashed" && ds.borderTopWidth === "2px" && ds.borderTopColor === bc && ds.color === td);
+	r52("disabled subtle .es-button: 1px dashed boundary in --ins-border-control, text --ins-text-disabled", `dashed 1px ${bc} ${td}`, `${db.borderTopStyle} ${db.borderTopWidth} ${db.borderTopColor} ${db.color}`, db.borderTopStyle === "dashed" && db.borderTopWidth === "1px" && db.borderTopColor === bc && db.color === td);
+	r52("disabled solid and subtle are distinguishable (boundary width differs)", "2px vs 1px", `${ds.borderTopWidth} vs ${db.borderTopWidth}`, ds.borderTopWidth !== db.borderTopWidth);
+	// 4: forced colours: the accent bar of the current sidebar row and dock tile is a system colour, and the row takes an outline; the pressed pill a border.
+	await page.emulateMedia({ forcedColors: "active", reducedMotion: "no-preference" });
+	const hl = await page.evaluate(() => { const e = document.createElement("i"); e.style.cssText = "forced-color-adjust:none;background-color:Highlight"; document.body.append(e); const c = getComputedStyle(e).backgroundColor; e.remove(); return c; });
+	for (const id of ["fx2-sb-active", "fx2-dock-active"]) {
+		const bar = await cs(id, ["backgroundColor"], "::before"), o = await cs(id, ["outlineStyle", "outlineWidth"]);
+		r52(`forced colours: #${id} bar = Highlight and a 1px outline`, `${hl} | solid 1px`, `${bar.backgroundColor} | ${o.outlineStyle} ${o.outlineWidth}`, bar.backgroundColor === hl && o.outlineStyle === "solid" && o.outlineWidth === "1px");
+	}
+	const pb = await cs("fx2-pill-on", ["borderTopStyle", "borderTopWidth"]), pi = await cs("fx2-pill-off", ["borderTopStyle"]);
+	r52("forced colours: pressed pill has a 1px solid border, idle pill none", "solid 1px | none", `${pb.borderTopStyle} ${pb.borderTopWidth} | ${pi.borderTopStyle}`, pb.borderTopStyle === "solid" && pb.borderTopWidth === "1px" && pi.borderTopStyle === "none");
+	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
+}
+
+async function v1652(page, dir, scenario) {
+	const rec = (check, expected, actual, pass) => record(scenario, check, expected, actual, pass, V52);
+	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
+	await page.evaluate((html) => { const d = document.createElement("div"); d.id = "v52"; d.innerHTML = html; document.body.append(d); }, fixtureV52);
+	const selects = async (label, selector, coreNeedle) => {
+		const n = await page.evaluate((s) => document.querySelectorAll(s).length, selector);
+		const inCore = coreText[dir].includes(coreNeedle.replace(/["']/g, ""));
+		rec(`selector matches: ${label}`, "fixture >= 1 and core CSS rule present", `${selector}: ${n} in fixture, core rule ${inCore}`, n > 0 && inCore);
+	};
+	const tok = (n, prop) => page.evaluate(([n, prop]) => { const e = document.createElement("i"); e.style[prop] = `var(${n})`; document.body.append(e); const c = getComputedStyle(e)[prop]; e.remove(); return c; }, [n, prop]);
+	const cs = (id, props, pseudo) => page.evaluate(([id, props, pseudo]) => { const s = getComputedStyle(document.getElementById(id), pseudo || null); return Object.fromEntries(props.map((p) => [p, s[p]])); }, [id, props, pseudo]);
+	const eq = (check, want, got) => rec(check, want, got, want === got);
+
+	// -- solid .es-button (css/espresso/components/button.css:34-37, 149-162; ui/page.html:61)
+	await selects("solid .es-button", '.es-button[data-variant="solid"]', '.es-button[data-variant="solid"]');
+	const prim = await tok("--ins-primary", "backgroundColor"), primHover = await tok("--ins-primary-hover", "backgroundColor"), onPrim = await tok("--ins-on-primary", "color");
+	const btn = await cs("es-solid", ["backgroundColor", "color"]);
+	eq(".es-button solid: background = --ins-primary", prim, btn.backgroundColor);
+	eq(".es-button solid: text = --ins-on-primary", onPrim, btn.color);
+	eq(".es-button glyph strokes in the button text colour (--icon-stroke = currentColor)", onPrim, await page.evaluate(() => getComputedStyle(document.getElementById("es-solid-icon")).stroke));
+	await page.hover("#es-solid"); await page.waitForTimeout(400); // core transitions the background
+	eq(".es-button solid:hover background = --ins-primary-hover", primHover, (await cs("es-solid", ["backgroundColor"])).backgroundColor);
+	await page.mouse.move(0, 0);
+	const activeVar = await page.evaluate(() => getComputedStyle(document.getElementById("es-solid")).getPropertyValue("--bt-solid-bg-active").trim());
+	eq(".es-button solid: --bt-solid-bg-active resolves to --ins-primary-active", norm(await tok("--ins-primary-active", "color")), norm(await page.evaluate((v) => { const e = document.createElement("i"); e.style.color = v; document.body.append(e); const c = getComputedStyle(e).color; e.remove(); return c; }, activeVar)));
+	const red = await cs("es-solid-red", ["backgroundColor"]);
+	rec(".es-button[data-theme=red] solid keeps core's red (not primary)", `!= ${prim}`, red.backgroundColor, red.backgroundColor !== prim && red.backgroundColor !== "rgba(0, 0, 0, 0)");
+	eq(".es-button subtle: fill = --ins-surface-fill", await tok("--ins-surface-fill", "backgroundColor"), (await cs("es-subtle", ["backgroundColor"])).backgroundColor);
+	const dis = await cs("es-disabled", ["backgroundColor", "color"]);
+	eq(".es-button:disabled background = --ins-surface-disabled", await tok("--ins-surface-disabled", "backgroundColor"), dis.backgroundColor);
+	eq(".es-button:disabled text = --ins-text-disabled", await tok("--ins-text-disabled", "color"), dis.color);
+
+	// -- B1: user tags are not statuses (ui/tags.js:116-124): no shape, the neutral pair, text >= 4.5:1
+	await selects(".es-badge.form-tag", ".es-badge.form-tag", ".es-badge[data-theme");
+	{
+		const lum = (rgb) => { const [r, g, b] = rgb.map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+		const nums = (c) => c.match(/[\d.]+/g).map(Number);
+		for (const id of ["tag-green", "tag-red", "tag-violet"]) {
+			const g = await cs(id, ["backgroundColor", "color"]), b = await cs(id, ["content"], "::before");
+			const [x, y] = [lum(nums(g.color)), lum(nums(g.backgroundColor))].sort((p, q) => q - p);
+			const ratio = (x + 0.05) / (y + 0.05);
+			rec(`${id}: no status shape`, "none or normal", b.content, b.content === "none" || b.content === "normal");
+			rec(`${id}: neutral pair`, `${await tok("--ins-status-neutral-bg", "backgroundColor")} ${await tok("--ins-status-neutral-fg", "color")}`, `${g.backgroundColor} ${g.color}`,
+				g.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && g.color === (await tok("--ins-status-neutral-fg", "color")));
+			rec(`${id}: text contrast >= 4.5`, ">= 4.5", ratio.toFixed(2), ratio >= 4.5);
+		}
+	}
+
+	// -- .es-badge (badge.css:7-14, 55-89; badge-legacy-colors.css:12-45; list_view.js:1896; page.js:259)
+	await selects(".es-badge[data-theme]", ".es-badge[data-theme]", '.es-badge[data-theme="green"]');
+	await selects(".es-badge.page-indicator-pill", ".es-badge.page-indicator-pill", ".page-indicator-pill");
+	// theme: [status family, shape]. Independent of the SCSS map: the design's status language (BRIEF 3 rule 1).
+	const badges = { gray: ["neutral", "ring"], grey: ["neutral", "ring"], darkgrey: ["muted", "ring"], green: ["success", "check"], red: ["danger", "cross"], amber: ["pending", "half"],
+		orange: ["pending", "half"], yellow: ["warning", "bars"], blue: ["progress", "dot"], "light-blue": ["info", "dot"], cyan: ["teal", "dot"], violet: ["plum", "diamond"],
+		purple: ["special", "diamond"], pink: ["plum", "diamond"] };
+	const shape = {
+		check: (x) => x.borderRightWidth === "2px" && x.transform !== "none",
+		cross: (x) => (x.backgroundImage.match(/linear-gradient/g) || []).length === 2,
+		half: (x) => /linear-gradient/.test(x.backgroundImage) && /50%|4\.5px/.test(x.borderTopLeftRadius),
+		bars: (x) => /linear-gradient/.test(x.backgroundImage) && x.borderTopLeftRadius === "0px" && x.width === "9px",
+		dot: (x) => x.backgroundColor !== "rgba(0, 0, 0, 0)" && x.width === "8px" && /50%|4px/.test(x.borderTopLeftRadius),
+		diamond: (x) => x.width === "7px" && x.transform !== "none" && x.backgroundColor !== "rgba(0, 0, 0, 0)",
+		ring: (x) => x.backgroundImage === "none" && /^1(\.5)?px$/.test(x.borderTopWidth) && x.width === "9px",
+	};
+	for (const [theme, [family, kind]] of Object.entries(badges)) {
+		const id = `badge-${theme}`;
+		const got = await cs(id, ["backgroundColor", "color", "borderTopColor"]);
+		const want = { bg: await tok(`--ins-status-${family}-bg`, "backgroundColor"), fg: await tok(`--ins-status-${family}-fg`, "color"), line: await tok(`--ins-status-${family}-border`, "color") };
+		rec(`.es-badge ${theme}: fill, text and line = status ${family}`, `${want.bg} ${want.fg} ${want.line}`, `${got.backgroundColor} ${got.color} ${got.borderTopColor}`, got.backgroundColor === want.bg && got.color === want.fg && got.borderTopColor === want.line);
+		const sh = await cs(id, ["content", "display", "width", "borderRightWidth", "borderTopWidth", "borderTopLeftRadius", "backgroundImage", "backgroundColor", "transform"], "::before");
+		rec(`.es-badge ${theme}: shape ${kind}`, kind, `${sh.width} ${sh.borderTopLeftRadius} ${sh.transform}`, sh.content === '""' && shape[kind](sh));
+	}
+	// Round-4 fix 3 (R1): status look only on status hosts. A Kanban v2 tag and a shortcut count carry data-theme but are not statuses.
+	for (const id of ["tag-kanban", "count-shortcut"]) {
+		const g = await cs(id, ["backgroundColor", "color"]), b = await cs(id, ["content"], "::before");
+		rec(`${id} (data-theme, not a status host): neutral pair and no shape`, `${await tok("--ins-status-neutral-bg", "backgroundColor")}, no ::before`, `${g.backgroundColor}, ${b.content}`,
+			g.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && g.color === (await tok("--ins-status-neutral-fg", "color")) && (b.content === "none" || b.content === "normal"));
+	}
+	{
+		const g = await cs("badge-side", ["backgroundColor"]), b = await cs("badge-side", ["content", "borderRightWidth"], "::before");
+		rec("side-panel status badge: success fill and check", await tok("--ins-status-success-bg", "backgroundColor"), g.backgroundColor, g.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && b.content === '""' && b.borderRightWidth === "2px");
+		const l = await cs("badge-green", ["backgroundColor"]), lb = await cs("badge-green", ["content"], "::before");
+		rec("list status (data-filter, theme green): success fill and a shape", await tok("--ins-status-success-bg", "backgroundColor"), l.backgroundColor, l.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && lb.content === '""');
+	}
+	const pill = await cs("badge-page", ["backgroundColor", "color"]), pillBefore = await cs("badge-page", ["content", "borderRightWidth", "transform"], "::before");
+	rec("page-status chip (.es-badge.page-indicator-pill green): success pair and check", `${await tok("--ins-status-success-bg", "backgroundColor")} ${await tok("--ins-status-success-fg", "color")}`, `${pill.backgroundColor} ${pill.color}`,
+		pill.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && pill.color === (await tok("--ins-status-success-fg", "color")) && pillBefore.borderRightWidth === "2px");
+	const pillGray = await cs("badge-page-gray", ["backgroundColor", "color"]), pillGrayBefore = await cs("badge-page-gray", ["content", "width"], "::before");
+	rec("page-status chip without data-theme: neutral pair and a shape", await tok("--ins-status-neutral-bg", "backgroundColor"), pillGray.backgroundColor, pillGray.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && pillGrayBefore.content === '""');
+	const plain = await cs("badge-plain", ["backgroundColor"]), plainBefore = await cs("badge-plain", ["content"], "::before");
+	rec("plain .es-badge (no theme, not the page chip): neutral fill, no shape", `${await tok("--ins-status-neutral-bg", "backgroundColor")}, no ::before`, `${plain.backgroundColor}, ${plainBefore.content}`,
+		plain.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && (plainBefore.content === "none" || plainBefore.content === "normal"));
+	const d0 = await cs("badge-draft", ["backgroundColor", "color"]), d0b = await cs("badge-draft", ["backgroundImage", "borderTopWidth"], "::before");
+	rec("Draft badge (list data-filter docstatus,=,0): neutral pair, ring", await tok("--ins-status-neutral-bg", "backgroundColor"), d0.backgroundColor, d0.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && d0.color === (await tok("--ins-status-neutral-fg", "color")) && d0b.backgroundImage === "none");
+	const d2 = await cs("badge-cancelled", ["backgroundColor", "color"]), d2b = await cs("badge-cancelled", ["borderTopLeftRadius"], "::before");
+	rec("Cancelled badge (list data-filter docstatus,=,2): muted pair, square", await tok("--ins-status-muted-bg", "backgroundColor"), d2.backgroundColor, d2.backgroundColor === (await tok("--ins-status-muted-bg", "backgroundColor")) && d2b.borderTopLeftRadius === "1px");
+	const t0 = await cs("badge-title-draft", ["backgroundColor"]), t0b = await cs("badge-title-draft", ["backgroundImage"], "::before");
+	rec("Draft chip in the form title (data-ins-docstatus=0, red): neutral pair, ring", await tok("--ins-status-neutral-bg", "backgroundColor"), t0.backgroundColor, t0.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && t0b.backgroundImage === "none");
+	const t2 = await cs("badge-title-cancelled", ["backgroundColor"]), t2b = await cs("badge-title-cancelled", ["borderTopLeftRadius"], "::before");
+	rec("Cancelled chip in the form title (data-ins-docstatus=2, red): muted pair, square", await tok("--ins-status-muted-bg", "backgroundColor"), t2.backgroundColor, t2.backgroundColor === (await tok("--ins-status-muted-bg", "backgroundColor")) && t2b.borderTopLeftRadius === "1px");
+
+	// -- sidebar, its active row and label weights (sidebar.scss:65, 167-177, 544-551)
+	await selects("sidebar panel", ".body-sidebar-container .body-sidebar", ".body-sidebar-container");
+	await selects("active sidebar row", ".standard-sidebar-item.active-sidebar", ".active-sidebar");
+	eq("sidebar panel background (--desk-sidebar-bg) = --ins-surface-sunken", await tok("--ins-surface-sunken", "backgroundColor"), (await cs("sb-panel", ["backgroundColor"])).backgroundColor);
+	const act = await cs("sb-active", ["boxShadow", "borderTopLeftRadius"]);
+	rec("active sidebar row: hairline ring, no drop shadow, small radius", `0 0 0 1px ${await tok("--ins-border", "color")} | ${await tok("--ins-radius-sm", "borderTopLeftRadius")}`, `${act.boxShadow} | ${act.borderTopLeftRadius}`,
+		act.boxShadow === `${await tok("--ins-border", "color")} 0px 0px 0px 1px` && act.borderTopLeftRadius === (await tok("--ins-radius-sm", "borderTopLeftRadius")));
+	const al = await cs("sb-active-label", ["fontWeight", "color"]);
+	eq("active sidebar label: strong weight", String(await page.evaluate(() => { const e = document.createElement("i"); e.style.fontWeight = "var(--ins-weight-strong)"; document.body.append(e); const w = getComputedStyle(e).fontWeight; e.remove(); return w; })), al.fontWeight);
+	eq("active sidebar label colour = --ins-text-strong", await tok("--ins-text-strong", "color"), al.color);
+	const il = await cs("sb-idle-label", ["fontWeight"]);
+	eq("idle sidebar label weight = --font-weight-regular (mapped to the regular weight)", String(await page.evaluate(() => { const e = document.createElement("i"); e.style.fontWeight = "var(--ins-weight-regular)"; document.body.append(e); const w = getComputedStyle(e).fontWeight; e.remove(); return w; })), il.fontWeight);
+
+	// -- menu highlight (menu.css:109-111) and the menu panel
+	await selects("menu highlight", ".es-menu__item[data-highlighted]", ".es-menu__item[data-highlighted]");
+	eq(".es-menu__item[data-highlighted] background = --ins-surface-hover", await tok("--ins-surface-hover", "backgroundColor"), (await cs("menu-hi", ["backgroundColor"])).backgroundColor);
+	const pan = await cs("menu-panel", ["backgroundColor", "borderTopColor"]);
+	eq(".es-menu panel background = --ins-surface-overlay", await tok("--ins-surface-overlay", "backgroundColor"), pan.backgroundColor);
+
+	// -- toast (toast.css:34-52, 133-223; ui/components/toast.js:97)
+	await selects(".es-toast", ".es-toast", ".es-toast");
+	const toast = await cs("toast", ["backgroundColor", "color", "borderTopColor", "borderTopWidth"]);
+	eq(".es-toast background = --ins-surface-overlay", await tok("--ins-surface-overlay", "backgroundColor"), toast.backgroundColor);
+	eq(".es-toast text = --ins-text", await tok("--ins-text", "color"), toast.color);
+	eq(".es-toast border = 1px --ins-border", `1px ${await tok("--ins-border", "color")}`, `${toast.borderTopWidth} ${toast.borderTopColor}`);
+	eq(".es-toast__close text = --ins-text", await tok("--ins-text", "color"), (await cs("toast-close", ["color"])).color);
+	await page.hover("#toast-action"); await page.waitForTimeout(400);
+	eq(".es-toast__action:hover background = --ins-surface-hover", await tok("--ins-surface-hover", "backgroundColor"), (await cs("toast-action", ["backgroundColor"])).backgroundColor);
+	await page.mouse.move(0, 0);
+
+	// -- .form-control radius: core reads `var(--radius)` (scss/common/form.scss:5), mapped to the small radius
+	eq(".form-control radius = --ins-radius-sm", await tok("--ins-radius-sm", "borderTopLeftRadius"), (await cs("field", ["borderTopLeftRadius"])).borderTopLeftRadius);
+}
 
 const browser = await chromium.launch({ args: ["--allow-file-access-from-files"] });
 for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of modes) {
@@ -325,13 +549,16 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	for (let i = 0, ok = false; i < 40 && !ok; i++) { await page.keyboard.press("Tab"); ok = await page.evaluate(() => document.activeElement.id === "dt-on"); }
 	const fcc = await page.evaluate(() => { const s = getComputedStyle(document.activeElement); return { id: document.activeElement.id, st: s.outlineStyle, w: s.outlineWidth }; });
 	record(scenario, "forced-colors: focused checked checkbox has an outline", "dt-on 2px solid", `${fcc.id} ${fcc.w} ${fcc.st}`, fcc.id === "dt-on" && fcc.st === "solid" && fcc.w === "2px");
+	await fix1(page, scenario);
+	await fix2(page, scenario);
+	if (only(["16.52.0"])) await v1652(page, dir, scenario);
 	await ctx.close();
 }
 await browser.close();
 
 const pass = results.filter((r) => r.pass).length, fail = results.length - pass;
-const summary = { generated: new Date().toISOString(), core, bundles: Object.fromEntries(Object.entries(built).map(([k, v]) => [k, v.bytes])), sassWarnings: warnings, rtlIdentical, total: results.length, pass, fail };
-writeFileSync(join(evidence, "css-cascade.json"), JSON.stringify({ summary, results }, null, 1));
+const summary = { version: tag, generated: new Date().toISOString(), core, bundles: Object.fromEntries(Object.entries(built).map(([k, v]) => [k, v.bytes])), sassWarnings: warnings, rtlIdentical, total: results.length, pass, fail };
+writeFileSync(join(evidence, `cascade-${tag}.json`), JSON.stringify({ summary, results }, null, 1));
 console.log(JSON.stringify(summary, null, 1));
 for (const r of results.filter((r) => !r.pass).slice(0, 25)) console.log("FAIL", r.scenario, r.check, "| want", r.expected, "| got", r.actual);
 process.exitCode = fail || warnings.length || Object.values(rtlIdentical).includes(false) ? 1 : 0;

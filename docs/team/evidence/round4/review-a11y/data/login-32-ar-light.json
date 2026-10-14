@@ -1,0 +1,229 @@
+{
+ "root": {
+  "dir": "rtl",
+  "cs": "light",
+  "bodyBg": "rgb(247, 249, 252)"
+ },
+ "button": {
+  "fg": "rgb(255,255,255)",
+  "bg": "rgb(27, 80, 134)",
+  "ratio": 8.27,
+  "w": 342,
+  "h": 40,
+  "fw": "500",
+  "fs": "14px",
+  "ls": "normal",
+  "ta": "center",
+  "ol": "none 0px rgb(255, 255, 255) off 0px",
+  "border": "solid 1px rgb(27, 80, 134)"
+ },
+ "label": {
+  "fg": "rgb(66,75,87)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "ratio": 8.84,
+  "w": 342,
+  "h": 20,
+  "fw": "500",
+  "fs": "13px",
+  "ls": "normal",
+  "ta": "right",
+  "ol": "none 0px rgb(66, 75, 87) off 0px",
+  "border": "none 0px rgb(66, 75, 87)"
+ },
+ "labels": [
+  {
+   "t": "البريد الإلكتروني",
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 8.84,
+   "fw": "500",
+   "ls": "normal"
+  },
+  {
+   "t": "كلمة السر",
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 8.84,
+   "fw": "500",
+   "ls": "normal"
+  }
+ ],
+ "forgot": {
+  "fg": "rgb(0,88,149)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "ratio": 7.42,
+  "w": 90,
+  "h": 17,
+  "fw": "400",
+  "fs": "13px",
+  "ls": "normal",
+  "ta": "end",
+  "ol": "none 0px rgb(0, 88, 149) off 0px",
+  "border": "none 0px rgb(0, 88, 149)"
+ },
+ "input": {
+  "fg": "rgb(20,27,37)",
+  "bg": "rgb(255, 255, 255)",
+  "ratio": 17.31,
+  "w": 342,
+  "h": 40,
+  "fw": "400",
+  "fs": "14px",
+  "ls": "normal",
+  "ta": "end",
+  "ol": "solid 2px rgb(47, 106, 167) off 0px",
+  "border": "solid 1px rgb(47, 106, 167)"
+ },
+ "pwd": {
+  "fg": "rgb(20,27,37)",
+  "bg": "rgb(255, 255, 255)",
+  "ratio": 17.31,
+  "w": 342,
+  "h": 40,
+  "fw": "400",
+  "fs": "14px",
+  "ls": "normal",
+  "ta": "end",
+  "ol": "none 0px rgb(20, 27, 37) off 0px",
+  "border": "solid 1px rgb(133, 141, 151)"
+ },
+ "placeholder": {
+  "ph": "jane@example.com",
+  "color": "rgb(106, 114, 125)",
+  "nt": {
+   "fg": "rgb(106,114,125)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 4.87
+  }
+ },
+ "icons": [
+  {
+   "cls": "email-field",
+   "before": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": "auto",
+   "left": "auto",
+   "right": "auto",
+   "pos": "static",
+   "inputBg": "rgb(255, 255, 255)",
+   "nt": null,
+   "svg": {
+    "fill": "rgb(88, 97, 109)",
+    "nt": {
+     "fg": "rgb(88,97,109)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.28
+    }
+   },
+   "padStart": "38px",
+   "padEnd": "38px",
+   "fieldRect": [
+    512,
+    854
+   ]
+  },
+  {
+   "cls": "password-field",
+   "before": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": "auto",
+   "left": "auto",
+   "right": "auto",
+   "pos": "static",
+   "inputBg": "rgb(255, 255, 255)",
+   "nt": null,
+   "svg": {
+    "fill": "rgb(88, 97, 109)",
+    "nt": {
+     "fg": "rgb(88,97,109)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.28
+    }
+   },
+   "padStart": "38px",
+   "padEnd": "38px",
+   "fieldRect": [
+    512,
+    854
+   ]
+  },
+  {
+   "cls": "email-field",
+   "before": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": "auto",
+   "left": "auto",
+   "right": "auto",
+   "pos": "static",
+   "inputBg": "rgb(255, 255, 255)",
+   "nt": null,
+   "svg": {
+    "fill": "rgb(88, 97, 109)",
+    "nt": {
+     "fg": "rgb(88,97,109)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.28
+    }
+   },
+   "padStart": "38px",
+   "padEnd": "38px",
+   "fieldRect": [
+    0,
+    0
+   ]
+  },
+  {
+   "cls": "email-field",
+   "before": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": "auto",
+   "left": "auto",
+   "right": "auto",
+   "pos": "static",
+   "inputBg": "rgb(255, 255, 255)",
+   "nt": null,
+   "svg": {
+    "fill": "rgb(88, 97, 109)",
+    "nt": {
+     "fg": "rgb(88,97,109)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.28
+    }
+   },
+   "padStart": "38px",
+   "padEnd": "38px",
+   "fieldRect": [
+    0,
+    0
+   ]
+  }
+ ],
+ "reveal": {
+  "w": 32,
+  "h": 32,
+  "left": 516,
+  "right": 548,
+  "label": "إظهار كلمة المرور",
+  "pressed": "false",
+  "nt": {
+   "fg": "rgb(88,97,109)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 6.28
+  },
+  "svgfill": "rgb(88, 97, 109)"
+ },
+ "tabOrder": [
+  "login_email",
+  "login_password ring=solid 2px rgb(47, 106, 167) off 0px fv=true",
+  "BUTTON.ins-reveal ring=solid 2px rgb(47, 106, 167) off 2px fv=true",
+  "A. ring=solid 2px rgb(47, 106, 167) off 2px fv=true",
+  "BUTTON.btn btn-sm btn-default btn-blo ring=solid 2px rgb(47, 106, 167) off 2px fv=true",
+  "A.btn btn-block btn-default btn- ring=solid 2px rgb(47, 106, 167) off 2px fv=true",
+  "BODY. ins-has-masthead ins-auth ring=none 0px rgb(40, 49, 60) off 0px fv=false"
+ ],
+ "shiftTab": [
+  "A.btn btn-block btn-default btn-",
+  "BUTTON.btn btn-sm btn-default btn-blo",
+  "A."
+ ]
+}

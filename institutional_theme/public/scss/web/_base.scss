@@ -14,6 +14,13 @@ body.ins-error {
 	font-size: var(--ins-text-base);
 	line-height: var(--ins-leading);
 	font-synthesis: none;
+	// v16.52.0 reads `--font-weight-*` (Espresso `typography.css:8-11`, regular is 420) for the body, the
+	// `text-*` utilities and `.es-button`. The bundled faces are 400, 500 and 600, and 420 would round up to
+	// 500, so every line looked one step too heavy. Map them to the theme's weights; 16.32.0 never reads them.
+	--font-weight-regular: var(--ins-weight-regular);
+	--font-weight-medium: var(--ins-weight-medium);
+	--font-weight-semibold: var(--ins-weight-strong);
+	--font-weight-bold: var(--ins-weight-strong);
 }
 
 html[lang|="ar"] body.ins-auth,

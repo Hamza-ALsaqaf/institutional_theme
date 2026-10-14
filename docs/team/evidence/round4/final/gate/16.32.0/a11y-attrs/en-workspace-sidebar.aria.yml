@@ -1,0 +1,21 @@
+- text: Build Frappe Framework
+- button "Menu"
+- text: Search Ctrl+K Notification
+- link "DocType":
+  - /url: /desk/doctype
+- link "Page":
+  - /url: /desk/page
+- link "Report":
+  - /url: /desk/report
+- link "Workspace":
+  - /url: /desk/workspace
+- link "Dashboard":
+  - /url: /desk/dashboard
+- link "Module Def":
+  - /url: /desk/module-def
+- text: Customization
+- button "Expand Customization"
+- link "Property Setter":
+  - /url: /desk/property-setter
+- paragraph
+- text: Ae Axe en-light axe-en-light@midad.test

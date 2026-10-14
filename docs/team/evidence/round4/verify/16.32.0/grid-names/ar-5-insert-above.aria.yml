@@ -1,0 +1,20 @@
+- checkbox "تحديد جميع الصفوف"
+- text: لا. حساب * نوع الطرف الطرف المعني مدين دائن
+- checkbox "تحديد الصف 1"
+- text: 1 ر.س 0.00 ر.س 0.00
+- checkbox "تحديد الصف 2"
+- text: 2 ر.س 0.00 ر.س 0.00
+- checkbox "تحديد الصف 3"
+- text: "3"
+- combobox "حساب"
+- text: account
+- combobox "نوع الطرف"
+- status: ابدأ الكتابة لعرض النتائج.
+- text: party_type
+- combobox "الطرف المعني"
+- status: ابدأ الكتابة لعرض النتائج.
+- text: party
+- textbox "مدين"
+- text: debit_in_account_currency
+- textbox "دائن"
+- text: credit_in_account_currency

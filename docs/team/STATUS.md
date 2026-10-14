@@ -21,7 +21,25 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-None. Round 3 finished at about 05:15 UTC 2026-10-14 (second attempt, fresh runner, pull request #3).
+None. Round 4 finished at about 09:50 UTC 2026-10-14 (GitHub Actions, pull request #4).
+
+## Round 4 (forward compatibility with Frappe v16.52.0) result
+
+Gate: PASSED. All 13 checks of ADR 0011 R7 pass on Frappe 16.32.0 and on v16.52.0 (ERPNext v16.50.0) from one code base; evidence `docs/team/evidence/round4/final/gate/README.md` and `final/p0/README.md`. Tested commits `70a62dd` (code) to `dc2764f` (one ar.csv row); later commits are documentation, plus ar.csv wording rows verified by translation lookup.
+
+| Item | Result | Evidence |
+|---|---|---|
+| ADR 0011 (two v16 versions) | Accepted: side-by-side names, union deadness, one snapshot per version, cascade per version, range rule R7 | `docs/adr/0011-two-frappe-v16-versions.md`, `round4/source/token-map.md` |
+| G1, G2 tokens and audits | 0 dead in combined verdict (15 dead on v16.52.0 alone, all live on 16.32.0); 26 remaps, 47 new keys, no approved value moved; 16.32.0 effective map unchanged (798/798) except two accepted radius readers; F2 counterparts 30 pairs 0 findings; audit holes closed | `round4/tokens/`, `audit-infra/`, `fix1-backend/` |
+| G3 login, G4 names, G5 Gantt, G6 form errors, G8 shell | Side-by-side selectors; primary ink blue 8.27:1 on both; es-badge status shapes on real status hosts only; toast, dock, sidebar, control heights 32/44 | `round4/login/`, `selectors/`, `desk/`, `fix1/`, `fix2/`, `fix2-login/`, `fix3/` |
+| G7 manifest | Every row with a 16.32.0 and a 16.52.0 line; 0 UNVERIFIED apart from HRMS rows | `docs/DEPENDENCY_MANIFEST.md`, `round4/manifest/` |
+| Verification, both versions | cascade 4576/4576 and 7520/7520; 72 P0 captures no theme defect; axe 0 theme-caused (256 and 348 core nodes); run-tests 148 + 322 on both (16.32.0 passed on the third run after two flaky failures); print and email; install/uninstall gate and residue clean on both | `round4/final/` |
+| Hostile reviews | Upgrade: B1/R1 closed after two attempts, final scores 5/4/4/5. A11y: blocking login overlap closed, every dimension 4 | `docs/team/reviews/upgrade-round4.md`, `a11y-round4.md` |
+| Range | README and checklist: verified on 16.32.0 and v16.52.0; `pyproject.toml` constraint unchanged (`>=16.32.0,<17`) | `README.md`, `docs/UPGRADE_AND_QA_CHECKLIST.md` |
+
+Decisions 63-77 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic). Not delivered: the CI step that checks committed reports are current (`docs/team/evidence/round4/fix1-backend/ci-step-proposed.patch`, needs `workflows` permission).
+
+Bench on this runner: 16.32.0 at `/home/frappe/frappe-bench` (site `midad.test`, port 8000, `tools/bench/b.sh`); v16.52.0 at `/home/frappe/newest-bench` (site `midad52.test`, port 8001, `tools/bench/newest_site.sh`, `b52.sh`, `gate52.sh`). Build both with `sudo env PATH="$PATH" SYSTEM_PYTHON_SRC=$(dirname $(dirname $(readlink -f $(uv python find 3.14)))) tools/bench/build_test_bench.sh`, then `tools/bench/newest_tag.sh clone bench` with `EVIDENCE_DIR=docs/team/evidence/round4/newest-bench` (tags pinned in its `tags.env`), then `tools/bench/newest_site.sh`.
 
 ## Round 3 (release hardening) result
 
@@ -39,7 +57,7 @@ Decisions 47-62 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic).
 
 ## Next step
 
-The lead outside the job checks the round-3 evidence on pull request #3 and, if satisfied, merges it into `main` (never done by the build job). Optional follow-ups: a formal accessibility audit with screen readers and Windows High Contrast; a compatibility round before raising the supported range to the newest v16 tag (`docs/UPGRADE_AND_QA_CHECKLIST.md`, G1-G8); upstream contributions for Gantt Arabic month names and the core-markup axe findings.
+The lead outside the job checks the round-4 evidence on pull request #4 and, if satisfied, merges it into `main` (never done by the build job), applies `docs/team/evidence/round4/fix1-backend/ci-step-proposed.patch` to `.github/workflows/ci.yml` with a token that has `workflows` permission, and confirms CI on GitHub. Optional follow-ups: a formal accessibility audit with screen readers and Windows High Contrast; HRMS on v16.52.0; the known v16.52.0 items in `docs/UPGRADE_AND_QA_CHECKLIST.md` (Kanban v1 column dot, side-panel Draft colour); upstream contributions (Gantt Arabic month names, core-markup axe findings).
 
 ## Bench
 
@@ -97,3 +115,9 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 
 - 05:15 UTC 2026-10-14: the lead re-ran CI's own checks on `01b7c18` (ruff 0.16.8 check and format, 130 + 48 unit tests, `build --check` 0 stale, all audits including avatars passed), confirmed that the HRMS PostgreSQL workaround (`tools/bench/hrms_install.py`) is test-bench only and edits nothing on disk, and merges pull request #3 into `main` under the owner's authorisation.
 - Next step: round 4, forward compatibility with the newest v16 tag (v16.52.0) while keeping 16.32.0 fully supported (`docs/UPGRADE_AND_QA_CHECKLIST.md` G1 to G8).
+- 05:12 UTC 2026-10-14: pull request #3 merged into `main` (merge commit `713cf80`) after CI passed on `caec1ed`. Round 4 (forward compatibility with v16.52.0, no regression on 16.32.0) starts on a new pull request; scope in `docs/team/RESUME_PROMPT.md`.
+
+## After round 4 (lead)
+
+- 09:40 UTC 2026-10-14: the lead re-ran CI's checks on `dd035f9` (ruff 0.16.8, 130 + 48 unit tests, `build --check` 0 stale, audits passed), applied the proposed CI step "Committed reports are current" to `.github/workflows/ci.yml` after verifying it passes without a bench (budgets are skipped and the committed report kept when no build exists), and merges pull request #4 into `main` under the owner's authorisation.
+- The two flaky 16.32.0 test runs are treated as a real defect, not a flake: the app clears its settings caches before the saving transaction commits, so a concurrent request can refill a cache with the old values. Round 5 fixes the root cause (clear after commit as well) with a deterministic test, isolates the wkhtmltopdf clipping of the v16.52.0 default print format, and closes the known v16.52.0 items.

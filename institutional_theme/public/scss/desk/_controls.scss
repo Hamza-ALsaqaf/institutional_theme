@@ -80,11 +80,15 @@ html:root .frappe-control .help-box.small {
 	line-height: var(--ins-leading);
 }
 
+// 16.32.0 sets only `has-error`; v16.52.0 also sets `has-error-mandatory` and `has-error-invalid` next to it (base_input.js:270-286),
+// and sets none of them on form load or in a dialog before its primary action. All three are listed (same specificity as one class); the absent ones match nothing.
+$ins-has-error: ":is(.has-error, .has-error-mandatory, .has-error-invalid)";
+
 // ---- Error. Core (controls.scss:222): border `--error-border` (mapped to --ins-danger) at (0,4,1) and a focus
 // box-shadow. Two non-colour cues: an inner 1px line (design) and a 4px inline-start bar. The focus reset in
 // _base.scss removes the box-shadow while the ring is shown, so the bar is a border: it survives focus
 // (a11y-phase3 finding 7). The padding is reduced by the extra 3px so the text does not move.
-html:root .frappe-control.has-error :is(input, select, textarea).form-control#{$ins-cell-scope} {
+html:root .frappe-control#{$ins-has-error} :is(input, select, textarea).form-control#{$ins-cell-scope} {
 	border-color: var(--ins-danger);
 	border-inline-start-width: 4px;
 	padding-inline-start: calc(var(--ins-control-pad-x) - 3px);
@@ -98,11 +102,11 @@ html:root .frappe-control.has-error :is(input, select, textarea).form-control#{$
 $ins-error-hosts: ':is([data-fieldtype="Data"], [data-fieldtype="Int"], [data-fieldtype="Float"], [data-fieldtype="Currency"], [data-fieldtype="Link"], [data-fieldtype="Dynamic Link"], [data-fieldtype="Date"], [data-fieldtype="Datetime"], [data-fieldtype="Time"], [data-fieldtype="Select"], [data-fieldtype="Small Text"], [data-fieldtype="Text"], [data-fieldtype="Percent"], [data-fieldtype="Phone"])';
 $ins-error-icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm-.75 3h1.5v5h-1.5zm0 6.5h1.5V12h-1.5z'/%3E%3C/svg%3E";
 
-html:root .frappe-control.has-error#{$ins-error-hosts} .control-input {
+html:root .frappe-control#{$ins-has-error}#{$ins-error-hosts} .control-input {
 	position: relative;
 }
 
-html:root .frappe-control.has-error#{$ins-error-hosts} .control-input::after {
+html:root .frappe-control#{$ins-has-error}#{$ins-error-hosts} .control-input::after {
 	content: "";
 	position: absolute;
 	inset-inline-end: var(--ins-space-2);
@@ -114,20 +118,20 @@ html:root .frappe-control.has-error#{$ins-error-hosts} .control-input::after {
 	pointer-events: none;
 }
 
-html:root .frappe-control.has-error#{$ins-error-hosts} :is(input, textarea).form-control#{$ins-cell-scope} {
+html:root .frappe-control#{$ins-has-error}#{$ins-error-hosts} :is(input, textarea).form-control#{$ins-cell-scope} {
 	padding-inline-end: calc(var(--ins-space-2) * 2 + 16px);
 }
 
 // Select carries core's caret at inline-end: the icon moves inward and the select keeps room for both.
-html:root .frappe-control.has-error[data-fieldtype="Select"] .control-input::after {
+html:root .frappe-control#{$ins-has-error}[data-fieldtype="Select"] .control-input::after {
 	inset-inline-end: calc(var(--ins-space-2) + 24px);
 }
 
-html:root .frappe-control.has-error[data-fieldtype="Select"] select.form-control#{$ins-cell-scope} {
+html:root .frappe-control#{$ins-has-error}[data-fieldtype="Select"] select.form-control#{$ins-cell-scope} {
 	padding-inline-end: calc(var(--ins-space-2) * 2 + 16px + 24px);
 }
 
-html:root .frappe-control.has-error .control-label {
+html:root .frappe-control#{$ins-has-error} .control-label {
 	color: var(--ins-danger);
 }
 
@@ -189,7 +193,7 @@ html:root .frappe-control[data-fieldtype="Attach Image"] .attached-file {
 // ---- Forced colours: fields keep a visible boundary; the dashed disabled and flat read-only cues survive.
 @media (forced-colors: active) {
 	// The mask icon is a background fill, which the system would replace with Canvas: opt it out and use a system colour.
-	html:root .frappe-control.has-error#{$ins-error-hosts} .control-input::after {
+	html:root .frappe-control#{$ins-has-error}#{$ins-error-hosts} .control-input::after {
 		forced-color-adjust: none;
 		background-color: CanvasText;
 	}

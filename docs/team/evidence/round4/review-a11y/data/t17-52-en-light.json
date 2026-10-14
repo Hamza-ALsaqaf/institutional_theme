@@ -1,0 +1,129 @@
+{
+ "row_normal": {
+  "state": "normal",
+  "rowBg": "rgb(255,255,255)",
+  "subj": {
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(255,255,255)",
+   "ratio": 8.84
+  },
+  "badge": {
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(241,244,248)",
+   "ratio": 8.01
+  }
+ },
+ "row_hover": {
+  "state": "hover",
+  "rowBg": "rgb(241,244,248)",
+  "subj": {
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(241,244,248)",
+   "ratio": 8.01
+  },
+  "badge": {
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(241,244,248)",
+   "ratio": 8.01
+  }
+ },
+ "row_selected": {
+  "state": "selected",
+  "rowBg": "rgb(242,247,254)",
+  "subj": {
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(242,247,254)",
+   "ratio": 8.21
+  },
+  "badge": {
+   "fg": "rgb(66,75,87)",
+   "bg": "rgb(241,244,248)",
+   "ratio": 8.01
+  }
+ },
+ "checkbox": {
+  "checked": false,
+  "bg": "rgb(27, 80, 134)",
+  "border": "rgb(0, 0, 0) 0px",
+  "nt": {
+   "fg": "rgb(0,0,0)",
+   "bg": "rgb(241,244,248)",
+   "ratio": 19.04
+  },
+  "w": 16
+ },
+ "pillFocus": {
+  "active": false,
+  "fv": false,
+  "outline": "none 0px rgb(88, 97, 109) off 0px",
+  "role": "radio",
+  "checked": "false",
+  "rect": [
+   334,
+   733,
+   40,
+   26
+  ],
+  "ring": {
+   "fg": "rgb(88,97,109)",
+   "bg": "rgb(241,244,248)",
+   "ratio": 5.69
+  }
+ },
+ "pillAttrs": [
+  {
+   "t": "20",
+   "role": "radio",
+   "checked": "true",
+   "state": "active",
+   "fw": "400",
+   "shadow": "rgba(9, 16, 24, 0.06) 0px 1px 2px 0px, rgba(9, 16, 24, 0.04) 0px 1px 1px 0px",
+   "ul": "none"
+  },
+  {
+   "t": "100",
+   "role": "radio",
+   "checked": "false",
+   "state": "inactive",
+   "fw": "400",
+   "shadow": "none",
+   "ul": "none"
+  },
+  {
+   "t": "500",
+   "role": "radio",
+   "checked": "false",
+   "state": "inactive",
+   "fw": "400",
+   "shadow": "none",
+   "ul": "none"
+  },
+  {
+   "t": "2500",
+   "role": "radio",
+   "checked": "false",
+   "state": "inactive",
+   "fw": "400",
+   "shadow": "none",
+   "ul": "none"
+  }
+ ],
+ "sbWeights": {
+  "active": {
+   "fw": "400",
+   "txt": "ToDo",
+   "ariaCur": null
+  },
+  "plain": {
+   "fw": "400"
+  },
+  "anyAriaCurrent": 2
+ },
+ "badgeFocus": {
+  "tabindex": null,
+  "role": null,
+  "tag": "SPAN",
+  "cursor": "pointer"
+ },
+ "tags": []
+}

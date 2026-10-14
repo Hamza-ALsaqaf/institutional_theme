@@ -1,0 +1,48 @@
+Linking /home/frappe/frappe-bench/apps/frappe/frappe/public to ./assets/frappe  Linking /home/frappe/frappe-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/erpnext/public to ./assets/erpnext                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                Linking /home/runner/work/institutional_theme/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps institutional_theme --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+institutional_theme/dist/js/
+├─ ins_shell.bundle.H4G7FFTX.js                             21.30 Kb
+└─ ins_web.bundle.S7YMWZWK.js                               1.48 Kb
+
+institutional_theme/dist/css/
+├─ ins_desk.bundle.FFEDV7M4.css                             127.95 Kb
+├─ ins_email.bundle.NDJ66FQG.css                            3.42 Kb
+├─ ins_print.bundle.G46IEGEU.css                            6.42 Kb
+├─ ins_web.bundle.IDJM5ZWR.css                              59.35 Kb
+├─ ins_fonts_noto.bundle.573DRZIH.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.6DTHXWGZ.css                    2.21 Kb
+├─ ins_palette_forest.bundle.FKWHFJP2.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.YUKKBR2B.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.WL7OOZ4E.css                   8.16 Kb
+└─ ins_palette_plum.bundle.IDDNQVW4.css                     8.16 Kb
+
+institutional_theme/dist/css-rtl/
+├─ ins_desk.bundle.Q6S3QM7M.css                             127.95 Kb
+├─ ins_email.bundle.J2UL6AMB.css                            3.42 Kb
+├─ ins_print.bundle.JG6PY3B2.css                            6.42 Kb
+├─ ins_web.bundle.UA22LMPQ.css                              59.35 Kb
+├─ ins_fonts_noto.bundle.JTCJK6GY.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.PK3VYSZ2.css                    2.21 Kb
+├─ ins_palette_forest.bundle.QUGDLM3L.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.B2BPAUZZ.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.TPHX5W3I.css                   8.16 Kb
+└─ ins_palette_plum.bundle.LFRWDXMO.css                     8.16 Kb
+
+ DONE  Total Build Time: 1.208s
+
+Done in 1.77s.
+Compiling translations for institutional_theme
+/home/frappe/frappe-bench: 0 theme entries point at missing files
+/home/frappe/newest-bench: 20 theme entries point at missing files (assets.json:ins_desk.bundle.css, assets.json:ins_email.bundle.css, assets.json:ins_print.bundle.css...)
+copied 20 entries from /home/frappe/frappe-bench to /home/frappe/newest-bench
+cache cleared: midad.test
+cache cleared: midad52.test
+exit 0
