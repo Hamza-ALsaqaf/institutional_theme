@@ -101,6 +101,23 @@ The generated per-site stylesheets folder is removed by the uninstall hook. The 
 - Bench tests: `tools/bench/b.sh run-tests --app institutional_theme`. Bench set-up is in `tools/bench/README.md`.
 - After a Frappe upgrade, follow `docs/UPGRADE_AND_QA_CHECKLIST.md`.
 
+## Troubleshooting
+
+### Another brand app is installed (for example one that ships its own `*-brand.css`)
+
+Apps load their `app_include_css` in `installed_apps` order, so an app installed after this one loads its stylesheet later and wins ties. Tested with a reproduction of such an app's documented rules (`tests/browser/coexistence.mjs`, evidence in `docs/team/evidence/round3/coexistence/`):
+
+- Font: the other app's `html[lang=ar], html[dir=rtl] { --font-stack }` is (0,1,1); this theme sets `--font-stack` at `html:root[dir]`, (0,2,1). Midad Plex stays in use and the other app's `IBM Plex Sans Arabic` face is never requested. No action needed.
+- Primary button: `[data-theme=light] .btn-primary` and its `:hover` rule are (0,2,0) and (0,3,0); this theme sets background, border and colour at `html:root[dir] .btn.btn-primary` (0,4,1) and its `:hover` (0,5,1). No action needed.
+- Desktop page header border: a later `.desktop-navbar { border-bottom }` is (0,1,0); this theme restores the hairline at (0,3,1). No action needed.
+
+What this theme cannot beat: any rule of the other app that uses `!important`, a selector of specificity (0,4,1) or more on the same property, or an inline style. Symptoms are gold or foreign-coloured buttons, a foreign font in Arabic, or a thick header border. Remedy for an administrator, in this order:
+
+1. Remove the offending rule from the other app's stylesheet or disable its `app_include_css` (the cleanest fix; that app owns the file).
+2. Otherwise report the selector to the theme maintainer: the fix is one rule at (0,5,1) or higher in `institutional_theme/public/scss/desk/`, then `bench build --app institutional_theme`.
+
+Check which app wins: open the browser developer tools, select the element and read the "Computed" tab; the winning rule names the stylesheet (`/assets/<app>/css/...`).
+
 ## Out of scope
 
 Standalone single-page apps (Helpdesk, CRM) do not load the desk CSS and are not themed.

@@ -1,0 +1,202 @@
+[
+  {
+    "user": "coex-ar-light@midad.test",
+    "route": "/desk",
+    "lang": "ar",
+    "dir": "rtl",
+    "theme": "light",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600",
+      "Midad Plex Sans Arabic:400",
+      "Midad Plex Sans Arabic:500",
+      "Midad Plex Sans Arabic:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": null,
+    "navTag": "header.desktop-navbar.navbar.navbar-expand.navbar-container",
+    "navBorderBottom": "1px solid rgb(232, 235, 241)",
+    "shot": "ar-light-desk-baseline.png"
+  },
+  {
+    "user": "coex-ar-light@midad.test",
+    "route": "/app/todo/new",
+    "lang": "ar",
+    "dir": "rtl",
+    "theme": "light",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600",
+      "Midad Plex Sans Arabic:400",
+      "Midad Plex Sans Arabic:500",
+      "Midad Plex Sans Arabic:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": {
+      "sel": "btn btn-primary btn-sm primary-action",
+      "bg": "rgb(27, 80, 134)",
+      "color": "rgb(255, 255, 255)",
+      "border": "rgb(27, 80, 134)"
+    },
+    "navTag": null,
+    "navBorderBottom": null,
+    "btnHover": {
+      "bg": "rgb(15, 58, 101)",
+      "color": "rgb(255, 255, 255)"
+    },
+    "shot": "ar-light-form-baseline.png"
+  },
+  {
+    "user": "coex-ar-dark@midad.test",
+    "route": "/desk",
+    "lang": "ar",
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600",
+      "Midad Plex Sans Arabic:400",
+      "Midad Plex Sans Arabic:500",
+      "Midad Plex Sans Arabic:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": null,
+    "navTag": "header.desktop-navbar.navbar.navbar-expand.navbar-container",
+    "navBorderBottom": "1px solid rgb(37, 44, 55)",
+    "shot": "ar-dark-desk-baseline.png"
+  },
+  {
+    "user": "coex-ar-dark@midad.test",
+    "route": "/app/todo/new",
+    "lang": "ar",
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600",
+      "Midad Plex Sans Arabic:400",
+      "Midad Plex Sans Arabic:500",
+      "Midad Plex Sans Arabic:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": {
+      "sel": "btn btn-primary btn-sm primary-action",
+      "bg": "rgb(167, 201, 240)",
+      "color": "rgb(6, 26, 48)",
+      "border": "rgb(167, 201, 240)"
+    },
+    "navTag": null,
+    "navBorderBottom": null,
+    "btnHover": {
+      "bg": "rgb(202, 224, 249)",
+      "color": "rgb(6, 26, 48)"
+    },
+    "shot": "ar-dark-form-baseline.png"
+  },
+  {
+    "user": "coex-en-light@midad.test",
+    "route": "/desk",
+    "lang": "en",
+    "dir": "ltr",
+    "theme": "light",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": null,
+    "navTag": "header.desktop-navbar.navbar.navbar-expand.navbar-container",
+    "navBorderBottom": "1px solid rgb(232, 235, 241)",
+    "shot": "en-light-desk-baseline.png"
+  },
+  {
+    "user": "coex-en-light@midad.test",
+    "route": "/app/todo/new",
+    "lang": "en",
+    "dir": "ltr",
+    "theme": "light",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": {
+      "sel": "btn btn-primary btn-sm primary-action",
+      "bg": "rgb(27, 80, 134)",
+      "color": "rgb(255, 255, 255)",
+      "border": "rgb(27, 80, 134)"
+    },
+    "navTag": null,
+    "navBorderBottom": null,
+    "btnHover": {
+      "bg": "rgb(15, 58, 101)",
+      "color": "rgb(255, 255, 255)"
+    },
+    "shot": "en-light-form-baseline.png"
+  },
+  {
+    "user": "coex-en-dark@midad.test",
+    "route": "/desk",
+    "lang": "en",
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": null,
+    "navTag": "header.desktop-navbar.navbar.navbar-expand.navbar-container",
+    "navBorderBottom": "1px solid rgb(37, 44, 55)",
+    "shot": "en-dark-desk-baseline.png"
+  },
+  {
+    "user": "coex-en-dark@midad.test",
+    "route": "/app/todo/new",
+    "lang": "en",
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyFontFamily": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "fontStackVar": "\"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+    "loadedFaces": [
+      "Midad Plex Sans:400",
+      "Midad Plex Sans:500",
+      "Midad Plex Sans:600"
+    ],
+    "brandFaceLoaded": false,
+    "btn": {
+      "sel": "btn btn-primary btn-sm primary-action",
+      "bg": "rgb(167, 201, 240)",
+      "color": "rgb(6, 26, 48)",
+      "border": "rgb(167, 201, 240)"
+    },
+    "navTag": null,
+    "navBorderBottom": null,
+    "btnHover": {
+      "bg": "rgb(202, 224, 249)",
+      "color": "rgb(6, 26, 48)"
+    },
+    "shot": "en-dark-form-baseline.png"
+  }
+]
