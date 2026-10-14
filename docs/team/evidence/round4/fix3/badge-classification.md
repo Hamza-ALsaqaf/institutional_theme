@@ -37,5 +37,7 @@ Everything else gets the neutral pair and no shape. Source: grep of `ui.badge(`,
 | `print_format_builder/**` (4 .vue files) | field type and zone chips | label | neutral |
 | `core/page/component_explorer/component_explorer.js` | demo only | other | neutral |
 
-Counts: 5 status call sites (6 with Select values counted apart), 5 status-like sites left neutral because no host class exists
-(label text still says the state), the rest labels, counts or other. Neutral loses the colour on the five status-like sites; the text carries the meaning.
+Counts: 5 status call sites (one of them, `list/list_view.js:1499`, is a Select value), 4 status-like sites left neutral because no host class exists
+(label text still says the state), the rest labels, counts or other. Neutral loses the colour on the four status-like sites; the text carries the meaning.
+
+Correction (corrected by scribe): the count above previously said "5 status-like sites" and "6 with Select values counted apart". The table names four status-like rows (`kanban_page.js:1467`, `embedded_list.js:293`, `timeline_message_box.html:66`, `workspace_restore.js:93`) and five status rows in total, one of which is the Select value at `list_view.js:1499`. The table rows are unchanged.
