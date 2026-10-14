@@ -1,6 +1,6 @@
 {
 	"en": {
-		"shell.app": "Desk", "shell.org": "Example Directorate", "shell.search": "Search", "shell.tasks": "Tasks", "shell.notes": "Notes", "shell.reports": "Reports",
+		"shell.app": "Desk", "shell.home": "Home", "shell.org": "Example Directorate", "shell.search": "Search", "shell.tasks": "Tasks", "shell.notes": "Notes", "shell.reports": "Reports",
 		"page.title": "Tasks", "page.list.title": "Tasks", "page.form.crumb": "Review the quarterly summary", "page.report.title": "Tasks report",
 		"page.new": "Add task", "page.save": "Save", "page.status.open": "Not saved",
 		"list.filter": "Description", "list.filters": "Filter", "list.selectall": "Select all", "list.count": "3 of 3",
@@ -10,11 +10,12 @@
 		"form.status": "Status", "form.title": "Title", "form.due": "Due date", "form.owner": "Assigned to", "form.help": "A short, descriptive title.",
 		"report.id": "ID", "report.subject": "Task", "report.status": "Status", "report.priority": "Priority", "report.due": "Due date",
 		"report.r1": "Review the quarterly summary", "report.r2": "Archive the signed agreements", "report.r3": "Prepare the visitors' schedule",
+		"ws.shortcuts": "Your Shortcuts", "ws.reports": "Reports and masters", "ws.s1": "Tasks", "ws.s2": "Notes", "ws.s3": "Visitors", "ws.c1": "Records", "ws.c2": "Settings", "ws.l1": "Task list", "ws.l2": "Archive", "ws.l3": "Agreements", "ws.l4": "Users", "ws.l5": "Roles", "ws.l6": "Print formats", "ws.l7": "Reports", "ws.l8": "Letter heads", "toast.ok": "Saved", "toast.err": "Check the entries", "toast.warn": "Unsaved changes", "toast.sub": "Task TSK-0001",
 		"dialog.title": "Message", "dialog.body": "The request could not be completed. Check the entries and try again.", "dialog.close": "Close", "dialog.cancel": "Cancel", "dialog.confirm": "Confirm",
 		"login.title": "Sign in", "login.subtitle": "Welcome! Please sign in to continue.", "login.email": "Email", "login.email.ph": "name@example.com", "login.password": "Password", "login.forgot": "Forgot password?", "login.continue": "Continue", "login.lang": "Language"
 	},
 	"ar": {
-		"shell.app": "المكتب", "shell.org": "إدارة المثال", "shell.search": "بحث", "shell.tasks": "المهام", "shell.notes": "الملاحظات", "shell.reports": "التقارير",
+		"shell.app": "المكتب", "shell.home": "الرئيسية", "shell.org": "إدارة المثال", "shell.search": "بحث", "shell.tasks": "المهام", "shell.notes": "الملاحظات", "shell.reports": "التقارير",
 		"page.title": "المهام", "page.list.title": "المهام", "page.form.crumb": "مراجعة الملخص الفصلي", "page.report.title": "تقرير المهام",
 		"page.new": "إضافة مهمة", "page.save": "حفظ", "page.status.open": "غير محفوظ",
 		"list.filter": "الوصف", "list.filters": "تصفية", "list.selectall": "تحديد الكل", "list.count": "3 من 3",
@@ -24,6 +25,7 @@
 		"form.status": "الحالة", "form.title": "العنوان", "form.due": "تاريخ الاستحقاق", "form.owner": "المكلّف", "form.help": "عنوان قصير ووصفي.",
 		"report.id": "الرقم", "report.subject": "المهمة", "report.status": "الحالة", "report.priority": "الأولوية", "report.due": "تاريخ الاستحقاق",
 		"report.r1": "مراجعة الملخص الفصلي", "report.r2": "أرشفة الاتفاقيات الموقعة", "report.r3": "إعداد جدول الزوار",
+		"ws.shortcuts": "اختصاراتك", "ws.reports": "التقارير والبيانات الأساسية", "ws.s1": "المهام", "ws.s2": "الملاحظات", "ws.s3": "الزوار", "ws.c1": "السجلات", "ws.c2": "الإعدادات", "ws.l1": "قائمة المهام", "ws.l2": "الأرشيف", "ws.l3": "الاتفاقيات", "ws.l4": "المستخدمون", "ws.l5": "الأدوار", "ws.l6": "نماذج الطباعة", "ws.l7": "التقارير", "ws.l8": "ترويسات الرسائل", "toast.ok": "تم الحفظ", "toast.err": "راجع المدخلات", "toast.warn": "تغييرات غير محفوظة", "toast.sub": "المهمة TSK-0001",
 		"dialog.title": "رسالة", "dialog.body": "تعذّر إكمال الطلب. راجع المدخلات وحاول مرة أخرى.", "dialog.close": "إغلاق", "dialog.cancel": "إلغاء", "dialog.confirm": "تأكيد",
 		"login.title": "تسجيل الدخول", "login.subtitle": "مرحبا بك! سجّل الدخول للمتابعة.", "login.email": "البريد الإلكتروني", "login.email.ph": "name@example.com", "login.password": "كلمة المرور", "login.forgot": "نسيت كلمة المرور؟", "login.continue": "متابعة", "login.lang": "اللغة"
 	}
