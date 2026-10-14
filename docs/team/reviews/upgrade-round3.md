@@ -96,3 +96,109 @@ The gate needs every dimension at 4 or more. Documentation reaches 4 when B2 and
 - Screen reader output: the evidence uses only the Chromium accessibility tree.
 - Observer cost on a long Ace or Quill editing session, and in a grid with hundreds of rows.
 - HRMS desk templates that use the `.text-*` utilities: I took them from the evidence and did not open them.
+
+## Second pass (fix round, `92af3a6..25909f2`)
+
+Scope: `git diff 92af3a6..HEAD` for `institutional_theme`, `tools`, `README.md`, `docs/DEPENDENCY_MANIFEST.md` and `docs/UPGRADE_AND_QA_CHECKLIST.md`, and the evidence in `docs/team/evidence/round3/{fix-shell,fix-uninstall,fix-css,fix-css2}/README.md`. Both late items landed before I finished, so both are reviewed here: the CSS fixes (25909f2: danger button, mobile status chip, home breadcrumb) and the scribe's manifest and checklist update (ca6ede7). Frappe source: `/home/frappe/frappe-bench/apps/frappe` (`git describe`: v16.32.0). I also used v16.52.0 in `/home/frappe/newest-bench/apps/frappe`. I changed nothing on either bench.
+
+What I ran: `python3 -I -m unittest discover -s institutional_theme/audits/tests -t .` (48 tests, OK). I also ran `tools/bench/manifest_selectors.py` on the committed manifest, 16.32.0 against 16.52.0 (output in `/tmp/r3sp/`, not committed). It read 187 rows including 2i and 2j, and reported OnboardingPanel as "file gone". I read the size of the built `ins_shell.bundle.62QEWGOY.js`: 21,238 bytes. Everything else below is read from source, and each item says so.
+
+### First-pass findings
+
+| Finding | Status | Evidence |
+|---|---|---|
+| B1: Check values named "Select row N" | **Fixed** | `a11y_rules.js:273` is now `.dt-cell--col-0 input[type='checkbox']:not([disabled])`, and `:187-188` returns early for anything disabled or inside `.dt-cell__edit`. frappe-datatable puts `_checkbox` first (`datamanager.js:55-68`), and core's Check formatter writes `disabled` (`formatters.js:165-167`). VERIFIED before and after on the bench (`fix-shell/README.md` "Before", probe2). |
+| B2: round-3 dependencies missing from the manifest | **Fixed** | Section 2j (2j.1 shell names, 2j.2 desk CSS remaps, 2j.3 proof-only) is committed. No PENDING row is left (`grep -c PENDING` finds only the sentence saying they are resolved). `manifest_selectors.py` now reads every `### 2x` heading and exits 1 on a table it cannot read. A test covers this (`audits/tests/test_manifest_selectors.py`). I ran it: see above. The rows for 25909f2 are missing; see m3. |
+| SF1: Website Settings copies left after uninstall | **Fixed** | `identity_sync.py:236-266` also collects `Website Settings` rows by field, written `file_url` and `creation >= since`. VERIFIED: `fix-uninstall` `new-code` and `new-code-favicon` show `RESIDUE: none`. The negative control `old-code` reproduces the 2 Website copies with the previous file. |
+| SF2: an administrator's same-bytes file deleted | **Fixed, with one documented residual case** | Ownership is now recorded, not inferred from `content_hash`. Navbar rows are recorded by name at sync time (`identity_sync.py:186-197`); a row that existed before `since` cannot be recorded. VERIFIED: in `new-code` the administrator's row and file survive, and in `old-code` they are deleted. The residual case is README:104 (see "identity_sync" below). |
+| SF3: README overclaim | **Fixed** | README:103-104 now lists what is removed and what is kept, including earlier-build sites and the one case that cannot be told apart. |
+| SF4: stale checklist axe table | **Fixed** | `UPGRADE_AND_QA_CHECKLIST.md:132-146` uses the three final statuses. C42 is final, and C43 (uninstall residue) was added. |
+| SF5: observer queue in a hidden tab | **Fixed** | `dom.js` `defer()` uses a 250 ms timer when `document.hidden`, and requestAnimationFrame plus a 1 s backup otherwise. `a11y_names.js`, `field_labels.js` and `grid_names.js` all use it, and the `queued` flag keeps it to one pending run. |
+| Note: `.modal .grid-row-check` gap | Not addressed (it was a note) | `grid_names.js` still skips grids in dialogs. |
+
+### Regression hunt
+
+**identity_sync and `ins_identity_files`** (READ in source, bench run in `fix-uninstall`):
+- **Timestamps.** `_stamp()` is `str(now_datetime())`, which is system time zone and naive. `File.creation` is `now()` (`model/base_document.py:754`), and `now()` formats `now_datetime()` (`utils/data.py:371-373,415-423`). Same clock, same zone, microsecond precision, so the `>=` comparison is sound. One exception: `now()` substitutes `frappe.flags.current_date` (`data.py:417-421`), a test-only flag. Under it a File's date is not the stamp's date. This does not affect production.
+- **Can it delete an administrator's file?**
+  - Navbar: no. Only rows created inside the sync's own `settings.save()` are recorded.
+  - Website Settings: yes, in one case, the one README:104 states. An administrator uploads the emblem's exact bytes into the same Website Settings field after the theme wrote it, and does not show it. Core's de-duplication (`core/doctype/file/file.py:819-835`) gives it the theme's `file_url`, so it is indistinguishable. The disk file survives only if another row shares the hash (`file.py:605-618`). This is accepted and documented.
+  - Rows still shown are never deleted (`_owned_copies`, the `file_url != showing` check).
+- **Earlier builds.** There is no migration patch (`patches.txt` is empty), so a site that synced with an earlier build has no record. Uninstall then deletes only the rows attached to the settings doctype, and leaves the Navbar copies as residue. This fails safe (residue, never deletion) and README:104 says so.
+- **If the global is lost.** For example, a partial restore or a manual DefaultValue cleanup. `_load` returns `{}`, so again residue and never deletion. A full backup restore brings the global back, because it is a `tabDefaultValue` row.
+- **Order and failure.** `before_uninstall` runs `restore → delete attachments → clear globals` (`install.py:96-98`), each step isolated. If deletion fails, `clear_globals` (prefix `ins_identity_`) still removes the record and the rows stay as residue. `clear_default(key=…, parent="__global")` matches `frappe/defaults.py:194`.
+
+**viewport.js** (READ):
+- The source line still matches: `www/desk.html:14-15` in 16.32.0, and identical in 16.52.0 by the selector tool.
+- The script makes one attribute write on the existing meta, on desk only (`app_include_js`, `hooks.py:22`), and does nothing if the meta is absent or already allows zoom.
+- No desk JS reads the viewport meta: grep of `frappe/public/js` finds `viewport` only inside the minified `lib/fingerprintjs.js`, and no `meta[name=viewport]` selector. It is upgrade-safe. One side effect is listed as m1.
+
+**`role="main"` on `#body`** (READ): `www/desk.html:38-42` (16.52.0: `:50-54`). There is no `<main>` or `role=main` anywhere in `frappe/public/js`. The header and the app sidebar are outside `#body`. Core appends only the freeze backdrop to `#body` (`dom.js:152`). The script skips if a role or a main already exists. No issue.
+
+**Observers** (READ):
+- The body observer filters on `data-original-title`, `title` and `data-state`, and its writes (`aria-*`, `role`, `alt`, `id`) are outside that filter.
+- The new tablist observer filters on `class` and writes only `aria-selected`.
+- Neither can trigger itself. The tablist observer is created once per tablist (WeakSet) and is collected with the node.
+- The tab state is correct only until Bootstrap writes; see M1.
+
+**Check-value naming** (READ):
+- The header name comes from the header `.dt-cell__content` `title`, which the datatable always writes (`cellmanager.js:939`), matched by `data-col-index`.
+- Col-0 and header cells are excluded. A disabled checkbox in col-0 on a table with neither the checkbox nor the serial column stays unnamed. That is not a false name.
+- The row number is `data-row-index` (the data index), not the visual position after a sort. The selection names already use the same scheme. This is a note.
+
+**Bundle**: the built `ins_shell` is 21,238 bytes (20.7 KB) against 24 KB. `docs/audits/budgets.txt:25` still says 18.3 KB because the audit measures `/home/user/frappe-bench` (`budgets.txt:2`), not this bench. See m5.
+
+**fix-css2 (25909f2)** (READ, evidence VERIFIED by its author):
+- **Danger button.** `--ins-on-danger` and `--ins-danger-hover` are defined for Light (`generated/_tokens.scss:46-47`), Dark (`:320-321`) and the auto block (`:593-594`). No palette redefines `--ins-danger`, so nothing light leaks into Dark. The rule is (0,4,1) against core's (0,2,0) (`common/buttons.scss:130-133`), and the tie with the tagged-action rule is resolved by file order inside one partial, not across bundles. No `!important`.
+- **Breadcrumb.** Logical margins, and no flip risk under rtlcss.
+- **Status chip.** See m2.
+
+### Blocking
+
+None.
+
+### Major
+
+**M1. Form tab `aria-selected` stops following the active tab after the first click.**
+- **Where:** `a11y_rules.js:123-125` (`syncTab` uses `put`), with the ownership guard at `:16-21` (`mayWrite`).
+- **Proof in Frappe:** a tab click runs Bootstrap's plugin (`form/layout.js:555`, `$(e.currentTarget).tab("show")`). Bootstrap 4.6.2 (`node_modules/bootstrap/package.json:4`) writes `aria-selected` itself on elements with `role="tab"` (`node_modules/bootstrap/js/src/tab.js:167-176`). After that click the values are Bootstrap's, so `mayWrite` refuses every later write. Core's other path to a tab, `Tab.set_active()` (`form/tab.js:95-108`), moves only the `active` class. That path is called from `form.js:2120-2121` (`scroll_to_field`: undo, URL hash, onboarding steps), `form.js:1583,1592` and `layout.js:438,450`.
+- **Failure:** the user clicks tab B, then any `set_active` returns to tab A. A is visibly active, but a screen reader announces B as selected and A as not selected (WCAG 4.1.2).
+- **Why the checks missed it:** the bench check in `fix-shell` (finding 4) followed a click only, and on a click Bootstrap and the module agree.
+- **Also wrong:** the manifest 2j row ("no `aria-selected` written by core") and the comment at `a11y_rules.js:117-120` ("writes nothing else").
+- **Smallest fix:** `aria-selected` is a pure mirror of the `active` class, so write it with `setAttr(button, "aria-selected", …)` instead of `put`. A value derived from the same class never overrides anyone's intent. Then correct the comment and the manifest row (cite `bootstrap/js/src/tab.js:167-176`).
+- **Evidence:** COMPUTED from source. Not run.
+
+### Minor
+
+- **m1. Removing `maximum-scale` re-enables iOS Safari's focus zoom** (`viewport.js:8`).
+  - **Cause:** form text is 14px (`design/tokens.json:240` `text-base`), and WebKit zooms the page when an input under 16px gets focus, unless `maximum-scale=1`.
+  - **Failure:** on an iPhone, the page zooms in on every field tap and stays zoomed.
+  - **Evidence:** ASSUMED, from known WebKit behaviour. No device was run, and fix-css2 lists pinch/zoom as not done.
+  - **Fix:** record this as an accepted consequence in the 2j viewport row and in the checklist. Optionally, ask the lead for 16px controls under `@media (pointer: coarse)`.
+- **m2. `.list-row .level-right { z-index: 2 }` (`_list.scss:60-62`) equals core's sticky list header** (`.list-row-container:first-child`, `z-index: 2`, `desk/list.scss:11-14`).
+  - **Failure:** both sit in the same stacking context, so the later row's block paints over the header wherever the header actually sticks.
+  - **Evidence:** UNVERIFIED that it sticks in 16.32. `result-container` is `overflow-x: auto` with no bounded height (`list.scss:601-607`), so probably not.
+  - **Fix:** `z-index: 1` is enough. It ties with `.list-subject` (`_list.scss:54`), and `.level-right` comes later in the DOM, so it still wins.
+- **m3. The manifest has no row for the 25909f2 dependencies.** Missing: `.btn.btn-danger` (`common/buttons.scss:130-133`), `.grid-delete-row` (its own evidence says "line not re-read"), and the breadcrumb home-link sizing. Row 235 covers only its `aria-label`, and the CSS cites `desk/breadcrumb.scss:7-30`. Fix: add three rows to 2j.2.
+- **m4. Some 2j citations cannot be resolved by the upgrade tool.** Bare `rowmanager.js` and `cellmanager.js` come back as "not found in the old tree either (manifest path not resolvable)", so those citations go unchecked at the next tag. Fix: write them as `apps/frappe/node_modules/frappe-datatable/src/…`.
+- **m5. `docs/audits/budgets.txt` is stale** (18.3 KB against 20.7 KB built for `ins_shell`) because the audit's bench path is not this bench. Fix: regenerate it on this bench, or point the audit at it.
+
+### Scores (final)
+
+| Dimension | Score | Evidence |
+|---|---|---|
+| Upgrade-safety | 4/5 | Attributes only, with no core JS reading anything we write (viewport, `#body` role, tab state). B2 is closed and the tool is proven against 16.52.0. Uninstall ownership is recorded and fails safe when the record is missing. Held below 5 by the undocumented 25909f2 rows (m3) and the unresolvable citations (m4). |
+| Performance | 4/5 | Hidden-tab backlog fixed. 20.7 of 24 KB. No self-trigger in any observer. The per-cell header lookup in `nameDatatableValue` is not measured on a 1500-row report. |
+| Documentation | 4/5 | Manifest 2j, README uninstall and checklist C42/C43 are fixed and honest about limits. Two errors remain: the 2j tab row is factually wrong about core (M1), and m3/m5. |
+| Craft | 4/5 | B1 fixed precisely, with an honest before/after. Ownership is recorded rather than guessed, with a negative control. M1 is a one-line correction. |
+
+Every dimension is at 4, so the gate passes on my dimensions. Fix M1 (code, comment and manifest row) before `main` is fast-forwarded. It is a one-line change, and leaving it ships a false screen-reader state on every tabbed form. m1 to m5 can follow in the next round.
+
+### Not verified
+
+- M1 and m2 on a live site: both are COMPUTED from source.
+- iOS focus zoom (m1): no device.
+- Uninstall after a restore without files (File rows whose disk file is missing).
+- Arabic screen-reader output for "{0}، الصف {1}".
+- Pinch-zoom itself.
+- Cost of `nameDatatableValue` on large reports.
