@@ -213,3 +213,88 @@ Browserslist: caniuse-lite is outdated. Please run:
 
 Inter-DisplayRegular.woff2?v=3.19 referenced in Inter-DisplayRegular.woff2?v=3.19 didn't resolve at build time, it will remain unchanged to be resolved at runtime
 ✓ 518 modules transformed.
+rendering chunks...
+computing gzip size...
+../hrms/public/roster/index.html                                             0.62 kB │ gzip:   0.37 kB
+../hrms/public/roster/assets/Inter-Regular-trENmjXB.woff2                  100.79 kB
+../hrms/public/roster/assets/Inter-Thin-D3JiHKaG.woff2                     101.16 kB
+../hrms/public/roster/assets/Inter-DisplayBlack-WeYNDCAX.woff2             101.92 kB
+../hrms/public/roster/assets/Inter-DisplayThin-ChL4oFCg.woff2              102.15 kB
+../hrms/public/roster/assets/Inter-ExtraLight-CCj5KODw.woff2               102.87 kB
+../hrms/public/roster/assets/Inter-Light-dIA14uc3.woff2                    103.27 kB
+../hrms/public/roster/assets/Inter-Black-9EvaAvES.woff2                    103.59 kB
+../hrms/public/roster/assets/Inter-ExtraBold-Ce88byQn.woff2                104.99 kB
+../hrms/public/roster/assets/Inter-Bold-R0zHozHF.woff2                     105.21 kB
+../hrms/public/roster/assets/Inter-Medium-BN7iDkqy.woff2                   105.22 kB
+../hrms/public/roster/assets/Inter-DisplayLight-w8lPQKnS.woff2             105.34 kB
+../hrms/public/roster/assets/Inter-DisplayExtraBold-BXf2GJrG.woff2         105.36 kB
+../hrms/public/roster/assets/Inter-DisplayMedium-DcjtbkcA.woff2            105.38 kB
+../hrms/public/roster/assets/Inter-SemiBold-CBUekF9E.woff2                 105.40 kB
+../hrms/public/roster/assets/Inter-DisplaySemiBold-BBWLY5vL.woff2          105.56 kB
+../hrms/public/roster/assets/Inter-DisplayBold-C-1EDGRh.woff2              105.57 kB
+../hrms/public/roster/assets/Inter-DisplayExtraLight-D2Ja0abb.woff2        105.87 kB
+../hrms/public/roster/assets/Inter-DisplayItalic-JNEE2o-3.woff2            106.12 kB
+../hrms/public/roster/assets/Inter-Italic-ClOttZep.woff2                   106.55 kB
+../hrms/public/roster/assets/Inter-ThinItalic-Dty9qLU6.woff2               106.64 kB
+../hrms/public/roster/assets/Inter-DisplayBlackItalic-DFEmIFsd.woff2       107.28 kB
+../hrms/public/roster/assets/Inter-DisplayThinItalic-Cxxw6hRb.woff2        107.44 kB
+../hrms/public/roster/assets/Inter-LightItalic-BcJQrN_r.woff2              108.56 kB
+../hrms/public/roster/assets/Inter-BlackItalic-I0v0TUo2.woff2              108.59 kB
+../hrms/public/roster/assets/Inter-ExtraLightItalic-BXS8QPqu.woff2         109.00 kB
+../hrms/public/roster/assets/Inter-DisplayBoldItalic-CISmTavk.woff2        110.20 kB
+../hrms/public/roster/assets/Inter-DisplaySemiBoldItalic-CNvBGF7e.woff2    110.39 kB
+../hrms/public/roster/assets/Inter-DisplayMediumItalic-BBCoS5uP.woff2      110.46 kB
+../hrms/public/roster/assets/Inter-BoldItalic-D0-5Ex_3.woff2               110.52 kB
+../hrms/public/roster/assets/Inter-ExtraBoldItalic-Cgmm6Ie2.woff2          110.52 kB
+../hrms/public/roster/assets/Inter-DisplayLightItalic-DBve3eI1.woff2       110.56 kB
+../hrms/public/roster/assets/Inter-SemiBoldItalic-J43nRLRr.woff2           110.64 kB
+../hrms/public/roster/assets/Inter-DisplayExtraBoldItalic-Czv3KFD8.woff2   110.82 kB
+../hrms/public/roster/assets/Inter-MediumItalic-iRTrRc5x.woff2             110.82 kB
+../hrms/public/roster/assets/Inter-DisplayExtraLightItalic-DRwiM9T2.woff2  111.11 kB
+../hrms/public/roster/assets/Inter.var-C9xDBOS3.woff2                      264.24 kB
+../hrms/public/roster/assets/Inter-Italic.var-BGHziHgI.woff2               297.27 kB
+../hrms/public/roster/assets/Home-9JR8wKkI.css                               0.42 kB │ gzip:   0.26 kB
+../hrms/public/roster/assets/index-D6rG5lUy.css                             98.06 kB │ gzip:  15.72 kB
+../hrms/public/roster/assets/Home-DS6aeGTW.js                              167.40 kB │ gzip:  54.44 kB
+../hrms/public/roster/assets/index-btX0BJWy.js                             610.75 kB │ gzip: 199.59 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 6.00s
+$ cp ../hrms/public/roster/index.html ../hrms/www/roster.html
+Done in 30.06s.
+Compiling translations for hrms
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/fr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/cs/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sl/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/id/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/hu/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/tr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/ar/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/af/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/th/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/it/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/eo/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/ru/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/da/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/nl/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/hr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/pt_BR/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/zh_TW/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/fa/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/fi/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/pt/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/ta/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/de/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/zh/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/nb/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/pl/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/my/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/bs/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sr_CS/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sv/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/es/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/vi/LC_MESSAGES/hrms.mo
