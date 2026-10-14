@@ -1,0 +1,40 @@
+# Avatar colour pairs (4.5:1 required for the 12 to 14 px initials)
+
+| mode | variant | pair | foreground | background | ratio | pass |
+|---|---|---|---|---|---|---|
+| light | themed | orange | #ae5000 | #ffe7db | 4.49 | NO |
+| light | themed | pink | #c96393 | #fff3f8 | 3.41 | NO |
+| light | themed | blue | #2d90e0 | #f0f8ff | 3.17 | NO |
+| light | themed | green | #004c2c | #c0e8cf | 7.58 | yes |
+| light | themed | dark-green | #004c2c | #c0e8cf | 7.58 | yes |
+| light | themed | red | #e15552 | #fff4f3 | 3.47 | NO |
+| light | themed | yellow | #c3a12a | #fdf8ea | 2.34 | NO |
+| light | themed | purple | #a76fc7 | #faf4fe | 3.39 | NO |
+| light | themed | gray | #424b57 | #f7f9fc | 8.38 | yes |
+| light | core | orange | #d45a08 | #fff1e7 | 3.61 | NO |
+| light | core | pink | #e34aa6 | #fff7fc | 3.44 | NO |
+| light | core | blue | #0289f7 | #f7fbfd | 3.41 | NO |
+| light | core | green | #16794c | #daf0e1 | 4.53 | yes |
+| light | core | dark-green | #16794c | #daf0e1 | 4.53 | yes |
+| light | core | red | #e03636 | #fff7f7 | 4.19 | NO |
+| light | core | yellow | #edba13 | #fffcef | 1.76 | NO |
+| light | core | purple | #9c45e3 | #fdfaff | 4.64 | yes |
+| light | core | gray | #525252 | #f8f8f8 | 7.36 | yes |
+| dark | themed | orange | #ffe7db | #ae5000 | 4.49 | NO |
+| dark | themed | pink | #fff3f8 | #c96393 | 3.41 | NO |
+| dark | themed | blue | #f0f8ff | #2d90e0 | 3.17 | NO |
+| dark | themed | green | #def3e6 | #37a16d | 2.79 | NO |
+| dark | themed | dark-green | #def3e6 | #37a16d | 2.79 | NO |
+| dark | themed | red | #fff4f3 | #e15552 | 3.47 | NO |
+| dark | themed | yellow | #fdf8ea | #c3a12a | 2.34 | NO |
+| dark | themed | purple | #faf4fe | #a76fc7 | 3.39 | NO |
+| dark | themed | gray | #eceff2 | #2e3641 | 10.58 | yes |
+| dark | core | orange | #fff1e7 | #d45a08 | 3.61 | NO |
+| dark | core | pink | #fff7fc | #e34aa6 | 3.44 | NO |
+| dark | core | blue | #f7fbfd | #0289f7 | 3.41 | NO |
+| dark | core | green | #e4f5e9 | #59ba8b | 2.10 | NO |
+| dark | core | dark-green | #e4f5e9 | #59ba8b | 2.10 | NO |
+| dark | core | red | #fff7f7 | #e03636 | 4.19 | NO |
+| dark | core | yellow | #fffcef | #edba13 | 1.76 | NO |
+| dark | core | purple | #fdfaff | #9c45e3 | 4.64 | yes |
+| dark | core | gray | #f8f8f8 | #383838 | 11.04 | yes |
