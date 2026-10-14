@@ -1,0 +1,17 @@
+== institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings 2026-10-14T14:51:16Z commit 759587f (+ uncommitted test edit if any)
+Ran 49 tests in 95.460s
+OK
+exit 0
+== institutional_theme.tests.test_identity_caches 2026-10-14T14:52:54Z commit 759587f (+ uncommitted test edit if any)
+Ran 11 tests in 22.906s
+OK
+exit 0
+== institutional_theme.tests.test_cache_race 2026-10-14T14:53:19Z commit 759587f (+ uncommitted test edit if any)
+Ran 12 tests in 5.432s
+OK
+exit 0
+== core settings values after the run
+midad52.test {'app_name': 'Frappe', 'app_logo': None, 'splash_image': None, 'favicon': None, 'home_page': '', 'website_theme': 'Standard', 'title_prefix': ''} navbar None
+  settings doc: {'system_name': '', 'emblem': None, 'favicon': None} sys app_name ERPNext
+  ins globals: ['ins_print_shipped', 'installed_apps']
+  ins-test files: 0
