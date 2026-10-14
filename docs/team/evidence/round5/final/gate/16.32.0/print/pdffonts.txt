@@ -1,0 +1,161 @@
+== chrome-A4-ar-standard-core.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     19  0
+AAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     24  0
+AAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     29  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     34  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     76  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     81  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     86  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     94  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes    110  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes    115  0
+
+== chrome-A4-ar-standard.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     26  0
+EAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     35  0
+FAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     40  0
+FAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     54  0
+FAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     72  0
+DAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     87  0
+EAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    110  0
+EAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    114  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    118  0
+EAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    123  0
+EAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    127  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    131  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    137  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    151  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    165  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    182  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    190  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    202  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    207  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    220  0
+CAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    224  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    250  0
+DAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    254  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     11  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     18  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     22  0
+
+== chrome-A4-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     26  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     44  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     48  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     56  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     61  0
+DAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     71  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     76  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     84  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     89  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     93  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     98  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    105  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    110  0
+DAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    117  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    128  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    132  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    142  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    156  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    170  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    178  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    189  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    197  0
+AAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    248  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     11  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     18  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     22  0
+
+== chrome-A4-en-standard-core.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     28  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     33  0
+
+== chrome-A4-en-standard.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     20  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     25  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     29  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     34  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     38  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     67  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     80  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     98  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    139  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    149  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    188  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    210  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    214  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     11  0
+
+== chrome-A4-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     20  0
+CAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     25  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     45  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     50  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     54  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     82  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     96  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    114  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    167  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    179  0
+CAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    190  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    207  0
+CAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     11  0
+
+== wkhtmltopdf-A4-ar-standard-core.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     14  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== wkhtmltopdf-A4-ar-standard.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
+== wkhtmltopdf-A4-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
+== wkhtmltopdf-A4-en-standard-core.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     24  0
+
+== wkhtmltopdf-A4-en-standard.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
+== wkhtmltopdf-A4-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
