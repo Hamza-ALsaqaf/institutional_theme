@@ -6,48 +6,92 @@
  },
  "sources": [
   {
-   "file": "desk.bundle.G74HNZ4B.css",
-   "sha256": "312705da880073e38c33dc8a36e05c3d8225c63a9bb25b5358c430773bb04d8e"
+   "file": "desk.bundle.3X47RWOV.css",
+   "sha256": "dbdd0f6a38a061a9d0f8705f800c9651cc42dcfa5de4066aaa0cd6a1950c5762"
   },
   {
-   "file": "email.bundle.4YVLQIO7.css",
-   "sha256": "23f4e8d14483143f4d08bc5cc3c3918cc9e6816cd19965656a7916327a1995d5"
+   "file": "email.bundle.IMRZCSWI.css",
+   "sha256": "b6fa96f48c946ad24005196277025845bfd92518bdad078c4ffaff6fcf7b69f7"
   },
   {
-   "file": "login.bundle.F5OJMS3G.css",
-   "sha256": "a8f6c23f94877bb896e91c67ab4c531097a32d3764c2b7c05b69b4d7390fc96c"
+   "file": "login.bundle.ACPYSW4E.css",
+   "sha256": "172be0b645a7fee90911074d022c4f784766a57e0598f4bb3990284cf82e4fbe"
   },
   {
-   "file": "print.bundle.7QM3RSM5.css",
-   "sha256": "1473eedf2b8d71ac78a7c61540e1ffdae2fce7f8f6c508ae19be9db5fa5fe352"
+   "file": "print.bundle.FZLHOL4J.css",
+   "sha256": "05bc53c03c5c0b802929023fbb8f4b72e8f27962b10b4305c99533278ee4da13"
   },
   {
-   "file": "print_format.bundle.HRSGGDF6.css",
-   "sha256": "eb2d5719cb75068c6243e0370cc1c172290af9669f8c61d64de4e11fe52da0c4"
+   "file": "print_format.bundle.BBS7ZCZQ.css",
+   "sha256": "09b667700138a192a8f303917345274f5fdb4183ca28c1b5e3f0287fbda31c3f"
   },
   {
-   "file": "report.bundle.3ZMVFATN.css",
-   "sha256": "287d4eb8ab13bf9a15cc7819f742dc5fec98242f17801755c864bfb8820e5f8c"
+   "file": "report.bundle.5GXUFVX2.css",
+   "sha256": "05c5e80103cbe7ffa971699e5730b98b52cde7250a32a481ee96d2bcac3ccaf9"
   },
   {
-   "file": "web_form.bundle.NJJHU22S.css",
-   "sha256": "358a58605df34299d48c4ce00164bac930a30fee0f570634b8c02fb6f7b1271e"
+   "file": "web_form.bundle.EDYGW6DZ.css",
+   "sha256": "96b2efe474559eca6565b70a02520dad239ac4ebb5f84793a500bf01724dda62"
   },
   {
-   "file": "website.bundle.YEBCH2RS.css",
-   "sha256": "65cd607469e8e6e361d19f9ccd996bdf12dc2dce521e3fef4f393d83071eb652"
+   "file": "website.bundle.FKTED3HT.css",
+   "sha256": "1ff7b2d0a7966f5e95f9966e370aefd9d885cab6459623b84b1ceb33e72c702b"
   },
   {
-   "file": "erpnext-web.bundle.7NAZI74I.css",
-   "sha256": "fc3e7ae82036973f4e5f35de274dee7a565beb33b50fa9eba3636f54218982d5"
+   "file": "desk.bundle.3Z3EGJPI.css",
+   "sha256": "d40e3bd709eed1ca383f60eeca055e9d44c5877c9d5a3704169a333513db0e7c"
   },
   {
-   "file": "erpnext.bundle.TKUIYHYG.css",
-   "sha256": "fa314a316d2d4fbac9261a0342a391048d8c6815802306b7347a680346563fe6"
+   "file": "email.bundle.ZFSPVAUC.css",
+   "sha256": "7162878b79de1b1a57744f83d000105fa008454c3a0c5e55571cf7955a19432b"
   },
   {
-   "file": "erpnext_email.bundle.ZM2AUPC6.css",
-   "sha256": "2126eb9a803ea7750280af9c9f39d8c6ae07f28e109c5a9fae15f37cd7adf323"
+   "file": "login.bundle.DXJAZSLU.css",
+   "sha256": "e25ebf3eeccb08b1e7268e9dd516dd4ae29048a0c8f1c858ce89b5b9932550b5"
+  },
+  {
+   "file": "print.bundle.Y3LRNTO5.css",
+   "sha256": "d0222bd81c63c72b66cfbae863a3415740a3e7794f8db62046c0f99e71c760af"
+  },
+  {
+   "file": "print_format.bundle.IZRLY327.css",
+   "sha256": "50556774b930ddf8c8871e5cf0bb249ed8ef6a8a499fa6ff7694fc5c352d16b3"
+  },
+  {
+   "file": "report.bundle.4LUCUIQF.css",
+   "sha256": "20223fd09db8e24fcc71d475f6fadf9da86ba7b46c21738aa5637b7763253676"
+  },
+  {
+   "file": "web_form.bundle.2KFBRZWH.css",
+   "sha256": "2f7512a20a2c4051c562ba2937d9047570552062e1a20cf22f1632bcbbb90440"
+  },
+  {
+   "file": "website.bundle.VOG7LS7C.css",
+   "sha256": "eb3e31508b0cd2ce5d65e5b46e751f8d58b5af345b98b5d48c7f11accda0d3bd"
+  },
+  {
+   "file": "erpnext-web.bundle.GRAD73FB.css",
+   "sha256": "f2e521ebfaaf44bee9915e9c8fd83fae39fcfb4b70fc9e2d4a1904c5a4afaf13"
+  },
+  {
+   "file": "erpnext.bundle.4IKTRQA3.css",
+   "sha256": "8ce39e3ede5cb335155f98c56376b9b602c0be107ded4c7e25e548bdbded99d1"
+  },
+  {
+   "file": "erpnext_email.bundle.GRJTSWUC.css",
+   "sha256": "14a8de14aeeb8dce706a5326a4281062325777f8a54f47d9cbc1d6766fda2927"
+  },
+  {
+   "file": "erpnext-web.bundle.BPJE264K.css",
+   "sha256": "c927c10477e454dfa1ce8a27693d937819fc2c4202fb2a7895b2602484c683d0"
+  },
+  {
+   "file": "erpnext.bundle.MEKB2L7W.css",
+   "sha256": "161f430ba18e245b14811c0e2fd27cfd649977c6fdd558067eb3dc66b7ac7127"
+  },
+  {
+   "file": "erpnext_email.bundle.MES6W3NL.css",
+   "sha256": "af5e5e5dc389630175a4661b3ae6ba90eebe66e48a07046675bdf7fcc0351184"
   }
  ],
  "declared": [
@@ -823,6 +867,7 @@
   "--kanban-column-bg",
   "--kanban-new-card-bg",
   "--kanban-new-card-hover-bg",
+  "--left-arrow-svg",
   "--lg-width",
   "--light",
   "--list-checkbox-padding",

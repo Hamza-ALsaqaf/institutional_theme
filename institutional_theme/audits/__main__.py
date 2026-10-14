@@ -1,16 +1,18 @@
 """Audit runner.
 
-    python -m institutional_theme.audits [--core-css PATH ...] [--write-core-snapshot]
+    python -m institutional_theme.audits [--core-css [VERSION=]PATH ...] [--write-core-snapshot]
                                          [--dist DIR] [--no-write] [--strict]
 
 Runs the contrast, avatar, parity, colour-vision and dead-token audits against the generated model and
 stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED preset fails a contrast
 pair (or one of the nine desk avatar pairs, `avatars.py`) or the status check, when a built bundle or the fonts exceed a size budget (`budgets.py`;
 skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, or when a variable the theme
-overrides is neither in core nor used by the theme. Core is read from the committed snapshot
-(`audits/data/core_vars_frappe_16.32.0.json`) unless `--core-css` names compiled stylesheets;
-`--write-core-snapshot` (with `--core-css`) refreshes the snapshot. Chart-series gaps are
-reported and only fatal with `--strict`. Never imports Frappe.
+overrides is neither in core nor used by the theme of ANY supported Frappe version. Core is read
+from one committed snapshot per version (`audits/data/core_vars_frappe_<version>.json`); `--core-css`
+names compiled stylesheets of a version (`16.52.0=PATH`; a bare PATH stands for 16.32.0) and replaces that
+version's snapshot for the run, so several builds can be scanned at once. `--write-core-snapshot` (with
+`--core-css`) writes the snapshot of each version named. Chart-series gaps are reported and only fatal
+with `--strict`. Never imports Frappe.
 """
 
 from __future__ import annotations
@@ -29,6 +31,11 @@ SCSS_DIR = PACKAGE_DIR / "public" / "scss" / "generated"
 AUDITS_DIR = REPO_ROOT / "docs" / "audits"
 
 
+def _shown(path: Path) -> Path:
+	"""The path relative to the repository when it is inside it."""
+	return path.relative_to(REPO_ROOT) if path.is_relative_to(REPO_ROOT) else path
+
+
 def main(argv: list[str] | None = None) -> int:
 	parser = argparse.ArgumentParser(prog="python -m institutional_theme.audits", description=__doc__)
 	parser.add_argument(
@@ -41,7 +48,7 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument(
 		"--write-core-snapshot",
 		action="store_true",
-		help="with --core-css, rewrite the committed snapshot of core variable names",
+		help="with --core-css, write the committed snapshot of each version named (core_vars_frappe_<version>.json)",
 	)
 	parser.add_argument(
 		"--dist",
@@ -110,30 +117,47 @@ def main(argv: list[str] | None = None) -> int:
 	if args.strict:
 		failures += chart_gaps
 
-	# Dead tokens
-	if args.core_css:
-		core_paths = [Path(p) for p in args.core_css]
-		core = dead_tokens.scan_core(core_paths)
+	# Dead tokens: one core per supported version, combined verdict
+	groups = dead_tokens.parse_core_css(args.core_css)
+	if args.write_core_snapshot and not groups:
+		parser.error("--write-core-snapshot needs --core-css")
+	cores: dict[str, tuple[dead_tokens.CoreVars, str]] = {}
+	for version in dead_tokens.snapshot_versions():
+		path = dead_tokens.snapshot_path(version)
+		cores[version] = (dead_tokens.load_snapshot(path), f"committed snapshot {_shown(path)}")
+	for version, paths in groups.items():
+		core = dead_tokens.scan_core(paths)
 		origin = "live stylesheets"
 		if args.write_core_snapshot:
-			dead_tokens.write_snapshot(
-				core, dead_tokens.DEFAULT_SNAPSHOT, {"frappe": "16.32.0", "erpnext": "16.33.0"}
-			)
-			print(f"wrote {dead_tokens.DEFAULT_SNAPSHOT.relative_to(REPO_ROOT)}")
-			origin = "live stylesheets (snapshot refreshed)"
-	elif args.write_core_snapshot:
-		parser.error("--write-core-snapshot needs --core-css")
-	else:
-		core = dead_tokens.load_snapshot()
-		origin = f"committed snapshot {dead_tokens.DEFAULT_SNAPSHOT.relative_to(REPO_ROOT)}"
-	results = dead_tokens.audit(model, core, PACKAGE_DIR / "public")
-	outputs["dead_tokens.txt"] = dead_tokens.render_text(results, core, origin)
-	total = dead_tokens.counts(results)
+			target = dead_tokens.snapshot_path(version)
+			dead_tokens.write_snapshot(core, target, dead_tokens.snapshot_versions_for(version))
+			print(f"wrote {_shown(target)}")
+			origin = "live stylesheets (snapshot written)"
+		cores[version] = (core, origin)
+	if not cores:
+		parser.error("no committed core snapshot and no --core-css")
+	combined = dead_tokens.audit_versions(model, cores, PACKAGE_DIR / "public")
+	outputs["dead_tokens.txt"] = dead_tokens.render_text(combined)
+	for entry in combined.versions:
+		total = dead_tokens.counts(entry.results)
+		print(
+			f"dead-tokens {entry.version}: {len(entry.results)} variables: {total['declared-read']} declared and "
+			f"read by core, {total['declared-only']} declared only, {total['read-only']} read only, "
+			f"{total['theme']} consumed by the theme, {total['dead']} dead in this version"
+		)
+	specific = dead_tokens.version_specific(combined)
+	for version, names in specific.items():
+		if len(combined.versions) > 1:
+			print(f"dead-tokens {version}: {len(names)} variable(s) read by core only in this version")
+	total = dead_tokens.counts(combined.results)
 	print(
-		f"dead-tokens: {len(results)} variables: {total['declared-read']} declared and read by core, "
+		f"dead-tokens: combined over {', '.join(v.version for v in combined.versions)}: "
+		f"{len(combined.results)} variables: {total['declared-read']} declared and read by core, "
 		f"{total['declared-only']} declared only, {total['read-only']} read only, "
-		f"{total['theme']} consumed by the theme, {total['dead']} dead"
+		f"{total['theme']} consumed by the theme, {total['dead']} dead in every version"
 	)
+	for name in combined.dead:
+		print(f"dead-tokens FAIL {name}: in no supported version's core and not used by the theme")
 	failures += total["dead"]
 
 	# Size budgets: only when a build exists; the committed report is kept otherwise.

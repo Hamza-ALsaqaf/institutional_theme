@@ -166,10 +166,10 @@ stage_audit() {
 	run_audit snapshot
 	# b. 16.32.0, live CSS of the midad.test bench (frappe and erpnext, LTR and RTL).
 	css_files "${OLD_BENCH}" >"${EVIDENCE_DIR}/css-scanned-1632.txt"
-	run_audit 1632-live $(sed 's/^/--core-css /' "${EVIDENCE_DIR}/css-scanned-1632.txt")
+	run_audit 1632-live $(sed 's/^/--core-css 16.32.0=/' "${EVIDENCE_DIR}/css-scanned-1632.txt")
 	# c. newest tag, live CSS of the newest bench (frappe and erpnext, LTR and RTL).
 	css_files "${NEWEST_BENCH}" >"${EVIDENCE_DIR}/css-scanned-newest.txt"
-	run_audit newest $(sed 's/^/--core-css /' "${EVIDENCE_DIR}/css-scanned-newest.txt")
+	run_audit newest $(sed "s/^/--core-css ${FRAPPE_NEWEST#v}=/" "${EVIDENCE_DIR}/css-scanned-newest.txt")
 	python3 -I "${HERE}/dead_token_diff.py" "${REPO_DIR}" "${EVIDENCE_DIR}/css-scanned-1632.txt" \
 		"${EVIDENCE_DIR}/css-scanned-newest.txt" >"${EVIDENCE_DIR}/dead-token-diff.txt"
 	log "wrote dead-token-diff.txt"
