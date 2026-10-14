@@ -266,3 +266,43 @@ Neither needs a product-code change. Closing B1 and applying S3, S4 and N4 (all 
 - HRMS v16.50.0 screens: read from `hrms52/README.md` and its `analysis.txt` summary, not re-run.
 
 Last commit reviewed: **37931be** (`docs: CI log for the a11y round 5 fix round 1`). The working tree also holds untracked series-`d` logs from the backend engineer's run in progress. Those were not reviewed.
+
+## Re-check after fix rounds
+
+Range: `git diff 42e260c..f82b05b -- . ':!*.png' ':!*.pdf'`. The product and test changes are in:
+- 878e2a4 (docstring);
+- e17dd5d (`side_panel_status.js`, `_status.scss`, cascade fixture and assertion).
+
+The documents are 878e2a4, 9968cb2 and f82b05b. Evidence read:
+- `cache-race/README.md` section 5 and `logs/run-v16.52.0-d-1.log`;
+- `v1652-items/fix2/README.md`.
+
+I re-opened v16.52.0 `side_panel.js:414-415` (`appendTo(document.body)`) and `side_panel.html:1-8`. I checked the manifest citations R2 (`utils/__init__.py:1120`), R5 (`database.py:843,904`) and R6 (`document.py:1482`) in the v16.52.0 tree; all match. I did not run any bench.
+
+| # | State | Evidence |
+|---|---|---|
+| B1 | **Closed** | `cache-race/README.md` section 5 now exists. It tabulates every run and counts none twice: series D on 16.32.0 has five passes in a row (`run-16.32.0-d-1..5`, 166 integration and 322 unit tests, exit 0, each with its load summary), and `run-v16.52.0-d-1.log` passes on v16.52.0 (header `commit 37931be`, exit 0, 828 load requests). The failed `v16.52.0-1` and series B stay in the table with their test-side causes; nothing was retried until green. The v16.52.0 pass predates e17dd5d, but e17dd5d changes only JS, SCSS and the browser fixture. No Python and no test module changed after 725a227 except the docstring, so the run covers the cache code at HEAD. |
+| S1 | **Closed** | `side_panel_status.js:24-47`. Without a host at start-up it adds one `childList` observer on `<body>` (no subtree). That observer inspects only `addedNodes` and disconnects on the first match. If the host already exists, no body observer is made. Core appends the panel to `<body>` directly, once (`side_panel.js:415`), so a direct-child observer is enough. On 16.32.0 the remaining cost is one callback per direct child added to `<body>`, such as modals and dropdowns, with no document query. The private read is now a fallback behind the public `frappe.ui.get_side_panel()` (`side_panel.js:814-818`). Both names live in the same lazy bundle, so the fallback is effectively dead code. That is harmless, and if core renames both, the try/catch keeps the old graceful degradation. `fix2/16.52.0-after/probe.json`: 12 of 12 side-panel cases, opened through the lazy bundle, so the observer found a host added after start-up. |
+| S2 | **Closed** | The embedded-list arm is removed from `$ins-badge-host` (`_status.scss:142-144`), and the comment gives the reason. Cascade now asserts that the embedded-list cell is neutral with no `::before`. The fix2 README notes this assertion failed once against a build that still had the arm. That is a real guard. Manifest row rewritten ("NOT a status host"). README and checklist "Known on v16.52.0" updated. `fix2/README.md`: cascade 16.32.0 4576/4576, v16.52.0 7680/7680. |
+| S3 | **Closed** | Manifest section 6, rows R1 to R7, cover `after_commit` and `after_rollback`, `CallbackManager` (FIFO, no `try`), `clear_defaults_cache` and `defaults::<parent>`, `set_default` and `clear_default` clearing once, `get_single_value(..., "modified")`, the document-cache second clear, and REPEATABLE READ, each with lines in both versions. R5 names the silent failure I described. Checklist B13 holds the source check plus `test_cache_race`. C4 names both cache test modules and the loaded runner. |
+| S4 | **Closed** | Checklist "Known on v16.52.0" carries the print-clip result, including the Chrome pinning. The NOT VERIFIED sentence is gone. B12 items (4) and (5) list both 16.32.0 movements with their sources: the 576 px list rules, and the 767.98 px closed drawer leaving the tab order. Manifest rows 363 and 364 are reworded to match. README "Printing" has the user-facing line. |
+| N1, N2, N3 | Notes, unchanged | The 500 diagnosis (N3) is now in `cache-race/README.md` section 5, "The 500 pages". |
+| N4 | **Closed** | `cache_guard.py:37-42`: the docstring now says the callback is not queued without a database connection. |
+| N5 | Note, carried | The print-clip result and the generator pinning are in the checklist and the README. I did not check whether the production-mode warning for `render.py` was added. It is test tooling only, so this does not block. |
+| N6 | **Closed** | `hrms_stock_patch_check.py:8-9` restricts the script to sites without Employee Advance rows and explains why. |
+| N7 | Open (note) | `budgets.txt`: desk 146.4 of 150 KB. Removing the embedded-list arm saved a few bytes; under 4 KB of headroom remains. |
+
+### Final scores (my dimensions)
+
+| Dimension | Score | Evidence |
+|---|---|---|
+| Upgrade-safety | **5/5** | Every core API the cache fix uses is listed with lines in both versions (R1 to R7), identical in both trees (VERIFIED diff), and re-checked by B13 and the race tests. No private Frappe name is required any more (`get_side_panel()` first, guarded fallback). The status host list is back to badges that are statuses on every core call site. No `!important`, no datatable geometry, no core edit. Cascade passes on both versions. |
+| Performance | **4/5** | S1 is closed: no document query per mutation. Cache cost: +1 query per request using the settings (`tabSingles`, shared in the request), +1 indexed `DefaultValue` query for logged-in requests (N2). Budgets pass. **Held below 5 by:** desk CSS at 97.6 % of budget (N7). |
+| Documentation | **4/5** | B1, S3, S4 and N4 are closed. Loaded runs, failures and their causes are tabulated without omission. Every new core dependency has a manifest row in both versions, and the checklist names each 16.32.0 movement. **Held below 5 by:** the README `grep` pattern of round 4 (R5) and the `render.py` production-mode caveat (N5), neither of which I re-checked as fixed. |
+| Craft | **5/5** | The fix-round changes are minimal and well aimed. The observer is reduced to the exact core mounting point (a direct child of `<body>`, disconnect on find). The host list drops the ambiguous arm instead of adding exceptions. The cascade assertion was inverted into a negative test that was seen failing. Test-side failures were explained by pid and by mechanism, not retried. |
+
+**Gate on my dimensions: passed.** Every dimension is at 4 or above, and no blocking finding is open.
+
+**Release gate run:** `docs/team/evidence/round5/final/gate/` has no README yet. It exists only untracked in the working tree, with build and audit logs and no summary. The gate result was **pending** when I finished, so this re-check does not cover it.
+
+Last commit reviewed: **f82b05b**.
