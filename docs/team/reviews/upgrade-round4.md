@@ -316,3 +316,134 @@ Gate on my dimensions: every dimension is at 4 or above, so it passes for a rele
 - The Print Style on a v16.52.0 standard-template PDF. I read `fix1-print-web/` but did not regenerate the PDF.
 - Website stylesheets of the owner's other apps, and Website Theme SCSS, reading a desk-scoped name.
 - Byte-identical bundles across the two benches; my size check was a sass compile, not the esbuild pipeline.
+
+## Final re-check
+
+Range: `git diff b9072b7..origin/build/midad-v1`, read at 70a62dd (product changes in f7f34c7 and d1275b6; manifest and checklist in 887dbba and 70a62dd). Evidence read: `docs/team/evidence/round4/fix3/` including `badge-classification.md`. Sources: `/tmp/src/frappe-16.32.0`, `/tmp/src/frappe-16.52.0`, ERPNext 16.50.0 (`/home/frappe/newest-bench/apps/erpnext`, the ERPNext on the v16.52.0 bench). I changed nothing on either bench.
+
+### What I ran (VERIFIED, clean `git worktree` of 70a62dd at `/tmp/r4final`, Python 3.12.3)
+
+| Check | Result |
+|---|---|
+| `uvx ruff@0.16.8 check .` / `format --check .` | All checks passed / 138 files already formatted |
+| `unittest discover -s institutional_theme/midad/tests -t .` | 151 tests OK |
+| `unittest discover -s institutional_theme/audits/tests -t .` | 171 tests OK |
+| `python -m institutional_theme.midad.build --check` | 12 file(s) checked, 0 stale |
+| `python -m institutional_theme.audits` | passed: 0 dead in every version; 10 unread, all allowed with a reason; web-scope 60, 0 problems; counterparts 30 pairs, 0 findings; budgets 0 problems. `git status` clean afterwards, so the committed reports match HEAD |
+| `effective_diff --ref b9072b7 --version 16.32.0` / `--version 16.52.0` | "Frappe 16.32.0 does not move" / "Frappe 16.52.0 does not move" |
+| bench sass compile of `ins_desk.bundle.scss` | Compiles; the host list is emitted as written (`.es-badge:where([data-filter], .page-indicator-pill, .side-panel-indicator *, .diw-import-log-line *)`, compiled lines 3859-3909) |
+| `!important` on added lines of the product diff | 0 |
+| `fix3/cascade-16.52.0.json` / `cascade-16.32.0.json` / `tags-16.52.0.json` (read, not re-run) | 7520 / 4576 / 8 rows, 0 failing. Kanban tag, shortcut count, side-panel and list-status rows pass in every scenario. These are harness fixtures, not live Kanban v2 boards |
+
+### B1 / R1: closed
+
+The selector is now a positive host list (`_status.scss:142`). Every `.es-badge` gets the neutral pair at `(0,3,1)` (`:144-148`), which beats core's `.es-badge[data-theme]` at `(0,2,0)` (v16.52.0 `css/espresso/components/badge.css:55-89`). A theme only stages `--ins-sb-*` (`:175-179`). Only a host copies them into `--c-*` (`:151-155`) and gets a shape (`:161`, `:181`). Draft and Cancelled still win: `--c-*` at `(0,4,1)` against `(0,3,1)`, and `::before` ties at `(0,4,2)` and wins by order (`:209`, `:221`, `:234`, `:246`).
+
+I checked each host against v16.52.0 call sites (grep of `ui.badge` and `es-badge` over `frappe/`, 60 hits):
+
+- `[data-filter]`: only on the list status (`list/list_view.js:1896`) and the list Select value (`:1499`). The other `data-filter` in core JS (`utils/common.js:34`) is on an avatar, not a badge.
+- `.page-indicator-pill`: `ui/page.html:24`, `ui/page.js:163,299`. The comment cites `page.js:259`; that is where `data-theme` is set, which is acceptable.
+- `.side-panel-indicator *`: `ui/side_panel.html:8`, filled only at `ui/side_panel.js:742-746`.
+- `.diw-import-log-line *`: `core/doctype/data_import/data_import.js:2664,2710,2746,2747`. The only badge inside it is the Success/Failure result (`:2740`). The other two lines hold text and a ghost `frappe.ui.button`.
+
+Every badge that should not look like a status is neutral, on core's own call sites:
+
+- Form tags (`ui/tags.js:117`) and Kanban v2 card tags (`views/kanban_v2/kanban_page.js:1275`).
+- Lane counts (`:2048`) and v1 column counts (`views/kanban/kanban_column.html:6`).
+- Shortcut counts (`widgets/shortcut_widget.js:127`).
+- Communication recipient chips (`views/communication.js:843,1058,1580`).
+- The doctype-settings labels and the print-builder chips.
+
+`tags-16.52.0.json` shows `before: none` and the neutral pair for green, blue and violet tags. R1 is closed.
+
+**Real statuses that lost their colour and shape on v16.52.0.** The engineer lists four (the count line in `badge-classification.md` says five but the table names four):
+
+1. The Kanban v2 Select value (`kanban_page.js:1467`; it keeps core's own icon).
+2. The embedded-list badge column (`ui/embedded_list.js:293`).
+3. The timeline email status (`form/templates/timeline_message_box.html:66`).
+4. The workspace-restore state (`desk/page/workspace_restore/workspace_restore.js:93`).
+
+I found three more, see F2 and F3:
+
+- The workflow "Active" tag in doctype settings (`form/doctype_settings/tabs/workflow.js:32` through `list_panel.js:174`).
+- The Kanban v1 column dot (`views/kanban/kanban_column.html:4`).
+- ERPNext 16.50.0 Job Card and docstatus columns (`manufacturing/doctype/work_order/work_order.js:1431,1482`).
+
+For the labelled ones this is **acceptable**. Each badge prints the state as text ("Sent", "Active", "Cancelled", "Completed"), so no state is lost, and grey is safer than a guessed family. On 16.32.0 the same items were `.indicator-pill`s that got a shape. This is a cross-version difference, not a regression within one version. The Kanban v1 dot is different, because it has no text (F2).
+
+### State of the remaining findings
+
+| # | State | Evidence |
+|---|---|---|
+| B1 / R1 | **Closed** | Above. |
+| R2 | **Closed** | `DEPENDENCY_MANIFEST.md` has rows for `.es-button[data-size]` / `--es-bt-h`, `.btn-outline`, `.sidebar-item-suffix .keyboard-shortcut`, `.menu-item-shortcut`, `.es-toast[data-type] > svg`, `.es-tab-buttons .es-pill`, and the two forced-colours bars. I opened every cited line. Repository: `_actions.scss:80-86`, `_typography.scss:52-55`, `_overlays.scss:89-90`, `_list.scss:104-105`. 16.32.0: `buttons.scss:154,159`, `sidebar.scss:395,398,403`, `menu.scss:54,58`. v16.52.0: `buttons.scss:197,202`, `sidebar.scss:605,610,615`, `page.js:567`, `button.css:31,51,124-125,132-133,202`, `toast.css:94`, `legacy.css:46`. All match. One inaccuracy, F4. |
+| R3 | **Closed** | Checklist B12 (`UPGRADE_AND_QA_CHECKLIST.md:32`) lists the intended 16.32.0 changes. `.btn-outline` is narrowed to `.body-sidebar-container .btn-outline` (`_typography.scss:52`). In 16.32.0 that container is `ui/sidebar/sidebar.html:1` and the button is `:36`. `cascade-16.32.0.json` proves that another app's `.btn-outline` keeps 420. |
+| R4 | **Closed** | `ins_print.bundle.scss:7-9` now cites v16.52.0 `templates/print_format/print_format.html:64`. `_base.scss:35` cites `sidebar.html:8` (verified: `standard-items-band` is at `:8`). |
+| R5 | **Open** | `README.md:143` still uses `var\(--(surface|ink|outline)-[a-z]+-[0-9]+\)`. It misses `--ink-white` and every read with a fallback. Fix unchanged: `var\(--(surface|ink|outline)-[a-z0-9-]+`. NON-BLOCKING (documentation). |
+| R6 | **Closed (i18n owns the wording)** | `ar.csv:47` and `:298` now agree (`طيّ`). `ar.csv:306,315` use `{0} د.`, which avoids the 3-10 / 11+ agreement problem; see F5. |
+
+### New ar.csv rows (context-free override check)
+
+Frappe merges app CSVs after core (`translate.py:179-181`), so a context-free row replaces core's Arabic wherever the source string occurs.
+
+- `Collapse sidebar` (`ar.csv:318`) has one call in v16.52.0, `ui/sidebar/sidebar.js:767`. It is absent from 16.32.0 and from core `ar.po`. Safe.
+- `Notification categories` (`:319`) has one call, `ui/notifications/notifications.js:169`, and is absent from core `ar.po`. Safe.
+- `Reset your password` (`:320`) has one call in each version, the email title `templates/emails/password_reset.html:1`. Core `ar.po` gives `اعد ضبط كلمه السر` (16.32.0 `:23620-23621`, v16.52.0 `:24434-24435`), which is misspelled. The replacement is an improvement, and no other string shares the msgid.
+- `Collapse,طيّ` (`:47`) only adds the shadda; the earlier assessment stands.
+
+None of the new rows can mistranslate a different core string.
+
+### New findings
+
+**F1. MINOR. On v16.52.0 the side-panel header shows Draft and Cancelled with the danger look (red family, cross).**
+
+- **Where:** `_status.scss:142` makes `.side-panel-indicator *` a status host. The Draft and Cancelled rules (`:208-249`) key on `[data-filter="docstatus,…"]` or on `[data-ins-docstatus] .title-area`, and the side-panel badge has neither.
+- **Proof:** v16.52.0 `model/indicator.js:73,78` returns `"red"` for both states. `ui/side_panel.js:744-746` passes only the theme. `ui/side_panel.html:3-8` carries no docstatus.
+- **Failure:** a draft opened in the side panel shows "Draft" with the error cross, while the same document in the list shows the neutral ring (ADR 0008 section 2). The label is still correct.
+- **Smallest correction:** accept and record it in the manifest row for the side panel. Or have `public/js/shell/form_status.js` also set `data-ins-docstatus` on `.side-panel` when its header is set. That is JS coupling to v16.52.0-only markup, so it needs its own manifest row.
+
+**F2. MINOR. The Kanban v1 column dot loses the colour the administrator chose, and it has no text.**
+
+- **Where:** `_status.scss:144-148` neutralises every non-host badge.
+- **Proof:** v16.52.0 `views/kanban/kanban_column.html:4` is `frappe.ui.badge.html({ theme: indicator, icon: "circle" })`, an icon with no label, and `kanban_board.bundle.js:1717` re-sets its `data-theme`. On 16.32.0 the same element was `span.kanban-col-dot.indicator.{{indicator}}` (`kanban_column.html:4`), which `_status.scss:107` shapes and colours.
+- **Failure:** on v16.52.0 every column dot on a v1 board is the same grey circle, so the Kanban Board Column `indicator` setting has no visible effect. The column title still names the value, so no state is lost, but administrator configuration is silently ignored.
+- **Smallest correction:** add `.kanban-column-title > .es-badge:not(.kanban-column-count)` to `$ins-badge-host`. This adds one manifest row, and `kanban_column.html:4` is a core template, so it is stable.
+
+**F3. MINOR. Status badges from other apps on v16.52.0 lose core's colour too, and nothing documents it.**
+
+- **Where:** `_status.scss:144-148` applies to any `.es-badge`.
+- **Proof:** ERPNext 16.50.0 `manufacturing/doctype/work_order/work_order.js:1431` (Job Card status from `frappe.get_indicator`) and `:1482` (Draft / Submitted / Cancelled), both `frappe.ui.badge.html({ label, theme })` inside the Work Order form. Neither is a host.
+- **Failure:** those columns, and any status badge a second app on the bench renders through `frappe.ui.badge`, are grey with no shape. The text still states the state.
+- **Smallest correction:** one README Troubleshooting entry, "A status badge in another app is grey on v16.52.0", naming the host list and the rule that an app status rendered through the list view (`data-filter`) or the page head keeps its look. An opt-in attribute is not proposed, because it would be a new public contract.
+
+**F4. MINOR (documentation). The `.btn-outline` manifest row says "both versions".**
+
+- **Where:** the `.btn-outline` row in `DEPENDENCY_MANIFEST.md`.
+- **Proof:** the core rule exists in v16.52.0 (`buttons.scss:197,202`), but no v16.52.0 markup uses the class. A grep of `btn-outline` in `.js`, `.html` and `.vue` finds only `btn-outline-primary` in `website/doctype/help_article/templates/help_article.html:25-26`. The sidebar Discard button is gone from `ui/sidebar/sidebar.html`.
+- **Failure:** at the next tag a maintainer looks for a v16.52.0 Discard button that does not exist.
+- **Smallest correction:** reword the row to "16.32.0 only; inert on v16.52.0".
+
+**F5. Note for the i18n reviewer, outside my dimension.**
+
+- `ar.csv:306,315` `{0} د.`: in a government email, `د.` is also read as the abbreviation for doctor or dinar (`د.ك`, `د.إ`). The full noun with a number-agnostic phrasing, for example `خلال مدة {0} من الدقائق`, avoids both the ambiguity and the agreement problem.
+- `Collapse sidebar` (`:318`) has no `Expand sidebar` partner. v16.52.0 `sidebar.js:767` switches between the two, and core `ar.po` has no entry for `Expand sidebar`, so the tooltip is Arabic in one state and English in the other.
+
+### Final scores (my dimensions)
+
+| Dimension | Score | Evidence |
+|---|---|---|
+| Upgrade-safety | 5/5 | **Gained:** B1/R1 closed with a positive host list built from all 60 v16.52.0 badge call sites (VERIFIED by grep and opened lines). Both versions "do not move" (VERIFIED, `effective_diff` run). No `!important` added (VERIFIED), no invented name (every new selector and citation opened), no datatable geometry. The 16.32.0 changes are narrowed (`.btn-outline` only in the sidebar) and recorded (B12). **Remaining (minor):** F1 to F3 are cosmetic, and in each case the label text keeps the meaning. |
+| Performance | 4/5 | Budgets pass (VERIFIED, audit run): desk 143.4 of 150 KB (95.6 %, 16.8 KB gzip), web 54.4 of 60 KB. The host list is a single `:where()` with two descendant arms, evaluated only on `.es-badge`. **Held below 5 by:** under 7 KB of desk headroom. |
+| Documentation | 4/5 | **Gained:** R2, R3 and R4 closed, and every cited line verified. **Held below 5 by:** R5 (README grep still wrong), F4 (the "both versions" wording), and the miscount in `badge-classification.md` (five against four rows). |
+| Craft | 5/5 | The exclusion list became a host list with a single source (`$ins-badge-host`). Staging in `--ins-sb-*` avoids one rule per theme and per host. `:where()` keeps the Draft and Cancelled overrides winning without new specificity. Fixtures assert both the negative cases (Kanban tag, shortcut count) and the positive ones (side panel, list status), and a 16.32.0 fixture guards another app's `.btn-outline`. |
+
+### Verdict
+
+**v16.52.0 may be claimed as supported from my dimensions** (upgrade-safety, performance, documentation, craft). No finding is blocking: B1/R1 is closed, every dimension is at 4 or above, and every CI check passes on a clean worktree of 70a62dd. F1 to F3 should be recorded as known differences in the release notes or fixed in the next round. R5 and F4 are documentation corrections. The 16.32.0 claim is unaffected: the generated map does not move, and the hand-written changes are those listed in B12.
+
+### Not verified
+
+- F1, F2 and F3 on a live site. They are COMPUTED from source; no v1 or v2 Kanban board, side-panel draft or Work Order with Job Cards was rendered.
+- The fix-3 cascade on live pages. `fix3/cascade-*.json` and `tags-16.52.0.json` are harness fixtures, which I read but did not re-run.
+- HRMS releases paired with v16.52.0, and the owner's other custom apps: whether their status badges use a host. Only Frappe 16.52.0 and ERPNext 16.50.0 were searched.
+- The esbuild and rtlcss build of the new host list on the bench. I compiled with sass only. The selector contains no physical property, so rtlcss has nothing to flip.
