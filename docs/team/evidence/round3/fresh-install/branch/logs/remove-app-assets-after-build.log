@@ -1,0 +1,5 @@
+=== remove-app-assets-after-build  2026-10-14T01:38:19Z
+$ fb echo "ins_ entries in assets.json: $(grep -c 'ins_' sites/assets/assets.json)"; ls -l sites/assets | grep institutional_theme || echo 'no sites/assets/institutional_theme'
+ins_ entries in assets.json: 12
+no sites/assets/institutional_theme
+exit 0

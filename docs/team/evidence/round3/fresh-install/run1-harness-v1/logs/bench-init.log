@@ -1,0 +1,12 @@
+=== bench-init  2026-10-14T00:53:32Z
+$ as_frappe bash -c cd '/home/frappe' && bench init 'fresh-bench' 		--frappe-branch 'v16.32.0' --python '/opt/python3.14/bin/python3.14' --no-backups --skip-redis-config-generation
+Setting Up Environment
+$ uv venv env --seed --python /opt/python3.14/bin/python3.14
+Using CPython 3.14.8 interpreter at: /opt/python3.14/bin/python3.14
+Creating virtual environment with seed packages at: env
+ + pip==26.2.1
+Activate with: env/bin/activate
+Getting frappe
+$ git clone https://github.com/frappe/frappe.git --branch v16.32.0 --depth 1 --origin upstream
+Cloning into 'frappe'...
+exit 0

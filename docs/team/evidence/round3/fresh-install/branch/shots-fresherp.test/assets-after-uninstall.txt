@@ -1,0 +1,51 @@
+# asset list: after-uninstall
+# base url: http://127.0.0.1:8010
+
+# GET /login -> 200
+
+## /login stylesheets (3)
+/assets/frappe/dist/css/website.bundle.GTULD4G5.css
+/assets/erpnext/dist/css/erpnext-web.bundle.RA2UBHPV.css
+/assets/frappe/dist/css/login.bundle.CNCZKZDG.css
+
+## /login scripts (2)
+/assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js
+/website_script.js
+
+## /login data-theme attributes (raw html) (0)
+
+## /login data-theme (live DOM)
+{"dataTheme":null,"dataThemeMode":null,"bodyDataTheme":null}
+
+# POST /api/method/login -> 200
+
+# GET /app -> 200
+
+## /app stylesheets (3)
+/assets/frappe/dist/css/desk.bundle.GPFPJZYI.css
+/assets/frappe/dist/css/report.bundle.52CRTYUV.css
+/assets/erpnext/dist/css/erpnext.bundle.STENFLCO.css
+
+## /app scripts (9)
+/assets/frappe/dist/js/libs.bundle.JEM3HUCP.js
+/assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js
+/assets/frappe/dist/js/desk.bundle.22EV3JK2.js
+/assets/frappe/dist/js/list.bundle.VZEDN7RE.js
+/assets/frappe/dist/js/form.bundle.FIDIZBJT.js
+/assets/frappe/dist/js/controls.bundle.2WG7Y7XR.js
+/assets/frappe/dist/js/report.bundle.AA6UENH5.js
+/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+/assets/erpnext/dist/js/erpnext.bundle.J7IIEFRC.js
+
+## /app data-theme attributes (raw html) (2)
+data-theme-mode="light"
+data-theme="light"
+
+## /app/todo data-theme (live DOM)
+{"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+
+## /app/todo stylesheets (live DOM) (3)
+/assets/frappe/dist/css/desk.bundle.GPFPJZYI.css
+/assets/frappe/dist/css/report.bundle.52CRTYUV.css
+/assets/erpnext/dist/css/erpnext.bundle.STENFLCO.css
+

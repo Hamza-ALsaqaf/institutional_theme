@@ -11,6 +11,10 @@ Everything lives outside the repository except these scripts.
 | `start_services.sh [stop\|restart-web]` | Starts PostgreSQL, the two bench Redis servers and the web server in the background on port 8000. |
 | `gate_install_uninstall.sh [dir]` | Phase 0 gate: capture, install, capture, uninstall, capture, diff, reinstall. Leaves the app installed. |
 | `b.sh <bench args>` | One bench command for the test site as the bench user, under the lock, from the runner or the root container. |
+| `fresh_install.sh [stage]` | Round 3: a second, fresh bench (Frappe v16.32.0, own Redis 13001 and 11001, web on 8010) with two fresh sites, `fresh.test` (Frappe only) and `fresherp.test` (with ERPNext). Runs the `README.md` install and uninstall commands literally (`APP_URL`, `APP_BRANCH`), timed, with the checks in `verify`, the table-by-table residue diff of `fresh_check.py`, screenshots, `bench remove-app`. Records every command in `$EVIDENCE_DIR/commands.tsv`. Never touches `midad.test`. |
+| `fresh_check.py` | Row counts of every table of a site (`snapshot`) and their difference (`diff`); used by `fresh_install.sh`. |
+| `newest_tag.sh [stage...]` | Round 3: shallow clone of the newest Frappe v16 tag outside the repository, a throw-away bench (`/home/frappe/newest-bench`) to compile its desk CSS (LTR, RTL, with the newest ERPNext), the dead-token audit against it and `manifest_selectors.py`. Does not touch the committed snapshot. |
+| `manifest_selectors.py`, `dead_token_diff.py` | Helpers of `newest_tag.sh`: citations and selectors of `docs/DEPENDENCY_MANIFEST.md` against a Frappe tree; category changes of the overridden variables between two core CSS sets. |
 | `ci_prereqs.sh` | Playwright-core and a Pillow venv for the gate captures on a machine without them (GitHub runner). |
 | `capture.mjs`, `pixel_diff.py` | Playwright capture of asset lists and screenshots; pixel comparison. |
 

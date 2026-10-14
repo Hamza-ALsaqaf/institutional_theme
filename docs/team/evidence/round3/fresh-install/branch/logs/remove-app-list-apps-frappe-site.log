@@ -1,0 +1,6 @@
+=== remove-app-list-apps-frappe-site  2026-10-14T01:38:24Z
+$ fb bench --site fresh.test list-apps
+
+frappe 16.32.0 HEAD
+
+exit 0

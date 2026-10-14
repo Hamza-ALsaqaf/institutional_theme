@@ -1,0 +1,3 @@
+=== remove-app-verify-frappe-site  2026-10-14T01:38:23Z
+$ verify fresh.test remove-app-frappe-site no
+exit 0

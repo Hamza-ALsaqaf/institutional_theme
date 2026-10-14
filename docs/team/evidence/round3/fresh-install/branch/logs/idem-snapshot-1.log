@@ -1,0 +1,4 @@
+=== idem-snapshot-1  2026-10-14T01:42:10Z
+$ snapshot idem.test 1
+244 tables written to /tmp/fresh-snapshot-idem.test-1.json
+exit 0

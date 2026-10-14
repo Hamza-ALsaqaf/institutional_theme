@@ -1,0 +1,6 @@
+=== fresh.test-app-version  2026-10-14T01:32:33Z
+$ fb git -C apps/institutional_theme log --oneline -1 && git -C apps/institutional_theme branch --show-current && cat sites/apps.txt
+d036149 test: CI log for HRMS screens
+build/midad-v1
+frappe
+institutional_themeexit 0

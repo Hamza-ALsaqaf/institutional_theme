@@ -1,0 +1,11 @@
+{'name': 'Automation', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'Build', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'Data', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'Email', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'Framework', 'app': 'frappe', 'icon_type': 'App', 'link_type': 'External', 'parent_icon': None, 'hidden': 0}
+{'name': 'Integrations', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'My Workspaces', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': None, 'hidden': 0}
+{'name': 'Printing', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'System', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'Users', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}
+{'name': 'Website', 'app': 'frappe', 'icon_type': 'Link', 'link_type': 'Workspace Sidebar', 'parent_icon': 'Framework', 'hidden': 0}

@@ -1,0 +1,7 @@
+=== fresherp.test-site-files  2026-10-14T01:37:52Z
+$ fb ls -la sites/fresherp.test/public/files 2>&1; test ! -e sites/fresherp.test/public/files/institutional_theme && echo 'no institutional_theme folder'
+total 8
+drwxrwxr-x+ 2 frappe frappe 4096 Oct 14 01:37 .
+drwxrwxr-x+ 3 frappe frappe 4096 Oct 14 01:33 ..
+no institutional_theme folder
+exit 0

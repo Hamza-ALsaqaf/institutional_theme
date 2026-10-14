@@ -1,0 +1,6 @@
+=== fresh.test-list-apps-before  2026-10-14T00:54:28Z
+$ fb bench --site fresh.test list-apps
+
+frappe 16.32.0 HEAD
+
+exit 0

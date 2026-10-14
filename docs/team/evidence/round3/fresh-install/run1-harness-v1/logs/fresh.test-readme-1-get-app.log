@@ -1,0 +1,52 @@
+=== fresh.test-readme-1-get-app  2026-10-14T00:54:30Z
+$ fb bench get-app https://github.com/Hamza-ALsaqaf/institutional_theme
+Getting institutional_theme
+$ git clone https://github.com/Hamza-ALsaqaf/institutional_theme  --depth 1 --origin upstream
+Cloning into 'institutional_theme'...
+Ignoring dependencies of https://github.com/Hamza-ALsaqaf/institutional_theme. To install dependencies use --resolve-deps
+Installing institutional_theme
+$ uv pip install --quiet -e /home/frappe/fresh-bench/apps/institutional_theme  --python /home/frappe/fresh-bench/env/bin/python
+$ bench build --app institutional_theme
+Linking /home/frappe/fresh-bench/apps/frappe/frappe/public to ./assets/frappe   Linking /home/frappe/fresh-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/fresh-bench/apps/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps institutional_theme --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+institutional_theme/dist/js/
+├─ ins_shell.bundle.4FEHGEO2.js                             12.20 Kb
+└─ ins_web.bundle.VUXQ76EX.js                               1.48 Kb
+
+institutional_theme/dist/css/
+├─ ins_desk.bundle.STFM6ED2.css                             119.05 Kb
+├─ ins_email.bundle.AFMSR7L7.css                            2.02 Kb
+├─ ins_print.bundle.GBGAMK5I.css                            6.42 Kb
+├─ ins_web.bundle.KNU4GFP4.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.BJTSMBPA.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.UMSHKLWA.css                    2.21 Kb
+├─ ins_palette_forest.bundle.DU3TRJYL.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.6OJMBBDR.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.KM5WKU55.css                   8.16 Kb
+└─ ins_palette_plum.bundle.4NU3ZBTQ.css                     8.16 Kb
+
+institutional_theme/dist/css-rtl/
+├─ ins_desk.bundle.DL32P6C3.css                             119.05 Kb
+├─ ins_email.bundle.DSG463VG.css                            2.02 Kb
+├─ ins_print.bundle.72T2T5VF.css                            6.42 Kb
+├─ ins_web.bundle.4NUQLGE3.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.V7U7U2KV.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.VN33TPXL.css                    2.21 Kb
+├─ ins_palette_forest.bundle.UYZTCJLW.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.ZMTV6ONK.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.OKUTHQ6A.css                   8.16 Kb
+└─ ins_palette_plum.bundle.7RRISX6A.css                     8.16 Kb
+
+ DONE  Total Build Time: 1.389s
+
+Done in 1.98s.
+Compiling translations for institutional_theme
+exit 0

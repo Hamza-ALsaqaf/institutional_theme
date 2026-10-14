@@ -1,0 +1,4 @@
+=== fresherp.test-install-again  2026-10-14T00:57:26Z
+$ fb bench --site fresherp.test install-app institutional_theme
+App institutional_theme already installed
+exit 0

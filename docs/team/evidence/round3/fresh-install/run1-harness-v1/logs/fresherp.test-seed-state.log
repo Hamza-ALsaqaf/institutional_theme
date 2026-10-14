@@ -1,0 +1,17 @@
+=== fresherp.test-seed-state  2026-10-14T00:58:10Z
+$ as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' seed 'fresherp.test' '/tmp/fresh-state-fresherp.test.json'
+{
+ "seeded": {
+  "Website Settings.app_name": "Gate Test Authority",
+  "Website Settings.app_logo": "/files/gate-emblem.png",
+  "Website Settings.splash_image": "/files/gate-emblem.png",
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": "/files/gate-emblem.png"
+ },
+ "print_records_after_install": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ }
+}
+exit 0

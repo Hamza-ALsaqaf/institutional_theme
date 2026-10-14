@@ -1,0 +1,4 @@
+=== idem-admin-value-kept  2026-10-14T01:42:33Z
+$ fb bench --site idem.test execute frappe.db.get_single_value --args "['Institutional Theme Settings', 'default_density']"
+Compact
+exit 0

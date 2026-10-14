@@ -1,0 +1,8 @@
+=== remove-app-apps-txt  2026-10-14T01:37:58Z
+$ fb cat sites/apps.txt; echo; ls apps; /home/frappe/fresh-bench/env/bin/pip list 2>/dev/null | grep -i institutional || echo 'package not installed'
+frappe
+erpnext
+erpnext
+frappe
+package not installed
+exit 0

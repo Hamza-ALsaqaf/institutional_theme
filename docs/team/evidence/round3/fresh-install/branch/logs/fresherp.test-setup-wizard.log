@@ -1,0 +1,7 @@
+=== fresherp.test-setup-wizard  2026-10-14T01:35:20Z
+$ wizard fresherp.test 1
+Updating Dashboard for frappe
+Updating Dashboard for erpnext
+{"status": "ok"}
+true
+exit 0

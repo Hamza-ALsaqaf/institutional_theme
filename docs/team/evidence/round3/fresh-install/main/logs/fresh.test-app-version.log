@@ -1,0 +1,6 @@
+=== fresh.test-app-version  2026-10-14T01:06:13Z
+$ fb git -C apps/institutional_theme log --oneline -1 && git -C apps/institutional_theme branch --show-current && cat sites/apps.txt
+0b605da Midad v1: verified build, all phase gates passed (#2)
+main
+frappe
+institutional_themeexit 0

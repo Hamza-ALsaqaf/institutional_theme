@@ -1,0 +1,4 @@
+=== fresherp.test-snapshot-installed  2026-10-14T00:58:08Z
+$ snapshot fresherp.test installed
+737 tables written to /tmp/fresh-snapshot-fresherp.test-installed.json
+exit 0

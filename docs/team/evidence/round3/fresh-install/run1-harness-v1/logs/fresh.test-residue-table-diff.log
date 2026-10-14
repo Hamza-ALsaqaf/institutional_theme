@@ -1,0 +1,13 @@
+=== fresh.test-residue-table-diff  2026-10-14T00:55:16Z
+$ bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresh.test-before.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresh.test-after.json'
+Differences ignored (record activity by nature):
+  tabActivity Log: before 0, after 2
+  tabComment: before 0, after 6
+  tabDeleted Document: before 0, after 9
+  tabSessions: before 0, after 2
+  tabVersion: before 0, after 2
+RESIDUE: 
+  tabDesktop Icon: before 12, after 11
+  tabFile: before 2, after 3
+  tabPermission Log: before 0, after 1
+exit 1

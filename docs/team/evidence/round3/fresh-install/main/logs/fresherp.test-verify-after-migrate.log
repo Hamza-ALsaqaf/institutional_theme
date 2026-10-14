@@ -1,0 +1,3 @@
+=== fresherp.test-verify-after-migrate  2026-10-14T01:13:29Z
+$ verify fresherp.test fresherp.test-after-migrate yes
+exit 0

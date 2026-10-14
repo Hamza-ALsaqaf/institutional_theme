@@ -29,7 +29,7 @@ Users may choose among audited colour presets; `midad` is the default. A site ad
 
 ## Install
 
-Run as the bench user, in the bench directory:
+Run as the bench user, in the bench directory. The bench is a Frappe v16 bench with at least one site (ERPNext is optional: the theme installs and uninstalls the same way on a Frappe-only site and on a site with ERPNext).
 
 ```bash
 cd ~/frappe-bench
@@ -39,16 +39,20 @@ bench build --app institutional_theme
 bench restart
 ```
 
-- `bench get-app` fetches the app from the repository (the `origin` remote of this repository, default branch).
-- `install-app` changes no setting by itself: the theme is on as soon as the bundles are built. An administrator's saved values are never overwritten.
-- `bench build --app institutional_theme` builds the desk and website bundles. Run it again after each change to the app's stylesheets or scripts.
-- Restart the bench processes so the web and worker processes load the new hooks.
+- `bench get-app` clones the repository's default branch (shallow, remote named `upstream`), installs the Python package and builds the app's bundles. To install another branch or tag, add `--branch <name>`.
+- `install-app` changes no setting by itself: the theme is on as soon as the bundles are built. An administrator's saved values are never overwritten. Running it again prints "already installed" and changes nothing.
+- `bench build --app institutional_theme` builds the desk and website bundles. `get-app` already built them once, so on a first install this finishes in a few seconds with the same files; run it again after each change to the app's stylesheets or scripts.
+- Restart the bench processes so the web and worker processes load the new hooks. On a bench without supervisor or systemd, `bench restart` exits 0 and restarts nothing (observed on the test bench): stop and start `bench start` or `bench serve` yourself.
+- After the app's code changes (for example `git pull` in `apps/institutional_theme`), run `bench build --app institutional_theme`, `bench --site <site> migrate` and `bench restart`. `migrate` can be run any number of times: a second run changes nothing.
 
 Check the install:
 
 ```bash
 bench --site <site> list-apps
+curl -s http://<site-host>/login | grep -o 'ins_web.bundle[^"]*'
 ```
+
+`list-apps` shows `institutional_theme 0.1.0`; the login page of a site with the app links `ins_web.bundle.<hash>.css` and `.js`, and the desk (`/desk`, signed in) links `ins_desk.bundle` and `ins_shell.bundle`.
 
 ## Optional site configuration
 
@@ -91,9 +95,14 @@ Uninstalling restores the stock Frappe look:
 
 ```bash
 bench --site <site> uninstall-app institutional_theme
+bench remove-app institutional_theme    # optional: also takes the app out of the bench
+bench restart
 ```
 
-The generated per-site stylesheets folder is removed by the uninstall hook. The stock look after uninstall is checked by `tools/bench/gate_install_uninstall.sh`.
+- `uninstall-app` asks "Are you sure you want to continue? [y/N]" and first takes a backup of the site (`sites/<site>/private/backups/`). `--yes` skips the question and `--no-backup` skips the backup.
+- It removes the Institutional Theme Settings doctype, the appearance page and the module; the Midad Print Style and Letter Head (only when you did not edit them and nothing links to them); this app's globals and per-user defaults; its attachments, including the copy of the emblem that Frappe attaches to Navbar Settings; and the generated per-site stylesheets folder. Website Settings and Navbar Settings values that this app wrote (name, emblem, favicon) are put back, unless you changed them afterwards.
+- The site stops linking the theme's bundles at once, without a restart. The app stays installed in the bench (and available to other sites) until `bench remove-app`; that command removes the Python package and the app folder (a copy goes to `archived/apps/` unless you add `--no-backup`), and it refuses while the app is installed on any site unless you add `--force`. It leaves a dangling `sites/assets/institutional_theme` link, which the next `bench build` removes (observed); unused `ins_*` entries stay in `sites/assets/assets.json`, which nothing references.
+- The stock look after uninstall is checked by `tools/bench/gate_install_uninstall.sh`. A clean install on a second bench and site, followed by uninstall, with a comparison of every database table before and after, is `tools/bench/fresh_install.sh`.
 
 ## Developing and testing
 

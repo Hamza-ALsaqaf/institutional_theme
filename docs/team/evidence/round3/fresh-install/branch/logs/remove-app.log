@@ -1,0 +1,9 @@
+=== remove-app  2026-10-14T01:37:53Z
+$ fb bench remove-app institutional_theme --no-backup
+Checking if app installed on active sites...
+$ uv pip uninstall institutional_theme --python /home/frappe/fresh-bench/env/bin/python
+Using Python 3.14.8 environment at: env
+Uninstalled 1 package in 3ms
+ - institutional-theme==0.1.0 (from file:///home/frappe/fresh-bench/apps/institutional_theme)
+INFO: App deleted from apps/institutional_theme
+exit 0

@@ -1,0 +1,7 @@
+=== fresh.test-readme-5-list-apps  2026-10-14T01:06:22Z
+$ fb bench --site fresh.test list-apps
+
+frappe              16.32.0 HEAD
+institutional_theme 0.1.0   main
+
+exit 0

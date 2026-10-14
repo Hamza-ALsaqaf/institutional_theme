@@ -1,0 +1,5 @@
+=== idem-stamps-2  2026-10-14T01:42:30Z
+$ fb bench --site idem.test execute frappe.db.get_value --args "['Letter Head', 'Midad', 'modified']"; bench --site idem.test execute frappe.db.get_value --args "['Print Style', 'Midad', 'modified']"
+2026-10-14 07:12:07.243959
+2026-10-14 07:12:07.142662
+exit 0

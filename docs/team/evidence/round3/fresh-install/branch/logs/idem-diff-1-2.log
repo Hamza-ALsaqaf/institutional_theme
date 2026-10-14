@@ -1,0 +1,5 @@
+=== idem-diff-1-2  2026-10-14T01:42:15Z
+$ bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-1.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-2.json'
+No ignored differences.
+RESIDUE: none
+exit 0

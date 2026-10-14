@@ -1,0 +1,3 @@
+=== set-config-redis-cache  2026-10-14T01:31:27Z
+$ fb bench set-config -g redis_cache redis://127.0.0.1:13001
+exit 0

@@ -1,0 +1,52 @@
+=== idem-get-app  2026-10-14T01:39:04Z
+$ fb bench get-app https://github.com/Hamza-ALsaqaf/institutional_theme --branch build/midad-v1
+Getting institutional_theme
+$ git clone https://github.com/Hamza-ALsaqaf/institutional_theme --branch build/midad-v1 --depth 1 --origin upstream
+Cloning into 'institutional_theme'...
+Ignoring dependencies of https://github.com/Hamza-ALsaqaf/institutional_theme. To install dependencies use --resolve-deps
+Installing institutional_theme
+$ uv pip install --quiet -e /home/frappe/fresh-bench/apps/institutional_theme  --python /home/frappe/fresh-bench/env/bin/python
+$ bench build --app institutional_theme
+Linking /home/frappe/fresh-bench/apps/frappe/frappe/public to ./assets/frappe   Linking /home/frappe/fresh-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/fresh-bench/apps/erpnext/erpnext/public to ./assets/erpnextLinking /home/frappe/fresh-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                Linking /home/frappe/fresh-bench/apps/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps institutional_theme --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+institutional_theme/dist/js/
+├─ ins_shell.bundle.MVLFTBLF.js                             14.16 Kb
+└─ ins_web.bundle.VUXQ76EX.js                               1.48 Kb
+
+institutional_theme/dist/css/
+├─ ins_desk.bundle.E35AR7VN.css                             119.78 Kb
+├─ ins_email.bundle.GFSZHBTT.css                            2.02 Kb
+├─ ins_print.bundle.H37JPIYE.css                            6.42 Kb
+├─ ins_web.bundle.MREUAZ77.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.7OCH2K3D.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.4JLS7YB2.css                    2.21 Kb
+├─ ins_palette_forest.bundle.LRKROTY5.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.YEPKMITE.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.YHE6ET5P.css                   8.16 Kb
+└─ ins_palette_plum.bundle.IQ7DEEHU.css                     8.16 Kb
+
+institutional_theme/dist/css-rtl/
+├─ ins_desk.bundle.35WYOUJZ.css                             119.78 Kb
+├─ ins_email.bundle.4KQBBG7Q.css                            2.02 Kb
+├─ ins_print.bundle.GLXDA3MY.css                            6.42 Kb
+├─ ins_web.bundle.BBBY2TCP.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.BW5ILDZP.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.CG764RUT.css                    2.21 Kb
+├─ ins_palette_forest.bundle.VZ66FQ6G.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.7OBH3KKU.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.BAU5HRL3.css                   8.16 Kb
+└─ ins_palette_plum.bundle.5YS62OJD.css                     8.16 Kb
+
+ DONE  Total Build Time: 1.547s
+
+Done in 2.12s.
+Compiling translations for institutional_theme
+exit 0

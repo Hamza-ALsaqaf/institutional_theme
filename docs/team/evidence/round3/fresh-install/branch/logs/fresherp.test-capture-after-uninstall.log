@@ -1,0 +1,4 @@
+=== fresherp.test-capture-after-uninstall  2026-10-14T01:37:42Z
+$ capture fresherp.test after-uninstall
+captured after-uninstall into /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/shots-fresherp.test
+exit 0
