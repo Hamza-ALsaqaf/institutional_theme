@@ -164,6 +164,9 @@ Search highlight,تمييز نتائج البحث
 Secondary button background,خلفية الزر الثانوي
 Secondary button background on hover,خلفية الزر الثانوي عند تمرير المؤشر
 Secondary text,النص الثانوي
+Select all rows,تحديد جميع الصفوف
+Select row,تحديد الصف
+Select row {0},تحديد الصف {0}
 Selected,محددة
 Selected and hovered row background,خلفية الصف المحدد عند تمرير المؤشر
 Selected row background,خلفية الصف المحدد
