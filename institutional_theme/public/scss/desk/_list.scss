@@ -125,3 +125,14 @@ html:root[dir] .like-action {
 	min-inline-size: var(--ins-target-min);
 	min-block-size: var(--ins-target-min);
 }
+
+// ---- Narrow viewports and zoom (WCAG 1.4.10): v16.52.0 clips `.result-container` (overflow-x hidden, list.scss:815-818) while its `.result` table
+// grows to the rows' content width, so the status badge of `.level-right` falls outside the clip. A fixed table layout at the container width
+// lets the subject column shrink (it is already an ellipsis flex item) and keeps the badge in view. 576px is core's `sm` breakpoint (the same media query).
+@media (max-width: 576px) {
+	html:root[dir] .layout-main-section .frappe-list .result-container .result {
+		table-layout: fixed;
+		inline-size: 100%;
+		max-inline-size: 100%;
+	}
+}

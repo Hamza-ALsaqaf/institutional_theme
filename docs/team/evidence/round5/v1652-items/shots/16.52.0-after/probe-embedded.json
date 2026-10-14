@@ -1,0 +1,672 @@
+[
+ {
+  "key": "en-light",
+  "screen": "role-embedded",
+  "badges": [
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Custom",
+    "theme": "blue",
+    "bg": "rgb(223, 239, 255)",
+    "color": "rgb(0, 65, 112)",
+    "border": "rgb(150, 203, 255)",
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "bg": "none|rgb(0, 65, 112)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   }
+  ]
+ },
+ {
+  "key": "en-light",
+  "screen": "workorder-style",
+  "badges": [
+   {
+    "text": "Open",
+    "theme": "red",
+    "bg": "rgb(255, 230, 228)",
+    "color": "rgb(116, 20, 23)",
+    "border": "rgb(255, 173, 166)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Draft",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Work In Progress",
+    "theme": "amber",
+    "bg": "rgb(255, 231, 219)",
+    "color": "rgb(101, 43, 0)",
+    "border": "rgb(250, 179, 139)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(90deg, rgb(101|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Submitted",
+    "theme": "green",
+    "bg": "rgb(222, 243, 230)",
+    "color": "rgb(0, 76, 44)",
+    "border": "rgb(152, 214, 177)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Completed",
+    "theme": "green",
+    "bg": "rgb(222, 243, 230)",
+    "color": "rgb(0, 76, 44)",
+    "border": "rgb(152, 214, 177)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Submitted",
+    "theme": "green",
+    "bg": "rgb(222, 243, 230)",
+    "color": "rgb(0, 76, 44)",
+    "border": "rgb(152, 214, 177)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Cancelled",
+    "theme": "red",
+    "bg": "rgb(255, 230, 228)",
+    "color": "rgb(116, 20, 23)",
+    "border": "rgb(255, 173, 166)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Cancelled",
+    "theme": "red",
+    "bg": "rgb(255, 230, 228)",
+    "color": "rgb(116, 20, 23)",
+    "border": "rgb(255, 173, 166)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   }
+  ]
+ },
+ {
+  "key": "en-dark",
+  "screen": "role-embedded",
+  "badges": [
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Custom",
+    "theme": "blue",
+    "bg": "rgb(0, 44, 79)",
+    "color": "rgb(193, 224, 255)",
+    "border": "rgb(0, 88, 149)",
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "bg": "none|rgb(193, 224, 255)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Standard",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   }
+  ]
+ },
+ {
+  "key": "en-dark",
+  "screen": "workorder-style",
+  "badges": [
+   {
+    "text": "Open",
+    "theme": "red",
+    "bg": "rgb(81, 11, 13)",
+    "color": "rgb(255, 207, 202)",
+    "border": "rgb(153, 34, 37)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Draft",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Work In Progress",
+    "theme": "amber",
+    "bg": "rgb(71, 27, 0)",
+    "color": "rgb(255, 209, 185)",
+    "border": "rgb(136, 60, 0)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(90deg, rgb(255|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "Submitted",
+    "theme": "green",
+    "bg": "rgb(0, 52, 29)",
+    "color": "rgb(192, 232, 207)",
+    "border": "rgb(0, 102, 62)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Completed",
+    "theme": "green",
+    "bg": "rgb(0, 52, 29)",
+    "color": "rgb(192, 232, 207)",
+    "border": "rgb(0, 102, 62)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Submitted",
+    "theme": "green",
+    "bg": "rgb(0, 52, 29)",
+    "color": "rgb(192, 232, 207)",
+    "border": "rgb(0, 102, 62)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Cancelled",
+    "theme": "red",
+    "bg": "rgb(81, 11, 13)",
+    "color": "rgb(255, 207, 202)",
+    "border": "rgb(153, 34, 37)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "Cancelled",
+    "theme": "red",
+    "bg": "rgb(81, 11, 13)",
+    "color": "rgb(255, 207, 202)",
+    "border": "rgb(153, 34, 37)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   }
+  ]
+ },
+ {
+  "key": "ar-light",
+  "screen": "role-embedded",
+  "badges": []
+ },
+ {
+  "key": "ar-light",
+  "screen": "workorder-style",
+  "badges": [
+   {
+    "text": "فتح",
+    "theme": "red",
+    "bg": "rgb(255, 230, 228)",
+    "color": "rgb(116, 20, 23)",
+    "border": "rgb(255, 173, 166)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "مسودة",
+    "theme": null,
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(184, 190, 199)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "التقدم في العمل",
+    "theme": "amber",
+    "bg": "rgb(255, 231, 219)",
+    "color": "rgb(101, 43, 0)",
+    "border": "rgb(250, 179, 139)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(90deg, rgb(101|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": "green",
+    "bg": "rgb(222, 243, 230)",
+    "color": "rgb(0, 76, 44)",
+    "border": "rgb(152, 214, 177)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "مكتمل",
+    "theme": "green",
+    "bg": "rgb(222, 243, 230)",
+    "color": "rgb(0, 76, 44)",
+    "border": "rgb(152, 214, 177)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": "green",
+    "bg": "rgb(222, 243, 230)",
+    "color": "rgb(0, 76, 44)",
+    "border": "rgb(152, 214, 177)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "ملغى",
+    "theme": "red",
+    "bg": "rgb(255, 230, 228)",
+    "color": "rgb(116, 20, 23)",
+    "border": "rgb(255, 173, 166)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "ملغى",
+    "theme": "red",
+    "bg": "rgb(255, 230, 228)",
+    "color": "rgb(116, 20, 23)",
+    "border": "rgb(255, 173, 166)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   }
+  ]
+ },
+ {
+  "key": "ar-dark",
+  "screen": "role-embedded",
+  "badges": []
+ },
+ {
+  "key": "ar-dark",
+  "screen": "workorder-style",
+  "badges": [
+   {
+    "text": "فتح",
+    "theme": "red",
+    "bg": "rgb(81, 11, 13)",
+    "color": "rgb(255, 207, 202)",
+    "border": "rgb(153, 34, 37)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "مسودة",
+    "theme": null,
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(75, 83, 94)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "التقدم في العمل",
+    "theme": "amber",
+    "bg": "rgb(71, 27, 0)",
+    "color": "rgb(255, 209, 185)",
+    "border": "rgb(136, 60, 0)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(90deg, rgb(255|rgba(0, 0, 0, 0)",
+     "radius": "50%"
+    }
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": "green",
+    "bg": "rgb(0, 52, 29)",
+    "color": "rgb(192, 232, 207)",
+    "border": "rgb(0, 102, 62)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "مكتمل",
+    "theme": "green",
+    "bg": "rgb(0, 52, 29)",
+    "color": "rgb(192, 232, 207)",
+    "border": "rgb(0, 102, 62)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": "green",
+    "bg": "rgb(0, 52, 29)",
+    "color": "rgb(192, 232, 207)",
+    "border": "rgb(0, 102, 62)",
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "ملغى",
+    "theme": "red",
+    "bg": "rgb(81, 11, 13)",
+    "color": "rgb(255, 207, 202)",
+    "border": "rgb(153, 34, 37)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   },
+   {
+    "text": "ملغى",
+    "theme": "red",
+    "bg": "rgb(81, 11, 13)",
+    "color": "rgb(255, 207, 202)",
+    "border": "rgb(153, 34, 37)",
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "bg": "linear-gradient(45deg, rgba(0,|rgba(0, 0, 0, 0)",
+     "radius": "0px"
+    }
+   }
+  ]
+ }
+]

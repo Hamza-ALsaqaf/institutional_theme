@@ -1,0 +1,698 @@
+[
+ {
+  "key": "en-light",
+  "screen": "kanban",
+  "dots": [
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(40, 49, 60)",
+    "border": "rgb(40, 49, 60)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(90deg, rgb(101, 43, 0) 5|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(40, 49, 60)",
+    "border": "rgb(40, 49, 60)",
+    "w": 15,
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(40, 49, 60)",
+    "border": "rgb(40, 49, 60)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(45deg, rgba(0, 0, 0, 0) |rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   }
+  ]
+ },
+ {
+  "key": "en-light",
+  "screen": "list",
+  "badges": [
+   {
+    "text": "Cancelled",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(218, 222, 229)",
+    "color": "rgb(20, 27, 37)",
+    "border": "rgb(20, 27, 37)",
+    "w": 91,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(20, 27, 37)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Cancelled",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(218, 222, 229)",
+    "color": "rgb(20, 27, 37)",
+    "border": "rgb(20, 27, 37)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(20, 27, 37)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Submitted",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(223, 239, 255)",
+    "color": "rgb(0, 65, 112)",
+    "border": "rgb(0, 65, 112)",
+    "w": 94,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(0, 65, 112)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Submitted",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(223, 239, 255)",
+    "color": "rgb(0, 65, 112)",
+    "border": "rgb(0, 65, 112)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(0, 65, 112)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Draft",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(66, 75, 87)",
+    "w": 62,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Draft",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(66, 75, 87)",
+    "w": 0,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   }
+  ]
+ },
+ {
+  "key": "en-dark",
+  "screen": "kanban",
+  "dots": [
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(223, 227, 232)",
+    "border": "rgb(223, 227, 232)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(90deg, rgb(255, 209, 185|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(223, 227, 232)",
+    "border": "rgb(223, 227, 232)",
+    "w": 15,
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(223, 227, 232)",
+    "border": "rgb(223, 227, 232)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(45deg, rgba(0, 0, 0, 0) |rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   }
+  ]
+ },
+ {
+  "key": "en-dark",
+  "screen": "list",
+  "badges": [
+   {
+    "text": "Cancelled",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(75, 83, 94)",
+    "color": "rgb(236, 239, 242)",
+    "border": "rgb(236, 239, 242)",
+    "w": 91,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(236, 239, 242)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Cancelled",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(75, 83, 94)",
+    "color": "rgb(236, 239, 242)",
+    "border": "rgb(236, 239, 242)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(236, 239, 242)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Submitted",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(0, 44, 79)",
+    "color": "rgb(193, 224, 255)",
+    "border": "rgb(193, 224, 255)",
+    "w": 94,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(193, 224, 255)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Submitted",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(0, 44, 79)",
+    "color": "rgb(193, 224, 255)",
+    "border": "rgb(193, 224, 255)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(193, 224, 255)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Draft",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(208, 213, 219)",
+    "w": 62,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "Draft",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(208, 213, 219)",
+    "w": 0,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   }
+  ]
+ },
+ {
+  "key": "ar-light",
+  "screen": "kanban",
+  "dots": [
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(40, 49, 60)",
+    "border": "rgb(40, 49, 60)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(90deg, rgb(101, 43, 0) 5|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(40, 49, 60)",
+    "border": "rgb(40, 49, 60)",
+    "w": 15,
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(40, 49, 60)",
+    "border": "rgb(40, 49, 60)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(45deg, rgba(0, 0, 0, 0) |rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   }
+  ]
+ },
+ {
+  "key": "ar-light",
+  "screen": "list",
+  "badges": [
+   {
+    "text": "ملغى",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(218, 222, 229)",
+    "color": "rgb(20, 27, 37)",
+    "border": "rgb(20, 27, 37)",
+    "w": 55,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(20, 27, 37)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "ملغى",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(218, 222, 229)",
+    "color": "rgb(20, 27, 37)",
+    "border": "rgb(20, 27, 37)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(20, 27, 37)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(223, 239, 255)",
+    "color": "rgb(0, 65, 112)",
+    "border": "rgb(0, 65, 112)",
+    "w": 56,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(0, 65, 112)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(223, 239, 255)",
+    "color": "rgb(0, 65, 112)",
+    "border": "rgb(0, 65, 112)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(0, 65, 112)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مسودة",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(66, 75, 87)",
+    "w": 66,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مسودة",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(241, 244, 248)",
+    "color": "rgb(66, 75, 87)",
+    "border": "rgb(66, 75, 87)",
+    "w": 0,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   }
+  ]
+ },
+ {
+  "key": "ar-dark",
+  "screen": "kanban",
+  "dots": [
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(223, 227, 232)",
+    "border": "rgb(223, 227, 232)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(90deg, rgb(255, 209, 185|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(223, 227, 232)",
+    "border": "rgb(223, 227, 232)",
+    "w": 15,
+    "before": {
+     "w": "5px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "",
+    "theme": null,
+    "filter": null,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(223, 227, 232)",
+    "border": "rgb(223, 227, 232)",
+    "w": 17,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "linear-gradient(45deg, rgba(0, 0, 0, 0) |rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   }
+  ]
+ },
+ {
+  "key": "ar-dark",
+  "screen": "list",
+  "badges": [
+   {
+    "text": "ملغى",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(75, 83, 94)",
+    "color": "rgb(236, 239, 242)",
+    "border": "rgb(236, 239, 242)",
+    "w": 55,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(236, 239, 242)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "ملغى",
+    "theme": null,
+    "filter": "docstatus,=,2",
+    "bg": "rgb(75, 83, 94)",
+    "color": "rgb(236, 239, 242)",
+    "border": "rgb(236, 239, 242)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(236, 239, 242)",
+     "radius": "1px",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(0, 44, 79)",
+    "color": "rgb(193, 224, 255)",
+    "border": "rgb(193, 224, 255)",
+    "w": 56,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(193, 224, 255)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مُرحَّل",
+    "theme": null,
+    "filter": "docstatus,=,1",
+    "bg": "rgb(0, 44, 79)",
+    "color": "rgb(193, 224, 255)",
+    "border": "rgb(193, 224, 255)",
+    "w": 0,
+    "before": {
+     "w": "8px",
+     "h": "8px",
+     "content": "\"\"",
+     "bg": "none|rgb(193, 224, 255)",
+     "radius": "50%",
+     "borderTop": "0px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مسودة",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(208, 213, 219)",
+    "w": 66,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   },
+   {
+    "text": "مسودة",
+    "theme": null,
+    "filter": "docstatus,=,0",
+    "bg": "rgb(29, 37, 47)",
+    "color": "rgb(208, 213, 219)",
+    "border": "rgb(208, 213, 219)",
+    "w": 0,
+    "before": {
+     "w": "9px",
+     "h": "9px",
+     "content": "\"\"",
+     "bg": "none|rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "borderTop": "1px"
+    },
+    "svg": null
+   }
+  ]
+ }
+]
