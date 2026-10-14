@@ -1,0 +1,212 @@
+Source scan of Frappe v16.32.0 and ERPNext v16.33.0 for every key round 4 remapped or added (73 names).
+Why: the committed snapshot covers compiled desk CSS only. This scan looks at all source files
+(scss, css, js, vue, html, py, json, ts; node_modules and dist skipped) for anything else that could read the names.
+Reading it:
+  - erpnext/banking/** and erpnext/erpnext/public/banking/**: the standalone React banking app at /banking
+    (erpnext/www/banking.html, own :root and .dark blocks, loads none of this theme's bundles). Not affected.
+  - frappe/ui/**: shared Vue source for other apps ("shipped as raw .vue, compiled by the consuming app"). Not built into 16.32.0.
+  - frappe/frappe/core/doctype/error_log/error_log.js:78,86 reads var(--radius-lg) in inline HTML.
+    16.32.0 never declares it, so the radius computes to 0 there; with the map it is 6px.
+  - frappe/frappe/desk/page/desktop/desktop.css:69 reads var(--radius-md) for .desktop-cloud-settings
+    (Frappe Cloud only), same effect.
+  Those two are the only places where 16.32.0 can look different. They are listed in
+  institutional_theme/midad/tests/test_round4_map.py (SOURCE_READERS_16_32_0).
+Command: python3 tools/bench/source_scan.py names.txt <bench>/apps/frappe <bench>/apps/erpnext   (names.txt: one custom property per line)
+
+files scanned: 7847 under /home/frappe/frappe-bench/apps/frappe, /home/frappe/frappe-bench/apps/erpnext
+kind: declared = `--name:`, read = `var(--name`, other = any other mention
+
+--surface-base
+  frappe/ui/src/components/Composer/ComposerEditor.vue: read 1
+  frappe/ui/src/components/Grid/Grid.vue: read 1
+--surface-sidebar: not mentioned in any source file
+--desk-sidebar-bg: not mentioned in any source file
+--surface-elevation-1: not mentioned in any source file
+--surface-elevation-2: not mentioned in any source file
+--surface-elevation-3: not mentioned in any source file
+--surface-alpha-gray-2: not mentioned in any source file
+--surface-gray-5
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-gray-6
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-gray-10: not mentioned in any source file
+--surface-red-5
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 4
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-red-6
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-red-7
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-green-3
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--surface-amber-3
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-white
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 8
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 1
+--ink-base: not mentioned in any source file
+--ink-red-1
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 1
+--ink-red-2
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-red-3
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 7
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-green-2
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-amber-2
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-blue-2
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-cyan-1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-pink-1
+  erpnext/banking/src/index.css: declared 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--ink-violet-1
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-gray-5
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 3
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-elevation-2
+  frappe/ui/src/components/ActivityTimeline/VersionItem.vue: read 1
+--outline-red-1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-red-3
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 3
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-green-1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-green-2
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-amber-1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-amber-2
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-blue-1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--outline-orange-1
+  frappe/frappe/public/scss/espresso/_colors.scss: declared 2
+--bg-amber: not mentioned in any source file
+--text-on-amber: not mentioned in any source file
+--bg-violet: not mentioned in any source file
+--text-on-violet: not mentioned in any source file
+--elevation-sm
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 4
+--elevation-base
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 3
+--elevation-md
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+--elevation-lg
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--elevation-xl
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+--elevation-2xl
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--focus-outline-default: not mentioned in any source file
+--text-p-xs
+  erpnext/banking/src/index.css: declared 1
+--text-p-sm
+  erpnext/banking/src/index.css: declared 1
+--text-p-base
+  erpnext/banking/src/index.css: declared 1
+--text-p-lg
+  erpnext/banking/src/index.css: declared 1
+--text-p-xl
+  erpnext/banking/src/index.css: declared 1
+--font-weight-regular: not mentioned in any source file
+--font-weight-medium
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 12
+--font-weight-semibold
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 2
+--font-weight-bold: not mentioned in any source file
+--radius
+  erpnext/banking/src/index.css: declared 1
+  erpnext/erpnext/public/banking/assets/index-CADYgQwe.js: read 4
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, other 2, read 2
+--radius-sm
+  erpnext/banking/src/index.css: declared 1
+--radius-md
+  erpnext/banking/src/index.css: declared 1
+  frappe/frappe/desk/page/desktop/desktop.css: read 1
+--radius-lg
+  erpnext/banking/src/index.css: declared 1
+  frappe/frappe/core/doctype/error_log/error_log.js: read 2
+--radius-xl
+  erpnext/banking/src/index.css: declared 1
+--gray-950
+  erpnext/banking/src/index.css: declared 2, read 5
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 4
+--blue-950
+  erpnext/banking/src/index.css: declared 2, read 2
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+--green-950
+  erpnext/banking/src/index.css: declared 2, read 2
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+--red-950
+  erpnext/banking/src/index.css: declared 2, read 2
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+--orange-950
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--amber-950
+  erpnext/banking/src/index.css: declared 2, read 2
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2, read 1
+--yellow-950
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--cyan-950
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--teal-950
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--violet-950
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--pink-950
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2
+--purple-950
+  erpnext/banking/src/index.css: declared 2, read 1
+  erpnext/erpnext/public/banking/assets/index-J_w2RrLs.css: declared 2

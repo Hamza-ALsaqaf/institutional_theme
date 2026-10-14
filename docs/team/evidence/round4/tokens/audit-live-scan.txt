@@ -1,0 +1,8 @@
+$ python3 -m institutional_theme.audits --no-write --dist /nonexistent --core-css 16.32.0=<frappe-bench dist css, css-rtl, erpnext, gantt> --core-css 16.52.0=<newest-bench ...>   (R7 check 5: live scan against the committed snapshots)
+dead-tokens 16.32.0: 483 variables: 268 declared and read by core, 131 declared only, 0 read only, 1 consumed by the theme, 83 dead in this version
+dead-tokens 16.52.0: 483 variables: 429 declared and read by core, 33 declared only, 6 read only, 0 consumed by the theme, 15 dead in this version
+dead-tokens 16.32.0: 14 variable(s) read by core only in this version
+dead-tokens 16.52.0: 181 variable(s) read by core only in this version
+dead-tokens: combined over 16.32.0, 16.52.0: 483 variables: 448 declared and read by core, 35 declared only, 0 read only, 0 consumed by the theme, 0 dead in every version
+counterparts: 30 pair(s), 0 finding(s)
+audits: passed

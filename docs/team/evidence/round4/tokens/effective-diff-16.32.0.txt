@@ -1,0 +1,10 @@
+base commit (before): 49866b774bacbb16feb8991f4e62720b03b3cdc0
+$ python3 -m institutional_theme.audits.effective_diff --ref HEAD --version 16.32.0
+Frappe 16.32.0: generated declarations of variables core reads, HEAD against the working tree
+  effective declarations before: 798
+  effective declarations after:  798
+  changed: 0   removed: 0   added: 0
+  declarations the version does not read: 78 changed, 141 added (inert here)
+  --ins-* values that existed before and changed: 0
+  RESULT: Frappe 16.32.0 does not move
+exit=0
