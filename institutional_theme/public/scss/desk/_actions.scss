@@ -54,7 +54,7 @@ html:root[dir] .btn.btn-primary:active {
 // ---- v16.52.0 `.es-button` (ui/components/button.js; page primary action `ui/page.html:61`, `variant: "solid"`). Core paints solid from the local
 // --bt-solid-* (css/espresso/components/button.css:31-47, gray default --surface-gray-10, near-black), red from `[data-theme="red"]` (:104-109).
 // Repointing the locals keeps core's own hover, active and focus rules (:149-162) and needs no property rule. Core is (0,1,0); this is (0,4,1).
-// The red theme keeps its own values. 16.32.0 has no `.es-button`; the selector matches nothing there (its primary is `.btn-primary` above).
+// The red theme keeps its own values. 16.32.0 has no styled `.es-button` (core ships no CSS for it); its primary is `.btn-primary` above.
 html:root[dir] .es-button:not([data-theme="red"]) {
 	--bt-solid-bg: var(--ins-primary);
 	--bt-solid-bg-hover: var(--ins-primary-hover);
@@ -71,6 +71,11 @@ html:root[dir] .es-button:not([data-theme="red"]) {
 html:root[dir] .es-button {
 	--bt-disabled-bg: var(--ins-surface-disabled);
 	--bt-disabled-fg: var(--ins-text-disabled);
+}
+
+// 16.32.0 does have one `.es-button`, the About dialog's copy-versions button (ui/toolbar/about.js:62, no core CSS for it), and it keeps the
+// round-3 glyph colour; so the glyph rule skips that button's header row (also in v16.52.0, about.js:68).
+html:root[dir] .es-button:not(.about-section-header .es-button) {
 	--icon-stroke: currentColor;
 }
 

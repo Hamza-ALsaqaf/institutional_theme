@@ -57,10 +57,6 @@ html:root[dir] .gantt .lower-text {
 	color: var(--ins-text);
 }
 
-html:root[dir] .gantt .tick.thick {
-	stroke: var(--ins-border-strong);
-}
-
 // Progress fill: --gray-200 is the bright end in Dark (core frappe_gantt.scss:22,54); use the selected-strong surface so the bar text keeps contrast.
 html:root[dir] .gantt-container .gantt .bar-progress,
 html:root[dir] .gantt-container .gantt .bar-wrapper:hover .bar-progress {

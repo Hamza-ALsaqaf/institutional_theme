@@ -92,6 +92,34 @@ const fixtureV52 = readFileSync(join(here, "harness/fixture_v52.html"), "utf8");
 
 // ---- v16.52.0 assertions (ADR 0011 R6 "New for v16.52.0"). Fixture markup is quoted from v16.52.0 source in the fixture's comments.
 // `selects` fails when a selector matches nothing: the fixture must contain it, and the compiled core CSS must still carry a rule that mentions it.
+// ---- Round-4 fix 1, both versions: N1 (16.32.0 renders as in round 3) and N8 (generic class names are not styled). Fixture: harness/fixture_fix1.html.
+const fixtureFix1 = readFileSync(join(here, "harness/fixture_fix1.html"), "utf8");
+async function fix1(page, scenario) {
+	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
+	const rec = (check, expected, actual, pass) => record(scenario, check, expected, actual, pass);
+	await page.evaluate((html) => { const d = document.createElement("div"); d.id = "fix1"; d.innerHTML = html; document.body.append(d); }, fixtureFix1);
+	const tok = (n, prop) => page.evaluate(([n, prop]) => { const e = document.createElement("i"); e.style[prop] = `var(${n})`; document.body.append(e); const c = getComputedStyle(e)[prop]; e.remove(); return c; }, [n, prop]);
+	const st = (id, p) => page.evaluate(([id, p]) => getComputedStyle(document.getElementById(id))[p], [id, p]);
+	const border = await tok("--ins-border", "color");
+	rec("gantt .tick.thick keeps the round-3 line colour (--ins-border)", border, await st("fx-tick-thick", "stroke"), (await st("fx-tick-thick", "stroke")) === border);
+	await page.keyboard.press("Shift");
+	const offset = async (id) => { await page.evaluate((i) => document.getElementById(i).focus(), id); return page.evaluate((i) => { const s = getComputedStyle(document.getElementById(i)); return `${s.outlineStyle} ${s.outlineOffset}`; }, id); };
+	const o32 = await offset("fx-sb32-a"), o52 = await offset("fx-sb52-a");
+	rec("sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px", "solid 2px", o32, o32 === "solid 2px");
+	rec("sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px", "solid -2px", o52, o52 === "solid -2px");
+	await page.evaluate(() => document.activeElement?.blur());
+	const sec = await tok("--ins-text-secondary", "color");
+	rec("About dialog copy button glyph strokes in --ins-text-secondary (round 3)", sec, await st("fx-about-icon", "stroke"), (await st("fx-about-icon", "stroke")) === sec);
+	// Core's own v16.52.0 rules may style a class-only element, so the check is that the THEME's values are not applied.
+	const fd = await page.evaluate(() => { const s = getComputedStyle(document.getElementById("fx-foreign-dock")); return { w: s.borderTopWidth, c: s.borderTopColor, r: s.borderTopLeftRadius }; });
+	const lg = await page.evaluate(() => { const e = document.createElement("i"); e.style.borderRadius = "var(--ins-radius-lg)"; document.body.append(e); const r = getComputedStyle(e).borderTopLeftRadius; e.remove(); return r; });
+	rec("foreign .dock: the theme hairline and overlay radius are not applied", `not (1px ${border} ${lg})`, `${fd.w} ${fd.c} ${fd.r}`, !(fd.w === "1px" && fd.c === border && fd.r === lg));
+	const elev = await tok("--ins-elevation-overlay", "boxShadow");
+	rec("foreign .sidebar-panel: the theme overlay shadow is not applied", `!= ${elev}`, await st("fx-foreign-panel", "boxShadow"), (await st("fx-foreign-panel", "boxShadow")) !== elev);
+	const sm = await page.evaluate(() => { const e = document.createElement("i"); e.style.borderRadius = "var(--ins-radius-sm)"; document.body.append(e); const r = getComputedStyle(e).borderTopLeftRadius; e.remove(); return r; });
+	rec("foreign .panel-header-actions span: the theme radius is not applied", `!= ${sm}`, await st("fx-foreign-span", "borderTopLeftRadius"), (await st("fx-foreign-span", "borderTopLeftRadius")) !== sm);
+}
+
 async function v1652(page, dir, scenario) {
 	const rec = (check, expected, actual, pass) => record(scenario, check, expected, actual, pass, V52);
 	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
@@ -123,6 +151,22 @@ async function v1652(page, dir, scenario) {
 	const dis = await cs("es-disabled", ["backgroundColor", "color"]);
 	eq(".es-button:disabled background = --ins-surface-disabled", await tok("--ins-surface-disabled", "backgroundColor"), dis.backgroundColor);
 	eq(".es-button:disabled text = --ins-text-disabled", await tok("--ins-text-disabled", "color"), dis.color);
+
+	// -- B1: user tags are not statuses (ui/tags.js:116-124): no shape, the neutral pair, text >= 4.5:1
+	await selects(".es-badge.form-tag", ".es-badge.form-tag", ".es-badge[data-theme");
+	{
+		const lum = (rgb) => { const [r, g, b] = rgb.map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+		const nums = (c) => c.match(/[\d.]+/g).map(Number);
+		for (const id of ["tag-green", "tag-red", "tag-violet"]) {
+			const g = await cs(id, ["backgroundColor", "color"]), b = await cs(id, ["content"], "::before");
+			const [x, y] = [lum(nums(g.color)), lum(nums(g.backgroundColor))].sort((p, q) => q - p);
+			const ratio = (x + 0.05) / (y + 0.05);
+			rec(`${id}: no status shape`, "none or normal", b.content, b.content === "none" || b.content === "normal");
+			rec(`${id}: neutral pair`, `${await tok("--ins-status-neutral-bg", "backgroundColor")} ${await tok("--ins-status-neutral-fg", "color")}`, `${g.backgroundColor} ${g.color}`,
+				g.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && g.color === (await tok("--ins-status-neutral-fg", "color")));
+			rec(`${id}: text contrast >= 4.5`, ">= 4.5", ratio.toFixed(2), ratio >= 4.5);
+		}
+	}
 
 	// -- .es-badge (badge.css:7-14, 55-89; badge-legacy-colors.css:12-45; list_view.js:1896; page.js:259)
 	await selects(".es-badge[data-theme]", ".es-badge[data-theme]", '.es-badge[data-theme="green"]');
@@ -444,6 +488,7 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	for (let i = 0, ok = false; i < 40 && !ok; i++) { await page.keyboard.press("Tab"); ok = await page.evaluate(() => document.activeElement.id === "dt-on"); }
 	const fcc = await page.evaluate(() => { const s = getComputedStyle(document.activeElement); return { id: document.activeElement.id, st: s.outlineStyle, w: s.outlineWidth }; });
 	record(scenario, "forced-colors: focused checked checkbox has an outline", "dt-on 2px solid", `${fcc.id} ${fcc.w} ${fcc.st}`, fcc.id === "dt-on" && fcc.st === "solid" && fcc.w === "2px");
+	await fix1(page, scenario);
 	if (only(["16.52.0"])) await v1652(page, dir, scenario);
 	await ctx.close();
 }

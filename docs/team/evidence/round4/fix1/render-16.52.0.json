@@ -1,0 +1,482 @@
+[
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Light",
+  "density": "comfortable",
+  "screen": "list",
+  "file": "16.52.0-en-light-comfortable-list.png",
+  "dir": "ltr",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Light",
+  "density": "comfortable",
+  "screen": "form",
+  "file": "16.52.0-en-light-comfortable-form.png",
+  "dir": "ltr",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Light",
+  "density": "compact",
+  "screen": "list",
+  "file": "16.52.0-en-light-compact-list.png",
+  "dir": "ltr",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Light",
+  "density": "compact",
+  "screen": "form",
+  "file": "16.52.0-en-light-compact-form.png",
+  "dir": "ltr",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Dark",
+  "density": "comfortable",
+  "screen": "list",
+  "file": "16.52.0-en-dark-comfortable-list.png",
+  "dir": "ltr",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Dark",
+  "density": "comfortable",
+  "screen": "form",
+  "file": "16.52.0-en-dark-comfortable-form.png",
+  "dir": "ltr",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Dark",
+  "density": "compact",
+  "screen": "list",
+  "file": "16.52.0-en-dark-compact-list.png",
+  "dir": "ltr",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "en",
+  "mode": "Dark",
+  "density": "compact",
+  "screen": "form",
+  "file": "16.52.0-en-dark-compact-form.png",
+  "dir": "ltr",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Light",
+  "density": "comfortable",
+  "screen": "list",
+  "file": "16.52.0-ar-light-comfortable-list.png",
+  "dir": "rtl",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Light",
+  "density": "comfortable",
+  "screen": "form",
+  "file": "16.52.0-ar-light-comfortable-form.png",
+  "dir": "rtl",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Light",
+  "density": "compact",
+  "screen": "list",
+  "file": "16.52.0-ar-light-compact-list.png",
+  "dir": "rtl",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Light",
+  "density": "compact",
+  "screen": "form",
+  "file": "16.52.0-ar-light-compact-form.png",
+  "dir": "rtl",
+  "theme": "light",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(27, 80, 134)",
+   "color": "rgb(255, 255, 255)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(241, 244, 248)",
+   "color": "rgb(66, 75, 87)",
+   "borderTopColor": "rgb(184, 190, 199)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Dark",
+  "density": "comfortable",
+  "screen": "list",
+  "file": "16.52.0-ar-dark-comfortable-list.png",
+  "dir": "rtl",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Dark",
+  "density": "comfortable",
+  "screen": "form",
+  "file": "16.52.0-ar-dark-comfortable-form.png",
+  "dir": "rtl",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Dark",
+  "density": "compact",
+  "screen": "list",
+  "file": "16.52.0-ar-dark-compact-list.png",
+  "dir": "rtl",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge filterable ellipsis",
+   "theme": null,
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ },
+ {
+  "version": "16.52.0",
+  "lang": "ar",
+  "mode": "Dark",
+  "density": "compact",
+  "screen": "form",
+  "file": "16.52.0-ar-dark-compact-form.png",
+  "dir": "rtl",
+  "theme": "dark",
+  "primary": {
+   "tag": "button",
+   "cls": "es-button primary-action",
+   "theme": null,
+   "backgroundColor": "rgb(167, 201, 240)",
+   "color": "rgb(6, 26, 48)",
+   "borderTopColor": "rgba(0, 0, 0, 0)"
+  },
+  "badge": {
+   "tag": "span",
+   "cls": "es-badge page-indicator-pill",
+   "theme": "red",
+   "backgroundColor": "rgb(29, 37, 47)",
+   "color": "rgb(208, 213, 219)",
+   "borderTopColor": "rgb(75, 83, 94)"
+  },
+  "badgeShape": {
+   "content": "\"\"",
+   "width": "9px"
+  }
+ }
+]

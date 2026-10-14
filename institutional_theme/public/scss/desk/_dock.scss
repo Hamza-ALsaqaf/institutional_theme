@@ -1,17 +1,17 @@
 // Dock tiles and tray, and the notification panel of the v16.52.0 desk shell (core desk/dock.scss, sidebar_panel.scss).
-// Every selector here is absent from 16.32.0 and matches nothing there. Colours come from the Frappe map; only shape, ring and the accent bar are written.
+// Every selector here is anchored to v16.52.0-only markup (`.dock > .dock-items`, `.body-sidebar-container > .sidebar-panel`), so other apps' `.dock` or `.panel-header` are untouched. Colours come from the Frappe map; only shape, ring and the accent bar are written.
 
 // ---- Dock tile: the same shape as a sidebar row, and the same active treatment (hairline ring, accent bar at the inline start).
-// Core `.dock-item.active` (dock.scss:203-207) is `--surface-elevation-3` plus `--shadow-sm`, (0,2,0); this is (0,3,1).
-html:root[dir] .dock .dock-item {
+// Core `.dock-item.active` (dock.scss:203-207) is `--surface-elevation-3` plus `--shadow-sm`, (0,2,0); this is (0,4,1).
+html:root[dir] .dock:has(> .dock-items) .dock-item {
 	border-radius: var(--ins-radius-sm);
 }
 
-html:root[dir] .dock .dock-item.active {
+html:root[dir] .dock:has(> .dock-items) .dock-item.active {
 	box-shadow: 0 0 0 1px var(--ins-border);
 }
 
-html:root[dir] .dock .dock-item.active::before {
+html:root[dir] .dock:has(> .dock-items) .dock-item.active::before {
 	content: "";
 	position: absolute;
 	inset-inline-start: 0;
@@ -24,7 +24,7 @@ html:root[dir] .dock .dock-item.active::before {
 
 // ---- The floating tray: hairline and the overlay radius. A pinned dock (`body.dock-pinned`, dock.scss:223-246) is a flush column with its
 // own inline-end rule and radius 0, so it is left alone.
-html:root[dir] body:not(.dock-pinned) .dock {
+html:root[dir] body:not(.dock-pinned) .dock:has(> .dock-items) {
 	border: 1px solid var(--ins-border);
 	border-radius: var(--ins-radius-lg);
 }
@@ -32,11 +32,11 @@ html:root[dir] body:not(.dock-pinned) .dock {
 // ---- Notification and background-task panel (sidebar_panel.scss:8-32). Core draws a physical `border-right` (flipped by core's own RTL build) and a literal
 // `rgba(0, 0, 0, 0.1) 8px 0 8px` shadow, which is invisible on Dark and points the wrong way in RTL. The colour of whichever border core drew
 // is set (a colour on a side without width does nothing) and the shadow comes from the overlay token.
-html:root[dir] .sidebar-panel {
+html:root[dir] .body-sidebar-container > .sidebar-panel {
 	border-color: var(--ins-border);
 	box-shadow: var(--ins-elevation-overlay);
 }
 
-html:root[dir] .panel-header .panel-header-actions span {
+html:root[dir] .body-sidebar-container > .sidebar-panel .panel-header .panel-header-actions span {
 	border-radius: var(--ins-radius-sm);
 }
