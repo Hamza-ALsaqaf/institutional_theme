@@ -1,6 +1,6 @@
 // Accessible-name attributes written by shell/a11y_names.js, checked on the live desk in English and Arabic
 // (Light): attribute values, the accessibility tree (Playwright ariaSnapshot) and the cost of the observer.
-// Users axe-<lang>-light@midad.test come from axe.mjs.
+// Users <prefix>-<lang>-light@midad.test (prefix axe, or INS_USER_PREFIX) come from axe.mjs or from the caller.
 //
 //   cd tests/browser && PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers NODE_PATH=/opt/pw-node/node_modules node a11y_attrs.mjs [--out DIR]
 //
@@ -15,6 +15,7 @@ const req = createRequire(path.join(here, "package.json"));
 const { chromium } = req("playwright-core");
 const BASE = process.env.INS_BASE || "http://localhost:8000";
 const PASSWORD = "Mdd#Test2026x";
+const PREFIX = process.env.INS_USER_PREFIX || "axe"; // users <prefix>-<lang>-light@midad.test
 const argv = process.argv.slice(2);
 const OUT = path.resolve(argv.includes("--out") ? argv[argv.indexOf("--out") + 1] : path.join(here, "../../docs/team/evidence/round3/a11y-attrs"));
 fs.mkdirSync(OUT, { recursive: true });
@@ -41,7 +42,7 @@ async function login(browser, lang, blockShell = false) {
 	const page = await ctx.newPage();
 	page.on("console", (m) => { if (/Institutional Theme/.test(m.text())) check(`console warning from the theme: ${m.text().slice(0, 100)}`, false); });
 	await page.goto(`${BASE}/login`);
-	await page.fill("#login_email", `axe-${lang}-light@midad.test`);
+	await page.fill("#login_email", `${PREFIX}-${lang}-light@midad.test`);
 	await page.fill("#login_password", PASSWORD);
 	await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.click(".btn-login")]);
 	return { ctx, page };
@@ -68,7 +69,7 @@ async function run(browser, lang) {
 	const t = T[lang];
 	const tag = `[${lang}]`;
 	const { ctx, page } = await login(browser, lang);
-	const user = `axe-${lang}-light@midad.test`;
+	const user = `${PREFIX}-${lang}-light@midad.test`;
 
 	// ---- list view
 	await open(page, "/desk/user", ".list-row-container .list-row-checkbox");
@@ -120,6 +121,34 @@ async function run(browser, lang) {
 	await settle(page, 500);
 	const ts1 = await tabState();
 	check(`${tag} form tabs: aria-selected follows a tab change`, ts1.every(([sel, act]) => sel === String(act)) && ts1.filter(([sel]) => sel === "true").length === 1 && JSON.stringify(ts1) !== JSON.stringify(ts0), JSON.stringify(ts1));
+	// Core's other path to a tab is Tab.set_active() (form.js scroll_to_field: undo, URL hash, onboarding), which moves
+	// the `active` class and writes no aria-selected, after Bootstrap has written it on the earlier click.
+	const exactlyOne = (ts) => ts.every(([sel, act]) => sel === String(act)) && ts.filter(([sel]) => sel === "true").length === 1;
+	const tabA = await page.evaluate(() => {
+		const tab = cur_frm.layout.tabs.find((x) => !x.is_hidden());
+		const field = Object.values(cur_frm.fields_dict).find((f) => f.tab === tab && f.df.fieldtype === "Data" && f.$wrapper && f.$wrapper.length && !f.df.hidden && !f.df.hidden_due_to_dependency);
+		return { id: tab.tab_link.find("button").attr("id"), field: field && field.df.fieldname };
+	});
+	check(`${tag} form tabs: a field on the first tab was found`, !!tabA.field, JSON.stringify(tabA));
+	const viaSetActive = await page.evaluate((field) => cur_frm.scroll_to_field(field, false), tabA.field);
+	await settle(page, 500);
+	const ts2 = await tabState();
+	const activeId = await page.evaluate(() => document.querySelector("#form-tabs > li > button[role='tab'].active").id);
+	check(`${tag} form tabs: scroll_to_field returned to the first tab through Tab.set_active()`, viaSetActive === true && activeId === tabA.id, `${viaSetActive} ${activeId} ${tabA.id}`);
+	check(`${tag} form tabs: after set_active exactly one tab has aria-selected=true and it is the .active one`, exactlyOne(ts2) && JSON.stringify(ts2) === JSON.stringify(ts0), JSON.stringify(ts2));
+	await page.locator("#form-tabs > li:not(.hide) > button[role='tab']").nth(1).click();
+	await settle(page, 500);
+	check(`${tag} form tabs: and again after a second click`, exactlyOne(await tabState()), JSON.stringify(await tabState()));
+	// Synthetic: in 16.32.0 a click never reaches Bootstrap's writer (Tab.set_active() has already added `active`, so
+	// bootstrap tab.js show() returns early), so Bootstrap's own $(button).tab("show") is called here, the one path on
+	// which it writes aria-selected, followed by Tab.set_active(). A mirror written with the "never overwrite" setter fails.
+	await page.evaluate(() => $("#form-tabs > li:not(.hide) > button[role='tab']").eq(2).tab("show"));
+	await settle(page, 500);
+	check(`${tag} form tabs (synthetic): after Bootstrap's own tab("show") exactly one aria-selected=true, the .active one`, exactlyOne(await tabState()), JSON.stringify(await tabState()));
+	await page.evaluate(() => cur_frm.layout.tabs.find((x) => !x.is_hidden()).set_active());
+	await settle(page, 500);
+	const ts3 = await tabState();
+	check(`${tag} form tabs (synthetic): then Tab.set_active() on the first tab: exactly one aria-selected=true, the .active one`, exactlyOne(ts3) && JSON.stringify(ts3) === JSON.stringify(ts0), JSON.stringify(ts3));
 	const shell = await page.evaluate(() => ({
 		mains: [...document.querySelectorAll("main, [role='main']")].map((e) => e.id || e.tagName),
 		insideHeader: !!document.querySelector("#body header, #body [role='banner']"),

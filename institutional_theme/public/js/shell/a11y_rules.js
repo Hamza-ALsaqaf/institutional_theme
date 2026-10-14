@@ -115,13 +115,17 @@ function nameSectionToggle(button) {
 
 // form/tab.js:31 writes <li class="nav-item"> under <ul role="tablist"> (form/layout.js:46); the li has no
 // role of its own, so the tab button's parent is a list item rather than the tablist. The same button carries
-// role="tab" (tab.js:36) but no aria-selected: Bootstrap's tab plugin moves the `active` class between the
-// buttons and writes nothing else. aria-selected is written from that class, and a small observer on the tablist
-// (class attribute only, tab buttons only) follows each change. The state is exposed; no key behaviour is added.
+// role="tab" (tab.js:36) but core's own code writes no aria-selected. The state moves two ways: a click runs
+// Bootstrap's tab plugin (form/layout.js:555), which toggles the `active` class and also writes aria-selected on
+// role="tab" elements (bootstrap 4.6.2 js/src/tab.js:167-176); other paths use Tab.set_active() (form/tab.js:95-108,
+// called from form.js:2120 scroll_to_field), which moves the class only. aria-selected is therefore a pure mirror
+// of the `active` class, and it is written with setAttr, not put: a value Bootstrap wrote earlier must not stop the
+// mirror from following a later set_active(). A small observer on the tablist (class attribute only, tab buttons
+// only) follows each change. The state is exposed; no key behaviour is added.
 const watchedTablists = new WeakSet();
 
 function syncTab(button) {
-	put(button, "aria-selected", button.classList.contains("active") ? "true" : "false");
+	setAttr(button, "aria-selected", button.classList.contains("active") ? "true" : "false");
 }
 
 function presentTabItem(item) {
