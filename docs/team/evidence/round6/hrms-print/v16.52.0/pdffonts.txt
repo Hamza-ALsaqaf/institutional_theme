@@ -1,0 +1,1317 @@
+== core__appointment-letter-standard-appointment-letter__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+
+== core__appointment-letter-standard-appointment-letter__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+
+== core__appointment-letter-standard-appointment-letter__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+
+== core__appointment-letter-standard-appointment-letter__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+
+== core__attendance-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     53  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     58  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     63  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     69  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     78  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     83  0
+
+== core__attendance-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     28  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     33  0
+
+== core__attendance-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     14  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== core__attendance-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
+
+== core__employee-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      9  0
+AAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     14  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     24  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     60  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     65  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     70  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     78  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     89  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     94  0
+
+== core__employee-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      9  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     14  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     24  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     29  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     34  0
+
+== core__employee-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     14  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== core__employee-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
+
+== core__expense-claim-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     28  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     33  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     38  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     85  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     91  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes    102  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes    108  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes    113  0
+
+== core__expense-claim-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     28  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     33  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     38  0
+
+== core__expense-claim-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== core__expense-claim-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
+
+== core__job-offer-job-offer__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      5  0
+
+== core__job-offer-job-offer__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      5  0
+
+== core__job-offer-job-offer__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans                       CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes     14  0
+
+== core__job-offer-job-offer__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans                       CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes     14  0
+
+== core__leave-application-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     61  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     66  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     71  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     83  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     88  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     93  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     99  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes    107  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes    113  0
+
+== core__leave-application-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     28  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     33  0
+
+== core__leave-application-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     14  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== core__leave-application-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+
+== core__salary-slip-salary-slip-classic__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     17  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== core__salary-slip-salary-slip-classic__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+
+== core__salary-slip-salary-slip-classic__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     17  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== core__salary-slip-salary-slip-classic__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+
+== core__salary-slip-salary-slip-compact__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     17  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     20  0
+
+== core__salary-slip-salary-slip-compact__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     13  0
+
+== core__salary-slip-salary-slip-compact__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     17  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     20  0
+
+== core__salary-slip-salary-slip-compact__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     13  0
+
+== core__salary-slip-salary-slip-detailed__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     14  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     15  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     16  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     17  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== core__salary-slip-salary-slip-detailed__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     14  0
+
+== core__salary-slip-salary-slip-detailed__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     14  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     15  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     16  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     17  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== core__salary-slip-salary-slip-detailed__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     14  0
+
+== core__salary-slip-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      8  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     14  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     24  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     29  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     81  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     86  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     91  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes    109  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes    114  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes    119  0
+
+== core__salary-slip-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     28  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     33  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     38  0
+
+== core__salary-slip-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     14  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== core__salary-slip-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     28  0
+
+== noapp__salary-slip-salary-slip-classic__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     17  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== noapp__salary-slip-salary-slip-classic__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+
+== noapp__salary-slip-salary-slip-classic__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     17  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== noapp__salary-slip-salary-slip-classic__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+
+== noapp__salary-slip-salary-slip-compact__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     17  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     20  0
+
+== noapp__salary-slip-salary-slip-compact__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     13  0
+
+== noapp__salary-slip-salary-slip-compact__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     14  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     16  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     17  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     18  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     19  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     20  0
+
+== noapp__salary-slip-salary-slip-compact__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      4  0
+AAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      5  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      6  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      7  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+BAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     13  0
+
+== noapp__salary-slip-salary-slip-detailed__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     14  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     15  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     16  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     17  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== noapp__salary-slip-salary-slip-detailed__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     14  0
+
+== noapp__salary-slip-salary-slip-detailed__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      6  0
+DAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      7  0
+EAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes      8  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      9  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     10  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     11  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     14  0
+FAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     15  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     16  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     17  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     20  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     21  0
+GAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     22  0
+HAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     23  0
+
+== noapp__salary-slip-salary-slip-detailed__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      4  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      5  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      6  0
+CAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      7  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes      9  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     11  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     12  0
+EAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     13  0
+FAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     14  0
+
+== noapp__salary-slip-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      8  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     14  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     19  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     24  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     29  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     81  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     86  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     91  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes    109  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes    114  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes    119  0
+
+== noapp__salary-slip-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     28  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     33  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     38  0
+
+== noapp__salary-slip-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     14  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== noapp__salary-slip-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     28  0
+
+== themed__appointment-letter-standard-appointment-letter__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes      4  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      5  0
+
+== themed__appointment-letter-standard-appointment-letter__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes      4  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      5  0
+
+== themed__appointment-letter-standard-appointment-letter__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__appointment-letter-standard-appointment-letter__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__attendance-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     17  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     23  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     27  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     33  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     61  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     75  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     89  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    100  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    107  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    112  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    129  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    133  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    140  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    170  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    175  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    181  0
+CAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    194  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    207  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    212  0
+
+== themed__attendance-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes      8  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     43  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     57  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     71  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    106  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    116  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    127  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    137  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    150  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    156  0
+
+== themed__attendance-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__attendance-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__employee-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes      9  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     24  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     36  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     43  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     47  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     51  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     78  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     92  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    106  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    120  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    127  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    132  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    156  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    160  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    167  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    186  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    191  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    197  0
+CAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    204  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    216  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    221  0
+
+== themed__employee-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes      9  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     47  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     61  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     75  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    107  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    117  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    128  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    135  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    147  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    156  0
+
+== themed__employee-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__employee-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__expense-claim-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     26  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     33  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     38  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     43  0
+FAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     54  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     82  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     97  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    109  0
+CAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    113  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    118  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    154  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    168  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    182  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    231  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    246  0
+CAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    251  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    271  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    285  0
+CAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    292  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    308  0
+CAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    314  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    335  0
+CAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    340  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     11  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     18  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     22  0
+
+== themed__expense-claim-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     32  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     37  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     79  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     92  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    106  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     11  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    156  0
+CAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    167  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    203  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    217  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    222  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    226  0
+
+== themed__expense-claim-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
+== themed__expense-claim-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
+== themed__job-offer-job-offer__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes      4  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      5  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes      6  0
+
+== themed__job-offer-job-offer__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes      4  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      5  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes      6  0
+
+== themed__job-offer-job-offer__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__job-offer-job-offer__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__leave-application-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     33  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     42  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     51  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     58  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     63  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     77  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     91  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    105  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     11  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    122  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    127  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     18  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    143  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    150  0
+BAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     26  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    168  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    174  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    214  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    218  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    223  0
+CAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    230  0
+
+== themed__leave-application-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes     32  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     67  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     80  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     94  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     11  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    138  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    149  0
+
+== themed__leave-application-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
+== themed__leave-application-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes     10  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     15  0
+
+== themed__salary-slip-salary-slip-classic__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     22  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     31  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     40  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     45  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     53  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     65  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     73  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     78  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     84  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    101  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    105  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    109  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    142  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    147  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    151  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    156  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    160  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    198  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    212  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    226  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    266  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    271  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    291  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    306  0
+
+== themed__salary-slip-salary-slip-classic__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      8  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     43  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     59  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     64  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     68  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     72  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    118  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    132  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    146  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    193  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    203  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    209  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    214  0
+
+== themed__salary-slip-salary-slip-classic__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     22  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     31  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     40  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     45  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     53  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     65  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     73  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     78  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     84  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    101  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    105  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    109  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    142  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    147  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    151  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    156  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    160  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    198  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    212  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    226  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    266  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    271  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    291  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    306  0
+
+== themed__salary-slip-salary-slip-classic__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      8  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     43  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     59  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     64  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     68  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     72  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    118  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    132  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    146  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    193  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    203  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    209  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    214  0
+
+== themed__salary-slip-salary-slip-compact__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes      8  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     15  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     23  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     35  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     39  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     47  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     53  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     60  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    106  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    110  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    136  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    146  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    160  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    174  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    182  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    191  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    206  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    246  0
+
+== themed__salary-slip-salary-slip-compact__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     55  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     60  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     64  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     90  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    100  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    114  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    128  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    134  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    139  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    171  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    211  0
+
+== themed__salary-slip-salary-slip-compact__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes      8  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     15  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     23  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     35  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     39  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     47  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     53  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     60  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    106  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    110  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    136  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    146  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    160  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    174  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    182  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    191  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    206  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    246  0
+
+== themed__salary-slip-salary-slip-compact__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     55  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     60  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     64  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     90  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    100  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    114  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    128  0
+AAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    134  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    139  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    171  0
+BAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    211  0
+
+== themed__salary-slip-salary-slip-detailed__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     22  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     31  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     40  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     45  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     63  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     77  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     93  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    109  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    114  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    119  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    125  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    142  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    146  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    150  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    183  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    188  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    227  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    241  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    255  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    295  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    300  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    316  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    330  0
+
+== themed__salary-slip-salary-slip-detailed__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      8  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     43  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     59  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     64  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     68  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     72  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     76  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    122  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    136  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    150  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    194  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    204  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    210  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    215  0
+
+== themed__salary-slip-salary-slip-detailed__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     22  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     31  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     40  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     45  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     63  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     77  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     93  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    109  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    114  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    119  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    125  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    142  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    146  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    150  0
+DAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    183  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    188  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    227  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    241  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    255  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    295  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    300  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    316  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    330  0
+
+== themed__salary-slip-salary-slip-detailed__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes      8  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     43  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     59  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     64  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     68  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     72  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     76  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    122  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    136  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    150  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    194  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    204  0
+CAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    210  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    215  0
+
+== themed__salary-slip-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes      8  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     17  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     24  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes     34  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes     41  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     46  0
+FAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     55  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     74  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes     90  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    103  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    108  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    112  0
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    117  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    161  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    175  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    189  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    211  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    222  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    228  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    249  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    269  0
+BAAAAA+IBMPlexSansArabic-Medm        Type 3            Custom           yes yes yes    276  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    300  0
+CAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    306  0
+BAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    357  0
+DAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    362  0
+
+== themed__salary-slip-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes      8  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes     58  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     72  0
+BAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes     86  0
+AAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    139  0
+AAAAAA+IBMPlexSans                   Type 3            Custom           yes yes yes    150  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    162  0
+BAAAAA+IBMPlexSans-Medm              Type 3            Custom           yes yes yes    172  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    192  0
+CAAAAA+IBMPlexSansArabic             Type 3            Custom           yes yes yes    198  0
+DAAAAA+IBMPlexSans-SmBld             Type 3            Custom           yes yes yes    203  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    240  0
+EAAAAA+IBMPlexSansArabic-SmBld       Type 3            Custom           yes yes yes    245  0
+
+== themed__salary-slip-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     14  0
+
+== themed__salary-slip-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IBMPlexSansArabic-Medm               CID TrueType      Identity-H       yes no  yes      9  0
+IBMPlexSansArabic-SmBld              CID TrueType      Identity-H       yes no  yes     14  0
+

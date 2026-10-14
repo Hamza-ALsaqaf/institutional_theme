@@ -353,6 +353,46 @@ LiberationSans                       CID TrueType      Identity-H       yes no  
 DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
 DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     28  0
 
+== noapp__salary-slip-salary-slip-standard__chrome-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes      8  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     14  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     19  0
+AAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     24  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     29  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     68  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     73  0
+CAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     90  0
+BAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     95  0
+BAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes    100  0
+
+== noapp__salary-slip-salary-slip-standard__chrome-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes      8  0
+AAAAAA+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     13  0
+AAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     18  0
+BAAAAA+LiberationSans                CID TrueType      Identity-H       yes yes yes     23  0
+CAAAAA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     28  0
+DAAAAA+DejaVuSans                    Type 3            Custom           yes yes yes     33  0
+
+== noapp__salary-slip-salary-slip-standard__wkhtmltopdf-ar.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     14  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     24  0
+
+== noapp__salary-slip-salary-slip-standard__wkhtmltopdf-en.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+LiberationSans-Bold                  CID TrueType      Identity-H       yes no  yes      9  0
+LiberationSans                       CID TrueType      Identity-H       yes no  yes     14  0
+DejaVuSans                           CID TrueType      Identity-H       yes no  yes     19  0
+DejaVuSans-Bold                      CID TrueType      Identity-H       yes no  yes     24  0
+
 == themed__appointment-letter-standard-appointment-letter__chrome-ar.pdf
 name                                 type              encoding         emb sub uni object ID
 ------------------------------------ ----------------- ---------------- --- --- --- ---------

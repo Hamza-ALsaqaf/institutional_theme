@@ -198,6 +198,26 @@ Producer:        pypdf
 Pages:           2
 Page size:       595 x 842 pts (A4)
 
+== noapp__salary-slip-salary-slip-standard__chrome-ar.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 844.08 pts (A4)
+
+== noapp__salary-slip-salary-slip-standard__chrome-en.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 844.08 pts (A4)
+
+== noapp__salary-slip-salary-slip-standard__wkhtmltopdf-ar.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== noapp__salary-slip-salary-slip-standard__wkhtmltopdf-en.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
 == themed__appointment-letter-standard-appointment-letter__chrome-ar.pdf
 Producer:        Skia/PDF m133
 Pages:           1

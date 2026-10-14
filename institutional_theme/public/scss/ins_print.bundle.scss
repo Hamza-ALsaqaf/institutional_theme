@@ -25,7 +25,11 @@ body.print-format-doc {
 
 	// ERPNext's own formats set a family on `.invoice-page` (inside `.print-format`); inherit the one the
 	// Print Style declares instead.
-	.page-break {
+	// HRMS's builder salary slips (Classic, Detailed, Compact) set `font-family: "Helvetica Neue", Helvetica, Arial` on
+	// `.ss-doc` in their own CSS, which printed the body in Liberation Sans and Arabic in DejaVu Sans under the
+	// Plex letter head. Same remedy, same specificity gain (round 6).
+	.page-break,
+	.ss-doc {
 		font-family: inherit;
 	}
 
@@ -433,6 +437,76 @@ body.print-format-doc {
 	.ins-status-pending::before {
 		border-right-width: 1.5px;
 		border-left-width: 5px;
+	}
+
+	// HRMS's builder salary slips (Classic, Detailed, Compact, `.ss-*`) hard-code the left-to-right sides in their own
+	// CSS: components `text-align: left`, amounts `text-align: right`, the accent bar `border-left`. In an RTL page the
+	// table flips but the text does not, so each amount ended up against its component name and the headers merged
+	// (round 6, `docs/team/evidence/round6/hrms-print/`; the same without the theme). These are the mirrored sides, with the
+	// specificity to follow `[dir="rtl"] .print-format`.
+	.ss-right,
+	.ss-kv td.v,
+	.ss-ledger th,
+	.ss-ledger td,
+	.ss-net .amt,
+	.ss-net td.right,
+	.ss-hero .pay,
+	.ss-foot td.ref {
+		text-align: left;
+	}
+
+	.ss-ledger th.c,
+	.ss-ledger td.c,
+	.ss-ledger tr.ss-sec td.c {
+		text-align: right;
+	}
+
+	.ss-meta td + td {
+		padding-right: 40px;
+		padding-left: 0;
+	}
+
+	.ss-net {
+		border-right: 3px solid $ins-text-strong;
+		border-left: 0;
+	}
+
+	.ss-split > tbody > tr > td.l {
+		padding-right: 0;
+		padding-left: 18px;
+		border-right: 0;
+	}
+
+	.ss-classic .ss-split > tbody > tr > td.l {
+		border-left: 1px solid $ins-border-strong;
+	}
+
+	.ss-split > tbody > tr > td.r {
+		padding-right: 18px;
+		padding-left: 0;
+	}
+
+	.ss-strip td {
+		border-right: 0;
+		border-left: 1px solid $ins-border-strong;
+	}
+
+	.ss-strip td.last {
+		border-left: 0;
+	}
+
+	.ss-section td.rule {
+		padding-right: 12px;
+		padding-left: 0;
+	}
+
+	.ss-foot td {
+		padding-right: 0;
+		padding-left: 18px;
+	}
+
+	.ss-foot td.ref {
+		padding-left: 0;
 	}
 }
 // Chrome with "repeat header and footer": core's header and footer page (chrome_pdf_header_footer.html)
