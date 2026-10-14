@@ -239,7 +239,11 @@ def alerts_html() -> str:
 			'<a class="close"><svg class="icon icon-sm" aria-hidden="true"><use href="#icon-x"></use></svg></a></div>'
 		)
 
-	return one("green", "solid-success", "toast.ok", "toast.sub") + one("red", "solid-error", "toast.err") + one("orange", "solid-warning", "toast.warn")
+	return (
+		one("green", "solid-success", "toast.ok", "toast.sub")
+		+ one("red", "solid-error", "toast.err")
+		+ one("orange", "solid-warning", "toast.warn")
+	)
 
 
 def screens(strings: dict) -> tuple[str, str]:
