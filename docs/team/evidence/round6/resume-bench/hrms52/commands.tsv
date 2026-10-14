@@ -1,0 +1,3 @@
+site_new	bench_cmd new-site hrms52.test --db-type postgres --db-host 127.0.0.1 --db-port 5432 --db-root-username postgres --db-root-password postgres --admin-password admin	0	35	site_new.log
+site_config	bench_cmd --site hrms52.test set-config developer_mode 1	0	7	site_config.log
+site_host	bench_cmd --site hrms52.test set-config host_name http://hrms52.test:8002	0	1	site_host.log
