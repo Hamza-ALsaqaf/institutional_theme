@@ -1,0 +1,8 @@
+live  declared/read: 581 403
+snap  declared/read: 581 402
+declared equal: True
+read equal: False
+read only in live: ['--left-arrow-svg']
+read only in snapshot: []
+live sources: 22 snapshot sources: 11
+LTR files with identical name+sha256 as the snapshot: 0 of 11
