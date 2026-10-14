@@ -33,6 +33,35 @@ body.print-format-doc {
 		font-family: inherit;
 	}
 
+	// HRMS's builder salary slips set their captions and sub-text in `#757575`: 4.6:1 on white but 4.1:1 on the
+	// `#f2f2f2` and `#f6f6f6` bands (`.ss-net`, `.ss-hero`, `.ss-strip`), below the 4.5:1 the brief asks for. The
+	// theme's secondary text colour clears 7:1 on all of them. 10px, not HRMS's 9.5px, for the captions.
+	.ss-label,
+	.ss-net .words,
+	.ss-hero .words,
+	.ss-strip .ss-label,
+	.ss-ledger tr.ss-sec td {
+		color: $ins-text-secondary;
+	}
+
+	.ss-label,
+	.ss-ledger th,
+	.ss-ledger tr.ss-sec td {
+		font-size: 10px;
+	}
+
+	// The same rule colours in both directions: HRMS draws these in `#1a1a1a` and `#e2e2e2`, and the mirrored
+	// sides below use the theme's colours, so the left-to-right sides take them too and an English and an Arabic
+	// slip match. Colour only: the widths and sides stay HRMS's.
+	.ss-net {
+		border-left-color: $ins-text-strong;
+	}
+
+	.ss-split > tbody > tr > td.l,
+	.ss-strip td {
+		border-right-color: $ins-border-strong;
+	}
+
 	// Headings and the closing-rule motif: a heavy bar over a light bar.
 	.print-heading {
 		margin-bottom: $ins-space-3;
@@ -354,10 +383,13 @@ body.print-format-doc {
 	// page in both generators. The frame is a border, so a photocopy still shows a boxed word; the text is
 	// the meaning. `top` is a length, not a percentage: wkhtmltopdf resolves a percentage against the height of
 	// the document content, so 40% put the box over the title of a short document (round 6, Expense Claim).
-	// 118mm lands it near the middle of A4 and Letter there. Chrome prints a fixed box only inside the first
-	// ~45mm of the page (a box at 10mm is whole, at 20mm its lower edge is cut; measured with tops of 10 to 118mm, round 6), so a box lower than that is not
-	// printed at all and a Draft document would carry no mark: the `@supports` block below, which the old
-	// WebKit of wkhtmltopdf does not implement, keeps the box inside that area for Chrome.
+	// 118mm lands it near the middle of A4 and Letter there (wkhtmltopdf, A4 and Letter only: on A5 landscape and A6
+	// the box starts below the content or is cut, see the manifest). Chrome prints a fixed box only inside the first
+	// ~48mm of the page, and the box is ~45mm tall, so it is printed whole only when it starts within ~3mm of the top
+	// (measured on Frappe 16.32.0, tops of 0 to 20mm, round 6: 3mm whole, 4mm loses part of the bottom border, 10mm
+	// loses the bottom border and the word). A box lower than that is not printed at all and a Draft document would
+	// carry no mark: the `@supports` block below, which the old WebKit of wkhtmltopdf does not implement, puts the
+	// box there for Chrome. It sits over the letter head and the title; a printer's unprintable edge can clip the top border.
 	[document-status="draft"],
 	[document-status="cancelled"] {
 		position: fixed;
@@ -387,7 +419,7 @@ body.print-format-doc {
 	@supports (display: grid) {
 		[document-status="draft"],
 		[document-status="cancelled"] {
-			top: 10mm;
+			top: 3mm;
 		}
 	}
 }
@@ -413,9 +445,15 @@ body.print-format-doc {
 		margin-left: 0.35em; // physical: wkhtmltopdf's WebKit has no logical margins; this block is RTL only
 	}
 
-	// Arabic letters join; tracking breaks the word apart, so the watermark is not spaced.
+	// Arabic letters join; tracking breaks the word apart, so the watermark and the captions, column headers,
+	// section titles and slip title of HRMS's salary slips (`letter-spacing` 0.06em to 0.1em there) are not spaced.
 	[document-status="draft"] h4,
-	[document-status="cancelled"] h4 {
+	[document-status="cancelled"] h4,
+	.ss-label,
+	.ss-ledger th,
+	.ss-ledger tr.ss-sec td,
+	.ss-title h3,
+	.ss-who .name {
 		letter-spacing: 0;
 	}
 
