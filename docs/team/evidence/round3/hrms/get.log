@@ -1,0 +1,26 @@
+Getting hrms
+$ git clone https://github.com/frappe/hrms --branch v16.20.1 --depth 1 --origin upstream
+Cloning into 'hrms'...
+Note: switching to '6f5ac249283f6fa1013fd5616f3d95f686ba7bb2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Ignoring dependencies of https://github.com/frappe/hrms. To install dependencies use --resolve-deps
+Installing hrms
+$ uv pip install --quiet -e /home/frappe/frappe-bench/apps/hrms  --python /home/frappe/frappe-bench/env/bin/python
+error: Failed to initialize cache at `/home/runner/work/_temp/setup-uv-cache`
+  cause: failed to open file `/home/runner/work/_temp/setup-uv-cache/sdists-v10/.git`: Permission denied (os error 13)
+Error occured during app install: uv pip install --quiet -e /home/frappe/frappe-bench/apps/hrms  --python /home/frappe/frappe-bench/env/bin/python

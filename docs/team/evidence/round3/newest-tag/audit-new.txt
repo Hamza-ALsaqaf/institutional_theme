@@ -1,0 +1,19 @@
+Presets: midad, graphite, petrol, forest, plum, umber; shipped: midad, graphite, petrol, forest, plum
+contrast  midad     light pass (0 failing)
+contrast  midad     dark  pass (0 failing)
+contrast  graphite  light pass (0 failing)
+contrast  graphite  dark  pass (0 failing)
+contrast  petrol    light pass (0 failing)
+contrast  petrol    dark  pass (0 failing)
+contrast  forest    light pass (0 failing)
+contrast  forest    dark  pass (0 failing)
+contrast  plum      light pass (0 failing)
+contrast  plum      dark  pass (0 failing)
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+parity: 55 checks, 0 failed
+colour-vision: 0 failure(s) (status, neighbouring series, gap not in the baseline), 99 baselined chart gap(s) in shipped presets
+dead-tokens: 377 variables: 346 declared and read by core, 10 declared only, 7 read only, 0 consumed by the theme, 14 dead
+budgets: not built (--dist /tmp/nonexistent-dist has no ins_* bundles); skipped
+audits: FAILED
