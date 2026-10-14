@@ -40,10 +40,6 @@ TOKENS_HEADERS = {
 	'html [data-theme="light"] {': "light",
 	'html [data-theme="dark"] {': "dark",
 }
-FRAPPE_HEADERS = {
-	'html[dir] [data-theme="light"] {': "light",
-	'html[dir] [data-theme="dark"] {': "dark",
-}
 DECL = re.compile(r"^\s*(--[A-Za-z0-9-]+):\s*(.+);$")
 VAR_REF = re.compile(r"var\((--ins-[a-z0-9-]+)\)")
 PRESET_LINE = re.compile(r"^(\w+): (shipped|DROPPED)\b")
@@ -101,6 +97,36 @@ def read_blocks(path: Path, headers: dict[str, str]) -> dict[str, dict[str, str]
 		if match:
 			blocks[current][match.group(1)] = match.group(2)
 	return blocks
+
+
+def read_frappe_map(path: Path) -> dict[str, dict[str, str]]:
+	"""Light and effective dark declarations of `_frappe_map.scss`.
+
+	The first top-level block declares every variable with its light value; the second holds only the
+	variables whose dark value differs, so the effective dark map is the first overlaid with the second.
+	"""
+	top_level: list[dict[str, str]] = []
+	current: dict[str, str] | None = None
+	for line in read_text(path).splitlines():
+		if current is None:
+			if line.endswith(" {") and not line.startswith(("\t", "@")):
+				current = {}
+			continue
+		if line == "}":
+			top_level.append(current)
+			current = None
+			continue
+		match = DECL.match(line)
+		if match:
+			current[match.group(1)] = match.group(2)
+	if len(top_level) != 2:
+		sys.exit(
+			f"expected the shared and the dark block in {rel(path)}, found {len(top_level)} top-level blocks"
+		)
+	shared, delta = top_level
+	if not set(delta) <= set(shared):
+		sys.exit(f"the dark block of {rel(path)} declares names the shared block does not")
+	return {"light": shared, "dark": {**shared, **delta}}
 
 
 def declared_values(path: Path) -> dict[str, str]:
@@ -395,7 +421,7 @@ def main() -> int:
 	model = json.loads(read_text(MODEL))
 	contrast = json.loads(read_text(CONTRAST))
 	tokens = read_blocks(TOKENS_SCSS, TOKENS_HEADERS)
-	frappe = read_blocks(FRAPPE_SCSS, FRAPPE_HEADERS)
+	frappe = read_frappe_map(FRAPPE_SCSS)
 	light, dark = tokens["light"], tokens["dark"]
 	if not light or not dark:
 		sys.exit("no light or dark block parsed from _tokens.scss")

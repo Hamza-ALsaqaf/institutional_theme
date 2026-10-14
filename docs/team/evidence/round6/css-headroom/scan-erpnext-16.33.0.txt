@@ -1,0 +1,5 @@
+424 mapped variable names
+public/banking/assets/index-J_w2RrLs.css | @layer theme >> :root | 3 var(s) e.g. --font-weight-medium
+public/banking/assets/index-J_w2RrLs.css | @layer theme >> :host | 3 var(s) e.g. --font-weight-medium
+public/banking/assets/index-J_w2RrLs.css | :root | 200 var(s) e.g. --gray-50
+public/banking/assets/index-J_w2RrLs.css | .dark | 201 var(s) e.g. --gray-50

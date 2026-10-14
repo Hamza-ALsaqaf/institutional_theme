@@ -1,9 +1,13 @@
 """Before and after of the generated declarations that one Frappe version's core actually reads.
 
 ADR 0011 R3 says a change of the Frappe map must not move 16.32.0 (rule 3, upgrade safety). This
-compares two texts of a generated map (`_frappe_map.scss`) and keeps only the declarations whose
-variable the version's core reads (its snapshot, `read`). A changed, removed or added declaration of
-such a variable moves that version; the report lists them and the command exits 1 when any exists.
+compares two texts of a generated map (`_frappe_map.scss`) by EFFECTIVE value and keeps only the
+declarations whose variable the version's core reads (its snapshot, `read`). The effective value of a
+variable is what the cascade of the map's own rules gives on five kinds of element: the root in Light,
+in Dark and in Automatic under a dark OS, and a nested light and a nested dark element. So a text that
+declares every variable once and repeats only the differing Dark values compares equal to one that
+declares all of them in three blocks. A changed, removed or added effective declaration of such a
+variable moves that version; the report lists them and the command exits 1 when any exists.
 It also checks that every `--ins-*` value of `_tokens.scss` that existed before is unchanged, because
 the map points at those values.
 
@@ -38,6 +42,21 @@ ACCEPTED_FILE = DATA_DIR / "accepted_movement.json"
 
 Declarations = dict[tuple[str, str], str]
 
+# Elements the map is evaluated on, with the rules that can match them as
+# (selector, inside the dark-OS media query, specificity as (id, class, element)). Ties go to the later rule.
+_AUTOMATIC = 'html:root[dir][data-theme="automatic"]'
+CONTEXTS: dict[str, tuple[tuple[str, bool, tuple[int, int, int]], ...]] = {
+	"root Light": (("html:root[dir]", False, (0, 2, 1)),),
+	"root Dark": (
+		("html:root[dir]", False, (0, 2, 1)),
+		('html:root[dir][data-theme="dark"]', False, (0, 3, 1)),
+	),
+	"root Automatic (dark OS)": (("html:root[dir]", False, (0, 2, 1)), (_AUTOMATIC, True, (0, 3, 1))),
+	"nested light": (('html[dir] [data-theme="light"]', False, (0, 2, 1)),),
+	"nested dark": (('html[dir] [data-theme="dark"]', False, (0, 2, 1)),),
+}
+
+_ORDERED = re.compile(r"(@media[^{]*)\{\s*([^{}]+)\{([^{}]*)\}\s*\}|([^{}]+)\{([^{}]*)\}")
 _MEDIA = re.compile(r"(@media[^{]*)\{\s*([^{}]+)\{([^{}]*)\}\s*\}")
 _BLOCK = re.compile(r"([^{}]+)\{([^{}]*)\}")
 _PROPERTY = re.compile(r"(--[A-Za-z0-9_-]+)\s*:\s*([^;]+?)\s*;")
@@ -61,6 +80,33 @@ def parse_declarations(text: str) -> Declarations:
 		add(f"{' '.join(media.split())} {head}", body)
 	for head, body in _BLOCK.findall(_MEDIA.sub("", text)):
 		add(head, body)
+	return found
+
+
+def effective_declarations(text: str) -> Declarations:
+	"""`{(element, property): value}` after the cascade of the map's own rules, for the `CONTEXTS`.
+
+	Rules whose selector is not one of the map's shapes are ignored. Within a context the highest
+	specificity wins and, at equal specificity, the later rule.
+	"""
+	text = re.sub(r"^\s*//.*$", "", text, flags=re.MULTILINE)
+	rules: list[tuple[str, bool, str, str]] = []
+	for media, media_head, media_body, head, body in _ORDERED.findall(text):
+		in_media = bool(media)
+		for selector in (media_head if in_media else head).split(","):
+			for name, value in _PROPERTY.findall(media_body if in_media else body):
+				rules.append((" ".join(selector.split()), in_media, name, value))
+	found: Declarations = {}
+	for context, matching in CONTEXTS.items():
+		winners: dict[str, tuple[tuple[int, int, int], int, str]] = {}
+		for order, (selector, in_media, name, value) in enumerate(rules):
+			for candidate, candidate_media, specificity in matching:
+				if selector == candidate and in_media == candidate_media:
+					best = winners.get(name)
+					if best is None or (specificity, order) >= (best[0], best[1]):
+						winners[name] = (specificity, order, value)
+		for name, (_, _, value) in winners.items():
+			found[(context, name)] = value
 	return found
 
 
@@ -106,32 +152,41 @@ def compare(
 	(and of no compiled read) whose name is in `accepted` goes to `Movement.accepted`; it does not make the
 	version "moved". A name the compiled CSS reads is never accepted.
 	"""
-	before, after = parse_declarations(before_map), parse_declarations(after_map)
+	before, after = effective_declarations(before_map), effective_declarations(after_map)
 	reads = core.read | source_reads
 	accepted = accepted or {}
 	acceptable = {name: reason for name, reason in accepted.items() if name in source_reads - core.read}
 	movement = Movement()
 	movement.effective_before = sum(1 for (_, name) in before if name in reads)
 	movement.effective_after = sum(1 for (_, name) in after if name in reads)
+	# One entry per distinct (name, values): the element kinds that move the same way are listed together.
+	changed: dict[tuple[str, str, str], list[str]] = {}
+	removed: dict[tuple[str, str], list[str]] = {}
+	added: dict[tuple[str, str], list[str]] = {}
 	for key, value in before.items():
-		selector, name = key
+		context, name = key
 		if key not in after:
-			if name in reads:
-				movement.removed.append((selector, name, value))
+			removed.setdefault((name, value), []).append(context)
 		elif after[key] != value:
-			if name in reads:
-				movement.changed.append((selector, name, value, after[key]))
-			else:
-				movement.changed_unread += 1
+			changed.setdefault((name, value, after[key]), []).append(context)
 	for key, value in after.items():
-		selector, name = key
 		if key not in before:
-			if name in acceptable:
-				movement.accepted.append(("ADDED", selector, name, value, acceptable[name]))
-			elif name in reads:
-				movement.added.append((selector, name, value))
-			else:
-				movement.added_unread += 1
+			added.setdefault((key[1], value), []).append(key[0])
+	for (name, old, new), contexts in changed.items():
+		if name in reads:
+			movement.changed.append((", ".join(contexts), name, old, new))
+		else:
+			movement.changed_unread += 1
+	for (name, old), contexts in removed.items():
+		if name in reads:
+			movement.removed.append((", ".join(contexts), name, old))
+	for (name, value), contexts in added.items():
+		if name in acceptable:
+			movement.accepted.append(("ADDED", ", ".join(contexts), name, value, acceptable[name]))
+		elif name in reads:
+			movement.added.append((", ".join(contexts), name, value))
+		else:
+			movement.added_unread += 1
 	old_tokens, new_tokens = parse_declarations(before_tokens), parse_declarations(after_tokens)
 	for key, value in old_tokens.items():
 		if key in new_tokens and new_tokens[key] != value:
