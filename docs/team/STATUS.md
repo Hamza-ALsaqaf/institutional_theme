@@ -21,10 +21,9 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-Round 3, second attempt (job started about 00:40 UTC 2026-10-14 on a fresh runner, pull request #3; scope `docs/team/RESUME_PROMPT.md`, ownership `docs/team/PLAN.md` "Round 3", agent rules `docs/team/evidence/round3/DISPATCH.md`). The first attempt's background agents were stopped and their unpushed work lost. Bench rebuilt by the lead (`docs/team/evidence/round3/bench2/`). Wave 1, dispatched 00:45, report by 02:40:
-- backend-engineer A: item 3 (newest v16 tag), then item 1 (fresh site or fresh bench, install from README, uninstall).
-- backend-engineer B: item 2 (HRMS 16.20.1 on `midad.test`), then item 5 (axe-core scan).
-- css-engineer: item 4 (brand-app coexistence), then HRMS screens and fixes.
+Round 3, second attempt (job started about 00:40 UTC 2026-10-14 on a fresh runner, pull request #3; scope `docs/team/RESUME_PROMPT.md`, ownership `docs/team/PLAN.md` "Round 3", agent rules `docs/team/evidence/round3/DISPATCH.md`). The first attempt's background agents were stopped and their unpushed work lost. Bench rebuilt by the lead (`docs/team/evidence/round3/bench2/`). Wave 1, dispatched 00:45: item 4 coexistence and HRMS screens done (css-engineer, 01:23); item 2 HRMS 16.20.1 installed with fictional records and item 5 axe scan done (backend B, 01:41); item 3 newest tag v16.51.1 checked (backend A); item 6 grid checkbox names done, Gantt month names not possible without core (backend C, 01:43). Item 1 (fresh install) still running (backend A).
+Wave 2, dispatched 01:47, report by 03:10: css-engineer fixes the 14 theme-caused axe nodes (desk avatar pairs) and the CSS-fixable core contrast/target/link findings; backend D adds accessible-name attributes for core markup through the shell, avatar pairs in the contrast audit, then the full axe re-scan.
+Then: scribe (manifest incl. 9 new `!important`, checklist, ar.csv check), both hostile reviews, fix round, release gate.
 
 ## Next step
 
