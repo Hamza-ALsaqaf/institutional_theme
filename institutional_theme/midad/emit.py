@@ -2,7 +2,9 @@
 
 All three blocks of a family (light, dark, automatic) are written from ONE key list, and a key
 missing from either mode raises `KeyError`, so key-set parity cannot be broken silently. The
-automatic block repeats the dark values inside `@media (prefers-color-scheme: dark)`.
+automatic block repeats the dark values inside `@media (prefers-color-scheme: dark)`. The desk Frappe map is the
+one exception (`emit_map_family`): a shared block with every key, then dark and automatic blocks with only the keys
+whose dark value differs.
 """
 
 from __future__ import annotations
@@ -25,6 +27,17 @@ SHAPES: dict[str, dict[str, tuple[str, ...]]] = {
 	# Frappe variable mapping, every palette file and the custom file. (0,2,1) and (0,3,1).
 	"palette": {
 		"light": ("html:root[dir]", 'html[dir] [data-theme="light"]'),
+		"dark": ('html:root[dir][data-theme="dark"]', 'html[dir] [data-theme="dark"]'),
+		"automatic": ('html:root[dir][data-theme="automatic"]',),
+	},
+	# Frappe variable map (desk only): ONE shared block holds every declaration, the dark and automatic blocks
+	# hold only the declarations whose dark value differs. Shared (0,2,1); dark (0,3,1) and (0,2,1); automatic (0,3,1).
+	# The shared list is the union of the light and the nested-dark selectors of "palette": a value is a `var()`
+	# expression resolved on the element that declares it, so the same expression re-declared on the dark root or
+	# on a nested dark element changes nothing. It does not hold the automatic selector (that would put the light
+	# values on an automatic root in a dark OS before the media block) nor a bare `[data-theme]`.
+	"map": {
+		"shared": ("html:root[dir]", 'html[dir] [data-theme="light"]', 'html[dir] [data-theme="dark"]'),
 		"dark": ('html:root[dir][data-theme="dark"]', 'html[dir] [data-theme="dark"]'),
 		"automatic": ('html:root[dir][data-theme="automatic"]',),
 	},
@@ -90,6 +103,32 @@ def emit_family(
 	if color_scheme:
 		parts.append(_block(shape["automatic"], [("color-scheme", "light dark")]))
 	return "\n".join(parts)
+
+
+def dark_delta(keys: Sequence[str], light: Mapping[str, str], dark: Mapping[str, str]) -> list[str]:
+	"""The keys whose dark value differs from the light value, in key order."""
+	light_decl = dict(_declarations(keys, light))
+	dark_decl = dict(_declarations(keys, dark))
+	return [key for key in keys if light_decl[key] != dark_decl[key]]
+
+
+def emit_map_family(keys: Sequence[str], light: Mapping[str, str], dark: Mapping[str, str]) -> str:
+	"""The Frappe map: a shared block with every declaration, then dark and automatic blocks with the delta.
+
+	Sound only while no value reads another custom property of the same map (checked by the build), because a
+	`var()` is resolved on the element that declares it: re-declaring an identical value on the same element
+	is a no-op, so omitting it from the dark blocks changes no computed value (see SHAPES["map"]).
+	"""
+	shape = SHAPES["map"]
+	delta = dark_delta(keys, light, dark)
+	dark_decl = _declarations(delta, dark)
+	return "\n".join(
+		[
+			_block(shape["shared"], _declarations(keys, light)),
+			_block(shape["dark"], dark_decl),
+			f"@media {AUTOMATIC_MEDIA} {{\n" + _block(shape["automatic"], dark_decl, "\t") + "}\n",
+		]
+	)
 
 
 def emit_light_family(

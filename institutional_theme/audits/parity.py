@@ -4,7 +4,8 @@ Checks, on the files the build wrote:
 
 * every generated file starts with the "generated, do not edit" header;
 * each family has light, dark and automatic blocks at the exact selector shapes;
-* the three blocks hold the same keys in the same order;
+* the three blocks hold the same keys in the same order (the Frappe map: one shared block with every key and a dark delta
+  that holds only the keys whose dark value differs, so the effective Dark key set equals the Light one);
 * `color-scheme` is `light`, `dark` and `light dark` in the base tokens, and absent elsewhere;
 * palette files hold custom properties only (no `color-scheme`, no `forced-color-adjust`);
 * no `!important`, `color-mix()` or relative-colour syntax;
@@ -175,6 +176,73 @@ def check_family(
 	return checks
 
 
+def check_map_family(name: str, text: str, model: Model) -> list[Check]:
+	"""Selector shapes and parity of `_frappe_map.scss`, made by `emit.emit_map_family`.
+
+	The first block declares every variable with its light value; the dark and automatic blocks hold only the
+	variables whose dark value differs. Parity here means: the dark keys are keys of the shared block, the
+	effective Dark key set (shared overlaid with the dark block) equals the Light key set, no dark declaration
+	repeats the light value, and the dark blocks are exactly the model's dark delta, in map order.
+	"""
+	shape = emit.SHAPES["map"]
+	checks = [
+		Check(f"{name}: selector shapes"),
+		Check(f"{name}: key-set parity"),
+		Check(f"{name}: color-scheme"),
+	]
+	try:
+		blocks = parse_blocks(text)
+	except ValueError as error:
+		checks[0].problems.append(f"cannot parse: {error}")
+		return checks
+	if len(blocks) != 3:
+		checks[0].problems.append(f"expected 3 blocks, found {len(blocks)}")
+		return checks
+	shared, dark, automatic = blocks
+	for label, block, selectors, media in (
+		("shared", shared, shape["shared"], None),
+		("dark", dark, shape["dark"], None),
+		("automatic", automatic, shape["automatic"], emit.AUTOMATIC_MEDIA),
+	):
+		if block.selectors != selectors:
+			checks[0].problems.append(f"{label} selectors {block.selectors} != {selectors}")
+		if block.media != media:
+			checks[0].problems.append(f"{label} media {block.media!r} != {media!r}")
+	parity = checks[1].problems
+	shared_keys, dark_keys = _keys(shared), _keys(dark)
+	if len(set(shared_keys)) != len(shared_keys):
+		parity.append("a key is declared twice in the shared block")
+	if len(set(dark_keys)) != len(dark_keys):
+		parity.append("a key is declared twice in the dark block")
+	bad = [k for k in shared_keys if not k.startswith("--")]
+	if bad:
+		parity.append(f"non-custom properties: {bad[:5]}")
+	outside = sorted(set(dark_keys) - set(shared_keys))
+	if outside:
+		parity.append(f"dark block declares keys the shared block does not: {outside[:5]}")
+	if set(shared_keys) | set(dark_keys) != set(shared_keys):
+		parity.append("effective Dark key set differs from the Light key set")
+	if dark_keys != [k for k in shared_keys if k in set(dark_keys)]:
+		parity.append("dark block is not in the order of the shared block")
+	if automatic.declarations != [d for d in dark.declarations if d[0] != "color-scheme"]:
+		parity.append("automatic block differs from the dark block")
+	light_values = dict(shared.declarations)
+	repeated = [prop for prop, value in dark.declarations if light_values.get(prop) == value]
+	if repeated:
+		parity.append(f"dark block repeats the light value of {len(repeated)} key(s), first: {repeated[0]}")
+	fmap = model_mod.frappe_map(model)
+	light_model, dark_model = dict(fmap.declarations["light"]), dict(fmap.declarations["dark"])
+	expected_delta = [(k, dark_model[k]) for k in light_model if light_model[k] != dark_model[k]]
+	if dark.declarations != expected_delta:
+		parity.append(
+			f"dark block ({len(dark.declarations)}) is not the model's dark delta ({len(expected_delta)})"
+		)
+	for label, block in (("shared", shared), ("dark", dark), ("automatic", automatic)):
+		if _scheme(block):
+			checks[2].problems.append(f"{label} block sets color-scheme")
+	return checks
+
+
 def check_forbidden(name: str, text: str) -> Check:
 	check = Check(f"{name}: no !important, color-mix, oklch or relative colour")
 	code = strip_comments(text)
@@ -288,7 +356,7 @@ def audit_files(model: Model, scss_dir: Path) -> list[Check]:
 		checks.append(check_forbidden(name, text))
 
 	checks += check_family("_tokens.scss", texts["_tokens.scss"], "base", color_scheme=True)
-	checks += check_family("_frappe_map.scss", texts["_frappe_map.scss"], "palette", color_scheme=False)
+	checks += check_map_family("_frappe_map.scss", texts["_frappe_map.scss"], model)
 	checks += check_scale("_scale.scss", texts["_scale.scss"])
 
 	base_keys = {prop for block in parse_blocks(texts["_tokens.scss"])[:1] for prop in _keys(block)}

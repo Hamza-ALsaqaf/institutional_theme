@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -244,13 +245,36 @@ def _frappe_map_parts(
 	return names, light, dark
 
 
+_VAR_NAME = re.compile(r"var\(\s*(--[A-Za-z0-9_-]+)")
+
+
+def _check_map_values_are_independent(names: list[str], light: dict[str, str], dark: dict[str, str]) -> None:
+	"""A value that reads a variable of the map itself would make the dark delta unsound (see `emit.emit_map_family`)."""
+	mapped = set(names)
+	for mode, values in (("light", light), ("dark", dark)):
+		for name, value in values.items():
+			read = sorted(set(_VAR_NAME.findall(value)) & mapped)
+			if read:
+				raise BuildError(
+					f"{name} ({mode}) reads {', '.join(read)}, a variable the map itself declares"
+				)
+
+
 def render_frappe_map(model: Model) -> str:
 	names, light, dark = _frappe_map_parts(model)
+	_check_map_values_are_independent(names, light, dark)
+	delta = emit.dark_delta(names, light, dark)
 	intro = (
-		"// Frappe variables re-pointed at --ins-* tokens, at the palette shapes (ADR 0003).\n"
-		"// Every name comes from design/tokens.json `frappe`.\n\n"
+		"// Frappe variables re-pointed at --ins-* tokens (ADR 0003). Every name comes from design/tokens.json `frappe`.\n"
+		"//\n"
+		"// Shape (smaller than three full blocks, same computed values): the first block declares EVERY variable with its\n"
+		"// light value on the light root and on nested light and dark elements. Each value is a var(--ins-*) expression\n"
+		"// that the browser resolves on the element declaring it, so repeating an identical expression for Dark would\n"
+		f"// change nothing. The dark block and the automatic block (dark OS) therefore declare only the {len(delta)} of\n"
+		f"// {len(names)} variables whose Dark value differs, in map order. The build fails if a value reads another\n"
+		"// variable of this map, which would break that equivalence.\n\n"
 	)
-	return emit.header() + intro + emit.emit_family("palette", names, light, dark)
+	return emit.header() + intro + emit.emit_map_family(names, light, dark)
 
 
 def render_frappe_map_light(model: Model) -> str:
