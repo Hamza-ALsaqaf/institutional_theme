@@ -1,0 +1,174 @@
+{
+ "en/customer": {
+  "visibleInputs": 9,
+  "axControls": 9,
+  "unnamedInAX": 0,
+  "labelNotInAX": [],
+  "types": [
+   "Data",
+   "Select",
+   "Link"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:Customer Name *",
+   "combobox:Customer Type *",
+   "textbox:Alias",
+   "combobox:Customer Group",
+   "combobox:Territory",
+   "combobox:Billing Currency",
+   "combobox:Company Bank Account",
+   "combobox:Price List",
+   "combobox:Payment Terms Template"
+  ],
+  "duplicateIds": 0
+ },
+ "en/sales-invoice": {
+  "visibleInputs": 15,
+  "axControls": 18,
+  "unnamedInAX": 3,
+  "labelNotInAX": [],
+  "types": [
+   "Select",
+   "Link",
+   "Check",
+   "Date",
+   "Data"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:Payment Due Date *",
+   "combobox:Series *",
+   "checkbox:Edit Posting Date and Time",
+   "checkbox:Include Payment (POS)",
+   "checkbox:Is Return (Credit Note)",
+   "checkbox:Is Rate Adjustment Entry (Debit Note)",
+   "checkbox:Consider for Tax Withholding",
+   "textbox:Scan Barcode",
+   "checkbox:Update Stock",
+   "checkbox:Use Company default Cost Center for Round off",
+   "combobox:Customer *",
+   "combobox:Tax Category",
+   "combobox:Sales Taxes and Charges Template",
+   "combobox:Shipping Rule",
+   "combobox:Incoterm",
+   "checkbox:",
+   "checkbox:",
+   "checkbox:"
+  ],
+  "duplicateIds": 0
+ },
+ "en/item": {
+  "visibleInputs": 12,
+  "axControls": 12,
+  "unnamedInAX": 2,
+  "labelNotInAX": [],
+  "types": [
+   "Data",
+   "Link",
+   "Check",
+   "checkbox",
+   "Currency"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:Standard Selling Rate",
+   "textbox:Item Code *",
+   "textbox:Item Name",
+   "checkbox:Maintain Stock",
+   "checkbox:",
+   "checkbox:Allow Sales",
+   "checkbox:Allow Alternative Item",
+   "checkbox:Has Variants",
+   "checkbox:Allow Purchase",
+   "checkbox:",
+   "combobox:Item Group *",
+   "combobox:Default Unit of Measure *"
+  ],
+  "duplicateIds": 0
+ },
+ "en/task": {
+  "visibleInputs": 11,
+  "axControls": 11,
+  "unnamedInAX": 0,
+  "labelNotInAX": [],
+  "types": [
+   "Data",
+   "Link",
+   "Color",
+   "Check",
+   "Select",
+   "Float"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:Weight",
+   "textbox:Subject *",
+   "textbox:Color",
+   "checkbox:Is Group",
+   "combobox:Status",
+   "combobox:Priority",
+   "checkbox:Is Template",
+   "combobox:Project",
+   "combobox:Issue",
+   "combobox:Type",
+   "combobox:Parent Task"
+  ],
+  "duplicateIds": 0
+ },
+ "en/event": {
+  "visibleInputs": 12,
+  "axControls": 12,
+  "unnamedInAX": 0,
+  "labelNotInAX": [],
+  "types": [
+   "Small Text",
+   "Select",
+   "Color",
+   "Check",
+   "Data",
+   "Datetime"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:Subject *",
+   "textbox:Starts on *",
+   "textbox:Ends on",
+   "combobox:Event Category",
+   "combobox:Event Type *",
+   "textbox:Color",
+   "checkbox:Repeat this Event",
+   "textbox:Location",
+   "combobox:Status",
+   "combobox:Attending",
+   "checkbox:All Day",
+   "checkbox:Sync with Google Calendar"
+  ],
+  "duplicateIds": 0
+ },
+ "en/consoleWarnings": []
+}

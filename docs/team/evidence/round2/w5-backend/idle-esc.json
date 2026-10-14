@@ -1,0 +1,19 @@
+{
+ "idleEnabled": true,
+ "shown": {
+  "role": "alertdialog",
+  "text": "You have been inactive. Your session may end soon.Stay signed in",
+  "active": "btn btn-sm btn-default ins-banner-action"
+ },
+ "afterEsc": {
+  "bannerGone": true,
+  "activeField": "customer_name"
+ },
+ "requestsAfterEsc": [
+  "GET http://midad.test:8000/api/method/frappe.auth.get_logged_user?_=1791935776058"
+ ],
+ "afterButton": {
+  "activeField": "customer_name"
+ },
+ "requestsTotal": 2
+}

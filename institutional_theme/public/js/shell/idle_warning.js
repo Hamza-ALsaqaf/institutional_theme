@@ -20,6 +20,9 @@ let lastInput = 0;
 let timer = null;
 let warnAfterMs = 0;
 let returnFocus = null;
+// True while the banner offers "Stay signed in" (the warning and its retry), so Esc can act as that button.
+let staying = false;
+let pending = false;
 
 // "hh:mm" or "hh:mm:ss" to seconds; anything unreadable gives core's default.
 export function expirySeconds(value) {
@@ -54,6 +57,7 @@ function check() {
 }
 
 function dismiss() {
+	staying = false;
 	hideBanner(KIND);
 	if (returnFocus && typeof returnFocus.focus === "function" && document.contains(returnFocus)) {
 		try {
@@ -68,6 +72,7 @@ function dismiss() {
 }
 
 function ended() {
+	staying = false;
 	showBanner(KIND, __("Your session has ended. Sign in again to continue."), {
 		label: __("Sign in"),
 		onClick: () => window.location.reload(),
@@ -76,15 +81,19 @@ function ended() {
 
 function stay() {
 	if (!window.frappe || typeof frappe.call !== "function") return ended();
+	if (pending) return;
+	pending = true;
 	frappe.call({
 		method: "frappe.auth.get_logged_user",
 		type: "GET",
 		freeze: false,
 		callback: (response) => {
+			pending = false;
 			if (response && response.message && response.message !== "Guest") dismiss();
 			else ended();
 		},
 		error: () => {
+			pending = false;
 			if (findBanner(KIND)) {
 				showBanner(KIND, __("The session could not be refreshed. Try again."), {
 					label: __("Stay signed in"),
@@ -97,6 +106,7 @@ function stay() {
 
 function showWarning() {
 	if (findBanner(KIND)) return;
+	staying = true;
 	returnFocus = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
 	const banner = showBanner(KIND, __("You have been inactive. Your session may end soon."), {
 		label: __("Stay signed in"),
@@ -104,6 +114,16 @@ function showWarning() {
 	});
 	const button = banner && banner.querySelector(".ins-banner-action");
 	if (button) button.focus();
+}
+
+// Esc is the standard way out of an alertdialog (WAI-ARIA APG): it does what the button does, with the
+// same request, and focus returns to where it was (dismiss). It is ignored once the session has ended,
+// because the only action left is to sign in again.
+function onKeyDown(event) {
+	if (event.key !== "Escape" || !staying || !findBanner(KIND)) return;
+	event.preventDefault();
+	event.stopPropagation();
+	stay();
 }
 
 function onInput() {
@@ -118,6 +138,7 @@ export function initIdleWarning() {
 	const sysdefaults = (frappe.boot && frappe.boot.sysdefaults) || {};
 	warnAfterMs = warnAfter(ins.idle_minutes, expirySeconds(sysdefaults.session_expiry));
 	lastInput = Date.now();
+	document.addEventListener("keydown", onKeyDown, true);
 	INPUT_EVENTS.forEach((name) => document.addEventListener(name, onInput, { capture: true, passive: true }));
 	schedule();
 }

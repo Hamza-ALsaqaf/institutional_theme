@@ -11,6 +11,7 @@ import { initFormStatus } from "./shell/form_status.js";
 import { initActions } from "./shell/actions.js";
 import { initMaskedFields } from "./shell/masked_fields.js";
 import { initFieldErrors } from "./shell/field_errors.js";
+import { initFieldLabels } from "./shell/field_labels.js";
 import { initRibbon } from "./shell/ribbon.js";
 import { initIdleWarning } from "./shell/idle_warning.js";
 import { initConnectionBanner } from "./shell/connection_banner.js";
@@ -27,6 +28,7 @@ import { initConnectionBanner } from "./shell/connection_banner.js";
 		initActions,
 		initMaskedFields,
 		initFieldErrors,
+		initFieldLabels,
 		initRibbon,
 		initIdleWarning,
 		initConnectionBanner,
