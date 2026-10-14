@@ -1,0 +1,24 @@
+core-chrome-A4-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+core-chrome-A4-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+core-chrome-Letter-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+core-chrome-Letter-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+core-wkhtmltopdf-A4-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+core-wkhtmltopdf-A4-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+core-wkhtmltopdf-Letter-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+core-wkhtmltopdf-Letter-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+noapp-chrome-A4-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+noapp-chrome-A4-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+noapp-chrome-Letter-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+noapp-chrome-Letter-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+noapp-wkhtmltopdf-A4-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+noapp-wkhtmltopdf-A4-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+noapp-wkhtmltopdf-Letter-ar 595.92 x 841.92 pts (A4) 1 left 0.051 right 0.925 {'تاريخ': True}
+noapp-wkhtmltopdf-Letter-en 595.92 x 841.92 pts (A4) 1 left 0.053 right 0.93 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+themed-chrome-A4-ar 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'تاريخ': True}
+themed-chrome-A4-en 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+themed-chrome-Letter-ar 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'تاريخ': True}
+themed-chrome-Letter-en 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+themed-wkhtmltopdf-A4-ar 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'تاريخ': True}
+themed-wkhtmltopdf-A4-en 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}
+themed-wkhtmltopdf-Letter-ar 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'تاريخ': True}
+themed-wkhtmltopdf-Letter-en 595.92 x 843.84 pts (A4) 1 left 0.039 right 0.961 {'Posting Date': True, 'Valid Till': True, 'Amount': True, 'Rate': True, 'Grand Total': True}

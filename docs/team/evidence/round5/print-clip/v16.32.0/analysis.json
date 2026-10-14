@@ -1,0 +1,458 @@
+{
+ "core-chrome-A4-ar": {
+  "page_size": "595.92 x 842.88 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.056,
+  "right_frac": 0.983,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": true,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "core-chrome-A4-en": {
+  "page_size": "595.92 x 842.88 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.027,
+  "right_frac": 0.973,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "core-chrome-Letter-ar": {
+  "page_size": "612.96 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 426,
+  "left_frac": 0.059,
+  "right_frac": 0.984,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": true,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "core-chrome-Letter-en": {
+  "page_size": "612.96 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 426,
+  "left_frac": 0.026,
+  "right_frac": 0.974,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "core-wkhtmltopdf-A4-ar": {
+  "page_size": "595 x 842 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.051,
+  "right_frac": 0.983,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "core-wkhtmltopdf-A4-en": {
+  "page_size": "595 x 842 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.027,
+  "right_frac": 0.971,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "core-wkhtmltopdf-Letter-ar": {
+  "page_size": "612 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 425,
+  "left_frac": 0.054,
+  "right_frac": 0.986,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "core-wkhtmltopdf-Letter-en": {
+  "page_size": "612 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 425,
+  "left_frac": 0.026,
+  "right_frac": 0.974,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-chrome-A4-ar": {
+  "page_size": "595.92 x 842.88 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.063,
+  "right_frac": 0.983,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-chrome-A4-en": {
+  "page_size": "595.92 x 842.88 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.027,
+  "right_frac": 0.973,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-chrome-Letter-ar": {
+  "page_size": "612.96 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 426,
+  "left_frac": 0.066,
+  "right_frac": 0.984,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-chrome-Letter-en": {
+  "page_size": "612.96 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 426,
+  "left_frac": 0.026,
+  "right_frac": 0.974,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-wkhtmltopdf-A4-ar": {
+  "page_size": "595 x 842 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.063,
+  "right_frac": 0.983,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-wkhtmltopdf-A4-en": {
+  "page_size": "595 x 842 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.027,
+  "right_frac": 0.971,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-wkhtmltopdf-Letter-ar": {
+  "page_size": "612 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 425,
+  "left_frac": 0.066,
+  "right_frac": 0.986,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "noapp-wkhtmltopdf-Letter-en": {
+  "page_size": "612 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 425,
+  "left_frac": 0.026,
+  "right_frac": 0.974,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-chrome-A4-ar": {
+  "page_size": "595.92 x 844.08 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.0,
+  "right_frac": 1.0,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": true,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-chrome-A4-en": {
+  "page_size": "595.92 x 844.08 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.0,
+  "right_frac": 1.0,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-chrome-Letter-ar": {
+  "page_size": "612.96 x 792.96 pts (letter)",
+  "pages": 1,
+  "width_px": 426,
+  "left_frac": 0.0,
+  "right_frac": 1.0,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": true,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-chrome-Letter-en": {
+  "page_size": "612.96 x 792.96 pts (letter)",
+  "pages": 1,
+  "width_px": 426,
+  "left_frac": 0.0,
+  "right_frac": 0.998,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-wkhtmltopdf-A4-ar": {
+  "page_size": "595 x 842 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.0,
+  "right_frac": 0.998,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-wkhtmltopdf-A4-en": {
+  "page_size": "595 x 842 pts (A4)",
+  "pages": 1,
+  "width_px": 414,
+  "left_frac": 0.0,
+  "right_frac": 0.998,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-wkhtmltopdf-Letter-ar": {
+  "page_size": "612 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 425,
+  "left_frac": 0.0,
+  "right_frac": 1.0,
+  "words": {
+   "Posting Date": false,
+   "Valid Till": false,
+   "Amount": false,
+   "Rate": false,
+   "Qty": false,
+   "Grand Total": false,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ },
+ "themed-wkhtmltopdf-Letter-en": {
+  "page_size": "612 x 792 pts (letter)",
+  "pages": 1,
+  "width_px": 425,
+  "left_frac": 0.0,
+  "right_frac": 1.0,
+  "words": {
+   "Posting Date": true,
+   "Valid Till": true,
+   "Amount": true,
+   "Rate": true,
+   "Qty": false,
+   "Grand Total": true,
+   "تاريخ": false,
+   "الصلاحية": false,
+   "المبلغ": false,
+   "الإجمالي": false
+  }
+ }
+}
