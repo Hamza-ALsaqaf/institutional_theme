@@ -1,0 +1,6 @@
+$ runuser -u frappe -- bash -c cd /home/frappe/frappe-bench/sites && /home/frappe/frappe-bench/env/bin/python -I /home/user/institutional_theme/docs/team/evidence/round6/final/gate/scripts/diag_palette_hash.py
+pairs whose file is ins_palette_custom.2438def10b0c.css : [('#2A4A6E', '#8A6D1F')]
+file name of the failing test's own save (#1F3A5F/#8A6D1F): ins_palette_custom.f5541a462b9c.css
+committed state now: {'allow_custom': 0, 'default_palette': 'midad', 'custom_primary': None, 'custom_accent': None}
+folder: ['ins_palette_custom.f5541a462b9c.css']
+exit 0, 2 s

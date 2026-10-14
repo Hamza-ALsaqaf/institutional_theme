@@ -1,0 +1,3 @@
+$ runuser -u frappe -- bash -c cd /home/frappe/frappe-bench/sites && /home/frappe/frappe-bench/env/bin/python -I /home/user/institutional_theme/docs/team/evidence/round6/final/gate/scripts/diag_palette_hash.py
+/home/frappe/frappe-bench/env/bin/python: can't open file '/home/user/institutional_theme/docs/team/evidence/round6/final/gate/scripts/diag_palette_hash.py': [Errno 2] No such file or directory
+exit 2, 0 s

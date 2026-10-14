@@ -1,0 +1,159 @@
+=== 2026-10-14T20:07:55.000+00:00 500 /update-password
+error-content {
+		text-align: left;
+		margin-top: var(--margin-md);
+		border-radius: 8px;
+		background-color: #f5f7fa;
+		max-height: 400px;
+		overflow: auto;
+	}
+
+	code::-webkit-scrollbar {
+		display: none;
+	}
+
+	.fix-command {
+		background-color: #f5f7fa;
+		border-radius: 8px;
+		padding: var(--padding-sm);
+		margin-bottom: var(--margin-sm);
+		user-select: all;
+	}
+</style>
+
+<div class="error-page">
+	<div>
+		<h4>
+			Server Error
+		</h4>
+		<div class="details">
+			<p>500 : There was an error building this page</p>
+
+			
+
+			
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<div id="all-symbols" style="display:none"></div><script type="text/javascript">fetch(`/assets/frappe/icons/lucide/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/timeless/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/espresso/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/erpnext/icons/pos-icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script>
+	<!-- js should be loaded in body! -->
+	<script>
+		frappe.boot = {"lang":"en","apps_data":{"apps":[],"is_desk_apps":1,"default_path":""},"sysdefaults":{"float_precision":3,"currency_precision":null,"date_format":"dd-mm-yyyy","time_format":"HH:mm:ss","first_day_of_the_week":"Sunday","number_format":"#,###.##","rounding_method":"Banker's Rounding","currency":"SAR"},"time_zone":{"system":"Asia/Riyadh","user":"Asia/Kolkata"},"assets_json":{"arrangement_editor.bundle.js":"/assets/frappe/dist/js/arrangement_editor.bundle.NEWMJB76.js","billing.bundle.js":"/assets/frappe/dist/js/billing.bundle.H53FAIQO.js","bootstrap-4-web.bundle.js":"/assets/frappe/dist/js/bootstrap-4-web.bundle.OGQ7JEDG.js","calendar.bundle.js":"/assets/frappe/dist/js/calendar.bundle.4A4YITIU.js","controls.bundle.js":"/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js","data_import_tools.bundle.js":"/assets/frappe/dist/js/data_import_tools.bundle.O7LBRHS7.js","data_import_wizard.bundle.js":"/assets/frappe/dist/js/data_import_wizard.bundle.Q3W2M5V6.js","desk.bundle.js":"/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js","desktop_icons.bundle.js":"/assets/frappe/dist/js/desktop_icons.bundle.VWS32CL6.js","dialog.bundle.js":"/assets/frappe/dist/js/dialog.bundle.UTGERW3T.js","doctype_settings.bundle.js":"/assets/frappe/dist/js/doctype_settings.bundle.EJKZU3UE.js","embedded_list.bundle.js":"/assets/frappe/dist/js/embedded_list.bundle.H5EEZKJH.js","form.bundle.js":"/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js","frappe-web.bundle.js":"/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js","leaflet.bundle.js":"/assets/frappe/dist/js/leaflet.bundle.XQBWTHH6.js","libs.bundle.js":"/assets/frappe/dist/js/libs.bundle.LDNONUAV.js","list.bundle.js":"/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js","list_filter.bundle.js":"/assets/frappe/dist/js/list_filter.bundle.UV4YPE6W.js","list_view_virtualization.bundle.js":"/assets/frappe/dist/js/list_view_virtualization.bundle.SM6SDIQP.js","logtypes.bundle.js":"/assets/frappe/dist/js/logtypes.bundle.WKQH7KBM.js","onboarding_tours.bundle.js":"/assets/frappe/dist/js/onboarding_tours.bundle.3QPQU5AO.js","photoswipe.bundle.js":"/assets/frappe/dist/js/photoswipe.bundle.YSXZQA64.js","print.bundle.js":"/assets/frappe/dist/js/print.bundle.27VKHZQE.js","report.bundle.js":"/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js","sentry.bundle.js":"/assets/frappe/dist/js/sentry.bundle.AX44GVWW.js","side_panel.bundle.js":"/assets/frappe/dist/js/side_panel.bundle.RA4WSNTT.js","syntax_highlighting.bundle.js":"/assets/frappe/dist/js/syntax_highlighting.bundle.YHGNRCUE.js","telemetry.bundle.js":"/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js","user_settings_dialog.bundle.js":"/assets/frappe/dist/js/user_settings_dialog.bundle.NKBJKITN.js","video_player.bundle.js":"/assets/frappe/dist/js/video_player.bundle.DUYYLSFO.js","web_form.bundle.js":"/assets/frappe/dist/js/web_form.bundle.BGE4TDJW.js","kanban_board.bundle.js":"/assets/frappe/dist/js/kanban_board.bundle.UVNSIH5U.js","kanban.bundle.js":"/assets/frappe/dist/js/kanban.bundle.4ZJAEG3T.js","kanban_settings.bundle.js":"/assets/frappe/dist/js/kanban_settings.bundle.2MU5TTLL.js","form_builder.bundle.js":"/assets/frappe/dist/js/form_builder.bundle.MCGI5A3I.js","print_format_builder.bundle.js":"/assets/frappe/dist/js/print_format_builder.bundle.66VKAOTN.js","workflow_builder.bundle.js":"/assets/frappe/dist/js/workflow_builder.bundle.ORJT73Y4.js","build_events.bundle.js":"/assets/frappe/dist/js/build_events.bundle.VUBSPPYI.js","file_uploader.bundle.js":"/assets/frappe/dist/js/file_uploader.bundle.IRT7SBA4.js","desk.bundle.css":"/assets/frappe/dist/css/desk.bundle.DKYJHWDK.css","email.bundle.css":"/assets/frappe/dist/css/email.bundle.4Q5XCAV3.css","leaflet.bundle.css":"/assets/frappe/dist/css/leaflet.bundle.D5YEVOP5.css","login.bundle.css":"/assets/frappe/dist/css/login.bundle.JGVGULV4.css","print.bundle.css":"/assets/frappe/dist/css/print.bundle.MM3CKCPY.css","print_format.bundle.css":"/assets/frappe/dist/css/print_format.bundle.NKL6PL27.css","report.bundle.css":"/assets/frappe/dist/css/report.bundle.V6647WXN.css","web_form.bundle.css":"/assets/frappe/dist/css/web_form.bundle.JNS62PCD.css","website.bundle.css":"/assets/frappe/dist/css/website.bundle.YO6DKRWZ.css","bank-reconciliation-tool.bundle.js":"/assets/erpnext/dist/js/bank-reconciliation-tool.bundle.ZWXYTTTM.js","erpnext.bundle.js":"/assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js","item-dashboard.bundle.js":"/assets/erpnext/dist/js/item-dashboard.bundle.JQ35WOHX.js","point-of-sale.bundle.js":"/assets/erpnext/dist/js/point-of-sale.bundle.WNKTPMOV.js","bom_configurator.bundle.js":"/assets/erpnext/dist/js/bom_configurator.bundle.ZKILGIKP.js","erpnext-web.bundle.css":"/assets/erpnext/dist/css/erpnext-web.bundle.QYNXX66H.css","erpnext.bundle.css":"/assets/erpnext/dist/css/erpnext.bundle.26YI7L4U.css","erpnext_email.bundle.css":"/assets/erpnext/dist/css/erpnext_email.bundle.N4UKMGGG.css","ins_shell.bundle.js":"/assets/institutional_theme/dist/js/ins_shell.bundle.AJZEYFI2.js","ins_web.bundle.js":"/assets/institutional_theme/dist/js/ins_web.bundle.AZFGUWQZ.js","ins_desk.bundle.css":"/assets/institutional_theme/dist/css/ins_desk.bundle.DJ3JC77E.css","ins_email.bundle.css":"/asset
+=== 2026-10-14T20:08:01.498+00:00 500 /login?redirect-to=%2Fdesk
+error-content {
+		text-align: left;
+		margin-top: var(--margin-md);
+		border-radius: 8px;
+		background-color: #f5f7fa;
+		max-height: 400px;
+		overflow: auto;
+	}
+
+	code::-webkit-scrollbar {
+		display: none;
+	}
+
+	.fix-command {
+		background-color: #f5f7fa;
+		border-radius: 8px;
+		padding: var(--padding-sm);
+		margin-bottom: var(--margin-sm);
+		user-select: all;
+	}
+</style>
+
+<div class="error-page">
+	<div>
+		<h4>
+			Server Error
+		</h4>
+		<div class="details">
+			<p>500 : There was an error building this page</p>
+
+			
+
+			
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<div id="all-symbols" style="display:none"></div><script type="text/javascript">fetch(`/assets/frappe/icons/lucide/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/timeless/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/espresso/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/erpnext/icons/pos-icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script>
+	<!-- js should be loaded in body! -->
+	<script>
+		frappe.boot = {"lang":"en","apps_data":{"apps":[],"is_desk_apps":1,"default_path":""},"sysdefaults":{"float_precision":3,"currency_precision":null,"date_format":"dd-mm-yyyy","time_format":"HH:mm:ss","first_day_of_the_week":"Sunday","number_format":"#,###.##","rounding_method":"Banker's Rounding","currency":"SAR"},"time_zone":{"system":"Asia/Riyadh","user":"Asia/Kolkata"},"assets_json":{"arrangement_editor.bundle.js":"/assets/frappe/dist/js/arrangement_editor.bundle.NEWMJB76.js","billing.bundle.js":"/assets/frappe/dist/js/billing.bundle.H53FAIQO.js","bootstrap-4-web.bundle.js":"/assets/frappe/dist/js/bootstrap-4-web.bundle.OGQ7JEDG.js","calendar.bundle.js":"/assets/frappe/dist/js/calendar.bundle.4A4YITIU.js","controls.bundle.js":"/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js","data_import_tools.bundle.js":"/assets/frappe/dist/js/data_import_tools.bundle.O7LBRHS7.js","data_import_wizard.bundle.js":"/assets/frappe/dist/js/data_import_wizard.bundle.Q3W2M5V6.js","desk.bundle.js":"/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js","desktop_icons.bundle.js":"/assets/frappe/dist/js/desktop_icons.bundle.VWS32CL6.js","dialog.bundle.js":"/assets/frappe/dist/js/dialog.bundle.UTGERW3T.js","doctype_settings.bundle.js":"/assets/frappe/dist/js/doctype_settings.bundle.EJKZU3UE.js","embedded_list.bundle.js":"/assets/frappe/dist/js/embedded_list.bundle.H5EEZKJH.js","form.bundle.js":"/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js","frappe-web.bundle.js":"/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js","leaflet.bundle.js":"/assets/frappe/dist/js/leaflet.bundle.XQBWTHH6.js","libs.bundle.js":"/assets/frappe/dist/js/libs.bundle.LDNONUAV.js","list.bundle.js":"/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js","list_filter.bundle.js":"/assets/frappe/dist/js/list_filter.bundle.UV4YPE6W.js","list_view_virtualization.bundle.js":"/assets/frappe/dist/js/list_view_virtualization.bundle.SM6SDIQP.js","logtypes.bundle.js":"/assets/frappe/dist/js/logtypes.bundle.WKQH7KBM.js","onboarding_tours.bundle.js":"/assets/frappe/dist/js/onboarding_tours.bundle.3QPQU5AO.js","photoswipe.bundle.js":"/assets/frappe/dist/js/photoswipe.bundle.YSXZQA64.js","print.bundle.js":"/assets/frappe/dist/js/print.bundle.27VKHZQE.js","report.bundle.js":"/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js","sentry.bundle.js":"/assets/frappe/dist/js/sentry.bundle.AX44GVWW.js","side_panel.bundle.js":"/assets/frappe/dist/js/side_panel.bundle.RA4WSNTT.js","syntax_highlighting.bundle.js":"/assets/frappe/dist/js/syntax_highlighting.bundle.YHGNRCUE.js","telemetry.bundle.js":"/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js","user_settings_dialog.bundle.js":"/assets/frappe/dist/js/user_settings_dialog.bundle.NKBJKITN.js","video_player.bundle.js":"/assets/frappe/dist/js/video_player.bundle.DUYYLSFO.js","web_form.bundle.js":"/assets/frappe/dist/js/web_form.bundle.BGE4TDJW.js","kanban_board.bundle.js":"/assets/frappe/dist/js/kanban_board.bundle.UVNSIH5U.js","kanban.bundle.js":"/assets/frappe/dist/js/kanban.bundle.4ZJAEG3T.js","kanban_settings.bundle.js":"/assets/frappe/dist/js/kanban_settings.bundle.2MU5TTLL.js","form_builder.bundle.js":"/assets/frappe/dist/js/form_builder.bundle.MCGI5A3I.js","print_format_builder.bundle.js":"/assets/frappe/dist/js/print_format_builder.bundle.66VKAOTN.js","workflow_builder.bundle.js":"/assets/frappe/dist/js/workflow_builder.bundle.ORJT73Y4.js","build_events.bundle.js":"/assets/frappe/dist/js/build_events.bundle.VUBSPPYI.js","file_uploader.bundle.js":"/assets/frappe/dist/js/file_uploader.bundle.IRT7SBA4.js","desk.bundle.css":"/assets/frappe/dist/css/desk.bundle.DKYJHWDK.css","email.bundle.css":"/assets/frappe/dist/css/email.bundle.4Q5XCAV3.css","leaflet.bundle.css":"/assets/frappe/dist/css/leaflet.bundle.D5YEVOP5.css","login.bundle.css":"/assets/frappe/dist/css/login.bundle.JGVGULV4.css","print.bundle.css":"/assets/frappe/dist/css/print.bundle.MM3CKCPY.css","print_format.bundle.css":"/assets/frappe/dist/css/print_format.bundle.NKL6PL27.css","report.bundle.css":"/assets/frappe/dist/css/report.bundle.V6647WXN.css","web_form.bundle.css":"/assets/frappe/dist/css/web_form.bundle.JNS62PCD.css","website.bundle.css":"/assets/frappe/dist/css/website.bundle.YO6DKRWZ.css","bank-reconciliation-tool.bundle.js":"/assets/erpnext/dist/js/bank-reconciliation-tool.bundle.ZWXYTTTM.js","erpnext.bundle.js":"/assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js","item-dashboard.bundle.js":"/assets/erpnext/dist/js/item-dashboard.bundle.JQ35WOHX.js","point-of-sale.bundle.js":"/assets/erpnext/dist/js/point-of-sale.bundle.WNKTPMOV.js","bom_configurator.bundle.js":"/assets/erpnext/dist/js/bom_configurator.bundle.ZKILGIKP.js","erpnext-web.bundle.css":"/assets/erpnext/dist/css/erpnext-web.bundle.QYNXX66H.css","erpnext.bundle.css":"/assets/erpnext/dist/css/erpnext.bundle.26YI7L4U.css","erpnext_email.bundle.css":"/assets/erpnext/dist/css/erpnext_email.bundle.N4UKMGGG.css","ins_shell.bundle.js":"/assets/institutional_theme/dist/js/ins_shell.bundle.AJZEYFI2.js","ins_web.bundle.js":"/assets/institutional_theme/dist/js/ins_web.bundle.AZFGUWQZ.js","ins_desk.bundle.css":"/assets/institutional_theme/dist/css/ins_desk.bundle.DJ3JC77E.css","ins_email.bundle.css":"/asset
+=== 2026-10-14T20:08:42.033+00:00 500 /login?redirect-to=%2Fdesk
+error-content {
+		text-align: left;
+		margin-top: var(--margin-md);
+		border-radius: 8px;
+		background-color: #f5f7fa;
+		max-height: 400px;
+		overflow: auto;
+	}
+
+	code::-webkit-scrollbar {
+		display: none;
+	}
+
+	.fix-command {
+		background-color: #f5f7fa;
+		border-radius: 8px;
+		padding: var(--padding-sm);
+		margin-bottom: var(--margin-sm);
+		user-select: all;
+	}
+</style>
+
+<div class="error-page">
+	<div>
+		<h4>
+			Server Error
+		</h4>
+		<div class="details">
+			<p>500 : There was an error building this page</p>
+
+			
+
+			
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<div id="all-symbols" style="display:none"></div><script type="text/javascript">fetch(`/assets/frappe/icons/lucide/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/timeless/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/espresso/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/erpnext/icons/pos-icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script>
+	<!-- js should be loaded in body! -->
+	<script>
+		frappe.boot = {"lang":"en","apps_data":{"apps":[],"is_desk_apps":1,"default_path":""},"sysdefaults":{"float_precision":3,"currency_precision":null,"date_format":"dd-mm-yyyy","time_format":"HH:mm:ss","first_day_of_the_week":"Sunday","number_format":"#,###.##","rounding_method":"Banker's Rounding","currency":"SAR"},"time_zone":{"system":"Asia/Riyadh","user":"Asia/Kolkata"},"assets_json":{"arrangement_editor.bundle.js":"/assets/frappe/dist/js/arrangement_editor.bundle.NEWMJB76.js","billing.bundle.js":"/assets/frappe/dist/js/billing.bundle.H53FAIQO.js","bootstrap-4-web.bundle.js":"/assets/frappe/dist/js/bootstrap-4-web.bundle.OGQ7JEDG.js","calendar.bundle.js":"/assets/frappe/dist/js/calendar.bundle.4A4YITIU.js","controls.bundle.js":"/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js","data_import_tools.bundle.js":"/assets/frappe/dist/js/data_import_tools.bundle.O7LBRHS7.js","data_import_wizard.bundle.js":"/assets/frappe/dist/js/data_import_wizard.bundle.Q3W2M5V6.js","desk.bundle.js":"/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js","desktop_icons.bundle.js":"/assets/frappe/dist/js/desktop_icons.bundle.VWS32CL6.js","dialog.bundle.js":"/assets/frappe/dist/js/dialog.bundle.UTGERW3T.js","doctype_settings.bundle.js":"/assets/frappe/dist/js/doctype_settings.bundle.EJKZU3UE.js","embedded_list.bundle.js":"/assets/frappe/dist/js/embedded_list.bundle.H5EEZKJH.js","form.bundle.js":"/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js","frappe-web.bundle.js":"/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js","leaflet.bundle.js":"/assets/frappe/dist/js/leaflet.bundle.XQBWTHH6.js","libs.bundle.js":"/assets/frappe/dist/js/libs.bundle.LDNONUAV.js","list.bundle.js":"/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js","list_filter.bundle.js":"/assets/frappe/dist/js/list_filter.bundle.UV4YPE6W.js","list_view_virtualization.bundle.js":"/assets/frappe/dist/js/list_view_virtualization.bundle.SM6SDIQP.js","logtypes.bundle.js":"/assets/frappe/dist/js/logtypes.bundle.WKQH7KBM.js","onboarding_tours.bundle.js":"/assets/frappe/dist/js/onboarding_tours.bundle.3QPQU5AO.js","photoswipe.bundle.js":"/assets/frappe/dist/js/photoswipe.bundle.YSXZQA64.js","print.bundle.js":"/assets/frappe/dist/js/print.bundle.27VKHZQE.js","report.bundle.js":"/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js","sentry.bundle.js":"/assets/frappe/dist/js/sentry.bundle.AX44GVWW.js","side_panel.bundle.js":"/assets/frappe/dist/js/side_panel.bundle.RA4WSNTT.js","syntax_highlighting.bundle.js":"/assets/frappe/dist/js/syntax_highlighting.bundle.YHGNRCUE.js","telemetry.bundle.js":"/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js","user_settings_dialog.bundle.js":"/assets/frappe/dist/js/user_settings_dialog.bundle.NKBJKITN.js","video_player.bundle.js":"/assets/frappe/dist/js/video_player.bundle.DUYYLSFO.js","web_form.bundle.js":"/assets/frappe/dist/js/web_form.bundle.BGE4TDJW.js","kanban_board.bundle.js":"/assets/frappe/dist/js/kanban_board.bundle.UVNSIH5U.js","kanban.bundle.js":"/assets/frappe/dist/js/kanban.bundle.4ZJAEG3T.js","kanban_settings.bundle.js":"/assets/frappe/dist/js/kanban_settings.bundle.2MU5TTLL.js","form_builder.bundle.js":"/assets/frappe/dist/js/form_builder.bundle.MCGI5A3I.js","print_format_builder.bundle.js":"/assets/frappe/dist/js/print_format_builder.bundle.66VKAOTN.js","workflow_builder.bundle.js":"/assets/frappe/dist/js/workflow_builder.bundle.ORJT73Y4.js","build_events.bundle.js":"/assets/frappe/dist/js/build_events.bundle.VUBSPPYI.js","file_uploader.bundle.js":"/assets/frappe/dist/js/file_uploader.bundle.IRT7SBA4.js","desk.bundle.css":"/assets/frappe/dist/css/desk.bundle.DKYJHWDK.css","email.bundle.css":"/assets/frappe/dist/css/email.bundle.4Q5XCAV3.css","leaflet.bundle.css":"/assets/frappe/dist/css/leaflet.bundle.D5YEVOP5.css","login.bundle.css":"/assets/frappe/dist/css/login.bundle.JGVGULV4.css","print.bundle.css":"/assets/frappe/dist/css/print.bundle.MM3CKCPY.css","print_format.bundle.css":"/assets/frappe/dist/css/print_format.bundle.NKL6PL27.css","report.bundle.css":"/assets/frappe/dist/css/report.bundle.V6647WXN.css","web_form.bundle.css":"/assets/frappe/dist/css/web_form.bundle.JNS62PCD.css","website.bundle.css":"/assets/frappe/dist/css/website.bundle.YO6DKRWZ.css","bank-reconciliation-tool.bundle.js":"/assets/erpnext/dist/js/bank-reconciliation-tool.bundle.ZWXYTTTM.js","erpnext.bundle.js":"/assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js","item-dashboard.bundle.js":"/assets/erpnext/dist/js/item-dashboard.bundle.JQ35WOHX.js","point-of-sale.bundle.js":"/assets/erpnext/dist/js/point-of-sale.bundle.WNKTPMOV.js","bom_configurator.bundle.js":"/assets/erpnext/dist/js/bom_configurator.bundle.ZKILGIKP.js","erpnext-web.bundle.css":"/assets/erpnext/dist/css/erpnext-web.bundle.QYNXX66H.css","erpnext.bundle.css":"/assets/erpnext/dist/css/erpnext.bundle.26YI7L4U.css","erpnext_email.bundle.css":"/assets/erpnext/dist/css/erpnext_email.bundle.N4UKMGGG.css","ins_shell.bundle.js":"/assets/institutional_theme/dist/js/ins_shell.bundle.AJZEYFI2.js","ins_web.bundle.js":"/assets/institutional_theme/dist/js/ins_web.bundle.AZFGUWQZ.js","ins_desk.bundle.css":"/assets/institutional_theme/dist/css/ins_desk.bundle.DJ3JC77E.css","ins_email.bundle.css":"/asset

@@ -1,0 +1,6 @@
+start 2026-10-14T20:07:30Z loaded-1 commit ab5ac37
+Testing is disabled for the site!
+You can enable tests by entering following command:
+bench --site midad.test set-config allow_tests true
+run-tests exit 0 at 2026-10-14T20:07:32Z, 2 s
+load: requests: 77; by status: 200: 59, 404: 18
