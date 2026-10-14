@@ -30,7 +30,11 @@ frappe.set_user("Administrator")
 from frappe.translate import print_language
 
 print("FRAPPE", frappe.__version__, "VARIANT", variant)
-args = {"style": "Midad", "letterhead": "Midad"} if variant == "themed" else {"style": "Standard", "no_letterhead": 1}
+args = (
+	{"style": "Midad", "letterhead": "Midad"}
+	if variant == "themed"
+	else {"style": "Standard", "no_letterhead": 1}
+)
 for line in open(jobs_file):
 	line = line.strip()
 	if not line or line.startswith("#"):
@@ -44,8 +48,13 @@ for line in open(jobs_file):
 			try:
 				with print_language(lang):
 					pdf = frappe.get_print(
-						dt, name, print_format=fmt, as_pdf=True,
-						pdf_options={"page-size": "A4"}, pdf_generator=gen, **args,
+						dt,
+						name,
+						print_format=fmt,
+						as_pdf=True,
+						pdf_options={"page-size": "A4"},
+						pdf_generator=gen,
+						**args,
 					)
 				open(f"{out}/{key}.pdf", "wb").write(pdf)
 				print("OK", key, len(pdf), flush=True)

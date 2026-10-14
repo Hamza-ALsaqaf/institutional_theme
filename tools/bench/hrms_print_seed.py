@@ -224,7 +224,9 @@ def make_hourly_slip(company: str, currency: str, emp: str) -> None:
 
 @block("expense claim")
 def make_expense_claim(company: str, currency: str, emp: str) -> None:
-	found = frappe.db.get_value("Expense Claim", {"employee": emp, "remark": "Fictional claim for print test"})
+	found = frappe.db.get_value(
+		"Expense Claim", {"employee": emp, "remark": "Fictional claim for print test"}
+	)
 	if found:
 		doc_line("Expense Claim", found)
 		return
@@ -335,7 +337,10 @@ def make_offer_and_letter(company: str) -> None:
 					"introduction": "Dear Rana Jaber, we are pleased to confirm your appointment.",
 					"closing_notes": "Please sign and return one copy.",
 					"terms": [
-						{"title": "Probation", "description": "The first three months are a probation period."},
+						{
+							"title": "Probation",
+							"description": "The first three months are a probation period.",
+						},
 						{"title": "Working hours", "description": "Forty hours a week, Sunday to Thursday."},
 					],
 				}
