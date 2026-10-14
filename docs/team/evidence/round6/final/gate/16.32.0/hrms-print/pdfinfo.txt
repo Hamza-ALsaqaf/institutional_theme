@@ -1,0 +1,40 @@
+== themed__leave-application-standard__chrome-ar.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 843.12 pts (A4)
+
+== themed__leave-application-standard__chrome-en.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 843.12 pts (A4)
+
+== themed__leave-application-standard__wkhtmltopdf-ar.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== themed__leave-application-standard__wkhtmltopdf-en.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== themed__salary-slip-salary-slip-standard__chrome-ar.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 843.12 pts (A4)
+
+== themed__salary-slip-salary-slip-standard__chrome-en.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 843.12 pts (A4)
+
+== themed__salary-slip-salary-slip-standard__wkhtmltopdf-ar.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== themed__salary-slip-salary-slip-standard__wkhtmltopdf-en.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+

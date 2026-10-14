@@ -1,0 +1,29 @@
+$ /home/user/institutional_theme/docs/team/evidence/round6/final/gate/scripts/hrms_print.sh /home/frappe/newest-bench hrms52.test /home/user/institutional_theme/docs/team/evidence/round6/final/gate/v16.52.0
+FRAPPE 16.52.0 VARIANT themed
+Chromium executable is already executable: /home/frappe/newest-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.9467 seconds
+OK themed__salary-slip-salary-slip-classic__wkhtmltopdf-en 121318
+Chromium executable is already executable: /home/frappe/newest-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.9382 seconds
+OK themed__salary-slip-salary-slip-classic__wkhtmltopdf-ar 187082
+Chromium executable is already executable: /home/frappe/newest-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.8049 seconds
+OK themed__salary-slip-salary-slip-classic__chrome-en 121318
+Chromium executable is already executable: /home/frappe/newest-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.8390 seconds
+OK themed__salary-slip-salary-slip-classic__chrome-ar 187082
+OK themed__leave-application-standard__wkhtmltopdf-en 20710
+OK themed__leave-application-standard__wkhtmltopdf-ar 28032
+Chromium executable is already executable: /home/frappe/newest-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.7885 seconds
+OK themed__leave-application-standard__chrome-en 73486
+Chromium executable is already executable: /home/frappe/newest-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.9000 seconds
+OK themed__leave-application-standard__chrome-ar 135415
+exit 0, 10 s

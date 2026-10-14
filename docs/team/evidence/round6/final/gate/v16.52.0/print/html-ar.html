@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quotation: SAL-QTN-2026-00001</title>
+	<link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css-rtl/print_format.bundle.PLKBRLWK.css">
+	<style>@charset "UTF-8";
+
+
+@import url("https://fonts.googleapis.com/css?family=Inter:400,500,600,700");
+
+
+html, body {
+	font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+@page {
+	size: A4 portrait;
+	margin-top: 15mm;
+	margin-bottom: 8mm;
+	margin-left: 8mm;
+	margin-right: 8mm;
+}
+
+html, body {
+	font-size: 13px;
+}
+
+body {
+	box-sizing: border-box;
+	min-width: 194mm !important;
+	max-width: 194mm !important;
+	margin: 0 auto;
+}
+
+@media screen {
+	html {
+		background-color: var(--gray-200);
+	}
+	body {
+		background-color: white;
+		box-shadow: var(--shadow-md);
+		margin: 2rem auto;
+		min-height: 297mm;
+		height: min-content;
+		min-width: 210mm !important;
+		max-width: 210mm !important;
+		padding: 15mm 8mm 8mm 8mm;
+	}
+}
+.print-repeating-frame {
+	width: 100%;
+	border-collapse: collapse;
+}
+.print-repeating-frame > thead {
+	display: table-header-group;
+}
+.print-repeating-frame > tfoot {
+	display: table-footer-group;
+}
+.print-repeating-frame > thead > tr > td,
+.print-repeating-frame > tfoot > tr > td,
+.print-repeating-frame > tbody > tr > td {
+	padding: 0;
+	border: none;
+}
+@media screen {
+	.action-banner {
+		position: fixed;
+		top: 0;
+		right: 0;
+		display: flex;
+		justify-content: flex-end;
+		padding-right: 20px;
+	}
+}
+@media print {
+	.action-banner {
+		display: none !important;
+	}
+}
+
+.print-format-doc .col,
+.print-format-doc *[class^="col-"] {
+	max-width: none !important;
+}
+.print-format-doc {
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+	font-weight: 400;
+	letter-spacing: normal;
+}
+.print-format-doc .label {
+	border: none;
+}
+
+/* em only, never rem (the canvas rem root is the desk page); values inside a
+   font-size scope are pre-divided by that multiplier (0.5em × 0.9 = 0.45). */
+.print-format-doc .section-label {
+	font-size: 1.1em;
+	font-weight: 700;
+	color: var(--gray-900);
+	padding-bottom: 0.3182em;
+	margin-bottom: 0.6818em;
+	border-bottom: 1.5px solid var(--gray-300);
+	/* Don't let the section heading sit alone at the bottom of a page */
+	break-after: avoid;
+	page-break-after: avoid;
+}
+
+.print-format-doc .field + .field {
+	margin-top: 0.5em;
+}
+
+/* Keep field label and value on the same page */
+.print-format-doc .field {
+	color: var(--gray-900);
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+/* Long-content fields (Terms, notes) opt into flowing across a page boundary
+   instead of jumping whole and leaving the previous page half empty */
+.print-format-doc .field.field--breakable {
+	break-inside: auto;
+	page-break-inside: auto;
+}
+
+/* Stacked (default): muted label above value */
+.print-format-doc .field .label {
+	font-size: 1em;
+	color: var(--gray-600);
+	margin-bottom: 0.1em;
+}
+
+.print-format-doc .field .value {
+	color: inherit;
+}
+
+/* Left-right (section-level): label shrinks to content width, value takes the rest */
+.print-format-doc .field.left-right,
+.print-format-doc .field.field-inline {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5em;
+}
+
+.print-format-doc .field.left-right .label,
+.print-format-doc .field.field-inline .label {
+	flex-shrink: 0;
+	font-size: 1em;
+	color: var(--gray-800);
+	text-transform: none;
+	letter-spacing: 0;
+	padding-top: 0.05em;
+	white-space: nowrap;
+}
+
+.print-format-doc .field.field-inline .label::after,
+.print-format-doc.show-label-colon .field .label::after {
+	content: ":";
+}
+
+.print-format-doc .field.left-right .value,
+.print-format-doc .field.field-inline .value {
+	flex: 1;
+	min-width: 0;
+}
+
+/* Field-level alignment */
+.print-format-doc .field.field-align-left {
+	text-align: left;
+}
+
+.print-format-doc .field.field-align-left .value {
+	text-align: left;
+}
+
+.print-format-doc .field.field-align-center {
+	text-align: center;
+}
+
+.print-format-doc .field.field-align-center .value {
+	text-align: center;
+}
+
+.print-format-doc .field.field-align-right {
+	text-align: right;
+}
+
+.print-format-doc .field.field-align-right .value {
+	text-align: right;
+}
+
+/* Spacing/alignment variants for left-right orientation.
+   Right/center align: both label and value need flex:none so the pair moves as a unit.
+   Space-between/evenly: only value needs flex:none (label already has flex-shrink:0). */
+.print-format-doc .field.left-right.field-align-right .label,
+.print-format-doc .field.left-right.field-align-right .value,
+.print-format-doc .field.left-right.field-align-center .label,
+.print-format-doc .field.left-right.field-align-center .value,
+.print-format-doc .field.left-right.field-justify-space-between .value,
+.print-format-doc .field.left-right.field-justify-space-evenly .value {
+	flex: none;
+}
+
+.print-format-doc .field.left-right.field-align-right {
+	justify-content: flex-end;
+}
+.print-format-doc .field.left-right.field-align-center {
+	justify-content: center;
+}
+.print-format-doc .field.left-right.field-justify-space-between {
+	justify-content: space-between;
+}
+.print-format-doc .field.left-right.field-justify-space-between .value {
+	text-align: right;
+}
+.print-format-doc .field.left-right.field-justify-space-evenly {
+	justify-content: space-evenly;
+}
+
+/* Repeater */
+.print-format-doc .pfb-repeater-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.print-format-doc .pfb-repeater-cell {
+	padding: 0;
+	vertical-align: top;
+}
+
+.print-format-doc .pfb-repeater-table tr + tr .pfb-repeater-cell {
+	padding-top: 0.5em;
+}
+
+/* Child table + Repeater share the same block-label styling */
+.print-format-doc .pfb-repeater,
+.print-format-doc .child-table {
+	margin-top: 0.5em;
+}
+
+.print-format-doc .pfb-repeater > .label,
+.print-format-doc .child-table > .label {
+	font-size: 0.8em;
+	font-weight: 600;
+	color: var(--gray-600);
+	margin-bottom: 0.5em;
+}
+
+.print-format-doc .child-table .table {
+	font-size: 0.9em;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 0;
+	width: 100%;
+	table-layout: fixed;
+	word-break: break-word;
+}
+
+@media print {
+	.print-format-doc .child-table .table {
+		border-collapse: separate !important;
+		border-spacing: 0 !important;
+	}
+}
+
+.print-format-doc .child-table .table th {
+	color: var(--gray-800);
+	font-weight: 600;
+	font-size: 0.85em;
+	padding: 0.5882em 0.7843em;
+	border: none !important;
+}
+
+.print-format-doc .child-table .table thead th {
+	background-color: var(--pfb-header-bg, var(--gray-100)) !important;
+}
+
+.print-format-doc .child-table:not(.child-table--plain-header) .table thead th:first-child {
+	border-top-left-radius: var(--pfb-radius, 0);
+}
+
+.print-format-doc .child-table:not(.child-table--plain-header) .table thead th:last-child {
+	border-top-right-radius: var(--pfb-radius, 0);
+}
+
+.print-format-doc
+	.child-table--lined:not(.child-table--bordered):not(.child-table--plain-header)
+	.table
+	thead
+	th:first-child {
+	border-bottom-left-radius: var(--pfb-radius, 0);
+}
+
+.print-format-doc
+	.child-table--lined:not(.child-table--bordered):not(.child-table--plain-header)
+	.table
+	thead
+	th:last-child {
+	border-bottom-right-radius: var(--pfb-radius, 0);
+}
+
+/* bordered tables close their bottom corners through the .table-foot cap, so
+   the last body row must not also round them — two curved closes stack into a
+   doubled bottom edge otherwise */
+.print-format-doc .child-table:not(.child-table--bordered) .table tbody tr:last-child td:first-child {
+	border-bottom-left-radius: var(--pfb-radius, 0);
+}
+
+.print-format-doc .child-table:not(.child-table--bordered) .table tbody tr:last-child td:last-child {
+	border-bottom-right-radius: var(--pfb-radius, 0);
+}
+
+.print-format-doc .child-table .table td {
+	padding: 0.5em 0.6667em;
+	border: none !important;
+	background-color: var(--white) !important;
+	vertical-align: top;
+}
+
+.print-format-doc .child-table--lined .table td {
+	border-bottom: 1px solid var(--gray-300) !important;
+}
+
+/* row lines separate rows — the last row ends open (bordered tables close
+   through the .table-foot cap instead) */
+.print-format-doc .child-table--lined:not(.child-table--bordered) .table tbody tr:last-child td {
+	border-bottom: none !important;
+}
+
+.print-format-doc .child-table--striped .table .even td {
+	background-color: var(--gray-50) !important;
+}
+
+.print-format-doc .child-table--bordered .table th,
+.print-format-doc .child-table--bordered .table td {
+	border-right: 1px solid var(--gray-300) !important;
+	border-bottom: none !important;
+}
+
+.print-format-doc .child-table--bordered .table tbody td {
+	border-top: 1px solid var(--gray-300) !important;
+}
+
+/* the header row already draws this line — a border-top here doubles it */
+.print-format-doc .child-table--bordered .table thead ~ tbody tr:first-child td {
+	border-top: none !important;
+}
+
+.print-format-doc .child-table--bordered .table thead th {
+	border-bottom: 1px solid var(--gray-300) !important;
+	border-top: 1px solid var(--gray-300) !important;
+}
+
+.print-format-doc .child-table--bordered .table th:first-child,
+.print-format-doc .child-table--bordered .table td:first-child {
+	border-left: 1px solid var(--gray-300) !important;
+}
+
+/* The bottom edge of a bordered table is owned by the .table-foot cap alone.
+   It lives in a <tfoot>, so the renderer repeats it at the foot of every page
+   the table spans, closing the outline on each one. Three things have to hold
+   together here — changing one in isolation is what keeps regressing this:
+     1. the cap draws the bottom line, so mid-document page breaks close;
+     2. no body row draws a bottom border, so the last page isn't doubled
+        (bordered rows are separated by border-top — see .child-table--bordered
+        .table tbody td above);
+     3. the cap is as tall as the radius and carries the side borders, so the
+        rounded corners have room to curve. At radius 0 it collapses to nothing,
+        so there is no empty band under square tables. */
+.print-format-doc .child-table .table .table-foot {
+	padding: 0;
+	height: var(--pfb-foot-height, var(--pfb-radius, 0));
+	border: none !important;
+}
+
+/* the cap is one cell per column (see macros/Table.html), so each one carries
+   its column divider down to the closing line — with a single colspan cell the
+   verticals would stop short of the bottom edge by the height of the cap */
+.print-format-doc .child-table--bordered .table .table-foot {
+	border-right: 1px solid var(--gray-300) !important;
+	border-bottom: 1px solid var(--gray-300) !important;
+}
+
+.print-format-doc .child-table--bordered .table .table-foot:first-child {
+	border-left: 1px solid var(--gray-300) !important;
+	border-bottom-left-radius: var(--pfb-radius, 0);
+}
+
+.print-format-doc .child-table--bordered .table .table-foot:last-child {
+	border-bottom-right-radius: var(--pfb-radius, 0);
+}
+
+/* plain header: no fill, a single rule under the header row instead */
+.print-format-doc .child-table--plain-header .table thead th {
+	background-color: transparent !important;
+	border-bottom: 1px solid var(--gray-300) !important;
+}
+
+.print-format-doc .child-table [data-fieldtype="Currency"],
+.print-format-doc .child-table [data-fieldtype="Float"],
+.print-format-doc .child-table [data-fieldtype="Int"] {
+	text-align: right;
+}
+
+/* Serial-number column is centered */
+.print-format-doc .child-table [data-fieldname="idx"] {
+	text-align: center;
+}
+
+/* ── Merged cells (multiple fields, optional left image) ─── */
+/* Same specificity as the numeric-align rule above but declared later, so
+   this wins the cascade without needing !important. */
+.print-format-doc .child-table .column-value--merged {
+	text-align: left;
+}
+
+/* numeric merged cells keep their right alignment */
+.print-format-doc .child-table [data-fieldtype="Currency"].column-value--merged,
+.print-format-doc .child-table [data-fieldtype="Float"].column-value--merged,
+.print-format-doc .child-table [data-fieldtype="Int"].column-value--merged {
+	text-align: right;
+}
+
+.print-format-doc .child-table [data-fieldtype="Currency"].column-value--merged .cell-merged,
+.print-format-doc .child-table [data-fieldtype="Float"].column-value--merged .cell-merged,
+.print-format-doc .child-table [data-fieldtype="Int"].column-value--merged .cell-merged,
+.print-format-doc
+	.child-table
+	[data-fieldtype="Currency"].column-value--merged
+	.cell-lines--horizontal,
+.print-format-doc
+	.child-table
+	[data-fieldtype="Float"].column-value--merged
+	.cell-lines--horizontal,
+.print-format-doc
+	.child-table
+	[data-fieldtype="Int"].column-value--merged
+	.cell-lines--horizontal {
+	justify-content: flex-end;
+}
+
+.print-format-doc .child-table [data-fieldtype="Currency"].column-value--merged .cell-lines,
+.print-format-doc .child-table [data-fieldtype="Float"].column-value--merged .cell-lines,
+.print-format-doc .child-table [data-fieldtype="Int"].column-value--merged .cell-lines {
+	align-items: flex-end;
+}
+
+.print-format-doc .child-table .cell-merged {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5556em;
+}
+
+/* size comes from --thumb-size (column.image_size); !important because the
+   Standard print style forces td img to width: 100% !important */
+.print-format-doc .child-table .cell-thumb-img,
+.print-format-doc .child-table .cell-thumb {
+	width: var(--thumb-size, 40px) !important;
+	height: var(--thumb-size, 40px) !important;
+	border-radius: 6px;
+	flex-shrink: 0;
+}
+
+.print-format-doc .child-table .cell-thumb-img {
+	object-fit: cover;
+}
+
+.print-format-doc .child-table .cell-thumb {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+.print-format-doc .child-table .cell-lines {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1111em;
+	min-width: 0;
+}
+
+.print-format-doc .child-table .cell-lines--horizontal {
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: baseline;
+	column-gap: 0.6em;
+}
+
+.print-format-doc .child-table .cell-line {
+	word-break: break-word;
+}
+
+.print-format-doc .child-table .cell-line--primary,
+.print-format-doc .child-table .cell-line--secondary {
+	color: var(--gray-900);
+}
+
+.print-format-doc .child-table .cell-line--primary {
+	font-weight: 600;
+}
+
+.print-format-doc .child-table .cell-line--mono-sm {
+	font-family: var(--monospace-font-family, monospace);
+}
+
+.print-format-doc .child-table .cell-line--mono-sm,
+.print-format-doc .child-table .cell-line--muted-sm {
+	font-size: 0.85em;
+	color: var(--gray-600);
+}
+
+.print-format-doc .child-table .cell-line * {
+	margin: 0;
+}
+
+.print-format-doc .page-break {
+	page-break-after: always;
+}
+
+.print-format-doc .section.keep-together {
+	page-break-inside: avoid;
+	break-inside: avoid;
+}
+
+/* Override Bootstrap's tr { page-break-inside: avoid } so tall child-table rows
+   flow across pages; keep thead repeating on each new page. */
+@media print {
+	.print-format-doc .child-table tr {
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+	.print-format-doc .child-table thead {
+		display: table-header-group;
+	}
+}
+
+/* How a section distributes its columns — set by the section's justify, or by a
+   right-aligned column on formats that predate it. */
+.print-format-doc .row-col-space-between {
+	justify-content: space-between !important;
+}
+
+.print-format-doc .row-col-space-evenly {
+	justify-content: space-evenly !important;
+}
+
+.print-format-doc .row-col-center {
+	justify-content: center !important;
+}
+
+.print-format-doc .row-col-right-end {
+	justify-content: flex-end !important;
+}
+
+/* The grid gives every column `width: 100%`, so a row has no free space for
+   justify-content to distribute. These take their content width instead, and
+   still shrink when the row runs out of room — so any column count behaves. */
+.print-format-doc .row-col-space-between .col,
+.print-format-doc .row-col-space-evenly .col,
+.print-format-doc .row-col-center .col,
+.print-format-doc .row-col-right-end .col {
+	flex: 0 1 auto !important;
+	width: auto !important;
+}
+
+/* The shared Redesign print style gives .letter-head a 30px bottom margin for
+   classic formats. Builder layouts space the letterhead through their own
+   section margins, so neutralise it here. body. outranks the print style's
+   .print-format .letter-head, which is injected after this bundle. */
+body.print-format-doc .letter-head,
+.wrapper.print-format-doc .letter-head {
+	margin-bottom: 0;
+}
+
+/* Keep letterhead images from overflowing their box. The .letter-head selector
+   must be here too: the Chrome PDF header/footer overlay renders the letterhead
+   in a bare div (no <header>), so a header-only rule never reaches the PDF. */
+.print-format-doc header img,
+.print-format-doc .letter-head img {
+	max-width: 100%;
+	height: auto;
+}
+
+.print-format-doc .field[data-fieldtype="Rating"] .rating-star {
+	width: 1.5em;
+}
+
+.print-format-doc .field[data-fieldtype="Long Text"] .value,
+.print-format-doc .field[data-fieldtype="Text"] .value {
+	white-space: pre-line;
+}
+
+.print-format-doc .field[data-fieldtype="Color"] .value {
+	display: flex;
+	align-items: center;
+}
+
+.print-format-doc .field[data-fieldtype="Color"] .color-square {
+	width: 1em;
+	height: 1em;
+	margin-right: 0.3em;
+	border-radius: var(--radius);
+}
+
+/* ── Table layout (field-borders mode) ───────────────────── */
+.print-format-doc .section--grid {
+	/* table padding is folded into the edge cells (below) so the dividers and
+	   border wrap the padded box instead of leaving a borderless strip */
+	--pfb-pad-top: 0px;
+	--pfb-pad-right: 0px;
+	--pfb-pad-bottom: 0px;
+	--pfb-pad-left: 0px;
+	border: 1px solid var(--pfb-grid-border, var(--gray-300));
+	border-radius: var(--border-radius-md, 8px);
+	overflow: hidden;
+	padding: 0;
+	/* a grid section that breaks across pages closes its outline on both
+	   fragments instead of leaving the box open at the break */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+.print-format-doc .section--grid .section-label {
+	padding: var(--pfb-cell-pad, 8px);
+	margin: 0;
+	border-bottom: 1px solid var(--pfb-grid-border, var(--gray-300));
+}
+.print-format-doc .section--grid .section-columns {
+	padding: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+.print-format-doc .section--grid .col {
+	padding: 0;
+}
+.print-format-doc .section--grid .col:not(:last-child) {
+	border-right: 1px solid var(--pfb-grid-border, var(--gray-300));
+}
+.print-format-doc .section--grid .field,
+.print-format-doc .section--grid .custom-html,
+.print-format-doc .section--grid .field-template,
+.print-format-doc .section--grid .pfb-repeater,
+.print-format-doc .section--grid .child-table {
+	padding: var(--pfb-cell-pad, 8px);
+	border-bottom: 1px solid var(--pfb-grid-border, var(--gray-300));
+	margin-top: 0;
+}
+.print-format-doc .section--grid .field:last-child,
+.print-format-doc .section--grid .custom-html:last-child,
+.print-format-doc .section--grid .field-template:last-child,
+.print-format-doc .section--grid .pfb-repeater:last-child,
+.print-format-doc .section--grid .child-table:last-child {
+	border-bottom: none;
+}
+/* fold the section padding into the outermost cells */
+.print-format-doc .section--grid .field:first-child,
+.print-format-doc .section--grid .custom-html:first-child,
+.print-format-doc .section--grid .field-template:first-child,
+.print-format-doc .section--grid .pfb-repeater:first-child,
+.print-format-doc .section--grid .child-table:first-child {
+	padding-top: calc(var(--pfb-cell-pad, 8px) + var(--pfb-pad-top));
+}
+.print-format-doc .section--grid .field:last-child,
+.print-format-doc .section--grid .custom-html:last-child,
+.print-format-doc .section--grid .field-template:last-child,
+.print-format-doc .section--grid .pfb-repeater:last-child,
+.print-format-doc .section--grid .child-table:last-child {
+	padding-bottom: calc(var(--pfb-cell-pad, 8px) + var(--pfb-pad-bottom));
+}
+.print-format-doc .section--grid .col:first-child .field,
+.print-format-doc .section--grid .col:first-child .custom-html,
+.print-format-doc .section--grid .col:first-child .field-template,
+.print-format-doc .section--grid .col:first-child .pfb-repeater,
+.print-format-doc .section--grid .col:first-child .child-table {
+	padding-left: calc(var(--pfb-cell-pad, 8px) + var(--pfb-pad-left));
+}
+.print-format-doc .section--grid .col:last-child .field,
+.print-format-doc .section--grid .col:last-child .custom-html,
+.print-format-doc .section--grid .col:last-child .field-template,
+.print-format-doc .section--grid .col:last-child .pfb-repeater,
+.print-format-doc .section--grid .col:last-child .child-table {
+	padding-right: calc(var(--pfb-cell-pad, 8px) + var(--pfb-pad-right));
+}
+.print-format-doc .section--grid-rows .col:not(:last-child) {
+	border-right: none;
+}
+.print-format-doc .section--grid-columns .field,
+.print-format-doc .section--grid-columns .custom-html,
+.print-format-doc .section--grid-columns .field-template,
+.print-format-doc .section--grid-columns .pfb-repeater,
+.print-format-doc .section--grid-columns .child-table {
+	border-bottom: none;
+}
+
+.print-format-doc .custom-html .row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.print-format-doc .field .label.label--no-colon::after {
+	content: none;
+}
+.print-format-doc .field .label,
+.print-format-doc .field.left-right .label,
+.print-format-doc .field.field-inline .label {
+	color: #6b7280;
+}
+.print-format-doc .field .value,
+.print-format-doc .field.left-right .value,
+.print-format-doc .field.field-inline .value {
+	color: #1f2328;
+}
+
+.print-format-doc [document-status] {
+	text-align: center;
+	margin-bottom: 5mm;
+}
+.print-format-doc [document-status] h4 {
+	margin: 0;
+}</style><style>/* Midad print style, shipped by institutional_theme.print.ship. If you edit this style the theme
+   keeps your version and no longer updates it. */
+/* generated by institutional_theme.fonts from the Institutional Theme Settings; do not edit */
+
+@font-face {
+	font-family: "Midad Print Plex Sans Arabic";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexSansArabic-Regular.ttf");
+	unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F;
+}
+
+@font-face {
+	font-family: "Midad Print Plex Sans Arabic";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexSansArabic-Medium.ttf");
+	unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F;
+}
+
+@font-face {
+	font-family: "Midad Print Plex Sans Arabic";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexSansArabic-SemiBold.ttf");
+	unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F;
+}
+
+@font-face {
+	font-family: "Midad Print Plex Sans";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexSans-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Midad Print Plex Sans";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexSans-Medium.ttf");
+}
+
+@font-face {
+	font-family: "Midad Print Plex Sans";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexSans-SemiBold.ttf");
+}
+
+@font-face {
+	font-family: "Midad Print Plex Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexMono-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Midad Print Plex Mono";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("/assets/institutional_theme/fonts/plex/IBMPlexMono-Medium.ttf");
+}
+
+.print-format,
+body.print-format-doc {
+	font-family: "Midad Print Plex Sans Arabic", "Midad Print Plex Sans", sans-serif;
+}
+
+.print-format,body.print-format-doc{color:#141b25;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}.print-format .page-break,.print-format .ss-doc,body.print-format-doc .page-break,body.print-format-doc .ss-doc{font-family:inherit}.print-format .ss-label,.print-format .ss-net .words,.print-format .ss-hero .words,.print-format .ss-strip .ss-label,.print-format .ss-ledger tr.ss-sec td,body.print-format-doc .ss-label,body.print-format-doc .ss-net .words,body.print-format-doc .ss-hero .words,body.print-format-doc .ss-strip .ss-label,body.print-format-doc .ss-ledger tr.ss-sec td{color:#424b57}.print-format .ss-label,.print-format .ss-ledger th,.print-format .ss-ledger tr.ss-sec td,body.print-format-doc .ss-label,body.print-format-doc .ss-ledger th,body.print-format-doc .ss-ledger tr.ss-sec td{font-size:10px}.print-format .ss-net,body.print-format-doc .ss-net{border-left-color:#141b25}.print-format .ss-split>tbody>tr>td.l,.print-format .ss-strip td,body.print-format-doc .ss-split>tbody>tr>td.l,body.print-format-doc .ss-strip td{border-right-color:#b8bec7}.print-format .print-heading,body.print-format-doc .print-heading{margin-bottom:12px;padding:8px 0 6px;border-top:3px solid #0f3a65;border-bottom:1px solid #0f3a65}.print-format .print-heading h2,body.print-format-doc .print-heading h2{color:#141b25;font-weight:600;line-height:1.3}.print-format .print-heading .sub-heading,body.print-format-doc .print-heading .sub-heading{color:#424b57;font-weight:500}.print-format h4,body.print-format-doc h4{color:#141b25;font-weight:600}.print-format label,body.print-format-doc label{color:#424b57;font-weight:500}.print-format .data-field .value,body.print-format-doc .data-field .value{color:#141b25}.print-format a,body.print-format-doc a{color:#141b25;text-decoration:underline}.print-format pre,body.print-format-doc pre{border:1px solid #b8bec7;background:transparent;color:#141b25}.print-format table.table,body.print-format-doc table.table{border-collapse:collapse}.print-format table.table-bordered,body.print-format-doc table.table-bordered{border:0}.print-format .table-bordered>thead>tr>th,.print-format .table-bordered>thead>tr>td,body.print-format-doc .table-bordered>thead>tr>th,body.print-format-doc .table-bordered>thead>tr>td{border:0;border-top:1.5px solid #141b25;border-bottom:1.5px solid #141b25;background:transparent;color:#141b25;font-weight:600}.print-format .table-bordered>tbody>tr>th,.print-format .table-bordered>tbody>tr>td,.print-format .table-bordered>tfoot>tr>td,body.print-format-doc .table-bordered>tbody>tr>th,body.print-format-doc .table-bordered>tbody>tr>td,body.print-format-doc .table-bordered>tfoot>tr>td{border:0;border-bottom:1px solid #b8bec7}.print-format .items-table,.print-format .tax-table,body.print-format-doc .items-table,body.print-format-doc .tax-table{border-collapse:collapse;border-radius:0;overflow:visible}.print-format .items-table td,.print-format .tax-table td,body.print-format-doc .items-table td,body.print-format-doc .tax-table td{border-bottom:1px solid #b8bec7}.print-format .items-table thead td,.print-format .tax-table thead td,.print-format .items-table thead tr:first-of-type td,.print-format .tax-table thead tr:first-of-type td,body.print-format-doc .items-table thead td,body.print-format-doc .tax-table thead td,body.print-format-doc .items-table thead tr:first-of-type td,body.print-format-doc .tax-table thead tr:first-of-type td{border-top:1.5px solid #141b25;border-bottom:1.5px solid #141b25;font-weight:600}.print-format .items-table thead tr:first-child td:first-child,.print-format .tax-table thead tr:first-child td:first-child,.print-format .items-table thead tr:first-child td:last-child,.print-format .tax-table thead tr:first-child td:last-child,body.print-format-doc .items-table thead tr:first-child td:first-child,body.print-format-doc .tax-table thead tr:first-child td:first-child,body.print-format-doc .items-table thead tr:first-child td:last-child,body.print-format-doc .tax-table thead tr:first-child td:last-child{border-radius:0}.print-format .highlight-bg,body.print-format-doc .highlight-bg{background:transparent}.print-format table.highlight-bg,body.print-format-doc table.highlight-bg{border-top:3px double #141b25;border-bottom:1px solid #141b25;border-radius:0}.print-format thead,body.print-format-doc thead{display:table-header-group}.print-format tfoot,body.print-format-doc tfoot{display:table-footer-group}.print-format tr,body.print-format-doc tr{page-break-inside:avoid}.print-format td.text-right,.print-format td.text-right .value,body.print-format-doc td.text-right,body.print-format-doc td.text-right .value{direction:ltr;unicode-bidi:embed;unicode-bidi:isolate;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}.print-format .mono,.print-format .ins-mono,body.print-format-doc .mono,body.print-format-doc .ins-mono{direction:ltr;unicode-bidi:embed;unicode-bidi:isolate;font-family:Midad Print Plex Mono,monospace}.print-format .data-field[data-fieldname=grand_total],.print-format .data-field[data-fieldname=rounded_total],.print-format .data-field[data-fieldname=base_grand_total],.print-format .ins-grand-total,body.print-format-doc .data-field[data-fieldname=grand_total],body.print-format-doc .data-field[data-fieldname=rounded_total],body.print-format-doc .data-field[data-fieldname=base_grand_total],body.print-format-doc .ins-grand-total{margin-top:6px;padding-top:8px;border-top:3px double #141b25;font-weight:600}.print-format .ins-grand-total>td,.print-format .ins-grand-total>th,body.print-format-doc .ins-grand-total>td,body.print-format-doc .ins-grand-total>th{border-top:3px double #141b25;font-weight:600}.print-format .ins-status,body.print-format-doc .ins-status{display:inline-block;padding:1px 8px;border:1px solid #141b25;border-radius:4px;background:#ffffff;color:#141b25;font-size:.9em;font-weight:500;line-height:1.5;white-space:nowrap}.print-format .ins-status:before,body.print-format-doc .ins-status:before{content:"";display:inline-block;width:8px;height:8px;margin-right:6px;border:1.5px solid #141b25;background:transparent;vertical-align:baseline}.print-format .ins-status-draft:before,body.print-format-doc .ins-status-draft:before{border-radius:50%}.print-format .ins-status-pending:before,body.print-format-doc .ins-status-pending:before{border-radius:50%;border-right-width:5px}.print-format .ins-status-approved:before,body.print-format-doc .ins-status-approved:before{background:#141b25}.print-format .ins-status-rejected,body.print-format-doc .ins-status-rejected{border-style:dashed}.print-format .ins-status-cancelled,body.print-format-doc .ins-status-cancelled{border-style:dashed;text-decoration:line-through}.print-format .ins-status-cancelled:before,body.print-format-doc .ins-status-cancelled:before{border-radius:50%;background:#141b25}.print-format .ins-signatures,body.print-format-doc .ins-signatures{display:table;width:100%;margin-top:32px;border-collapse:separate;border-spacing:16px 0;table-layout:fixed;page-break-inside:avoid}.print-format .ins-signature,body.print-format-doc .ins-signature{display:table-cell;padding:12px 12px 8px;border:1px solid #858d97;border-radius:4px;vertical-align:top}.print-format .ins-signature-role,body.print-format-doc .ins-signature-role{color:#424b57;font-size:.9em}.print-format .ins-signature-name,body.print-format-doc .ins-signature-name{font-weight:600}.print-format .ins-signature-space,body.print-format-doc .ins-signature-space{height:44px;border-bottom:1px solid #141b25}.print-format .ins-signature-caption,body.print-format-doc .ins-signature-caption{color:#424b57;font-size:.85em}.print-format .ins-verify,body.print-format-doc .ins-verify{margin-top:16px;padding:12px 16px;border:1px solid #b8bec7;border-radius:4px;page-break-inside:avoid}.print-format .ins-lh,body.print-format-doc .ins-lh{width:100%;border-collapse:collapse;border-bottom:1px solid #0f3a65;margin-bottom:12px}.print-format .ins-lh td,body.print-format-doc .ins-lh td{vertical-align:middle}.print-format .ins-lh-emblem,body.print-format-doc .ins-lh-emblem{width:52px}.print-format .ins-lh-emblem img,body.print-format-doc .ins-lh-emblem img{display:block;width:52px;height:52px}.print-format .ins-lh-gap,body.print-format-doc .ins-lh-gap{width:14px}.print-format .ins-lh-name,body.print-format-doc .ins-lh-name{color:#0f3a65;font-size:1.45em;font-weight:600;line-height:1.3}.print-format .ins-lh-name-second,body.print-format-doc .ins-lh-name-second{color:#424b57;font-size:1em;font-weight:500}.print-format .ins-lh-system,body.print-format-doc .ins-lh-system{color:#424b57;font-size:.9em}.print-format .letter-head-footer .ins-lf,body.print-format-doc .letter-head-footer .ins-lf{width:100%;border-collapse:collapse;border-top:1px solid #141b25;color:#424b57;font-size:.85em}.print-format .letter-head-footer .ins-lf td,body.print-format-doc .letter-head-footer .ins-lf td{padding:6px 0 0}.print-format [document-status=draft],.print-format [document-status=cancelled],body.print-format-doc [document-status=draft],body.print-format-doc [document-status=cancelled]{position:fixed;top:118mm;left:15%;right:15%;z-index:0;padding:0;border:6px solid #141b25;opacity:.12;pointer-events:none}.print-format [document-status=draft] h4,.print-format [document-status=cancelled] h4,body.print-format-doc [document-status=draft] h4,body.print-format-doc [document-status=cancelled] h4{margin:0;padding:16px 0;font-size:96px;font-weight:600;letter-spacing:6px;text-transform:uppercase}.print-format [document-status=cancelled],body.print-format-doc [document-status=cancelled]{border-style:dashed}@supports (display: grid){.print-format [document-status=draft],.print-format [document-status=cancelled],body.print-format-doc [document-status=draft],body.print-format-doc [document-status=cancelled]{top:3mm}}[dir=rtl] .print-format div.info-text,[dir=rtl] body.print-format-doc div.info-text{text-align:right;unicode-bidi:plaintext}[dir=rtl] .print-format span.title,[dir=rtl] body.print-format-doc span.title{margin-left:.35em}[dir=rtl] .print-format [document-status=draft] h4,[dir=rtl] .print-format [document-status=cancelled] h4,[dir=rtl] .print-format .ss-label,[dir=rtl] .print-format .ss-ledger th,[dir=rtl] .print-format .ss-ledger tr.ss-sec td,[dir=rtl] .print-format .ss-title h3,[dir=rtl] .print-format .ss-who .name,[dir=rtl] body.print-format-doc [document-status=draft] h4,[dir=rtl] body.print-format-doc [document-status=cancelled] h4,[dir=rtl] body.print-format-doc .ss-label,[dir=rtl] body.print-format-doc .ss-ledger th,[dir=rtl] body.print-format-doc .ss-ledger tr.ss-sec td,[dir=rtl] body.print-format-doc .ss-title h3,[dir=rtl] body.print-format-doc .ss-who .name{letter-spacing:0}[dir=rtl] .print-format td.text-right,[dir=rtl] .print-format th.text-right,[dir=rtl] body.print-format-doc td.text-right,[dir=rtl] body.print-format-doc th.text-right{text-align:left}[dir=rtl] .print-format td.text-left,[dir=rtl] .print-format th.text-left,[dir=rtl] body.print-format-doc td.text-left,[dir=rtl] body.print-format-doc th.text-left{text-align:right}[dir=rtl] .print-format .ins-status:before,[dir=rtl] body.print-format-doc .ins-status:before{margin-right:0;margin-left:6px}[dir=rtl] .print-format .ins-status-pending:before,[dir=rtl] body.print-format-doc .ins-status-pending:before{border-right-width:1.5px;border-left-width:5px}[dir=rtl] .print-format .ss-right,[dir=rtl] .print-format .ss-kv td.v,[dir=rtl] .print-format .ss-ledger th,[dir=rtl] .print-format .ss-ledger td,[dir=rtl] .print-format .ss-net .amt,[dir=rtl] .print-format .ss-net td.right,[dir=rtl] .print-format .ss-hero .pay,[dir=rtl] .print-format .ss-foot td.ref,[dir=rtl] body.print-format-doc .ss-right,[dir=rtl] body.print-format-doc .ss-kv td.v,[dir=rtl] body.print-format-doc .ss-ledger th,[dir=rtl] body.print-format-doc .ss-ledger td,[dir=rtl] body.print-format-doc .ss-net .amt,[dir=rtl] body.print-format-doc .ss-net td.right,[dir=rtl] body.print-format-doc .ss-hero .pay,[dir=rtl] body.print-format-doc .ss-foot td.ref{text-align:left}[dir=rtl] .print-format .ss-ledger th.c,[dir=rtl] .print-format .ss-ledger td.c,[dir=rtl] .print-format .ss-ledger tr.ss-sec td.c,[dir=rtl] body.print-format-doc .ss-ledger th.c,[dir=rtl] body.print-format-doc .ss-ledger td.c,[dir=rtl] body.print-format-doc .ss-ledger tr.ss-sec td.c{text-align:right}[dir=rtl] .print-format .ss-meta td+td,[dir=rtl] body.print-format-doc .ss-meta td+td{padding-right:40px;padding-left:0}[dir=rtl] .print-format .ss-net,[dir=rtl] body.print-format-doc .ss-net{border-right:3px solid #141b25;border-left:0}[dir=rtl] .print-format .ss-split>tbody>tr>td.l,[dir=rtl] body.print-format-doc .ss-split>tbody>tr>td.l{padding-right:0;padding-left:18px;border-right:0}[dir=rtl] .print-format .ss-classic .ss-split>tbody>tr>td.l,[dir=rtl] body.print-format-doc .ss-classic .ss-split>tbody>tr>td.l{border-left:1px solid #b8bec7}[dir=rtl] .print-format .ss-split>tbody>tr>td.r,[dir=rtl] body.print-format-doc .ss-split>tbody>tr>td.r{padding-right:18px;padding-left:0}[dir=rtl] .print-format .ss-strip td,[dir=rtl] body.print-format-doc .ss-strip td{border-right:0;border-left:1px solid #b8bec7}[dir=rtl] .print-format .ss-strip td.last,[dir=rtl] body.print-format-doc .ss-strip td.last{border-left:0}[dir=rtl] .print-format .ss-section td.rule,[dir=rtl] body.print-format-doc .ss-section td.rule{padding-right:12px;padding-left:0}[dir=rtl] .print-format .ss-foot td,[dir=rtl] body.print-format-doc .ss-foot td{padding-right:0;padding-left:18px}[dir=rtl] .print-format .ss-foot td.ref,[dir=rtl] body.print-format-doc .ss-foot td.ref{padding-left:0}body:not([onload]) .print-format .wrapper .letter-head .ins-lh,body.print-format-doc:not([onload]) .wrapper .letter-head .ins-lh{margin-top:16mm}body:not([onload]) .print-format .wrapper .letter-head-footer .ins-lf,body.print-format-doc:not([onload]) .wrapper .letter-head-footer .ins-lf{margin-top:12mm}
+
+</style></head>
+<body class="print-format-doc">
+	<div class="action-banner print-hide">
+	<a class="p-2" onclick="window.print();">
+		طباعة
+	</a>
+	<a class="p-2"
+		href="/api/method/frappe.utils.print_format.download_pdf?doctype=Quotation&name=SAL-QTN-2026-00001&format=Quotation Modern with Images&letterhead=Midad&_lang=ar&pdf_generator=wkhtmltopdf">
+		احصل على ملف PDF
+	</a>
+</div><table class="print-repeating-frame">
+	<thead><tr><td><div class="letter-head"><table class="ins-lh" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="ins-lh-emblem"><img src="/assets/institutional_theme/images/ins_emblem_placeholder.svg" alt="" width="52" height="52"></td>
+		<td class="ins-lh-gap"></td>
+		<td>
+			<div class="ins-lh-name">Test Institution</div>
+		</td>
+	</tr>
+</table></div></td></tr></thead><tfoot><tr><td><div class="letter-head">
+<table class="ins-lf" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><div>Test Institution</div>
+		</td>
+	</tr>
+</table></div></td></tr></tfoot><tbody><tr><td><div document-status="draft"><h4>مسودة</h4></div><div class="section " data-section="0" style="margin:10px 0px 10px 0px;">
+		<div class="section-columns row " style="gap:20px">
+			
+			<div class="column col">
+				
+				<div class="custom-html" data-fieldname="custom_html_WJGFzvLg"
+data-fieldtype="HTML">
+	<div style="text-align:center;">
+    <div style="font-size:1.5em;font-weight:700;">
+        Quotation
+    </div>
+    <div style="color:#6b7280;margin-top:4px;">
+        SAL-QTN-2026-00001
+    </div>
+</div>
+</div>
+				
+			</div>
+			
+		</div>
+	</div><div class="section " data-section="1">
+		<div class="section-columns row " style="gap:20px">
+			
+			<div class="column col">
+				
+				<div style="height: 1px; margin: 0.5em 0; border-bottom: 1px solid; border-bottom-color: var(--dark-border-color);">
+</div>
+				
+			</div>
+			
+		</div>
+	</div><div class="section " data-section="2" style="margin:15px 12px 0px 12px;padding:0px 0px 0px 0px;">
+		<div class="section-columns row " style="gap:0px">
+			
+			<div class="column col" style="flex: 67.0 1 0%">
+				
+				<div class="custom-html" data-fieldname="custom_html_WbBDnaVv_lSJFDiWO"
+data-fieldtype="HTML">
+	<div>
+  <div style="color:#6b7280;">
+    Party Name
+  </div>
+</div>
+</div>
+				
+				
+<div class="field  field-align-left" style="font-weight: bold;
+" data-fieldname="customer_name"
+data-fieldtype="Data"><div class="value">Verify4 Temp Customer</div></div>
+
+				
+				
+				
+			</div>
+			
+			<div class="column col" style="flex: 33.0 1 0%">
+				
+				
+<div class="field  field-align-right"  data-fieldname="transaction_date"
+data-fieldtype="Date"><div class="label">تاريخ الترحيل</div><div class="value">15-10-2026</div></div>
+
+				
+				
+<div class="field  field-align-right"  data-fieldname="valid_till"
+data-fieldtype="Date"><div class="label">صالح حتى</div><div class="value">14-11-2026</div></div>
+
+				
+				
+<div class="field  field-align-right"  data-fieldname="status"
+data-fieldtype="Select"><div class="label">الحالة</div><div class="value">مسودة</div></div>
+
+				
+			</div>
+			
+		</div>
+	</div><div class="section " data-section="3" style="margin:15px 0px 0px 0px;">
+		<div class="section-columns row " style="gap:12px">
+			
+			<div class="column col">
+				
+				
+
+
+
+<div class="child-table child-table--lined" data-fieldname="items"
+data-fieldtype="Table">
+	<table class="table" style="--pfb-radius:8px;">
+		<thead>
+			<tr class="table-row">
+				<th class="column-header" width="6.67%" style="padding:10px;" data-fieldname="idx"
+data-fieldtype="Data">
+					No.
+				</th>
+				<th class="column-header column-value--merged" width="40.0%" style="padding:10px;" data-fieldname="item_name"
+data-fieldtype="Data">
+					Item
+				</th>
+				<th class="column-header column-value--merged" width="13.33%" style="padding:10px;" data-fieldname="uom"
+data-fieldtype="Link">
+					كمية
+				</th>
+				<th class="column-header" width="20.0%" style="padding:10px;" data-fieldname="rate"
+data-fieldtype="Currency">
+					سعر السلعة المفردة
+				</th>
+				<th class="column-header" width="20.0%" style="padding:10px;" data-fieldname="amount"
+data-fieldtype="Currency">
+					كمية
+				</th>
+				
+			</tr>
+		</thead><tbody>
+			
+			<tr class="table-row odd" data-idx="1">
+				
+				<td class="column-value" width="6.67%" style="padding:10px;" data-fieldname="idx"
+data-fieldtype="Data">1</td>
+				
+				<td class="column-value column-value--merged" width="40.0%" style="padding:10px;" data-fieldname="item_name"
+data-fieldtype="Data"><div class="cell-merged"><span class="cell-thumb" style="--thumb-size:44px;font-size:17px;background:hsl(0,65%,92%);color:hsl(0,55%,35%)">خت</span><div class="cell-lines"><div class="cell-line cell-line--primary">خادم تطبيقات 2U</div><div class="cell-line cell-line--secondary">V4-TMP-1</div><div class="cell-line cell-line--muted-sm"><div class='ql-snow'></div></div></div>
+						</div></td>
+				
+				<td class="column-value column-value--merged" width="13.33%" style="padding:10px;" data-fieldname="uom"
+data-fieldtype="Link"><div class="cell-merged"><div class="cell-lines cell-lines--horizontal"><div class="cell-line cell-line--primary">Nos</div><div class="cell-line cell-line--secondary">4</div></div>
+						</div></td>
+				
+				<td class="column-value" width="20.0%" style="padding:10px;" data-fieldname="rate"
+data-fieldtype="Currency">ر.س 38,500.00</td>
+				
+				<td class="column-value" width="20.0%" style="padding:10px;" data-fieldname="amount"
+data-fieldtype="Currency">ر.س 154,000.00</td>
+				
+			</tr>
+			
+			<tr class="table-row even" data-idx="2">
+				
+				<td class="column-value" width="6.67%" style="padding:10px;" data-fieldname="idx"
+data-fieldtype="Data">2</td>
+				
+				<td class="column-value column-value--merged" width="40.0%" style="padding:10px;" data-fieldname="item_name"
+data-fieldtype="Data"><div class="cell-merged"><span class="cell-thumb" style="--thumb-size:44px;font-size:17px;background:hsl(0,65%,92%);color:hsl(0,55%,35%)">وت</span><div class="cell-lines"><div class="cell-line cell-line--primary">وحدة تخزين شبكي</div><div class="cell-line cell-line--secondary">V4-TMP-2</div><div class="cell-line cell-line--muted-sm"><div class='ql-snow'></div></div></div>
+						</div></td>
+				
+				<td class="column-value column-value--merged" width="13.33%" style="padding:10px;" data-fieldname="uom"
+data-fieldtype="Link"><div class="cell-merged"><div class="cell-lines cell-lines--horizontal"><div class="cell-line cell-line--primary">Nos</div><div class="cell-line cell-line--secondary">2</div></div>
+						</div></td>
+				
+				<td class="column-value" width="20.0%" style="padding:10px;" data-fieldname="rate"
+data-fieldtype="Currency">ر.س 27,250.00</td>
+				
+				<td class="column-value" width="20.0%" style="padding:10px;" data-fieldname="amount"
+data-fieldtype="Currency">ر.س 54,500.00</td>
+				
+			</tr>
+			
+		</tbody>
+		
+		
+		<tfoot>
+	<tr>
+		<td class="table-foot"></td><td class="table-foot"></td><td class="table-foot"></td><td class="table-foot"></td><td class="table-foot"></td>
+	</tr>
+</tfoot>
+	</table>
+</div>
+
+				
+			</div>
+			
+		</div>
+	</div><div class="section " data-section="4" style="margin:15px 12px 0px 12px;">
+		<div class="section-columns row " style="gap:20px">
+			
+			<div class="column col" style="flex: 51.0 1 0%">
+				
+			</div>
+			
+			<div class="column col" style="flex: 49.0 1 0%">
+				
+				
+<div class="field left-right field-align-left field-justify-space-between"  data-fieldname="total"
+data-fieldtype="Currency"><div class="label">Sub Total</div><div class="value">ر.س 208,500.00</div></div>
+
+				
+				
+				
+				
+				
+				
+<div class="field left-right field-align-left field-justify-space-between" style="border-top: 1px solid #e5e7eb;
+margin-top:5px;
+font-weight: bold;
+padding-top:9px
+" data-fieldname="grand_total"
+data-fieldtype="Currency"><div class="label">المجموع الإجمالي</div><div class="value">ر.س 208,500.00</div></div>
+
+				
+			</div>
+			
+		</div>
+	</div><div class="section " data-section="5" style="background:#f8f8f8;margin:10px 0px 0px 0px;padding:5px 12px 5px 12px;">
+		<div class="section-columns row " style="gap:0px">
+			
+			<div class="column col">
+				
+				
+<div class="field left-right field-align-left" style="gap: 2px;" data-fieldname="in_words"
+data-fieldtype="Data"><div class="value">SAR Two Hundred And Eight Thousand, Five Hundred only.</div></div>
+
+				
+			</div>
+			
+		</div>
+	</div><div class="section " data-section="6">
+		<div class="section-columns row " style="gap:20px">
+			
+			<div class="column col">
+				
+				<div style="height: 1px; margin: 0.5em 0; border-bottom: 1px solid; border-bottom-color: var(--dark-border-color);">
+</div>
+				
+			</div>
+			
+		</div>
+	</div><div class="section " data-section="7" style="margin:5px 12px 0px 12px;">
+		<div class="section-columns row " style="gap:20px">
+			
+			<div class="column col">
+				
+				
+				
+			</div>
+			
+		</div>
+	</div></td></tr></tbody></table><script type="text/javascript" src="/assets/frappe/dist/js/print.bundle.27VKHZQE.js"></script>
+	<script>document.querySelectorAll("svg[data-barcode-value]").forEach(render_barcode);</script>
+	
+</body>
+</html>
