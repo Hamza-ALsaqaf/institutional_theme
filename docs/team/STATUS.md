@@ -21,8 +21,8 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-Round 3 (started 00:22 UTC 2026-10-14, pull request #3; scope `docs/team/RESUME_PROMPT.md`, ownership `docs/team/PLAN.md` "Round 3"). Bench rebuilt 00:31 (`docs/team/evidence/round3/BENCH.md`). Wave 1, dispatched about 00:25:
-- backend-engineer A: item 3 (newest v16 tag), then item 1 (fresh bench, fresh site, install from README).
+Round 3, second attempt (job started about 00:40 UTC 2026-10-14 on a fresh runner, pull request #3; scope `docs/team/RESUME_PROMPT.md`, ownership `docs/team/PLAN.md` "Round 3", agent rules `docs/team/evidence/round3/DISPATCH.md`). The first attempt's background agents were stopped and their unpushed work lost. Bench rebuilt by the lead (`docs/team/evidence/round3/bench2/`). Wave 1, dispatched 00:45, report by 02:40:
+- backend-engineer A: item 3 (newest v16 tag), then item 1 (fresh site or fresh bench, install from README, uninstall).
 - backend-engineer B: item 2 (HRMS 16.20.1 on `midad.test`), then item 5 (axe-core scan).
 - css-engineer: item 4 (brand-app coexistence), then HRMS screens and fixes.
 
