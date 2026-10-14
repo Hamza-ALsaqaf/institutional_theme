@@ -1,0 +1,15 @@
+424 mapped variable names
+-                                  (0, 2, 1)  ROOT-CAPABLE                           424 var(s) e.g. --gray-50              html:root[dir]
+-                                  (0, 2, 1)  ROOT-CAPABLE                           424 var(s) e.g. --gray-50              html[dir] [data-theme=light]
+-                                  (0, 3, 1)  ROOT-CAPABLE                           424 var(s) e.g. --gray-50              html:root[dir][data-theme=dark]
+-                                  (0, 2, 1)  ROOT-CAPABLE                           424 var(s) e.g. --gray-50              html[dir] [data-theme=dark]
+@media (prefers-color-scheme: dark) (0, 3, 1)  ROOT-CAPABLE                           424 var(s) e.g. --gray-50              html:root[dir][data-theme=automatic]
+-                                  (0, 3, 1)  needs a class/type html does not have    3 var(s) e.g. --control-bg           html:root[dir] :is(.modal, .form-in-grid)
+-                                  (0, 4, 1)  needs a class/type html does not have    3 var(s) e.g. --control-bg           html:root[dir] .grid-body .editable-row
+-                                  (0, 3, 1)  needs a class/type html does not have   10 var(s) e.g. --charts-label-color   html:root[dir] .chart-container
+-                                  (0, 3, 1)  needs a class/type html does not have    1 var(s) e.g. --gray-300             html:root[dir] .fc-theme-standard
+-                                  (0, 2, 0)  needs a class/type html does not have    1 var(s) e.g. --control-bg           :is(.btn, .filter-chart, .avatar-action, .ql-mention-list-item, .ql-editor .mention)
+-                                  (0, 3, 1)  needs a class/type html does not have    3 var(s) e.g. --ink-base             html:root[dir] .es-toast
+-                                  (0, 4, 2)  needs a class/type html does not have    1 var(s) e.g. --icon-stroke          html:root[dir] .es-toast[data-type] > svg
+-                                  (0, 5, 1)  needs a class/type html does not have    1 var(s) e.g. --icon-stroke          html:root[dir] .es-button:not(.about-section-header .es-button)
+-                                  (0, 4, 1)  needs a class/type html does not have    1 var(s) e.g. --icon-stroke          html:root[dir] .btn.btn-danger

@@ -1,0 +1,53 @@
+424 mapped variable names
+frappe/public/scss/common/buttons.scss | .btn-secondary-dark >> .icon | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/common/buttons.scss | .btn.btn-primary | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/common/css_variables.scss | :root, [data-theme="light"] | 99 var(s) e.g. --brand-color
+frappe/public/scss/common/css_variables.scss | :root, [data-theme="light"] >> @include media-breakpoint-down(md) | 1 var(s) e.g. --checkbox-size
+frappe/public/scss/common/grid.scss | .grid-body >> .editable-row | 2 var(s) e.g. --control-bg
+frappe/public/scss/common/grid.scss | .grid-body >> .editable-row >> .grid-static-col[data-fieldtype="Button"] | 1 var(s) e.g. --control-bg
+frappe/public/scss/common/icons.scss | use.like-icon | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/common/icons.scss | .liked >> .like-icon, .like-icon use | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/common/quill.scss | .ql-editor.read-mode >> .mention | 1 var(s) e.g. --user-mention-bg-color
+frappe/public/scss/desk/avatar.scss | :root | 3 var(s) e.g. --avatar-frame-color
+frappe/public/scss/desk/avatar.scss | [data-theme="dark"] | 3 var(s) e.g. --avatar-frame-color
+frappe/public/scss/desk/card.scss | :root | 2 var(s) e.g. --frappe-card-button-bg-color
+frappe/public/scss/desk/css_variables.scss | :root, [data-theme="light"] | 17 var(s) e.g. --appreciation-color
+frappe/public/scss/desk/css_variables.scss | :root, [data-theme="light"] >> @include media-breakpoint-down(md) | 1 var(s) e.g. --checkbox-size
+frappe/public/scss/desk/dark.scss | [data-theme="dark"] | 98 var(s) e.g. --neutral
+frappe/public/scss/desk/dark.scss | [data-theme="dark"] >> .page-title .sidebar-toggle-btn | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/dark.scss | [data-theme="dark"] >> .grid-body .editable-row | 2 var(s) e.g. --control-bg
+frappe/public/scss/desk/dark.scss | [data-theme="dark"] >> .modal, .form-in-grid | 2 var(s) e.g. --control-bg
+frappe/public/scss/desk/dark.scss | [data-theme="dark"] >> .print-format | 2 var(s) e.g. --text-color
+frappe/public/scss/desk/dark.scss | [data-theme="dark"] >> .chart-container | 9 var(s) e.g. --charts-label-color
+frappe/public/scss/desk/desktop.scss | .widget >> &.shortcut-widget-box >> &:hover | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/filters.scss | .filter-icon.active | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/form_sidebar.scss | .form-sidebar >> .user-actions >> .user-action-link >> .user-action-external-icon >> .icon | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/form_sidebar.scss | .layout-side-section >> .sidebar-label >> .icon | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/form_sidebar.scss | .show-all-btn | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/kanban.scss | :root | 4 var(s) e.g. --kanban-column-bg
+frappe/public/scss/desk/kanban.scss | [data-theme="dark"] | 4 var(s) e.g. --kanban-column-bg
+frappe/public/scss/desk/navbar.scss | .search-bar >> .awesomplete | 1 var(s) e.g. --awesomebar-shadow
+frappe/public/scss/desk/page.scss | .page-title >> .sidebar-toggle-btn | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/report.scss | .group-by-icon.active | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/role_editor.scss | table.user-perm | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/settings_dialog.scss | .settings-dialog-tab-icon | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/sidebar.scss | :root | 4 var(s) e.g. --sidebar-hover-color
+frappe/public/scss/desk/sidebar.scss | [data-theme="dark"] | 4 var(s) e.g. --sidebar-hover-color
+frappe/public/scss/desk/timeline.scss | @mixin timeline-badge($badge-size) | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/timeline.scss | .new-timeline >> .timeline-item >> .timeline-message-box >> .action-btn | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/timeline.scss | .new-timeline >> .timeline-item >> .timeline-message-box >> .action-btn:hover | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/timeline.scss | .new-timeline >> .timeline-item >> .comment-edit-box | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/desk/toast.scss | .desk-alert >> &.red | 1 var(s) e.g. --toast-bg
+frappe/public/scss/desk/toast.scss | .desk-alert >> &.yellow | 1 var(s) e.g. --toast-bg
+frappe/public/scss/desk/toast.scss | .desk-alert >> &.orange | 1 var(s) e.g. --toast-bg
+frappe/public/scss/desk/toast.scss | .desk-alert >> &.blue | 1 var(s) e.g. --toast-bg
+frappe/public/scss/desk/toast.scss | .desk-alert >> &.green | 1 var(s) e.g. --toast-bg
+frappe/public/scss/espresso/_borders.scss | :root | 6 var(s) e.g. --border-radius-tiny
+frappe/public/scss/espresso/_colors.scss | :root | 195 var(s) e.g. --neutral-black
+frappe/public/scss/espresso/_colors.scss | [data-theme="dark"] | 70 var(s) e.g. --outline-white
+frappe/public/scss/espresso/_shadows.scss | :root | 8 var(s) e.g. --shadow-xs
+frappe/public/scss/espresso/_spacing.scss | :root | 1 var(s) e.g. --input-padding
+frappe/public/scss/espresso/_typography.scss | :root | 20 var(s) e.g. --font-stack
+frappe/public/scss/website/navbar.scss | .navbar-primary >> svg use | 1 var(s) e.g. --icon-stroke
+frappe/public/scss/website/website_avatar.scss | :root, [data-theme="dark"] | 3 var(s) e.g. --avatar-frame-color
+frappe/website/doctype/website_theme/website_theme_template.scss | :root | 4 var(s) e.g. --border-radius-sm
