@@ -31,6 +31,9 @@ if (!label || !outDir) {
 	process.exit(2);
 }
 mkdirSync(outDir, { recursive: true });
+// The site's host name is mapped to the loopback address, so the browser needs no /etc/hosts entry
+// (midad.test on the 16.32.0 bench, midad52.test on the newest-tag bench).
+const siteHost = new URL(baseUrl).hostname;
 
 const VIEWPORT = { width: 1366, height: 768 };
 const user = process.env.SITE_USER || "Administrator";
@@ -55,7 +58,7 @@ function section(title, items) {
 }
 
 const browser = await chromium.launch({
-	args: ["--no-sandbox", "--no-proxy-server", "--host-resolver-rules=MAP midad.test 127.0.0.1"],
+	args: ["--no-sandbox", "--no-proxy-server", `--host-resolver-rules=MAP ${siteHost} 127.0.0.1`],
 });
 const context = await browser.newContext({ viewport: VIEWPORT, locale: "en-US" });
 const lines = [`# asset list: ${label}`, `# base url: ${baseUrl}`, ""];

@@ -1,0 +1,2 @@
+$ env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/newest-site/gate http://midad52.test:8001
+captured after-uninstall into /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/newest-site/gate

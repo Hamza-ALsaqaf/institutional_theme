@@ -1,0 +1,117 @@
+STAGE preflight START 2026-10-14T05:44:50Z
+frappe v16.52.0, erpnext v16.50.0
+STAGE preflight END exit 0
+STAGE config START 2026-10-14T05:44:50Z
+common_site_config already has the ports of this site
+STAGE config END exit 0
+STAGE redis START 2026-10-14T05:44:50Z
+redis cache on 13003: up
+redis queue on 11003: up
+STAGE redis END exit 0
+STAGE site START 2026-10-14T05:44:50Z
+site midad52.test already exists
+Current Site set to midad52.test
+STAGE site END exit 0
+STAGE erpnext START 2026-10-14T05:44:55Z
+
+frappe              16.52.0 HEAD
+erpnext             16.50.0 HEAD
+institutional_theme 0.1.0   build/midad-v1
+
+STAGE erpnext END exit 0
+STAGE wizard START 2026-10-14T05:44:59Z
+setup wizard already complete
+STAGE wizard END exit 0
+STAGE app START 2026-10-14T05:45:01Z
+Using Python 3.14.8 environment at: /home/frappe/newest-bench/env
+Resolved 1 package in 780ms
+   Building institutional-theme @ file:///home/frappe/newest-bench/apps/institutional_theme
+      Built institutional-theme @ file:///home/frappe/newest-bench/apps/institutional_theme
+Prepared 1 package in 374ms
+Uninstalled 1 package in 0.64ms
+Installed 1 package in 0.65ms
+ ~ institutional-theme==0.1.0 (from file:///home/frappe/newest-bench/apps/institutional_theme)
+frappe
+erpnext
+institutional_theme
+institutional_theme
+STAGE app END exit 0
+STAGE build START 2026-10-14T05:45:03Z
+Linking /home/frappe/newest-bench/apps/frappe/frappe/public to ./assets/frappe  Linking /home/frappe/newest-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/newest-bench/apps/erpnext/erpnext/public to ./assets/erpnext                                                                                Linking /home/frappe/newest-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                Linking /home/runner/work/institutional_theme/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps institutional_theme --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+institutional_theme/dist/js/
+├─ ins_shell.bundle.H4G7FFTX.js                             21.30 Kb
+└─ ins_web.bundle.S7YMWZWK.js                               1.48 Kb
+
+institutional_theme/dist/css/
+├─ ins_desk.bundle.NGMPOG6O.css                             127.95 Kb
+├─ ins_email.bundle.MND45BPD.css                            3.42 Kb
+├─ ins_print.bundle.5CWTMSZQ.css                            6.42 Kb
+├─ ins_web.bundle.FSSM7WNZ.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.BCXKS622.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.BXM3H5RF.css                    2.21 Kb
+├─ ins_palette_forest.bundle.ELIEKYLA.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.MKQN7BNJ.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.TVXGC5DZ.css                   8.16 Kb
+└─ ins_palette_plum.bundle.AKC2OBSV.css                     8.16 Kb
+
+institutional_theme/dist/css-rtl/
+├─ ins_desk.bundle.YGN7BQDV.css                             127.95 Kb
+├─ ins_email.bundle.I4RYDQ7C.css                            3.42 Kb
+├─ ins_print.bundle.MES4J7RU.css                            6.42 Kb
+├─ ins_web.bundle.3XZ4DHVP.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.BN3V5BVS.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.CWSVYKUS.css                    2.21 Kb
+├─ ins_palette_forest.bundle.ZP5KHEH5.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.LFNDBQEY.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.DZ7MMVK3.css                   8.16 Kb
+└─ ins_palette_plum.bundle.6FWEIQ3O.css                     8.16 Kb
+
+ DONE  Total Build Time: 1.233s
+
+Done in 1.81s.
+Compiling translations for institutional_theme
+/home/frappe/newest-bench: 0 theme entries point at missing files
+both benches are consistent: nothing to do
+cache cleared: midad52.test
+cache cleared: midad52.test
+-rw-rw-r--+  1 frappe frappe 2237 Oct 14 05:45 assets-rtl.json
+-rw-rw-r--+  1 frappe frappe 6100 Oct 14 05:45 assets.json
+drwxrwxr-x+  2 frappe frappe 4096 Oct 14 05:17 css
+lrwxrwxrwx   1 frappe frappe   53 Oct 14 05:45 erpnext -> /home/frappe/newest-bench/apps/erpnext/erpnext/public
+lrwxrwxrwx   1 frappe frappe   51 Oct 14 05:45 frappe -> /home/frappe/newest-bench/apps/frappe/frappe/public
+lrwxrwxrwx   1 frappe frappe   84 Oct 14 05:45 institutional_theme -> /home/runner/work/institutional_theme/institutional_theme/institutional_theme/public
+drwxrwxr-x+  2 frappe frappe 4096 Oct 14 05:17 js
+drwxrwxr-x+ 42 frappe frappe 4096 Oct 14 05:17 locale
+STAGE build END exit 0
+STAGE install START 2026-10-14T05:45:11Z
+institutional_theme already installed on midad52.test
+
+frappe              16.52.0 HEAD
+erpnext             16.50.0 HEAD
+institutional_theme 0.1.0   build/midad-v1
+
+STAGE install END exit 0
+STAGE web START 2026-10-14T05:45:15Z
+redis cache on 13003: up
+redis queue on 11003: up
+web: up on port 8001
+STAGE web END exit 0
+STAGE verify START 2026-10-14T05:45:15Z
+GET /login -> 200; ins bundles linked: ins_desk.bundle.css ins_email.bundle.css ins_fonts_noto.bundle.css ins_fonts_tajawal.bundle.css ins_palette_forest.bundle.css ins_palette_graphite.bundle.css ins_palette_petrol.bundle.css ins_palette_plum.bundle.css ins_print.bundle.css ins_shell.bundle.H4G7FFTX.js ins_shell.bundle.js ins_web.bundle.S7YMWZWK.js ins_web.bundle.css ins_web.bundle.js institutional_theme/dist/css-rtl/ins_desk.bundle.YGN7BQDV.css institutional_theme/dist/css-rtl/ins_email.bundle.I4RYDQ7C.css institutional_theme/dist/css-rtl/ins_fonts_noto.bundle.BN3V5BVS.css institutional_theme/dist/css-rtl/ins_fonts_tajawal.bundle.CWSVYKUS.css institutional_theme/dist/css-rtl/ins_palette_forest.bundle.ZP5KHEH5.css institutional_theme/dist/css-rtl/ins_palette_graphite.bundle.LFNDBQEY.css institutional_theme/dist/css-rtl/ins_palette_petrol.bundle.DZ7MMVK3.css institutional_theme/dist/css-rtl/ins_palette_plum.bundle.6FWEIQ3O.css institutional_theme/dist/css-rtl/ins_print.bundle.MES4J7RU.css institutional_theme/dist/css-rtl/ins_web.bundle.3XZ4DHVP.css institutional_theme/dist/css/ins_desk.bundle.NGMPOG6O.css institutional_theme/dist/css/ins_email.bundle.MND45BPD.css institutional_theme/dist/css/ins_fonts_noto.bundle.BCXKS622.css institutional_theme/dist/css/ins_fonts_tajawal.bundle.BXM3H5RF.css institutional_theme/dist/css/ins_palette_forest.bundle.ELIEKYLA.css institutional_theme/dist/css/ins_palette_graphite.bundle.MKQN7BNJ.css institutional_theme/dist/css/ins_palette_petrol.bundle.TVXGC5DZ.css institutional_theme/dist/css/ins_palette_plum.bundle.AKC2OBSV.css institutional_theme/dist/css/ins_print.bundle.5CWTMSZQ.css institutional_theme/dist/css/ins_web.bundle.FSSM7WNZ.css 
+POST /api/method/login -> 200
+GET /app (logged in, redirects followed) -> 200
+ins_desk link: /assets/institutional_theme/dist/css-rtl/ins_desk.bundle.YGN7BQDV.css
+ins_desk link: /assets/institutional_theme/dist/css/ins_desk.bundle.NGMPOG6O.css
+ins_desk link: ins_desk.bundle.css
+ins_desk link: rtl_ins_desk.bundle.css
+STAGE verify END exit 0
+TOTAL 27s

@@ -1,0 +1,4 @@
+8000 /assets/institutional_theme/dist/css/ins_desk.bundle.TAC7GORP.css 200
+8001 /assets/institutional_theme/dist/css/ins_desk.bundle.TAC7GORP.css 200
+8000 /assets/institutional_theme/dist/css/ins_desk.bundle.OHXAQZJE.css 200
+8001 /assets/institutional_theme/dist/css/ins_desk.bundle.OHXAQZJE.css 200

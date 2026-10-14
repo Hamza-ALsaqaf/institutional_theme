@@ -1,0 +1,2 @@
+$ bench_state kept-cleanup midad52.test /tmp/ins-gate-state.json
+ship again: {'print_style': 'unchanged', 'letter_head': 'created'}
