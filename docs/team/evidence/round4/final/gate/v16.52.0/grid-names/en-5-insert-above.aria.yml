@@ -1,0 +1,20 @@
+- checkbox "Select all rows"
+- text: No. Account * Party Type Party Debit Credit
+- checkbox "Select row 1"
+- text: 1 ر.س 0.00 ر.س 0.00
+- checkbox "Select row 2"
+- text: 2 ر.س 0.00 ر.س 0.00
+- checkbox "Select row 3"
+- text: "3"
+- combobox "Account"
+- text: account
+- combobox "Party Type"
+- status: Begin typing for results.
+- text: party_type
+- combobox "Party"
+- status: Begin typing for results.
+- text: party
+- textbox "Debit"
+- text: debit_in_account_currency
+- textbox "Credit"
+- text: credit_in_account_currency

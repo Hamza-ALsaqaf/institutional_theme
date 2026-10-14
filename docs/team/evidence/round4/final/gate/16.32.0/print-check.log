@@ -1,0 +1,44 @@
+$ docs/team/evidence/round4/verify/scripts/run_print_check.sh /home/frappe/frappe-bench midad.test /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/16.32.0/print
+wkhtmltopdf 0.12.6.1 (with patched qt)
+FRAPPE 16.32.0
+SHIP {'print_style': 'unchanged', 'letter_head': 'unchanged'}
+PRINT_STYLE Midad LETTER_HEAD Midad
+STYLE_HAS_FAMILY False STYLE_BYTES 12387
+QUOTATION SAL-QTN-2026-00001
+DEFAULT_PRINT_FORMAT Quotation with Item Image
+OK wkhtmltopdf-A4-en 27075
+OK wkhtmltopdf-A4-ar 32933
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.6929 seconds
+OK chrome-A4-en 106499
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.7548 seconds
+OK chrome-A4-ar 150817
+OK wkhtmltopdf-A4-en-standard 20507
+OK wkhtmltopdf-A4-ar-standard 29620
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.7561 seconds
+OK chrome-A4-en-standard 106531
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.8908 seconds
+OK chrome-A4-ar-standard 168563
+OK wkhtmltopdf-A4-en-standard-core 28552
+OK wkhtmltopdf-A4-ar-standard-core 33645
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4569 seconds
+OK chrome-A4-en-standard-core 50991
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4787 seconds
+OK chrome-A4-ar-standard-core 110980
+EMAIL_CSS_HOOK ['email.bundle.css', 'email_erpnext.bundle.css', 'ins_email.bundle.css']
+EMAIL en {"bytes": 10365, "has_var_function": false, "has_theme_brand_rule": true, "has_unicode_bidi_plaintext": true}
+EMAIL ar {"bytes": 10330, "has_var_function": false, "has_theme_brand_rule": true, "has_unicode_bidi_plaintext": true}
+LEFT 0 None 0
+PRINT_STYLE_RECORD Midad Midad
+exit 0, 13 s

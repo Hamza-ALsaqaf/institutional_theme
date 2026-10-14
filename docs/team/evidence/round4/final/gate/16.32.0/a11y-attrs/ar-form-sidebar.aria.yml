@@ -1,0 +1,29 @@
+- text: Aa
+- button "تصحيح"
+- button "طباعة"
+- img
+- text: Axe ar-light axe-ar-light@midad.test عين
+- button "عين":
+  - img
+- text: المرفقات
+- button "إضافة مرفق":
+  - img
+- text: بطاقات
+- button "إضافة وسوم":
+  - img
+- text: مشاركة
+- button "مشاركة":
+  - img
+- text: Aa
+- list:
+  - listitem:
+    - text: آخر تعديل بواسطة
+    - link "Administrator":
+      - /url: /desk/user/Administrator
+    - text: قبل 16 دقائق
+  - listitem:
+    - text: تم إنشاؤه بواسطة
+    - link "Administrator":
+      - /url: /desk/user/Administrator
+    - text: 2 قبل ساعات
+  - listitem

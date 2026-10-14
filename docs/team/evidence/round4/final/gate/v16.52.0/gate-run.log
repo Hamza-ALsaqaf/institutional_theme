@@ -1,0 +1,43 @@
+$ tools/bench/gate52.sh /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate
+[preclean-uninstall] exit=0
+[list-apps-before] exit=0
+[capture-before] exit=0
+[install] exit=0
+[doctype-after-install] exit=0
+[capture-installed] exit=0
+[seed-state] exit=0
+[uninstall] exit=0
+[doctype-after-uninstall] exit=0
+[residue-after-uninstall] exit=0
+[capture-after-uninstall] exit=0
+{"a": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/before-login.png", "b": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/installed-login.png", "size": [1366, 768], "differing_pixels": 808773, "differing_share": 0.77093, "max_channel_delta": 255, "identical": false, "bbox_x0_y0_x1_y1": [0, 12, 1365, 767], "diff_image": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/diff-before-vs-installed-login.png"}
+{"a": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/before-login.png", "b": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/after-uninstall-login.png", "size": [1366, 768], "differing_pixels": 0, "differing_share": 0.0, "max_channel_delta": 0, "identical": true}
+{"a": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/before-todo.png", "b": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/installed-todo.png", "size": [1366, 768], "differing_pixels": 347711, "differing_share": 0.331441, "max_channel_delta": 255, "identical": false, "bbox_x0_y0_x1_y1": [0, 0, 1355, 767], "diff_image": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/diff-before-vs-installed-todo.png"}
+{"a": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/before-todo.png", "b": "/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate/after-uninstall-todo.png", "size": [1366, 768], "differing_pixels": 0, "differing_share": 0.0, "max_channel_delta": 0, "identical": true}
+[reinstall] exit=0
+[kept-seed] exit=0
+[kept-uninstall] exit=0
+[kept-print] exit=0
+[final-install] exit=0
+[kept-cleanup] exit=0
+[list-apps] exit=0
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	4.8
+list-apps-before	bench_site --site midad52.test list-apps	0	1.2
+capture-before	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs before /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate http://midad52.test:8001	0	7.7
+install	bench_site --site midad52.test install-app institutional_theme	0	3.4
+doctype-after-install	doctype_exists	0	1.1
+capture-installed	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs installed /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate http://midad52.test:8001	0	7.9
+seed-state	bench_state seed midad52.test /tmp/ins-gate-state.json	0	4.7
+uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	6.5
+doctype-after-uninstall	doctype_exists	0	1.1
+residue-after-uninstall	bench_state residue midad52.test /tmp/ins-gate-state.json	0	1.7
+capture-after-uninstall	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/final/gate/v16.52.0/gate http://midad52.test:8001	0	7.2
+reinstall	bench_site --site midad52.test install-app institutional_theme	0	3.4
+kept-seed	bench_state kept-seed midad52.test /tmp/ins-gate-state.json	0	1.8
+kept-uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	4.4
+kept-print	bench_state kept-render midad52.test /tmp/ins-gate-state.json	0	3.5
+final-install	bench_site --site midad52.test install-app institutional_theme	0	3.2
+kept-cleanup	bench_state kept-cleanup midad52.test /tmp/ins-gate-state.json	0	2.9
+list-apps	bench_site --site midad52.test list-apps	0	1.2
+exit 0, 70 s

@@ -1,0 +1,23 @@
+$ bash -c python3 tools/bench/sync_assets.py --check; for p in 8000 8001; do curl -s -o /dev/null -w "port $p /login %{http_code}\n" http://localhost:$p/login; done; for s in "" 52; do tools/bench/b$s.sh list-apps | tr "\n" " "; echo; tools/bench/b$s.sh execute frappe.db.get_value --args "[\"User\",\"Administrator\",\"desk_theme\"]" | tail -n 1; tools/bench/b$s.sh execute frappe.db.exists --args "[\"Print Style\",\"Midad\"]" | tail -n 1; done
+Make two benches that share this repository's institutional_theme/public/dist agree on its bundle names.
+
+Both benches symlink apps/institutional_theme to the same working copy, so they share one dist folder. Every
+`bench build --app institutional_theme` writes new content-hashed file names there and deletes the old ones, which leaves
+the other bench's sites/assets/assets.json (and assets-rtl.json) pointing at files that are gone (404 on the desk
+stylesheet). The theme's bundles import no Frappe SCSS, so their content does not depend on the Frappe version
+and the entries of the bench that was built last can be copied into the other.
+
+    python sync_assets.py [--check] BENCH_A BENCH_B
+
+Whichever bench's ins_desk entry points at an existing file is the source; both existing is a no-op. Only keys that
+belong to the theme (`ins_*`, `rtl_ins_*`) are written. Run it as the bench user (the files belong to it).
+
+port 8000 /login 200
+port 8001 /login 200
+ frappe              16.32.0 HEAD erpnext             16.33.0 HEAD institutional_theme 0.1.0   build/midad-v1  
+Light
+Midad
+ frappe              16.52.0 HEAD erpnext             16.50.0 HEAD institutional_theme 0.1.0   build/midad-v1  
+Light
+Midad
+exit 0, 7 s
