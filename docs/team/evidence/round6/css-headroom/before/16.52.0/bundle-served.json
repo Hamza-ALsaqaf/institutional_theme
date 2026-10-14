@@ -1,0 +1,14 @@
+{
+ "institutional_theme/dist/css/ins_desk.bundle.HG5CL44N.css": {
+  "status": 200,
+  "bytes": 149708,
+  "sha256": "28e8ac8bb544117c460103c0ec342075f03eecee8fef6ec30d66af03f219a87b",
+  "sha256WithoutSourceMapComment": "9eef821318e512fe45bd7d40859c50e25f1d93b018ba90c7ec3a0ae032efa5b6"
+ },
+ "institutional_theme/dist/css-rtl/ins_desk.bundle.HXWCBO42.css": {
+  "status": 200,
+  "bytes": 149708,
+  "sha256": "7540405cff471ec33e5bc69f56b6feefbe1f4443b061ce9c09f0a3af720ad851",
+  "sha256WithoutSourceMapComment": "9eef821318e512fe45bd7d40859c50e25f1d93b018ba90c7ec3a0ae032efa5b6"
+ }
+}
