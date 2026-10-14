@@ -80,9 +80,20 @@ html:root[dir] .msg-box {
 }
 
 // ---- Pagination buttons: hairline group, selected = filled with the strong surface.
-html:root[dir] .list-paging-area .btn-group .btn.btn-paging.btn-info {
+// 16.32.0: `.btn-paging.btn-info` (list/base_list.js:377, list.scss:300). v16.52.0: the page size is a `frappe.ui.TabButtons` radio group,
+// the pressed pill is `.es-pill[data-state="active"]` (base_list.js:380-399, css/espresso/components/tab_buttons.css:65,114).
+html:root[dir] .list-paging-area .btn-group .btn.btn-paging.btn-info,
+html:root[dir] .list-paging-area .es-tab-buttons .es-pill[data-state="active"] {
 	background: var(--ins-surface-active);
 	color: var(--ins-text-strong);
+}
+
+html:root[dir] .list-paging-area .es-tab-buttons {
+	border-radius: var(--ins-radius-md);
+}
+
+html:root[dir] .list-paging-area .es-tab-buttons .es-pill {
+	border-radius: var(--ins-radius-sm);
 }
 
 // ---- Target size (WCAG 2.5.8): the like heart is a 16px span; give it the target minimum (24px, 44px on coarse pointers).

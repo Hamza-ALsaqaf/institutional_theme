@@ -24,8 +24,12 @@ html:root[dir] #freeze .freeze-message-container {
 }
 
 // ---- Dropdowns, popovers, tooltips: overlay surface, hairline, overlay elevation (design .overlay).
+// v16.52.0 renders menus and popovers as `.es-menu` and `.es-popover` panels (ui/components/menu.js:332, popover.js; css/espresso/components/menu.css:44,
+// popover.css:28) that sit on `--surface-elevation-2` with a 1px ring and `--radius-lg`; the Bootstrap classes remain only as hidden item stores.
 html:root[dir] .dropdown-menu,
-html:root[dir] .popover {
+html:root[dir] .popover,
+html:root[dir] .es-menu,
+html:root[dir] .es-popover {
 	background-color: var(--ins-surface-overlay);
 	border: 1px solid var(--ins-border);
 	border-radius: var(--ins-radius-md);
@@ -40,8 +44,11 @@ html:root[dir] .tooltip-content {
 }
 
 // ---- Toast: raised surface with the feedback colour as an inline-start bar would need markup core lacks, so the --toast-bg
-// feedback surface stays and gets a hairline plus the dialog elevation (toast.scss:12-40).
-html:root[dir] .desk-alert {
+// feedback surface stays and gets a hairline plus the dialog elevation (16.32.0: `.desk-alert`, desk/toast.scss:12-40, messages.js:443).
+// v16.52.0 deleted both: `frappe.show_alert` (ui/messages.js:430) builds `.es-toast` (ui/components/toast.js, css/espresso/components/toast.css:34), an ink pill whose
+// colours come from --surface-gray-9 / --ink-base, so only its shape is written here.
+html:root[dir] .desk-alert,
+html:root[dir] .es-toast {
 	border: 1px solid var(--ins-border);
 	border-radius: var(--ins-radius-md);
 	box-shadow: var(--ins-elevation-dialog);

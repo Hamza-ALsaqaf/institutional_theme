@@ -9,8 +9,26 @@ html:root[dir] .body-sidebar-container .body-sidebar .standard-sidebar-item:is(:
 
 // ---- Active item: hairline ring, strong label, accent bar at the inline start (design .side-item.active).
 // Core `.active-sidebar` is (0,1,0): background and a --shadow-sm drop shadow, replaced by the ring.
-html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar {
+// v16.52.0 rewrote desk/sidebar.scss but kept `.body-sidebar`, `.standard-sidebar-item`, `.active-sidebar`, `.item-anchor` and `.sidebar-item-label`
+// (ui/sidebar/sidebar_item.html:7-37, sidebar.scss:144-215), so the rules here match both versions. New there: a collapsed rail (`.body-sidebar-container:not(.expanded)`)
+// folds every nested group and lights the group that holds the current row instead (sidebar.scss:365-375); it gets the same ring and shape.
+$ins-rail-active-group: ".body-sidebar-container:not(.expanded) .sidebar-item-container:has(> .nested-container.hidden .active-sidebar) > .standard-sidebar-item";
+
+html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar,
+html:root[dir] #{$ins-rail-active-group} {
 	box-shadow: 0 0 0 1px var(--ins-border);
+}
+
+html:root[dir] #{$ins-rail-active-group} {
+	border-radius: var(--ins-radius-sm);
+}
+
+html:root[dir] #{$ins-rail-active-group} .item-anchor {
+	color: var(--ins-text-strong);
+}
+
+html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar .item-anchor {
+	color: var(--ins-text-strong);
 }
 
 html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar::before {
@@ -35,7 +53,10 @@ html:root[dir] .body-sidebar .standard-sidebar-item .item-anchor {
 }
 
 // ---- Menu items in dropdowns opened from the shell (menu.scss:18-24): same radius as the sidebar.
-html:root[dir] .dropdown-menu-item {
+// 16.32.0: `.dropdown-menu-item` (ui/menu.js:102, sidebar_header.js:352, desk/menu.scss:18). v16.52.0 deleted both; every menu is an `.es-menu`
+// panel whose rows are `.es-menu__item` (ui/components/menu.js, css/espresso/components/menu.css:81), highlighted through `data-highlighted`.
+html:root[dir] .dropdown-menu-item,
+html:root[dir] .es-menu__item {
 	border-radius: var(--ins-radius-sm);
 }
 

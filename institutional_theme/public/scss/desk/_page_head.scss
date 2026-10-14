@@ -7,7 +7,10 @@ html:root[dir] .page-head {
 }
 
 // ---- Title: 18px / 600 per the design (.title). Core `.title-text` is 16px.
-html:root[dir] .page-title .title-text {
+// 16.32.0: the list title is the last crumb `a.title-text` (views/breadcrumbs.js:216). v16.52.0 has no `.title-text` in the page head: the title is the
+// last crumb of the `nav.es-breadcrumbs.navbar-breadcrumbs > ol`, an `.es-breadcrumbs__item` (page.js:1048-1058, css/espresso/components/breadcrumbs.css:100).
+html:root[dir] .page-title .title-text,
+html:root[dir] .page-title .es-breadcrumbs li:last-child .es-breadcrumbs__item {
 	font-size: var(--ins-text-xl);
 	font-weight: var(--ins-weight-strong);
 	color: var(--ins-text-strong);
@@ -15,7 +18,10 @@ html:root[dir] .page-title .title-text {
 
 // ---- Breadcrumbs: muted, regular weight, 13px; the separator is a core ::before slash (breadcrumb.scss:19-30).
 // Core `.navbar-breadcrumbs a` is (0,1,1); last item (the title) keeps its own title-text rule above.
-html:root[dir] .navbar-breadcrumbs a {
+// v16.52.0: `.navbar-breadcrumbs` is the `nav`, its list is an `ol`, the crumbs are `a|button|span.es-breadcrumbs__item` (a plain `li > a` appended by
+// legacy code gets the same look from core, breadcrumbs.css:49). Items are listed next to the old anchors; `a` alone would miss buttons and the title span.
+html:root[dir] .navbar-breadcrumbs a,
+html:root[dir] .navbar-breadcrumbs .es-breadcrumbs__item {
 	color: var(--ins-text-muted);
 	font-size: var(--ins-text-sm);
 	font-weight: var(--ins-weight-regular);
@@ -23,7 +29,9 @@ html:root[dir] .navbar-breadcrumbs a {
 
 // WCAG 2.5.8: the home link is 16 x 17; give it a 24px target. The glyph moves 4px inline-end (it sits in the 24px box) and the next
 // link moves 8px, with no overlap. The box starts at the clip edge of the title area, so the focus ring below is not cut.
-html:root[dir] .navbar-breadcrumbs > li:first-child > a {
+// (16.52.0 has no home-icon crumb: the trail starts at the module, views/breadcrumbs.js:150-211; the `ol > li` form is listed for completeness.)
+html:root[dir] .navbar-breadcrumbs > li:first-child > a,
+html:root[dir] .navbar-breadcrumbs > ol > li:first-child > a {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -35,19 +43,28 @@ html:root[dir] .navbar-breadcrumbs > li:first-child > a {
 // overflow hidden, so a ring outside the link is cut; it is drawn inside the box, as _base.scss does for the other clipped
 // containers. (0,4,2) beats the ring rule's (0,4,1). A middle crumb is an inline box (core `a` is inline, with the 1.0
 // line-height of the list), and Chrome draws an inset ring on it as two vertical bars only; inline-block gives it a box.
-html:root[dir] .navbar-breadcrumbs a:focus-visible {
+html:root[dir] .navbar-breadcrumbs a:focus-visible,
+html:root[dir] .navbar-breadcrumbs .es-breadcrumbs__item:focus-visible {
 	outline-offset: calc(var(--ins-focus-width) * -1);
 }
 
-html:root[dir] .navbar-breadcrumbs > li:not(:first-child):not(:last-child) > a {
+html:root[dir] .navbar-breadcrumbs > li:not(:first-child):not(:last-child) > a,
+html:root[dir] .navbar-breadcrumbs > ol > li:not(:first-child):not(:last-child) > a {
 	display: inline-block;
 }
 
-html:root[dir] .navbar-breadcrumbs a:hover {
+html:root[dir] .navbar-breadcrumbs a:hover,
+html:root[dir] .navbar-breadcrumbs .es-breadcrumbs__item:is(a, button):hover {
 	color: var(--ins-text-strong);
 }
 
 html:root[dir] .navbar-breadcrumbs a::before {
+	color: var(--ins-border-strong);
+	margin-inline: var(--ins-space-15);
+}
+
+// v16.52.0 draws the separator on `li + li::before` (breadcrumbs.css:40), not on the anchor.
+html:root[dir] .navbar-breadcrumbs .es-breadcrumbs li + li::before {
 	color: var(--ins-border-strong);
 	margin-inline: var(--ins-space-15);
 }

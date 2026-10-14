@@ -1,19 +1,21 @@
 // Gantt (frappe-gantt, desk/frappe_gantt.scss): core paints bars with a literal `fill: white` and --gray-* strokes; map them to surfaces.
-// The popup stays frappe-gantt's translucent dark with white title (frappe_gantt.scss:70), legible on both modes, so it is left alone.
+// The popup of frappe-gantt 0.6.1 stays its translucent dark with a white title (frappe_gantt.scss), legible in both modes; the 1.1.0 popup is re-surfaced below.
 
-html:root[dir] .gantt-modern .gantt .bar {
+// `.gantt-modern` (added by 16.32.0's gantt_view.js:96) no longer exists in v16.52.0 (only frappe_gantt.scss:25 still names it), so the rules key on the
+// library's own `.gantt-container`, which both versions create around the chart.
+html:root[dir] .gantt-container .gantt .bar {
 	fill: var(--ins-surface-raised);
 }
 
-html:root[dir] .gantt-modern .gantt .bar-wrapper:hover .bar {
+html:root[dir] .gantt-container .gantt .bar-wrapper:hover .bar {
 	fill: var(--ins-surface-hover);
 }
 
-html:root[dir] .gantt-modern .gantt .bar-wrapper .bar {
+html:root[dir] .gantt-container .gantt .bar-wrapper .bar {
 	stroke: var(--ins-border-strong);
 }
 
-html:root[dir] .gantt-modern .gantt .arrow {
+html:root[dir] .gantt-container .gantt .arrow {
 	stroke: var(--ins-text-secondary);
 }
 
@@ -37,31 +39,89 @@ html:root[dir] .gantt .tick {
 	stroke: var(--ins-border);
 }
 
+// Today marker. frappe-gantt 0.6.1 (Frappe 16.32.0) paints an SVG rect `.today-highlight`; frappe-gantt 1.1.0 (v16.52.0, dist/frappe-gantt.css:1)
+// removed it and marks today with a 1px line `.current-highlight`, a dot `.current-ball-highlight` and the header chip
+// `.current-date-highlight`, all coloured by `--g-today-highlight` (set below). Each name is absent in the other version.
 html:root[dir] .gantt .today-highlight {
 	fill: var(--ins-surface-selected);
 }
 
+// 0.6.1 draws the header text as SVG (fill); 1.1.0 as divs (color). Both properties are set, each is inert where it does not apply.
 html:root[dir] .gantt .upper-text {
 	fill: var(--ins-text-secondary);
+	color: var(--ins-text-secondary);
 }
 
 html:root[dir] .gantt .lower-text {
 	fill: var(--ins-text);
+	color: var(--ins-text);
+}
+
+html:root[dir] .gantt .tick.thick {
+	stroke: var(--ins-border-strong);
 }
 
 // Progress fill: --gray-200 is the bright end in Dark (core frappe_gantt.scss:22,54); use the selected-strong surface so the bar text keeps contrast.
-html:root[dir] .gantt-modern .gantt .bar-progress,
-html:root[dir] .gantt-modern .gantt .bar-wrapper:hover .bar-progress {
+html:root[dir] .gantt-container .gantt .bar-progress,
+html:root[dir] .gantt-container .gantt .bar-wrapper:hover .bar-progress {
 	fill: var(--ins-surface-selected-strong);
+}
+
+// ---- frappe-gantt 1.1.0 (v16.52.0) is coloured through `--g-*` variables declared on :root (dist/frappe-gantt.css:1) and the header,
+// the today marker and the popup are divs, so the 0.6.1 `fill` rules above cannot reach them. The variables are re-declared on the
+// container (0.6.1 reads none of them, so this is inert on 16.32.0). Values are theme tokens; Dark changes the tokens, not this block.
+html:root[dir] .gantt-container {
+	--g-arrow-color: var(--ins-text-secondary);
+	--g-bar-color: var(--ins-surface-raised);
+	--g-bar-border: var(--ins-border-strong);
+	--g-tick-color: var(--ins-border);
+	--g-tick-color-thick: var(--ins-border-strong);
+	--g-actions-background: var(--ins-surface-sunken);
+	--g-border-color: var(--ins-border);
+	--g-text-muted: var(--ins-text-muted);
+	--g-text-light: var(--ins-on-primary);
+	--g-text-dark: var(--ins-text);
+	--g-progress-color: var(--ins-surface-selected-strong);
+	--g-handle-color: var(--ins-text-secondary);
+	--g-weekend-label-color: var(--ins-surface-sunken);
+	--g-expected-progress: var(--ins-surface-selected);
+	--g-header-background: var(--ins-surface-raised);
+	--g-row-color: var(--ins-surface-base);
+	--g-row-border-color: var(--ins-border-strong);
+	--g-today-highlight: var(--ins-primary);
+	--g-popup-actions: var(--ins-surface-sunken);
+	--g-weekend-highlight-color: var(--ins-surface-sunken);
+}
+
+// The sticky month label paints a literal #fff (1.1.0 css) behind the scrolling header.
+html:root[dir] .gantt-container .current-upper {
+	background: var(--ins-surface-raised);
+}
+
+// The popup is `background: #fff` in 1.1.0 while core's frappe_gantt.scss still sets a white `.title` and a literal --gray-500 `.subtitle`
+// (written for 0.6.1's dark popup), which would be white on white. The 0.6.1 popup stays as core draws it: `:has(> .grid-header)` is true only
+// for 1.1.0, whose header is a div child of the container (0.6.1's `.grid-header` is an SVG rect inside `.gantt`).
+html:root[dir] .gantt-container:has(> .grid-header) .popup-wrapper {
+	background: var(--ins-surface-overlay);
+	border: 1px solid var(--ins-border);
+	box-shadow: var(--ins-elevation-overlay);
+}
+
+html:root[dir] .gantt-container:has(> .grid-header) .popup-wrapper .title {
+	color: var(--ins-text-strong);
+}
+
+html:root[dir] .gantt-container:has(> .grid-header) .popup-wrapper .subtitle {
+	color: var(--ins-text-secondary);
 }
 
 // RTL: frappe-gantt lays the SVG out left to right from x=0, but inside an RTL scroll container scrollLeft 0 shows the END of the chart,
 // so every bar sits off screen (measured: first bar at x=-970 in a 1018px container). The timeline is chronological left to right in the
 // library, so the container is pinned to ltr and the text keeps the page direction. Direction-specific on purpose.
-[dir="rtl"] .gantt-modern .gantt-container {
+[dir="rtl"] .gantt-container {
 	direction: ltr;
 }
 
-[dir="rtl"] .gantt-modern .gantt .bar-label {
+[dir="rtl"] .gantt-container .gantt .bar-label {
 	direction: rtl;
 }

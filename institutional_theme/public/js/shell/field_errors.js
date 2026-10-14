@@ -3,13 +3,17 @@
 // wrapper `.frappe-control` (frappe/public/js/frappe/form/controls/base_input.js, `set_mandatory` and
 // `set_invalid`, called from base_control.js `parse_validate_and_set_in_model`). Core writes no
 // message element per field (its message is the dialog `frappe.msgprint` raises on save), so there is
-// nothing to link with `aria-describedby`; the attribute on the input is the only addition.
+// nothing to link with `aria-describedby`; the attribute on the input is the only addition. Frappe v16.52.0
+// (base_input.js:270-286) sets `has-error-mandatory` and `has-error-invalid` next to `has-error`, and still
+// writes no per-field message element (its `.help-box` holds the field description, not an error), so both
+// versions are handled by the same class list below.
 //
 // One MutationObserver per form layout, created on the first `form-refresh` of that form, watching
 // the `class` attribute only. A page without a form never creates one. Attributes only.
 import { toElement, setAttr, warn } from "./dom.js";
 
 const CONTROLS = "input:not([type='hidden']), textarea, select, [contenteditable='true']";
+const ERROR_CLASSES = ["has-error", "has-error-mandatory", "has-error-invalid"];
 const observed = new WeakSet();
 
 // The controls that belong to this wrapper itself: a Table control wrapper that gets `has-error`
@@ -22,7 +26,7 @@ function controlsOf(wrapper) {
 
 export function syncWrapper(wrapper) {
 	if (!wrapper || !wrapper.classList || !wrapper.classList.contains("frappe-control")) return;
-	const invalid = wrapper.classList.contains("has-error") ? "true" : null;
+	const invalid = ERROR_CLASSES.some((name) => wrapper.classList.contains(name)) ? "true" : null;
 	controlsOf(wrapper).forEach((control) => setAttr(control, "aria-invalid", invalid));
 }
 

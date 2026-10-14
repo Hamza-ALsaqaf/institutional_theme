@@ -1,0 +1,42 @@
+Linking /home/frappe/frappe-bench/apps/frappe/frappe/public to ./assets/frappe  Linking /home/frappe/frappe-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/erpnext/public to ./assets/erpnext                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                Linking /home/runner/work/institutional_theme/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps institutional_theme --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+institutional_theme/dist/js/
+├─ ins_shell.bundle.H4G7FFTX.js                             21.30 Kb
+└─ ins_web.bundle.S7YMWZWK.js                               1.48 Kb
+
+institutional_theme/dist/css/
+├─ ins_desk.bundle.NR4W5AU6.css                             127.95 Kb
+├─ ins_email.bundle.ESUD6HW6.css                            2.02 Kb
+├─ ins_print.bundle.XNYWVGL5.css                            6.42 Kb
+├─ ins_web.bundle.YRKUVAVG.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.EL7TFRDC.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.MY6A2QTJ.css                    2.21 Kb
+├─ ins_palette_forest.bundle.FJBBEFLL.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.HE3XIKLG.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.6S6CHAPX.css                   8.16 Kb
+└─ ins_palette_plum.bundle.3BKUKWMD.css                     8.16 Kb
+
+institutional_theme/dist/css-rtl/
+├─ ins_desk.bundle.A5RWJ67S.css                             127.95 Kb
+├─ ins_email.bundle.2TZOZF32.css                            2.02 Kb
+├─ ins_print.bundle.UZI43VLD.css                            6.42 Kb
+├─ ins_web.bundle.6775NYWI.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.W2CMHW32.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.LB2CMYJF.css                    2.21 Kb
+├─ ins_palette_forest.bundle.NS7PTJEP.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.IIGGLEGD.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.SKMAEI3E.css                   8.16 Kb
+└─ ins_palette_plum.bundle.HBD2TYU7.css                     8.16 Kb
+
+ DONE  Total Build Time: 1.189s
+
+Done in 1.77s.
+Compiling translations for institutional_theme

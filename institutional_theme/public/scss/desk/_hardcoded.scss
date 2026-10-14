@@ -6,6 +6,12 @@ html:root .breadcrumb {
 	background-color: transparent;
 }
 
+// ---- Mobile sidebar drawer scrim below md: `.body-sidebar-container.expanded .overlay` paints a literal `rgba(0, 0, 0, 0.5)` in v16.52.0 (desk/sidebar.scss:535)
+// and `rgba(128, 128, 128, 0.5)` in 16.32.0 (:255). The token carries its own alpha, so the scrim also follows Dark on both.
+html:root .body-sidebar-container.expanded .overlay {
+	background-color: var(--ins-surface-scrim);
+}
+
 // ---- Form sidebar scrim on small screens: core `div.close-sidebar { background: #000; opacity: 0.3 }` (desk/form_sidebar.scss:388-396).
 // --ins-surface-scrim carries its own alpha, so the opacity is reset to avoid compounding.
 html:root div.close-sidebar {
