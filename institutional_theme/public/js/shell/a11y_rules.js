@@ -7,7 +7,7 @@
 // this module only writes onto an empty attribute or one whose value it wrote itself (so a changed tooltip or
 // a toggled state is followed, and a name core adds in a later release wins). And a rule runs only for the
 // element class named in `select`, so an unrelated button is never given a guessed name.
-import { setAttr } from "./dom.js";
+import { setAttr, warn } from "./dom.js";
 import { labelWrapper } from "./field_labels.js";
 
 // element -> { attribute: value this module last wrote }
@@ -63,6 +63,8 @@ const BUTTONS = [
 	[".onb-header-actions > button:last-child", () => translate("Close")],
 	// dom.js:354
 	[".btn-modal-close", () => translate("Close")],
+	// form/grid_row_form.js:49-51: the icon-only button that closes the row editor (toggle_view)
+	[".grid-collapse-row", () => translate("Collapse", null, "Row editor")],
 	// form/templates/form_footer.html:6 calls frappe.utils.scroll_page_to_top()
 	[".scroll-to-top", () => translate("Scroll to top")],
 	// form/templates/form_sidebar.html:92,108,136; each opens its own dialog (assign_to.js:7,
@@ -112,9 +114,33 @@ function nameSectionToggle(button) {
 }
 
 // form/tab.js:31 writes <li class="nav-item"> under <ul role="tablist"> (form/layout.js:46); the li has no
-// role of its own, so the tab button's parent is a list item rather than the tablist.
+// role of its own, so the tab button's parent is a list item rather than the tablist. The same button carries
+// role="tab" (tab.js:36) but no aria-selected: Bootstrap's tab plugin moves the `active` class between the
+// buttons and writes nothing else. aria-selected is written from that class, and a small observer on the tablist
+// (class attribute only, tab buttons only) follows each change. The state is exposed; no key behaviour is added.
+const watchedTablists = new WeakSet();
+
+function syncTab(button) {
+	put(button, "aria-selected", button.classList.contains("active") ? "true" : "false");
+}
+
 function presentTabItem(item) {
 	put(item, "role", "presentation");
+	const button = item.querySelector(":scope > button[role='tab']");
+	if (button) syncTab(button);
+	const list = item.parentElement;
+	if (!list || watchedTablists.has(list) || typeof MutationObserver !== "function") return;
+	watchedTablists.add(list);
+	new MutationObserver((records) => {
+		try {
+			for (const record of records) {
+				const target = record.target;
+				if (target.nodeType === 1 && target.matches("li.nav-item > button[role='tab']")) syncTab(target);
+			}
+		} catch (error) {
+			warn("tab state", error);
+		}
+	}).observe(list, { attributes: true, subtree: true, attributeFilter: ["class"] });
 }
 
 // views/breadcrumbs.js:282: the first breadcrumb is an icon-only link to /desk.
@@ -151,9 +177,14 @@ function nameListRow(check) {
 	put(check, "aria-label", target ? translate("Select {0}", [target]) : translate("Select row"));
 }
 
-// frappe-datatable (node_modules/frappe-datatable/src/datamanager.js:387,624) renders `<input type="checkbox">`
-// in the first column of the header row and of each data row; the cell carries data-is-header or data-row-index.
+// frappe-datatable (node_modules/frappe-datatable/src/datamanager.js:55-68,623) renders the selection
+// `<input type="checkbox">` in column 0 of the header row and of each data row (the library itself addresses it
+// as `.dt-cell--col-0 [type="checkbox"]`, rowmanager.js:45,127); the cell carries data-is-header or
+// data-row-index. Core's Check formatter also writes a checkbox into a cell (`<input type="checkbox" disabled>`,
+// frappe/public/js/frappe/form/formatters.js:165-167), and a Check field edited inline sits inside
+// `.dt-cell__edit`: those show a field value, not a row selection, so they are never named here.
 function nameDatatableCheckbox(check) {
+	if (check.disabled || check.closest(".dt-cell__edit")) return;
 	if (hasName(check) || check.getAttribute("title")) return;
 	const cell = check.closest(".dt-cell");
 	if (!cell) return;
@@ -172,11 +203,25 @@ function namePasteTarget(area) {
 	put(area, "aria-label", translate("Paste into table"));
 }
 
-// The filter row of the datatable has one `input.dt-filter` per column. Core titles them "Filter based on {column}"
-// except the disabled one above the checkbox column.
+// The filter row of the datatable has one `input.dt-filter` per column. Core titles each one "Filter based on
+// {column}" in English whatever the language (frappe-datatable src/rowmanager.js:360-363, no translation), and
+// leaves the one above the checkbox column disabled and untitled. aria-label outranks title in the accessible
+// name, so a translated name is written and core's title is left as it is. The column name is `data-name`
+// (written from the column's own name by makeDataAttributeString); the row-number column has none and core's
+// text says "Index", so it is named "Row Number" (a string frappe translates). A title that is not core's is
+// somebody else's name and is kept.
+const CORE_FILTER_TITLE = /^Filter based on /;
+
 function nameDatatableFilter(input) {
-	if (hasName(input) || clean(input.getAttribute("title"))) return;
-	put(input, "aria-label", translate("Filter", null, "Column filter"));
+	if (hasName(input)) return;
+	const title = clean(input.getAttribute("title"));
+	if (!title) {
+		put(input, "aria-label", translate("Filter", null, "Column filter"));
+		return;
+	}
+	if (!CORE_FILTER_TITLE.test(title)) return;
+	const column = clean(input.getAttribute("data-name")) || translate("Row Number");
+	put(input, "aria-label", translate("Filter {0}", [column], "Column filter"));
 }
 
 // ui/filters/edit_filter.html:10 (condition select), filter.js builds the field-name awesomplete input and
@@ -190,8 +235,9 @@ function nameFilterField(control) {
 	put(control, "aria-label", label);
 }
 
-// Dialog fields are built like form fields (label.control-label, no `for`); field_labels.js covers form
-// layouts only, so the same rule runs for controls inside a modal.
+// Dialog fields and the child-table row editor are built like form fields (label.control-label, no `for`);
+// field_labels.js covers form layouts only, so the same rule runs for controls inside a modal and inside
+// `.form-in-grid` (grid_row_form.js:4).
 function labelDialogControl(wrapper) {
 	labelWrapper(wrapper);
 }
@@ -207,12 +253,12 @@ export const RULES = [
 	{ select: "input.list-row-checkbox", apply: nameListRow },
 	{ select: "textarea.dt-paste-target", apply: namePasteTarget },
 	{ select: ".dt-row-filter input.dt-filter, .dt-cell[data-is-filter] input.dt-filter", apply: nameDatatableFilter },
-	{ select: ".dt-cell input[type='checkbox']", apply: nameDatatableCheckbox },
+	{ select: ".dt-cell--col-0 input[type='checkbox']:not([disabled])", apply: nameDatatableCheckbox },
 	{
 		select: ".filter-box select.condition, .filter-box .fieldname-select-area input, .filter-box .filter-field input:not([type='hidden']):not([type='checkbox']), .filter-box .filter-field select, .filter-box .filter-field textarea",
 		apply: nameFilterField,
 	},
-	{ select: ".modal .frappe-control", apply: labelDialogControl },
+	{ select: ".modal .frappe-control, .form-in-grid .frappe-control", apply: labelDialogControl },
 ];
 
 export const ALL = RULES.map((rule) => rule.select).join(",");
