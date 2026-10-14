@@ -1,0 +1,18 @@
+STAGE tag START 2026-10-14T01:09:02Z
+newest frappe v16 tag: v16.51.1; newest erpnext v16 tag: v16.50.0
+STAGE tag END 2026-10-14T01:09:02Z
+STAGE clone START 2026-10-14T01:09:02Z
+clone commit: 2871914b69b6e14a4b023d9b7cc52dc3e269cc1b (v16.51.1)
+STAGE clone END 2026-10-14T01:09:08Z
+STAGE bench START 2026-10-14T01:09:08Z
+newest bench: frappe v16.51.1, erpnext v16.50.0
+STAGE bench END 2026-10-14T01:10:45Z
+STAGE audit START 2026-10-14T01:10:45Z
+audit snapshot: exit 0: dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
+audit 1632-live: exit 0: dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
+audit newest: exit 1: dead-tokens: 377 variables: 346 declared and read by core, 10 declared only, 7 read only, 0 consumed by the theme, 14 dead
+wrote dead-token-diff.txt
+STAGE audit END 2026-10-14T01:10:45Z
+STAGE selectors START 2026-10-14T01:10:45Z
+selectors: exit 1
+STAGE selectors END 2026-10-14T01:10:47Z

@@ -114,3 +114,19 @@ Dark mode on the web pages is not in the Phase 3 capture set; mark it UNVERIFIED
 | Frappe, ERPNext and HRMS tags recorded (A1) | | |
 
 Do not mark a row as passed on the strength of an earlier run. Each run's log goes in the evidence directory with its date.
+
+## Checked against the newest v16 tag
+
+Round 3, ADR 0001 D1. Frappe **v16.51.1** (`2871914`) and ERPNext v16.50.0, against the verified 16.32.0, by `tools/bench/newest_tag.sh`; the supported range and the committed snapshot are unchanged. Evidence, commands and the full tables: `docs/team/evidence/round3/newest-tag/README.md`. COMPUTED from source and compiled CSS; nothing was installed or looked at in a browser on v16.51.1.
+
+| # | Difference found | Consequence for the range |
+|---|---|---|
+| G1 | Dead-token audit **fails**: 346 declared and read, 10 declared only, 7 read only, **14 dead** (`--neutral-black`, `--surface-white`, `--surface-menu-bar`, `--surface-cards`, `--surface-selected`, `--outline-white`, `--outline-gray-modals`, `--toast-bg`, `--sidebar-border-color`, `--divider-color`, `--sidebar-hover-color`, `--sidebar-active-color`, `--border-radius-tiny`, `--border-radius-xl`). Core went from 581 declared and 403 read variables to 1043 and 935: the Espresso token files (`public/css/espresso/`, deprecated aliases in `legacy.css`) replaced the old names | Before raising the range: remove or re-map the 14, then refresh the snapshot (B4) under the new version name |
+| G2 | 99 overrides that were inert in 16.32.0 (`--surface-*`, `--ink-*`, `--outline-*`, colour ramps, `--text-2xs`) are now read by core; 3 that were effective became inert (`--primary-color`, `--shadow-xl`, `--modal-shadow`) | Light and Dark will look different on those surfaces: run the D matrix and the cascade check (C5) |
+| G3 | Login page rewritten: `scss/login.bundle.scss` 542 to 181 lines, buttons are `es-button` components, `.btn-login`, `.forgot-password-message`, `.password-strength-bar-track` are gone (manifest rows 2c.6, 2c.7, 2c.12) | Login theming needs a visual pass |
+| G4 | Names gone from core (manifest rows 2b.2, 2b.3, 2b.8, 2b.11, 2e.9): `.dropdown-menu-item`, `.title-text` in the page head, `.btn-paging`, `.desk-alert`, email `.callout-warning` and `.verification-code`. SCSS files `desk/menu.scss`, `desk/breadcrumb.scss`, `desk/toast.scss` no longer exist; `desk/sidebar.scss` was rewritten | Rules that target them match nothing; those parts fall back to core |
+| G5 | `frappe-gantt` 0.6.1 to 1.1.0 (major): `.today-highlight` is gone, new `.current-highlight` and `.current-date-highlight`. `frappe-datatable` 1.20.7 to 1.21.2: same `--dt-*` variables and `.dt-*` classes | Gantt today marker loses its theme colour. Datatable unchanged |
+| G6 | Form errors: `has-error` is set only after the primary action was tried, with new `has-error-mandatory` and `has-error-invalid` (`base_input.js:258-286`) | `field_errors.js` still works, `aria-invalid` appears later than in 16.32.0 |
+| G7 | 45 manifest rows only moved (line numbers shifted, for example `list_view.js` by about 500 lines); 36 have rewritten cited lines with the names still present. Every hook consumer of manifest section 1 was found again by grep (`www/desk.py:68-69`, `migrate.py:208-210`, `installer.py:374-375` and `:459-460`, `base_template_page.py:69-72`, `sessions.py:170`, `email/email_body.py:479`, `utils/jinja.py:252`, `hooks.py:109`) | Update the manifest line numbers when the range moves |
+
+Path for B4: the compiled core CSS of a bench is `sites/assets/frappe/dist/css/*.css`, `.../css-rtl/*.css` and `sites/assets/erpnext/dist/css/*.css` (and `css-rtl`). `tools/bench/newest_tag.sh` passes all of them to `--core-css`.
