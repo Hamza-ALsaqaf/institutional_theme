@@ -11,7 +11,7 @@
 // Nothing is created, moved or removed. A failure inside one node is caught and logged; core is not
 // affected. The module is idempotent: starting it twice observes once, and a rule never rewrites a value
 // that is already right.
-import { warn } from "./dom.js";
+import { defer, warn } from "./dom.js";
 import { ALL, ATTRIBUTES, applyRules } from "./a11y_rules.js";
 
 let started = false;
@@ -20,8 +20,8 @@ export function scan(node) {
 	if (!node || node.nodeType !== 1 || !node.isConnected) return;
 	if (node.matches(ALL)) applyRules(node);
 	node.querySelectorAll(ALL).forEach(applyRules);
-	// A control added to a dialog after its wrapper (input after label): the wrapper is an ancestor.
-	const wrapper = node.closest(".modal .frappe-control");
+	// A control added to a dialog or a row editor after its wrapper (input after label): the wrapper is an ancestor.
+	const wrapper = node.closest(".modal .frappe-control, .form-in-grid .frappe-control");
 	if (wrapper && wrapper !== node) applyRules(wrapper);
 }
 
@@ -55,8 +55,7 @@ export function initA11yNames() {
 	const schedule = () => {
 		if (queued) return;
 		queued = true;
-		if (typeof requestAnimationFrame === "function") requestAnimationFrame(run);
-		else setTimeout(run, 16);
+		defer(run);
 	};
 	new MutationObserver((records) => {
 		for (const record of records) {

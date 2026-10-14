@@ -16,7 +16,7 @@
 // elements in added nodes and hands each one to its own observer, once. A checkbox that already has an
 // `aria-label` or `aria-labelledby` that this module did not write (core adding a name in a later
 // release) is left untouched.
-import { toElement, setAttr, warn } from "./dom.js";
+import { defer, toElement, setAttr, warn } from "./dom.js";
 
 const CHECK = ".grid-row-check";
 const watchedLayouts = new WeakSet();
@@ -70,8 +70,7 @@ function gridObserver(grid) {
 	const schedule = () => {
 		if (queued) return;
 		queued = true;
-		if (typeof requestAnimationFrame === "function") requestAnimationFrame(run);
-		else setTimeout(run, 16);
+		defer(run);
 	};
 	const collect = (row) => {
 		if (row) pending.add(row);
