@@ -157,3 +157,47 @@ No dimension I own is below 4. **Open blocking: none.** Open should-fix: finding
 ## D. Not tested in the re-check
 
 An Arabic session on the live bench (Arabic read from the team's captures); real records (injected rows again); the side panel opened live after the observer change (read and the team's 12 probes); forced colours; `prefers-reduced-motion` on the delayed `visibility`; real browser zoom; screen readers; whether the drawer's `visibility: hidden` hides anything a user needs when the drawer is open on 16.32.0 (read only, the rule matches there at ≤767.98 px where core already closes to width 0; not measured); 16.32.0 live (not probed this round); the cause of finding 5. Designed to meet WCAG 2.2 AA; formal audit recommended.
+
+---
+
+# Re-check of fix round 3
+
+Designed to meet WCAG 2.2 AA; formal audit recommended. Same reviewer. Diff read: `94ec765` (`desk/_list.scss`, three rules added to the existing `max-width: 576px` block) and `docs/team/evidence/round5/v1652-items/fix3/README.md`.
+
+Probe (VERIFIED, read only, Administrator, 320 CSS px at DPR 3, `locale: en-US`, Chromium): v16.52.0 at `midad52.test:8001` with four rows injected client-side (`cur_list.render()`, three English subjects and one long Arabic one); 16.32.0 at `midad.test:8000` with its five real ToDo rows (no injection, no writes). For every data row I measured the date's text range (`Range.getBoundingClientRect`) against every `overflow: hidden` ancestor up to `.result-container`, the subject's `scrollWidth` against `clientWidth`, the status badge's x range, and keyboard Tab ring geometry. Script `/tmp/a11y-r5/r3.mjs` and `r3real.mjs`, captures `/tmp/a11y-r5/r3-v52.png`.
+
+## Finding 5 (date lost at 320 px): closed
+
+| | v16.52.0 (4 rows) | 16.32.0 (5 rows) |
+|---|---|---|
+| container | x 17 to 294, `scrollWidth 277 = clientWidth 277`, page overflow 0 | x 18 to 295, 277 = 277, page overflow 0 |
+| date `14-10-2026` | width 79, x 35 to 114, inside every clip, 4 of 4 | width 79, x 36 to 115, inside every clip, 5 of 5 |
+| subject | truncated rows carry `text-overflow: ellipsis` (3 of 4 truncated; "Short" is not) | the same (3 of 5 truncated, all with ellipsis) |
+| status badge | x 193 to 276, 211 to 276, 218 to 276 (container right 294) | x 214 to 277, 185 to 277, 204 to 277 (right 295) |
+| row | x 17 to 294, height 92 | x 18 to 295, height 92 |
+| keyboard (4 row stops) | `2px solid`, offset `-2px`, `ringClip false`, `checkVisibility` true | the same |
+
+The capture (`r3-v52.png`) shows each row as subject with ellipsis, status badge with shape and label at the inline end, then the priority chip with a separator dot, and the date on its own line under the chip. The team's Arabic capture (`fix3/z400-16.52.0-after/ar-light-todo.png`, viewed): the same layout mirrored (chip and date right-aligned at the start, badge at the inline end on the left, "Probe tas..." and the Arabic subject with their ellipses at the end). I also ran the same probe with `dir="rtl"` flipped on the LTR page (v16.52.0: date x 174 to 250 inside, badge x 44 to 124; 16.32.0: date inside on 5 of 5, badge x 44 to 134); that is a layout stand-in only, because the Arabic CSS bundle is not loaded in it, so I rely on the team's capture for Arabic.
+
+## New observations (NOTE, not blocking)
+
+- **Dangling separator.** The meta line now wraps between the chip and the date, so the dot that separated them stays at the end of the first line ("[Medium] •") and the date sits alone below it. Cosmetic; the meaning is intact. A tidy fix is to hide that separator inside the media query (`.mobile-layout`'s dot) or to move it with the date.
+- **Partial row fill on focus.** The focused row's tint covers the lower part and leaves the upper part (subject and badge area) white in my capture (`r3-v52.png`, last row). The same split was in my pre-fix capture (`f-ltr-light-0.png`), so it is older than this change; it comes from the hover and checked fill being applied to `.list-row` pieces separately (`_list.scss:39-47`). The ring and the label are unaffected.
+- The row is one line taller (92 px against 76); the list scrolls, nothing overlaps.
+
+No new accessibility issue found. Not tested: a real Arabic session on the live benches (language is Administrator's setting, which I did not change), the focus ring in Arabic, other doctypes' second lines (the README says core may still lose columns on other narrow lists), real browser zoom, forced colours, screen readers.
+
+## Final scores, BRIEF section 10 (dimensions I own)
+
+| Dimension | After fix round 2 | Final | Evidence |
+|---|---|---|---|
+| Accessibility | 4 | **4** | Date, subject ellipsis, row ring and status badge all inside the clip on both versions, no invisible tab stops (round 2 probe); open items from before this round (tab order starts in the list, login Light only) unchanged |
+| RTL parity | 4 | **4** | Arabic capture mirrors correctly with the date visible; `dir`-flip stand-in only for my own probe |
+| Dark-mode parity | 4 | **4** | No colour change in this fix; Dark values from the earlier checks stand |
+| Density and productivity | 4 | **4** | Rows 92 px tall at 320 px; all four fields (subject, status, priority, date) readable |
+| Clarity and hierarchy | 4 | **4** | Status keeps label, shape and colour; dangling dot is cosmetic |
+| Calm | 4 | **4** | No motion or saturation added |
+| Consistency | 4 | **4** | 16.32.0 and v16.52.0 produce the same row geometry at 320 px |
+| Credibility | 4 | **4** | The 400% list now reads in full except the long subjects, which carry an ellipsis and a title |
+
+No dimension I own is below 4. **Open blocking: none. Open should-fix: none from this review.** Open notes: hover fill of the neutral badge (7), dangling separator and partial focus fill (this section).
