@@ -1,0 +1,2 @@
+PW_NODE_PATH=/opt/pw-node/node_modules
+PIXDIFF_PYTHON=/opt/pixvenv/bin/python

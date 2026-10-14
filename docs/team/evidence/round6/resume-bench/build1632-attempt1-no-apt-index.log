@@ -1,0 +1,9 @@
+STEP preflight START 2026-10-14T19:03:28Z
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=e53ff17674aa6190
+git version 2.43.0
+uv 0.11.32 (x86_64-unknown-linux-gnu)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Unable to locate package libmariadb-dev
