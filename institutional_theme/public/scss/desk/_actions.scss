@@ -51,6 +51,27 @@ html:root[dir] .btn.btn-primary:active {
 	border-color: var(--ins-primary-active);
 }
 
+// Solid danger button (grid "Delete", dialog destructive): core draws $white on --danger (buttons.scss:130-133), which is
+// 2.51:1 on the Dark danger. The on-colour is a token pair, so both modes pass. Ties with the outline rule below at (0,4,1);
+// that rule is later and wins for tagged buttons.
+html:root[dir] .btn.btn-danger {
+	background-color: var(--ins-danger);
+	border-color: var(--ins-danger);
+	color: var(--ins-on-danger);
+	--icon-stroke: currentColor;
+	--icon-fill-bg: var(--ins-danger);
+}
+
+html:root[dir] .btn.btn-danger:is(:hover, :focus, :active, :disabled, .disabled),
+html:root[dir] .btn.btn-danger:focus-visible {
+	color: var(--ins-on-danger);
+}
+
+html:root[dir] .btn.btn-danger:is(:hover, :active) {
+	background-color: var(--ins-danger-hover);
+	border-color: var(--ins-danger-hover);
+}
+
 html:root[dir] :is(button, .btn)[data-ins-action="submit"]::before,
 html:root[dir] :is(button, .btn)[data-ins-action="approve"]::before {
 	@include ins-action-glyph(check);

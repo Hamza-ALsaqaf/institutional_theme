@@ -21,6 +21,16 @@ html:root[dir] .navbar-breadcrumbs a {
 	font-weight: var(--ins-weight-regular);
 }
 
+// WCAG 2.5.8: the home link is 16 x 17; give it a 24px target. The glyph stays centred where it was (inline-start margin -4px); the next link moves 4px, with no overlap.
+html:root[dir] .navbar-breadcrumbs > li:first-child > a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-inline-size: 24px;
+	min-block-size: 24px;
+	margin-inline: -4px 0;
+}
+
 html:root[dir] .navbar-breadcrumbs a:hover {
 	color: var(--ins-text-strong);
 }

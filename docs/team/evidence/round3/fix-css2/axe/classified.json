@@ -1,0 +1,131 @@
+{
+ "rows": [
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "impact": "critical",
+   "help": "Required ARIA attributes must be provided",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "impact": "critical",
+   "help": "ARIA attributes must conform to valid values",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "impact": "critical",
+   "help": "Required ARIA attributes must be provided",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "impact": "critical",
+   "help": "ARIA attributes must conform to valid values",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "impact": "critical",
+   "help": "Required ARIA attributes must be provided",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "impact": "critical",
+   "help": "ARIA attributes must conform to valid values",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "impact": "critical",
+   "help": "Required ARIA attributes must be provided",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "impact": "critical",
+   "help": "ARIA attributes must conform to valid values",
+   "target": "input[data-target=\"Role\"]",
+   "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+   "cls": "theme",
+   "worse": false
+  }
+ ],
+ "fixedByTheme": [],
+ "coverage": [
+  {
+   "variant": "themed",
+   "lang": "ar",
+   "mode": "dark",
+   "screens": 3,
+   "errors": []
+  },
+  {
+   "variant": "themed",
+   "lang": "ar",
+   "mode": "light",
+   "screens": 3,
+   "errors": []
+  },
+  {
+   "variant": "themed",
+   "lang": "en",
+   "mode": "dark",
+   "screens": 3,
+   "errors": []
+  },
+  {
+   "variant": "themed",
+   "lang": "en",
+   "mode": "light",
+   "screens": 3,
+   "errors": []
+  }
+ ]
+}
