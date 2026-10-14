@@ -1,3 +1,0 @@
-Getting erpnext
-$ git clone https://github.com/frappe/erpnext --branch v16.50.0 --depth 1 --origin upstream
-Cloning into 'erpnext'...

@@ -26,71 +26,12 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
+Updating files:  93% (3863/4141)Updating files:  94% (3893/4141)Updating files:  95% (3934/4141)Updating files:  96% (3976/4141)Updating files:  97% (4017/4141)Updating files:  98% (4059/4141)Updating files:  99% (4100/4141)Updating files: 100% (4141/4141)Updating files: 100% (4141/4141), done.
 Ignoring dependencies of /tmp/frappe-newest/frappe-src. To install dependencies use --resolve-deps
 Installing frappe
 $ uv pip install --quiet -e /home/frappe/newest-bench/apps/frappe  --python /home/frappe/newest-bench/env/bin/python
 $ yarn install --check-files
-Traceback (most recent call last):
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/commands/make.py", line 75, in init
-    init(
-    ~~~~^
-    	path,
-     ^^^^^
-    ...<12 lines>...
-    	dev=dev,
-     ^^^^^^^^
-    )
-    ^
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/render.py", line 105, in wrapper_fn
-    return fn(*args, **kwargs)
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/system.py", line 87, in init
-    get_app(
-    ~~~~~~~^
-    	frappe_path,
-     ^^^^^^^^^^^^
-    ...<4 lines>...
-    	resolve_deps=False,
-     ^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 787, in get_app
-    app.install(verbose=verbose, skip_assets=skip_assets, restart_bench=restart_bench)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/render.py", line 126, in wrapper_fn
-    return fn(*args, **kwargs)
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 254, in install
-    install_app(
-    ~~~~~~~~~~~^
-    	app=app_name,
-     ^^^^^^^^^^^^^
-    ...<6 lines>...
-    	using_cached=using_cached,
-     ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 964, in install_app
-    bench.run(yarn_install, cwd=app_path)
-    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/bench.py", line 50, in run
-    return exec_cmd(cmd, cwd=cwd or self.cwd, _raise=_raise, env=env)
-  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/__init__.py", line 189, in exec_cmd
-    return_code = subprocess.call(spl_cmd, cwd=cwd, universal_newlines=True, env=env)
-  File "/opt/python3.14/lib/python3.14/subprocess.py", line 396, in call
-    with Popen(*popenargs, **kwargs) as p:
-         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python3.14/lib/python3.14/subprocess.py", line 1039, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                        pass_fds, cwd, env,
-                        ^^^^^^^^^^^^^^^^^^^
-    ...<5 lines>...
-                        gid, gids, uid, umask,
-                        ^^^^^^^^^^^^^^^^^^^^^^
-                        start_new_session, process_group)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'yarn'
-
-ERROR: There was a problem while creating newest-bench
-Do you want to rollback these changes? [y/N]: Aborted!
+yarn install v1.22.22
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...

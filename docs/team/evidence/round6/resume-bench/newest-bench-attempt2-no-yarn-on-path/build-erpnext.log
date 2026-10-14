@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/frappe/newest-bench/apps/frappe/frappe/utils/bench_helper.py", line 177, in <module>
+    main()
+    ~~~~^^
+  File "/home/frappe/newest-bench/apps/frappe/frappe/utils/bench_helper.py", line 75, in main
+    commands = get_app_groups()
+  File "/home/frappe/newest-bench/apps/frappe/frappe/utils/bench_helper.py", line 84, in get_app_groups
+    for app in get_apps():
+               ~~~~~~~~^^
+  File "/home/frappe/newest-bench/apps/frappe/frappe/utils/bench_helper.py", line 170, in get_apps
+    return frappe.get_all_apps(with_internal_apps=False, sites_path=".")
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/newest-bench/apps/frappe/frappe/__init__.py", line 912, in get_all_apps
+    apps = get_file_items(os.path.join(sites_path, "apps.txt"), raise_not_found=True)
+  File "/home/frappe/newest-bench/apps/frappe/frappe/__init__.py", line 1091, in get_file_items
+    content = read_file(path, raise_not_found=raise_not_found)
+  File "/home/frappe/newest-bench/apps/frappe/frappe/__init__.py", line 1127, in read_file
+    raise OSError(f"{path} Not Found")
+OSError: b'./apps.txt' Not Found

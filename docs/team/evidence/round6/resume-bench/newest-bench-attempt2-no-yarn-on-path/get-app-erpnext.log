@@ -1,0 +1,93 @@
+Getting erpnext
+$ git clone https://github.com/frappe/erpnext --branch v16.50.0 --depth 1 --origin upstream
+Cloning into 'erpnext'...
+Note: switching to '7474d9e786277383de1242ab882f16856d17a9c9'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Ignoring dependencies of https://github.com/frappe/erpnext. To install dependencies use --resolve-deps
+Installing erpnext
+$ uv pip install --quiet -e /home/frappe/newest-bench/apps/erpnext  --python /home/frappe/newest-bench/env/bin/python
+$ yarn install --check-files
+ERROR: [Errno 2] No such file or directory: 'yarn'
+Traceback (most recent call last):
+  File "/home/frappe/.local/bin/bench", line 10, in <module>
+    sys.exit(cli())
+             ~~~^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/cli.py", line 132, in cli
+    bench_command()
+    ~~~~~~~~~~~~~^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1830, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/commands/make.py", line 181, in get_app
+    get_app(
+    ~~~~~~~^
+    	git_url,
+     ^^^^^^^^
+    ...<7 lines>...
+    	compress_artifacts=compress_artifacts,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 787, in get_app
+    app.install(verbose=verbose, skip_assets=skip_assets, restart_bench=restart_bench)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/render.py", line 126, in wrapper_fn
+    return fn(*args, **kwargs)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 254, in install
+    install_app(
+    ~~~~~~~~~~~^
+    	app=app_name,
+     ^^^^^^^^^^^^^
+    ...<6 lines>...
+    	using_cached=using_cached,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/app.py", line 964, in install_app
+    bench.run(yarn_install, cwd=app_path)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/bench.py", line 50, in run
+    return exec_cmd(cmd, cwd=cwd or self.cwd, _raise=_raise, env=env)
+  File "/home/frappe/.local/share/uv/tools/frappe-bench/lib/python3.14/site-packages/bench/utils/__init__.py", line 189, in exec_cmd
+    return_code = subprocess.call(spl_cmd, cwd=cwd, universal_newlines=True, env=env)
+  File "/opt/python3.14/lib/python3.14/subprocess.py", line 396, in call
+    with Popen(*popenargs, **kwargs) as p:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'yarn'
