@@ -1,0 +1,15 @@
+Using CPython 3.14.8 interpreter at: /home/runner/.local/bin/python3.14
+Creating virtual environment at: /opt/pixvenv
+Activate with: /opt/pixvenv/bin/activate
+Using Python 3.14.8 environment at: /opt/pixvenv
+Resolved 2 packages in 639ms
+Downloading pillow (6.6MiB)
+Downloading numpy (15.9MiB)
+ Downloaded pillow
+ Downloaded numpy
+Prepared 2 packages in 752ms
+Installed 2 packages in 18ms
+ + numpy==2.5.4
+ + pillow==12.3.0
+PW_NODE_PATH=/opt/pw-node/node_modules
+PIXDIFF_PYTHON=/opt/pixvenv/bin/python
