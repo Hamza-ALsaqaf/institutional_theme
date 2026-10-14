@@ -1,0 +1,21 @@
+- text: إنشاء Frappe Framework
+- button "الخيارات"
+- text: البحث Ctrl+K إعلام
+- link "نوع المستند":
+  - /url: /desk/doctype
+- link "الصفحة":
+  - /url: /desk/page
+- link "تقرير":
+  - /url: /desk/report
+- link "مساحة العمل":
+  - /url: /desk/workspace
+- link "لوحة القيادة":
+  - /url: /desk/dashboard
+- link "تعريف وحدة برمجية":
+  - /url: /desk/module-def
+- text: التخصيص
+- button "توسيع التخصيص"
+- link "الملكية واضعة":
+  - /url: /desk/property-setter
+- paragraph
+- text: Aa Axe ar-light axe-ar-light@midad.test

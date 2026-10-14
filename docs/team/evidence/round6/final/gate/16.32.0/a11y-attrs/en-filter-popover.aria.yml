@@ -1,0 +1,8 @@
+- combobox "Field": Enable Outgoing (User Emails)
+- combobox "Condition":
+  - option "Equals" [selected]
+- combobox "Value":
+  - option "Yes"
+  - option "No"
+- text: enable_outgoing
+- img

@@ -1,0 +1,24 @@
+- checkbox "Select all rows"
+- text: ID
+- img
+- text: Status
+- img
+- text: Full Name
+- img
+- text: User Image
+- img
+- text: Username
+- img
+- text: User Type
+- img
+- text: Enabled
+- img
+- textbox "Filter" [disabled]
+- textbox "Filter Row Number"
+- textbox "Filter ID"
+- textbox "Filter Status"
+- textbox "Filter Full Name"
+- textbox "Filter User Image"
+- textbox "Filter Username"
+- textbox "Filter User Type"
+- textbox "Filter Enabled"

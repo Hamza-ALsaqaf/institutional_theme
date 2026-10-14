@@ -1,0 +1,23 @@
+- text: إنشاء
+- button "قائمة الشريط الجانبي"
+- text: البحث إعلام
+- link "الصفحة الرئيسية":
+  - /url: /desk/build
+- link "نوع المستند":
+  - /url: /desk/build/doctype
+- text: التخصيص
+- button "توسيع التخصيص"
+- text: كتابة البرامج النصية
+- button "توسيع كتابة البرامج النصية"
+- text: المشاهدات
+- button "توسيع المشاهدات"
+- text: Desk
+- button "توسيع Desk"
+- text: وحدات برمجية
+- button "توسيع وحدات برمجية"
+- text: الطرود
+- button "توسيع الطرود"
+- text: إعدادات
+- button "توسيع إعدادات"
+- text: تقارير
+- button "توسيع تقارير"
