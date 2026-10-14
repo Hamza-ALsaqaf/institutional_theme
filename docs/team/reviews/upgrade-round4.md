@@ -187,3 +187,132 @@ B1 must be fixed before the range claims v16.52.0. It does not block a release w
 - The HRMS PWA (`frontend/`) and `frappe/ui` consumers. These are SPAs with their own CSS, not desk pages; I did not scan them.
 - R7 checks 7 to 11 on v16.52.0 (screens, axe, `bench run-tests`, print and email, install and uninstall gate). I read `p0/README.md` and did not re-run them.
 - frappe-gantt 1.1.0 in RTL, and the pinned-dock banner grid (N9).
+
+## Re-check after fix round
+
+Range: `git diff 84318a4..origin/build/midad-v1`, read at 0bbceb6. Then 4770d69 arrived (checklist and manifest only), and I read it too. Evidence read: `round4/fix1/`, `fix1-print-web/`, `fix1-backend/`, `fix2/`, `fix2-login/`. Sources: `/tmp/src/frappe-16.32.0`, `/tmp/src/frappe-16.52.0`, ERPNext 16.33.0 (`/home/frappe/frappe-bench/apps/erpnext`), HRMS 16.20.1 (`/tmp/r4src/hrms-16.20.1`). I changed nothing on either bench.
+
+### What I ran (VERIFIED, clean `git worktree` of 0bbceb6, Python 3.12.3)
+
+| Check | Result |
+|---|---|
+| `uvx ruff@0.16.8 check .` / `format --check .` | All checks passed / 138 files already formatted |
+| `unittest discover` midad / audits | 151 OK / 171 OK |
+| `python -m institutional_theme.midad.build --check` | 12 checked, 0 stale |
+| `python -m institutional_theme.audits` | passed. Combined: 0 dead in every version; 10 unread everywhere, all 10 allowed with a reason; web-scope 60 desk-only names, 0 problems; budgets 0 problems. The run left `git status` clean, so the committed reports match HEAD |
+| `effective_diff --ref 84318a4 --version 16.32.0` | 822 before and 822 after, 0 changed, "does not move" |
+| `effective_diff --ref 11a3a36 --version 16.32.0` | "does not move except 6 accepted declaration(s) of 2 name(s)": `--radius-md` and `--radius-lg` only |
+| `effective_diff --ref 84318a4 --version 16.52.0` | 0 changed, "does not move" |
+| sass 1.69.5 (bench) compile of `ins_desk` / `ins_web`, compressed | 141.8 KB (16.6 gzip) / 54.0 KB (8.9 gzip). This agrees with `budgets.txt` (142.2 / 54.4 from the bench dist) |
+| Desk-only names against the built `website`, `login`, `web_form` and `erpnext-web` CSS of both benches (my own grep, independent of `web_scope.py`) | 0 of the 60 names read. Only `print.bundle` reads three of them (`--input-disabled-bg`, `--progress-bar-bg`, `--shadow-inset`). That does not matter: `www/printview.html:8` (16.32.0) and `:11` (v16.52.0) are standalone pages that load no `web_include_css` |
+
+### State of each earlier finding
+
+| # | State | Evidence |
+|---|---|---|
+| B1 | **Partly closed** | Form tags are fixed. `_status.scss:148,152,166,172,247` add `:where(:not(.form-tag))`. Core puts the class on the badge itself (`ui/tags.js:122` `css_class: "form-tag"`, `ui/components/badge.js:60`), and `live_tags.mjs` / `fix1/tags-16.52.0.json` show no shape on a live form. **Still open: Kanban v2 card tags**, see R1 below. |
+| N1 | **Closed** | (a) `.tick.thick` rule removed. (b) The ring is now reached only through `.body-sidebar:has(> .standard-items-band) > .body-sidebar-top` (`_base.scss:41`). 16.32.0 has no `standard-items-band` (0 hits); v16.52.0 has it at `sidebar.html:8`. (c) `_login.scss:187` `:is(.password-field, .email-field:has(> .field-icon))` restores both 38px paddings on 16.32.0. `fix2-login/measurements.txt` row "32 en" shows padL and padR of 38px, and I computed the same cascade from the compiled CSS: RTL `(0,6,3)` after base `(0,6,3)`, then `(0,7,3)`. (d) `_actions.scss:103` skips `.about-section-header .es-button` (16.32.0 `about.js:58,62`). (e) and (f) are accepted, now in `accepted_movement.json` and checklist B10. The radius notes in `tokens.json:582-583` are corrected. |
+| N2 | **Closed** | README Troubleshooting "Another app reads a global Espresso colour variable" (README:139-143). One flaw in its search command, R5. |
+| N3 | **Closed** | (a) `scan_theme` strips comments (`dead_tokens.py:82-84`). (b) Unread everywhere now fails without an allowlist reason, and stale entries fail (`dead_tokens.py:389-409`). (c) Merge order fixed (`:70`). (d) `effective_diff` takes the source readers (`effective_diff.py:110-112`). `fix1-backend/mutation-proof.txt` shows each fix guarded by failing tests. |
+| N4 | **Closed** | The reports are regenerated and current: my audit run left no diff. Checklist B6 and B7 were updated in 4770d69 (293/455/473, 81/15/0, 484 watched; budget table). The CI currency step is still only a patch (`fix1-backend/ci-step-proposed.patch`), so staleness can return unnoticed. NON-BLOCKING. |
+| N5 | **Closed** for the seven items listed. The manifest has rows for `.gantt .tick.thick`, `.es-toast[data-type]`, `.body-sidebar-top`, `body.dock-pinned`, `.current-upper`, the gantt popup, `[class*="for-"]` and the two radius readers. Fix-round selectors are missing, see R2. |
+| N6 | **Closed** | `[class*="for-"]` no longer depends on class order (`_login.scss:40,444`). I grepped the `class="…for-…"` attributes in Frappe 16.32.0, v16.52.0, ERPNext 16.33.0 and HRMS 16.20.1 templates: 0 outside `login.html` and `update-password.html`. It is broader than before (any class containing `for-`, such as `ask-for-quote`), but it only styles a `.page-card` beneath such an element. Accepted. |
+| N7 | **Partly closed** | Web is 54.4 of 60 KB (5.6 KB headroom, from the desk scope split). Desk grew again, to 142.2 of 150 KB (95 %), so the next desk fix has under 8 KB. |
+| N8 | **Closed** | `.dock:has(> .dock-items)` (v16.52.0 `dock.js:21,32`) and `.body-sidebar-container > .sidebar-panel` (`sidebar_panel.js:7,81`). |
+| N9 | **Open (notes)** | Solid-badge locals and the banner/pinned-dock grid are unchanged. `dock.js:40-44` mounts the dock before `.body-sidebar-container`, or as the first child of `body`. The `cascade.mjs` default `/home/user/frappe-bench` now exists on this machine. |
+
+### Hostile review of the new code
+
+- **Audit allowlists cannot hide a dead token.**
+  - `unread_allowlist.json` covers only names that core declares. F1 dead is counted and failed separately (`__main__.py:182-184`), and the allowlist is never consulted for it.
+  - Stale entries fail: the name is not watched, something now reads it, or it has no reason (`dead_tokens.py:402-408`).
+  - `accepted_movement.json` is keyed by name only. But acceptance applies only to an ADDED declaration of a name that only source code reads (`effective_diff.py:112,127-130`). Once the name is in a baseline, a later value change takes the `changed` path (`:121-122`) and fails. Removal also fails (`:117-119`). No hole.
+- **Website map `scope: "desk"`.** Safe by both proofs: the audit and my independent grep (table above). Residual risk, not verifiable: another app's website stylesheet, or a site's Website Theme SCSS, that reads one of the 60 names. That page then gets core's Light value instead of the theme's. The effect is cosmetic, Light only, and nothing breaks.
+- **`body.print-format-doc`.**
+  - Absent from Frappe 16.32.0 and ERPNext 16.33.0, so 16.32.0 cannot move.
+  - On v16.52.0 it is the `<body>` class of Frappe's own standard template (`templates/print_format/print_format.html:64`), and the Print Style is injected at `:54-55`.
+  - The desk never gets `body.print-format-doc`. The builder preview uses a `div.print-format-doc` (`print_format_builder/components/editor/PrintFormat.vue:7`), which the `body.` prefix does not match. The Print Style CSS sent in every desk boot therefore cannot leak.
+  - Only a comma list was added (no `:is()`), which is right for QtWebKit.
+  - The SCSS comment cites the wrong origin, see R4.
+  - A Print Style an administrator edited keeps the old CSS, by design (`ship.py:84-107`).
+- **Physical properties.**
+  - `_login.scss:458-466` uses `padding-left` and `padding-right` behind `html[dir="rtl"]`. This is correct: the input is forced to `ltr`, so logical properties would name the wrong edge.
+  - The email bundle adds `border-right` beside `border-left`. That fits the email exception (no logical properties in mail clients, and core's templates set no `dir`).
+  - Both bundles sit inside their `rtl:begin/end:ignore` wrappers (the compiled `ins_web` has the pair at lines 1 and 1639), so rtlcss cannot double-flip them.
+- **`.es-button` height.**
+  - v16.52.0 writes `data-size` only for non-`sm` sizes (`ui/components/button.js:57`), so `:not([data-size])` is exactly `sm`.
+  - No other core rule sets `--es-bt-h`; the only reader outside `button.css` is `desk/page.scss:113` (width of a squared header button).
+  - Frappe JS puts no `.es-button` inside a datatable cell or grid row (they occur in the grid footer, `form/grid.js:116-162`), so the datatable rule holds.
+  - On 16.32.0 the only `.es-button` (About) reads no `--es-bt-h`, so it does not move.
+  - Comfortable `sm` buttons grow from 28 to 32px. This is intended (a11y round 4) and cosmetic.
+- **ar.csv context-free rows.** Frappe merges app translations in install order, CSV and then MO for each app (`translate.py:179-181`). So a context-free row overrides core's Arabic wherever that string occurs.
+  - `Collapse`: core `ar.po` has `msgid "Collapse"` → `انهيار` (wrong: it means "breakdown") in both versions. `طي` replaces it, and the contexted `Collapse` / "Shrink code field." keeps core's own entry. That is safe desk-wide and an improvement.
+  - `Add attachment`, `Last Edited By {0}`, `Last Edited By You`: core's `ar.po` has these with empty `msgstr`.
+  - `All apps`, `Breadcrumb`, `Sidebar Menu`: not in core's `ar.po`. Each matches a v16.52.0 call exactly (`__("All apps")` ×3, `__('Sidebar Menu')` in `sidebar_header.html`, `"Breadcrumb"` in `page.html` and `breadcrumbs.html`).
+  - The email rows match `_()` calls in v16.52.0 `templates/emails/password_reset.html` and `verification_code.html`, and the 16.32.0 strings in `password_reset.html:3,6`.
+  - A custom app installed after this theme would still win over any of these rows. That is expected Frappe behaviour.
+- **No new `!important`.** 0 added lines in the product diff. **No invented name:** every new selector and variable I checked resolves in the cited tree; two citations are wrong (R4). **16.32.0 movement:** the generated map does not move (above). The hand-written fix-2 rules that reach 16.32.0 are listed in R3.
+
+### New findings
+
+**R1. BLOCKING for the v16.52.0 range claim only (same scope as B1): Kanban v2 card tags are still painted as statuses.**
+- **Where:** `_status.scss:166,172` exclude `.form-tag` only.
+- **Proof in v16.52.0:**
+  - `views/kanban_v2/kanban_page.js:1272-1281` (`tag_badge`) renders each card tag as `frappe.ui.badge({ theme: this.hash_theme(tag) })` with no `css_class`.
+  - `hash_theme` hashes onto `["blue","green","amber","red","violet"]` (`:1262-1270`).
+  - The tags are shown on cards at `:1248` and `:1847`.
+  - Kanban v2 is opt-in per board (`list/list_factory.js:116-117`, `use_kanban_v2`).
+- **Failure:** on such a board, a tag "Urgent" can carry the green check and the success pair.
+- **Related:** the workspace shortcut count badge (`widgets/shortcut_widget.js:115-127`) maps a colour the administrator chose to a theme. It therefore gets a status shape too, although it is a count.
+- **Smallest correction:** invert the selector to the status hosts:
+  - list status, `.page-indicator-pill` and `[data-filter]`, as proposed in B1;
+  - the doctype-settings state tags (`form/doctype_settings/tabs/workflow.js:32`, `notification.js:42`).
+
+  Or, as a stop-gap, add `.kn-card .es-badge` (or the Kanban card container) to the `:where(:not(…))` list. Then add a Kanban v2 fixture to `cascade.mjs`.
+- **Evidence:** COMPUTED from source; not rendered. It does not affect 16.32.0, and it does not block a release whose range stays 16.32.0.
+
+**R2. NON-BLOCKING. Fix-round dependencies have no manifest row.** `grep -c` of `DEPENDENCY_MANIFEST.md` finds 0 rows for each of:
+- `.es-button[data-size]` and `--es-bt-h` (`_actions.scss:80-87`; v16.52.0 `css/espresso/components/button.css:51,124,132`);
+- `.btn-outline`, `.sidebar-item-suffix .keyboard-shortcut` and `.menu-item-shortcut` (`_typography.scss:50-52`; 16.32.0 `common/buttons.scss:159`, `desk/sidebar.scss:398,403`, `desk/menu.scss:54,58`);
+- `.es-toast[data-type] > svg` with `--icon-stroke` (`_overlays.scss:89`; `toast.css:94`, `legacy.css:46`);
+- `.es-tab-buttons .es-pill` `min-block-size` (`_list.scss:104`).
+
+`manifest_selectors.py` will not check them at the next tag. Fix: add one row each to section 2k.
+
+**R3. NON-BLOCKING. Fix-round hand-written rules move 16.32.0 outside what `effective_diff` measures, and no checklist row lists them as intended.**
+- **The rules:**
+  - `_typography.scss:50-53` sets weight 400 on 16.32.0's literal 420 (`buttons.scss:159`, `sidebar.scss:403`, `menu.scss:58`);
+  - the forced-colours outline and bar on the current sidebar row (`_shell.scss` forced-colours block; its comment says "also marks the current row on 16.32.0").
+- **Assessment:** both are intended, and the comments say so. But `.btn-outline` is a generic class name. Any app's `.btn-outline` in the desk loses weight 420 and becomes 400 (cosmetic). The "does not move" result covers the generated map only, which is the same gap N1 named.
+- **Fix:** one checklist line, "intended 16.32.0 changes: …", next to B10.
+
+**R4. NON-BLOCKING. Two wrong source citations in code comments.**
+- `ins_print.bundle.scss:7` says the second root is "ERPNext 16.50's Modern formats". It is Frappe v16.52.0 `templates/print_format/print_format.html:64`, as the manifest row says.
+- `_base.scss:35` cites `sidebar.html:11`; the element is at `:8`. 4770d69 noted this in the manifest but left the comment.
+
+A reader at the next tag will look in the wrong app.
+
+**R5. NON-BLOCKING. The README search command misses names it is meant to find.**
+- `README.md:143` `var\(--(surface|ink|outline)-[a-z]+-[0-9]+\)` requires a digit and then `)`. It therefore misses `--ink-white`, which is in the list, and every read with a fallback, such as `var(--ink-red-3, #e03636)`. The fallback form is the common way apps write it.
+- Fix: `var\(--(surface|ink|outline)-[a-z0-9-]+`.
+
+**R6. Note, outside my dimension (for the i18n reviewer).** `ar.csv:306,315` render "{0} minutes" as `{0} دقائق`. Arabic needs `دقيقة` for 11 and above, and Frappe's default link expiry is in that range. Also, `ar.csv:47` `Collapse,طي` and `:298` `Collapse,طيّ,Row editor` differ by the shadda.
+
+### Updated scores (my dimensions)
+
+| Dimension | Score | Evidence |
+|---|---|---|
+| Upgrade-safety | 4/5 | **Improved:** N1, N2, N8 closed; no core edit, no `!important` added, no datatable height, no invented name. The generated map does not move 16.32.0 except the two accepted source readers, and does not move v16.52.0 (VERIFIED, run). Every new selector is anchored to markup that exists only where intended (VERIFIED in both trees). **Held below 5 by:** R1 (Kanban v2 tags on v16.52.0) and R3 (16.32.0 changes outside the measured map). |
+| Performance | 4/5 | All budgets pass (VERIFIED: audit run and an independent compile). Web 54.4/60 KB after the desk-scope split. Desk 142.2/150 KB (95 %) and still rising. The new `:has()` uses are direct-child anchored (`:has(> .dock-items)`, `:has(> .standard-items-band)`, `:has(> .field-icon)`). |
+| Documentation | 4/5 | **Improved:** N4 and N5 closed; checklist B6, B7 and B9-B11 match the reports; README troubleshooting added; the radius notes are true. **Held below 5 by:** R2 (four fix-2 dependencies without rows), R4 (two wrong citations), R5 (the README grep). |
+| Craft | 4/5 | **Good:** the audit holes are closed with mutation-proven tests; the desk scope is proven from committed snapshots; `:where()` keeps the specificity unchanged; the RTL email-padding rule reasons from the input's own direction; the print root is a comma list for QtWebKit. **Held below 5 by:** R1, an exclusion list where a positive host list was needed. |
+
+Gate on my dimensions: every dimension is at 4 or above, so it passes for a release whose range stays 16.32.0. R1 must be closed before the range claims v16.52.0, as B1 was.
+
+### Not verified
+
+- R1 on a live site. It is COMPUTED, and no Kanban v2 board exists on either bench.
+- The fix-2 a11y rules on 16.32.0 beyond the evidence screenshots (`fix2/forced-32-*`, `touch-32-*`). I did not render them.
+- The Print Style on a v16.52.0 standard-template PDF. I read `fix1-print-web/` but did not regenerate the PDF.
+- Website stylesheets of the owner's other apps, and Website Theme SCSS, reading a desk-scoped name.
+- Byte-identical bundles across the two benches; my size check was a sass compile, not the esbuild pipeline.
