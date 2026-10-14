@@ -92,6 +92,10 @@
   {
    "file": "erpnext_email.bundle.MES6W3NL.css",
    "sha256": "af5e5e5dc389630175a4661b3ae6ba90eebe66e48a07046675bdf7fcc0351184"
+  },
+  {
+   "file": "frappe-gantt.css",
+   "sha256": "75f4bb33e97b531b1666f518f837d6880eaacc3c78c535643285ce74dec44ed5"
   }
  ],
  "declared": [

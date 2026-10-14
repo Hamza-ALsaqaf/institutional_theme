@@ -23,7 +23,7 @@ def _core(declared, read):
 class Categories(unittest.TestCase):
 	def setUp(self):
 		self.model = model_mod.load_model()
-		self.names = dead_tokens.overridden_variables(self.model)
+		self.names = dead_tokens.watched_variables(self.model, PUBLIC)
 
 	def test_each_category(self):
 		# The theme's own SCSS may read any variable, which makes it "theme" rather than
@@ -40,13 +40,11 @@ class Categories(unittest.TestCase):
 
 	def test_a_variable_the_theme_reads_is_not_dead(self):
 		theme = dead_tokens.scan_theme(PUBLIC)
-		overridden = set(self.names)
 		core = _core(set(), set())
 		results = dead_tokens.audit(self.model, core, PUBLIC)
+		self.assertEqual([r.name for r in results], self.names)
 		for result in results:
-			self.assertEqual(
-				result.where, "theme" if result.name in theme and result.name in overridden else "dead"
-			)
+			self.assertEqual(result.where, "theme" if result.name in theme else "dead")
 
 	def test_counts_add_up(self):
 		results = dead_tokens.audit(self.model, _core(self.names[:10], self.names[:5]), PUBLIC)
@@ -62,6 +60,75 @@ class Categories(unittest.TestCase):
 		self.assertIn("Core variables from: a test", text)
 		self.assertIn("x.css (000000000000)", text)
 		self.assertIn("No dead variables.", text)
+
+
+class ScopedDeclarations(unittest.TestCase):
+	"""ADR 0011 R5 (F1): custom properties declared in hand-written SCSS are watched like the map."""
+
+	def _scan(self, files):
+		with tempfile.TemporaryDirectory() as tmp:
+			root = Path(tmp)
+			for name, text in files.items():
+				path = root / name
+				path.parent.mkdir(parents=True, exist_ok=True)
+				path.write_text(text, encoding="utf-8")
+			return dead_tokens.scan_theme_declared(root)
+
+	def test_declarations_outside_the_ins_namespace_are_found(self):
+		found = self._scan(
+			{"a/_x.scss": ".a { --bt-solid-bg: var(--ins-primary); --ins-own: 1; --c-fill: red; }"}
+		)
+		self.assertEqual(found, {"--bt-solid-bg", "--c-fill"})
+
+	def test_generated_files_comments_and_reads_are_ignored(self):
+		found = self._scan(
+			{
+				"generated/_map.scss": ".a { --from-the-map: 1; }",
+				"_y.scss": "// --line-comment: 1\n/* --block-comment: 1 */\n.a { color: var(--only-read); --real: 1; }",
+				"z.css": ".a { --not-scss: 1 }",
+			}
+		)
+		self.assertEqual(found, {"--real"})
+
+	def test_the_theme_declares_the_names_the_round_4_map_asks_for(self):
+		found = dead_tokens.scan_theme_declared(PUBLIC)
+		for name in ("--bt-solid-bg", "--g-bar-color", "--control-bg", "--fc-border-color"):
+			self.assertIn(name, found)
+		self.assertFalse([n for n in found if n.startswith("--ins-")])
+
+	def test_watched_names_are_the_map_then_the_scoped_ones_without_duplicates(self):
+		model = model_mod.load_model()
+		watched = dead_tokens.watched_variables(model, PUBLIC)
+		mapped = dead_tokens.overridden_variables(model)
+		self.assertEqual(watched[: len(mapped)], mapped)
+		self.assertEqual(len(watched), len(set(watched)))
+		self.assertIn("--bt-solid-bg", watched[len(mapped) :])
+		self.assertNotIn("--control-bg", watched[len(mapped) :])  # already in the map
+
+	def test_a_scoped_name_no_core_knows_and_the_theme_never_reads_is_dead(self):
+		model = model_mod.load_model()
+		with tempfile.TemporaryDirectory() as tmp:
+			root = Path(tmp)
+			(root / "_k.scss").write_text(
+				".a { --orphan-token: 1; --used-token: 1; } .b { x: var(--used-token); }"
+			)
+			results = dead_tokens.audit(model, _core(set(), set()), root)
+		where = {r.name: r.where for r in results}
+		self.assertEqual(where["--orphan-token"], "dead")
+		self.assertEqual(where["--used-token"], "theme")
+
+	def test_scoped_names_are_live_through_either_version(self):
+		model = model_mod.load_model()
+		cores = {
+			v: (dead_tokens.load_snapshot(dead_tokens.snapshot_path(v)), "snapshot")
+			for v in dead_tokens.snapshot_versions()
+		}
+		combined = dead_tokens.audit_versions(model, cores, PUBLIC)
+		where = {r.name: r.where for r in combined.results}
+		self.assertEqual(where["--bt-solid-bg"], "declared-read")
+		self.assertEqual(where["--g-bar-color"], "declared-read")
+		old = next(v for v in combined.versions if v.version == "16.32.0")
+		self.assertIn("--bt-solid-bg", [r.name for r in old.results if r.where == "dead"])
 
 
 class Snapshot(unittest.TestCase):
@@ -91,12 +158,35 @@ class Snapshot(unittest.TestCase):
 		combined = dead_tokens.audit_versions(model, cores, PUBLIC)
 		self.assertEqual(combined.dead, [])
 
-	def test_each_snapshot_is_live_for_the_variables_the_theme_overrides_in_its_own_version(self):
-		# 16.32.0 was audited alone before round 4 and must stay clean on its own.
+	def test_a_name_dead_in_16_32_0_alone_is_live_in_16_52_0(self):
+		# R1: names only v16.52.0 reads (the new Espresso names, --bt-*, --c-*, --g-*) are dead on
+		# 16.32.0 alone and live on the newer version; none is dead on both.
+		model = model_mod.load_model()
+		old = dead_tokens.audit(
+			model, dead_tokens.load_snapshot(dead_tokens.snapshot_path("16.32.0")), PUBLIC
+		)
+		new = {
+			r.name: r.where
+			for r in dead_tokens.audit(
+				model, dead_tokens.load_snapshot(dead_tokens.snapshot_path("16.52.0")), PUBLIC
+			)
+		}
+		dead_old = [r.name for r in old if r.where == "dead"]
+		self.assertTrue(dead_old)
+		self.assertEqual([n for n in dead_old if new[n] == "dead"], [])
+
+	def test_the_map_that_predates_round_4_is_still_live_in_16_32_0(self):
+		from institutional_theme.midad.tests import test_round4_map as round4
+
 		model = model_mod.load_model()
 		core = dead_tokens.load_snapshot(dead_tokens.snapshot_path("16.32.0"))
-		results = dead_tokens.audit(model, core, PUBLIC)
-		self.assertEqual([r.name for r in results if r.where == "dead"], [])
+		new_names = {*round4.ADDED, *round4.RAW_950}
+		dead = [
+			r.name
+			for r in dead_tokens.audit(model, core, PUBLIC)
+			if r.where == "dead" and r.name in set(dead_tokens.overridden_variables(model)) - new_names
+		]
+		self.assertEqual(dead, [])
 
 	def test_a_variable_core_dropped_would_fail(self):
 		model = model_mod.load_model()
@@ -245,13 +335,25 @@ class CommandLine(unittest.TestCase):
 		)
 
 	def test_one_live_version_is_combined_with_the_other_snapshot(self):
+		snapshot = dead_tokens.load_snapshot(dead_tokens.snapshot_path("16.52.0"))
+		css = "".join(f":root{{{name}:1}}" for name in sorted(snapshot.declared)) + "".join(
+			f".x{{color:var({name})}}" for name in sorted(snapshot.read)
+		)
 		with tempfile.TemporaryDirectory() as tmp:
-			Path(tmp, "a.css").write_text(":root{--unrelated:1}", encoding="utf-8")
+			Path(tmp, "a.css").write_text(css, encoding="utf-8")
 			code, out = self._run("--core-css", f"16.52.0={tmp}")
-		# 16.32.0 still comes from its snapshot, in which nothing is dead.
+		# 16.52.0 is a live scan that equals its snapshot; 16.32.0 still comes from its snapshot.
 		self.assertEqual(code, 0)
 		self.assertIn("dead-tokens 16.52.0:", out)
 		self.assertNotIn("dead-tokens FAIL", out)
+
+	def test_a_live_scan_without_the_scoped_names_fails_on_them(self):
+		with tempfile.TemporaryDirectory() as tmp:
+			Path(tmp, "a.css").write_text(":root{--unrelated:1}", encoding="utf-8")
+			code, out = self._run("--core-css", f"16.52.0={tmp}")
+		# --bt-*, --c-* and --g-* are core's only on v16.52.0: without them nothing keeps them alive.
+		self.assertEqual(code, 1)
+		self.assertIn("dead-tokens FAIL --bt-solid-bg", out)
 
 	def test_write_core_snapshot_writes_one_file_per_version_named_after_it(self):
 		with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as css:

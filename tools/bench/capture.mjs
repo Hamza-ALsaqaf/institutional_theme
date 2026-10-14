@@ -10,6 +10,11 @@
 //   <label>-login.png    /login at 1366x768
 //   <label>-todo.png     /app/todo at 1366x768, logged in
 //
+// SITE_THEME=Light|Dark|Automatic switches the Administrator's desk theme (the whitelisted
+// frappe.core.doctype.user.user.switch_theme, what the theme switcher calls) before the desk is
+// captured and puts the previous value back at the end, so a Light and a Dark capture of the same
+// site differ only in that setting.
+//
 // Test-only credentials: Administrator / admin (see tools/bench/env.sh).
 import { createRequire } from "node:module";
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -104,6 +109,30 @@ async function rawHtml(url) {
 	}
 }
 
+// Optional desk theme for this capture (SITE_THEME), restored at the end.
+const wantedTheme = process.env.SITE_THEME;
+let previousTheme = null;
+async function setTheme(theme) {
+	// A POST after the desk has loaded needs the CSRF token of the desk's own boot data.
+	const shell = await (await context.request.get(`${baseUrl}/app`)).text();
+	const token = (shell.match(/csrf_token\s*=\s*["']([^"']+)["']/) || [])[1] || "";
+	const response = await context.request.post(`${baseUrl}/api/method/frappe.core.doctype.user.user.switch_theme`, {
+		form: { theme },
+		headers: { "X-Frappe-CSRF-Token": token },
+	});
+	lines.push(`# switch_theme ${theme} -> ${response.status()}`, "");
+	if (!response.ok()) {
+		throw new Error(`switch_theme ${theme} failed: ${response.status()} ${(await response.text()).slice(0, 300)}`);
+	}
+}
+if (wantedTheme) {
+	// The mode the desk renders now, read from the server HTML (frappe.client.get_value may be cached).
+	const shell = await (await context.request.get(`${baseUrl}/app`)).text();
+	const mode = (shell.match(/data-theme-mode=["']([a-z]+)["']/) || [])[1] || "light";
+	previousTheme = mode.charAt(0).toUpperCase() + mode.slice(1);
+	await setTheme(wantedTheme);
+}
+
 // Logged-in /app (raw HTML of the desk shell) and the rendered ToDo list.
 {
 	const { status, html } = await rawHtml(`${baseUrl}/app`);
@@ -129,6 +158,7 @@ async function rawHtml(url) {
 	await page.close();
 }
 
+if (wantedTheme) await setTheme(previousTheme);
 writeFileSync(path.join(outDir, `assets-${label}.txt`), lines.join("\n") + "\n");
 await browser.close();
 console.log(`captured ${label} into ${outDir}`);

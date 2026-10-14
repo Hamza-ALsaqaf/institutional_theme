@@ -6,8 +6,9 @@
 Runs the contrast, avatar, parity, colour-vision and dead-token audits against the generated model and
 stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED preset fails a contrast
 pair (or one of the nine desk avatar pairs, `avatars.py`) or the status check, when a built bundle or the fonts exceed a size budget (`budgets.py`;
-skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, or when a variable the theme
-overrides is neither in core nor used by the theme of ANY supported Frappe version. Core is read
+skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, when a variable the theme
+overrides or declares in its hand-written SCSS is neither in core nor used by the theme of ANY supported Frappe version (F1), or
+when the counterpart table breaks one of its checks (`counterparts.py`, F2). Core is read
 from one committed snapshot per version (`audits/data/core_vars_frappe_<version>.json`); `--core-css`
 names compiled stylesheets of a version (`16.52.0=PATH`; a bare PATH stands for 16.32.0) and replaces that
 version's snapshot for the run, so several builds can be scanned at once. `--write-core-snapshot` (with
@@ -23,7 +24,7 @@ from pathlib import Path
 
 from institutional_theme.midad import model as model_mod
 
-from . import avatars, budgets, colour_vision, contrast, dead_tokens, parity
+from . import avatars, budgets, colour_vision, contrast, counterparts, dead_tokens, parity
 
 PACKAGE_DIR = Path(__file__).resolve().parents[1]
 REPO_ROOT = PACKAGE_DIR.parent
@@ -137,7 +138,15 @@ def main(argv: list[str] | None = None) -> int:
 	if not cores:
 		parser.error("no committed core snapshot and no --core-css")
 	combined = dead_tokens.audit_versions(model, cores, PACKAGE_DIR / "public")
-	outputs["dead_tokens.txt"] = dead_tokens.render_text(combined)
+	pairs = counterparts.load_pairs()
+	core_vars = {version: core for version, (core, _) in cores.items()}
+	pair_findings = counterparts.check(model, pairs, core_vars)
+	outputs["dead_tokens.txt"] = dead_tokens.render_text(combined) + counterparts.render_text(
+		pairs,
+		pair_findings,
+		counterparts.unmapped_reads(model, pairs, core_vars, PACKAGE_DIR / "public"),
+		counterparts.stale_differs(model, pairs),
+	)
 	for entry in combined.versions:
 		total = dead_tokens.counts(entry.results)
 		print(
@@ -159,6 +168,12 @@ def main(argv: list[str] | None = None) -> int:
 	for name in combined.dead:
 		print(f"dead-tokens FAIL {name}: in no supported version's core and not used by the theme")
 	failures += total["dead"]
+
+	# Counterpart table (F2)
+	for finding in pair_findings:
+		print(f"counterparts FAIL {finding.rule} {finding.pair}: {finding.message}"[:300])
+	print(f"counterparts: {len(pairs)} pair(s), {len(pair_findings)} finding(s)")
+	failures += len(pair_findings)
 
 	# Size budgets: only when a build exists; the committed report is kept otherwise.
 	sizes = budgets.run(args.dist)
