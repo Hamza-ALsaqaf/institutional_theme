@@ -139,3 +139,7 @@ Layout risk observed (not caused by the meta change; it is the same 375 px layou
 - The first measurement pass of the colour-contrast triage was wrong in two ways (the glyph-hiding style tag was never removed, and transitions faded the colour back); both were fixed in `axe.mjs` before the numbers above were taken. The earlier numbers are not kept.
 - Not run: screen readers, real touch pinch, forced colours, 320 px.
 - `docs/audits/budgets.txt` was not touched by my runs (`git status docs/audits` is clean after `local_ci`; the budget audit passes, 0 problems). Built `ins_shell.bundle.*.js` is 21,238 bytes (20.7 KB) on the bench against the 24 KB budget: about 3.3 KB of headroom. The committed `budgets.txt` still says 18.3 KB for that bundle (stale, written by an earlier audit run); it is not regenerated here.
+
+## Accepted consequence (viewport)
+
+Removing `maximum-scale` (and `minimum-scale`, `user-scalable=no`) lets iOS Safari zoom the page when an input whose text is under 16 px takes focus. Form text is 14 px (`design/tokens.json` `text-base`), so on an iPhone the page can zoom on a field tap and stay zoomed. ASSUMED from known WebKit behaviour; not tested on a device. It is accepted because blocking zoom fails WCAG 1.4.4. A later option is 16 px controls under `@media (pointer: coarse)`, which is a design decision and not part of this fix.

@@ -21,14 +21,26 @@ html:root[dir] .navbar-breadcrumbs a {
 	font-weight: var(--ins-weight-regular);
 }
 
-// WCAG 2.5.8: the home link is 16 x 17; give it a 24px target. The glyph stays centred where it was (inline-start margin -4px); the next link moves 4px, with no overlap.
+// WCAG 2.5.8: the home link is 16 x 17; give it a 24px target. The glyph moves 4px inline-end (it sits in the 24px box) and the next
+// link moves 8px, with no overlap. The box starts at the clip edge of the title area, so the focus ring below is not cut.
 html:root[dir] .navbar-breadcrumbs > li:first-child > a {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	min-inline-size: 24px;
 	min-block-size: 24px;
-	margin-inline: -4px 0;
+}
+
+// Focus ring. Core clips the list (`ul.navbar-breadcrumbs.ellipsis`) and the title area (`.title-area.ellipsis`) with
+// overflow hidden, so a ring outside the link is cut; it is drawn inside the box, as _base.scss does for the other clipped
+// containers. (0,4,2) beats the ring rule's (0,4,1). A middle crumb is an inline box (core `a` is inline, with the 1.0
+// line-height of the list), and Chrome draws an inset ring on it as two vertical bars only; inline-block gives it a box.
+html:root[dir] .navbar-breadcrumbs a:focus-visible {
+	outline-offset: calc(var(--ins-focus-width) * -1);
+}
+
+html:root[dir] .navbar-breadcrumbs > li:not(:first-child):not(:last-child) > a {
+	display: inline-block;
 }
 
 html:root[dir] .navbar-breadcrumbs a:hover {
