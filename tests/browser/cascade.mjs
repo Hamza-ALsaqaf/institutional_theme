@@ -131,6 +131,7 @@ async function fix2(page, scenario) {
 	// 12: the literal 420 is replaced by the regular weight (both versions).
 	const reg = await tok("--ins-weight-regular", "fontWeight");
 	for (const id of ["fx2-outline", "fx2-kbd"]) rec(`#${id}: literal 420 replaced by --ins-weight-regular`, reg, (await cs(id, ["fontWeight"])).fontWeight, (await cs(id, ["fontWeight"])).fontWeight === reg);
+	if (only(["16.32.0"])) { const w = (await cs("fx2-outline-app", ["fontWeight"])).fontWeight; rec("another app's .btn-outline outside core containers keeps core's literal 420", "420", w, w === "420", ["16.32.0"]); }
 	if (!only(V52)) return;
 	const r52 = (check, expected, actual, pass) => rec(check, expected, actual, pass, V52);
 	// 2: the drawn stroke of the toast icon is the status ink (stroke == color == --ins-status-*-solid).
@@ -239,6 +240,18 @@ async function v1652(page, dir, scenario) {
 		rec(`.es-badge ${theme}: fill, text and line = status ${family}`, `${want.bg} ${want.fg} ${want.line}`, `${got.backgroundColor} ${got.color} ${got.borderTopColor}`, got.backgroundColor === want.bg && got.color === want.fg && got.borderTopColor === want.line);
 		const sh = await cs(id, ["content", "display", "width", "borderRightWidth", "borderTopWidth", "borderTopLeftRadius", "backgroundImage", "backgroundColor", "transform"], "::before");
 		rec(`.es-badge ${theme}: shape ${kind}`, kind, `${sh.width} ${sh.borderTopLeftRadius} ${sh.transform}`, sh.content === '""' && shape[kind](sh));
+	}
+	// Round-4 fix 3 (R1): status look only on status hosts. A Kanban v2 tag and a shortcut count carry data-theme but are not statuses.
+	for (const id of ["tag-kanban", "count-shortcut"]) {
+		const g = await cs(id, ["backgroundColor", "color"]), b = await cs(id, ["content"], "::before");
+		rec(`${id} (data-theme, not a status host): neutral pair and no shape`, `${await tok("--ins-status-neutral-bg", "backgroundColor")}, no ::before`, `${g.backgroundColor}, ${b.content}`,
+			g.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && g.color === (await tok("--ins-status-neutral-fg", "color")) && (b.content === "none" || b.content === "normal"));
+	}
+	{
+		const g = await cs("badge-side", ["backgroundColor"]), b = await cs("badge-side", ["content", "borderRightWidth"], "::before");
+		rec("side-panel status badge: success fill and check", await tok("--ins-status-success-bg", "backgroundColor"), g.backgroundColor, g.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && b.content === '""' && b.borderRightWidth === "2px");
+		const l = await cs("badge-green", ["backgroundColor"]), lb = await cs("badge-green", ["content"], "::before");
+		rec("list status (data-filter, theme green): success fill and a shape", await tok("--ins-status-success-bg", "backgroundColor"), l.backgroundColor, l.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && lb.content === '""');
 	}
 	const pill = await cs("badge-page", ["backgroundColor", "color"]), pillBefore = await cs("badge-page", ["content", "borderRightWidth", "transform"], "::before");
 	rec("page-status chip (.es-badge.page-indicator-pill green): success pair and check", `${await tok("--ins-status-success-bg", "backgroundColor")} ${await tok("--ins-status-success-fg", "color")}`, `${pill.backgroundColor} ${pill.color}`,

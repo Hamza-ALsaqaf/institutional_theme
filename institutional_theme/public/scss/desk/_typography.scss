@@ -44,10 +44,12 @@ html:root :is(
 	font-variant-numeric: lining-nums tabular-nums;
 }
 
-// ---- Literal weight 420 in 16.32.0 core: `.btn-outline` (common/buttons.scss:159, the form Discard button) and `.keyboard-shortcut` (desk/sidebar.scss:398,
+// ---- Literal weight 420 in 16.32.0 core: `.btn-outline` (common/buttons.scss:159; its only core use is the sidebar edit-mode Discard button, ui/sidebar/sidebar.html:36) and `.keyboard-shortcut` (desk/sidebar.scss:398,
 // inside `.sidebar-item-suffix`). The Midad face ships 400, 500 and 600, so 420 resolved to the nearest face; these literals are not variables a token can
-// reach. They take the regular weight, the approved value; `.menu-item-shortcut` (desk/menu.scss:58) is the same literal. Side by side with core: core is (0,1,0) and (0,2,0); this is (0,2,1) and (0,3,1).
-html:root[dir] .btn-outline,
+// reach. They take the regular weight, the approved value; `.menu-item-shortcut` (desk/menu.scss:58) is the same literal. Side by side with core: core is (0,1,0) and (0,2,0); this is (0,4,1) and (0,3,1).
+// `.btn-outline` is a generic name, so it is matched only inside the sidebar container, never in another app's markup. The weight change here and the
+// forced-colours outline on the current sidebar row (_shell.scss) are intended 16.32.0 improvements, outside what the effective-diff audit measures.
+html:root[dir] .body-sidebar-container .btn-outline,
 html:root[dir] .sidebar-item-suffix .keyboard-shortcut,
 html:root[dir] .menu-item-shortcut {
 	font-weight: var(--ins-weight-regular);

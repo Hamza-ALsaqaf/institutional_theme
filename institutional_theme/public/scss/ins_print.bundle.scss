@@ -4,8 +4,9 @@
 //
 // Rules for this file:
 //  - Every selector starts with `.print-format` or `body.print-format-doc` (Print Style CSS is unscoped and is sent
-//    in every desk boot). The second root is ERPNext 16.50's "Modern" formats, which have no `.print-format`
-//    element and put the class on `<body>`. A comma list, not `:is()`: wkhtmltopdf's WebKit has no `:is()`.
+//    in every desk boot). The second root is Frappe v16.52.0's standard template
+//    (templates/print_format/print_format.html:64), which has no `.print-format` element and puts the class
+//    on `<body>`. A comma list, not `:is()`: wkhtmltopdf's WebKit has no `:is()`.
 //  - Meaning is carried by borders, weight and shape, never by a tint alone (black-and-white photocopy).
 //  - QtWebKit has no logical properties, no flex, no grid, no `inset`, no `text-align: start`: the block axis
 //    uses `border-top` and `border-bottom`, layout uses `display: table`, and the few inline-axis rules are a

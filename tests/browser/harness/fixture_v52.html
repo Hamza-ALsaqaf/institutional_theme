@@ -11,22 +11,26 @@
 	<span class="es-badge form-tag" id="tag-red" data-theme="red"><span class="es-badge__label pill-label ellipsis">Urgent</span></span>
 	<span class="es-badge form-tag" id="tag-violet" data-theme="violet"><span class="es-badge__label pill-label ellipsis">Plan</span></span>
 	<span class="es-badge filterable ellipsis" id="badge-gray" data-filter="status,=,Open">Open</span>
-	<span class="es-badge filterable ellipsis" id="badge-grey" data-theme="grey">Grey</span>
-	<span class="es-badge filterable ellipsis" id="badge-darkgrey" data-theme="darkgrey">Closed</span>
-	<span class="es-badge filterable ellipsis" id="badge-green" data-theme="green">Paid</span>
-	<span class="es-badge filterable ellipsis" id="badge-red" data-theme="red">Rejected</span>
-	<span class="es-badge filterable ellipsis" id="badge-amber" data-theme="amber">Pending</span>
-	<span class="es-badge filterable ellipsis" id="badge-orange" data-theme="orange">Orange</span>
-	<span class="es-badge filterable ellipsis" id="badge-yellow" data-theme="yellow">On hold</span>
-	<span class="es-badge filterable ellipsis" id="badge-blue" data-theme="blue">Submitted</span>
-	<span class="es-badge filterable ellipsis" id="badge-light-blue" data-theme="light-blue">Info</span>
-	<span class="es-badge filterable ellipsis" id="badge-cyan" data-theme="cyan">Cyan</span>
-	<span class="es-badge filterable ellipsis" id="badge-violet" data-theme="violet">Plum</span>
-	<span class="es-badge filterable ellipsis" id="badge-purple" data-theme="purple">Purple</span>
-	<span class="es-badge filterable ellipsis" id="badge-pink" data-theme="pink">Pink</span>
+	<span class="es-badge filterable ellipsis" id="badge-grey" data-theme="grey" data-filter="status,=,grey">Grey</span>
+	<span class="es-badge filterable ellipsis" id="badge-darkgrey" data-theme="darkgrey" data-filter="status,=,darkgrey">Closed</span>
+	<span class="es-badge filterable ellipsis" id="badge-green" data-theme="green" data-filter="status,=,green">Paid</span>
+	<span class="es-badge filterable ellipsis" id="badge-red" data-theme="red" data-filter="status,=,red">Rejected</span>
+	<span class="es-badge filterable ellipsis" id="badge-amber" data-theme="amber" data-filter="status,=,amber">Pending</span>
+	<span class="es-badge filterable ellipsis" id="badge-orange" data-theme="orange" data-filter="status,=,orange">Orange</span>
+	<span class="es-badge filterable ellipsis" id="badge-yellow" data-theme="yellow" data-filter="status,=,yellow">On hold</span>
+	<span class="es-badge filterable ellipsis" id="badge-blue" data-theme="blue" data-filter="status,=,blue">Submitted</span>
+	<span class="es-badge filterable ellipsis" id="badge-light-blue" data-theme="light-blue" data-filter="status,=,light-blue">Info</span>
+	<span class="es-badge filterable ellipsis" id="badge-cyan" data-theme="cyan" data-filter="status,=,cyan">Cyan</span>
+	<span class="es-badge filterable ellipsis" id="badge-violet" data-theme="violet" data-filter="status,=,violet">Plum</span>
+	<span class="es-badge filterable ellipsis" id="badge-purple" data-theme="purple" data-filter="status,=,purple">Purple</span>
+	<span class="es-badge filterable ellipsis" id="badge-pink" data-theme="pink" data-filter="status,=,pink">Pink</span>
 	<span class="es-badge filterable ellipsis" id="badge-draft" data-theme="red" data-filter="docstatus,=,0">Draft</span>
 	<span class="es-badge filterable ellipsis" id="badge-cancelled" data-theme="red" data-filter="docstatus,=,2">Cancelled</span>
 	<!-- ui/page.html:24 and ui/page.js:259: the page-status chip, theme set with attr("data-theme", color) -->
+	<!-- Not statuses (round-4 fix 3, R1): Kanban v2 card tag (kanban_page.js:1272-1281, no css_class), shortcut count (shortcut_widget.js:127), side-panel status (side_panel.js:746) -->
+	<div class="kn-card"><span class="es-badge" id="tag-kanban" data-theme="green"><span class="es-badge__label">Urgent</span></span></div>
+	<div class="widget-footer"><span class="es-badge" id="count-shortcut" data-theme="red"><span class="es-badge__label">12</span></span></div>
+	<div class="side-panel-indicator"><span class="es-badge" id="badge-side" data-theme="green">Paid</span></div>
 	<span class="es-badge page-indicator-pill" id="badge-page" data-theme="green">Paid</span>
 	<span class="es-badge page-indicator-pill" id="badge-page-gray">Open</span>
 	<div data-ins-docstatus="0"><div class="title-area"><span class="es-badge page-indicator-pill" id="badge-title-draft" data-theme="red">Draft</span></div></div>

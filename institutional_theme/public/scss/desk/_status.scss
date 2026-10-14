@@ -132,24 +132,33 @@ html:root[dir] .indicator::before {
 	}
 }
 
-// ---- v16.52.0 renders list and page-head statuses as `span.es-badge[data-theme]` (list/list_view.js:1896, ui/page.js:259, ui/page.html:24),
-// painted by the local --c-fill, --c-fg and --c-line (css/espresso/components/badge.css:7-14,55-89; badge-legacy-colors.css:12-45). Core's selector is
-// (0,2,0); this one is (0,4,1). The vars are repointed at the status families (ADR 0011 R4), the shape is the same as the pill's. A badge without
-// data-theme is gray: neutral. The shape needs a theme, a list status filter (`data-filter`) or the page-status chip, so counters and other plain badges stay shapeless.
-// User tags (`.form-tag`, ui/tags.js:116-124) are `.es-badge[data-theme]` too, with a colour hashed from the label (tags.js:152-160): they are not
-// statuses, so they get no shape and no status family, only the neutral pair of the base rule. `:where()` keeps the specificity unchanged.
+// ---- v16.52.0 renders statuses as `span.es-badge`, painted by the local --c-fill, --c-fg and --c-line (css/espresso/components/badge.css:7-14,
+// 55-89; badge-legacy-colors.css:12-45). Every badge is neutral by default (ADR 0011 R4); only the status hosts below get a status family and a
+// shape. Hosts, from the v16.52.0 call sites: list status and Select value (`data-filter`, list_view.js:1499,1896), page-head chip (page.js:259,
+// page.html:24), side-panel header (side_panel.js:746), data-import log result (data_import.js:2740). User tags (ui/tags.js:117), Kanban v2 tags
+// and counts (kanban_page.js:1275,2048), shortcut counts (shortcut_widget.js:127) and the rest are labels or counts, not statuses: they stay neutral.
+// `:where()` keeps the host list at (0,0,0), so a status rule is (0,2,0) as before and Draft and Cancelled below still win by order.
 // 16.32.0 has no `.es-badge`; these selectors match nothing there (its status is `.indicator-pill` above).
+$ins-badge-host: ":where([data-filter], .page-indicator-pill, .side-panel-indicator *, .diw-import-log-line *)";
+
 html:root[dir] .es-badge {
 	--c-fill: var(--ins-status-neutral-bg);
 	--c-fg: var(--ins-status-neutral-fg);
 	--c-line: var(--ins-status-neutral-border);
 }
 
-html:root[dir] .es-badge:where(:not(.form-tag)):not([data-variant]):is([data-theme], [data-filter], .page-indicator-pill) {
+// Every badge with a data-theme stages its family in --ins-sb-*; only a status host reads them into core's --c-* (one host list, not one per theme).
+html:root[dir] .es-badge#{$ins-badge-host} {
+	--c-fill: var(--ins-sb-bg, var(--ins-status-neutral-bg));
+	--c-fg: var(--ins-sb-fg, var(--ins-status-neutral-fg));
+	--c-line: var(--ins-sb-line, var(--ins-status-neutral-border));
+}
+
+html:root[dir] .es-badge#{$ins-badge-host}:not([data-variant]) {
 	border-color: var(--c-line);
 }
 
-html:root[dir] .es-badge:where(:not(.form-tag)):is([data-theme], [data-filter], .page-indicator-pill)::before {
+html:root[dir] .es-badge#{$ins-badge-host}::before {
 	content: "";
 	display: inline-block;
 	flex: none;
@@ -163,13 +172,13 @@ html:root[dir] .es-badge:where(:not(.form-tag)):is([data-theme], [data-filter], 
 	$family: nth($spec, 1);
 	$kind: nth($spec, 2);
 
-	html:root[dir] .es-badge:where(:not(.form-tag))[data-theme="#{$name}"] {
-		--c-fill: var(--ins-status-#{$family}-bg);
-		--c-fg: var(--ins-status-#{$family}-fg);
-		--c-line: var(--ins-status-#{$family}-border);
+	html:root[dir] .es-badge[data-theme="#{$name}"] {
+		--ins-sb-bg: var(--ins-status-#{$family}-bg);
+		--ins-sb-fg: var(--ins-status-#{$family}-fg);
+		--ins-sb-line: var(--ins-status-#{$family}-border);
 	}
 
-	html:root[dir] .es-badge:where(:not(.form-tag))[data-theme="#{$name}"]::before {
+	html:root[dir] .es-badge#{$ins-badge-host}[data-theme="#{$name}"]::before {
 		@include ins-shape($kind);
 		margin-inline: 0;
 		@if $kind == check or $kind == diamond {
@@ -244,7 +253,7 @@ html:root[dir] .es-badge[data-filter="docstatus,=,2"]::before {
 // ---- Forced colours: backgrounds are dropped, so the pill keeps its outline (_base.scss) and the shape keeps currentColor.
 // Gradient-filled shapes (cross, half, bars, dot, diamond, square) are not forced, so they stay visible; ring and check use borders.
 @media (forced-colors: active) {
-	html:root[dir] :is(.indicator-pill, .es-badge:where(:not(.form-tag)):is([data-theme], [data-filter], .page-indicator-pill))::before {
+	html:root[dir] :is(.indicator-pill, .es-badge#{$ins-badge-host})::before {
 		forced-color-adjust: none;
 		color: CanvasText;
 	}

@@ -32,7 +32,7 @@ html:root :is(#{$ins-focusable}):focus-visible:not(.modal, .modal-dialog, :-webk
 // v16.52.0 adds scrollers that clip: the menu panel (menu.css:52 `overflow-y: auto`), the dock tray and its tile list (dock.scss:50, 249), and the
 // sidebar's scroll box `.body-sidebar-top` (sidebar.scss:112). `[role="menuitem"]` rows are `button`/`a`, covered by the list.
 // `.body-sidebar-top` exists in 16.32.0 too (ui/sidebar/sidebar.html:19) where its ring stays outside as in round 3, so it is reached only through
-// `.standard-items-band`, a sibling that only the v16.52.0 template has (sidebar.html:11).
+// `.standard-items-band`, a sibling that only the v16.52.0 template has (sidebar.html:8).
 html:root :is(.datatable, .grid-body, .frappe-list .result-container, .dt-scrollable, .es-menu, .dock:has(> .dock-items))
 	:is(a[href], button, input, select, textarea, [tabindex], [contenteditable="true"]):focus-visible {
 	outline-offset: calc(var(--ins-focus-width) * -1);
