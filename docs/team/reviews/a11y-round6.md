@@ -101,3 +101,56 @@ Two dimensions I own are below 4 for this round's print surface (Accessibility 3
 ## 4. Not tested
 
 Re-rendering anything (no bench access; I used the team's PDFs as committed); Letter paper; multi-page documents and the watermark on page 2 in either generator; the Cancelled (dashed) watermark; no-letter-head prints; Employee and Attendance visually (fonts and margins only); real Arabic names in the English slips and Arabic component names beyond the two seeded; `.ss-hero .pay`, `.ss-timesheets` and any slip with more rows than one page; HRMS 16.20.1 Classic, Detailed and Compact (they do not render on 16.32.0); date formats other than `dd-mm-yyyy` (the `mm-dd-yyyy` and slash outcomes in finding 3 are from the bidi rules, not rendered); the PDFs in Acrobat, a browser viewer, a screen reader or a braille display; black-and-white photocopy or paper; the CSS private font-family name; Dark mode (print is light only); forced colours, zoom, keyboard and focus (not applicable to a PDF). Designed to meet WCAG 2.2 AA; formal audit recommended.
+
+---
+
+# Re-check after fix round
+
+Designed to meet WCAG 2.2 AA; formal audit recommended. Same reviewer. Branch head `ab5ac37`. Read: `git diff 8a0480f..HEAD -- institutional_theme/public/scss/ins_print.bundle.scss README.md CHANGELOG.md`, `docs/team/evidence/round6/print-fix/` (code in `9a0c3fe`, docs in `4e2eb05`). I did not re-render; I re-measured the team's re-rendered PDFs in `print-fix/v16.32.0/` and `v16.52.0/` myself (scratch in `/tmp/claude-a11y/r6/fx/`).
+
+## A. State of each finding
+
+| # | Finding | State | How observed |
+|---|---|---|---|
+| 1 | Grey captions 4.12 and 4.26:1 on bands | **Closed** | VERIFIED. I rendered the 6 builder-slip PDFs (Classic, Detailed, Compact; en, ar; Chrome, v16.52.0) at 300 dpi and sampled pixels. Band `rgb(242,242,242)` and `rgb(246,246,246)`; caption ink `rgb(66,75,87)` gives 7.90 and 8.18:1; a count of `rgb(117,117,117)` pixels inside every band's rows is 0 (Classic 1842 to 2028, Detailed 2700 to 2934 and 1066 to 1268, Compact 796 to 1102). The greys left at `#757575` (`.ss-title .ss-period`, `.ss-ref`, `.ss-foot`, `th` on white) are 4.61:1 on white, which passes; none sits on a band. Captions are 10 px in the SCSS (`ins_print.bundle.scss:36-52`); they are still about 7.5 pt printed, which is small but no longer a contrast miss |
+| 2 | Arabic letter-spacing in builder slips | **Closed** | VERIFIED. `pdftotext -layout` of the three Arabic Chrome PDFs now returns whole words: "صايف الراتب" (extraction swaps, as before, one letter pair), "كمية", "المستحقات", "استقطاعات" (before: "ك مية", "ص ايف ا لرا ت ب"). The 110 dpi view of Detailed Arabic shows the captions, column headers and section titles untracked and still mirrored (labels right, amounts left, net bar right). Rule at `:445-458` |
+| 3 | End date reversed after an Arabic word | **Accepted limitation, documented** (not fixable in CSS) | VERIFIED. README "Known print limits" and CHANGELOG Known limitations state it with the `dd/mm/yyyy` workaround. `print-fix/v16.52.0/dateformat/classic-ar_ddSmmSyyyy.pdf` extracts `30/09/2026 إلى For the period 01/09/2026` (both dates one format) and the dash PDF still shows the reversed form. `mm-dd-yyyy` not rendered (said so in their README) |
+| 4 | Salary Slip Standard clipped on v16.52.0 | **Documented** (core) | README and CHANGELOG now say it, with "use Classic, Detailed or Compact". Not fixed; unchanged |
+| 5 | Wkhtmltopdf Arabic text layer, untagged PDFs, no /Lang | **Documented** (platform) | README and CHANGELOG; "prefer Chrome where Arabic text must be copied". Unchanged in the files (I did not re-test the text layer) |
+| 6 | Watermark | **Closed for the frame, documented for the overlap** | VERIFIED. Raster scan at 110 dpi of the 8 re-rendered Chrome Leave Application and Expense Claim PDFs (en, ar; both versions): top band rows 13 to 18 (16.32.0) and 14 to 19 (16.52.0), bottom band rows 200 to 205 and 201 to 206, so all four borders print on both versions (before: 16.32.0 had no bottom band). Frame top is 3 mm; the README and CHANGELOG now say wkhtmltopdf "can cross the totals at 12% ink", Chrome sits over letter head and title, A4 and Letter only for wkhtmltopdf, and a printer's unprintable margin may trim the top edge (ASSUMED, no paper test). Multi-page and Cancelled still untested |
+| 7 | English strings in Arabic prints | Open, MINOR, left as is | Seed strings untranslated |
+| 8 | Date wraps in narrow column | Open, MINOR, left as is | Core width |
+| 9 | Core limits not in user docs | **Closed** | Chrome title loss on 16.32.0 is in README and CHANGELOG; the letter-head rule width and the literal `{{ applicant_name }}` (seed) stay evidence-only (cosmetic, seed) |
+| 10 | Physical properties in print RTL block | **Accepted by the lead** | wkhtmltopdf's WebKit; block inside `rtl:ignore` |
+| 11 | README line 5 status "Round 4" | Pending (lead's final update), not open | `README.md:5` not yet changed at `ab5ac37`; I did not re-read it |
+
+Other checks of the fix diff. No `!important`, no literal colour (all `$ins-*`), selectors prefixed by the `.print-format` and `body.print-format-doc` roots, still inside `rtl:begin:ignore`. Fit: my text-layer scan of all 32 re-rendered themed PDFs finds no word within 8 mm of a page edge. Fonts: `pdffonts` of the new PDFs list only IBM Plex Sans and IBM Plex Sans Arabic (their `pdffonts.txt`; I re-ran the same scan on the earlier set only). README and CHANGELOG still make no WCAG conformance claim (my grep of both for `WCAG|conform|complian|certif` returns nothing); CHANGELOG ends with the "formal accessibility audit is still required" line.
+
+New observation, MINOR. The rule colours changed too: the net-pay bar in English slips is now `#141b25` and the left-to-right separators `#b8bec7` to match Arabic. I did not compare an English slip before and after visually (the team's `rule-colours.txt` samples one Classic and one Detailed).
+
+# Addendum: desk CSS headroom (round 6 item 3)
+
+Scope: `docs/team/evidence/round6/css-headroom/README.md` sections B1 and B2, `before/` and `after/` for 16.32.0 (58 captures) and 16.52.0 (34). Claim to test: de-duplicating the generated Frappe variable map (`_frappe_map.scss`, 52 KB to 25 KB source, desk bundle 149.7 to 123.0 KB) gives zero visual change.
+
+**Pixel diff, re-run by me (VERIFIED, numpy over the PNG pairs).** Same figures as the team's: 16.32.0 `ar-dark-comfortable-report` 8 px max delta 1 bbox (590,69)-(742,70); `en-dark-comfortable-desktop` 16 px max 3 bbox (1222,17)-(1240,39); `en-light-comfortable-report` 26 px max 1 bbox (242,194)-(257,243); 16.52.0 `en-dark-comfortable-list` 14 px max 2 bbox (509,69)-(750,234). The boxes are a text baseline, the top-right avatar and a filter-icon column: glyph and icon edges, one to three steps, no box moved or changed size. Dark and Automatic pairs: I compared all dark and automatic-dark screenshots that exist before and after (16.32.0: 29 pairs, 2 differ, both above; 16.52.0: 17 pairs, 3 differ: `ar-dark-comfortable-list` 8 px max 1, `en-automatic-osdark-comfortable-list` and `en-dark-comfortable-list` 14 px max 2 in the same box). The same screens differ between two runs of the unchanged old CSS per their `determinism-run1-vs-run2.txt` (not re-opened by me).
+
+**Computed styles, re-run by me (VERIFIED, all 92 gzip JSON dumps, every leaf).** Every dump differs in exactly one leaf, the served stylesheet name (`ins_desk.bundle.HG5CL44N.css` to `TY553VME.css`; 16.52.0 `HXWCBO42`), plus, in the four Automatic form dumps, two adjacent entries (`/styles[518]` and `[519]` on 16.32.0, `[512]` and `[513]` on 16.52.0) whose values are exact swaps of each other (the Roles checkbox: `rgb(75,83,94)` with `url("data:image/svg...")` against `rgb(46,54,65)` with `none`): an order swap of two elements, not a value change, as the team says. In the Automatic dark and light form dumps I compared 431 root leaves (the 424 mapped names and root attributes): all equal. So no mapped variable computes differently in Light, Dark, Automatic under a dark OS, Automatic under a light OS, or the switcher previews.
+
+**Specificity argument (read, not re-run).** The one cell that changes (Automatic under a dark OS, 345 names at (0,2,1) rather than (0,3,1)) needs a competing rule on the root between those specificities. The team's scans of core 16.32.0 and 16.52.0 (root rules (0,1,0)), ERPNext and HRMS find none. Third-party apps are ASSUMED none.
+
+Findings: **none** in the addendum. Not tested: Gantt, calendar, Kanban and workspace-editor pages, non-Administrator roles, compact density on 16.52.0 (not captured), real devices, third-party brand apps that set mapped names on the root in (0,2,1) to (0,3,1); I did not view the screenshots themselves beyond the numeric diff.
+
+# Re-scored, BRIEF section 10 (dimensions I own)
+
+| Dimension | Round 6 first report | After fix round | Evidence |
+|---|---|---|---|
+| Accessibility | 3 | **4** | Captions 7.90 and 8.18:1 measured from pixels with 0 grey pixels left in a band; Arabic untracked; whole watermark frame on both versions; known platform limits (untagged PDFs, wkhtmltopdf text layer, Standard slip clip) are now in README and CHANGELOG. Held at 4, not 5: those three limits remain real, captions print at about 7.5 pt |
+| RTL parity | 3 | **4** | Mirroring correct, tracking gone. Held at 4: with the default `dd-mm-yyyy` the end date still prints reversed (documented, workaround `dd/mm/yyyy`) and English strings in Arabic prints keep their punctuation on the wrong end (finding 7, open) |
+| Dark-mode parity | 4 | **4** | Desk Dark and Automatic unchanged by the headroom change (all dark and automatic dumps equal on the mapped variables; pixel diffs at anti-aliasing level) |
+| Density and productivity | 4 | **4** | No size change |
+| Clarity and hierarchy | 4 | **4** | Captions legible on bands; watermark still crosses the title in Chrome (documented) |
+| Calm | 4 | **4** | No motion or tint added |
+| Consistency | 4 | **4** | English and Arabic slip rules now share colours; the watermark frame is whole on both versions, though its place still differs by generator |
+| Credibility | 4 | **4** | Docs state the limits; no conformance claim |
+
+No dimension I own is below 4. Open blocking: none. Open major: none (3 to 5 are accepted, documented limits; the lead may want a decision record for finding 3). Open minor: 7, 8, and the pending README status line. Not tested in this re-check: anything rendered by me (I measured the committed PDFs), paper or photocopy, multi-page and Cancelled watermarks, Letter in Chrome, A5 and A6 on 16.52.0. Designed to meet WCAG 2.2 AA; formal audit recommended.
