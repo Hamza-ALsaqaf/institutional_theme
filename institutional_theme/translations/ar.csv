@@ -5,6 +5,7 @@ Accent text,النص المميز
 Add attachment,إضافة مرفق
 Access to this system is restricted to authorised users. Activity is recorded.,الوصول إلى هذا النظام مقصور على المصرَّح لهم، ويُسجَّل النشاط.
 Adjust the {0} colour.,اضبط اللون {0}.
+All apps,كل التطبيقات
 Allow Forest,السماح بمجموعة الألوان غابي
 Allow Graphite,السماح بمجموعة الألوان جرافيت
 Allow Midad ink,السماح بمجموعة الألوان مداد
@@ -114,6 +115,8 @@ Institution name,اسم المؤسسة
 Institution name (Arabic),اسم المؤسسة (بالعربية)
 Institutional Theme,المظهر المؤسسي
 Institutional Theme Settings,إعدادات المظهر المؤسسي
+Last Edited By {0},آخر تعديل بواسطة {0}
+Last Edited By You,آخر تعديل بواسطتك
 Latin regular,الخط اللاتيني العادي
 Latin semibold,الخط اللاتيني شبه العريض
 Light,فاتح
