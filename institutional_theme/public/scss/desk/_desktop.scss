@@ -1,10 +1,17 @@
-// Desktop (apps) screen: folder thumbnails keep their look but reach the 24px target size of WCAG 2.2 criterion 2.5.8.
-// Core draws 16-18px anchors (desk/page/desktop/desktop.css:278-308) that are links with href; the extra box is taken back with
-// negative margins (-3px each side inline, -6px at the block end) so the grid tracks and the icon positions are unchanged.
+// Desktop (apps) screen: folder thumbnails keep their look; the 24px box satisfies the axe target-size checker (WCAG 2.2 2.5.8) only.
+// Core draws 16-18px anchors (desk/page/desktop/desktop.css:278-308) with href and `pointer-events: none`, so no pointer can hit them.
+// The extra box is taken back with negative margins (-3px each side inline, -6px at the block end): grid tracks and icon positions unchanged.
 html:root[dir] .folder-icon .icons > .desktop-icon {
 	justify-content: flex-start;
 	min-block-size: 24px;
 	min-inline-size: 24px;
 	margin-block: 0 -6px;
 	margin-inline: -3px;
+}
+
+// .icons-container clips its overflow and the -3px inline margin above leaves the box 1.1px outside the clip on the outer side, so the
+// outside ring (offset 2px) is cut to an arc and a ring at -2px is still shaved. Draw the same 2px ring 2px inside the box (-4px offset).
+// (0,6,1) beats the ring rule in _base.scss (0,4,2).
+html:root[dir] .folder-icon .icons > .desktop-icon:focus-visible {
+	outline-offset: calc(var(--ins-focus-width) * -2);
 }
