@@ -8,3 +8,11 @@ redis cache on 13003: up
 redis queue on 11003: up
 STAGE redis END exit 0
 STAGE site START 2026-10-14T19:18:59Z
+STAGE site END exit 0
+STAGE erpnext START 2026-10-14T19:19:53Z
+STAGE erpnext END exit 0
+STAGE wizard START 2026-10-14T19:21:44Z
+STAGE wizard END exit 0
+STAGE app START 2026-10-14T19:22:28Z
+STAGE app END exit 1
+STAGE preflight START 2026-10-14T19:22:55Z

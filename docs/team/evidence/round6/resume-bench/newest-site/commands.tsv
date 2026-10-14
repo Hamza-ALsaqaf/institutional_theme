@@ -2,3 +2,7 @@ name	exit	seconds	command
 stage-preflight	0	2	stage_preflight
 stage-config	0	10	stage_config
 stage-redis	0	4	stage_redis
+stage-site	0	54	stage_site
+stage-erpnext	0	111	stage_erpnext
+stage-wizard	0	44	stage_wizard
+stage-app	1	1	stage_app
