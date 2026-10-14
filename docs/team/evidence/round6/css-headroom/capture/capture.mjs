@@ -11,7 +11,8 @@
 // --only     run only captures whose id contains this text (ids look like en-light-comfortable-list).
 //
 // Users: css-headroom-en@example.com and css-headroom-ar@example.com (System Manager), created on first use.
-// Administrator is used only to create those users and to set THEIR language and desk theme; its own
+// Administrator is used only to delete and re-create those users (a fresh activity timeline each run); each
+// user switches its own desk theme with frappe.core.doctype.user.user.switch_theme. Administrator's own
 // language and theme are never touched. Time is frozen with page.clock.setFixedTime so relative dates do
 // not move between runs; transitions and animations are switched off by an injected style sheet so a
 // computed colour is never read in the middle of a transition (the same sheet is injected before and after).
@@ -163,30 +164,24 @@ const api = (method, url, body) =>
 		[method, url, body],
 	);
 const emailOf = (lang) => `css-headroom-${lang}@example.com`;
+// Start from freshly created users so their activity timeline is identical in every run (a document update would
+// add "changed the value of Desk Theme" rows; the theme is switched later through the user's own switch_theme call).
 for (const lang of ["en", "ar"]) {
-	const exists = await api("GET", `/api/resource/User/${encodeURIComponent(emailOf(lang))}`);
-	if (exists.status === 404 || exists.status === 403) {
-		const created = await api("POST", "/api/resource/User", {
-			email: emailOf(lang),
-			first_name: `CssHeadroom${lang.toUpperCase()}`,
-			enabled: 1,
-			send_welcome_email: 0,
-			new_password: PASSWORD,
-			language: lang,
-			desk_theme: "Light",
-			roles: [{ role: "System Manager" }],
-		});
-		console.log("create user", emailOf(lang), created.status);
-		if (created.status >= 300) throw new Error(`cannot create ${emailOf(lang)}: ${created.text}`);
-	} else {
-		await api("PUT", `/api/resource/User/${encodeURIComponent(emailOf(lang))}`, { language: lang, enabled: 1, new_password: PASSWORD });
-		console.log("user exists", emailOf(lang), exists.status);
-	}
+	const removed = await api("DELETE", `/api/resource/User/${encodeURIComponent(emailOf(lang))}`);
+	console.log("delete user", emailOf(lang), removed.status);
+	const created = await api("POST", "/api/resource/User", {
+		email: emailOf(lang),
+		first_name: `CssHeadroom${lang.toUpperCase()}`,
+		enabled: 1,
+		send_welcome_email: 0,
+		new_password: PASSWORD,
+		language: lang,
+		desk_theme: "Light",
+		roles: [{ role: "System Manager" }],
+	});
+	console.log("create user", emailOf(lang), created.status);
+	if (created.status >= 300) throw new Error(`cannot create ${emailOf(lang)}: ${created.text}`);
 }
-const setTheme = async (lang, theme) => {
-	const result = await api("PUT", `/api/resource/User/${encodeURIComponent(emailOf(lang))}`, { desk_theme: theme, language: lang });
-	if (result.status !== 200) throw new Error(`cannot set theme ${theme} for ${lang}: ${result.status} ${result.text}`);
-};
 
 // ---- Per-user browser contexts, logged in once per colour scheme.
 const sessions = new Map();
@@ -199,8 +194,11 @@ async function session(lang, scheme) {
 	const page = await context.newPage();
 	page.setDefaultTimeout(30000);
 	page.on("pageerror", (error) => console.log("[pageerror]", error.message.slice(0, 160)));
+	await page.goto(`${base}${P}`, { waitUntil: "domcontentloaded" });
+	await page.waitForFunction(() => window.frappe && frappe.csrf_token && frappe.csrf_token !== "{{ csrf_token }}", null, { timeout: 60000 });
+	const csrf = await page.evaluate(() => frappe.csrf_token);
 	await page.clock.setFixedTime(FIXED_TIME);
-	sessions.set(key, { context, page });
+	sessions.set(key, { context, page, csrf });
 	return sessions.get(key);
 }
 
@@ -266,16 +264,21 @@ const dumpPage = (page) =>
 	);
 
 const results = [];
+const servedByName = new Map();
 let lastTheme = new Map();
 for (const item of selected) {
 	const { lang, theme, scheme, density, screen } = item;
 	const entry = { id: item.id, lang, theme, os: scheme, density, screen: screen.name };
 	try {
+		const { page, context, csrf } = await session(lang, scheme);
 		if (lastTheme.get(lang) !== theme) {
-			await setTheme(lang, theme);
+			const switched = await context.request.post(`${base}/api/method/frappe.core.doctype.user.user.switch_theme`, {
+				form: { theme },
+				headers: { "X-Frappe-CSRF-Token": csrf },
+			});
+			if (switched.status() !== 200) throw new Error(`switch_theme ${theme} for ${lang}: ${switched.status()}`);
 			lastTheme.set(lang, theme);
 		}
-		const { page } = await session(lang, scheme);
 		await page.emulateMedia({ colorScheme: scheme });
 		await page.goto(base + screen.route);
 		await page.waitForSelector(screen.wait, { timeout: 30000 });
@@ -293,10 +296,24 @@ for (const item of selected) {
 		dump.id = item.id;
 		dump.info = entry.info;
 		writeFileSync(path.join(outDir, "dumps", `${item.id}.json.gz`), gzipSync(JSON.stringify(dump), { level: 9 }));
+		entry.deskBundle = dump.stylesheets.find((s) => /ins_desk/.test(s)) || null;
+		if (entry.deskBundle && !servedByName.has(entry.deskBundle)) {
+			// Hashed while the page uses it: a rebuild during the run deletes the old file. The bundle ends with
+			// a sourceMappingURL comment naming its own hashed file, so a second hash ignores that last line.
+			const response = await context.request.get(`${base}/assets/${entry.deskBundle}`);
+			const text = (await response.body()).toString("utf8");
+			servedByName.set(entry.deskBundle, {
+				status: response.status(),
+				bytes: Buffer.byteLength(text),
+				sha256: createHash("sha256").update(text).digest("hex"),
+				sha256WithoutSourceMapComment: createHash("sha256").update(text.replace(/\n?\/\*# sourceMappingURL=[^*]*\*\/\s*$/, "")).digest("hex"),
+			});
+		}
 		entry.elements = dump.paths.length;
 		entry.distinctStyles = dump.styles.length;
 		entry.nestedThemeElements = dump.nested.length;
 		entry.rootVariablesNonEmpty = Object.values(dump.root.variables).filter(Boolean).length;
+		if (!entry.deskBundle) throw new Error("no ins_desk bundle linked on this page: the theme is not installed on the site");
 		console.log(`ok ${item.id}: ${entry.elements} elements, ${entry.distinctStyles} styles, ${entry.nestedThemeElements} nested, data-theme=${entry.info.dataTheme}/${entry.info.mode}`);
 	} catch (error) {
 		entry.fail = error.message.split("\n")[0];
@@ -305,6 +322,11 @@ for (const item of selected) {
 	results.push(entry);
 }
 
+// The desk bundle files the captured pages linked, hashed as served over HTTP (they may differ from the first
+// and last assets.json entry if a rebuild landed during the run; the README of the evidence says what happened).
+const served = Object.fromEntries(servedByName);
+writeFileSync(path.join(outDir, "bundle-served.json"), JSON.stringify(served, null, 1) + "\n");
+console.log("served desk bundles", JSON.stringify(served));
 const ended = bundleState();
 writeFileSync(path.join(outDir, "bundle-end.json"), JSON.stringify(ended, null, 1) + "\n");
 writeFileSync(path.join(outDir, "index.json"), JSON.stringify({ version, base, matrix, only, started: started.at, ended: ended.at, results }, null, 1) + "\n");

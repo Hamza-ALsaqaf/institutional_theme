@@ -1,0 +1,14 @@
+{
+ "at": "2026-10-14T19:38:32.628Z",
+ "bench": "/home/user/frappe-bench",
+ "ins_desk.bundle.css": {
+  "url": "/assets/institutional_theme/dist/css/ins_desk.bundle.HG5CL44N.css",
+  "bytes": 149708,
+  "sha256": "28e8ac8bb544117c460103c0ec342075f03eecee8fef6ec30d66af03f219a87b"
+ },
+ "rtl_ins_desk.bundle.css": {
+  "url": "/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.HXWCBO42.css",
+  "bytes": 149708,
+  "sha256": "7540405cff471ec33e5bc69f56b6feefbe1f4443b061ce9c09f0a3af720ad851"
+ }
+}
