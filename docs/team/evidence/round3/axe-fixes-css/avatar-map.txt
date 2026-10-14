@@ -1,0 +1,15 @@
+Desk avatar pairs (css-engineer, round 3 wave 2). Same mapping as scss/web/_website.scss:227-236.
+Declared once on html:root[dir]; the --ins-* values switch with mode, so Light and Dark use the same lines.
+--orange-avatar-bg/-color      -> --ins-status-pending-bg / -fg
+--pink-avatar-bg/-color        -> --ins-status-plum-bg / -fg
+--blue-avatar-bg/-color        -> --ins-status-progress-bg / -fg
+--green-avatar-bg/-color       -> --ins-status-success-bg / -fg
+--dark-green-avatar-bg/-color  -> --ins-status-teal-bg / -fg
+--red-avatar-bg/-color         -> --ins-status-danger-bg / -fg
+--yellow-avatar-bg/-color      -> --ins-status-warning-bg / -fg
+--purple-avatar-bg/-color      -> --ins-status-special-bg / -fg
+--gray-avatar-bg/-color        -> --ins-status-neutral-bg / -fg
+Light values: pending #ffe7db/#652b00, plum #fee5ef/#652244, progress #dfefff/#004170, success #def3e6/#004c2c,
+teal #ddf2ef/#004945, danger #ffe6e4/#741417, warning #faf0d2/#584600, special #eaebff/#3a3472, neutral #f1f4f8/#424b57
+Dark values: pending #471b00/#ffd1b9, plum #46152e/#fdcde0, progress #002c4f/#c1e0ff, success #00341d/#c0e8cf,
+teal #00322f/#bee6e1, danger #510b0d/#ffcfca, warning #3c2f00/#f4e2ae, special #272250/#d8d8ff, neutral #1d252f/#d0d5db

@@ -1,0 +1,91 @@
+{
+ "variant": "themed",
+ "lang": "en",
+ "mode": "light",
+ "base": "http://localhost:8000",
+ "axe": "4.13.0",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa"
+ ],
+ "started": "2026-10-14T02:12:30.966Z",
+ "screens": {
+  "desktop": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.GXNRJ7LE.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "bypass": 1
+   },
+   "passes": 20
+  },
+  "workspace": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/build",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.GXNRJ7LE.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "bypass": 1,
+    "target-size": 1
+   },
+   "passes": 23
+  },
+  "list": {
+   "error": "page.waitForSelector: Timeout 30000ms exceeded."
+  },
+  "form": {
+   "error": "page.waitForSelector: Timeout 30000ms exceeded."
+  },
+  "datepicker": {
+   "error": "page.waitForSelector: Timeout 30000ms exceeded."
+  }
+ },
+ "finished": "2026-10-14T02:14:11.815Z"
+}

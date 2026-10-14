@@ -1,0 +1,15 @@
+import { createRequire } from "node:module";
+const req = createRequire("/home/runner/work/institutional_theme/institutional_theme/tests/browser/package.json");
+const { chromium } = req("playwright-core");
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const page = await (await b.newContext({ viewport: { width: 1280, height: 800 }, locale: "en-US", reducedMotion: "reduce", extraHTTPHeaders: { "Accept-Language": "en" } })).newPage();
+await page.goto("http://localhost:8000/login");
+await page.fill("#login_email", "axe-en-light@midad.test"); await page.fill("#login_password", "Mdd#Test2026x");
+await Promise.all([page.waitForURL(/\/desk|\/app/), page.click(".btn-login")]);
+await page.goto("http://localhost:8000/desk"); await page.waitForTimeout(4000); console.log(page.url()); await page.screenshot({path:"/tmp/r3/css/f.png"}); await page.waitForSelector(".folder-icon .icons > .desktop-icon",{state:"attached"});
+const m = () => page.evaluate(() => { const f = document.querySelector(".folder-icon:not(.desktop-icon .folder-icon)") || document.querySelector(".folder-icon"); const t = [...document.querySelectorAll(".folder-icon .icons > .desktop-icon .icon-container")].slice(0,9).map(e => { const r = e.getBoundingClientRect(); return [Math.round(r.x*10)/10, Math.round(r.y*10)/10]; }); const r = f.getBoundingClientRect(); return { folder: [r.width, r.height], thumbs: JSON.stringify(t) }; });
+const after = await m();
+await page.addStyleTag({ content: "html:root[dir] .folder-icon .icons > .desktop-icon{min-block-size:0!important;min-inline-size:0!important;margin:0!important}" });
+const before = await m();
+console.log(JSON.stringify({ after, before, same: JSON.stringify(after) === JSON.stringify(before) }));
+await b.close();

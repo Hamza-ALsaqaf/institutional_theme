@@ -1,0 +1,22 @@
+// Desk avatar initials: the nine per-colour pairs core reads inline (`style="background-color: var(--pink-avatar-bg)"`).
+// Remapped to the status pairs, all above 4.5:1 in both modes (the same mapping as web/_website.scss); values switch with the mode.
+html:root[dir] {
+	--orange-avatar-bg: var(--ins-status-pending-bg);
+	--orange-avatar-color: var(--ins-status-pending-fg);
+	--pink-avatar-bg: var(--ins-status-plum-bg);
+	--pink-avatar-color: var(--ins-status-plum-fg);
+	--blue-avatar-bg: var(--ins-status-progress-bg);
+	--blue-avatar-color: var(--ins-status-progress-fg);
+	--green-avatar-bg: var(--ins-status-success-bg);
+	--green-avatar-color: var(--ins-status-success-fg);
+	--dark-green-avatar-bg: var(--ins-status-teal-bg);
+	--dark-green-avatar-color: var(--ins-status-teal-fg);
+	--red-avatar-bg: var(--ins-status-danger-bg);
+	--red-avatar-color: var(--ins-status-danger-fg);
+	--yellow-avatar-bg: var(--ins-status-warning-bg);
+	--yellow-avatar-color: var(--ins-status-warning-fg);
+	--purple-avatar-bg: var(--ins-status-special-bg);
+	--purple-avatar-color: var(--ins-status-special-fg);
+	--gray-avatar-bg: var(--ins-status-neutral-bg);
+	--gray-avatar-color: var(--ins-status-neutral-fg);
+}

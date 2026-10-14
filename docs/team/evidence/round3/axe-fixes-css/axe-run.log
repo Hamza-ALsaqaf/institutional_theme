@@ -1,0 +1,25 @@
+axe-en-light@midad.test updated 500
+axe-en-dark@midad.test updated 200
+axe-ar-light@midad.test updated 200
+axe-ar-dark@midad.test updated 200
+themed en-light desktop: 1 rules, 1 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-light workspace: 1 rules, 1 nodes (theme=light, dir=ltr, ins sheets=1)
+FAIL themed en-light list: page.waitForSelector: Timeout 30000ms exceeded.
+FAIL themed en-light form: page.waitForSelector: Timeout 30000ms exceeded.
+FAIL themed en-light datepicker: page.waitForSelector: Timeout 30000ms exceeded.
+themed en-dark desktop: 1 rules, 1 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark workspace: 1 rules, 1 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark list: 1 rules, 1 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark form: 1 rules, 1 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark datepicker: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed ar-light desktop: 1 rules, 1 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light workspace: 1 rules, 1 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light list: 1 rules, 1 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light form: 1 rules, 1 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light datepicker: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-dark desktop: 1 rules, 1 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark workspace: 1 rules, 1 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark list: 1 rules, 1 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark form: 1 rules, 1 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark datepicker: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=1)
+summary: 14 nodes, theme 14, core 0

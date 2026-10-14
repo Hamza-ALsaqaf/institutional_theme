@@ -1,0 +1,40 @@
+# Avatar colour pairs (4.5:1 required for the 12 to 14 px initials)
+
+| mode | variant | pair | foreground | background | ratio | pass |
+|---|---|---|---|---|---|---|
+| light | themed | orange | #652b00 | #ffe7db | 9.32 | yes |
+| light | themed | pink | #652244 | #fee5ef | 9.47 | yes |
+| light | themed | blue | #004170 | #dfefff | 9.01 | yes |
+| light | themed | green | #004c2c | #def3e6 | 8.73 | yes |
+| light | themed | dark-green | #004945 | #ddf2ef | 8.84 | yes |
+| light | themed | red | #741417 | #ffe6e4 | 9.54 | yes |
+| light | themed | yellow | #584600 | #faf0d2 | 8.06 | yes |
+| light | themed | purple | #3a3472 | #eaebff | 9.31 | yes |
+| light | themed | gray | #424b57 | #f1f4f8 | 8.01 | yes |
+| light | core | orange | #d45a08 | #fff1e7 | 3.61 | NO |
+| light | core | pink | #e34aa6 | #fff7fc | 3.44 | NO |
+| light | core | blue | #0289f7 | #f7fbfd | 3.41 | NO |
+| light | core | green | #16794c | #daf0e1 | 4.53 | yes |
+| light | core | dark-green | #16794c | #daf0e1 | 4.53 | yes |
+| light | core | red | #e03636 | #fff7f7 | 4.19 | NO |
+| light | core | yellow | #edba13 | #fffcef | 1.76 | NO |
+| light | core | purple | #9c45e3 | #fdfaff | 4.64 | yes |
+| light | core | gray | #525252 | #f8f8f8 | 7.36 | yes |
+| dark | themed | orange | #ffd1b9 | #471b00 | 10.58 | yes |
+| dark | themed | pink | #fdcde0 | #46152e | 10.65 | yes |
+| dark | themed | blue | #c1e0ff | #002c4f | 10.44 | yes |
+| dark | themed | green | #c0e8cf | #00341d | 10.39 | yes |
+| dark | themed | dark-green | #bee6e1 | #00322f | 10.42 | yes |
+| dark | themed | red | #ffcfca | #510b0d | 10.71 | yes |
+| dark | themed | yellow | #f4e2ae | #3c2f00 | 10.22 | yes |
+| dark | themed | purple | #d8d8ff | #272250 | 10.61 | yes |
+| dark | themed | gray | #d0d5db | #1d252f | 10.47 | yes |
+| dark | core | orange | #fff1e7 | #d45a08 | 3.61 | NO |
+| dark | core | pink | #fff7fc | #e34aa6 | 3.44 | NO |
+| dark | core | blue | #f7fbfd | #0289f7 | 3.41 | NO |
+| dark | core | green | #e4f5e9 | #59ba8b | 2.10 | NO |
+| dark | core | dark-green | #e4f5e9 | #59ba8b | 2.10 | NO |
+| dark | core | red | #fff7f7 | #e03636 | 4.19 | NO |
+| dark | core | yellow | #fffcef | #edba13 | 1.76 | NO |
+| dark | core | purple | #fdfaff | #9c45e3 | 4.64 | yes |
+| dark | core | gray | #f8f8f8 | #383838 | 11.04 | yes |

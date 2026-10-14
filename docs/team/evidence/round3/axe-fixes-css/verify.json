@@ -1,0 +1,478 @@
+[
+ {
+  "tag": "en-light",
+  "name": "datepicker other-month day",
+  "fg": "rgb(88, 97, 109)",
+  "bg": "rgb(255, 255, 255)",
+  "ratio": 6.28,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "datepicker nav-title icon",
+  "fg": "rgb(88, 97, 109)",
+  "bg": "rgb(255, 255, 255)",
+  "ratio": 6.28,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs base",
+  "fg": "rgb(40, 49, 60)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 12.48,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-function",
+  "fg": "rgb(40, 49, 60)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 12.48,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-keyword",
+  "fg": "rgb(58, 52, 114)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.4,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-title",
+  "fg": "rgb(0, 65, 112)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-params",
+  "fg": "rgb(101, 43, 0)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.49,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-comment",
+  "fg": "rgb(88, 97, 109)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 5.95,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-string",
+  "fg": "rgb(0, 76, 44)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 9.62,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-built_in",
+  "fg": "rgb(101, 43, 0)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.49,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "hljs-number",
+  "fg": "rgb(101, 43, 0)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.49,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "onb-progress-badge",
+  "fg": "rgb(88, 70, 0)",
+  "bg": "rgb(250, 240, 210)",
+  "ratio": 8.06,
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "folder thumbnail anchors",
+  "n": 9,
+  "minSide": 24,
+  "thumb": [
+   16,
+   16
+  ],
+  "folder": [
+   54,
+   52.9375
+  ],
+  "pass": true
+ },
+ {
+  "tag": "en-light",
+  "name": "timeline link",
+  "deco": "underline",
+  "color": "rgb(0, 88, 149)",
+  "parent": "rgb(66, 75, 87)",
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "datepicker other-month day",
+  "fg": "rgb(157, 164, 172)",
+  "bg": "rgb(29, 37, 47)",
+  "ratio": 6.14,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "datepicker nav-title icon",
+  "fg": "rgb(157, 164, 172)",
+  "bg": "rgb(29, 37, 47)",
+  "ratio": 6.14,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs base",
+  "fg": "rgb(223, 227, 232)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 14.7,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-function",
+  "fg": "rgb(223, 227, 232)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 14.7,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-keyword",
+  "fg": "rgb(216, 216, 255)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.7,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-title",
+  "fg": "rgb(193, 224, 255)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.87,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-params",
+  "fg": "rgb(255, 209, 185)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.6,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-comment",
+  "fg": "rgb(157, 164, 172)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 7.52,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-string",
+  "fg": "rgb(192, 232, 207)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 14.15,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-built_in",
+  "fg": "rgb(255, 209, 185)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.6,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "hljs-number",
+  "fg": "rgb(255, 209, 185)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.6,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "onb-progress-badge",
+  "fg": "rgb(244, 226, 174)",
+  "bg": "rgb(60, 47, 0)",
+  "ratio": 10.22,
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "folder thumbnail anchors",
+  "n": 9,
+  "minSide": 24,
+  "thumb": [
+   16,
+   16
+  ],
+  "folder": [
+   54,
+   52.9375
+  ],
+  "pass": true
+ },
+ {
+  "tag": "en-dark",
+  "name": "timeline link",
+  "deco": "underline",
+  "color": "rgb(150, 203, 255)",
+  "parent": "rgb(185, 190, 198)",
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "datepicker other-month day",
+  "fg": "rgb(88, 97, 109)",
+  "bg": "rgb(255, 255, 255)",
+  "ratio": 6.28,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "datepicker nav-title icon",
+  "fg": "rgb(88, 97, 109)",
+  "bg": "rgb(255, 255, 255)",
+  "ratio": 6.28,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs base",
+  "fg": "rgb(40, 49, 60)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 12.48,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-function",
+  "fg": "rgb(40, 49, 60)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 12.48,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-keyword",
+  "fg": "rgb(58, 52, 114)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.4,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-title",
+  "fg": "rgb(0, 65, 112)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-params",
+  "fg": "rgb(101, 43, 0)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.49,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-comment",
+  "fg": "rgb(88, 97, 109)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 5.95,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-string",
+  "fg": "rgb(0, 76, 44)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 9.62,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-built_in",
+  "fg": "rgb(101, 43, 0)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.49,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "hljs-number",
+  "fg": "rgb(101, 43, 0)",
+  "bg": "rgb(247, 249, 252)",
+  "ratio": 10.49,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "onb-progress-badge",
+  "fg": "rgb(88, 70, 0)",
+  "bg": "rgb(250, 240, 210)",
+  "ratio": 8.06,
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "folder thumbnail anchors",
+  "n": 9,
+  "minSide": 24,
+  "thumb": [
+   16,
+   16
+  ],
+  "folder": [
+   54,
+   52.9375
+  ],
+  "pass": true
+ },
+ {
+  "tag": "ar-light",
+  "name": "timeline link",
+  "deco": "underline",
+  "color": "rgb(0, 88, 149)",
+  "parent": "rgb(66, 75, 87)",
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "datepicker other-month day",
+  "fg": "rgb(157, 164, 172)",
+  "bg": "rgb(29, 37, 47)",
+  "ratio": 6.14,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "datepicker nav-title icon",
+  "fg": "rgb(157, 164, 172)",
+  "bg": "rgb(29, 37, 47)",
+  "ratio": 6.14,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs base",
+  "fg": "rgb(223, 227, 232)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 14.7,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-function",
+  "fg": "rgb(223, 227, 232)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 14.7,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-keyword",
+  "fg": "rgb(216, 216, 255)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.7,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-title",
+  "fg": "rgb(193, 224, 255)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.87,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-params",
+  "fg": "rgb(255, 209, 185)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.6,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-comment",
+  "fg": "rgb(157, 164, 172)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 7.52,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-string",
+  "fg": "rgb(192, 232, 207)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 14.15,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-built_in",
+  "fg": "rgb(255, 209, 185)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.6,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "hljs-number",
+  "fg": "rgb(255, 209, 185)",
+  "bg": "rgb(11, 17, 25)",
+  "ratio": 13.6,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "onb-progress-badge",
+  "fg": "rgb(244, 226, 174)",
+  "bg": "rgb(60, 47, 0)",
+  "ratio": 10.22,
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "folder thumbnail anchors",
+  "n": 9,
+  "minSide": 24,
+  "thumb": [
+   16,
+   16
+  ],
+  "folder": [
+   54,
+   52.9375
+  ],
+  "pass": true
+ },
+ {
+  "tag": "ar-dark",
+  "name": "timeline link",
+  "deco": "underline",
+  "color": "rgb(150, 203, 255)",
+  "parent": "rgb(185, 190, 198)",
+  "pass": true
+ }
+]

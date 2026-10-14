@@ -1,0 +1,10 @@
+// Desktop (apps) screen: folder thumbnails keep their look but reach the 24px target size of WCAG 2.2 criterion 2.5.8.
+// Core draws 16-18px anchors (desk/page/desktop/desktop.css:278-308) that are links with href; the extra box is taken back with
+// negative margins (-3px each side inline, -6px at the block end) so the grid tracks and the icon positions are unchanged.
+html:root[dir] .folder-icon .icons > .desktop-icon {
+	justify-content: flex-start;
+	min-block-size: 24px;
+	min-inline-size: 24px;
+	margin-block: 0 -6px;
+	margin-inline: -3px;
+}
