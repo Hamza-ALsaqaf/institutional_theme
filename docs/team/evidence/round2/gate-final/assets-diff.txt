@@ -1,0 +1,119 @@
+### diff assets-before.txt assets-installed.txt
+--- /dev/fd/63	2026-10-13 23:46:31.793397666 +0000
++++ /dev/fd/62	2026-10-13 23:46:31.794397660 +0000
+@@ -2,14 +2,16 @@
+ 
+ # GET /login -> 200
+ 
+-## /login stylesheets (3)
++## /login stylesheets (4)
+ /assets/frappe/dist/css/website.bundle.7MUCHLW7.css
+ /assets/erpnext/dist/css/erpnext-web.bundle.ZB3WZUOJ.css
++/assets/institutional_theme/dist/css/ins_web.bundle.Q7ZRXVQD.css
+ /assets/frappe/dist/css/login.bundle.ZDEYZH7C.css
+ 
+-## /login scripts (2)
++## /login scripts (3)
+ /assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js
+ /website_script.js
++/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js
+ 
+ ## /login data-theme attributes (raw html) (0)
+ 
+@@ -20,12 +22,13 @@
+ 
+ # GET /app -> 200
+ 
+-## /app stylesheets (3)
++## /app stylesheets (4)
+ /assets/frappe/dist/css/desk.bundle.SGNTHL6V.css
+ /assets/frappe/dist/css/report.bundle.X7VD7WVU.css
+ /assets/erpnext/dist/css/erpnext.bundle.L3RSL5EV.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.PQTNKGP5.css
+ 
+-## /app scripts (9)
++## /app scripts (10)
+ /assets/frappe/dist/js/libs.bundle.JEM3HUCP.js
+ /assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js
+ /assets/frappe/dist/js/desk.bundle.RY6OWFAD.js
+@@ -35,6 +38,7 @@
+ /assets/frappe/dist/js/report.bundle.JY4YJS53.js
+ /assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+ /assets/erpnext/dist/js/erpnext.bundle.DZUIK47Y.js
++/assets/institutional_theme/dist/js/ins_shell.bundle.CY2MEEL6.js
+ 
+ ## /app data-theme attributes (raw html) (2)
+ data-theme-mode="light"
+@@ -43,8 +47,9 @@
+ ## /app/todo data-theme (live DOM)
+ {"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+ 
+-## /app/todo stylesheets (live DOM) (3)
++## /app/todo stylesheets (live DOM) (4)
+ /assets/frappe/dist/css/desk.bundle.SGNTHL6V.css
+ /assets/frappe/dist/css/report.bundle.X7VD7WVU.css
+ /assets/erpnext/dist/css/erpnext.bundle.L3RSL5EV.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.PQTNKGP5.css
+ 
+
+### diff assets-before.txt assets-after-uninstall.txt
+(identical)
+
+### diff assets-installed.txt assets-after-uninstall.txt
+--- /dev/fd/63	2026-10-13 23:46:31.798397639 +0000
++++ /dev/fd/62	2026-10-13 23:46:31.798397639 +0000
+@@ -2,16 +2,14 @@
+ 
+ # GET /login -> 200
+ 
+-## /login stylesheets (4)
++## /login stylesheets (3)
+ /assets/frappe/dist/css/website.bundle.7MUCHLW7.css
+ /assets/erpnext/dist/css/erpnext-web.bundle.ZB3WZUOJ.css
+-/assets/institutional_theme/dist/css/ins_web.bundle.Q7ZRXVQD.css
+ /assets/frappe/dist/css/login.bundle.ZDEYZH7C.css
+ 
+-## /login scripts (3)
++## /login scripts (2)
+ /assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js
+ /website_script.js
+-/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js
+ 
+ ## /login data-theme attributes (raw html) (0)
+ 
+@@ -22,13 +20,12 @@
+ 
+ # GET /app -> 200
+ 
+-## /app stylesheets (4)
++## /app stylesheets (3)
+ /assets/frappe/dist/css/desk.bundle.SGNTHL6V.css
+ /assets/frappe/dist/css/report.bundle.X7VD7WVU.css
+ /assets/erpnext/dist/css/erpnext.bundle.L3RSL5EV.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.PQTNKGP5.css
+ 
+-## /app scripts (10)
++## /app scripts (9)
+ /assets/frappe/dist/js/libs.bundle.JEM3HUCP.js
+ /assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js
+ /assets/frappe/dist/js/desk.bundle.RY6OWFAD.js
+@@ -38,7 +35,6 @@
+ /assets/frappe/dist/js/report.bundle.JY4YJS53.js
+ /assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+ /assets/erpnext/dist/js/erpnext.bundle.DZUIK47Y.js
+-/assets/institutional_theme/dist/js/ins_shell.bundle.CY2MEEL6.js
+ 
+ ## /app data-theme attributes (raw html) (2)
+ data-theme-mode="light"
+@@ -47,9 +43,8 @@
+ ## /app/todo data-theme (live DOM)
+ {"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+ 
+-## /app/todo stylesheets (live DOM) (4)
++## /app/todo stylesheets (live DOM) (3)
+ /assets/frappe/dist/css/desk.bundle.SGNTHL6V.css
+ /assets/frappe/dist/css/report.bundle.X7VD7WVU.css
+ /assets/erpnext/dist/css/erpnext.bundle.L3RSL5EV.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.PQTNKGP5.css
+ 
+

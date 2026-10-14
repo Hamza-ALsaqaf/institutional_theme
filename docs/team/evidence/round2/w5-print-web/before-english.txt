@@ -1,0 +1,88 @@
+== home lang=ar
+Ctrl+K
+Frappe Framework
+== workspace lang=ar
+pw-w5-ar@midad.test
+الصفحة accounting غير موجود
+== list lang=ar
+ERPNext
+Ctrl+K
+Tax Template
+مصدر UTM
+pw-w5-ar@midad.test
+Selling Setup
+Create Customer
+Create Item
+View Sales Order Analysis
+Review Selling Settings
+customer_name
+Begin typing for results.
+customer_group
+territory
+== form lang=ar
+ERPNext
+Ctrl+K
+Tax Template
+مصدر UTM
+pw-w5-ar@midad.test
+Selling Setup
+Create Customer
+Create Item
+View Sales Order Analysis
+Review Selling Settings
+customer_type
+== report lang=ar
+ERPNext
+Ctrl+K
+pw-w5-ar@midad.test
+Accounting Onboarding
+Configure Chart of Accounts
+Setup Sales Taxes
+View Balance Sheet
+Review Accounts Settings
+Begin typing for results.
+company
+مدين (SAR)
+الائتمان (SAR)
+الرصيد (SAR)
+== gantt lang=ar
+ERPNext
+Ctrl+K
+pw-w5-ar@midad.test
+subject
+Begin typing for results.
+project
+status
+priority
+October
+November
+December
+CssR2 Survey (TASK-2026-00001)
+CssR2 Scan batch (TASK-2026-00002)
+CssR2 Review (TASK-2026-00003)
+== dash lang=ar
+Frappe Framework
+Ctrl+K
+pw-w5-ar@midad.test
+full_name
+username
+Begin typing for results.
+user_type
+System User
+a11y-r2-en@midad.test
+a11y-r2-ar@midad.test
+be-r2-ar@midad.test
+be-r2-en@midad.test
+CssR2 norole
+css-r2-norole-en@midad.test
+css-r2-norole-ar@midad.test
+CssR2 ardark
+css-r2-ar-dark@midad.test
+CssR2 arlight
+css-r2-ar-light@midad.test
+CssR2 endark
+css-r2-en-dark@midad.test
+CssR2 enlight
+css-r2-en-light@midad.test
+Test Administrator
+admin@example.com

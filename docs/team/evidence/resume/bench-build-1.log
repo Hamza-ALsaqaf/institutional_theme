@@ -1,0 +1,119 @@
+STEP preflight START 2026-10-13T17:35:27Z
+postgres (PostgreSQL) 16.15 (Ubuntu 16.15-1.pgdg24.04+2)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92
+git version 2.55.0
+uv 0.13.0 (x86_64-unknown-linux-gnu)
+STEP preflight END 1s
+STEP user START 2026-10-13T17:35:28Z
+Python 3.14.8
+v24.21.0
+Error: EACCES: permission denied, open '/home/runner/.yarnrc'
+    at Object.openSync (node:fs:621:18)
+    at readFileSync (node:fs:487:35)
+    at /usr/local/lib/node_modules/yarn/lib/cli.js:97915:58
+    at Array.map (<anonymous>)
+    at parseRcPaths (/usr/local/lib/node_modules/yarn/lib/cli.js:97913:78)
+    at Object.findRc (/usr/local/lib/node_modules/yarn/lib/cli.js:97927:10)
+    at getRcConfigForCwd (/usr/local/lib/node_modules/yarn/lib/cli.js:57500:74)
+    at /usr/local/lib/node_modules/yarn/lib/cli.js:89251:56
+    at Generator.next (<anonymous>)
+    at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+
+real	0m57.119s
+user	0m0.197s
+sys	0m1.143s
+STEP user START 2026-10-13T17:36:32Z
+Python 3.14.8
+v24.21.0
+Error: EACCES: permission denied, open '/home/runner/.config/yarn'
+    at Object.openSync (node:fs:621:18)
+    at readFileSync (node:fs:487:35)
+    at /usr/local/lib/node_modules/yarn/lib/cli.js:97915:58
+    at Array.map (<anonymous>)
+    at parseRcPaths (/usr/local/lib/node_modules/yarn/lib/cli.js:97913:78)
+    at Object.findRc (/usr/local/lib/node_modules/yarn/lib/cli.js:97927:10)
+    at getRcConfigForCwd (/usr/local/lib/node_modules/yarn/lib/cli.js:57500:74)
+    at /usr/local/lib/node_modules/yarn/lib/cli.js:89251:56
+    at Generator.next (<anonymous>)
+    at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+
+real	0m0.173s
+user	0m0.102s
+sys	0m0.075s
+STEP user START 2026-10-13T17:36:41Z
+Python 3.14.8
+v24.21.0
+1.22.22
+fatal: failed to stat '/home/runner/work/institutional_theme/institutional_theme': Permission denied
+
+real	0m0.211s
+user	0m0.107s
+sys	0m0.097s
+STEP user START 2026-10-13T17:36:44Z
+Python 3.14.8
+v24.21.0
+1.22.22
+STEP user END 1s
+STEP cli START 2026-10-13T17:36:45Z
+Resolved 19 packages in 190ms
+Downloading setuptools (1.0MiB)
+Downloading uv (21.2MiB)
+ Downloaded setuptools
+ Downloaded uv
+Prepared 19 packages in 165ms
+Installed 19 packages in 12ms
+ + certifi==2026.7.22
+ + charset-normalizer==3.5.2
+ + click==8.2.1
+ + frappe-bench==5.31.0
+ + gitdb==4.0.12
+ + gitpython==3.1.62
+ + honcho==2.0.0
+ + idna==3.20
+ + jinja2==3.1.6
+ + markupsafe==3.0.4
+ + python-crontab==2.6.0
+ + python-dateutil==2.9.0.post0
+ + requests==2.33.1
+ + semantic-version==2.10.0
+ + setuptools==81.0.0
+ + six==1.17.0
+ + smmap==5.0.3
+ + urllib3==2.8.0
+ + uv==0.11.33
+Installed 1 executable: bench
+5.31.0
+STEP cli END 1s
+STEP postgres START 2026-10-13T17:36:46Z
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "C.UTF-8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+creating directory /var/lib/postgresql/16/midad ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Etc/UTC
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+Success. You can now start the database server using:
+
+    /usr/lib/postgresql/16/bin/pg_ctl -D /var/lib/postgresql/16/midad -l logfile start
+
+waiting for server to start.... done
+server started
+127.0.0.1:5432 - accepting connections
+STEP postgres END 1s
+TOTAL 3s
+
+real	0m2.891s
+user	0m1.288s
+sys	0m0.548s

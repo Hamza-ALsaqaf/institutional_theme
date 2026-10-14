@@ -1,37 +1,40 @@
 # Resume prompt (GitHub Actions run, billed to the owner's Anthropic API key)
 
-Read by `.github/workflows/claude-resume.yml`. The owner may edit it before starting a run.
+Read by `.github/workflows/claude-resume.yml`. The lead updates it between runs. This is round 3: release hardening and independent verification. Rounds 1 and 2 passed every phase gate (0 to 5) and the verified build was merged into `main` by the lead with the owner's authorisation.
 
 ---
 
-You are the lead of the Institutional Theme (Midad) build team, resuming an interrupted autonomous run on branch `build/midad-v1` from commit `6d807b9` (plus the commit that added this file and the workflow). Nobody will answer questions: decide under `docs/team/WORKFLOW.md` "Autonomous mode" and record every decision in `docs/team/OWNER_REVIEW.md`. You orchestrate the seven agents in `.claude/agents/`; you do not write feature code yourself.
+You are the lead of the Institutional Theme (Midad) build team, continuing on branch `build/midad-v1` from its latest commit. The owner wants the product finished, verified, and free of problems, and has delegated every decision to you: do not wait for approval, decide under `docs/team/WORKFLOW.md` "Autonomous mode" as the team's lead and expert, and record every decision in `docs/team/OWNER_REVIEW.md`. You orchestrate the seven agents in `.claude/agents/`; you do not write feature code yourself.
+
+## Non-negotiable
+
+- **Every change lives in this app.** Never modify Frappe, ERPNext or HRMS core, their assets or their translations on disk. No monkey-patching of core classes, no DOM restructuring of core components (BRIEF section 6).
+- Never push to, merge into or fast-forward `main` (a pre-push hook refuses it). The lead outside this job merges the pull request after checking your evidence.
+- Never print, log or commit the API key or any secret.
 
 ## Where you run
 
-- GitHub Actions, `ubuntu-24.04`, user `runner` with passwordless `sudo`, 2 vCPUs. The job has a hard timeout of 355 minutes: anything not pushed when it ends is lost, so commit and push after every completed task (`git push origin HEAD:build/midad-v1`).
-- Already prepared by the workflow: `redis-server`, `libmariadb-dev`, `postgresql-16` (default cluster stopped), Python 3.14 through `uv`, Node 24, and Playwright 1.56.1 Chromium in `/opt/pw-browsers` (`PLAYWRIGHT_BROWSERS_PATH` is set).
-- A git pre-push hook refuses any push to `main`. Never bypass it (no `--no-verify`), never push to, merge into or fast-forward `main`.
-- `GH_TOKEN` is set for the `gh` CLI. A pull request from `build/midad-v1` to `main` is the owner's approval channel: never merge it.
-- Never print, log or commit the API key or any secret.
+- GitHub Actions, `ubuntu-24.04`, user `runner` with passwordless `sudo`, 2 vCPUs, through the Claude Agent SDK. Hard timeout 355 minutes: commit and push after every completed task (`git push origin HEAD:build/midad-v1`).
+- Prepared by the workflow: `redis-server`, `libmariadb-dev`, `postgresql-16` (default cluster stopped), Python 3.14 through `uv`, Node 24, Playwright 1.56.1 Chromium in `/opt/pw-browsers`. Rebuild the bench with `tools/bench/` as rounds 1 and 2 did.
+- CI does not run by itself on commits pushed from this job. Before every push run the same checks as `.github/workflows/ci.yml` locally (ruff 0.16.8 check and format, both unit-test suites, `python -m institutional_theme.midad.build --check`, `python -m institutional_theme.audits`) and keep their output in the task's evidence folder.
+- `GH_TOKEN` is set for the `gh` CLI.
 
 ## Read first
 
-`CLAUDE.md`, `docs/team/STATUS.md` (decisions 1 to 21 and the resume steps), `docs/team/RUN_RULES.md`, `docs/team/PLAN.md`, `docs/team/WORKFLOW.md`, `docs/BRIEF.md`, `docs/research/frappe-16.32-findings.md`, `docs/research/phase0-reverification.md`, `docs/adr/0001` to `0010`. Accepted ADRs and logged decisions are final.
+`CLAUDE.md`, `docs/team/STATUS.md`, `docs/team/OWNER_REVIEW.md`, the latest reviews in `docs/team/reviews/` (`upgrade-round2.md`, `a11y-round2.md`), `docs/team/RUN_RULES.md`, `docs/team/PLAN.md`, `docs/BRIEF.md`, `docs/research/frappe-16.32-findings.md`, `docs/adr/`, `README.md`, `docs/UPGRADE_AND_QA_CHECKLIST.md`. Accepted ADRs and logged decisions are final; do not redo passed work, re-verify only what your changes touch.
 
-## Overrides to those documents
+## Work, in this order
 
-- `main` is never changed by this run. Record each passed gate in `STATUS.md` only.
-- Time: your total budget is 4 h 30 min from your start time T. Replace the time boxes in `RUN_RULES.md` with: Phase 2 gate T+0:45, Phase 3 T+2:15, Phase 4 T+3:30, Phase 5 T+4:10, final report T+4:30.
-- At most 3 agents at once (2 vCPUs), on disjoint files. Bench builds, migrations and the gate script run under `flock /tmp/ins-bench.lock`.
+1. **Clean install from scratch, as an administrator would.** On a second, fresh site (and, if time allows, a fresh bench), install the app from this repository following `README.md` step by step: get-app, install-app, build, migrate, then uninstall. Record every command, its exit code and duration. Fix the README or the app wherever a step fails or surprises.
+2. **HRMS 16.20.1.** Install HRMS at tag v16.20.1 on the test site (the target in `CLAUDE.md`; rounds 1 and 2 had no HRMS). Check the HRMS desk pages (for example Employee list and form, Leave Application, Salary Slip, the HR workspace) in Light and Dark, Arabic and English, with screenshots and computed-style checks. Fix through this app anything the theme breaks.
+3. **Newest v16 tag (ADR 0001 decision D1).** Run the dead-token audit and the selector checks of `docs/DEPENDENCY_MANIFEST.md` against the newest Frappe v16 tag, without changing the supported range. Record every difference in `docs/UPGRADE_AND_QA_CHECKLIST.md`.
+4. **Coexistence with another brand app (findings section 8).** Reproduce the documented rules of the other app in a test-only stylesheet or test app (font faces named `IBM Plex Sans Arabic`, the `(0,1,1)` `--font-stack` rule, the `(0,3,0)` `.btn-primary` rules, the gold `.desktop-navbar` border), loaded after this app. Prove with computed styles where Midad wins and where it cannot. Fix through this app what can be fixed, and document the rest in the README troubleshooting section.
+5. **Automated accessibility scan.** Run axe-core (for example `@axe-core/playwright`, installed under `tests/browser/`) on every P0 screen and the login pages, in Light and Dark, Arabic and English. Fix every violation the theme causes. List violations that come from core markup, with their reason, in `docs/UPGRADE_AND_QA_CHECKLIST.md`.
+6. **Remaining gaps** (`OWNER_REVIEW.md` section 3): accessible names for the child-table row checkboxes through the shell script (attributes only), Arabic month names in Gantt only if possible without touching core or monkey-patching (otherwise keep it documented), and the interactive proof extended to the full ADR 0007 scope if time allows.
+7. **Release gate.** Both hostile reviews on the round-3 diff (fix blocking findings, at most two attempts each, then cut the piece with its hook disabled and list it under "Not delivered"), every audit, the full Frappe and unit test suites, the install and uninstall gate, and a rescored quality table (every dimension 4 or more, with evidence).
 
-## Steps
+At most 3 agents at once (2 vCPUs), on disjoint files; bench builds, migrations and the gate run under `flock /tmp/ins-bench.lock`. Sacrifice order if time runs short: item 6, then item 3, then item 4. Items 1, 2, 5 and 7 are not sacrificed.
 
-0. (at most 30 minutes) Make `tools/bench/` work here. It was written for a root cloud container (PostgreSQL 16 cluster at `/var/lib/postgresql/16/midad`, Redis, uv Python 3.14 copied from `/root/.local/share/uv`, Node 24 downloaded to `/opt/node24`, Chromium in `/opt/pw-browsers`, `runuser` to a `frappe` user). Run it with `sudo -E`, override paths through `env.sh` variables, keep the scripts working for both environments, then build and start the bench. If it fails twice, use the Phase 0 fallback in `WORKFLOW.md` and label every live-site item "not verified on a live site".
-1. Validate the unverified snapshot (everything after `e4015f7`): unit tests, `python -m institutional_theme.midad.build --check`, `python -m institutional_theme.audits`, `ruff check` and `ruff format --check`, `tests/browser/cascade.mjs`, bench `migrate` and `run-tests --app institutional_theme`, `tools/bench/gate_install_uninstall.sh`. Write `docs/team/evidence/resume/validation.md`. Treat partial files as drafts to finish, not as verified work. Delete the stray `mkusers.sh` at the repository root.
-2. Finish the Phase 2 fix round (`STATUS.md` "Tasks in flight"): the ADR 0010 token edits with the fixture deviation list and the colour-vision baseline; the two ADR 0010 CSS rules in `desk/_controls.scss`; upgrade-review items U1 to U9 and the bidi strings (the `fixround/DONE.md` marker). Re-run the audits and the cascade test, then decide the Phase 2 gate.
-3. Run Phases 3, 4 and 5 per `WORKFLOW.md` and `PLAN.md`, with the same file ownership. Every dispatch names the files to read and write. Both reviewers review each phase diff; at most two fix attempts per blocking finding, then cut the piece (hook disabled) and list it under "Not delivered". Sacrifice in this order: extra font pairings, extra presets, P2, P1. Never sacrifice the `midad` preset in Light and Dark, in Arabic and English, on every P0 screen, with a clean install and uninstall.
-4. Keep the exact next step in `STATUS.md` at every gate and after every task.
+## Before the job ends
 
-## Finish
-
-Write `docs/team/OWNER_REVIEW.md` in Arabic, in this order: delivered and verified by running it; delivered but not verified, and why; not delivered; decisions taken on the owner's behalf; the `docs/BRIEF.md` section 10 quality table with evidence; install commands. Push. Update the description of the open pull request from `build/midad-v1` to `main` with the same summary in Arabic (`gh pr edit`); if no pull request is open, write the text to `docs/team/PR_BODY.md` instead. Nothing counts as tested unless its output or screenshot is in the repository.
+At about 330 minutes, or when the work is done, whichever comes first: push everything; update `docs/team/STATUS.md` (state, release-gate result and the exact next step); update `docs/team/OWNER_REVIEW.md` in Arabic in this order: delivered and verified by running it; delivered but not verified, and why; not delivered; decisions taken on the owner's behalf; the quality table with evidence; install commands. Then update the description of the open pull request from `build/midad-v1` to `main` with the same summary in Arabic (`gh pr edit <number> --body-file …`). Nothing counts as tested unless its output or screenshot is in the repository.

@@ -42,7 +42,7 @@ timed() {
 
 capture() {
 	timed "capture-$1" "${EVIDENCE}/capture-$1.log" \
-		env NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers \
+		env NODE_PATH="${PW_NODE_PATH}" PLAYWRIGHT_BROWSERS_PATH="${PW_BROWSERS_PATH}" \
 		node "${HERE}/capture.mjs" "$1" "${EVIDENCE}" "${BASE_URL}"
 }
 
@@ -91,13 +91,20 @@ capture after-uninstall
 for shot in login todo; do
 	for pair in "before installed" "before after-uninstall"; do
 		set -- ${pair}
-		python3 "${HERE}/pixel_diff.py" "${EVIDENCE}/$1-${shot}.png" "${EVIDENCE}/$2-${shot}.png" \
+		"${PIXDIFF_PYTHON}" "${HERE}/pixel_diff.py" "${EVIDENCE}/$1-${shot}.png" "${EVIDENCE}/$2-${shot}.png" \
 			--out "${EVIDENCE}/diff-$1-vs-$2-${shot}.png" >>"${EVIDENCE}/pixel-diff.txt"
 	done
 done
 cat "${EVIDENCE}/pixel-diff.txt"
 
-# Leave the app installed for the later phases.
+# Reinstall, then the kept-record path: an administrator edits the Letter Head and a document links to it, so
+# uninstall keeps it, and a print that uses it must still work without the app (the jinja hook is gone).
 timed reinstall "${EVIDENCE}/reinstall.log" bench_site --site "${SITE}" install-app "${APP}"
+timed kept-seed "${EVIDENCE}/kept-seed.log" bench_state kept-seed "${SITE}" "${STATE_JSON}"
+timed kept-uninstall "${EVIDENCE}/kept-uninstall.log" bench_site --site "${SITE}" uninstall-app "${APP}" --yes --no-backup
+timed kept-print "${EVIDENCE}/kept-print.log" bench_state kept-render "${SITE}" "${STATE_JSON}"
+# Leave the app installed for the later phases.
+timed final-install "${EVIDENCE}/final-install.log" bench_site --site "${SITE}" install-app "${APP}"
+timed kept-cleanup "${EVIDENCE}/kept-cleanup.log" bench_state kept-cleanup "${SITE}" "${STATE_JSON}"
 timed list-apps "${EVIDENCE}/list-apps-final.log" bench_site --site "${SITE}" list-apps
 cat "${TSV}"

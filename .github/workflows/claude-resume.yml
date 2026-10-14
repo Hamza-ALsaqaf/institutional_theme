@@ -1,7 +1,12 @@
-# Resumes the autonomous Midad build with Claude Code, billed to the ANTHROPIC_API_KEY
-# repository secret. It starts when a pull request from build/midad-v1 is opened or
-# reopened, or when the label "claude-resume" is added to it. Pushes made by the run
-# itself (GITHUB_TOKEN) do not start new runs. The run never changes main.
+# Resumes the autonomous Midad build with Claude, billed to the owner's Anthropic API key in the
+# INSTITUTIONAL_THEME repository secret. Claude runs through the Claude Agent SDK
+# (tools/ci/run_agent.mjs), not through claude-code-action, because the key's promotional
+# credits cover the Agent SDK and the API but not Claude Code. A one-turn smoke test must pass
+# before the build starts; if the Agent SDK is not covered, `claude -p` is tried instead.
+#
+# Starts when a pull request from build/midad-v1 is opened or reopened, or when the label
+# "claude-resume" is added to it. Pushes made by the run itself (GITHUB_TOKEN) do not start
+# new runs. A pre-push hook refuses pushes to main.
 name: Claude resume (Midad build)
 
 on:
@@ -18,7 +23,6 @@ permissions:
   pull-requests: write
   issues: write
   actions: read
-  id-token: write
 
 jobs:
   resume:
@@ -50,6 +54,64 @@ jobs:
           HOOK
           chmod +x .git/hooks/pre-push
 
+      # Prints only the kind of credential and the API's answer, never the credential itself.
+      - name: Check the credential and pick a model
+        id: key
+        env:
+          KEY: ${{ secrets.INSTITUTIONAL_THEME }}
+        run: |
+          KEY_TRIMMED="$(printf '%s' "$KEY" | tr -d '[:space:]')"
+          [ "$KEY_TRIMMED" != "$KEY" ] && echo "Note: the secret has whitespace around the key; it is trimmed before use."
+          case "$KEY_TRIMMED" in
+            "") echo "::error::The INSTITUTIONAL_THEME secret is empty or not available to this workflow."; exit 1 ;;
+            sk-ant-api*) echo "Credential type: Anthropic API key." ;;
+            sk-ant-oat*) echo "::error::INSTITUTIONAL_THEME holds a Claude Code OAuth token; the promotional credits need an Anthropic API key."; exit 1 ;;
+            *) echo "Credential type: unrecognised prefix; relying on the API's answer below." ;;
+          esac
+          KEY="$KEY_TRIMMED"
+          for model in claude-opus-5-5 claude-sonnet-5-5; do
+            body=$(curl -sS https://api.anthropic.com/v1/messages \
+              -H "x-api-key: ${KEY}" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" \
+              -d "{\"model\":\"${model}\",\"max_tokens\":8,\"messages\":[{\"role\":\"user\",\"content\":\"ping\"}]}")
+            echo "${model}: $(echo "$body" | jq -c '{type, error: .error}')"
+            if [ "$(echo "$body" | jq -r .type)" = "message" ]; then
+              echo "model=${model}" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          echo "::error::The Anthropic API rejected this credential for every model tried (see the lines above)."
+          exit 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install the Claude Agent SDK
+        run: |
+          npm install --prefix tools/ci --no-audit --no-fund --no-package-lock
+          node -p "'Claude Agent SDK ' + require('./tools/ci/node_modules/@anthropic-ai/claude-agent-sdk/package.json').version"
+
+      - name: Smoke test with the Agent SDK (one turn, must succeed before the build)
+        id: smoke_sdk
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.INSTITUTIONAL_THEME }}
+        run: node tools/ci/run_agent.mjs --engine sdk --smoke --model "${{ steps.key.outputs.model }}"
+
+      - name: Smoke test with claude -p (only when the Agent SDK smoke test failed)
+        id: smoke_cli
+        if: steps.smoke_sdk.outcome == 'failure'
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.INSTITUTIONAL_THEME }}
+        run: node tools/ci/run_agent.mjs --engine cli --smoke --model "${{ steps.key.outputs.model }}"
+
+      - name: Stop when no engine is covered by the credits
+        if: steps.smoke_sdk.outcome != 'success' && steps.smoke_cli.outcome != 'success'
+        run: |
+          echo "::error::Neither the Agent SDK nor claude -p could run on this key's credits. See the smoke-test steps."
+          exit 1
+
       - name: System packages for the test bench
         run: |
           sudo apt-get update -q
@@ -62,25 +124,15 @@ jobs:
       - name: Python 3.14
         run: uv python install 3.14
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
       - name: Playwright Chromium
         run: |
           sudo mkdir -p /opt/pw-browsers
           sudo chown "$(id -u):$(id -g)" /opt/pw-browsers
           npx -y playwright@1.56.1 install --with-deps chromium
 
-      - uses: anthropics/claude-code-action@v1
+      - name: Run the Midad build
         env:
+          ANTHROPIC_API_KEY: ${{ secrets.INSTITUTIONAL_THEME }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          prompt: |
-            Read docs/team/RESUME_PROMPT.md in this repository and follow it exactly, from the first step to the final report.
-          claude_args: >-
-            --model opus
-            --max-turns 2000
-            --allowedTools "Bash,Read,Write,Edit,MultiEdit,Glob,Grep,Task,Agent,TodoWrite,WebFetch"
+          ENGINE: ${{ steps.smoke_sdk.outcome == 'success' && 'sdk' || 'cli' }}
+        run: node tools/ci/run_agent.mjs --engine "$ENGINE" --model "${{ steps.key.outputs.model }}" --max-turns 2000

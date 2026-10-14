@@ -1,6 +1,7 @@
 """Install, migrate and uninstall paths. Every function is idempotent.
 
-`before_uninstall` leaves the stock look: it gives the identity values this app wrote to core
+`before_uninstall` leaves the stock look: it removes the shipped Print Style and Letter Head that are
+untouched and unlinked (a changed or linked one is kept), it gives the identity values this app wrote to core
 settings back (only where an administrator did not change them since), and removes everything this
 app stored outside its own doctype. It never raises: the steps are independent, so an error in one is
 logged and the others still run. Frappe calls it with no arguments after the backup and before the
@@ -15,21 +16,26 @@ from collections.abc import Callable
 
 import frappe
 
+from institutional_theme import site_files
 from institutional_theme.institutional_theme.doctype.institutional_theme_settings import identity_sync
+from institutional_theme.print import ship
 
 # Per-user choices stored with `frappe.defaults` (ADR 0002).
 USER_DEFAULT_KEYS = ("ins_palette", "ins_density")
-GLOBAL_PREFIX = "ins_identity_"
+# Global rows this app keeps: identity checksums (`identity_sync`) and print shipping (`print/ship.py`).
+GLOBAL_PREFIXES = ("ins_identity_", "ins_print_")
 SITE_FILES_FOLDER = ("public", "files", "institutional_theme")
 
 
 def clear_globals() -> int:
 	"""Delete the global (`__global`) rows this app keeps, such as the identity checksums."""
-	names = frappe.get_all(
-		"DefaultValue",
-		filters={"parent": "__global", "defkey": ("like", f"{GLOBAL_PREFIX}%")},
-		pluck="name",
-	)
+	names: list[str] = []
+	for prefix in GLOBAL_PREFIXES:
+		names += frappe.get_all(
+			"DefaultValue",
+			filters={"parent": "__global", "defkey": ("like", f"{prefix}%")},
+			pluck="name",
+		)
 	for name in names:
 		frappe.db.delete("DefaultValue", {"name": name})
 	return len(names)
@@ -65,10 +71,28 @@ def _run(steps: tuple[tuple[str, Callable[[], object]], ...]) -> None:
 			frappe.log_error(title=f"Institutional Theme uninstall: {title}")
 
 
+def after_install() -> None:
+	"""Ship the Print Style and Letter Head. Nothing else changes: the theme is on as soon as the
+	bundles are built. Never raises, and skips what is not built yet (`print/ship.py`)."""
+	ship.safe_ship()
+
+
+def after_migrate() -> None:
+	"""Regenerate the per-site stylesheets and bring the shipped print records up to date.
+	Idempotent, never overwrites an administrator's change and never raises (a failed migrate step must
+	not hide behind the theme)."""
+	try:
+		site_files.after_migrate()
+	except Exception:
+		frappe.log_error(title="Institutional Theme migrate: generated files")
+	ship.safe_ship()
+
+
 def before_uninstall() -> None:
 	"""Restore core settings, then delete the app's files, globals and per-user defaults."""
 	_run(
 		(
+			("remove print style and letter head", ship.remove),
 			("restore identity", identity_sync.restore),
 			("delete attachments", identity_sync.delete_attachments),
 			("clear globals", clear_globals),

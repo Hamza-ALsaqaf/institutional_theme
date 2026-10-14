@@ -1,0 +1,1 @@
+7c3e55678e510e3e38feb3947f9d581dcc0cc29255ec6c2966bbca513a99f2e1  /home/user/frappe-bench/sites/midad.test/site_config.json

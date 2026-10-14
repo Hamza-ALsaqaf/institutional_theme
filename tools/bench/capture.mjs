@@ -16,7 +16,14 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 const require = createRequire(import.meta.url);
-const { chromium } = require("playwright");
+// The root container ships "playwright"; the CI runner installs "playwright-core" (same API).
+let playwright;
+try {
+	playwright = require("playwright");
+} catch {
+	playwright = require("playwright-core");
+}
+const { chromium } = playwright;
 
 const [label, outDir, baseUrl = "http://midad.test:8000"] = process.argv.slice(2);
 if (!label || !outDir) {

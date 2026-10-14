@@ -1,2 +1,104 @@
-// Form layout: sections, tabs, sidebar, timeline (css-C).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Form layout: tabs, sections, banners, connections, attachments, timeline (css-C).
+// Tokens do most of the work through the Frappe map; selectors here only where core paints with literals or its own geometry.
+
+// ---- Tabs (desk/form.scss:484-522). Core: `.form-tabs-list .form-tabs .nav-item .nav-link` (0,4,0); `.active` (0,5,0);
+// `:focus-visible` (0,5,0) sets `outline: none` and `font-weight: 600`, which out-ranks the ring rule in _base.scss (0,4,2):
+// without the rule below, a focused tab shows no ring and its label jumps in width. Mine: html:root[dir] (0,2,1) + chain.
+// The tab strip scrolls (`overflow: overlay`), so the ring is drawn inside (negative offset).
+html:root[dir] .form-tabs-list .form-tabs .nav-item .nav-link {
+	color: var(--ins-text-secondary);
+	font-weight: var(--ins-weight-regular);
+}
+
+html:root[dir] .form-tabs-list .form-tabs .nav-item .nav-link:hover {
+	color: var(--ins-text-strong);
+}
+
+// Active tab: strong text and a 2px primary underline drawn as a border (not a box-shadow: the focus reset removes shadows).
+// Padding-bottom drops from 10px to 8px so the tab keeps its height.
+html:root[dir] .form-tabs-list .form-tabs .nav-item .nav-link.active {
+	color: var(--ins-text-strong);
+	font-weight: var(--ins-weight-strong);
+	border-block-end: 2px solid var(--ins-primary);
+	padding-block-end: 8px;
+}
+
+html:root[dir] .form-tabs-list .form-tabs .nav-item .nav-link:focus-visible {
+	outline: var(--ins-focus-width) solid var(--ins-focus);
+	outline-offset: calc(var(--ins-focus-width) * -1);
+	font-weight: var(--ins-weight-regular);
+}
+
+html:root[dir] .form-tabs-list .form-tabs .nav-item .nav-link.active:focus-visible {
+	font-weight: var(--ins-weight-strong);
+}
+
+// ---- Sections (desk/form.scss:35-60). The heading is core's `.head-title` at medium weight in --text-color.
+html:root[dir] .form-section .section-head,
+html:root[dir] .form-dashboard-section .section-head {
+	color: var(--ins-text-strong);
+	font-weight: var(--ins-weight-strong);
+}
+
+html:root[dir] .form-column .column-label {
+	color: var(--ins-text-strong);
+}
+
+// ---- Banners: `.form-message` (desk/form.scss:359-427) paints `--<colour>-100/800` ramps at (0,2,0), dark at (0,3,0).
+// Here: the feedback pair per meaning, a status border and a 4px start edge, so the banner is not colour alone. (0,4,1).
+// blue = info, green = success, yellow = warning, orange = pending, red = danger.
+$ins-banners: ("blue": info, "green": success, "yellow": warning, "orange": pending, "red": danger);
+
+@each $colour, $family in $ins-banners {
+	html:root[dir] .form-message.#{$colour} {
+		background: var(--ins-feedback-#{$family}-bg);
+		color: var(--ins-feedback-#{$family}-fg);
+		border: 1px solid var(--ins-status-#{$family}-border);
+		border-inline-start-width: 4px;
+	}
+}
+
+// Bootstrap alerts follow the same pairs through --alert-bg-* and --alert-text-* (common/alert.scss), which the map sets;
+// core removes their border, so add the start edge.
+@each $type, $family in (info: info, success: success, warning: warning, danger: danger) {
+	html:root[dir] .alert.alert-#{$type} {
+		border-inline-start: 4px solid var(--ins-status-#{$family}-border);
+	}
+}
+
+// ---- Connections (desk/form.scss:226-290): `.document-link` is painted `--neutral`, which is white in light and black in dark.
+html:root[dir] .form-links .document-link {
+	background-color: var(--ins-surface-raised);
+	border-color: var(--ins-border);
+}
+
+html:root[dir] .form-links .document-link:hover {
+	border-color: var(--ins-border-control-hover);
+}
+
+// ---- Attachments (desk/form_sidebar.scss:431-500): rows are transparent until hover; hover and focus-within use --subtle-fg (mapped).
+// The label and its link read as links, so give them the link colour and an underline on hover only (core underlines the badge link).
+html:root[dir] .attachment-row .data-pill .attachment-file-label a {
+	color: var(--ins-text-link);
+}
+
+html:root[dir] .attachment-row .data-pill .attachment-file-label a:hover {
+	color: var(--ins-text-link-hover);
+	text-decoration: underline;
+}
+
+// ---- Timeline (desk/timeline.scss). Cards, badge and rail are tokens through the map (--timeline-badge-*, --dark-border-color);
+// the card gets the raised surface and the control boundary radius of the design (artboard `.card`).
+html:root[dir] .new-timeline .timeline-item .timeline-content.frappe-card {
+	background-color: var(--ins-surface-raised);
+	border-color: var(--ins-border);
+	border-radius: var(--ins-radius-md);
+}
+
+html:root[dir] .new-timeline .timeline-item .timeline-message-box .actions > *:not(.indicator-pill) {
+	color: var(--ins-text-muted);
+}
+
+html:root[dir] .comment-box .comment-input-container .frappe-control .ql-editor {
+	border-color: var(--ins-border-control);
+}

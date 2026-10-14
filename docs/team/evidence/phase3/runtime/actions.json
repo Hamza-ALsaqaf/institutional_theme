@@ -1,0 +1,142 @@
+[
+  {
+    "name": "[en] docstatus 0 attribute",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] Submit tagged in draft",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] Delete tagged in draft",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] Cancel and Amend not tagged in draft",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] docstatus 1 attribute",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] Cancel tagged when submitted",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] Submit and Delete not tagged when submitted",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] docstatus 2 attribute",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] Amend tagged when cancelled",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] Cancel not tagged when cancelled",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] workflow Approve tagged",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] workflow Reject tagged",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] data-ins-new on a new form",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[en] no ribbon in production",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] docstatus 0 attribute",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] Submit tagged in draft",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] Delete tagged in draft",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] Cancel and Amend not tagged in draft",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] docstatus 1 attribute",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] Cancel tagged when submitted",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] Submit and Delete not tagged when submitted",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] docstatus 2 attribute",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] Amend tagged when cancelled",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] Cancel not tagged when cancelled",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] workflow Approve tagged",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] workflow Reject tagged",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] data-ins-new on a new form",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "[ar] no ribbon in production",
+    "ok": true,
+    "detail": ""
+  }
+]

@@ -1,2 +1,45 @@
-// Report view, query reports, tree reports, datatable skin (css-B).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Report view and frappe-datatable: padding, type and colour only; never row or cell height (findings 5).
+// Part of the desk bundle; the datatable variables are set in _hardcoded.scss, geometry stays core's.
+
+// ---- Cell padding at the inline edges only: the vertical padding and the row height stay core's (a taller cell is clipped, not grown).
+// Library `.dt-cell__content` is (0,1,0) (frappe-datatable.css:118); this is (0,2,1).
+html:root[dir] .datatable .dt-cell__content {
+	padding-inline: var(--ins-control-pad-x);
+	font-size: var(--ins-text-base);
+}
+
+// ---- Frozen checkbox and row-number columns: core fixes their width (32px checkbox; the serial column is narrow and
+// resizable), so the 12px edge padding above leaves under 20px for the digits and "10" becomes "1…" (a11y-phase3 finding 4).
+// They keep the library's smaller inline padding, (0,3,1) beats the rule above; height and width stay core's.
+html:root[dir] .datatable :is(.dt-cell--col-0, .dt-cell--col-1) .dt-cell__content {
+	padding-inline: var(--ins-space-1);
+}
+
+// ---- Header cells: medium weight, secondary colour, sunken background (design th).
+// Library bold header (css:185-189) and core's normal weight + --subtle-fg (frappe_datatable.scss:55-63, (0,4,0)).
+html:root[dir] .datatable .dt-header .dt-cell--header .dt-cell__content {
+	padding-inline-end: var(--dt-spacer-3);
+	font-weight: var(--ins-weight-medium);
+	color: var(--ins-text-secondary);
+	background-color: var(--ins-surface-sunken);
+}
+
+html:root[dir] .datatable .dt-header .dt-row-header {
+	background-color: var(--ins-surface-sunken);
+}
+
+// ---- Data cells: the Arabic/numeric rule is _typography.scss; hover and selection follow the design row states.
+html:root[dir] .datatable .dt-row:hover .dt-cell {
+	background-color: var(--ins-surface-hover);
+}
+
+// ---- Totals row: strong weight with a strong top rule (design tr.total).
+html:root[dir] .datatable .dt-row-totalRow .dt-cell__content {
+	font-weight: var(--ins-weight-strong);
+	color: var(--ins-text-strong);
+}
+
+// ---- Scroll padding at the inline start: keyboard focus never hides under the frozen index and checkbox columns.
+html:root[dir] .datatable .dt-scrollable {
+	scroll-padding-inline-start: calc(var(--ins-space-16) * 2);
+}

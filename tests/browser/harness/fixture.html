@@ -20,6 +20,28 @@
 	<div class="datatable" id="dt3"><input class="form-control" id="dtfield" aria-label="dt field"></div>
 	<button class="btn btn-default" id="btn2" type="button">Default</button>
 	<input id="af" class="form-control" aria-label="autofill probe">
+	<div class="form-tabs-list"><ul class="nav form-tabs" role="tablist"><li class="nav-item"><button class="nav-link active" id="tab-on" type="button" role="tab">One</button></li><li class="nav-item"><button class="nav-link" id="tab-off" type="button" role="tab">Two</button></li></ul></div>
+	<div class="modal" id="modal2"><input class="form-control" id="modalfield" aria-label="modal field"><button class="btn btn-default" id="modalbtn2" type="button">in modal</button></div>
+	<div class="form-in-grid" id="fig"><input class="form-control" id="figfield" aria-label="form in grid"></div>
+	<div class="chart-container" id="chart"></div>
+	<div class="form-grid"><div class="grid-body"><div class="rows"><div class="grid-row"><div class="editable-row" id="erow"><input class="form-control" id="erowfield" aria-label="editable row"><input class="form-control" id="erowdis" disabled aria-label="editable row disabled"></div></div></div></div></div>
+	<input class="form-control" id="dis" disabled aria-label="disabled">
+	<input class="form-control" id="ro" readonly value="read-only" aria-label="read-only">
+	<div class="frappe-control" id="rov-wrap"><div class="control-value like-disabled-input" id="rov">read-only value</div></div>
+	<div class="frappe-control has-error" id="err-wrap"><input class="form-control" id="errfield" aria-label="error field"></div>
+	<div class="datatable" id="dt4"><input class="form-control" id="dtdis" disabled aria-label="datatable disabled"><div class="dt-cell__content" id="dtnum">1,234.50</div></div>
+	<div class="frappe-control" id="masked" data-ins-masked="1"><label class="control-label">Balance</label><div class="control-value like-disabled-input" id="maskedvalue">XXXXXXXX</div><span class="ins-masked-reason" id="maskedreason">Hidden for your role</span></div>
+	<span class="indicator-pill green no-indicator-dot" id="pill-green">Paid</span>
+	<span class="indicator-pill red no-indicator-dot" id="pill-red">Rejected</span>
+	<span class="indicator-pill red no-indicator-dot" id="pill-draft" data-filter="docstatus,=,0">Draft</span>
+	<span class="indicator-pill red no-indicator-dot" id="pill-cancelled" data-filter="docstatus,=,2">Cancelled</span>
+	<span class="indicator-pill orange no-indicator-dot" id="pill-orange">Pending</span>
+	<span class="indicator-pill black no-indicator-dot" id="pill-black">Inverse</span>
+	<button class="btn btn-secondary" id="act-reject" data-ins-action="reject" type="button">Reject</button>
+	<button class="btn btn-primary" id="act-approve" data-ins-action="approve" type="button">Approve</button>
+	<div data-ins-docstatus="0"><div class="title-area"><span class="indicator-pill red no-indicator-dot" id="pill-title-draft">Draft</span></div></div>
+	<div data-ins-docstatus="2"><div class="title-area"><span class="indicator-pill red no-indicator-dot" id="pill-title-cancelled">Cancelled</span></div></div>
+	<div class="form-message red" id="banner">Banner</div>
 </main>
 </body>
 </html>

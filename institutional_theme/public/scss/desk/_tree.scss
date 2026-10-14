@@ -1,0 +1,24 @@
+// Tree view (desk/tree.scss): rows read --text-color, --fg-hover-color and --highlight-color, all mapped; add the drop target and selected node.
+// Indent uses logical properties on the same side core's rtlcss-flipped physical rule uses (tree.scss:20,46,51,108), so no physical reset is needed.
+
+html:root[dir] .tree-children {
+	padding-inline-start: var(--padding-xl);
+}
+
+html:root[dir] .tree-label {
+	margin-inline-start: var(--margin-sm);
+}
+
+html:root[dir] .tree-node-toolbar {
+	margin-inline-start: var(--margin-md);
+}
+
+html:root[dir] .tree-link.active {
+	background-color: var(--ins-surface-selected);
+	border-radius: var(--ins-radius-sm);
+}
+
+html:root[dir] .tree-link:focus-visible {
+	outline: 2px solid var(--ins-focus);
+	outline-offset: -2px;
+}

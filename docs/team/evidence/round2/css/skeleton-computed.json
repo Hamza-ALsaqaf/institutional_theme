@@ -1,0 +1,42 @@
+[
+ {
+  "lang": "en",
+  "mode": "light",
+  "user": "css-r2-en-light@midad.test",
+  "visible": true,
+  "box": "rgb(241, 244, 248)",
+  "radius": "4px",
+  "anim": "none",
+  "pageBg": "rgb(255, 255, 255)"
+ },
+ {
+  "lang": "en",
+  "mode": "dark",
+  "user": "css-r2-en-dark@midad.test",
+  "visible": true,
+  "box": "rgb(29, 37, 47)",
+  "radius": "4px",
+  "anim": "none",
+  "pageBg": "rgb(17, 24, 32)"
+ },
+ {
+  "lang": "ar",
+  "mode": "light",
+  "user": "css-r2-ar-light@midad.test",
+  "visible": true,
+  "box": "rgb(241, 244, 248)",
+  "radius": "4px",
+  "anim": "none",
+  "pageBg": "rgb(255, 255, 255)"
+ },
+ {
+  "lang": "ar",
+  "mode": "dark",
+  "user": "css-r2-ar-dark@midad.test",
+  "visible": true,
+  "box": "rgb(29, 37, 47)",
+  "radius": "4px",
+  "anim": "none",
+  "pageBg": "rgb(17, 24, 32)"
+ }
+]

@@ -1,0 +1,33 @@
+print_state now {'print_style': True, 'letter_head': True, 'globals': 1}
+{
+ "print_after_uninstall": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ },
+ "print_at_seed": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ }
+}
+{
+ "after_uninstall": {
+  "Website Settings.app_name": "Frappe",
+  "Website Settings.app_logo": "/files/ins-test-emblem.png",
+  "Website Settings.splash_image": "/files/ins-test-emblem.png",
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": "/files/ins-test-emblem.png"
+ }
+}
+RESIDUE: {
+ "doctype": "still exists",
+ "singles rows": 39,
+ "globals ins_identity_*": 2,
+ "print style Midad": "still exists",
+ "letter head Midad": "still exists",
+ "globals ins_print_*": 1,
+ "version rows": 4,
+ "site files folder": "still exists"
+}
+residue exit code 1

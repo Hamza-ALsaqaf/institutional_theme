@@ -1,0 +1,40 @@
+text-placeholder on --control-bg: Light 4.41 -> 4.87 | Dark 4.80 -> 5.88
+text-placeholder on --control-bg-on-gray: Light 4.07 -> 4.87 | Dark 4.36 -> 5.88
+border-control on --control-bg: Light 3.04 -> 3.36 | Dark 3.41 -> 4.18
+border-control on --control-bg-on-gray: Light 2.81 -> 3.36 | Dark 3.10 -> 4.18
+text-muted on surface-selected-strong: Light 5.40 -> 5.40 | Dark 4.49 -> 4.69
+before hover vs selected-strong dark 1.24 light 1.05
+after hover vs selected-strong dark 1.19 light 1.05
+--- lowest ratio of group edits across shipped presets, after
+midad overall lowest margin (3.043729763817596, 'border-control', 'surface-hover', 'light') fails 0
+graphite overall lowest margin (3.043729763817596, 'border-control', 'surface-hover', 'light') fails 0
+petrol overall lowest margin (3.0379960112822855, 'border-control', 'surface-hover', 'light') fails 0
+forest overall lowest margin (3.0228112810969696, 'border-control', 'surface-hover', 'light') fails 0
+plum overall lowest margin (3.054742132931005, 'border-control', 'surface-hover', 'light') fails 0
+--- old on old
+midad 0
+graphite 0
+petrol 0
+forest 0
+plum 0
+midad help text on hover/selected group min {'light': 5.26, 'dark': 4.69}
+graphite help text on hover/selected group min {'light': 5.26, 'dark': 4.65}
+petrol help text on hover/selected group min {'light': 5.19, 'dark': 4.56}
+forest help text on hover/selected group min {'light': 5.18, 'dark': 4.57}
+plum help text on hover/selected group min {'light': 5.26, 'dark': 4.73}
+CHANGED light chart-2 #885700 -> #a76fc7
+CHANGED light chart-4 #741417 -> #885700
+CHANGED light chart-5 #a76fc7 -> #d06b26
+CHANGED light chart-6 #d06b26 -> #741417
+CHANGED dark surface-selected-strong #1f3c5b -> #1d3958
+CHANGED dark chart-2 #dc9322 -> #c392e1
+CHANGED dark chart-4 #fb7e77 -> #dc9322
+CHANGED dark chart-5 #c392e1 -> #ae5000
+CHANGED dark chart-6 #ae5000 -> #fb7e77
+before selected-strong vs selected, dark 1.21
+after selected-strong vs selected, dark 1.16
+BEFORE values on AFTER groups midad 5 [('text-placeholder', '--control-bg', 'light', 4.41), ('text-placeholder', '--control-bg-on-gray', 'light', 4.07), ('text-placeholder', '--control-bg-on-gray', 'dark', 4.36), ('text-muted', 'surface-selected-strong', 'dark', 4.49), ('border-control', '--control-bg-on-gray', 'light', 2.81)]
+BEFORE values on AFTER groups graphite 5 
+BEFORE values on AFTER groups petrol 5 
+BEFORE values on AFTER groups forest 5 
+BEFORE values on AFTER groups plum 4 

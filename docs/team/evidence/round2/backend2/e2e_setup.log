@@ -1,0 +1,16 @@
+SHIP {'print_style': 'unchanged', 'letter_head': 'unchanged'}
+STYLE_HAS_FAMILY True
+LH ('Midad', 0, 'HTML')
+QUOTATION SAL-QTN-2026-00001
+OK /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round2/backend2/wkhtmltopdf-A4-en.pdf 26877
+OK /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round2/backend2/wkhtmltopdf-A4-ar.pdf 30162
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4179 seconds
+OK /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round2/backend2/chrome-A4-en.pdf 85394
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4236 seconds
+OK /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round2/backend2/chrome-A4-ar.pdf 104448
+LEFT 0 None 0
+PRINT_STYLE_RECORD Midad Midad

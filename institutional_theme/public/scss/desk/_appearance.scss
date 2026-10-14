@@ -1,2 +1,143 @@
-// Appearance page (css-C).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Appearance page: mode, density and palette fieldsets, swatches, selected state, screen-reader status (runtime evidence markup contract).
+// Part of the desk bundle; swatch dots read --ins-swatch-colour, set by script through the CSS object model.
+
+html:root[dir] .ins-sr-only {
+	position: absolute;
+	inline-size: 1px;
+	block-size: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+html:root[dir] .ins-appearance {
+	max-inline-size: 48rem;
+	padding: var(--ins-space-6);
+}
+
+html:root[dir] .ins-appearance-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--ins-space-3);
+	margin: 0 0 var(--ins-space-6);
+	padding: 0;
+	border: 0;
+	min-inline-size: 0;
+}
+
+html:root[dir] .ins-appearance-group > legend {
+	inline-size: 100%;
+	margin: 0 0 var(--ins-space-2);
+	color: var(--ins-text-strong);
+	font-size: var(--ins-text-lg);
+	font-weight: var(--ins-weight-strong);
+}
+
+html:root[dir] .ins-appearance-option {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: var(--ins-space-2);
+	min-block-size: var(--ins-control-height);
+	padding: var(--ins-space-2) var(--ins-space-3);
+	background: var(--ins-surface-raised);
+	border: 1px solid var(--ins-border-control);
+	border-radius: var(--ins-radius-md);
+	color: var(--ins-text);
+}
+
+html:root[dir] .ins-appearance-option:has(input:checked) {
+	background: var(--ins-primary-subtle);
+	border-color: var(--ins-primary);
+	color: var(--ins-text-strong);
+}
+
+// The label is a flex row so name, swatch and Selected marker each get their own space (no inline overlap).
+html:root[dir] .ins-appearance-option label {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--ins-space-2);
+	margin: 0;
+	cursor: pointer;
+}
+
+// The page title. Core's page head renders this page's title only as the last breadcrumb link (13px, navigation), not as a heading,
+// so the in-body h1 is the one visible title (same size and weight as the page-head title, --ins-text-xl). It is also the focus target
+// (tabindex -1, focused after a preset reload), so it keeps the one focus ring.
+html:root[dir] .ins-appearance > h1 {
+	margin: 0 0 var(--ins-space-4);
+	color: var(--ins-text-strong);
+	font-size: var(--ins-text-xl);
+	font-weight: var(--ins-weight-strong);
+}
+
+html:root[dir] .ins-appearance > h1:focus-visible {
+	outline: var(--ins-focus-width) solid var(--ins-focus);
+	outline-offset: var(--ins-focus-offset);
+}
+
+html:root[dir] .ins-appearance-name {
+	font-weight: var(--ins-weight-medium);
+}
+
+html:root[dir] .ins-swatch {
+	display: inline-flex;
+	gap: var(--ins-space-1);
+}
+
+html:root[dir] .ins-swatch-dot {
+	display: inline-block;
+	inline-size: var(--ins-space-4);
+	block-size: var(--ins-space-4);
+	border: 1px solid var(--ins-border-control);
+	border-radius: 50%;
+	background-color: var(--ins-swatch-colour);
+}
+
+// Selected cue is text plus a check glyph, never colour alone.
+html:root[dir] .ins-selected {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--ins-space-1);
+	margin-inline-start: var(--ins-space-2);
+	padding-inline-start: var(--ins-space-2);
+	border-inline-start: 1px solid var(--ins-primary-subtle-border);
+	color: var(--ins-primary-text);
+	font-size: var(--ins-text-xs);
+	font-weight: var(--ins-weight-strong);
+}
+
+html:root[dir] .ins-selected-icon {
+	display: inline-flex;
+}
+
+html:root[dir] .ins-appearance-apply-hint {
+	flex-basis: 100%;
+	margin: 0;
+	color: var(--ins-text-muted);
+	font-size: var(--ins-text-xs);
+}
+
+html:root[dir] .ins-appearance-help {
+	margin: var(--ins-space-2) 0 var(--ins-space-4);
+	color: var(--ins-text-muted);
+	font-size: var(--ins-text-xs);
+}
+
+// Forced colours: the swatch dots ARE the palette sample (decorative, aria-hidden), so they keep their colour; the checked option gets a
+// thicker boundary because background and box-shadow are replaced by the system (the "Selected" text and check glyph remain as well).
+@media (forced-colors: active) {
+	html:root[dir] .ins-swatch-dot {
+		forced-color-adjust: none;
+		border-color: CanvasText;
+	}
+
+	html:root[dir] .ins-appearance-option:has(input:checked) {
+		border-width: 3px;
+		padding: calc(var(--ins-space-2) - 2px) calc(var(--ins-space-3) - 2px);
+	}
+}

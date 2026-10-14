@@ -1,0 +1,30 @@
+<!-- Mirrors frappe/www/login.html and templates/includes/login/login.html (page-card, form-signin). Rendered inside an isolated document with the web bundles, as on the real /login. -->
+<header class="ins-masthead">
+	<div class="ins-masthead-brand"><div class="ins-masthead-names"></div></div>
+	<nav class="ins-lang" aria-label="[[login.lang]]"><a class="ins-lang-link" href="#" lang="en" hreflang="en" aria-current="true">English</a> <a class="ins-lang-link" href="#" lang="ar" hreflang="ar">العربية</a></nav>
+</header>
+<div id="page-login" data-path="login"><div class="page-content-wrapper"><main class="container"><div class="page_content">
+<section class="for-login">
+	<div class="login-content page-card">
+		<div class="page-card-head">
+			<div class="page-card-head-text"><h4>[[login.title]]</h4><p class="page-card-subtitle">[[login.subtitle]]</p></div>
+		</div>
+		<form class="form-signin form-login" role="form" novalidate>
+			<div class="page-card-body">
+				<div class="form-group">
+					<label class="form-label" for="login_email">[[login.email]]</label>
+					<div class="email-field"><input type="text" id="login_email" class="form-control" placeholder="[[login.email.ph]]" autocomplete="username"></div>
+					<p class="field-error"></p>
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="login_password">[[login.password]]</label>
+					<div class="password-field"><input type="password" id="login_password" class="form-control" placeholder="•••••" autocomplete="current-password"></div>
+					<p class="field-error"></p>
+					<p class="forgot-password-message"><a href="#forgot">[[login.forgot]]</a></p>
+				</div>
+			</div>
+			<div class="page-card-actions"><button class="btn btn-sm btn-default btn-block btn-login" type="submit">[[login.continue]]</button></div>
+		</form>
+	</div>
+</section>
+</div></main></div></div>

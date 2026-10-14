@@ -10,8 +10,10 @@ html:root[dir] {
 // ---- The one focus ring. Core sets `outline: 0` on .form-control, .btn, .custom-select,
 // .page-link, badges and checkboxes at (0,2,x) and adds a literal grey box-shadow as a second cue
 // (the --focus-default ones are already `none` through the Frappe map).
-// Ring rule: html (0,0,1) + :root + :is() [its [tabindex] arm] + :focus-visible + :not() = (0,4,1).
+// Ring rule: html (0,0,1) + :root + :is() + :focus-visible + :not() = (0,4,2). :is() takes its most
+// specific argument, `a[href]` (0,1,1); :not() takes `.modal` (0,1,0).
 // The modal shell is focused by script, so it is excluded.
+// Core rules that out-rank (0,4,2) with `outline: none` are re-asserted in _form.scss (tabs).
 $ins-focusable: 'a[href], area[href], button, input, select, textarea, summary, [tabindex], [contenteditable="true"], [role="button"], [role="link"], [role="menuitem"], [role="tab"], [role="option"], [role="checkbox"], [role="radio"], [role="switch"], [role="combobox"], .btn, .dropdown-item';
 
 html:root :is(#{$ins-focusable}):focus-visible:not(.modal, .modal-dialog) {
@@ -19,13 +21,14 @@ html:root :is(#{$ins-focusable}):focus-visible:not(.modal, .modal-dialog) {
 	outline-offset: var(--ins-focus-offset);
 }
 
-// Second cue removal, (0,5,1). Autofilled fields are skipped: their themed cover below is a
-// box-shadow too, and must survive focus.
+// Second cue removal, (0,4,2): :not() takes its most specific argument, one class. Autofilled
+// fields are skipped: their themed cover below is a box-shadow too, and must survive focus.
 html:root :is(#{$ins-focusable}):focus-visible:not(.modal, .modal-dialog, :-webkit-autofill) {
 	box-shadow: none;
 }
 
-// Clipped scroll containers (findings 5): a positive offset would be cut off, so draw inside, (0,5,1).
+// Clipped scroll containers (findings 5): a positive offset would be cut off, so draw inside.
+// (0,4,2) like the ring rule; it wins by coming later in this file, so keep it below the ring rule.
 html:root :is(.datatable, .grid-body, .frappe-list .result-container, .dt-scrollable)
 	:is(a[href], button, input, select, textarea, [tabindex], [contenteditable="true"]):focus-visible {
 	outline-offset: calc(var(--ins-focus-width) * -1);
@@ -33,13 +36,15 @@ html:root :is(.datatable, .grid-body, .frappe-list .result-container, .dt-scroll
 
 // Exception: a checked box is filled with --ins-primary, which is the ring colour or close to it
 // (1.00:1 Dark, 1.47:1 Light), so an inset ring vanishes on it. Checkboxes and radios keep the
-// ring outside, on the row background, in the same containers, (0,5,2).
+// ring outside, on the row background, in the same containers, (0,4,2): wins over the rule above by
+// coming later, so keep this order.
 html:root :is(.datatable, .grid-body, .frappe-list .result-container, .dt-scrollable)
 	:is(input[type="checkbox"], input[type="radio"], [role="checkbox"], [role="radio"]):focus-visible {
 	outline-offset: var(--ins-focus-offset);
 }
 
-// ---- Selection. Core: ::selection (0,0,1) and `body ::selection` (0,0,2); this is (0,1,2).
+// ---- Selection. Core: ::selection (0,0,1), `body ::selection` (0,0,2) and, in dark,
+// `[data-theme="dark"] ::selection` (0,1,1) (desk/dark.scss:256); this is (0,1,2).
 html:root ::selection {
 	color: var(--ins-text-strong);
 	background: var(--ins-primary-subtle-border);
@@ -57,7 +62,9 @@ html:root :is(input, textarea, .form-control, .search-bar .awesomplete input)::p
 }
 
 // ---- Autofill: keep the field surface and text colour the theme gives every other field.
-// Specificity: (0,2,2) plain, (0,3,2) with :hover or :focus; the focus reset above skips autofilled fields.
+// Specificity: (0,2,2) plain, (0,3,2) with :hover or :focus. Core's `.form-control:focus` (0,2,0) box-shadow
+// is `none` through the map, and the focus reset above skips :-webkit-autofill, so this inset cover survives
+// focus; the outline ring (not the shadow) is the focus cue on an autofilled field.
 html:root :is(input, textarea, select):-webkit-autofill,
 html:root :is(input, textarea, select):-webkit-autofill:hover,
 html:root :is(input, textarea, select):-webkit-autofill:focus {
@@ -90,6 +97,26 @@ html:root :is(input, textarea, select):-webkit-autofill:focus {
 		transition-delay: 0s;
 		scroll-behavior: auto;
 	}
+
+	// Bootstrap's `.modal.fade .modal-dialog { transition: transform .3s }` sits at (0,3,0) and outranks the universal collapse.
+	html:root[dir] .modal.fade .modal-dialog {
+		transition-duration: 0.01ms;
+	}
+
+	// Looping busy indicators: the collapse above ends them on their base style, which is invisible for
+	// `.spinner-grow` (core: opacity 0). Stop them explicitly and give each a static cue that still reads as busy:
+	// the open ring of `.spinner-border` (core's border-right-color: transparent), a half-size dot for the grow
+	// spinner, static stripes on `.progress-bar-animated`, the glyph of `.fa-spin`/`.fa-pulse`, and the filled
+	// skeleton rows (`.freeze-row`, `.skeleton-card`) at full opacity.
+	html:root[dir] :is(.spinner-border, .spinner-grow, .fa-spin, .fa-pulse, .progress-bar-animated,
+		.freeze-row .list-row-col, .skeleton-card, .indicator.blink) {
+		animation: none;
+	}
+
+	html:root[dir] .spinner-grow {
+		opacity: 0.75;
+		transform: scale(0.5);
+	}
 }
 
 // ---- Forced colours. Palette files never reach this block; it lives in ins_desk only (ADR 0003).
@@ -110,6 +137,17 @@ html:root :is(input, textarea, select):-webkit-autofill:focus {
 	html:root :is(input, textarea, select):-webkit-autofill {
 		-webkit-text-fill-color: FieldText;
 		box-shadow: 0 0 0 1000px Field inset;
+	}
+
+	// Selected rows: the selection fill is dropped, so outline the row (list) or its cells (report and datatable).
+	html:root :is(.list-row-container:has(.list-row-checkbox:checked) .list-row, .datatable .dt-row--highlight .dt-cell) {
+		outline: 2px solid Highlight;
+		outline-offset: -2px;
+	}
+
+	// Buttons: core sets `border: none` on page-head and some toolbar buttons, so under forced colours they read as plain text on Canvas (WCAG 1.4.11).
+	html:root .btn:not(.btn-link, .btn-reset) {
+		border: 1px solid ButtonBorder;
 	}
 
 	// Status pills lose their background; keep a shape with a system-colour outline (no layout shift).

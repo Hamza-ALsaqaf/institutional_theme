@@ -1,0 +1,118 @@
+[
+ {
+  "lang": "en",
+  "mode": "light",
+  "user": "css-r2-en-light@midad.test",
+  "bars": [
+   {
+    "fill": "rgb(255, 255, 255)",
+    "stroke": "rgb(184, 190, 199)",
+    "progress": "rgb(228, 239, 253)",
+    "label": "CssR2 Survey (TASK-2026-00001)",
+    "labelFill": "rgb(40, 49, 60)"
+   },
+   {
+    "fill": "rgb(255, 255, 255)",
+    "stroke": "rgb(184, 190, 199)",
+    "progress": "rgb(228, 239, 253)",
+    "label": "CssR2 Scan batch (TASK-2026-00002)",
+    "labelFill": "rgb(40, 49, 60)"
+   },
+   {
+    "fill": "rgb(255, 255, 255)",
+    "stroke": "rgb(184, 190, 199)",
+    "progress": "rgb(228, 239, 253)",
+    "label": "CssR2 Review (TASK-2026-00003)",
+    "labelFill": "rgb(40, 49, 60)"
+   }
+  ],
+  "theme": "light"
+ },
+ {
+  "lang": "en",
+  "mode": "dark",
+  "user": "css-r2-en-dark@midad.test",
+  "bars": [
+   {
+    "fill": "rgb(23, 30, 40)",
+    "stroke": "rgb(75, 83, 94)",
+    "progress": "rgb(29, 57, 88)",
+    "label": "CssR2 Survey (TASK-2026-00001)",
+    "labelFill": "rgb(223, 227, 232)"
+   },
+   {
+    "fill": "rgb(23, 30, 40)",
+    "stroke": "rgb(75, 83, 94)",
+    "progress": "rgb(29, 57, 88)",
+    "label": "CssR2 Scan batch (TASK-2026-00002)",
+    "labelFill": "rgb(223, 227, 232)"
+   },
+   {
+    "fill": "rgb(23, 30, 40)",
+    "stroke": "rgb(75, 83, 94)",
+    "progress": "rgb(29, 57, 88)",
+    "label": "CssR2 Review (TASK-2026-00003)",
+    "labelFill": "rgb(223, 227, 232)"
+   }
+  ],
+  "theme": "dark"
+ },
+ {
+  "lang": "ar",
+  "mode": "light",
+  "user": "css-r2-ar-light@midad.test",
+  "bars": [
+   {
+    "fill": "rgb(255, 255, 255)",
+    "stroke": "rgb(184, 190, 199)",
+    "progress": "rgb(228, 239, 253)",
+    "label": "CssR2 Survey (TASK-2026-00001)",
+    "labelFill": "rgb(40, 49, 60)"
+   },
+   {
+    "fill": "rgb(255, 255, 255)",
+    "stroke": "rgb(184, 190, 199)",
+    "progress": "rgb(228, 239, 253)",
+    "label": "CssR2 Scan batch (TASK-2026-00002)",
+    "labelFill": "rgb(40, 49, 60)"
+   },
+   {
+    "fill": "rgb(255, 255, 255)",
+    "stroke": "rgb(184, 190, 199)",
+    "progress": "rgb(228, 239, 253)",
+    "label": "CssR2 Review (TASK-2026-00003)",
+    "labelFill": "rgb(40, 49, 60)"
+   }
+  ],
+  "theme": "light"
+ },
+ {
+  "lang": "ar",
+  "mode": "dark",
+  "user": "css-r2-ar-dark@midad.test",
+  "bars": [
+   {
+    "fill": "rgb(23, 30, 40)",
+    "stroke": "rgb(75, 83, 94)",
+    "progress": "rgb(29, 57, 88)",
+    "label": "CssR2 Survey (TASK-2026-00001)",
+    "labelFill": "rgb(223, 227, 232)"
+   },
+   {
+    "fill": "rgb(23, 30, 40)",
+    "stroke": "rgb(75, 83, 94)",
+    "progress": "rgb(29, 57, 88)",
+    "label": "CssR2 Scan batch (TASK-2026-00002)",
+    "labelFill": "rgb(223, 227, 232)"
+   },
+   {
+    "fill": "rgb(23, 30, 40)",
+    "stroke": "rgb(75, 83, 94)",
+    "progress": "rgb(29, 57, 88)",
+    "label": "CssR2 Review (TASK-2026-00003)",
+    "labelFill": "rgb(223, 227, 232)"
+   }
+  ],
+  "theme": "dark"
+ }
+]

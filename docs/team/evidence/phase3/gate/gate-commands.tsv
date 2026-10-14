@@ -1,0 +1,14 @@
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	2.7
+list-apps-before	bench_site --site midad.test list-apps	0	1.6
+capture-before	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs before docs/team/evidence/phase3/gate http://midad.test:8000	0	7.0
+install	bench_site --site midad.test install-app institutional_theme	0	3.3
+doctype-after-install	doctype_exists	0	1.6
+capture-installed	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs installed docs/team/evidence/phase3/gate http://midad.test:8000	0	7.0
+seed-state	bench_state seed midad.test /tmp/ins-gate-state.json	0	2.7
+uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	3.2
+doctype-after-uninstall	doctype_exists	0	1.6
+residue-after-uninstall	bench_state residue midad.test /tmp/ins-gate-state.json	0	1.3
+capture-after-uninstall	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall docs/team/evidence/phase3/gate http://midad.test:8000	0	7.0
+reinstall	bench_site --site midad.test install-app institutional_theme	0	3.1
+list-apps	bench_site --site midad.test list-apps	0	1.7

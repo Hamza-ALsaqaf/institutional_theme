@@ -1,0 +1,164 @@
+{
+  "name": "a3_fonts",
+  "checks": [
+    {
+      "label": "Noto-en: font bundle link present",
+      "ok": true,
+      "detail": "/assets/institutional_theme/dist/css/ins_desk.bundle.KFINEGL5.css /assets/institutional_theme/dist/css/ins_fonts_noto.bundle.AFMTUVAK.css"
+    },
+    {
+      "label": "Noto-en: only the selected pairing is linked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Noto-en: computed font-family starts with the private family",
+      "ok": true,
+      "detail": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif"
+    },
+    {
+      "label": "Noto-en: Midad Noto Sans loaded in document.fonts",
+      "ok": true,
+      "detail": "Midad Noto Sans|400|loaded; Midad Noto Sans|500|loaded; Midad Noto Sans|600|loaded"
+    },
+    {
+      "label": "Noto-ar: font bundle link present",
+      "ok": true,
+      "detail": "/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.6PJTYO6D.css /assets/institutional_theme/dist/css-rtl/ins_fonts_noto.bundle.JCF4ICUO.css"
+    },
+    {
+      "label": "Noto-ar: only the selected pairing is linked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Noto-ar: computed font-family starts with the private family",
+      "ok": true,
+      "detail": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif"
+    },
+    {
+      "label": "Noto-ar: Midad Noto Sans Arabic loaded in document.fonts",
+      "ok": true,
+      "detail": "Midad Noto Sans|400|loaded; Midad Noto Sans|500|loaded; Midad Noto Sans|600|loaded; Midad Noto Sans Arabic|400|loaded; Midad Noto Sans Arabic|500|loaded; Midad Noto Sans Arabic|600|loaded"
+    },
+    {
+      "label": "Tajawal-en: font bundle link present",
+      "ok": true,
+      "detail": "/assets/institutional_theme/dist/css/ins_desk.bundle.KFINEGL5.css /assets/institutional_theme/dist/css/ins_fonts_tajawal.bundle.VP5K37BR.css"
+    },
+    {
+      "label": "Tajawal-en: only the selected pairing is linked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Tajawal-en: computed font-family starts with the private family",
+      "ok": true,
+      "detail": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif"
+    },
+    {
+      "label": "Tajawal-en: Midad Tajawal Latin loaded in document.fonts",
+      "ok": true,
+      "detail": "Midad Tajawal Latin|400|loaded; Midad Tajawal Latin|500|loaded; Midad Tajawal Latin|600 700|loaded"
+    },
+    {
+      "label": "Tajawal-ar: font bundle link present",
+      "ok": true,
+      "detail": "/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.6PJTYO6D.css /assets/institutional_theme/dist/css-rtl/ins_fonts_tajawal.bundle.EWYKWAZZ.css"
+    },
+    {
+      "label": "Tajawal-ar: only the selected pairing is linked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Tajawal-ar: computed font-family starts with the private family",
+      "ok": true,
+      "detail": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif"
+    },
+    {
+      "label": "Tajawal-ar: Midad Tajawal loaded in document.fonts",
+      "ok": true,
+      "detail": "Midad Tajawal Latin|400|loaded; Midad Tajawal Latin|500|loaded; Midad Tajawal Latin|600 700|loaded; Midad Tajawal|400|loaded; Midad Tajawal|500|loaded; Midad Tajawal|600 700|loaded"
+    }
+  ],
+  "data": {
+    "originalPairing": "IBM Plex",
+    "Noto-en": {
+      "lang": "en",
+      "dir": "ltr",
+      "links": [
+        "/assets/institutional_theme/dist/css/ins_desk.bundle.KFINEGL5.css",
+        "/assets/institutional_theme/dist/css/ins_fonts_noto.bundle.AFMTUVAK.css"
+      ],
+      "bodyFont": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "h1Font": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "varSans": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "loaded": [
+        "Midad Noto Sans|400|loaded",
+        "Midad Noto Sans|500|loaded",
+        "Midad Noto Sans|600|loaded"
+      ],
+      "declared": 36
+    },
+    "Noto-ar": {
+      "lang": "ar",
+      "dir": "rtl",
+      "links": [
+        "/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.6PJTYO6D.css",
+        "/assets/institutional_theme/dist/css-rtl/ins_fonts_noto.bundle.JCF4ICUO.css"
+      ],
+      "bodyFont": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "h1Font": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "varSans": "\"Midad Noto Sans Arabic\", \"Midad Noto Sans\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "loaded": [
+        "Midad Noto Sans|400|loaded",
+        "Midad Noto Sans|500|loaded",
+        "Midad Noto Sans|600|loaded",
+        "Midad Noto Sans Arabic|400|loaded",
+        "Midad Noto Sans Arabic|500|loaded",
+        "Midad Noto Sans Arabic|600|loaded"
+      ],
+      "declared": 36
+    },
+    "Tajawal-en": {
+      "lang": "en",
+      "dir": "ltr",
+      "links": [
+        "/assets/institutional_theme/dist/css/ins_desk.bundle.KFINEGL5.css",
+        "/assets/institutional_theme/dist/css/ins_fonts_tajawal.bundle.VP5K37BR.css"
+      ],
+      "bodyFont": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "h1Font": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "varSans": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "loaded": [
+        "Midad Tajawal Latin|400|loaded",
+        "Midad Tajawal Latin|500|loaded",
+        "Midad Tajawal Latin|600 700|loaded"
+      ],
+      "declared": 36
+    },
+    "Tajawal-ar": {
+      "lang": "ar",
+      "dir": "rtl",
+      "links": [
+        "/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.6PJTYO6D.css",
+        "/assets/institutional_theme/dist/css-rtl/ins_fonts_tajawal.bundle.EWYKWAZZ.css"
+      ],
+      "bodyFont": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "h1Font": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "varSans": "\"Midad Tajawal\", \"Midad Tajawal Latin\", \"Midad Plex Sans Arabic\", \"Midad Plex Sans\", system-ui, sans-serif",
+      "loaded": [
+        "Midad Tajawal Latin|400|loaded",
+        "Midad Tajawal Latin|500|loaded",
+        "Midad Tajawal Latin|600 700|loaded",
+        "Midad Tajawal|400|loaded",
+        "Midad Tajawal|500|loaded",
+        "Midad Tajawal|600 700|loaded"
+      ],
+      "declared": 36
+    },
+    "restoredStatus": 200,
+    "pairingAfterRestore": "IBM Plex"
+  }
+}

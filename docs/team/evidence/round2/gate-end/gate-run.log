@@ -1,0 +1,41 @@
+[preclean-uninstall] exit=0
+[list-apps-before] exit=0
+[capture-before] exit=0
+[install] exit=0
+[doctype-after-install] exit=0
+[capture-installed] exit=0
+[seed-state] exit=0
+[uninstall] exit=0
+[doctype-after-uninstall] exit=0
+[residue-after-uninstall] exit=0
+[capture-after-uninstall] exit=0
+{"a": "docs/team/evidence/round2/gate-end/before-login.png", "b": "docs/team/evidence/round2/gate-end/installed-login.png", "size": [1366, 768], "differing_pixels": 810277, "differing_share": 0.772363, "max_channel_delta": 255, "identical": false, "bbox_x0_y0_x1_y1": [0, 12, 1365, 767], "diff_image": "docs/team/evidence/round2/gate-end/diff-before-vs-installed-login.png"}
+{"a": "docs/team/evidence/round2/gate-end/before-login.png", "b": "docs/team/evidence/round2/gate-end/after-uninstall-login.png", "size": [1366, 768], "differing_pixels": 0, "differing_share": 0.0, "max_channel_delta": 0, "identical": true}
+{"a": "docs/team/evidence/round2/gate-end/before-todo.png", "b": "docs/team/evidence/round2/gate-end/installed-todo.png", "size": [1366, 768], "differing_pixels": 348465, "differing_share": 0.33216, "max_channel_delta": 255, "identical": false, "bbox_x0_y0_x1_y1": [0, 0, 1355, 767], "diff_image": "docs/team/evidence/round2/gate-end/diff-before-vs-installed-todo.png"}
+{"a": "docs/team/evidence/round2/gate-end/before-todo.png", "b": "docs/team/evidence/round2/gate-end/after-uninstall-todo.png", "size": [1366, 768], "differing_pixels": 0, "differing_share": 0.0, "max_channel_delta": 0, "identical": true}
+[reinstall] exit=0
+[kept-seed] exit=0
+[kept-uninstall] exit=0
+[kept-print] exit=0
+[final-install] exit=0
+[kept-cleanup] exit=0
+[list-apps] exit=0
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	4.9
+list-apps-before	bench_site --site midad.test list-apps	0	1.0
+capture-before	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs before docs/team/evidence/round2/gate-end http://midad.test:8000	0	7.8
+install	bench_site --site midad.test install-app institutional_theme	0	3.1
+doctype-after-install	doctype_exists	0	1.0
+capture-installed	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs installed docs/team/evidence/round2/gate-end http://midad.test:8000	0	7.8
+seed-state	bench_state seed midad.test /tmp/ins-gate-state.json	0	2.6
+uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	5.7
+doctype-after-uninstall	doctype_exists	0	0.9
+residue-after-uninstall	bench_state residue midad.test /tmp/ins-gate-state.json	0	1.0
+capture-after-uninstall	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall docs/team/evidence/round2/gate-end http://midad.test:8000	0	7.6
+reinstall	bench_site --site midad.test install-app institutional_theme	0	3.2
+kept-seed	bench_state kept-seed midad.test /tmp/ins-gate-state.json	0	1.6
+kept-uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	3.9
+kept-print	bench_state kept-render midad.test /tmp/ins-gate-state.json	0	2.6
+final-install	bench_site --site midad.test install-app institutional_theme	0	3.0
+kept-cleanup	bench_state kept-cleanup midad.test /tmp/ins-gate-state.json	0	2.6
+list-apps	bench_site --site midad.test list-apps	0	1.0

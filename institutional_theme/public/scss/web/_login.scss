@@ -1,0 +1,408 @@
+// Hand-written. Login, 2FA, forgot-password and update-password (ADR 0003, 0009).
+//
+// `login.bundle.css` is linked in `block head_include` and so loads after this bundle. Core nests
+// its rules as `.for-login .page-card .page-card-actions .btn-login:hover` and so on. Every rule
+// here repeats the same chain behind `html body[data-path="..."]`, which adds an attribute and two
+// type selectors and therefore out-ranks core at equal nesting, without `!important`.
+// Core writes physical `left`, `right` and `padding-left`; the rtlcss build flips them. Each
+// declaration below sets the logical property on both sides, so the result is direction-correct.
+
+// `:is()` takes the specificity of its most specific argument, so `body:is([data-path=a], [data-path=b])`
+// weighs the same as `body[data-path=a]` and the two pages share one selector instead of doubling
+// every nested rule below (the previous comma list multiplied with the six card wrappers).
+$ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"])';
+
+#{$ins-auth-pages} {
+	background-color: var(--ins-surface-sunken);
+
+	.page-content-wrapper {
+		min-block-size: 0;
+		padding-block-start: var(--ins-space-8);
+	}
+
+	// Core reserves 384px under the card; the trust footer follows the card instead.
+	.page-content-wrapper .page_content {
+		min-block-size: 0;
+	}
+
+	// The masthead carries the lockup, so core's logo stays hidden, also through 2FA.
+	&.ins-has-masthead .page-card-head .app-logo {
+		display: none;
+	}
+
+	// `.for-*` wrappers exist only in core's login.html and update-password.html (VERIFIED, 16.32.0), so the
+	// card rules need no page prefix beyond `body[data-path]`: it has the specificity of the page attribute
+	// and halves the length of every selector below.
+	@at-root html body[data-path] :is(.for-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-email-login, .for-reset-password) {
+		.page-card {
+			box-sizing: border-box;
+			max-inline-size: 408px;
+			padding-block: var(--ins-space-8);
+			padding-inline: var(--ins-space-8);
+			border: 1px solid var(--ins-border);
+			border-block-start: 3px solid var(--ins-primary);
+			border-radius: var(--ins-radius-lg);
+			background-color: var(--ins-surface-raised);
+			color: var(--ins-text);
+			gap: var(--ins-space-5);
+			box-shadow: none;
+
+			@media (max-width: 575.98px) {
+				max-inline-size: 100%;
+				min-block-size: 0;
+				padding-block: var(--ins-space-6);
+				padding-inline: var(--ins-space-4);
+				border-radius: 0;
+				border-inline: 0;
+			}
+
+			form {
+				gap: var(--ins-space-5);
+			}
+
+			.page-card-head {
+				text-align: start;
+
+				h4 {
+					color: var(--ins-text-strong);
+					font-size: var(--ins-text-lg);
+					font-weight: var(--ins-weight-strong);
+					letter-spacing: 0;
+					line-height: var(--ins-leading-tight);
+				}
+
+				.page-card-subtitle {
+					color: var(--ins-text-secondary);
+					font-size: var(--ins-text-sm);
+					letter-spacing: 0;
+					line-height: var(--ins-leading);
+				}
+			}
+
+			.page-card-body {
+				.form-label {
+					color: var(--ins-text-secondary);
+					font-size: var(--ins-text-sm);
+					font-weight: var(--ins-weight-medium);
+					line-height: var(--ins-leading);
+				}
+
+				input[type="text"],
+				input[type="email"],
+				input[type="password"] {
+					box-sizing: border-box;
+					block-size: 40px;
+					padding-block: 0;
+					padding-inline: var(--ins-space-3);
+					border: 1px solid var(--ins-border-control);
+					border-radius: var(--ins-radius-sm);
+					background-color: var(--ins-surface-field);
+					color: var(--ins-text-strong);
+					font-size: var(--ins-text-base);
+
+					&:hover {
+						border-color: var(--ins-border-control-hover);
+					}
+
+					&:focus {
+						border-color: var(--ins-focus);
+						outline: var(--ins-focus-width) solid var(--ins-focus);
+						outline-offset: 0;
+						box-shadow: none;
+					}
+				}
+
+				::placeholder {
+					color: var(--ins-text-placeholder);
+				}
+
+				// Email and password are Latin text. `direction: ltr` keeps the caret and the Latin
+				// run correct in an Arabic page; the default `text-align: start` is the left edge under ltr, so in
+				// RTL the text is aligned to `end` instead (rule at the end of this file), the right edge, to line up with the
+				// mirrored layout and its icons.
+				input[type="email"],
+				input[type="password"],
+				#login_email,
+				#login_password {
+					direction: ltr;
+				}
+
+				.password-field {
+					// Core's svg keeps its click handler but loses its class (see ins_web.bundle.js).
+					.ins-reveal {
+						position: absolute;
+						inset-inline-end: var(--ins-space-1);
+						inset-block-start: 50%;
+						transform: translateY(-50%);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						box-sizing: border-box;
+						min-inline-size: 32px;
+						min-block-size: 32px;
+						padding: 0;
+						border: 0;
+						border-radius: var(--ins-radius-sm);
+						background: transparent;
+						color: var(--ins-text-muted);
+						cursor: pointer;
+						z-index: 2;
+
+						&:hover {
+							color: var(--ins-text-strong);
+						}
+
+						&:focus-visible {
+							outline: var(--ins-focus-width) solid var(--ins-focus);
+							outline-offset: var(--ins-focus-offset);
+						}
+
+						svg {
+							fill: currentcolor;
+							inline-size: 16px;
+							block-size: 16px;
+							pointer-events: none;
+						}
+					}
+				}
+
+				// The icon sits at the start of the field, the reveal toggle at the end.
+				.field-icon {
+					inset-inline-start: var(--ins-space-3);
+					fill: var(--ins-text-muted);
+				}
+
+				.email-field input,
+				.password-field input {
+					padding-inline: 38px;
+				}
+
+				.password-field .toggle-password {
+					inset-inline-end: var(--ins-space-3);
+					fill: var(--ins-text-muted);
+
+					&:hover {
+						fill: var(--ins-text-strong);
+					}
+				}
+
+				.forgot-password-message {
+					text-align: end;
+
+					> * {
+						color: var(--ins-text-link);
+						font-size: var(--ins-text-sm);
+					}
+				}
+
+				// Errors carry an icon, a border and text, never a tint alone.
+				.login-error-banner,
+				.login-success-banner {
+					padding: var(--ins-space-2) var(--ins-space-3);
+					border: 1px solid var(--ins-status-danger-border);
+					border-inline-start-width: 4px;
+					border-radius: var(--ins-radius-sm);
+					background-color: var(--ins-feedback-danger-bg);
+					color: var(--ins-feedback-danger-fg);
+					font-size: var(--ins-text-sm);
+
+					svg {
+						fill: var(--ins-feedback-danger-fg);
+					}
+				}
+
+				.login-success-banner {
+					border-color: var(--ins-status-success-border);
+					background-color: var(--ins-feedback-success-bg);
+					color: var(--ins-feedback-success-fg);
+
+					svg {
+						fill: var(--ins-feedback-success-fg);
+					}
+				}
+
+				.field-error {
+					color: var(--ins-feedback-danger-fg);
+					font-size: var(--ins-text-sm);
+				}
+
+				.form-group.invalid,
+				&.invalid {
+					input[type="text"],
+					input[type="email"],
+					input[type="password"] {
+						border: 2px solid var(--ins-danger);
+					}
+				}
+			}
+
+			.page-card-actions {
+				.btn-login,
+				.btn-ldap-login,
+				.btn-signup:not(:disabled) {
+					box-sizing: border-box;
+					min-block-size: 40px;
+					padding-inline: var(--ins-space-4);
+					border: 1px solid var(--ins-primary);
+					border-radius: var(--ins-radius-sm);
+					background: var(--ins-primary);
+					color: var(--ins-on-primary);
+					font-size: var(--ins-text-base);
+					font-weight: var(--ins-weight-medium);
+					line-height: var(--ins-leading-tight);
+
+					&:hover,
+					&:focus,
+					&:active {
+						border: 1px solid var(--ins-primary-hover);
+						background: var(--ins-primary-hover);
+						color: var(--ins-on-primary);
+					}
+
+					&:focus-visible {
+						outline: var(--ins-focus-width) solid var(--ins-focus);
+						outline-offset: var(--ins-focus-offset);
+					}
+				}
+
+				// Core shows the first action as a neutral button when other sign-in methods exist.
+				.btn-login-option {
+					min-block-size: 40px;
+					border: 1px solid var(--ins-border-control);
+					border-radius: var(--ins-radius-sm);
+					background: var(--ins-surface-base);
+					color: var(--ins-text-strong);
+					font-size: var(--ins-text-base);
+					font-weight: var(--ins-weight-medium);
+
+					&:hover {
+						border: 1px solid var(--ins-border-control-hover);
+						background: var(--ins-surface-hover);
+					}
+
+					img {
+						margin-inline-end: var(--ins-space-2);
+					}
+				}
+
+				// A disabled button is dashed and muted: state by border, not by tint.
+				.btn-signup:disabled {
+					min-block-size: 40px;
+					border: 1px dashed var(--ins-border-strong);
+					background: var(--ins-surface-disabled);
+					color: var(--ins-text-disabled);
+				}
+			}
+		}
+
+		.sign-up-message {
+			color: var(--ins-text-secondary);
+			font-size: var(--ins-text-sm);
+
+			a {
+				color: var(--ins-text-link);
+				text-decoration-line: underline;
+				letter-spacing: 0;
+			}
+		}
+	}
+
+	// Two-factor step: core empties the card and injects this markup (login.js request_otp).
+	@at-root html body[data-path] #twofactor_div {
+		.page-card-head {
+			text-align: start;
+		}
+
+		.form-verify {
+			display: flex;
+			flex-direction: column;
+			gap: var(--ins-space-4);
+		}
+
+		#login_token {
+			box-sizing: border-box;
+			block-size: 40px;
+			padding-block: 0;
+			padding-inline: var(--ins-space-3);
+			border: 1px solid var(--ins-border-control);
+			border-radius: var(--ins-radius-sm);
+			background-color: var(--ins-surface-field);
+			color: var(--ins-text-strong);
+			font-size: var(--ins-text-base);
+			// Codes are digits: keep them left-to-right in an Arabic page.
+			direction: ltr;
+			text-align: start;
+
+			&:focus {
+				border-color: var(--ins-focus);
+				outline: var(--ins-focus-width) solid var(--ins-focus);
+				outline-offset: 0;
+				box-shadow: none;
+			}
+		}
+
+		#verify_token {
+			min-block-size: 40px;
+			margin-block-start: 0;
+			border: 1px solid var(--ins-primary);
+			border-radius: var(--ins-radius-sm);
+			background: var(--ins-primary);
+			color: var(--ins-on-primary);
+			font-weight: var(--ins-weight-medium);
+
+			&:hover,
+			&:focus {
+				border-color: var(--ins-primary-hover);
+				background: var(--ins-primary-hover);
+				color: var(--ins-on-primary);
+			}
+
+			&:focus-visible {
+				outline: var(--ins-focus-width) solid var(--ins-focus);
+				outline-offset: var(--ins-focus-offset);
+			}
+		}
+
+		.text-muted {
+			color: var(--ins-text-secondary);
+		}
+	}
+
+	// Update-password strength meter: the label states the strength; the bar only repeats it.
+	@at-root html body[data-path] .for-reset-password .password-strength-bar-track {
+		border: 1px solid var(--ins-border-strong);
+		background: var(--ins-surface-fill);
+	}
+}
+
+// The trust footer sits under the card on these pages.
+html body[data-path="login"] .ins-trust,
+html body[data-path="update-password"] .ins-trust {
+	margin-block-start: var(--ins-space-4);
+}
+
+@media (forced-colors: active) {
+	html body[data-path] :is(.for-login, .for-forgot, .for-reset-password) .page-card {
+		border-color: CanvasText;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html body[data-path] .invalid-login {
+		animation: none;
+	}
+}
+
+// RTL: the Latin fields align to the right edge, next to the lock icon.
+html[dir="rtl"] body[data-path="login"] .page-card-body :is(#login_email, #login_password),
+html[dir="rtl"] body[data-path="update-password"] .page-card-body input[type="password"] {
+	text-align: end;
+}
+
+// Each heading and subtitle takes its direction from its own first strong character, so a string that
+// falls back to English on an Arabic page keeps its full stop at the end of the line (bidi isolation).
+html body[data-path="login"] .page-card-head-text :is(h4, .page-card-subtitle),
+html body[data-path="update-password"] .page-card-head-text :is(h4, .page-card-subtitle) {
+	unicode-bidi: plaintext;
+	text-align: start;
+}

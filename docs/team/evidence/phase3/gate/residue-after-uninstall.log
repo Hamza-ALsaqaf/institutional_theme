@@ -1,0 +1,11 @@
+$ bench_state residue midad.test /tmp/ins-gate-state.json
+{
+ "after_uninstall": {
+  "Website Settings.app_name": "Frappe",
+  "Website Settings.app_logo": null,
+  "Website Settings.splash_image": null,
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": null
+ }
+}
+RESIDUE: none

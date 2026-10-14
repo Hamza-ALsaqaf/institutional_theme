@@ -2,22 +2,28 @@ Accent background,الخلفية المميزة
 Accent colour,اللون المميز
 Accent rule and marker,خط التمييز وعلامته
 Accent text,النص المميز
+Access to this system is restricted to authorised users. Activity is recorded.,الوصول إلى هذا النظام مقصور على المصرَّح لهم، ويُسجَّل النشاط.
 Adjust the {0} colour.,اضبط اللون {0}.
-Allow Forest,السماح بنمط غابي
-Allow Graphite,السماح بنمط جرافيت
-Allow Midad ink,السماح بنمط مداد
-Allow Petrol,السماح بنمط بترولي
-Allow Plum,السماح بنمط برقوقي
-Allow a custom colour preset,السماح بنمط ألوان مخصص
+Allow Forest,السماح بمجموعة الألوان غابي
+Allow Graphite,السماح بمجموعة الألوان جرافيت
+Allow Midad ink,السماح بمجموعة الألوان مداد
+Allow Petrol,السماح بمجموعة الألوان بترولي
+Allow Plum,السماح بمجموعة الألوان برقوقي
+Allow a custom colour preset,السماح بمجموعة ألوان مخصصة
 Amended,معدَّل
 Amended status background,خلفية حالة معدَّل
 Amended status mark,علامة حالة معدَّل
 Amended status text,نص حالة معدَّل
+Appearance,المظهر
+Apply colour preset,تطبيق مجموعة الألوان
+Approve,اعتماد
 Approved,معتمد
 Arabic regular,الخط العربي العادي
 Arabic semibold,الخط العربي شبه العريض
 Authorised use notice,إشعار الاستخدام المصرح به
 Authorised use notice (Arabic),إشعار الاستخدام المصرح به (بالعربية)
+Automatic,تلقائي
+Back to sign in,العودة إلى تسجيل الدخول
 Behaviour,السلوك
 Between 1 and 30 minutes before the session expires.,بين 1 و30 دقيقة قبل انتهاء الجلسة.
 Body text,نص المتن
@@ -34,25 +40,34 @@ Chart series 5,سلسلة الرسم البياني 5
 Chart series 6,سلسلة الرسم البياني 6
 Chart series 7,سلسلة الرسم البياني 7
 Chart series 8,سلسلة الرسم البياني 8
+Choose a different colour preset to apply it.,اختر مجموعة ألوان أخرى لتطبيقها.
 Colour,الألوان
-Comfortable,مريح
-Compact,مضغوط
+Colour preset,مجموعة الألوان
+Colour preset changed to {0}.,تم تغيير مجموعة الألوان إلى {0}.
+Comfortable,مريحة
+Compact,مضغوطة
 Completed,مكتمل
 Contrast check,فحص التباين
 "Copied to the Frappe settings that show it (login page, navbar, browser tab) when changed here.",يُنسخ إلى إعدادات Frappe التي تعرضه (صفحة الدخول، شريط التنقل، علامة تبويب المتصفح) عند تغييره هنا.
-Custom,مخصص
-Custom colour preset,نمط الألوان المخصص
-Custom colour preset rejected,رُفض نمط الألوان المخصص
-Custom colour preset rejected. These pairs are below their minimum contrast:,رُفض نمط الألوان المخصص. الأزواج التالية أقل من الحد الأدنى للتباين:
+Custom,مخصصة
+Custom colour preset,مجموعة الألوان المخصصة
+Custom colour preset rejected,رُفضت مجموعة الألوان المخصصة
+Custom colour preset rejected. These pairs are below their minimum contrast:,رُفضت مجموعة الألوان المخصصة. الأزواج التالية أقل من الحد الأدنى للتباين:
 Danger status background,خلفية حالة الخطر
 Danger status mark,علامة حالة الخطر
 Danger status text,نص حالة الخطر
 Dark,داكن
-Default colour preset,نمط الألوان الافتراضي
+Default colour preset,مجموعة الألوان الافتراضية
 Default density,الكثافة الافتراضية
+Density,الكثافة
+Density changed to {0}.,تم تغيير الكثافة إلى {0}.
+Density must be Comfortable or Compact.,يجب أن تكون الكثافة مريحة أو مضغوطة.
 Destructive action,إجراء خطِر
 Destructive action on hover,إجراء خطِر عند تمرير المؤشر
+Didn't receive the link?,لم يصلك الرابط؟
 Disabled control background,خلفية العنصر المعطل
+Disabled control background in forms,خلفية العنصر المعطل في النماذج
+Disabled input background,خلفية حقل الإدخال المعطل
 Disabled text,النص المعطل
 Draft,مسودة
 Emblem,الشعار الرسمي
@@ -61,10 +76,16 @@ Error banner background,خلفية شريط الخطأ
 Error banner text,نص شريط الخطأ
 Error border,إطار الخطأ
 Favicon,أيقونة المتصفح
+Field background,خلفية الحقل
+Field background on grey,خلفية الحقل على الرمادي
 Focus ring,حلقة التركيز
 Font pairing,ثنائية الخطوط
+Forgot Password?,نسيت كلمة المرور؟
+Forgot password?,نسيت كلمة المرور؟
 Heading text,نص العناوين
 Help text,نص المساعدة
+Hidden for your role,مخفي لدورك
+Hide password,إخفاء كلمة المرور
 Hover background,خلفية عند تمرير المؤشر
 IBM Plex,IBM Plex
 Icons,الأيقونات
@@ -91,8 +112,12 @@ Latin semibold,الخط اللاتيني شبه العريض
 Light,فاتح
 Link text,نص الرابط
 Link text on hover,نص الرابط عند تمرير المؤشر
+Login with Email Link,الدخول برابط عبر البريد الإلكتروني
+Login with password,الدخول بكلمة المرور
 Menu and dialog background,خلفية القوائم والحوارات
 Minutes of warning,دقائق التنبيه
+Mode,الوضع
+Mode changed to {0}.,تم تغيير الوضع إلى {0}.
 Muted status background,خلفية الحالة الخافتة
 Muted status mark,علامة الحالة الخافتة
 Muted status text,نص الحالة الخافتة
@@ -115,6 +140,8 @@ Pending status background,خلفية حالة الانتظار
 Pending status mark,علامة حالة الانتظار
 Pending status text,نص حالة الانتظار
 Placeholder text,النص التوضيحي داخل الحقل
+Please check your email.,تحقق من بريدك الإلكتروني.
+"Please enter your email, we'll send you password reset link",أدخل بريدك الإلكتروني وسنرسل إليك رابط إعادة تعيين كلمة المرور.
 Plum status background,خلفية الحالة البرقوقية
 Plum status mark,علامة الحالة البرقوقية
 Plum status text,نص الحالة البرقوقية
@@ -124,18 +151,30 @@ Primary action on hover,الإجراء الأساسي عند تمرير المؤ
 Primary action when pressed,الإجراء الأساسي عند الضغط
 Primary colour,اللون الأساسي
 Primary-coloured text,نص بلون أساسي
+Production,الإنتاج
+Quote this reference when you contact support.,اذكر هذا المرجع عند التواصل مع الدعم الفني.
 Read-only value text,نص القيمة للقراءة فقط
+Reject,رفض
 Rejected,مرفوض
+Release {0},الإصدار {0}
+Resend,إعادة الإرسال
 Scrollbar thumb,مقبض شريط التمرير
 Scrollbar track,مسار شريط التمرير
 Search highlight,تمييز نتائج البحث
 Secondary button background,خلفية الزر الثانوي
+Secondary button background on hover,خلفية الزر الثانوي عند تمرير المؤشر
 Secondary text,النص الثانوي
+Selected,محددة
 Selected and hovered row background,خلفية الصف المحدد عند تمرير المؤشر
 Selected row background,خلفية الصف المحدد
+Send Link,إرسال الرابط
+Send login link,إرسال رابط الدخول
 "Set by ins_environment in site_config.json: Training, UAT or Staging. Empty means production.",يُحدَّد بالمفتاح ins_environment في الملف site_config.json: تدريب أو UAT أو ما قبل الإنتاج. الحقل الفارغ يعني بيئة الإنتاج.
+Set by your administrator.,يحدده مسؤول النظام.
 Show a banner when the connection is lost,إظهار شريط عند انقطاع الاتصال
+Show password,إظهار كلمة المرور
 Sidebar and well background,خلفية الشريط الجانبي والمناطق الغائرة
+Sign In,تسجيل الدخول
 Staging,ما قبل الإنتاج
 Submitted,مُرحَّل
 Success banner background,خلفية شريط النجاح
@@ -150,14 +189,20 @@ Tajawal,Tajawal
 Teal status background,خلفية الحالة الفيروزية
 Teal status mark,علامة الحالة الفيروزية
 Teal status text,نص الحالة الفيروزية
+Technical support,الدعم الفني
 Text on destructive action,النص على الإجراء الخطِر
 Text on primary action,النص على الإجراء الأساسي
-The colour preset {0} is not available.,نمط الألوان {0} غير متاح.
-The default colour preset {0} must also be allowed.,يجب أيضًا السماح بنمط الألوان الافتراضي {0}.
+The colour preset could not be applied. Try again.,تعذّر تطبيق مجموعة الألوان. حاول مرة أخرى.
+The colour preset {0} is not available on this site.,مجموعة الألوان {0} غير متاحة على هذا الموقع.
+The colour preset {0} is not available.,مجموعة الألوان {0} غير متاحة.
+The default colour preset {0} must also be allowed.,يجب أيضًا السماح بمجموعة الألوان الافتراضية {0}.
+The density could not be saved. The previous density was restored.,تعذّر حفظ الكثافة. تمت استعادة الكثافة السابقة.
 The font file {0} must be public so that the login page and printouts can load it.,يجب أن يكون ملف الخط {0} عامًا حتى تتمكن صفحة الدخول والمطبوعات من تحميله.
 The idle warning must come between 1 and 30 minutes before the session expires.,يجب أن يقع تنبيه عدم النشاط بين 1 و30 دقيقة قبل انتهاء الجلسة.
 The image {0} must be public so that the login page and printouts can load it.,يجب أن تكون الصورة {0} عامة حتى تتمكن صفحة الدخول والمطبوعات من تحميلها.
+The mode could not be saved. The previous mode was restored.,تعذّر حفظ الوضع. تمت استعادة الوضع السابق.
 The uploaded font {0} is missing from the server; IBM Plex is used until it is uploaded again.,الخط المرفوع {0} غير موجود على الخادم؛ يُستخدم IBM Plex إلى أن يُعاد رفعه.
+Time of error,وقت الخطأ
 Tinted primary background,خلفية بلون أساسي خفيف
 Tooltip background,خلفية التلميح
 Tooltip text,نص التلميح
@@ -166,7 +211,7 @@ Typography,الطباعة
 UAT,اختبار قبول المستخدم (UAT)
 Uploaded,مرفوع
 Uploaded fonts,الخطوط المرفوعة
-Used by every user who has not chosen another preset.,يستخدمه كل مستخدم لم يختر نمطًا آخر.
+Used by every user who has not chosen another preset.,يستخدمه كل مستخدم لم يختر مجموعة ألوان أخرى.
 "Used by this app only, for example in the Letter Head.",يستخدمه هذا التطبيق فقط، مثلًا في ترويسة الخطاب.
 "WOFF2 or TrueType files, public. All four are required for the Uploaded pairing.",ملفات WOFF2 أو TrueType عامة. الملفات الأربعة كلها مطلوبة لثنائية الخطوط المرفوعة.
 Warn before the session expires,التنبيه قبل انتهاء الجلسة
@@ -175,10 +220,11 @@ Warning banner text,نص شريط التحذير
 Warning status background,خلفية حالة التحذير
 Warning status mark,علامة حالة التحذير
 Warning status text,نص حالة التحذير
+Welcome! Please sign in to continue.,مرحباً بك. سجّل الدخول للمتابعة.
 Wordmark,الشعار النصي
 Wordmark for dark backgrounds,الشعار النصي للخلفيات الداكنة
 accent,المميز
-custom,مخصص
+custom,مخصصة
 forest,غابي
 graphite,جرافيت
 midad,مداد
@@ -190,3 +236,44 @@ primary,الأساسي
 {0} is required,{0} مطلوب
 "{0} on {1}, {2} mode: {3}:1; at least {4}:1 is required.",{0} على {1}، وضع {2}: {3}:1؛ المطلوب {4}:1 على الأقل.
 "{0} on {1}, {2} mode: {3}:1; at most {4}:1 is allowed.",{0} على {1}، وضع {2}: {3}:1؛ المسموح به {4}:1 كحد أقصى.
+Use strong passwords.,استخدم كلمات مرور قوية.
+Sign Up,إنشاء حساب
+Sign up,إنشاء حساب
+Your session has ended. Sign in again to continue.,انتهت جلستك. سجّل الدخول مجدداً للمتابعة.
+Sign in,تسجيل الدخول
+The session could not be refreshed. Try again.,تعذّر تجديد الجلسة. حاول مرة أخرى.
+Stay signed in,الاستمرار في الجلسة
+You have been inactive. Your session may end soon.,لم يُسجَّل أي نشاط منك. قد تنتهي جلستك قريباً.
+You are offline. Changes cannot be saved until the connection returns.,أنت غير متصل بالإنترنت. لا يمكن حفظ التغييرات حتى يعود الاتصال.
+Live updates are interrupted. The page will keep trying to reconnect.,توقفت التحديثات الفورية. ستواصل الصفحة محاولة إعادة الاتصال.
+The connection is back.,عاد الاتصال.
+Quotation:,عرض أسعار:
+Posting Date:,تاريخ الترحيل:
+Valid Till:,صالح حتى:
+Sub Total:,المجموع الفرعي:
+Grand Total:,المجموع الإجمالي:
+In Words:,في كلمات:
+Total in words,المبلغ كتابةً
+Bill From,الفاتورة من
+Bill To,الفاتورة إلى
+Quarter Day,ربع يوم
+Half Day,نصف يوم
+Projects Setup,إعداد المشاريع
+Create Project,إنشاء مشروع
+Create Task,إنشاء مهمة
+View Project Summary,عرض ملخص المشروع
+Import Data,استيراد البيانات
+Please fill the following mandatory fields before saving:,يرجى تعبئة الحقول الإلزامية التالية قبل الحفظ:
+Tax Template,قالب ضريبة
+Selling Setup,إعداد المبيعات
+Create Customer,إنشاء عميل
+Create Item,إنشاء صنف
+View Sales Order Analysis,عرض تحليل أوامر المبيعات
+Review Selling Settings,مراجعة إعدادات المبيعات
+Accounting Onboarding,بدء استخدام المحاسبة
+Configure Chart of Accounts,إعداد دليل الحسابات
+Setup Sales Taxes,إعداد ضرائب المبيعات
+View Balance Sheet,عرض الميزانية العمومية
+Review Accounts Settings,مراجعة إعدادات الحسابات
+Begin typing for results.,ابدأ الكتابة لعرض النتائج.
+Timeline,الخط الزمني

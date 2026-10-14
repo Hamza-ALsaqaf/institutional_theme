@@ -1,0 +1,4 @@
+en about A.text-muted "ERPNext" color rgb(88, 97, 109) ratio 6.28
+en webform A.text-muted "ERPNext" color rgb(88, 97, 109) ratio 6.28
+ar about A.text-muted "ERPNext" color rgb(88, 97, 109) ratio 6.28
+ar webform A.text-muted "ERPNext" color rgb(88, 97, 109) ratio 6.28

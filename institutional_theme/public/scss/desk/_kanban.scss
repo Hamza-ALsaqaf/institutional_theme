@@ -1,0 +1,26 @@
+// Kanban board (desk/kanban.scss): the --kanban-* variables are mapped to surfaces; only literals and the focus ring live here.
+// Columns and cards read the mapped variables, so this partial adds the hairline, the dashed add-column border and keyboard focus.
+
+html:root[dir] .kanban .kanban-column {
+	border: 1px solid var(--ins-border-hairline);
+}
+
+html:root[dir] .kanban .kanban-column.add-new-column {
+	border-color: transparent;
+}
+
+// Core draws the add-column outline as `1px dashed var(--gray-400)` (kanban.scss:333), a 1.7:1 grey on white; --gray-400 is not a contrast-safe border.
+html:root[dir] .kanban .kanban-column.add-new-column .kanban-column-title.compose-column {
+	border-color: var(--ins-border-strong);
+}
+
+// Cards are mouse-dragged blocks with a focusable link; the ring sits inside the clipped column (overflow hidden).
+html:root[dir] .kanban .kanban-card-wrapper:focus-visible {
+	outline: 2px solid var(--ins-focus);
+	outline-offset: -2px;
+}
+
+// Keep the lifted card and the drop ghost legible: the ghost core blanks with `!important` is left alone; the lifted card takes the overlay elevation.
+html:root[dir] .kanban .kanban-card:hover {
+	box-shadow: var(--ins-elevation-raised);
+}

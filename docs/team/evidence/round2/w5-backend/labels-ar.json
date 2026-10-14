@@ -1,0 +1,174 @@
+{
+ "ar/customer": {
+  "visibleInputs": 9,
+  "axControls": 9,
+  "unnamedInAX": 0,
+  "labelNotInAX": [],
+  "types": [
+   "Data",
+   "Select",
+   "Link"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:اسم العميل *",
+   "combobox:نوع العميل *",
+   "textbox:Alias",
+   "combobox:مجموعة العميل",
+   "combobox:إقليم",
+   "combobox:الفواتير العملات",
+   "combobox:حساب بنك الشركة",
+   "combobox:قائمة الأسعار",
+   "combobox:نموذج شروط الدفع"
+  ],
+  "duplicateIds": 0
+ },
+ "ar/sales-invoice": {
+  "visibleInputs": 15,
+  "axControls": 18,
+  "unnamedInAX": 3,
+  "labelNotInAX": [],
+  "types": [
+   "Select",
+   "Link",
+   "Check",
+   "Date",
+   "Data"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:تاريخ استحقاق السداد *",
+   "combobox:سلسلة التسمية *",
+   "checkbox:تحرير تاريخ النشر والوقت",
+   "checkbox:تشمل الدفع (POS)",
+   "checkbox:هو العودة (ملاحظة الائتمان)",
+   "checkbox:هل هو قيد تعديل السعر (إشعار مدين)؟",
+   "checkbox:ضع في اعتبارك اقتطاع الضرائب",
+   "textbox:مسح الباركود",
+   "checkbox:تحديث المخزون",
+   "checkbox:استخدم مركز التكلفة الافتراضي للشركة للتقريب",
+   "combobox:العميل *",
+   "combobox:الفئة الضريبية",
+   "combobox:قالب الضرائب والرسوم على المبيعات",
+   "combobox:قواعد الشحن",
+   "combobox:مصطلحات التجارة الدولية",
+   "checkbox:",
+   "checkbox:",
+   "checkbox:"
+  ],
+  "duplicateIds": 0
+ },
+ "ar/item": {
+  "visibleInputs": 12,
+  "axControls": 12,
+  "unnamedInAX": 2,
+  "labelNotInAX": [],
+  "types": [
+   "Data",
+   "Link",
+   "Check",
+   "checkbox",
+   "Currency"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:مستوى البيع السعر",
+   "textbox:رمز السلعة *",
+   "textbox:اسم السلعة",
+   "checkbox:منتج يخزن",
+   "checkbox:",
+   "checkbox:السماح بالمبيعات",
+   "checkbox:السماح لصنف بديل",
+   "checkbox:يحتوي على متغيرات",
+   "checkbox:السماح بالشراء",
+   "checkbox:",
+   "combobox:مجموعة الصنف *",
+   "combobox:وحدة القياس الافتراضية *"
+  ],
+  "duplicateIds": 0
+ },
+ "ar/task": {
+  "visibleInputs": 11,
+  "axControls": 11,
+  "unnamedInAX": 0,
+  "labelNotInAX": [],
+  "types": [
+   "Data",
+   "Link",
+   "Color",
+   "Check",
+   "Select",
+   "Float"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:وزن",
+   "textbox:موضوع *",
+   "textbox:اللون",
+   "checkbox:هل مجموعة",
+   "combobox:الحالة",
+   "combobox:أفضلية",
+   "checkbox:هل القالب",
+   "combobox:مشروع",
+   "combobox:المشكلات",
+   "combobox:النوع",
+   "combobox:المهمة الرئيسية"
+  ],
+  "duplicateIds": 0
+ },
+ "ar/event": {
+  "visibleInputs": 12,
+  "axControls": 12,
+  "unnamedInAX": 0,
+  "labelNotInAX": [],
+  "types": [
+   "Small Text",
+   "Select",
+   "Color",
+   "Check",
+   "Data",
+   "Datetime"
+  ],
+  "unnamedDom": [
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row",
+   "grid-row-check in grid-row"
+  ],
+  "sample": [
+   "textbox:موضوع *",
+   "textbox:يبدأ يوم *",
+   "textbox:ينتهي في",
+   "combobox:فئة الحدث",
+   "combobox:نوع الحدث *",
+   "textbox:اللون",
+   "checkbox:كرر هذا الحدث",
+   "textbox:الموقع",
+   "combobox:الحالة",
+   "combobox:Attending",
+   "checkbox:كل يوم",
+   "checkbox:مزامنة مع تقويم Google"
+  ],
+  "duplicateIds": 0
+ },
+ "ar/consoleWarnings": []
+}

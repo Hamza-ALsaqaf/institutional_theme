@@ -1,0 +1,48 @@
+['email.bundle.css', 'email_erpnext.bundle.css', 'ins_email.bundle.css']
+<html>
+<head>
+<style type="text/css">.email-body a:not(.btn) {color:#171717 !important;font-weight:600 !important;text-decoration:underline !important}
+@media only screen and (max-width: 700px) {
+    .body-table.with-container .body-content {
+        padding: 24px 12px !important
+        }
+    .body-table.with-container .email-container {
+        width: auto !important
+        }
+    .body-table.with-container .email-container .email-masthead {
+        padding: 20px 24px 16px !important
+        }
+    .body-table.with-container .email-container .email-title-cell {
+        padding: 24px 24px 0 !important
+        }
+    .body-table.with-container .email-container .email-body-cell {
+        padding: 8px 24px 24px !important
+        }
+    .body-table.with-container .email-container .email-footer-cell {
+        padding: 0 24px !important
+        }
+    .body-table.with-container .email-container .email-footer-cell.filled {
+        padding: 16px 24px 20px !important
+        }
+    }
+.email-footer-container > div:not(:last-child) {margin-bottom:4px !important}
+.table > thead:first-child > tr:first-child > th {border-top:none !important}
+.ql-editor li > .ql-ui:before {display:inline-block !important;margin-left:-1.5em !important;margin-right:0.3em !important;text-align:right !important;white-space:nowrap !important;width:1.2em !important}
+.ql-editor li[data-list=bullet] > .ql-ui:before {content:"•" !important}
+.ql-editor li[data-list=checked] > .ql-ui:before {content:"☑" !important}
+.ql-editor li[data-list=unchecked] > .ql-ui:before {content:"☐" !important}
+.ql-editor li[data-list=ordered] > .ql-ui:before {content:counter(list-0, decimal) ". " !important}
+.ql-editor li[data-list=ordered].ql-indent-1 > .ql-ui:before {content:counter(list-1, lower-alpha) ". " !important}
+.ql-editor li[data-list=ordered].ql-indent-2 > .ql-ui:before {content:counter(list-2, lower-roman) ". " !important}
+.ql-editor li[data-list=ordered].ql-indent-3 > .ql-ui:before {content:counter(list-3, decimal) ". " !important}
+.ql-editor .ql-indent-1:not(.ql-direction-rtl) {padding-left:3em !important}
+.ql-editor li.ql-indent-1:not(.ql-direction-rtl) {padding-left:4.5em !important}
+.ql-editor .ql-indent-2:not(.ql-direction-rtl) {padding-left:6em !important}
+.ql-editor li.ql-indent-2:not(.ql-direction-rtl) {padding-left:7.5em !important}
+.ql-editor .ql-indent-3:not(.ql-direction-rtl) {padding-left:9em !important}
+.ql-editor li.ql-indent-3:not(.ql-direction-rtl) {padding-left:10.5em !important}</style>
+<style type="text/css">.email-body a:not(.btn) {color:#005895 !important;font-weight:500 !important;text-decoration:underline !important}</style>
+</head>
+<body style="line-height:1.5; color:#141b25"><table class="body-table" style="border-collapse:collapse; table-layout:fixed; margin:0 auto; border-spacing:0; font-weight:400; font-family:Segoe UI, Tahoma, Arial, Helvetica Neue, sans-serif; font-size:14px; line-height:1.4; color:#141b25; height:100% !important; width:100% !important" height="100% !important" width="100% !important"><tr><td class="email-body-cell" style="font-family:Segoe UI, Tahoma, Arial, Helvetica Neue, sans-serif; unicode-bidi:plaintext; text-align:left" align="left">x</td></tr></table></body>
+</html>
+

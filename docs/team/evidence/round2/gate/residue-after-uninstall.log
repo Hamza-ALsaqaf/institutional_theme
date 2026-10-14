@@ -1,0 +1,23 @@
+$ bench_state residue midad.test /tmp/ins-gate-state.json
+{
+ "print_after_uninstall": {
+  "print_style": false,
+  "letter_head": false,
+  "globals": 0
+ },
+ "print_at_seed": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ }
+}
+{
+ "after_uninstall": {
+  "Website Settings.app_name": "Frappe",
+  "Website Settings.app_logo": "/files/ins-test-emblem.png",
+  "Website Settings.splash_image": "/files/ins-test-emblem.png",
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": "/files/ins-test-emblem.png"
+ }
+}
+RESIDUE: none

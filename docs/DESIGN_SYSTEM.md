@@ -1,6 +1,86 @@
 # Midad design system
 
-The prose of this document is written in Phase 5. The tables between the markers are generated.
+This document describes the Midad theme as built for Frappe 16.32.0. The prose sections are maintained by hand; the tables between the `tokens:begin` and `tokens:end` markers are generated from `design/tokens.json` and must not be edited.
+
+## Thesis and principles
+
+Midad ("ink") is ink on paper, closed with a seal: a calm, authoritative desk for officers who work in it all day and for officials who must trust what it shows. The approved design is in `design/`; `midad` is the default preset in Light and Dark and its values are frozen (ADR 0001, D3).
+
+Conflicts are settled in the order of `docs/BRIEF.md` section 3: correctness and unmistakable state, accessibility, upgrade-safety, density, aesthetics. Aesthetics never wins against the first three. In practice:
+
+- **One status language**: colour, a text label and a CSS-drawn shape, the same everywhere.
+- **Brass is a seal, not a colour**: under 5% of a screen, never text.
+- **Dark is its own design**: tonal elevation and hairlines, no pure black, no pure white text.
+- **Zero core edits**: everything is CSS custom properties, a few selectors and small idempotent scripts in this app.
+- **Customisation without risk**: users choose among audited presets; the site may add one custom brand preset generated on the approved lightness curves (ADR 0001, D4, D5).
+
+## Architecture
+
+**Token pipeline.** `design/tokens.json` is the single source. `python -m institutional_theme.midad.build` resolves it with the dependency-free colour package `institutional_theme/midad/` (ADR 0001 D6, ADR 0004) into `institutional_theme/public/scss/generated/`: `_tokens.scss` (the `--ins-*` colours), `_scale.scss` (type, spacing, density, motion), `_frappe_map.scss` (Frappe variables pointed at `var(--ins-…)`) and one `ins_palette_<name>.bundle.scss` per shipped preset. `--check` fails when any generated file is stale. The same package runs the audits (`python -m institutional_theme.audits`) and validates the custom preset on save.
+
+**Bundles.** `ins_desk.bundle.scss` imports the generated partials, then one hand-written partial per concern under `public/scss/desk/`. `ins_web.bundle.scss` serves login and website pages. Both are wrapped in `rtl:begin:ignore` and use logical properties only, so Frappe's rtlcss pass produces an identical RTL file.
+
+**Palette delivery (ADR 0003).** No script runs before the desk splash paints, so a root attribute cannot select a palette in time. Instead, the server hook `update_website_context` appends the user's palette stylesheet (and the site's font file) to `app_include_css`. The palette files hold only `--ins-*` declarations, so a preset changes values, never selectors. A failed hook or a missing asset falls back to `midad`. Changing preset reloads the page. Preferences live in two user defaults, `ins_palette` and `ins_density`; the User doctype is untouched (ADR 0002).
+
+**Cascade (findings section 2).** Core declares its variables at (0,1,0) and lets dark win by source order. The theme never relies on order. Light blocks sit on `html:root`, dark on `html:root[data-theme="dark"]`, Automatic inside `prefers-color-scheme`, and the Frappe mapping one step higher on `html:root[dir]…`, so a later-installed app at (0,1,1) cannot displace it. Because `html:root` also matches a dark root, every key set in Light is set in Dark and Automatic; the parity audit enforces it. Variables that core re-declares on descendants (dialogs, grid rows, charts) are re-declared in `_scoped_variables.scss`.
+
+## Modes, density, RTL and Arabic typography
+
+- **Modes** stay Frappe's `desk_theme` (Light, Dark, Automatic). Each mode block sets `color-scheme`, so native controls and scrollbars follow it.
+- **Light-only pages (platform constraint).** Login, 2FA, forgot-password, update-password, the error pages (403, 404, 500, maintenance) and every website and portal page are Light only. Frappe 16.32 renders `data-theme` only on the desk (`www/desk.html:2`); `templates/base.html:3`, which every website page extends, renders `lang` and `dir` and no `data-theme` (findings section 2). The approved design also has no dark login artboard. `ins_web.bundle.scss` therefore imports only the Light token partials (`generated/tokens_light`, `generated/frappe_map_light`). This is a property of the platform, not a dark-parity defect; a user in Dark sees these pages in Light. Print and email are Light by the brief (section 8, "always light regardless of desk mode").
+- **Density** is the `data-ins-density` attribute on `<html>`, set by the shell script before the desk is built. Compact lowers the scale tokens (13px base, 28px controls, 48px page head). Under `pointer: coarse` targets grow to 44px in either density. The datatable keeps core's row height: compact changes only padding and type (findings section 5).
+- **RTL** needs no mirrored stylesheet. Direction-implying icons are flipped with a transform under `[dir="rtl"]`.
+- **Arabic typography** (`desk/_typography.scss`): letter-spacing is forced to 0 for Arabic and RTL documents at (0,6,1), above core's tracking rules; Arabic body and text containers use `--ins-leading-arabic` (1.65), except datatable cells and fixed-height controls; numeric fields, report cells and `kbd` use lining tabular numerals. `font-synthesis: none` prevents synthetic bold and italic (`desk/_base.scss`). Faces are self-hosted under private names (`Midad Plex Sans Arabic`, `Midad Plex Sans`, `Midad Plex Mono`); Arabic and Latin are split by `unicode-range`, so Latin digits come from the Latin face. Size compensation between Arabic and Latin is not implemented as a separate rule: both scripts render at the same nominal size.
+
+## Accessibility approach and limits
+
+Midad is **designed to meet WCAG 2.2 AA; a formal audit is recommended.** No certification is claimed.
+
+- **Contrast** is computed, not eyeballed: every declared pair in `tokens.json` → `contrast.groups` is checked in both modes for every shipped preset, and the build drops any preset that fails (`umber` was dropped this way, STATUS decision 10). Results: section 4 below and `docs/audits/`.
+- **Focus**: one ring, an `outline` of `--ins-focus-width` at `--ins-focus-offset`, on every focusable element. Core's grey focus box-shadows are removed so only one ring shows. Inside clipped scroll containers the ring is drawn inset, except on checkboxes and radios. `scroll-padding-block-start` clears the sticky page head.
+- **Motion** collapses under `prefers-reduced-motion`; looping spinners get a static busy cue.
+- **Forced colours**: focus, selection, selected rows and status pills fall back to system colours. These rules are ASSUMED: Chromium forced-colours emulation was not run.
+- **Charts (ADR 0010)**: the default series order is 1, 5, 3, 2, 6, 4, so every neighbouring pair reaches an OKLab distance of 5.0 in every vision type, mode and preset. Direct labels come from the Dashboard Chart setting `show_values_over_chart`. Line series 2-6 carry distinct dash patterns (`desk/_dashboard.scss`; computed values VERIFIED on a synthetic 7-series chart, `docs/team/evidence/phase4/charts/`); bars are never dashed. **Known gaps:** some non-neighbour pairs under grayscale (as low as 0.3) and protanopia (chart-3/6 at 4.4, Dark); series 7 and 8; bar and pie charts carry labels only; no data-table alternative. The colour-vision audit baselines these gaps and fails on any new one.
+- **Field errors** carry three cues besides colour; see "Field errors" below.
+- **Known gaps**: calendar events in Light keep the colours the user chose, and some fail 4.5:1 (see "Calendar"); in Light the dot events keep core's `!important` blue (`calendar.scss:99`). Printed ERPNext table headers keep ERPNext's grey (see "Print and PDF").
+
+## Field errors
+
+A field in error (core toggles `.has-error` on the control wrapper, `base_input.js:277` for an empty mandatory field and `:286` for an invalid value) carries three cues that do not depend on colour: a 4px inline-start bar, an inner 1px line, and a 16px circle-with-exclamation icon at the inline end of the box (`desk/_controls.scss`). The icon is an SVG mask painted with `--ins-danger`, so it follows the mode and mirrors in RTL; the input reserves room for it, and on Select it sits just inside core's caret. Under forced colours it is painted in `CanvasText`. Hosts: Data, Int, Float, Currency, Link, Dynamic Link, Date, Datetime, Time, Select, Small Text, Text, Percent, Phone. Check, Attach, Text Editor, table and MultiSelect controls have no text box to host it and keep the bar and label colour only. VERIFIED in four mode and language combinations and under forced-colours emulation (`docs/team/evidence/round2/css/`).
+
+## Calendar
+
+FullCalendar draws the event chips; Frappe computes their colours (`calendar.js:431-449`, `prepare_colors`) and FullCalendar writes them as inline `style`, which no selector outranks. Core also resets every chip border with `.fc-event { border: none !important }` (`calendar.scss:65`).
+
+- **Dark**: a neutral raised chip, `--ins-surface-raised` with `--ins-text-strong` (14.52:1) and a 4px inline-start stripe. This is the only place the desk answers inline style with `!important`: four declarations, scoped to `[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event)` and its `.fc-event-main`, each listed in `docs/DEPENDENCY_MANIFEST.md`. Because core's `border: none` resets the border colour, the stripe takes the text colour: **the per-event colour is not shown in Dark.** Events stay distinct from the grid by surface and stripe, and are told apart by their text. If `calendar.js` stops writing inline colours, the rules can go.
+- **Light**: Frappe's own colours are kept, because they are the user's data. The stock pastel colours reach 6.34:1. A strong colour chosen for an event gets Frappe's computed text colour and can fail 4.5:1: red 2.31:1, green 3.31:1 (COMPUTED from the rendered page, `calendar-computed.json`). **Known gap**, controlled by the administrator: choose light event colours, or leave the colour empty for the stock blue.
+- Grid lines re-point core's `--gray-300` inside the calendar instead of fighting its `!important` border colour (`calendar.scss:36-43`).
+
+## Print and PDF
+
+Printing is always Light. The app ships two records, both named "Midad", on install and after each migrate (`print/ship.py`): a **Print Style** (fonts, then `.print-format { font-family }`, then the built `ins_print.bundle.css`) and a **Letter Head** (`print/letter_head.html` and `letter_head_footer.html`, filled from `ins_identity()`). Neither is ever made the default and Print Settings is not changed; the administrator chooses them. A record the administrator has edited, deleted or created under the same name is never overwritten or recreated (checksum in the `ins_print_shipped` global). Uninstall deletes an untouched, unlinked record and keeps any other.
+
+- **Standards**: closing rule under the heading; ruled tables with hairline rows; the table header repeats on each page and rows do not split; a double rule above grand total; status as text plus a border shape (`.ins-status-*`); signature blocks (`.ins-signatures`); a verification box for a QR code or code line (`.ins-verify`); figures at the line end; tabular numerals. The bundle uses no custom properties and no logical properties, because QtWebKit reads neither; RTL is written as physical pairs under `[dir="rtl"]` (manifest row).
+- **Watermark**: Draft and Cancelled print the word core already emits (`standard_macros.html:215,220`) as a large framed horizontal word, repeated on every page, with a dashed frame for Cancelled. It is not tilted: the patched wkhtmltopdf build ignores `transform`, and one rendering for both generators was preferred. The frame keeps the meaning on a photocopy.
+- **Generators**: wkhtmltopdf must be the **0.12.6.1 build with patched Qt**; the distribution package 0.12.6 overflows the page width and does not support the running header and footer. Chrome (`pdf_generator = chrome`, Print Settings "PDF Generator") is supported. Both were rendered for A4 and Letter, English and Arabic, Draft and Cancelled, with Plex fonts embedded (VERIFIED, `docs/team/evidence/round2/print-web/`, `backend2/`). With "Repeat Header and Footer" on, core's Chrome header page shifts the letter head up 12mm with `!important` (`chrome_pdf_header_footer.html`); the bundle compensates on that page only (`body:not([onload])`, manifest row).
+- **ERPNext formats are not restyled where they use `!important` or inline style**: header cells of `.items-table` stay ERPNext's grey `#7c7c7c` (bold and ruled), cell padding stays ERPNext's, and the subtotal block keeps its inline `float: right`, so in Arabic it stays on the right. Changing these would need counter-`!important` or an edited format; neither is upgrade-safe (BRIEF section 3, rule 3).
+
+## Email
+
+`ins_email.bundle.scss` is added through the `email_css` hook after core's and ERPNext's entries, and Premailer inlines it into every message. It holds literal values from the Light tokens only (no custom properties, no `@font-face`, no logical properties, no flex or grid), so mail clients read it. Identity: a 4px brand rule on top of the container, a double rule under the masthead, a ruled footer, underlined links, primary buttons in `--ins-primary`, indicator dots in the solid status colours. Type is a system stack; web fonts are not sent. Core's email template sets no `dir`, so each text block uses `unicode-bidi: plaintext` and takes its direction from its first strong character. Rendered in Chromium only; Gmail, Outlook and Apple Mail were not tested.
+
+## Website, portal, login and error pages
+
+Light only (see "Modes"). `ins_web.bundle.scss` styles login and the error pages through ADR 0009's slots, and website and portal pages through `web/_website.scss`, scoped to `body[data-path]:not(.ins-auth):not(.ins-error)`. One rule there uses `!important`: Bootstrap's `.text-muted { color: #7c7c7c !important }` is compiled into core's website bundle at 4.17:1 on white, and only a more specific `!important` can answer it. The theme sets `--ins-text-muted` (6.28:1). Contrast (rule 2) outranks the no-`!important` convention (rule 3); the scope excludes the desk, the auth and the error pages (manifest row). The bundle is 59.7 KB raw against its 60 KB budget.
+
+## Opt-in behaviours
+
+Two shell behaviours are shipped **disabled** and are switched on in Institutional Theme Settings (BRIEF section 8: behaviour, not skin):
+
+- **Idle warning** ("Warn before the session expires", with "Minutes of warning", default 5): after the chosen idle time, and never later than 60 seconds before the session length, an `alertdialog` says the session may end. Only its button clears it; the button makes one request (`frappe.auth.get_logged_user`) that refreshes the session. Input does not clear it, because input does not refresh the session.
+- **Connection banner** ("Show a banner when the connection is lost"): a calm `role="status"` banner at the top of the page when the browser goes offline or the realtime socket drops, and "The connection is back." for four seconds on return. Core's own "Connection lost" toast still appears.
+
+Both are VERIFIED with a fake clock and a stand-in socket, not against a real socket.io server or a real session expiry.
 
 <!-- tokens:begin -->
 ## 1. Primitive ramps
@@ -1125,3 +1205,40 @@ Parity audit, from `docs/audits/parity.txt`: 51 checks, 0 failed.
 - scale token `--ins-font-mono`: not declared in _scale.scss
 
 <!-- tokens:end -->
+
+## Design deviations
+
+Every place where the build differs from the approved design, with the record that decided it. `design/reference/tokens.resolved.json` stays the approved record. `institutional_theme/midad/deviations.py` lists the token-level deviations, and the fixture test asserts the new values for exactly those keys.
+
+| # | Approved design | As built | Reason (BRIEF section 3 rule) | Record |
+|---|---|---|---|---|
+| 1 | `surface-selected-strong`, Dark: `oklch(0.35 0.065 252)` `#1f3c5b` | `oklch(0.34 0.065 252)` `#1d3958` | Muted text on a selected-and-hovered row was 4.49:1; it is now 4.69:1 (rule 2) | ADR 0010; `deviations.py` |
+| 2 | Chart series 1-6 in tokens order | Order 1, 5, 3, 2, 6, 4: `chart-2` purple, `chart-4` amber, `chart-5` orange, `chart-6` red (hex in `deviations.py`) | Neighbouring series were not distinguishable under colour-vision deficiency (rule 2) | ADR 0010; `deviations.py` |
+| 3 | `tokens.json` mapped `--control-bg` to `surface-fill` and `--control-bg-on-gray` to `surface-fill-hover` | Both map to `surface-field`, as the artboards draw; buttons and chips keep `surface-fill`; `.form-control` gets a `border-control` border | The old mapping put placeholder text below 4.5:1 and contradicted the artboards (rule 2). No colour value changed | ADR 0010 |
+| 4 | System name inside the login card | System name above the card | Uses core's `banner_html` slot instead of replacing the login template (rule 3) | ADR 0009; STATUS decision 8 |
+| 5 | One focus ring; the comps do not draw core's inset highlight on a focused `.btn-default` | The inset highlight is gone: core's grey focus box-shadows are removed | Exactly one focus ring (rule 2) | STATUS decision 13 |
+| 6 | Weight 600 in every pairing | Tajawal has no 600; its 700 file serves 600-700, only when Tajawal is selected | No synthetic bold (rule 2 over 5) | STATUS decision 14 |
+| 7 | Calendar events in theme colours (the Calendar was not drawn; the theme colours were the expectation) | Light: Frappe's inline, user-chosen chip colours are kept; strong choices fail 4.5:1 (red 2.31:1, green 3.31:1); dot events keep core's `rgb(0, 112, 204) !important` (`calendar.scss:99`) | Inline style and core `!important`; the colours are user data (rule 3). Known gap, controlled by the administrator's choice of event colours | STATUS decision 26; round 2 lead decision 2 |
+| 8 | Desktop (apps) screen not drawn; theme colours expected | App icons keep core's inline colours, set per icon by JS (`utils.js:1372-1390`, `desktop_icon_style`); CSS cannot override an inline colour without `!important` | Rule 3. No decision record yet: **owner to decide** whether to accept core's icon colours | `docs/team/evidence/phase3/css-shell/evidence.md` |
+| 9 | Table rows 36px comfortable, 28px compact | The datatable keeps core's fixed row height; compact changes only padding and type | Overriding datatable height breaks scrolling (rule 1) | ADR 0003; findings section 5 |
+| 10 | Light and Dark modes of equal quality (BRIEF section 1) | Login, 2FA, password, error, website and portal pages are Light only | Platform constraint, not a parity defect: Frappe renders no `data-theme` on website pages (`templates/base.html:3`; findings section 2), and no dark login artboard was approved | Round 2 lead decision 1 |
+| 11 | Calendar events in theme colours, each event keeping its own colour | Dark: one neutral raised chip (`--ins-surface-raised`, `--ins-text-strong`, 14.52:1) with a 4px inline-start stripe in the text colour; the per-event colour is not shown | Frappe writes chip colours inline (`calendar.js:441-449`) and core resets the border colour (`calendar.scss:65`); legible text wins over per-event colour (rule 2). Four scoped `!important` declarations, manifest rows | Round 2 lead decision 2 |
+| 12 | Print table header in strong text, weight 600 (`Print` artboard); totals at the inline end | ERPNext formats: header cells stay ERPNext's grey `#7c7c7c`, bold and ruled; ERPNext's cell padding stays; the subtotal block keeps its inline `float: right`, so it stays on the right in Arabic | ERPNext sets these with `!important` and inline style; changing them needs counter-`!important` or an edited format (rule 3) | `docs/team/evidence/round2/print-web/evidence.md` |
+| 13 | Error states: a 3px inline-start bar on an empty mandatory field, a 1px inner line on an invalid one, and a ✕ before the message (`States` artboard) | Both states: a 4px inline-start bar, the 1px inner line, and a circle-with-exclamation icon inside the field at the inline end | A non-colour cue that survives focus and forced colours (rule 2); the bar is a border, so it survives core's focus reset | a11y-phase3 finding 7; `docs/team/evidence/round2/css/evidence.md` item 3 |
+
+The `umber` preset is absent because it failed the status-distinguishability audit. This is not a deviation: the brief makes every non-default preset conditional on passing (STATUS decision 10).
+
+## Decision log
+
+| Record | Decision |
+|---|---|
+| [0001](adr/0001-owner-decisions.md) | Owner decisions: target versions, navigation model, frozen `midad`, per-user presets, fonts, one colour-maths implementation, opt-in behaviour, autonomous delivery |
+| [0002](adr/0002-user-preference-storage.md) | Preset and density stored as user defaults; an accessible Appearance page replaces core's theme dialog |
+| [0003](adr/0003-palette-delivery-no-flash.md) | The server links the user's palette stylesheet in `<head>`; deterministic selector shapes and key-set parity |
+| [0004](adr/0004-generated-site-css-and-fonts.md) | Custom preset and uploaded fonts are per-site generated CSS files, regenerated after a restore |
+| [0005](adr/0005-settings-doctype.md) | The settings doctype: fields, permissions, bilingual validation; environment ribbon from `site_config` |
+| [0006](adr/0006-test-bench.md) | The reproducible test bench for cloud sessions |
+| [0007](adr/0007-interactive-proof.md) | The interactive proof is built from the real compiled CSS (not delivered in this version) |
+| [0008](adr/0008-action-and-status-hooks.md) | Consequential-action and status hooks in the shell script |
+| [0009](adr/0009-login-and-error-page-content.md) | Login and error-page content through core's template slots |
+| [0010](adr/0010-contrast-corrections-phase2.md) | Fields on `surface-field`, one Dark value changed, chart series reordered, remaining chart gaps accepted |

@@ -23,7 +23,11 @@ class Categories(unittest.TestCase):
 		self.names = dead_tokens.overridden_variables(self.model)
 
 	def test_each_category(self):
-		a, b, c, d = self.names[:4]
+		# The theme's own SCSS may read any variable, which makes it "theme" rather than
+		# "dead", so the dead example is the first name the theme does not read.
+		theme = dead_tokens.scan_theme(PUBLIC)
+		a, b, c = self.names[:3]
+		d = next(n for n in self.names[3:] if n not in theme)
 		results = dead_tokens.audit(self.model, _core({a, b}, {a, c}), PUBLIC)
 		where = {r.name: r.where for r in results}
 		self.assertEqual(where[a], "declared-read")

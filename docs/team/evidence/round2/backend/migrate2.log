@@ -1,0 +1,7 @@
+## migrate #2 (idempotence)
+Executing `after_migrate` hooks...
+
+Queued rebuilding of search index for midad.test
+
+2026-10-14 00:41:07.099366
+2026-10-14 00:41:07.339399

@@ -1,11 +1,12 @@
 """Audit runner.
 
     python -m institutional_theme.audits [--core-css PATH ...] [--write-core-snapshot]
-                                         [--no-write] [--strict]
+                                         [--dist DIR] [--no-write] [--strict]
 
 Runs the contrast, parity, colour-vision and dead-token audits against the generated model and
 stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED preset fails a contrast
-pair or the status check, when a generated file breaks parity, or when a variable the theme
+pair or the status check, when a built bundle or the fonts exceed a size budget (`budgets.py`;
+skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, or when a variable the theme
 overrides is neither in core nor used by the theme. Core is read from the committed snapshot
 (`audits/data/core_vars_frappe_16.32.0.json`) unless `--core-css` names compiled stylesheets;
 `--write-core-snapshot` (with `--core-css`) refreshes the snapshot. Chart-series gaps are
@@ -20,7 +21,7 @@ from pathlib import Path
 
 from institutional_theme.midad import model as model_mod
 
-from . import colour_vision, contrast, dead_tokens, parity
+from . import budgets, colour_vision, contrast, dead_tokens, parity
 
 PACKAGE_DIR = Path(__file__).resolve().parents[1]
 REPO_ROOT = PACKAGE_DIR.parent
@@ -41,6 +42,11 @@ def main(argv: list[str] | None = None) -> int:
 		"--write-core-snapshot",
 		action="store_true",
 		help="with --core-css, rewrite the committed snapshot of core variable names",
+	)
+	parser.add_argument(
+		"--dist",
+		metavar="DIR",
+		help="built dist folder (css/, css-rtl/, js/) for the size budgets; default: the bench's assets",
 	)
 	parser.add_argument("--no-write", action="store_true", help="print results without writing docs/audits")
 	parser.add_argument("--strict", action="store_true", help="treat chart-series gaps as failures")
@@ -78,10 +84,13 @@ def main(argv: list[str] | None = None) -> int:
 	failures += len(failed_checks)
 
 	# Colour vision
-	lines, status_failures, chart_gaps = colour_vision.report(model, palettes)
+	lines, vision_failures, chart_gaps = colour_vision.report(model, palettes)
 	outputs["colour_vision.txt"] = "\n".join(lines) + "\n"
-	print(f"colour-vision: {status_failures} status failure(s), {chart_gaps} chart gap(s) in shipped presets")
-	failures += status_failures
+	print(
+		f"colour-vision: {vision_failures} failure(s) (status, neighbouring series, gap not in the "
+		f"baseline), {chart_gaps} baselined chart gap(s) in shipped presets"
+	)
+	failures += vision_failures
 	if args.strict:
 		failures += chart_gaps
 
@@ -110,6 +119,17 @@ def main(argv: list[str] | None = None) -> int:
 		f"{total['theme']} consumed by the theme, {total['dead']} dead"
 	)
 	failures += total["dead"]
+
+	# Size budgets: only when a build exists; the committed report is kept otherwise.
+	sizes = budgets.run(args.dist)
+	if sizes.ran:
+		outputs["budgets.txt"] = sizes.text
+		print(f"budgets: {len(sizes.problems)} problem(s)")
+		for problem in sizes.problems:
+			print(f"budgets FAIL {problem}")
+	else:
+		print(sizes.text)
+	failures += len(sizes.problems)
 
 	if not args.no_write:
 		AUDITS_DIR.mkdir(parents=True, exist_ok=True)

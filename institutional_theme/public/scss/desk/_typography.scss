@@ -1,2 +1,45 @@
-// Arabic typography: no letter-spacing, Arabic leading, tabular lining numerals.
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Arabic typography: no letter-spacing, Arabic leading, tabular lining numerals (a11y-phase2 item 4).
+// Logical properties only; no !important. Core's letter-spacing sits on nested selectors (get_textstyle), so the reset repeats :root.
+
+// ---- Letter-spacing must be 0 for Arabic: tracking breaks the joins between letters.
+// Core declares it through `get_textstyle` (espresso/_typography.scss:99) and ~25 direct rules (global.scss:10, buttons.scss:158,
+// menu.scss:60, sidebar.scss:402, page.scss:194, breadcrumb.scss:16,29), at up to (0,5,0).
+// Specificity here: html (0,0,1) + 5 x :root + :is(:lang(ar), [dir]) = (0,6,1), which out-ranks all of them.
+$ins-arabic: 'html:root:root:root:root:root:is(:lang(ar), [dir="rtl"])';
+
+#{$ins-arabic} *,
+#{$ins-arabic} *::before,
+#{$ins-arabic} *::after {
+	letter-spacing: 0;
+}
+
+// ---- Arabic leading: Plex Sans Arabic needs more room than Latin. Not applied to datatable cells (fixed geometry,
+// findings 5) or controls with a fixed height. (0,2,2) on body, (0,3,1) on the text containers.
+html:root:is(:lang(ar), [dir="rtl"]) body {
+	line-height: var(--ins-leading-arabic);
+}
+
+html:root:is(:lang(ar), [dir="rtl"]) :is(
+	p, li, dd, .help-box, .control-label, .control-value, .timeline-item, .form-message,
+	.ql-editor, .section-head, .alert, .form-section-description, .attachment-row
+) {
+	line-height: var(--ins-leading-arabic);
+}
+
+// ---- Numerals: Latin digits come from the Latin face (digits are outside the Arabic unicode-range, fonts/_plex.scss).
+// Lining and tabular so columns align in both languages. Typography only; no geometry changes.
+html:root :is(
+	.datatable .dt-cell__content,
+	.list-row-col.text-right,
+	.list-row-col .level-item.text-right,
+	input[type="number"],
+	kbd,
+	.frappe-control:is([data-fieldtype="Currency"], [data-fieldtype="Float"], [data-fieldtype="Int"],
+		[data-fieldtype="Percent"], [data-fieldtype="Duration"], [data-fieldtype="Rating"])
+		:is(input, .control-value, .static-area),
+	.grid-static-col:is([data-fieldtype="Currency"], [data-fieldtype="Float"], [data-fieldtype="Int"],
+		[data-fieldtype="Percent"]) .static-area,
+	.form-grid .row-index
+) {
+	font-variant-numeric: lining-nums tabular-nums;
+}

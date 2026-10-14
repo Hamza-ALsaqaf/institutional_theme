@@ -1,0 +1,9 @@
+{
+	"name": "midad-ci-agent",
+	"private": true,
+	"type": "module",
+	"description": "Runs the Midad build in GitHub Actions with the Claude Agent SDK, billed to the API key in ANTHROPIC_API_KEY.",
+	"dependencies": {
+		"@anthropic-ai/claude-agent-sdk": "latest"
+	}
+}

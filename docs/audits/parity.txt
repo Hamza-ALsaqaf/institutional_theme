@@ -14,12 +14,16 @@ ok   model: every Frappe variable defines light and dark
 ok   generated files present
 ok   _frappe_map.scss: generated header
 ok   _frappe_map.scss: no !important, color-mix, oklch or relative colour
+ok   _frappe_map_light.scss: generated header
+ok   _frappe_map_light.scss: no !important, color-mix, oklch or relative colour
 ok   _literals.scss: generated header
 ok   _literals.scss: no !important, color-mix, oklch or relative colour
 ok   _scale.scss: generated header
 ok   _scale.scss: no !important, color-mix, oklch or relative colour
 ok   _tokens.scss: generated header
 ok   _tokens.scss: no !important, color-mix, oklch or relative colour
+ok   _tokens_light.scss: generated header
+ok   _tokens_light.scss: no !important, color-mix, oklch or relative colour
 ok   ins_palette_forest.bundle.scss: generated header
 ok   ins_palette_forest.bundle.scss: no !important, color-mix, oklch or relative colour
 ok   ins_palette_graphite.bundle.scss: generated header
@@ -56,4 +60,4 @@ ok   ins_palette_plum.bundle.scss: key-set parity
 ok   ins_palette_plum.bundle.scss: color-scheme
 ok   ins_palette_plum.bundle.scss: custom properties only, all defined by the base tokens
 
-51 checks, 0 failed
+55 checks, 0 failed

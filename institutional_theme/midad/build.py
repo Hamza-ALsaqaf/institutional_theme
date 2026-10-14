@@ -209,7 +209,22 @@ def render_tokens(model: Model) -> str:
 	return emit.header() + intro + emit.emit_family("base", props, light, dark, color_scheme=True)
 
 
-def render_frappe_map(model: Model) -> str:
+def render_tokens_light(model: Model) -> str:
+	"""The light block of `_tokens.scss` alone, for the website bundle (Light only)."""
+	fmap = model_mod.frappe_map(model)
+	keys = model_mod.base_keys(model, fmap.primitives)
+	midad = model_mod.palette(model, model["palettes"]["default"])
+	values = model_mod.base_values(midad, fmap.primitives)
+	light = {f"{model_mod.INS}{key}": values["light"][key] for key in keys}
+	props = [f"{model_mod.INS}{key}" for key in keys]
+	intro = (
+		"// Light block of _tokens.scss only, for bundles that never render Dark (website, portal).\n"
+		"// Same selectors and values as the light block there, color-scheme: light included.\n\n"
+	)
+	return emit.header() + intro + emit.emit_light_family("base", props, light, color_scheme=True)
+
+
+def _frappe_map_parts(model: Model) -> tuple[list[str], dict[str, str], dict[str, str]]:
 	fmap = model_mod.frappe_map(model)
 	names = [name for name, _ in fmap.declarations["light"]]
 	if names != [name for name, _ in fmap.declarations["dark"]]:
@@ -218,11 +233,26 @@ def render_frappe_map(model: Model) -> str:
 	dark = dict(fmap.declarations["dark"])
 	if len(light) != len(names):
 		raise BuildError("The Frappe map sets a variable twice")
+	return names, light, dark
+
+
+def render_frappe_map(model: Model) -> str:
+	names, light, dark = _frappe_map_parts(model)
 	intro = (
 		"// Frappe variables re-pointed at --ins-* tokens, at the palette shapes (ADR 0003).\n"
 		"// Every name comes from design/tokens.json `frappe`.\n\n"
 	)
 	return emit.header() + intro + emit.emit_family("palette", names, light, dark)
+
+
+def render_frappe_map_light(model: Model) -> str:
+	"""The light block of `_frappe_map.scss` alone, for the website bundle (Light only)."""
+	names, light, _ = _frappe_map_parts(model)
+	intro = (
+		"// Light block of _frappe_map.scss only, for bundles that never render Dark (website, portal).\n"
+		"// Same selectors and values as the light block there.\n\n"
+	)
+	return emit.header() + intro + emit.emit_light_family("palette", names, light)
 
 
 def render_scale(model: Model) -> str:
@@ -284,6 +314,8 @@ def render_all(tokens: Model) -> dict[Path, str]:
 		MODEL_PATH: render_model_json(model),
 		SCSS_DIR / "_tokens.scss": render_tokens(model),
 		SCSS_DIR / "_frappe_map.scss": render_frappe_map(model),
+		SCSS_DIR / "_tokens_light.scss": render_tokens_light(model),
+		SCSS_DIR / "_frappe_map_light.scss": render_frappe_map_light(model),
 		SCSS_DIR / "_scale.scss": render_scale(model),
 		SCSS_DIR / "_literals.scss": render_literals(model),
 		AUDITS_DIR / "presets.txt": render_presets_report(model),

@@ -1,0 +1,30 @@
+import { combos, launch, ready } from "./lib.mjs";
+import { writeFileSync } from "node:fs";
+const tag = process.argv[2] || "";
+const out = {};
+for (const c of combos.filter(c => `${c.lang}-${c.mode}` === process.argv[3])) {
+	const { browser, page } = await launch(c);
+	const key = `${c.lang}-${c.mode}`;
+	await ready(page, "/desk/note/new");
+	await page.waitForSelector(".ql-editor", { timeout: 20000 }).catch(() => {});
+	await page.evaluate(() => { const q = document.querySelector(".ql-editor"); if (q) q.innerHTML = "<p>Quarterly summary: all items reviewed.</p><ul><li>First point</li></ul>"; });
+	await page.click(".ql-editor").catch(() => {});
+	await page.waitForTimeout(500);
+	await page.screenshot({ path: `editor-quill-${key}${tag}.png` });
+	out[key] = { quill: await page.evaluate(() => { const g = (s, p) => { const e = document.querySelector(s); return e ? getComputedStyle(e)[p] : null; }; return { toolbarBg: g(".ql-toolbar", "backgroundColor"), toolbarBorder: g(".ql-toolbar", "borderColor"), editorBg: g(".ql-editor", "backgroundColor"), editorColor: g(".ql-editor", "color"), editorFont: g(".ql-editor", "fontFamily"), placeholder: g(".ql-editor", "direction"), icon: g(".ql-toolbar button svg .ql-stroke", "stroke") }; }) };
+	await ready(page, "/desk/client-script/new");
+	await page.waitForSelector(".ace_editor", { timeout: 20000 }).catch(() => {});
+	await page.evaluate(() => { const e = document.querySelector(".ace_editor"); if (e && e.env) e.env.editor.setValue("# Compute a total\nfor row in doc.items:\n    total += row.amount  # note\nprint('done', 42)\n", -1); });
+	await page.waitForTimeout(500);
+	await page.screenshot({ path: `editor-ace-${key}${tag}.png` });
+	out[key].ace = await page.evaluate(() => { const g = (s, p) => { const e = document.querySelector(s); return e ? getComputedStyle(e)[p] : null; }; return { bg: g(".ace_editor", "backgroundColor"), color: g(".ace_editor", "color"), dir: g(".ace_editor", "direction"), font: g(".ace_editor", "fontFamily"), gutterBg: g(".ace_gutter", "backgroundColor"), gutterColor: g(".ace_gutter", "color"), keyword: g(".ace_keyword", "color"), comment: g(".ace_comment", "color"), string: g(".ace_string", "color"), numeric: g(".ace_constant.ace_numeric", "color"), activeLine: g(".ace_gutter-active-line", "backgroundColor"), theme: document.querySelector(".ace_editor")?.className }; });
+	await ready(page, "/desk/todo");
+	await page.evaluate(() => frappe.ui.keys.show_keyboard_shortcut_dialog());
+	await page.waitForSelector(".modal.show", { timeout: 10000 }).catch(() => {});
+	await page.waitForTimeout(600);
+	await page.screenshot({ path: `editor-shortcuts-${key}${tag}.png` });
+	out[key].shortcuts = await page.evaluate(() => { const m = document.querySelector(".modal.show"); if (!m) return null; return { html: m.innerHTML.slice(0, 1500), kbd: (() => { const k = m.querySelector("kbd, .keyboard-shortcut, .shortcut-key"); return k ? [k.tagName, k.className, getComputedStyle(k).backgroundColor, getComputedStyle(k).color, getComputedStyle(k).fontFamily] : null; })() }; });
+	await browser.close();
+}
+writeFileSync(`editors-${process.argv[3]}${tag}.json`, JSON.stringify(out, null, 1));
+console.log(JSON.stringify(out));

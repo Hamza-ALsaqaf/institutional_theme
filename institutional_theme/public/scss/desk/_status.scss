@@ -1,2 +1,176 @@
-// Status pills and shapes (css-C).
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Status pills and dots: one shape per core indicator colour class, so colour is never the only cue (ADR 0008 section 2).
+// Shapes use currentColor, so they survive forced colours. Draft and Cancelled key on data-ins-docstatus, not on colour.
+
+// Shapes are drawn on the pseudo-element core already creates (common/indicator.scss:12-17 for `.indicator`, :35-43 for
+// `.indicator-pill`). Core: `.indicator-pill:not(.no-indicator-dot)::before` is (0,2,1) with 6px, `inline-table`,
+// `margin-right`, and a `background` of --text-on-X; `.indicator-pill.green::before` is (0,2,1).
+// Specificity here: default ring (0,3,2); class shapes (0,4,2); list-pill Draft and Cancelled (0,4,2) and later in the file;
+// form-title Draft and Cancelled (0,6,2).
+
+@mixin ins-shape($kind) {
+	@if $kind == check {
+		width: 5px;
+		height: 9px;
+		margin-inline: 2px 8px;
+		border: solid currentColor;
+		border-width: 0 2px 2px 0;
+		border-radius: 0;
+		background: none;
+		transform: translateY(-1px) rotate(45deg);
+	} @else if $kind == cross {
+		width: 9px;
+		height: 9px;
+		border: 0;
+		border-radius: 0;
+		background:
+			linear-gradient(45deg, transparent 41%, currentColor 41% 59%, transparent 59%),
+			linear-gradient(-45deg, transparent 41%, currentColor 41% 59%, transparent 59%);
+		transform: none;
+	} @else if $kind == half {
+		width: 9px;
+		height: 9px;
+		border: 1.5px solid currentColor;
+		border-radius: 50%;
+		background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+		transform: none;
+	} @else if $kind == bars {
+		width: 9px;
+		height: 9px;
+		border: 0;
+		border-radius: 0;
+		background: linear-gradient(90deg, currentColor 34%, transparent 34% 66%, currentColor 66%);
+		transform: none;
+	} @else if $kind == dot {
+		width: 8px;
+		height: 8px;
+		border: 0;
+		border-radius: 50%;
+		background: currentColor;
+		transform: none;
+	} @else if $kind == diamond {
+		width: 7px;
+		height: 7px;
+		margin-inline: 1px 7px;
+		border: 0;
+		border-radius: 0;
+		background: currentColor;
+		transform: rotate(45deg);
+	} @else if $kind == square {
+		width: 8px;
+		height: 8px;
+		border: 0;
+		border-radius: 1px;
+		background: currentColor;
+		transform: none;
+	} @else {
+		// ring: gray, grey, darkgrey, black and any class core adds later
+		width: 9px;
+		height: 9px;
+		border: 1.5px solid currentColor;
+		border-radius: 50%;
+		background: none;
+		transform: none;
+	}
+}
+
+// class: (status family, shape). The families are the generated --ins-status-* sets.
+$ins-indicators: (
+	"green": ("success", check),
+	"red": ("danger", cross),
+	"orange": ("pending", half),
+	"yellow": ("warning", bars),
+	"blue": ("progress", dot),
+	"light-blue": ("info", dot),
+	"cyan": ("teal", dot),
+	"purple": ("special", diamond),
+	"pink": ("plum", diamond),
+	"gray": ("neutral", ring),
+	"grey": ("neutral", ring),
+	"darkgrey": ("muted", ring),
+	"black": ("ink", ring),
+);
+
+// ---- Every pill gets a shape, including `.no-indicator-dot` pills (list and page head): that class hides the dot, and the
+// dot is the only non-colour cue. Default is the ring; named classes below override it at (0,3,2).
+html:root[dir] .indicator-pill::before {
+	content: "";
+	display: inline-block;
+	flex: none;
+	box-sizing: border-box;
+	margin-block: 0;
+	margin-inline: 0 6px;
+	@include ins-shape(ring);
+}
+
+html:root[dir] .indicator::before {
+	display: inline-block;
+	flex: none;
+	box-sizing: border-box;
+	margin-block: 0;
+	margin-inline: 0 8px;
+}
+
+@each $name, $spec in $ins-indicators {
+	$family: nth($spec, 1);
+	$kind: nth($spec, 2);
+
+	html:root[dir] .indicator-pill.#{$name} {
+		box-shadow: inset 0 0 0 1px var(--ins-status-#{$family}-border);
+	}
+
+	html:root[dir] .indicator-pill.#{$name}::before {
+		@include ins-shape($kind);
+	}
+
+	// `.indicator` has no pill colour. Core's dot variable is --bg-X in dark (dark.scss:266-268), a tint that vanishes on the page,
+	// so the shape takes the family's foreground, which is audited against the surfaces.
+	html:root[dir] .indicator.#{$name}::before {
+		color: var(--ins-status-#{$family}-fg);
+		@include ins-shape($kind);
+	}
+}
+
+// ---- `black` has no core rule (workflow style "Inverse", findings 4): give it the ink pair.
+html:root[dir] .indicator-pill.black,
+html:root[dir] .indicator-pill-right.black {
+	background: var(--ins-status-ink-bg);
+	color: var(--ins-status-ink-fg);
+}
+
+// ---- Draft and Cancelled are told apart by state, not colour: core paints both red (model/indicator.js:72-79).
+// data-ins-docstatus is set on the page wrapper by the shell script (ADR 0008 section 1); list pills carry data-filter.
+// Draft: neutral ring. Cancelled: muted square. The list-pill selectors tie with the class shapes at (0,4,2) and win by order.
+html:root[dir] [data-ins-docstatus="0"] .title-area .indicator-pill.red,
+html:root[dir] .indicator-pill[data-filter="docstatus,=,0"] {
+	background: var(--ins-status-neutral-bg);
+	color: var(--ins-status-neutral-fg);
+	box-shadow: inset 0 0 0 1px var(--ins-status-neutral-border);
+}
+
+html:root[dir] [data-ins-docstatus="0"] .title-area .indicator-pill.red::before,
+html:root[dir] .indicator-pill[data-filter="docstatus,=,0"]::before {
+	@include ins-shape(ring);
+}
+
+html:root[dir] [data-ins-docstatus="2"] .title-area .indicator-pill.red,
+html:root[dir] .indicator-pill[data-filter="docstatus,=,2"] {
+	background: var(--ins-status-muted-bg);
+	color: var(--ins-status-muted-fg);
+	box-shadow: inset 0 0 0 1px var(--ins-status-muted-border);
+}
+
+html:root[dir] [data-ins-docstatus="2"] .title-area .indicator-pill.red::before,
+html:root[dir] .indicator-pill[data-filter="docstatus,=,2"]::before {
+	@include ins-shape(square);
+}
+
+// ---- Blinking dots (core `.indicator.blink`): the shape stays, the pulse stops under reduced motion (_base.scss collapses it).
+
+// ---- Forced colours: backgrounds are dropped, so the pill keeps its outline (_base.scss) and the shape keeps currentColor.
+// Gradient-filled shapes (cross, half, bars, dot, diamond, square) are not forced, so they stay visible; ring and check use borders.
+@media (forced-colors: active) {
+	html:root[dir] .indicator-pill::before {
+		forced-color-adjust: none;
+		color: CanvasText;
+	}
+}

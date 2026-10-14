@@ -1,0 +1,122 @@
+{
+ "en-light": {
+  "toast": {
+   "bg": "rgb(240, 249, 244)",
+   "color": "rgb(66, 75, 87)",
+   "border": "rgb(218, 222, 229)",
+   "shadow": "rgba(9, 16, 24, 0.18) 0px 20px 48px 0px,"
+  },
+  "bulk": {
+   "checked": 2,
+   "actionsVisible": true
+  },
+  "datepicker": {
+   "bg": "rgb(255, 255, 255)",
+   "color": "rgb(40, 49, 60)",
+   "today": "rgb(40, 49, 60)",
+   "selected": null
+  },
+  "autocomplete": null,
+  "tooltip": null,
+  "skeleton": {
+   "cls": "row list-skeleton",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "anim": "none"
+  },
+  "forbidden": {
+   "dialog": false,
+   "text": ""
+  }
+ },
+ "en-dark": {
+  "toast": {
+   "bg": "rgb(2, 37, 20)",
+   "color": "rgb(185, 190, 198)",
+   "border": "rgb(46, 54, 65)",
+   "shadow": "rgb(75, 83, 94) 0px 0px 0px 1px"
+  },
+  "bulk": {
+   "checked": 2,
+   "actionsVisible": true
+  },
+  "datepicker": {
+   "bg": "rgb(29, 37, 47)",
+   "color": "rgb(223, 227, 232)",
+   "today": "rgb(223, 227, 232)",
+   "selected": null
+  },
+  "autocomplete": null,
+  "tooltip": null,
+  "skeleton": {
+   "cls": "row list-skeleton",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "anim": "none"
+  },
+  "forbidden": {
+   "dialog": false,
+   "text": ""
+  }
+ },
+ "ar-light": {
+  "toast": {
+   "bg": "rgb(240, 249, 244)",
+   "color": "rgb(66, 75, 87)",
+   "border": "rgb(218, 222, 229)",
+   "shadow": "rgba(9, 16, 24, 0.18) 0px 20px 48px 0px,"
+  },
+  "bulk": {
+   "checked": 2,
+   "actionsVisible": true
+  },
+  "datepicker": {
+   "bg": "rgb(255, 255, 255)",
+   "color": "rgb(40, 49, 60)",
+   "today": "rgb(40, 49, 60)",
+   "selected": null
+  },
+  "autocomplete": null,
+  "tooltip": null,
+  "skeleton": {
+   "cls": "row list-skeleton",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "anim": "none"
+  },
+  "forbidden": {
+   "dialog": false,
+   "text": ""
+  }
+ },
+ "ar-dark": {
+  "toast": {
+   "bg": "rgb(2, 37, 20)",
+   "color": "rgb(185, 190, 198)",
+   "border": "rgb(46, 54, 65)",
+   "shadow": "rgb(75, 83, 94) 0px 0px 0px 1px"
+  },
+  "bulk": {
+   "checked": 2,
+   "actionsVisible": true
+  },
+  "datepicker": {
+   "bg": "rgb(29, 37, 47)",
+   "color": "rgb(223, 227, 232)",
+   "today": "rgb(223, 227, 232)",
+   "selected": null
+  },
+  "autocomplete": null,
+  "tooltip": null,
+  "skeleton": {
+   "cls": "row list-skeleton",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "anim": "none"
+  },
+  "forbidden": {
+   "dialog": false,
+   "text": ""
+  }
+ }
+}

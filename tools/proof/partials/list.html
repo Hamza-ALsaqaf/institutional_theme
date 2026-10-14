@@ -1,0 +1,47 @@
+<!-- Mirrors frappe/public/js/frappe/list/list_view.js (list-row, indicator-pill, paging) inside the desk shell of www/desk.html. -->
+<div class="proof-desk" data-screen-root>
+%%SHELL%%
+<div class="main-section">
+<div class="content page-container">
+%%PAGEHEAD%%
+<div class="container page-body">
+<div class="page-wrapper"><div class="page-content">
+<div class="layout-main layout-two-column">
+<div class="layout-main-section-wrapper list-view">
+<div class="layout-main-section layout-main-list">
+	<div class="page-form flex">
+		<div class="standard-filter-section flex">
+			<div class="frappe-control input-max-width" data-fieldtype="Data" data-fieldname="description">
+				<div class="form-group"><div class="control-input-wrapper"><div class="control-input"><input type="text" class="input-with-feedback form-control" placeholder="[[list.filter]]" data-fieldtype="Data"></div></div></div>
+			</div>
+		</div>
+		<div class="filter-selector"><button class="btn btn-default btn-sm filter-button"><span class="filter-icon"><svg class="icon icon-sm"><use href="#es-line-filter"></use></svg></span><span class="button-label">[[list.filters]]</span></button></div>
+	</div>
+	<div class="frappe-list"><div class="result-container"><div class="result">
+		<div class="list-row-container">
+			<header class="level list-row-head text-muted">
+				<div class="level-left list-header-subject">
+					<div class="list-row-col ellipsis list-subject level" data-fieldname="description">
+						<span class="level-item select-like"><input class="list-header-checkbox list-check-all" type="checkbox" title="[[list.selectall]]"></span>
+						<span class="level-item">[[list.col.subject]]</span>
+					</div>
+					<div class="list-row-col ellipsis hidden-xs" data-fieldname="status"><span>[[list.col.status]]</span></div>
+					<div class="list-row-col ellipsis hidden-xs" data-fieldname="priority"><span>[[list.col.priority]]</span></div>
+					<div class="list-row-col ellipsis hidden-xs" data-fieldname="date"><span>[[list.col.due]]</span></div>
+				</div>
+				<div class="level-right"><span class="list-count"><span>[[list.count]]</span></span></div>
+			</header>
+		</div>
+		%%ROWS%%
+	</div></div>
+	<div class="list-paging-area level"><div class="level-left"><div class="btn-group">
+		<button type="button" class="btn btn-default btn-sm btn-paging btn-info" data-value="20" disabled>20</button>
+		<button type="button" class="btn btn-default btn-sm btn-paging" data-value="100">100</button>
+	</div></div></div>
+	</div>
+</div></div></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>

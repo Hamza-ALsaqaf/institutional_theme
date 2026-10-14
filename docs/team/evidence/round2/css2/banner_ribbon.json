@@ -1,0 +1,84 @@
+{
+ "en-ribbon+banner": {
+  "ribbon": [
+   0,
+   0,
+   1280,
+   24
+  ],
+  "banner": [
+   0,
+   24,
+   1280,
+   40
+  ],
+  "sidebar": [
+   0,
+   64,
+   220,
+   736
+  ],
+  "main": [
+   220,
+   64,
+   1060,
+   736
+  ],
+  "pagehead": [
+   220,
+   64,
+   1050,
+   57
+  ],
+  "docH": 800
+ },
+ "en-forced": {
+  "forced": true,
+  "bg": "rgb(255, 255, 255)",
+  "color": "rgb(0, 0, 0)",
+  "barStyle": "double",
+  "barW": "6px",
+  "barColor": "rgb(0, 0, 0)"
+ },
+ "ar-ribbon+banner": {
+  "ribbon": [
+   0,
+   0,
+   1280,
+   24
+  ],
+  "banner": [
+   0,
+   24,
+   1280,
+   40
+  ],
+  "sidebar": [
+   1060,
+   64,
+   220,
+   736
+  ],
+  "main": [
+   0,
+   64,
+   1060,
+   736
+  ],
+  "pagehead": [
+   10,
+   64,
+   1050,
+   57
+  ],
+  "docH": 800
+ },
+ "ar-forced": {
+  "forced": true,
+  "bg": "rgb(255, 255, 255)",
+  "color": "rgb(0, 0, 0)",
+  "barStyle": "double",
+  "barW": "6px",
+  "barColor": "rgb(0, 0, 0)"
+ }
+}

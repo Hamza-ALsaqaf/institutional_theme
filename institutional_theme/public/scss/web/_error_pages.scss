@@ -1,0 +1,99 @@
+// Hand-written. 404, 403, 500 and message pages (ADR 0009). Core renders `.error-page > div`
+// with an `h4`, `.details` and a primary action (www/error.html, www/message.html).
+// Scoped to `body.ins-error`, which `web_content.py` sets only on those templates.
+
+html body.ins-error {
+	background-color: var(--ins-surface-sunken);
+
+	// Core centres the card in a full-height flex box (error-state.scss); it follows the masthead instead.
+	.page_content {
+		min-block-size: 0;
+	}
+
+	.error-page {
+		display: block;
+		block-size: auto;
+		box-sizing: border-box;
+		inline-size: min(100% - 2 * var(--ins-space-4), 520px);
+		margin-block: var(--ins-space-10) var(--ins-space-6);
+		margin-inline: auto;
+		padding: var(--ins-space-8);
+		border: 1px solid var(--ins-border);
+		border-block-start: 3px solid var(--ins-primary);
+		border-radius: var(--ins-radius-lg);
+		background-color: var(--ins-surface-raised);
+		text-align: start;
+
+		h4,
+		.page-card-head {
+			text-align: start;
+			margin-block: 0 var(--ins-space-3);
+			color: var(--ins-text-strong);
+			font-size: var(--ins-text-xl);
+			font-weight: var(--ins-weight-strong);
+			letter-spacing: 0;
+			line-height: var(--ins-leading-tight);
+		}
+
+		.details {
+			max-inline-size: none;
+			margin-block-start: 0;
+			padding-block-start: var(--ins-space-3);
+			border-block-start: 1px solid var(--ins-border);
+			color: var(--ins-text);
+			text-align: start;
+
+			p {
+				color: var(--ins-text);
+			}
+
+			.text-muted {
+				color: var(--ins-text-muted);
+			}
+
+			a:not(.btn) {
+				color: var(--ins-text-link);
+				text-decoration: underline;
+			}
+		}
+
+		.btn-primary {
+			border: 1px solid var(--ins-primary);
+			border-radius: var(--ins-radius-sm);
+			background: var(--ins-primary);
+			color: var(--ins-on-primary);
+			font-weight: var(--ins-weight-medium);
+
+			&:hover,
+			&:focus {
+				border-color: var(--ins-primary-hover);
+				background: var(--ins-primary-hover);
+				color: var(--ins-on-primary);
+			}
+		}
+
+		// Technical detail on error.html is a traceback: keep it on the page, left to right, scrollable.
+		.error-content {
+			direction: ltr;
+			text-align: start;
+			border: 1px solid var(--ins-border);
+			background-color: var(--ins-surface-sunken);
+			color: var(--ins-text);
+			font-family: var(--ins-font-mono);
+
+			// Core links `hljs-night-owl.css` on this page, which paints the code element dark navy. The page
+			// is always light and the traceback is plain text, so the block takes the surface above.
+			.hljs {
+				border-radius: 0;
+				background: transparent;
+				color: inherit;
+			}
+		}
+	}
+}
+
+@media (forced-colors: active) {
+	html body.ins-error .error-page {
+		border-color: CanvasText;
+	}
+}

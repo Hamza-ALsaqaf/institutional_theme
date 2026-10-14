@@ -1,0 +1,112 @@
+{
+ "en": {
+  "rows": [
+   [
+    "button",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "dropdown-menu",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "modal",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "modal-dialog",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "toast",
+    "1e-05s",
+    "1e-05s",
+    "backInRight"
+   ],
+   [
+    "skeleton-row",
+    "1e-05s",
+    "0s",
+    "none"
+   ],
+   [
+    "skeleton-card",
+    "1e-05s",
+    "0s",
+    "none"
+   ],
+   [
+    "backdrop",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ]
+  ],
+  "maxTransitionS": 0.00001,
+  "maxAnimationS": 0.00001,
+  "mm": true
+ },
+ "ar": {
+  "rows": [
+   [
+    "button",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "dropdown-menu",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "modal",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "modal-dialog",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ],
+   [
+    "toast",
+    "1e-05s",
+    "1e-05s",
+    "backInRight"
+   ],
+   [
+    "skeleton-row",
+    "1e-05s",
+    "0s",
+    "none"
+   ],
+   [
+    "skeleton-card",
+    "1e-05s",
+    "0s",
+    "none"
+   ],
+   [
+    "backdrop",
+    "1e-05s",
+    "1e-05s",
+    "none"
+   ]
+  ],
+  "maxTransitionS": 0.00001,
+  "maxAnimationS": 0.00001,
+  "mm": true
+ }
+}

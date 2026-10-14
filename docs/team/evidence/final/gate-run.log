@@ -1,0 +1,31 @@
+[preclean-uninstall] exit=0
+[list-apps-before] exit=0
+[capture-before] exit=0
+[install] exit=0
+[doctype-after-install] exit=0
+[capture-installed] exit=0
+[seed-state] exit=0
+[uninstall] exit=0
+[doctype-after-uninstall] exit=0
+[residue-after-uninstall] exit=0
+[capture-after-uninstall] exit=0
+{"a": "docs/team/evidence/final/gate/before-login.png", "b": "docs/team/evidence/final/gate/installed-login.png", "size": [1366, 768], "differing_pixels": 808624, "differing_share": 0.770788, "max_channel_delta": 255, "identical": false, "bbox_x0_y0_x1_y1": [0, 12, 1365, 767], "diff_image": "docs/team/evidence/final/gate/diff-before-vs-installed-login.png"}
+{"a": "docs/team/evidence/final/gate/before-login.png", "b": "docs/team/evidence/final/gate/after-uninstall-login.png", "size": [1366, 768], "differing_pixels": 0, "differing_share": 0.0, "max_channel_delta": 0, "identical": true}
+{"a": "docs/team/evidence/final/gate/before-todo.png", "b": "docs/team/evidence/final/gate/installed-todo.png", "size": [1366, 768], "differing_pixels": 321109, "differing_share": 0.306084, "max_channel_delta": 255, "identical": false, "bbox_x0_y0_x1_y1": [0, 0, 1355, 767], "diff_image": "docs/team/evidence/final/gate/diff-before-vs-installed-todo.png"}
+{"a": "docs/team/evidence/final/gate/before-todo.png", "b": "docs/team/evidence/final/gate/after-uninstall-todo.png", "size": [1366, 768], "differing_pixels": 271, "differing_share": 0.000258, "max_channel_delta": 173, "identical": false, "bbox_x0_y0_x1_y1": [235, 68, 1237, 325], "diff_image": "docs/team/evidence/final/gate/diff-before-vs-after-uninstall-todo.png"}
+[reinstall] exit=0
+[list-apps] exit=0
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	2.6
+list-apps-before	bench_site --site midad.test list-apps	0	1.6
+capture-before	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs before docs/team/evidence/final/gate http://midad.test:8000	0	7.0
+install	bench_site --site midad.test install-app institutional_theme	0	2.9
+doctype-after-install	doctype_exists	0	1.5
+capture-installed	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs installed docs/team/evidence/final/gate http://midad.test:8000	0	7.0
+seed-state	bench_state seed midad.test /tmp/ins-gate-state.json	0	2.5
+uninstall	bench_site --site midad.test uninstall-app institutional_theme --yes --no-backup	0	3.0
+doctype-after-uninstall	doctype_exists	0	1.5
+residue-after-uninstall	bench_state residue midad.test /tmp/ins-gate-state.json	0	1.2
+capture-after-uninstall	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall docs/team/evidence/final/gate http://midad.test:8000	0	6.9
+reinstall	bench_site --site midad.test install-app institutional_theme	0	2.8
+list-apps	bench_site --site midad.test list-apps	0	1.5

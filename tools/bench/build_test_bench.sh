@@ -59,6 +59,15 @@ step_user() {
 	# bench exits with "You should not run this command as root", so all bench work runs as an
 	# unprivileged user. It needs its own interpreter and uv because /root is not readable.
 	id "${BENCH_USER}" >/dev/null 2>&1 || useradd --create-home --shell /bin/bash "${BENCH_USER}"
+	# The repository may live under a private home directory (CI runner: /home/runner is mode 750).
+	# Grant search (x) only, never read, on each ancestor so the bench user can reach the files.
+	local dir="${REPO_DIR}"
+	while [[ "${dir}" != "/" ]]; do
+		if [[ "$(stat -c %A "${dir}" | cut -c10)" != "x" ]]; then
+			chmod o+x "${dir}"
+		fi
+		dir="$(dirname "${dir}")"
+	done
 	if [[ ! -x "${BENCH_PYTHON}" ]]; then
 		cp -a --dereference "${SYSTEM_PYTHON_SRC}" "${BENCH_PYTHON_HOME}"
 	fi
@@ -80,7 +89,7 @@ step_user() {
 	fi
 	as_bench "${BENCH_PYTHON}" --version
 	as_bench node --version
-	as_bench yarn --version
+	as_bench bash -c 'cd "$HOME" && yarn --version'
 	# Local clones are owned by root; allow git to read them (test container only).
 	as_bench git config --global --add safe.directory '*'
 	# The app is edited as root but built (public/dist, __pycache__) as the bench user.

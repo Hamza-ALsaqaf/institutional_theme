@@ -1,0 +1,10 @@
+PASS hh:mm 612000 612000
+PASS hh:mm:ss 23415 23415
+PASS absent -> core default 240 h 864000 864000
+PASS unreadable -> default 864000 864000
+PASS zero -> default 864000 864000
+PASS 5 min idle, long session 300000 300000
+PASS idle longer than the session: one minute before it ends 540000 540000
+PASS 90 s session 30000 30000
+PASS tiny session floors at 10 s 10000 10000
+PASS 0 minutes -> 5 (the setting's default) 300000 300000

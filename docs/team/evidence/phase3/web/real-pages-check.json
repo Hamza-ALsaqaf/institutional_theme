@@ -1,0 +1,200 @@
+{
+ "forgot-en": {
+  "dir": "ltr",
+  "lang": "en",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 5,
+  "letterSpacingSample": [
+   "A.ins-lang-link=0.28px",
+   "A.ins-lang-link=0.28px",
+   "LABEL.form-label=0.26px"
+  ],
+  "reveal": {
+   "label": "Show password",
+   "box": [
+    0,
+    0
+   ],
+   "visible": false
+  },
+  "title": "Login",
+  "h1": "Sign In\n\t\t\n\t\t\n\t\tWelcome! Please sign in to continue."
+ },
+ "update-password-en": {
+  "dir": "ltr",
+  "lang": "en",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 7,
+  "letterSpacingSample": [
+   "A.ins-lang-link=0.28px",
+   "A.ins-lang-link=0.28px",
+   "LABEL.form-label=0.26px"
+  ],
+  "reveal": {
+   "label": "Show password",
+   "box": [
+    0,
+    0
+   ],
+   "visible": false
+  },
+  "title": "Set Password",
+  "h1": "Set Password\n\t\t\t\t\tUse strong passwords."
+ },
+ "404-en": {
+  "dir": "ltr",
+  "lang": "en",
+  "bodyClass": " ins-error",
+  "ownCss": true,
+  "letterSpacingTextNodes": 1,
+  "letterSpacingSample": [
+   "A.text-muted=0.28px"
+  ],
+  "reveal": null,
+  "title": "Not Found"
+ },
+ "403-en": {
+  "dir": "ltr",
+  "lang": "en",
+  "bodyClass": " ins-error",
+  "ownCss": true,
+  "letterSpacingTextNodes": 1,
+  "letterSpacingSample": [
+   "A.btn btn-primary btn-sm btn-block=0.28px"
+  ],
+  "reveal": null,
+  "title": "Not Permitted",
+  "h1": "Not Permitted"
+ },
+ "session-after-call-en": "http://midad.test:8000/login?redirect-to=%2Fdesk%2Fuser%3Fenabled%3D1",
+ "session-url-en": "http://midad.test:8000/login?redirect-to=%2Fdesk%2Fuser%3Fenabled%3D1",
+ "session-expired-en": {
+  "dir": "ltr",
+  "lang": "en",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 8,
+  "letterSpacingSample": [
+   "A.ins-lang-link=0.28px",
+   "A.ins-lang-link=0.28px",
+   "LABEL.form-label=0.26px"
+  ],
+  "reveal": {
+   "label": "Show password",
+   "box": [
+    32,
+    32
+   ],
+   "visible": true
+  },
+  "title": "Login",
+  "h1": "Sign In\n\t\t\n\t\t\n\t\tWelcome! Please sign in to continue."
+ },
+ "forgot-ar": {
+  "dir": "rtl",
+  "lang": "ar",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 0,
+  "letterSpacingSample": [],
+  "reveal": {
+   "label": "إظهار كلمة المرور",
+   "box": [
+    0,
+    0
+   ],
+   "visible": false
+  },
+  "title": "Login",
+  "h1": "تسجيل الدخول\n\t\t\n\t\t\n\t\tمرحباً بك. سجّل الدخول للمتابعة."
+ },
+ "update-password-ar": {
+  "dir": "rtl",
+  "lang": "ar",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 0,
+  "letterSpacingSample": [],
+  "reveal": {
+   "label": "إظهار كلمة المرور",
+   "box": [
+    0,
+    0
+   ],
+   "visible": false
+  },
+  "title": "تعيين كلمة المرور",
+  "h1": "تعيين كلمة المرور\n\t\t\t\t\tUse strong passwords."
+ },
+ "404-ar": {
+  "dir": "rtl",
+  "lang": "ar",
+  "bodyClass": " ins-error",
+  "ownCss": true,
+  "letterSpacingTextNodes": 0,
+  "letterSpacingSample": [],
+  "reveal": null,
+  "title": "لم يتم العثور على"
+ },
+ "403-ar": {
+  "dir": "rtl",
+  "lang": "ar",
+  "bodyClass": " ins-error",
+  "ownCss": true,
+  "letterSpacingTextNodes": 0,
+  "letterSpacingSample": [],
+  "reveal": null,
+  "title": "لا يسمح",
+  "h1": "لا يسمح"
+ },
+ "session-after-call-ar": "http://midad.test:8000/login?redirect-to=%2Fdesk%2Fuser%3Fenabled%3D1",
+ "session-url-ar": "http://midad.test:8000/login?redirect-to=%2Fdesk%2Fuser%3Fenabled%3D1",
+ "session-expired-ar": {
+  "dir": "rtl",
+  "lang": "ar",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 0,
+  "letterSpacingSample": [],
+  "reveal": {
+   "label": "إظهار كلمة المرور",
+   "box": [
+    32,
+    32
+   ],
+   "visible": true
+  },
+  "title": "Login",
+  "h1": "تسجيل الدخول\n\t\t\n\t\t\n\t\tمرحباً بك. سجّل الدخول للمتابعة."
+ },
+ "twofa-url-en": "http://midad.test:8000/login?_lang=en",
+ "2fa-en": {
+  "dir": "ltr",
+  "lang": "en",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 6,
+  "letterSpacingSample": [
+   "A.ins-lang-link=0.28px",
+   "A.ins-lang-link=0.28px",
+   "SPAN.indicator blue=0.28px"
+  ],
+  "reveal": null,
+  "title": "Login",
+  "h1": "Verification"
+ },
+ "twofa-url-ar": "http://midad.test:8000/login?_lang=ar",
+ "2fa-ar": {
+  "dir": "rtl",
+  "lang": "ar",
+  "bodyClass": " ins-has-masthead ins-auth",
+  "ownCss": true,
+  "letterSpacingTextNodes": 0,
+  "letterSpacingSample": [],
+  "reveal": null,
+  "title": "Login",
+  "h1": "تَحَقّق"
+ }
+}

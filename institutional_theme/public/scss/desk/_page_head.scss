@@ -1,2 +1,31 @@
-// Sticky page head: breadcrumbs, title area, page actions, primary action.
-// Part of the desk bundle; imported by ins_desk.bundle.scss.
+// Page head: sticky offset below the environment ribbon, breadcrumbs and title type (core page.scss, breadcrumb.scss).
+// Part of the desk bundle; the head height is core's --page-head-height, mapped to --ins-page-head-height, never set here.
+
+// ---- Sticky offset. Core `top: 0` (page.scss:126, (0,1,0)); the ribbon is fixed above the page (_ribbon.scss sets --ins-ribbon-height, 0px without it).
+html:root[dir] .page-head {
+	top: var(--ins-ribbon-height);
+}
+
+// ---- Title: 18px / 600 per the design (.title). Core `.title-text` is 16px.
+html:root[dir] .page-title .title-text {
+	font-size: var(--ins-text-xl);
+	font-weight: var(--ins-weight-strong);
+	color: var(--ins-text-strong);
+}
+
+// ---- Breadcrumbs: muted, regular weight, 13px; the separator is a core ::before slash (breadcrumb.scss:19-30).
+// Core `.navbar-breadcrumbs a` is (0,1,1); last item (the title) keeps its own title-text rule above.
+html:root[dir] .navbar-breadcrumbs a {
+	color: var(--ins-text-muted);
+	font-size: var(--ins-text-sm);
+	font-weight: var(--ins-weight-regular);
+}
+
+html:root[dir] .navbar-breadcrumbs a:hover {
+	color: var(--ins-text-strong);
+}
+
+html:root[dir] .navbar-breadcrumbs a::before {
+	color: var(--ins-border-strong);
+	margin-inline: var(--ins-space-15);
+}

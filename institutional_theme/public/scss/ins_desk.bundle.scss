@@ -12,6 +12,12 @@
 @import "desk/shell";
 @import "desk/page_head";
 @import "desk/workspace";
+@import "desk/dashboard";
+@import "desk/states";
+@import "desk/kanban";
+@import "desk/calendar";
+@import "desk/tree";
+@import "desk/gantt";
 @import "desk/controls";
 @import "desk/form";
 @import "desk/grid";
@@ -22,5 +28,7 @@
 @import "desk/actions";
 @import "desk/masked";
 @import "desk/ribbon";
+@import "desk/banners";
+@import "desk/editors";
 @import "desk/appearance";
 /*rtl:end:ignore*/

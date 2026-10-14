@@ -1,0 +1,162 @@
+[
+  {
+    "preset": "midad",
+    "mode": "Light",
+    "painted": [
+      255,
+      255,
+      255
+    ],
+    "expected": [
+      255,
+      255,
+      255
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "midad",
+    "mode": "Dark",
+    "painted": [
+      17,
+      24,
+      32
+    ],
+    "expected": [
+      17,
+      24,
+      32
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "graphite",
+    "mode": "Light",
+    "painted": [
+      255,
+      255,
+      255
+    ],
+    "expected": [
+      255,
+      255,
+      255
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "graphite",
+    "mode": "Dark",
+    "painted": [
+      17,
+      24,
+      32
+    ],
+    "expected": [
+      17,
+      24,
+      32
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "petrol",
+    "mode": "Light",
+    "painted": [
+      255,
+      255,
+      255
+    ],
+    "expected": [
+      255,
+      255,
+      255
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "petrol",
+    "mode": "Dark",
+    "painted": [
+      13,
+      26,
+      30
+    ],
+    "expected": [
+      13,
+      26,
+      30
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "forest",
+    "mode": "Light",
+    "painted": [
+      255,
+      255,
+      255
+    ],
+    "expected": [
+      255,
+      255,
+      255
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "forest",
+    "mode": "Dark",
+    "painted": [
+      14,
+      26,
+      22
+    ],
+    "expected": [
+      14,
+      26,
+      22
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "plum",
+    "mode": "Light",
+    "painted": [
+      255,
+      255,
+      255
+    ],
+    "expected": [
+      255,
+      255,
+      255
+    ],
+    "match": true,
+    "paletteLinked": true
+  },
+  {
+    "preset": "plum",
+    "mode": "Dark",
+    "painted": [
+      28,
+      20,
+      29
+    ],
+    "expected": [
+      28,
+      20,
+      29
+    ],
+    "match": true,
+    "paletteLinked": true
+  }
+]

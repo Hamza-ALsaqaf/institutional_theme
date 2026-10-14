@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fix1 Temp Customer</title>
+	<meta name="generator" content="frappe">
+	<link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css-rtl/print.bundle.XODR474K.css">
+	<script type="text/javascript" src="/assets/frappe/dist/js/print.bundle.27VKHZQE.js"></script>
+	
+		<style>
+		@media screen {
+	.print-format-gutter {
+		background-color: #d1d8dd;
+		padding: 30px 0px;
+	}
+	.print-format {
+		background-color: white;
+		border-radius: 8px;
+		max-width: 8.3in;
+		min-height: 11.69in;
+		padding: 0.75in;
+		margin: auto;
+		color: var(--gray-900);
+	}
+
+	.print-format.landscape {
+		max-width: 11.69in;
+		padding: 0.2in;
+	}
+
+	.page-break {
+		/* padding: 15px 0px; */
+		border-bottom: 1px dashed #888;
+	}
+
+	/* .page-break:first-child {
+		padding-top: 0px;
+	} */
+
+	.page-break:last-child {
+		border-bottom: 0px;
+	}
+
+	/* mozilla hack for images in table */
+	body:last-child .print-format td img {
+		width: 100% !important;
+	}
+
+	@media(max-width: 767px) {
+		.print-format {
+			padding: 0.2in;
+		}
+	}
+}
+
+@media print {
+	.print-format p {
+		margin-left: 1px;
+		margin-right: 1px;
+	}
+}
+
+.disabled-check {
+	color: #eee;
+}
+
+.data-field {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.data-field .value {
+	word-wrap: break-word;
+}
+
+.important .value {
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.important label {
+	line-height: 1.8;
+	margin: 0px;
+}
+
+.table {
+	font-size: inherit;
+	margin: 20px 0px;
+}
+
+.checkbox-options {
+	columns: var(--checkbox-options-columns);
+}
+
+.square-image {
+	width: 100%;
+	height: 0;
+	padding: 50% 0;
+	background-size: contain;
+	/*background-size: cover;*/
+	background-repeat: no-repeat !important;
+	background-position: center center;
+	border-radius: 4px;
+}
+
+.print-item-image {
+	object-fit: contain;
+}
+
+.pdf-variables,
+.pdf-variable,
+.visible-pdf {
+	display: none !important;
+}
+
+.print-format {
+	font-size: 9pt;
+	font-family: 
+	"InterVariable", "Inter", -apple-system", "BlinkMacSystemFont",
+		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	;
+	-webkit-print-color-adjust:exact;
+}
+
+.page-break {
+	page-break-after: always;
+}
+
+.print-heading {
+	border-bottom: 1px solid #aaa;
+	margin-bottom: 10px;
+}
+
+.print-heading h2 {
+	margin: 0px;
+}
+.print-heading h4 {
+	margin-top: 5px;
+}
+
+table.no-border, table.no-border td {
+	border: 0px;
+}
+
+.print-format label {
+	/* wkhtmltopdf breaks label into multiple lines when it is inline-block */
+	display: block;
+	font-weight: 700;
+}
+
+.print-format img {
+	max-width: 100%;
+}
+
+.print-format table td > .primary:first-child {
+	font-weight: bold;
+}
+
+.print-format td, .print-format th {
+	vertical-align: top !important;
+	padding: 6px !important;
+}
+
+.print-format p {
+	margin: 3px 0px 3px;
+}
+
+.print-format .ql-snow p {
+	margin-top: 0px;
+}
+
+.print-format table td pre {
+	white-space: normal;
+	word-break: normal;
+}
+
+table td div {
+	
+	/* needed to avoid partial cutting of text between page break in wkhtmltopdf */
+	page-break-inside: avoid !important;
+	
+}
+
+/* hack for webkit specific browser */
+@media (-webkit-min-device-pixel-ratio:0) {
+	thead, tfoot {
+		display: table-header-group;
+	}
+}
+
+[document-status] {
+	margin-bottom: 5mm;
+}
+
+.signature-img {
+	background: #fff;
+	border-radius: 3px;
+	margin-top: 5px;
+	max-height: 150px;
+}
+
+.print-format-preview [data-fieldtype="Table"] {
+	overflow: auto;
+}
+.print-format {
+    font-size: 13px;
+    background: white;
+}
+
+.print-heading {
+    border-bottom: 1px solid #f4f5f6;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.print-heading h2 {
+    font-size: 24px;
+}
+
+.print-heading h2 div {
+    font-weight: 600;
+}
+
+.print-heading small {
+    font-size: 13px !important;
+    font-weight: normal;
+    line-height: 2.5;
+    color: #4c5a67;
+}
+
+.print-format .letter-head {
+    margin-bottom: 30px;
+}
+
+.print-format label {
+    font-weight: normal;
+    font-size: 13px;
+    color: #4C5A67;
+    margin-bottom: 0;
+}
+
+.print-format .data-field {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.print-format .value {
+    color: #192734;
+    line-height: 1.8;
+}
+
+.print-format .section-break:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.print-format .row:not(.section-break) {
+    line-height: 1.6;
+    margin-top: 15px !important;
+}
+
+.print-format .important .value {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.print-format th {
+    color: #74808b;
+    font-weight: normal;
+    border-bottom-width: 1px !important;
+}
+
+.print-format .table-bordered td, .print-format .table-bordered th {
+    border: 1px solid #f4f5f6;
+}
+
+.print-format .table-bordered {
+    border: 1px solid #f4f5f6;
+}
+
+.print-format td, .print-format th {
+    padding: 10px !important;
+}
+
+.print-format .primary.compact-item {
+    font-weight: normal;
+}
+
+.print-format table td .value {
+    font-size: 12px;
+    line-height: 1.8;
+}
+.print-format table tr td.table-sr{
+	line-height: 1.8;
+	font-size: 12px;
+}
+
+		</style>
+	
+</head>
+<body>
+	<div class="action-banner print-hide">
+		<a class="p-2" onclick="window.print();">
+			طباعة
+		</a>
+		<a class="p-2"
+			href="/api/method/frappe.utils.print_format.download_pdf?doctype=Quotation&name=SAL-QTN-2026-00004&format=Quotation with Item Image&letterhead=Midad&no_letterhead=0&_lang=ar&key=None&pdf_generator=wkhtmltopdf">
+			احصل على ملف PDF
+		</a>
+	</div>
+	<div class="print-format-gutter">
+		<div class="print-format">
+			
+<div class="page-break invoice-page">
+	<div >
+		
+<div class="letter-head">
+
+<p class="fix1-admin-note">Edited by an administrator</p></div>
+
+
+	</div><div class="text-center" document-status="draft">
+			<h4 style="margin-top: 20px !important;">مسودة</h4>
+		</div><style>
+		.letter-head {
+			padding-top: 12px !important;
+			padding-bottom: 12px !important;
+		}
+		.invoice-page {
+			font-family: Inter, sans-serif;
+			color: #171717;
+		}
+
+		.print-format-body {
+			padding: 30px 12px 12px 12px !important;
+		}
+
+		.title {
+			color: #7c7c7c !important;
+		}
+		.text-muted {
+			color: #7c7c7c !important;
+		}
+		.text-dark {
+			color: #171717 !important;
+		}
+		.small-text {
+			font-size: 11px;
+			color: #666;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.text-center {
+			text-align: center;
+		}
+		.text-right {
+			text-align: right;
+		}
+		.text-bold {
+			font-weight: 700;
+		}
+
+		.mt-15 {
+			margin-top: 15px;
+		}
+		.mt-16 {
+			margin-top: 16px;
+		}
+		.mt-40 {
+			margin-top: 40px;
+		}
+		.mw-400 {
+			max-width: 400px;
+		}
+
+		.items-table,
+		.tax-table {
+			width: 100%;
+			border-collapse: separate;
+			border-spacing: 0;
+			border-radius: 10px;
+			overflow: hidden;
+		}
+
+		.items-table td,
+		.tax-table td {
+			border-bottom: 1px solid #ededed;
+			padding: 8px;
+		}
+
+		.items-table thead td,
+		.tax-table thead td {
+			color: #7c7c7c !important;
+		}
+		.items-table thead tr:first-of-type td,
+		.tax-table thead tr:first-of-type td {
+			border-bottom: none;
+		}
+
+		.items-table thead tr:first-child td:first-child,
+		.tax-table thead tr:first-child td:first-child {
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px;
+		}
+		.items-table thead tr:first-child td:last-child,
+		.tax-table thead tr:first-child td:last-child {
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+
+		.in-words {
+			color: #171717 !important;
+			max-width: 400px;
+			word-wrap: break-word;
+			line-height: 1.5;
+			font-size: 12px;
+		}
+
+		.row-divider {
+			border-bottom: 1px solid #e9e9e9;
+		}
+
+		.highlight-bg {
+			background: #f8f8f8;
+		}
+
+		.info-card {
+			margin-top: 40px;
+			color: #7c7c7c;
+		}
+
+		.info-text {
+			margin-bottom: 12px;
+		}
+
+		.print-format {
+			color: #171717;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 420;
+			line-height: 21px;
+			padding: 0px !important;
+			margin-left: 0mm !important;
+			margin-right: 0mm !important;
+		}
+
+		.letter-head-footer {
+			margin-top: 0px !important;
+		}
+
+		.print-format-body td {
+			padding: 8px 8px !important;
+		}
+
+		.tax-table td,
+		.items-table td {
+			height: auto !important;
+		}
+
+		.tax-table thead td,
+		.items-table thead td {
+			height: 32px;
+		}
+
+		.item-img td {
+			border: none !important;
+			padding: 0px !important;
+		}
+	</style>
+
+	<div class="print-format-body">
+		<table class="info-table col-xs-12" style="width: 100%; margin-left: 12px">
+			<tr>
+				<td class="col-xs-6" style="padding: 0 !important">
+					<div class="title col-xs-5 p-0">
+						<div class="info-text">Customer Name:</div>
+						<div class="info-text">Bill to:</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="info-text">Fix1 Temp Customer</div>
+						<div class="info-text">
+        					
+						</div>
+
+					</div>
+				</td>
+
+				<td class="col-xs-6" style="padding: 0 !important">
+					<div class="title col-xs-5 p-0">
+						<div class="info-text">Quotation:</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="info-text">SAL-QTN-2026-00004</div>
+					</div>
+					<div class="title col-xs-5 p-0">
+						<div class="info-text">Posting Date:</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="info-text">14-10-2026</div>
+					</div>
+					<div class="title col-xs-5 p-0">
+						<div class="info-text">Valid Till:</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="info-text">13-11-2026</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+		<!-- Items Table -->
+		
+		<table class="items-table mt-15">
+			<thead class="highlight-bg">
+				<tr>
+					<td class="	text-center">لا</td>
+					<td class="text-left">السلعة</td>
+					
+					<td class="text-right">كمية</td>
+					<td class="text-right">سعر السلعة المفردة</td>
+					<td class="text-right">كمية</td>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td class="text-center">1</td>
+					<td class="text-left">
+						<table class="item-img" style="border-collapse: collapse">
+							<tr>
+								
+								<td
+									class="no-style"
+									style="vertical-align: middle !important; padding: 0 !important"
+								>
+									Application server 2U
+								</td>
+							</tr>
+						</table>
+					</td>
+					
+
+					<td class="text-right">4 Nos</td>
+					<td class="text-right">ر.س 38,500.00</td>
+					<td class="text-right">ر.س 154,000.00</td>
+				</tr>
+				
+				<tr>
+					<td class="text-center">2</td>
+					<td class="text-left">
+						<table class="item-img" style="border-collapse: collapse">
+							<tr>
+								
+								<td
+									class="no-style"
+									style="vertical-align: middle !important; padding: 0 !important"
+								>
+									Network storage unit
+								</td>
+							</tr>
+						</table>
+					</td>
+					
+
+					<td class="text-right">2 Nos</td>
+					<td class="text-right">ر.س 27,250.00</td>
+					<td class="text-right">ر.س 54,500.00</td>
+				</tr>
+				
+			</tbody>
+		</table>
+
+		<div class="test" style="float: right; margin-top: 15px; margin-bottom: 5px;">
+			<table style="width: 100%; border-collapse: collapse">
+				<tr class="row-divider">
+					<td class="text-right text-muted" style="padding-right: 30px !important;">Sub Total:</td>
+					<td class="text-right">ر.س 208,500.00</td>
+				</tr><tr class="row-divider">
+						<td class="text-right text-muted" style="padding-right: 30px !important;">
+							خصم (0.0%):
+						</td>
+						<td class="text-right">ر.س 0.00</td>
+					</tr></table>
+		</div>
+
+		<div style="border-bottom: 1px solid #ededed;">
+			<table class="highlight-bg" style="width: 100%; border-collapse: collapse; border-radius: 12px; margin-bottom: 10px;">
+				<tr>
+					<td class="text-left mw-400">
+						<div class="text-capitalize">
+							<span class="title"> In Words: </span>SAR Two Hundred And Eight Thousand, Five Hundred only.
+						</div>
+					</td>
+					<td class="text-right"><b>Grand Total:</b></td>
+					<td class="text-right">
+						<span style="font-weight: 700">
+							ر.س 208,500.00
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+
+		<!-- Terms -->
+		
+	</div>
+	<div >
+		
+		
+	</div>
+</div>
+
+		</div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const page_div = document.querySelector('.page-break');
+
+			if (page_div) {
+				page_div.style.display = 'flex';
+				page_div.style.flexDirection = 'column';
+			}
+
+			const footer_html = document.getElementById('footer-html');
+			if (footer_html)  {
+				footer_html.classList.add('hidden-pdf');
+				footer_html.classList.remove('visible-pdf');
+				footer_html.style.order = 1;
+				footer_html.style.marginTop = '20px';
+			}
+			document.querySelectorAll("svg[data-barcode-value]").forEach(render_barcode)
+		});
+	</script>
+</body><!-- Administrator --></html>

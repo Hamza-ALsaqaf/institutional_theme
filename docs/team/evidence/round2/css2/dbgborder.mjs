@@ -1,0 +1,12 @@
+import { combos, launch, ready } from "./lib.mjs";
+import { chromium } from "/opt/pw-node/node_modules/playwright-core/index.mjs";
+const fn = () => { const el = document.querySelector(".dt-row-header .dt-cell"); const hits = []; for (const ss of document.styleSheets) { let rules; try { rules = ss.cssRules } catch (e) { continue } const walk = (rs) => { for (const r of rs) { if (r.cssRules && !r.selectorText) { walk(r.cssRules); continue; } if (!r.selectorText || !/border/.test(r.cssText)) continue; let m = false; for (const sel of r.selectorText.split(",")) { try { if (el.matches(sel.trim())) m = true } catch (e) {} } if (m) hits.push((ss.ownerNode.dataset?.name || ss.href || "").toString().slice(-30) + " :: " + r.cssText.slice(0, 220)); } }; walk(rules); } return { cls: el.className, parent: el.parentElement.className, anc: el.closest(".datatable").className, hits }; };
+const { browser, page } = await launch(combos[0]);
+await ready(page, "/desk/todo/view/report");
+console.log("LIVE", JSON.stringify(await page.evaluate(fn), null, 1));
+await browser.close();
+const b2 = await chromium.launch(); const p2 = await b2.newPage();
+await p2.goto("file:///home/runner/work/institutional_theme/institutional_theme/docs/proof/midad-proof.html"); await p2.waitForTimeout(500);
+await p2.evaluate(() => window.__proofApply({ screen: "report" }));
+console.log("PROOF", JSON.stringify(await p2.evaluate(fn), null, 1));
+await b2.close();

@@ -1,0 +1,145 @@
+{
+  "name": "a1_masked",
+  "checks": [
+    {
+      "label": "en: tax_id is in meta.masked_fields",
+      "ok": true,
+      "detail": "[\"tax_id\"]"
+    },
+    {
+      "label": "en: the value is the core placeholder, not the real one",
+      "ok": true,
+      "detail": "XXXXXXXX"
+    },
+    {
+      "label": "en: marker attribute and reason element",
+      "ok": true,
+      "detail": "Hidden for your role"
+    },
+    {
+      "label": "en: aria-describedby resolves to the reason",
+      "ok": true,
+      "detail": "ins-masked-reason-1"
+    },
+    {
+      "label": "en: reason text in the user language",
+      "ok": true,
+      "detail": "Hidden for your role"
+    },
+    {
+      "label": "en: refresh is idempotent",
+      "ok": true,
+      "detail": "{\"count\":1,\"id\":\"ins-masked-reason-1\"}"
+    },
+    {
+      "label": "ar: tax_id is in meta.masked_fields",
+      "ok": true,
+      "detail": "[\"tax_id\"]"
+    },
+    {
+      "label": "ar: the value is the core placeholder, not the real one",
+      "ok": true,
+      "detail": "XXXXXXXX"
+    },
+    {
+      "label": "ar: marker attribute and reason element",
+      "ok": true,
+      "detail": "مخفي لدورك"
+    },
+    {
+      "label": "ar: aria-describedby resolves to the reason",
+      "ok": true,
+      "detail": "ins-masked-reason-1"
+    },
+    {
+      "label": "ar: reason text in the user language",
+      "ok": true,
+      "detail": "مخفي لدورك"
+    },
+    {
+      "label": "ar: refresh is idempotent",
+      "ok": true,
+      "detail": "{\"count\":1,\"id\":\"ins-masked-reason-1\"}"
+    }
+  ],
+  "data": {
+    "propertySetter": "Customer-tax_id-mask",
+    "customer": "BE R2 Masked Customer",
+    "en_debug": {
+      "url": "http://midad.test:8000/desk/customer/BE%20R2%20Masked%20Customer",
+      "frm": "Customer/BE R2 Masked Customer",
+      "hasField": true,
+      "masked": [
+        "tax_id"
+      ],
+      "body": "Selling\nERPNext\nSearch\nCtrl+K\nNotification\nHome\nDashboard\nQuotation\nSales Order\nPOS\nItems & Pricing\nSetup\nCustomer\nCustomer Group\nAddress\nContact\nTerritory\nCampaign\nSales Person\nSales Partner\nTerms Template\nTax Template\nProduct Bundle\nUTM Source\nShipping Rule\nReports\nSettings\n\nGetting Started\n\nBR\nBE"
+    },
+    "en": {
+      "metaMasked": [
+        "tax_id"
+      ],
+      "markerAttr": "1",
+      "controlValue": "XXXXXXXX",
+      "controlReadOnly": true,
+      "reasonText": "Hidden for your role",
+      "reasonId": "ins-masked-reason-1",
+      "ariaDescribedby": "ins-masked-reason-1",
+      "linkResolves": true,
+      "reasonDisplay": {
+        "display": "block",
+        "color": "rgb(88, 97, 109)",
+        "fontSize": "12px"
+      },
+      "reasonCount": 1,
+      "lang": "en",
+      "controlHidden": true,
+      "staticValue": "XXXXXXXX",
+      "staticValueVisible": true,
+      "staticValueDescribedby": null
+    },
+    "en_afterRefresh": {
+      "count": 1,
+      "id": "ins-masked-reason-1"
+    },
+    "en_ariaSnapshot": "- text: Tax ID XXXXXXXX tax_id Hidden for your role",
+    "ar_debug": {
+      "url": "http://midad.test:8000/desk/customer/BE%20R2%20Masked%20Customer",
+      "frm": "Customer/BE R2 Masked Customer",
+      "hasField": true,
+      "masked": [
+        "tax_id"
+      ],
+      "body": "المبيعات\nERPNext\nالبحث\nCtrl+K\nإعلام\nالصفحة الرئيسية\nلوحة القيادة\nعرض أسعار\nطلب المبيعات\nنقطة البيع\nالمنتجات والأسعار\nالإعدادات\nالعميل\nمجموعة العميل\nعنوان\nاتصال\nإقليم\nحملة\nمندوب مبيعات\nشريك المبيعات\nنموذج الشروط\nTax Template\nحزم المنتجات\nمصدر UTM\nقواعد الشحن\nتقارير\nإعدادات\n\nالبدء\n\nBR\nBE R2 ar\nbe-r2-a"
+    },
+    "ar": {
+      "metaMasked": [
+        "tax_id"
+      ],
+      "markerAttr": "1",
+      "controlValue": "XXXXXXXX",
+      "controlReadOnly": true,
+      "reasonText": "مخفي لدورك",
+      "reasonId": "ins-masked-reason-1",
+      "ariaDescribedby": "ins-masked-reason-1",
+      "linkResolves": true,
+      "reasonDisplay": {
+        "display": "block",
+        "color": "rgb(88, 97, 109)",
+        "fontSize": "12px"
+      },
+      "reasonCount": 1,
+      "lang": "ar",
+      "controlHidden": true,
+      "staticValue": "XXXXXXXX",
+      "staticValueVisible": true,
+      "staticValueDescribedby": null
+    },
+    "ar_afterRefresh": {
+      "count": 1,
+      "id": "ins-masked-reason-1"
+    },
+    "ar_ariaSnapshot": "- text: الرقم الضريبي XXXXXXXX tax_id مخفي لدورك",
+    "customerDeleted": 202,
+    "setterDeleted": 202
+  }
+}

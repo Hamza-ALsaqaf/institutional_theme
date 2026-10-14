@@ -92,6 +92,20 @@ def emit_family(
 	return "\n".join(parts)
 
 
+def emit_light_family(
+	family: str,
+	keys: Sequence[str],
+	light: Mapping[str, str],
+	*,
+	color_scheme: bool = False,
+) -> str:
+	"""Only the light block of `emit_family`, byte-identical to it (for bundles that never see Dark)."""
+	declarations = _declarations(keys, light)
+	if color_scheme:
+		declarations = [("color-scheme", "light"), *declarations]
+	return _block(SHAPES[family]["light"], declarations)
+
+
 def emit_scale(
 	comfortable: Sequence[tuple[str, str]],
 	compact: Sequence[tuple[str, str]],

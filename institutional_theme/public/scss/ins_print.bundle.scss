@@ -1,0 +1,435 @@
+// Print Style rules (ADR 0004). Always light, built from the literal light values: a Print Style is sent to
+// wkhtmltopdf (QtWebKit, about WebKit 534), which does not support custom properties (findings section 6), and
+// Chrome renders the same text. No fonts here: `print/ship.py` prepends the `@font-face` block and the family rule.
+//
+// Rules for this file:
+//  - Every selector starts with `.print-format` (Print Style CSS is unscoped and is sent in every desk boot).
+//  - Meaning is carried by borders, weight and shape, never by a tint alone (black-and-white photocopy).
+//  - QtWebKit has no logical properties, no flex, no grid, no `inset`, no `text-align: start`: the block axis
+//    uses `border-top` and `border-bottom`, layout uses `display: table`, and the few inline-axis rules are a
+//    physical pair under `[dir="rtl"]` (the `dir` attribute is on `<html>` in both generators).
+//  - No `!important`: core's `td, th { padding: 6px !important }` stays as it is.
+// The wrapper keeps rtlcss from flipping the physical pairs below.
+/*rtl:begin:ignore*/
+@import "generated/literals";
+
+.print-format {
+	color: $ins-text-strong;
+	line-height: $ins-leading;
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+
+	// ERPNext's own formats set a family on `.invoice-page` (inside `.print-format`); inherit the one the
+	// Print Style declares instead.
+	.page-break {
+		font-family: inherit;
+	}
+
+	// Headings and the closing-rule motif: a heavy bar over a light bar.
+	.print-heading {
+		margin-bottom: $ins-space-3;
+		padding: $ins-space-2 0 $ins-space-15;
+		border-top: 3px solid $ins-brand;
+		border-bottom: 1px solid $ins-brand;
+
+		h2 {
+			color: $ins-text-strong;
+			font-weight: $ins-weight-strong;
+			line-height: $ins-leading-tight;
+		}
+
+		.sub-heading {
+			color: $ins-text-secondary;
+			font-weight: $ins-weight-medium;
+		}
+	}
+
+	h4 {
+		color: $ins-text-strong;
+		font-weight: $ins-weight-strong;
+	}
+
+	label {
+		color: $ins-text-secondary;
+		font-weight: $ins-weight-medium;
+	}
+
+	.data-field .value {
+		color: $ins-text-strong;
+	}
+
+	a {
+		color: $ins-text-strong;
+		text-decoration: underline;
+	}
+
+	pre {
+		border: 1px solid $ins-border-strong;
+		background: transparent;
+		color: $ins-text-strong;
+	}
+
+	// Tables: a rule above and below the header, a hairline under each row, no verticals, no tint.
+	table.table {
+		border-collapse: collapse;
+	}
+
+	table.table-bordered {
+		border: 0;
+	}
+
+	.table-bordered > thead > tr > th,
+	.table-bordered > thead > tr > td {
+		border: 0;
+		border-top: 1.5px solid $ins-text-strong;
+		border-bottom: 1.5px solid $ins-text-strong;
+		background: transparent;
+		color: $ins-text-strong;
+		font-weight: $ins-weight-strong;
+	}
+
+	.table-bordered > tbody > tr > th,
+	.table-bordered > tbody > tr > td,
+	.table-bordered > tfoot > tr > td {
+		border: 0;
+		border-bottom: 1px solid $ins-border-strong;
+	}
+
+	// ERPNext 16 default formats (`items-table`, `tax-table`, `highlight-bg`) get the same treatment. Their
+	// rounded, tinted header becomes two rules; the tint is removed, so meaning never rests on it.
+	// Their `color: ... !important` on header cells is left alone (manifest row): the header is bold and ruled.
+	.items-table,
+	.tax-table {
+		border-collapse: collapse;
+		border-radius: 0;
+		overflow: visible;
+	}
+
+	.items-table td,
+	.tax-table td {
+		border-bottom: 1px solid $ins-border-strong;
+	}
+
+	.items-table thead td,
+	.tax-table thead td,
+	.items-table thead tr:first-of-type td,
+	.tax-table thead tr:first-of-type td {
+		border-top: 1.5px solid $ins-text-strong;
+		border-bottom: 1.5px solid $ins-text-strong;
+		font-weight: $ins-weight-strong;
+	}
+
+	.items-table thead tr:first-child td:first-child,
+	.tax-table thead tr:first-child td:first-child,
+	.items-table thead tr:first-child td:last-child,
+	.tax-table thead tr:first-child td:last-child {
+		border-radius: 0;
+	}
+
+	.highlight-bg {
+		background: transparent;
+	}
+
+	table.highlight-bg {
+		border-top: 3px double $ins-text-strong;
+		border-bottom: 1px solid $ins-text-strong;
+		border-radius: 0;
+	}
+
+	// The header repeats on every page; a row never splits across two pages.
+	thead {
+		display: table-header-group;
+	}
+
+	tfoot {
+		display: table-footer-group;
+	}
+
+	tr {
+		page-break-inside: avoid;
+	}
+
+	// Figures: core aligns numeric columns with `text-right` (flipped by the RTL print bundle). Digits stay
+	// left to right inside Arabic text and use tabular lining figures where the renderer has them.
+	td.text-right,
+	th.text-right,
+	td.text-right .value {
+		direction: ltr;
+		unicode-bidi: embed;
+		unicode-bidi: isolate;
+		font-variant-numeric: tabular-nums lining-nums;
+		white-space: nowrap;
+	}
+
+	.mono,
+	.ins-mono {
+		direction: ltr;
+		unicode-bidi: embed;
+		unicode-bidi: isolate;
+		font-family: "Midad Print Plex Mono", monospace;
+	}
+
+	// The closing rule above a grand total (a double rule, which survives a photocopy) and a heavier weight.
+	.data-field[data-fieldname="grand_total"],
+	.data-field[data-fieldname="rounded_total"],
+	.data-field[data-fieldname="base_grand_total"],
+	.ins-grand-total {
+		margin-top: $ins-space-15;
+		padding-top: $ins-space-2;
+		border-top: 3px double $ins-text-strong;
+		font-weight: $ins-weight-strong;
+	}
+
+	.ins-grand-total > td,
+	.ins-grand-total > th {
+		border-top: 3px double $ins-text-strong;
+		font-weight: $ins-weight-strong;
+	}
+
+	// Document status: text plus a shape, never a tint. Core prints "DRAFT" and "CANCELLED" as text
+	// (`standard_macros.html:215,220`); `.ins-status` is for formats that print a workflow state.
+	.ins-status {
+		display: inline-block;
+		padding: 1px 8px;
+		border: 1px solid $ins-text-strong;
+		border-radius: $ins-radius-sm;
+		background: $ins-surface-base;
+		color: $ins-text-strong;
+		font-size: 0.9em;
+		font-weight: $ins-weight-medium;
+		line-height: 1.5;
+		white-space: nowrap;
+
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			margin-right: 6px;
+			border: 1.5px solid $ins-text-strong;
+			background: transparent;
+			vertical-align: baseline;
+		}
+	}
+
+	.ins-status-draft::before {
+		border-radius: 50%;
+	}
+
+	.ins-status-pending::before {
+		border-radius: 50%;
+		border-right-width: 5px;
+	}
+
+	.ins-status-approved::before {
+		background: $ins-text-strong;
+	}
+
+	.ins-status-rejected {
+		border-style: dashed;
+	}
+
+	.ins-status-cancelled {
+		border-style: dashed;
+		text-decoration: line-through;
+	}
+
+	.ins-status-cancelled::before {
+		border-radius: 50%;
+		background: $ins-text-strong;
+	}
+
+	// Signature blocks: a table row of boxed cells with a ruled signing space.
+	.ins-signatures {
+		display: table;
+		width: 100%;
+		margin-top: $ins-space-8;
+		border-collapse: separate;
+		border-spacing: $ins-space-4 0;
+		table-layout: fixed;
+		page-break-inside: avoid;
+	}
+
+	.ins-signature {
+		display: table-cell;
+		padding: $ins-space-3 $ins-space-3 $ins-space-2;
+		border: 1px solid $ins-border-control;
+		border-radius: $ins-radius-sm;
+		vertical-align: top;
+	}
+
+	.ins-signature-role {
+		color: $ins-text-secondary;
+		font-size: 0.9em;
+	}
+
+	.ins-signature-name {
+		font-weight: $ins-weight-strong;
+	}
+
+	.ins-signature-space {
+		height: 44px;
+		border-bottom: 1px solid $ins-text-strong;
+	}
+
+	.ins-signature-caption {
+		color: $ins-text-secondary;
+		font-size: 0.85em;
+	}
+
+	// Verification zone: a reserved box for a QR code or a code line.
+	.ins-verify {
+		margin-top: $ins-space-4;
+		padding: $ins-space-3 $ins-space-4;
+		border: 1px solid $ins-border-strong;
+		border-radius: $ins-radius-sm;
+		page-break-inside: avoid;
+	}
+
+	// Letter Head (print/letter_head.html): a table, because QtWebKit has no flex.
+	.ins-lh {
+		width: 100%;
+		border-collapse: collapse;
+		border-bottom: 1px solid $ins-brand;
+		margin-bottom: $ins-space-3;
+
+		td {
+			vertical-align: middle;
+		}
+	}
+
+	.ins-lh-emblem {
+		width: 52px;
+	}
+
+	.ins-lh-emblem img {
+		display: block;
+		width: 52px;
+		height: 52px;
+	}
+
+	.ins-lh-gap {
+		width: 14px;
+	}
+
+	.ins-lh-name {
+		color: $ins-brand;
+		font-size: 1.45em;
+		font-weight: $ins-weight-strong;
+		line-height: $ins-leading-tight;
+	}
+
+	.ins-lh-name-second {
+		color: $ins-text-secondary;
+		font-size: 1em;
+		font-weight: $ins-weight-medium;
+	}
+
+	.ins-lh-system {
+		color: $ins-text-secondary;
+		font-size: 0.9em;
+	}
+
+	.letter-head-footer .ins-lf {
+		width: 100%;
+		border-collapse: collapse;
+		border-top: 1px solid $ins-text-strong;
+		color: $ins-text-secondary;
+		font-size: 0.85em;
+
+		td {
+			padding: $ins-space-15 0 0;
+		}
+	}
+
+	// Watermark for Draft and Cancelled: the text core already prints, lifted out of the flow, set large,
+	// and framed (no tilt: the patched wkhtmltopdf build ignores the transform). A fixed box repeats on every
+	// page in both generators. The frame is a border, so a photocopy still shows a boxed word; the text is
+	// the meaning.
+	[document-status="draft"],
+	[document-status="cancelled"] {
+		position: fixed;
+		top: 40%;
+		left: 15%;
+		right: 15%;
+		z-index: 0;
+		padding: 0;
+		border: 6px solid $ins-text-strong;
+		opacity: 0.12;
+		pointer-events: none;
+
+		h4 {
+			margin: 0;
+			padding: $ins-space-4 0;
+			font-size: 96px;
+			font-weight: $ins-weight-strong;
+			letter-spacing: 6px;
+			text-transform: uppercase;
+		}
+	}
+
+	[document-status="cancelled"] {
+		border-style: dashed;
+	}
+}
+
+// Physical pairs for the inline axis where the renderer has no logical properties. Core and ERPNext name
+// alignment with physical classes (`text-right` for figures); in Arabic figures sit at the line end (left)
+// and text at the line start (right), set here so it does not depend on which stylesheet loaded last.
+[dir="rtl"] .print-format {
+	// Label blocks: a label that stays English (ERPNext hard-codes "Customer Name:" and "Bill to:" in the
+	// Quotation print formats) must keep its colon after the words. Each block takes its direction from
+	// its own first strong letter; the physical right edge keeps the column alignment. Chromium honours
+	// it; wkhtmltopdf's old WebKit ignores both values and still shows ":Customer Name" (no CSS fix exists).
+	div.info-text {
+		text-align: right;
+		unicode-bidi: -webkit-plaintext;
+		unicode-bidi: plaintext;
+	}
+
+	// The in-words label loses its trailing space in translation (core strips the key and the value), so
+	// the label and the amount in words would touch.
+	span.title {
+		margin-left: 0.35em; // physical: wkhtmltopdf's WebKit has no logical margins; this block is RTL only
+	}
+
+	// Arabic letters join; tracking breaks the word apart, so the watermark is not spaced.
+	[document-status="draft"] h4,
+	[document-status="cancelled"] h4 {
+		letter-spacing: 0;
+	}
+
+	td.text-right,
+	th.text-right {
+		text-align: left;
+	}
+
+	td.text-left,
+	th.text-left {
+		text-align: right;
+	}
+
+	.ins-status::before {
+		margin-right: 0;
+		margin-left: 6px;
+	}
+
+	.ins-status-pending::before {
+		border-right-width: 1.5px;
+		border-left-width: 5px;
+	}
+}
+// Chrome with "repeat header and footer": core's header and footer page (chrome_pdf_header_footer.html)
+// moves `.letter-head` and `.letter-head-footer` up by 12mm with `!important` and measures the page
+// height after that shift, so the top 12mm of a letter head are cut off when the print format has no
+// top margin. Only that page has a `.wrapper` without `onload` on `body` (the wkhtmltopdf header page
+// has `onload="subst()"` and pads itself by 15mm to cancel its own -15mm; printview.html has no
+// `.wrapper`), so the extra space is added there only. It collapses with the core margin: net +4mm from the page top.
+body:not([onload]) .print-format .wrapper .letter-head .ins-lh {
+	margin-top: 16mm;
+}
+
+body:not([onload]) .print-format .wrapper .letter-head-footer .ins-lf {
+	margin-top: 12mm;
+}
+/*rtl:end:ignore*/

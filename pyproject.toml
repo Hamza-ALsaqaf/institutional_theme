@@ -26,6 +26,8 @@ frappe = ">=16.32.0,<17.0.0"
 [tool.ruff]
 line-length = 110
 target-version = "py314"
+# One-off scripts kept as evidence of a verification run, not shipped code.
+extend-exclude = ["docs/team/evidence"]
 
 [tool.ruff.lint]
 select = ["F", "E", "W", "I", "UP", "B", "RUF"]

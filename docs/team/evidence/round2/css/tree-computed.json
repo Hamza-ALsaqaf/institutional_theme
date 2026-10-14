@@ -1,0 +1,126 @@
+[
+ {
+  "lang": "en",
+  "mode": "light",
+  "user": "css-r2-en-light@midad.test",
+  "dir": "ltr",
+  "children": {
+   "paddingLeft": "32px",
+   "paddingRight": "0px",
+   "paddingInlineStart": "32px"
+  },
+  "label": {
+   "marginLeft": "8px",
+   "marginRight": "0px"
+  },
+  "toolbar": {
+   "marginLeft": "16px",
+   "marginRight": "0px"
+  },
+  "active": {
+   "backgroundColor": "rgb(242, 247, 254)",
+   "borderRadius": "4px"
+  },
+  "focused": {
+   "cls": "btn btn-default btn-xs tree-toolbar-button hidden-xs",
+   "outline": "solid 2px rgb(47, 106, 167)",
+   "offset": "2px"
+  },
+  "rootLink": "303-455",
+  "nestedLink": "335-593",
+  "nestedCount": 5
+ },
+ {
+  "lang": "en",
+  "mode": "dark",
+  "user": "css-r2-en-dark@midad.test",
+  "dir": "ltr",
+  "children": {
+   "paddingLeft": "32px",
+   "paddingRight": "0px",
+   "paddingInlineStart": "32px"
+  },
+  "label": {
+   "marginLeft": "8px",
+   "marginRight": "0px"
+  },
+  "toolbar": {
+   "marginLeft": "16px",
+   "marginRight": "0px"
+  },
+  "active": {
+   "backgroundColor": "rgb(26, 47, 70)",
+   "borderRadius": "4px"
+  },
+  "focused": {
+   "cls": "btn btn-default btn-xs tree-toolbar-button hidden-xs",
+   "outline": "solid 2px rgb(167, 201, 240)",
+   "offset": "2px"
+  },
+  "rootLink": "303-455",
+  "nestedLink": "335-593",
+  "nestedCount": 5
+ },
+ {
+  "lang": "ar",
+  "mode": "light",
+  "user": "css-r2-ar-light@midad.test",
+  "dir": "rtl",
+  "children": {
+   "paddingLeft": "0px",
+   "paddingRight": "32px",
+   "paddingInlineStart": "32px"
+  },
+  "label": {
+   "marginLeft": "0px",
+   "marginRight": "8px"
+  },
+  "toolbar": {
+   "marginLeft": "0px",
+   "marginRight": "16px"
+  },
+  "active": {
+   "backgroundColor": "rgb(242, 247, 254)",
+   "borderRadius": "4px"
+  },
+  "focused": {
+   "cls": "btn btn-default btn-xs tree-toolbar-button hidden-xs",
+   "outline": "solid 2px rgb(47, 106, 167)",
+   "offset": "2px"
+  },
+  "rootLink": "829-977",
+  "nestedLink": "697-945",
+  "nestedCount": 5
+ },
+ {
+  "lang": "ar",
+  "mode": "dark",
+  "user": "css-r2-ar-dark@midad.test",
+  "dir": "rtl",
+  "children": {
+   "paddingLeft": "0px",
+   "paddingRight": "32px",
+   "paddingInlineStart": "32px"
+  },
+  "label": {
+   "marginLeft": "0px",
+   "marginRight": "8px"
+  },
+  "toolbar": {
+   "marginLeft": "0px",
+   "marginRight": "16px"
+  },
+  "active": {
+   "backgroundColor": "rgb(26, 47, 70)",
+   "borderRadius": "4px"
+  },
+  "focused": {
+   "cls": "btn btn-default btn-xs tree-toolbar-button hidden-xs",
+   "outline": "solid 2px rgb(167, 201, 240)",
+   "offset": "2px"
+  },
+  "rootLink": "829-977",
+  "nestedLink": "697-945",
+  "nestedCount": 5
+ }
+]

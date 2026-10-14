@@ -1,0 +1,2 @@
+BYTE-IDENTICAL
+diff after restore: empty

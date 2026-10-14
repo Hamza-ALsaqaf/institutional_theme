@@ -1,0 +1,5 @@
+/* Fixture: the rules of the other installed app (findings 8, tcsid-brand.css), loaded after ins_desk. Test data only. */
+html[lang=ar], html[dir=rtl] { --font-stack: "Other Brand Sans", sans-serif; }
+[data-theme=light] .btn-primary { background: rgb(184, 134, 11); border-color: rgb(184, 134, 11); color: rgb(0, 0, 0); }
+[data-theme=light] .btn-primary:hover { background: rgb(212, 160, 23); }
+.desktop-navbar { border-bottom: 2px solid rgb(184, 134, 11); }

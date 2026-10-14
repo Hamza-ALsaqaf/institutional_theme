@@ -1,0 +1,18 @@
+import { combos, launch, ready } from "./lib.mjs";
+import { chromium } from "/opt/pw-node/node_modules/playwright-core/index.mjs";
+const mk = (sel, re) => `() => { const el = document.querySelector(${JSON.stringify(sel)}); const hits = []; const walk = (rs, ss, ctx) => { for (const r of rs) { if (r.cssRules && !r.selectorText) { walk(r.cssRules, ss, (r.conditionText || r.cssText.slice(0, 40))); continue; } if (!r.selectorText || !${re}.test(r.cssText)) continue; let m = false; for (const s of r.selectorText.split(",")) { try { if (el.matches(s.trim())) m = true } catch (e) {} } if (m && !(ss.disabled)) hits.push((ss.ownerNode.dataset?.name || "") + (ss.ownerNode.dataset?.dir || "") + "|" + (ctx || "") + " :: " + r.selectorText.slice(0, 120) + " {" + r.cssText.slice(r.cssText.indexOf("{"), r.cssText.indexOf("{") + 160)); } }; for (const ss of document.styleSheets) { try { walk(ss.cssRules, ss, "") } catch (e) {} } return { html: el.outerHTML.slice(0, 200), hits }; }`;
+const run = async (label, page, sel, re) => console.log(label, JSON.stringify(await page.evaluate(eval(mk(sel, re))), null, 1));
+const { browser, page } = await launch(combos[0]);
+await ready(page, "/desk/todo");
+await run("LIVE weight", page, ".list-row .list-subject a", "/font-weight|\\\\bfont\\\\b/");
+await ready(page, "/desk/todo/new");
+await page.emulateMedia({ forcedColors: "active" });
+await run("LIVE select", page, ".form-layout select.form-control", "/border/");
+await browser.close();
+const b2 = await chromium.launch(); const p2 = await b2.newPage();
+await p2.goto("file:///home/runner/work/institutional_theme/institutional_theme/docs/proof/midad-proof.html"); await p2.waitForTimeout(500);
+await p2.evaluate(() => window.__proofApply({ screen: "list" }));
+await run("PROOF weight", p2, ".list-row .list-subject a", "/font-weight|\\\\bfont\\\\b/");
+await p2.evaluate(() => window.__proofApply({ screen: "form" })); await p2.emulateMedia({ forcedColors: "active" });
+await run("PROOF select", p2, ".form-layout select.form-control", "/border/");
+await b2.close();
