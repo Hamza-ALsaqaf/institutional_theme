@@ -5,7 +5,7 @@
 #   tools/ci/local_ci.sh [log-file]
 set -uo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-LOG="${1:-/dev/stdout}"
+LOG="$(realpath -m "${1:-/dev/stdout}")"
 WORK="$(mktemp -d)"
 trap 'rm -rf "${WORK}"' EXIT
 git -C "${ROOT}" archive HEAD | tar -x -C "${WORK}"
