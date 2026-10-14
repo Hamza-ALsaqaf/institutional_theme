@@ -155,4 +155,20 @@ html:root[dir] .like-action {
 		text-overflow: ellipsis;
 		unicode-bidi: plaintext;
 	}
+
+	// The rows now end at the container, so the left group (131px at 320px) is narrower than the two inline-block meta items of the second line
+	// (priority chip and date, `.mobile-layout`, list.scss:851-866 in v16.52.0); core's `nowrap` then pushed the date under the chip, where the
+	// group's ellipsis clipped it to "...". Let the meta line wrap between its items; each column keeps its own `nowrap`, so the subject still ellipsises.
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container:not(:has(.list-row-head)) .list-row .level-left {
+		white-space: normal;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container:not(:has(.list-row-head)) .list-row .level-left .list-row-col {
+		white-space: nowrap;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container:not(:has(.list-row-head)) .list-row .level-left .mobile-layout .list-row-col {
+		flex: 0 0 auto;
+		overflow: visible;
+	}
 }
