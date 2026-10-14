@@ -21,16 +21,25 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-Round 3, second attempt (job started about 00:40 UTC 2026-10-14 on a fresh runner, pull request #3; scope `docs/team/RESUME_PROMPT.md`, ownership `docs/team/PLAN.md` "Round 3", agent rules `docs/team/evidence/round3/DISPATCH.md`). The first attempt's background agents were stopped and their unpushed work lost. Bench rebuilt by the lead (`docs/team/evidence/round3/bench2/`). Wave 1, dispatched 00:45: item 4 coexistence and HRMS screens done (css-engineer, 01:23); item 2 HRMS 16.20.1 installed with fictional records and item 5 axe scan done (backend B, 01:41); item 3 newest tag v16.51.1 checked (backend A); item 6 grid checkbox names done, Gantt month names not possible without core (backend C, 01:43). Item 1 (fresh install) still running (backend A).
-Wave 2, dispatched 01:47, done 02:34: item 1 fresh bench install/uninstall passes (backend A, uninstall residue fixed in `identity_sync.py`); newest tag v16.52.0 fails the dead-token audit (15 dead), range unchanged; desk avatar pairs and CSS-fixable core contrast/target/link findings fixed (css, cascade 4256/4256, no new `!important`); accessible-name attributes for core markup (`a11y_rules.js`, `a11y_names.js`); avatar contrast audit; axe re-scan 1154 to 312 nodes, 0 caused by the theme (`docs/team/evidence/round3/axe-rescan/`). Scribe pass 1 (manifest: 14 `!important` declarations, checklist, HRMS on PostgreSQL note).
-Wave 3, done 02:56: proof extended with workspace and toasts (parity 266 comparisons, 0 mismatches, 5.34 MB); a11y review 0 blocking, 6 should-fix; upgrade review 2 blocking (Check-field formatter checkboxes named "Select row"; round-3 selectors missing from the manifest), 5 should-fix; scribe pass 2 (manifest section 2j, axe table finalised).
-Fix round 1 (02:58-03:46): upgrade blocking 1 and 2 fixed, all upgrade should-fix fixed (uninstall removes only the theme's own File copies, proven live with the old code as negative control; 148 Frappe + 178 unit tests OK), a11y should-fix 1-6 fixed (row editor names, `role=main`, `aria-selected`, Arabic names, inset focus ring, viewport zoom, axe core variant re-run: 274 nodes, 0 theme; incomplete triaged). Fix round 2 (03:48-03:57): Dark danger button 2.51 to 6.78:1, mobile status chip no longer covered, 24 px home breadcrumb; scribe pass 3.
-Upgrade second pass (04:03): all first-pass findings fixed, every dimension 4; major M1 (form-tab `aria-selected` stale after a non-click switch) and minors m2-m5 dispatched to backend G (report 04:45). A11y second pass in flight (report 04:40).
-Then: release gate (full Frappe and unit tests, audits, install/uninstall gate), owner report.
+None. Round 3 finished at about 05:15 UTC 2026-10-14 (second attempt, fresh runner, pull request #3).
+
+## Round 3 (release hardening) result
+
+| Item | Result | Evidence |
+|---|---|---|
+| 1 Clean install | PASSED: fresh bench (Frappe 16.32.0), Frappe-only and ERPNext sites, README commands literally, install/build/migrate/uninstall all exit 0, no table residue; README corrected; uninstall residue bug found and fixed (theme-made File copies only) | `docs/team/evidence/round3/fresh-install/`, `fix-uninstall/` |
+| 2 HRMS 16.20.1 | PASSED: installed with fictional records; 84 screenshots, 0 flagged; two text-utility contrast fixes. HRMS defects on PostgreSQL documented (not theme) | `hrms/`, `hrms-screens/` |
+| 3 Newest tag | CHECKED: v16.52.0; theme installs and uninstalls cleanly there, but the dead-token audit fails (15 dead); range unchanged (16.32.0); work list G1-G8 in the checklist | `newest-tag/` |
+| 4 Coexistence | PASSED: Midad wins font stack and primary button; navbar border fixed; the rest documented in README Troubleshooting | `coexistence/` |
+| 5 axe-core | PASSED: 1154 to 272 nodes, 0 caused by the theme; remaining nodes are core markup (checklist) | `axe/`, `axe-rescan/`, `fix-shell/`, `gate/axe-final/` |
+| 6 Remaining gaps | Grid-row checkbox names delivered; Gantt month names not possible without core (documented); proof extended to 7 screens (parity 0 mismatches) | `grid-names/`, `proof/` |
+| 7 Release gate | PASSED 05:05: CI checks; 148 Frappe + 178 unit tests OK; audits pass; cascade 4256/4256; install/uninstall gate clean (login 0 px; todo 5 px anti-aliasing, max delta 6); residue none; both hostile reviews 0 blocking after two fix rounds; every BRIEF section 10 dimension 4 or more | `gate/README.md`, `docs/team/reviews/upgrade-round3.md`, `a11y-round3.md` |
+
+Decisions 47-62 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic).
 
 ## Next step
 
-All phases 0 to 5 have passed. The owner reviews pull request #2 and decides whether to fast-forward `main` (never done by the build team). Optional follow-ups if the owner asks: the items in `docs/team/OWNER_REVIEW.md` section 3 (Gantt month names need a core change; grid-row checkbox names come from core; the proof could grow to the full ADR 0007 scope), then a formal accessibility audit (screen readers, Windows High Contrast).
+The lead outside the job checks the round-3 evidence on pull request #3 and, if satisfied, merges it into `main` (never done by the build job). Optional follow-ups: a formal accessibility audit with screen readers and Windows High Contrast; a compatibility round before raising the supported range to the newest v16 tag (`docs/UPGRADE_AND_QA_CHECKLIST.md`, G1-G8); upstream contributions for Gantt Arabic month names and the core-markup axe findings.
 
 ## Bench
 
