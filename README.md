@@ -127,6 +127,14 @@ What this theme cannot beat: any rule of the other app that uses `!important`, a
 
 Check which app wins: open the browser developer tools, select the element and read the "Computed" tab; the winning rule names the stylesheet (`/assets/<app>/css/...`).
 
+### HRMS on PostgreSQL
+
+Found on the test bench with HRMS v16.20.1 on PostgreSQL 16 (2026-10-14). These are HRMS upstream defects, not theme issues; the theme's stylesheets do not cause them. The evidence of record is `docs/team/evidence/round3/hrms/README.md` and `docs/team/evidence/round3/hrms-screens/README.md`.
+
+- `bench install-app hrms` fails (exit 1) in the post-install patch `hrms/patches/post_install/update_employee_advance_status.py` with `argument of AND must be type boolean, not type numeric`. The test bench worked around it with a temporary in-memory replacement of that one function and a forced install (`tools/bench/hrms_install.py`). The evidence records no upstream fix; check the HRMS release notes before repeating the workaround.
+- Saving a Salary Slip fails with `GroupingError` on PostgreSQL: `compute_year_to_date` and `compute_month_to_date` (`hrms/payroll/doctype/salary_slip/salary_slip.py`, defined at lines 2296 and 2320) order an aggregate by `creation`. The test seed neutralised both for its own run, so its two draft slips have zero year-to-date and month-to-date figures. The evidence says MariaDB is not affected; this was not tested here.
+- Opening a Leave Application form shows an "Error in server" dialog: `get_leave_details` (`hrms/hr/doctype/leave_application/leave_application.py`, line 1009) returns 500 with `column tabLeave Application.creation must appear in the GROUP BY clause`. It occurs in every mode and language on the test bench.
+
 ## Out of scope
 
 Standalone single-page apps (Helpdesk, CRM) do not load the desk CSS and are not themed.
