@@ -55,30 +55,38 @@ class TestSiteFiles(IntegrationTestCase):
 		guard_log.reset()
 
 	def test_nothing_is_written_when_nothing_is_wanted(self) -> None:
-		self.assertEqual(site_files.ensure(), {})
-		self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+		# This process's writes are spied on; the folder is not compared (another process may write the previous
+		# state's file, see test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing).
+		with mock.patch.object(site_files, "_write_atomic", wraps=site_files._write_atomic) as write:
+			self.assertEqual(site_files.ensure(), {})
+		write.assert_not_called()
 
 	def test_the_name_is_the_hash_of_the_content_and_deterministic(self) -> None:
 		set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
 		urls = site_files.ensure()
-		path = generated(site_files.PALETTE_PREFIX)[0]
+		path = folder() / urls["palette"].rsplit("/", 1)[-1]
+		self.assertTrue(path.is_file())
 		digest = hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 		self.assertEqual(path.name, f"ins_palette_custom.{digest}.css")
 		self.assertEqual(urls["palette"], f"/files/institutional_theme/{path.name}")
 		site_files.clear_memo()
 		self.assertEqual(site_files.ensure(), urls)
-		self.assertEqual(len(generated(site_files.PALETTE_PREFIX)), 1)
+		self.assertIn(path, generated(site_files.PALETTE_PREFIX))
 
 	def test_a_deleted_folder_is_regenerated(self) -> None:
 		set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
 		first = site_files.ensure()
 		shutil.rmtree(folder())
 		self.assertEqual(site_files.ensure(), first)
-		self.assertEqual(len(generated(site_files.PALETTE_PREFIX)), 1)
+		self.assertTrue((folder() / first["palette"].rsplit("/", 1)[-1]).is_file())
 
 	def test_saving_the_settings_writes_the_file_through_the_on_update_hook(self) -> None:
 		set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
-		self.assertEqual(len(generated(site_files.PALETTE_PREFIX)), 1)
+		own = site_files.file_name(
+			site_files.PALETTE_PREFIX,
+			site_files.palette_content(cache_guard.settings_doc(site_files.DOCTYPE)),
+		)
+		self.assertIn(own, [path.name for path in generated(site_files.PALETTE_PREFIX)])
 		set_settings(custom_primary="#2A4A6E")
 		self.assertIn("ins_palette_custom", site_files.ensure()["palette"])
 		self.assertLessEqual(len(generated(site_files.PALETTE_PREFIX)), 2)
@@ -89,10 +97,15 @@ class TestSiteFiles(IntegrationTestCase):
 		# given to `ensure` and to the after-commit callback directly, which is the code under test.
 		doc = frappe.get_doc(site_files.DOCTYPE)
 		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
-		with mock.patch.object(site_files, "_custom_css", return_value=None):
+		passing = site_files.file_name(site_files.PALETTE_PREFIX, site_files.palette_content(doc))
+		with (
+			mock.patch.object(site_files, "_custom_css", return_value=None),
+			mock.patch.object(site_files, "_write_atomic", wraps=site_files._write_atomic) as write,
+		):
 			self.assertEqual(site_files.ensure(doc), {})
 			site_files._regenerate(doc)
-		self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+		write.assert_not_called()
+		self.assertNotIn(passing, [path.name for path in generated(site_files.PALETTE_PREFIX)])
 
 	def test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name(self) -> None:
 		set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
@@ -179,27 +192,41 @@ class TestSiteFiles(IntegrationTestCase):
 		self.assertEqual(len(generated(site_files.PALETTE_PREFIX)), 1)
 
 	def test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing(self) -> None:
+		# The property is about THIS process: the save and the rollback write no file, and the commit writes the
+		# new state's file. The folder as a whole is not asserted: a desk request of another process whose
+		# snapshot predates `setUp`'s reset commit may still write the previous state's content-hashed file
+		# (`ensure`, the lazy path) at any moment. That is correct behaviour and `prune` removes such a file; it
+		# failed the folder-wide equality once under load (round-6 gate, 16.32.0, file
+		# ins_palette_custom.2438def10b0c.css, docs/team/evidence/round6/final/gate/README.md). So this test
+		# spies on this process's writes and looks only for the name of the state it saves.
 		doc = frappe.get_doc(site_files.DOCTYPE)
 		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
-		# What a desk request may have written for the committed state is not this save's doing: the property is
-		# that the save and the rollback change nothing, and that the commit adds the new state's file.
-		before = generated(site_files.PALETTE_PREFIX)
-		doc.save()
-		self.assertEqual(generated(site_files.PALETTE_PREFIX), before)
-		frappe.db.rollback()
-		self.assertEqual(generated(site_files.PALETTE_PREFIX), before)
+		new = site_files.file_name(site_files.PALETTE_PREFIX, site_files.palette_content(doc))
+
+		def names() -> set[str]:
+			return {path.name for path in generated(site_files.PALETTE_PREFIX)}
+
+		with mock.patch.object(site_files, "_write_atomic", wraps=site_files._write_atomic) as write:
+			doc.save()
+			write.assert_not_called()
+			self.assertNotIn(new, names())
+			frappe.db.rollback()
+			write.assert_not_called()
+			self.assertNotIn(new, names())
 		doc = frappe.get_doc(site_files.DOCTYPE)
 		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
 		doc.save()
-		with mock.patch("frappe.website.utils.clear_cache") as clear_cache:
+		with (
+			mock.patch.object(site_files, "_write_atomic", wraps=site_files._write_atomic) as write,
+			mock.patch("frappe.website.utils.clear_cache") as clear_cache,
+		):
 			clear_cache.assert_not_called()
+			write.assert_not_called()
+			self.assertNotIn(new, names())
 			frappe.db.commit()
 			clear_cache.assert_called_once()
-		new = site_files.file_name(site_files.PALETTE_PREFIX, site_files.palette_content(doc))
-		self.assertEqual(
-			sorted(path.name for path in generated(site_files.PALETTE_PREFIX)),
-			sorted({new, *(path.name for path in before)}),
-		)
+			self.assertIn(new, [call.args[1] for call in write.call_args_list])
+		self.assertIn(new, names())
 
 	def test_a_failure_after_the_commit_is_logged_once_and_does_not_raise(self) -> None:
 		with (

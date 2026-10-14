@@ -1,0 +1,10 @@
+$ bash -c source tools/bench/env52_hrms.sh; tools/bench/b.sh list-apps; curl -s -o /dev/null -w "port 8002 /login %{http_code}\n" http://localhost:8002/login; curl -s -o /dev/null -w "port 8002 /api/method/ping %{http_code}\n" http://localhost:8002/api/method/ping
+
+frappe              16.52.0 HEAD
+erpnext             16.50.0 HEAD
+institutional_theme 1.0.0   claude/exciting-ride-33ufyd
+hrms                16.50.0 HEAD
+
+port 8002 /login 200
+port 8002 /api/method/ping 200
+exit 0, 3 s

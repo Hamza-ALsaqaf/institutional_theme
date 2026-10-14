@@ -1,0 +1,2 @@
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Classic
+Leave Application|HR-LAP-2026-00001|Standard

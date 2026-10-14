@@ -1,0 +1,13 @@
+PASS /app/employee -> /desk/hr-setup/employee?status=Active (.list-row-container x6, need 5)
+PASS /desk/leave-application -> /desk/leaves/leave-application (.list-row-container x3, need 2)
+PASS /desk/salary-slip -> /desk/payroll/salary-slip (.list-row-container x3, need 2)
+PASS /desk/employee/HR-EMP-00003 -> /desk/hr-setup/employee/HR-EMP-00003#basic_details_tab (.form-layout x1, need 1)
+PASS /desk/leave-application/HR-LAP-2026-00001 -> /desk/leaves/leave-application/HR-LAP-2026-00001 (.form-layout x1, need 1)
+PASS /desk/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001 -> /desk/payroll/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001#employee_and_payroll_tab (.form-layout x1, need 1)
+PASS /desk/leaves -> /desk/leaves (.layout-main-section x1, need 1)
+PASS /desk/payroll -> /desk/payroll (.layout-main-section x1, need 1)
+page errors: 3 [
+  "play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD",
+  'Cannot convert undefined or null to object',
+  "Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node."
+]

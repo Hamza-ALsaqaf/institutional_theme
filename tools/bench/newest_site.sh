@@ -32,7 +32,9 @@ LOGS="${BENCH_DIR}/logs"
 BASE="http://127.0.0.1:${WEB_PORT}"
 SUDO=""
 [[ "$(id -u)" != "0" ]] && SUDO="sudo"
-UV_BIN="$(command -v uv || true)"
+# The uv binary the bench user runs. Override with UV_BIN when the first uv on PATH is not readable by that user
+# (root container: /root/.local/bin/uv; build_test_bench.sh installs a copy at /usr/local/bin/uv).
+UV_BIN="${UV_BIN:-$(command -v uv || true)}"
 mkdir -p "${EVIDENCE_DIR}"
 [[ -f "${EVIDENCE_DIR}/commands.tsv" ]] || printf 'name\texit\tseconds\tcommand\n' >"${EVIDENCE_DIR}/commands.tsv"
 

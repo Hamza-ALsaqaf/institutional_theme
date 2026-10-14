@@ -1,0 +1,13 @@
+PRE-FIX test file, single test:
+Ran 1 test in 4.590s
+OK
+midad.test {'app_name': 'Changed by an administrator', 'app_logo': None, 'splash_image': None, 'favicon': None, 'home_page': '', 'website_theme': 'Standard', 'title_prefix': ''} navbar None
+FIXED test file, same test:
+Ran 1 test in 5.002s
+OK
+midad.test {'app_name': 'Changed by an administrator', 'app_logo': None, 'splash_image': None, 'favicon': None, 'home_page': '', 'website_theme': 'Standard', 'title_prefix': ''} navbar None
+midad.test app_name -> Frappe
+FIXED test file from a clean start, same test:
+Ran 1 test in 4.840s
+OK
+midad.test {'app_name': 'Frappe', 'app_logo': None, 'splash_image': None, 'favicon': None, 'home_page': '', 'website_theme': 'Standard', 'title_prefix': ''} navbar None

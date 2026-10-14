@@ -1,0 +1,22 @@
+
+added 1 package in 1s
+npm notice
+npm notice New major version of npm available! 11.19.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+Using CPython 3.14.8 interpreter at: /home/runner/.local/bin/python3.14
+Creating virtual environment at: /opt/pixvenv
+Activate with: /opt/pixvenv/bin/activate
+Using Python 3.14.8 environment at: /opt/pixvenv
+Resolved 2 packages in 217ms
+Downloading numpy (15.9MiB)
+Downloading pillow (6.6MiB)
+ Downloaded pillow
+ Downloaded numpy
+Prepared 2 packages in 275ms
+Installed 2 packages in 9ms
+ + numpy==2.5.4
+ + pillow==12.3.0
+PW_NODE_PATH=/opt/pw-node/node_modules
+PIXDIFF_PYTHON=/opt/pixvenv/bin/python

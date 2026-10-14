@@ -1,0 +1,66 @@
+bundle at start {"at":"2026-10-14T19:34:19.522Z","bench":"/home/user/frappe-bench","ins_desk.bundle.css":{"url":"/assets/institutional_theme/dist/css/ins_desk.bundle.HG5CL44N.css","bytes":149708,"sha256":"28e8ac8bb544117c460103c0ec342075f03eecee8fef6ec30d66af03f219a87b"},"rtl_ins_desk.bundle.css":{"url":"/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.HXWCBO42.css","bytes":149708,"sha256":"7540405cff471ec33e5bc69f56b6feefbe1f4443b061ce9c09f0a3af720ad851"}}
+delete user css-headroom-en@example.com 202
+create user css-headroom-en@example.com 200
+delete user css-headroom-ar@example.com 202
+create user css-headroom-ar@example.com 200
+ok en-light-comfortable-desktop: 750 elements, 185 styles, 0 nested, data-theme=light/light
+ok en-light-comfortable-workspace: 645 elements, 229 styles, 0 nested, data-theme=light/light
+ok en-light-comfortable-list: 740 elements, 288 styles, 0 nested, data-theme=light/light
+ok en-light-comfortable-form: 3211 elements, 688 styles, 0 nested, data-theme=light/light
+ok en-light-comfortable-report: 863 elements, 292 styles, 0 nested, data-theme=light/light
+ok en-light-comfortable-dialog: 800 elements, 327 styles, 0 nested, data-theme=light/light
+ok en-light-compact-desktop: 750 elements, 193 styles, 0 nested, data-theme=light/light
+ok en-light-compact-workspace: 645 elements, 232 styles, 0 nested, data-theme=light/light
+ok en-light-compact-list: 740 elements, 292 styles, 0 nested, data-theme=light/light
+ok en-light-compact-form: 3211 elements, 688 styles, 0 nested, data-theme=light/light
+ok en-light-compact-report: 863 elements, 296 styles, 0 nested, data-theme=light/light
+ok en-light-compact-dialog: 800 elements, 333 styles, 0 nested, data-theme=light/light
+ok en-dark-comfortable-desktop: 750 elements, 190 styles, 0 nested, data-theme=dark/dark
+ok en-dark-comfortable-workspace: 645 elements, 229 styles, 0 nested, data-theme=dark/dark
+ok en-dark-comfortable-list: 740 elements, 288 styles, 0 nested, data-theme=dark/dark
+ok en-dark-comfortable-form: 3211 elements, 688 styles, 0 nested, data-theme=dark/dark
+ok en-dark-comfortable-report: 863 elements, 292 styles, 0 nested, data-theme=dark/dark
+ok en-dark-comfortable-dialog: 800 elements, 327 styles, 0 nested, data-theme=dark/dark
+ok en-dark-compact-desktop: 750 elements, 198 styles, 0 nested, data-theme=dark/dark
+ok en-dark-compact-workspace: 645 elements, 232 styles, 0 nested, data-theme=dark/dark
+ok en-dark-compact-list: 740 elements, 292 styles, 0 nested, data-theme=dark/dark
+ok en-dark-compact-form: 3211 elements, 688 styles, 0 nested, data-theme=dark/dark
+ok en-dark-compact-report: 863 elements, 296 styles, 0 nested, data-theme=dark/dark
+ok en-dark-compact-dialog: 800 elements, 333 styles, 0 nested, data-theme=dark/dark
+ok ar-light-comfortable-desktop: 748 elements, 182 styles, 0 nested, data-theme=light/light
+ok ar-light-comfortable-workspace: 643 elements, 228 styles, 0 nested, data-theme=light/light
+ok ar-light-comfortable-list: 696 elements, 288 styles, 0 nested, data-theme=light/light
+ok ar-light-comfortable-form: 3181 elements, 685 styles, 0 nested, data-theme=light/light
+ok ar-light-comfortable-report: 817 elements, 295 styles, 0 nested, data-theme=light/light
+ok ar-light-comfortable-dialog: 756 elements, 326 styles, 0 nested, data-theme=light/light
+ok ar-light-compact-desktop: 748 elements, 188 styles, 0 nested, data-theme=light/light
+ok ar-light-compact-workspace: 643 elements, 228 styles, 0 nested, data-theme=light/light
+ok ar-light-compact-list: 696 elements, 292 styles, 0 nested, data-theme=light/light
+ok ar-light-compact-form: 3181 elements, 677 styles, 0 nested, data-theme=light/light
+ok ar-light-compact-report: 817 elements, 298 styles, 0 nested, data-theme=light/light
+ok ar-light-compact-dialog: 756 elements, 330 styles, 0 nested, data-theme=light/light
+ok ar-dark-comfortable-desktop: 748 elements, 187 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-comfortable-workspace: 643 elements, 228 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-comfortable-list: 696 elements, 288 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-comfortable-form: 3181 elements, 687 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-comfortable-report: 817 elements, 295 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-comfortable-dialog: 756 elements, 326 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-compact-desktop: 748 elements, 193 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-compact-workspace: 643 elements, 228 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-compact-list: 696 elements, 292 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-compact-form: 3181 elements, 679 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-compact-report: 817 elements, 298 styles, 0 nested, data-theme=dark/dark
+ok ar-dark-compact-dialog: 756 elements, 330 styles, 0 nested, data-theme=dark/dark
+ok en-automatic-osdark-comfortable-desktop: 750 elements, 190 styles, 0 nested, data-theme=dark/automatic
+ok en-automatic-osdark-comfortable-list: 740 elements, 288 styles, 0 nested, data-theme=dark/automatic
+ok en-automatic-osdark-comfortable-form: 3239 elements, 689 styles, 0 nested, data-theme=dark/automatic
+ok en-automatic-osdark-comfortable-switcher: 814 elements, 338 styles, 6 nested, data-theme=dark/automatic
+ok en-automatic-oslight-comfortable-desktop: 750 elements, 185 styles, 0 nested, data-theme=light/automatic
+ok en-automatic-oslight-comfortable-list: 740 elements, 288 styles, 0 nested, data-theme=light/automatic
+ok en-automatic-oslight-comfortable-form: 3239 elements, 689 styles, 0 nested, data-theme=light/automatic
+ok en-automatic-oslight-comfortable-switcher: 814 elements, 337 styles, 6 nested, data-theme=light/automatic
+ok en-light-comfortable-switcher: 814 elements, 336 styles, 6 nested, data-theme=light/light
+ok en-dark-comfortable-switcher: 814 elements, 337 styles, 6 nested, data-theme=dark/dark
+served desk bundles {"institutional_theme/dist/css/ins_desk.bundle.HG5CL44N.css":{"status":200,"bytes":149708,"sha256":"28e8ac8bb544117c460103c0ec342075f03eecee8fef6ec30d66af03f219a87b","sha256WithoutSourceMapComment":"9eef821318e512fe45bd7d40859c50e25f1d93b018ba90c7ec3a0ae032efa5b6"},"institutional_theme/dist/css-rtl/ins_desk.bundle.HXWCBO42.css":{"status":200,"bytes":149708,"sha256":"7540405cff471ec33e5bc69f56b6feefbe1f4443b061ce9c09f0a3af720ad851","sha256WithoutSourceMapComment":"9eef821318e512fe45bd7d40859c50e25f1d93b018ba90c7ec3a0ae032efa5b6"}}
+bundle at end {"at":"2026-10-14T19:38:32.628Z","bench":"/home/user/frappe-bench","ins_desk.bundle.css":{"url":"/assets/institutional_theme/dist/css/ins_desk.bundle.HG5CL44N.css","bytes":149708,"sha256":"28e8ac8bb544117c460103c0ec342075f03eecee8fef6ec30d66af03f219a87b"},"rtl_ins_desk.bundle.css":{"url":"/assets/institutional_theme/dist/css-rtl/ins_desk.bundle.HXWCBO42.css","bytes":149708,"sha256":"7540405cff471ec33e5bc69f56b6feefbe1f4443b061ce9c09f0a3af720ad851"}}
+captures ok 58 of 58

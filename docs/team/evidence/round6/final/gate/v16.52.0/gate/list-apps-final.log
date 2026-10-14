@@ -1,0 +1,6 @@
+$ bench_site --site midad52.test list-apps
+
+frappe              16.52.0 HEAD
+erpnext             16.50.0 HEAD
+institutional_theme 1.0.0   claude/exciting-ride-33ufyd
+

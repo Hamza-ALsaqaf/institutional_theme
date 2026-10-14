@@ -1,0 +1,27 @@
+STAGE clone START 2026-10-14T19:15:06Z
+newest frappe v16 tag: v16.52.0; newest erpnext v16 tag: v16.50.0
+Note: switching to '4515014c87ece6cb20ee91d2cfb121c5cbd1ff4a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+clone commit: 4515014c87ece6cb20ee91d2cfb121c5cbd1ff4a (v16.52.0)
+STAGE clone END 2026-10-14T19:15:10Z
+STAGE bench START 2026-10-14T19:15:10Z
+fatal: cannot change to '/home/frappe/newest-bench/apps/frappe': No such file or directory
+fatal: cannot change to '/home/frappe/newest-bench/apps/erpnext': No such file or directory
+newest bench: frappe , erpnext 
+ls: cannot access '/home/frappe/newest-bench/sites/assets/frappe/dist/css': No such file or directory
+ls: cannot access '/home/frappe/newest-bench/sites/assets/frappe/dist/css-rtl': No such file or directory

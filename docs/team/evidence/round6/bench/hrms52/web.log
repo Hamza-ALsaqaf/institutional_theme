@@ -1,0 +1,6 @@
+STAGE restart_web START 2026-10-14T13:55:33Z
+redis cache on 13003: up
+redis queue on 11003: up
+web: up on port 8002
+STAGE restart_web END exit 0
+TOTAL 7s

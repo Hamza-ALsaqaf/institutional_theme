@@ -1,0 +1,2 @@
+$ tools/bench/b52.sh clear-cache
+exit 0, 3 s

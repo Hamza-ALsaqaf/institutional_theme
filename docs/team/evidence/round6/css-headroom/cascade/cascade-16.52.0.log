@@ -1,0 +1,20 @@
+{
+ "version": "16.52.0",
+ "generated": "2026-10-14T20:03:39.093Z",
+ "core": {
+  "ltr": "/home/frappe/newest-bench/sites/assets/frappe/dist/css/desk.bundle.DKYJHWDK.css",
+  "rtl": "/home/frappe/newest-bench/sites/assets/frappe/dist/css-rtl/desk.bundle.BKBM3JDK.css"
+ },
+ "bundles": {
+  "desk": 136114,
+  "graphite": 2342
+ },
+ "sassWarnings": [],
+ "rtlIdentical": {
+  "desk": true,
+  "graphite": true
+ },
+ "total": 7680,
+ "pass": 7680,
+ "fail": 0
+}

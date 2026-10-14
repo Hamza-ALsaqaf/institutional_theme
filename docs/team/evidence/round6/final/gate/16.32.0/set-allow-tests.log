@@ -1,0 +1,2 @@
+$ tools/bench/b.sh set-config allow_tests true
+exit 0, 3 s

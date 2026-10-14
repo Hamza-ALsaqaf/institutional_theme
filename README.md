@@ -2,9 +2,9 @@
 
 An upgrade-safe visual identity and UI theme for the Frappe / ERPNext v16 desk, designed for a government institution: Light and Dark of equal quality, Arabic-first with full English parity, zero core edits.
 
-**Status: Round 4 (forward compatibility) passed its release gate: one code base verified on Frappe 16.32.0 and v16.52.0 (cascade test, P0 screenshots in Light and Dark, Arabic and English, axe with 0 violations caused by the theme, the Frappe test suite, print and email, and the install and uninstall gate with no residue, on each version), and both hostile reviews with no open blocking finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round4/`. The build is carried out by the agent team described in `docs/team/`.
+**Status: release 1.0.0. Round 6 (final polish) passed its release gate on Frappe 16.32.0 and v16.52.0: CI, every audit, the size budgets (desk 120.1 of 150 KB), the Frappe test suite loaded and unloaded, the cascade test, axe with 0 violations caused by the theme, print and email, and the install and uninstall gate with no residue, on each version; both hostile reviews have no open blocking or major finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round6/final/gate/`. The build is carried out by the agent team described in `docs/team/`.
 
-Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS v16.50.0 on v16.52.0 tested for the desk screens only, `docs/team/evidence/round5/hrms52/README.md`). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
+Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS v16.50.0 on v16.52.0 tested for the desk screens, `docs/team/evidence/round5/hrms52/README.md`, and the print formats, `docs/team/evidence/round6/hrms-print/README.md`). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
 
 ## Where to look
 
@@ -20,6 +20,7 @@ Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (
 | `docs/team/WORKFLOW.md` | The team, phases and gates |
 | `docs/team/KICKOFF_PROMPT.md` | The prompts that start each phase |
 | `.claude/agents/` | The seven specialised agents |
+| `CHANGELOG.md` | Release history, starting with 1.0.0 |
 
 ## The identity
 
@@ -28,6 +29,8 @@ Midad (مداد, "ink"): Prussian ink as the primary colour, antique brass as a 
 Users may choose among audited colour presets; `midad` is the default. A site administrator controls the default, the allowed presets, an optional custom brand preset and the font pairing.
 
 ## Install
+
+This README describes release 1.0.0 (tag `v1.0.0`, created by the release lead after the release gate; release history in [CHANGELOG.md](CHANGELOG.md)). To install that release rather than the default branch, add `--branch v1.0.0` to the `get-app` line below once the tag exists.
 
 Run as the bench user, in the bench directory. The bench is a Frappe v16 bench with at least one site (ERPNext is optional: the theme installs and uninstalls the same way on a Frappe-only site and on a site with ERPNext).
 
@@ -52,7 +55,7 @@ bench --site <site> list-apps
 curl -s http://<site-host>/login | grep -o 'ins_web.bundle[^"]*'
 ```
 
-`list-apps` shows `institutional_theme 0.1.0`; the login page of a site with the app links `ins_web.bundle.<hash>.css` and `.js`, and the desk (`/desk`, signed in) links `ins_desk.bundle` and `ins_shell.bundle`.
+`list-apps` shows `institutional_theme 1.0.0` (the running web process reports the version it loaded: restart it after the upgrade); the login page of a site with the app links `ins_web.bundle.<hash>.css` and `.js`, and the desk (`/desk`, signed in) links `ins_desk.bundle` and `ins_shell.bundle`.
 
 ## Optional site configuration
 
@@ -82,13 +85,20 @@ Install ships a Print Style named **Midad** and a Letter Head named **Midad**. N
 
 The letter head shows the institution's names, the emblem (when it is a public file) and the default company's primary address, from Institutional Theme Settings. If you edit or delete either record, the app does not overwrite or recreate it; uninstall removes them only if they are unchanged and not linked.
 
-**PDF generator.** Print Settings → PDF Generator offers `wkhtmltopdf` and `chrome`; both are supported.
+**PDF generator.** Print Settings → PDF Generator offers `wkhtmltopdf` and `chrome`; both are supported, with the limits listed under "Known print limits" below.
 
 - `wkhtmltopdf` must be **0.12.6.1 with patched Qt** (`wkhtmltopdf -V` prints `(with patched qt)`). The 0.12.6 package from the Ubuntu or Debian archive is not enough: the page overflows its width and the running header and footer do not work. Install the official build for your distribution from the wkhtmltopdf packaging releases.
 - On Frappe v16.52.0 the default "Quotation Modern with Images" format is pinned to Chrome by core: requesting it by name always renders with Chrome, which fits the page. wkhtmltopdf renders it only when a caller omits the print format, and then core's own output is clipped at the right edge (the left edge in Arabic), with or without this theme. Arabic in Chrome without the format named is also clipped at the left edge by core; the named format fits in both languages. Use the "Standard" format where wkhtmltopdf must be used (`docs/UPGRADE_AND_QA_CHECKLIST.md`, "Known on v16.52.0"; `docs/team/evidence/round5/print-clip/README.md`).
 - `chrome` uses the headless browser that Frappe downloads into the bench.
 
 Printing is always light, in either desk mode.
+
+**Known print limits** (round 6; evidence in `docs/team/evidence/round6/hrms-print/` and `docs/team/evidence/round6/print-fix/`):
+
+- Draft and Cancelled watermark: under wkhtmltopdf it is placed for A4 and Letter paper (on A5 landscape and A6 it falls below the content or is cut) and, on a document with several item rows, it can cross the totals at 12% ink while the text stays legible. Under Chrome it sits at the top of the page, over the letter head and the title, because Chrome prints the whole frame only there; a printer's unprintable margin can trim its top edge.
+- HRMS salary slips: on Frappe v16.52.0 the "Standard" format (core's generated one) cuts a column in Chrome and overprints headers in wkhtmltopdf, with or without this theme. Use the Classic, Detailed or Compact format. In Arabic, a date that follows an Arabic word prints with its parts reversed when the site date format uses hyphens; choose a format with slashes (`dd/mm/yyyy`) in System Settings.
+- On Frappe 16.32.0, Chrome prints the Salary Slip, Leave Application and Expense Claim "Standard" formats without the document title and number (core); wkhtmltopdf prints them.
+- PDFs from either generator carry no tags, headings or document language, and copying Arabic text out of a wkhtmltopdf PDF yields separate letters. Use Chrome where the text of an Arabic PDF must be copied or searched.
 
 ## Uninstall
 
@@ -128,6 +138,10 @@ What this theme cannot beat: any rule of the other app that uses `!important`, a
 2. Otherwise report the selector to the theme maintainer: the fix is one rule at (0,5,1) or higher in `institutional_theme/public/scss/desk/`, then `bench build --app institutional_theme`.
 
 Check which app wins: open the browser developer tools, select the element and read the "Computed" tab; the winning rule names the stylesheet (`/assets/<app>/css/...`).
+
+### The old system name or logo still shows after saving the identity
+
+Saving Institutional Theme Settings writes the name and emblem to Website Settings and Navbar Settings and clears the caches that hold them, once at the save and again after it commits. On a busy site, a request that began before the save can still put the old values back into core's cache after that, and core keeps them until the next cache clear (`docs/team/reviews/upgrade-round6.md`, S1). Run `bench --site <site> clear-cache` and reload the page.
 
 ### HRMS on PostgreSQL
 

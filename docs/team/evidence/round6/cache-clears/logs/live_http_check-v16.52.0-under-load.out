@@ -1,0 +1,9 @@
+1 live52.sh after   desk fresh after 10.29 s after   login fresh after 0.05 s cleared desk fresh after 1.84 s {"result": "FAIL"} 
+1 live52c.sh after   desk fresh after 10.14 s after   login fresh after 10.11 s cleared desk fresh after 1.52 s {"result": "FAIL"} 
+2 live52.sh after   desk fresh after 10.09 s after   login fresh after 0.03 s cleared desk fresh after 10.28 s {"result": "FAIL"} 
+2 live52c.sh after   desk fresh after 10.23 s after   login fresh after 10.22 s cleared desk fresh after 10.04 s {"result": "FAIL"} 
+3 live52.sh after   desk fresh after 10.00 s after   login fresh after 0.02 s cleared desk fresh after 10.22 s {"result": "FAIL"} 
+3 live52c.sh after   desk fresh after 10.15 s after   login fresh after 0.04 s cleared desk fresh after 10.20 s {"result": "FAIL"} 
+4 live52.sh after   desk fresh after 10.30 s after   login fresh after 0.10 s cleared desk fresh after 2.25 s {"result": "FAIL"} 
+4 live52c.sh after   desk fresh after 10.22 s after   login fresh after 0.02 s cleared desk fresh after 2.01 s {"result": "FAIL"} 
+done

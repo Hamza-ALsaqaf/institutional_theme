@@ -1,0 +1,9 @@
+get	bench_cmd get-app https://github.com/frappe/hrms --branch v16.20.1 --skip-assets	0	75	get.log
+get_describe	as_bench git -C /home/user/frappe-bench/apps/hrms describe --tags	0	0	get_describe.log
+install	as_bench bash -c cd /home/user/frappe-bench/sites && /home/user/frappe-bench/env/bin/python -I /home/user/institutional_theme/tools/bench/hrms_install.py midad.test	0	51	install.log
+build	bench_cmd build --app hrms	0	34	build.log
+restart	/home/user/institutional_theme/tools/bench/start_services.sh restart-web	0	5	restart.log
+seed	as_bench bash -c cd /home/user/frappe-bench/sites && /home/user/frappe-bench/env/bin/python -I /home/user/institutional_theme/tools/bench/hrms_seed.py midad.test	0	9	seed.log
+list_apps	bench_cmd --site midad.test list-apps	0	3	list_apps.log
+ping	curl -s --noproxy * http://localhost:8000/api/method/ping	0	0	ping.log
+check	node /home/user/institutional_theme/tools/bench/hrms_check.mjs	0	20	check.log

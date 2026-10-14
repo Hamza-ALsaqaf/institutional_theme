@@ -1,0 +1,4 @@
+$ /opt/pixvenv/bin/python /home/user/institutional_theme/docs/team/evidence/round6/final/gate/scripts/wm_measure.py /home/user/institutional_theme/docs/team/evidence/round6/final/gate/v16.52.0/hrms-print/themed__leave-application-standard__chrome-ar.pdf /home/user/institutional_theme/docs/team/evidence/round6/final/gate/v16.52.0/hrms-print/themed__leave-application-standard__chrome-en.pdf
+themed__leave-application-standard__chrome-ar.pdf hbands [(13, 17), (183, 187)] vcols [(167, 171), (656, 661)]
+themed__leave-application-standard__chrome-en.pdf hbands [(13, 17), (183, 187)] vcols [(166, 171), (655, 660)]
+exit 0, 1 s

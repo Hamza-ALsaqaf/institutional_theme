@@ -21,7 +21,21 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-None. Round 5 finished at about 13:40 UTC 2026-10-14 (GitHub Actions, pull request #5).
+None. Round 6 finished in a Claude Code cloud session on 2026-10-14 (branch `claude/exciting-ride-33ufyd`, built on `build/midad-v1` at `490dd98`).
+
+## Round 6 (final polish, release 1.0.0) result
+
+Gate: PASSED on Frappe 16.32.0 and v16.52.0. Evidence `docs/team/evidence/round6/final/gate/README.md` (tested commit `ab5ac37`; the one later code change is the test fix `bba3819`, after which the loaded suite was re-run on both versions). Reviews: `docs/team/reviews/upgrade-round6.md` and `docs/team/reviews/a11y-round6.md`, both 0 blocking and 0 open major after their re-checks; every BRIEF section 10 dimension 4 or more (Performance 5).
+
+| Item | Result | Evidence |
+|---|---|---|
+| 1 HRMS print formats | Builder salary slips in the Midad font and mirrored in Arabic; captions 4.12:1 -> 7.90:1 on their bands, no Arabic tracking, one rule colour in both directions; watermark per generator (wkhtmltopdf 118 mm, A4 and Letter; Chrome 3 mm, whole frame on both versions). Classic, Detailed and Compact do not render on 16.32.0 (core or HRMS, also without the theme) | `round6/hrms-print/`, `round6/print-fix/` |
+| 2 Targeted cache clears (decision 82) | Kept: no `frappe.clear_cache()` from the app on identity save, no whole-site clear after the commit; 12 race tests and 11 identity-cache tests pass; the busy-site stale identity is a documented limitation (upgrade S1) | `round6/cache-clears/` |
+| 3 Desk CSS headroom | 146.2 -> 120.1 KB raw: the Frappe map is one shared block plus the 79 names that differ in Dark; before/after computed-style dumps and screenshots on both versions identical (glyph anti-aliasing only), cascade 4576/4576 and 7680/7680 | `round6/css-headroom/` |
+| 4 Version 1.0.0 | `CHANGELOG.md`, `__version__ = "1.0.0"`, README install section names the tag | `CHANGELOG.md` |
+| 5 Release gate | CI; audits and budgets; run-tests loaded (attempt 1 on 16.32.0 failed one test on test isolation, fixed in the test, re-run passes on both) and unloaded, 177 integration + 339 unit; cascade; axe 0 theme-caused (272, 348); a11y attributes; grid names; print and email; install/uninstall and residue: PASS on both | `round6/final/gate/` |
+
+Decisions 90-102 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic), with a correction note under decision 82. Bench in the cloud container: `docs/team/evidence/round6/resume-bench/` (`chain.sh`, `chain2.sh`; environment fixes: apt index, a CA bundle the bench user can read, yarn on the bench PATH, `UV_BIN` for `newest_site.sh`; the app installed on `midad.test` by the lead; `allow_tests` set by the gate, which `build_test_bench.sh` does not do).
 
 ## Round 5 (robustness and the last known gaps) result
 
@@ -145,3 +159,15 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 
 - 13:40 UTC 2026-10-14: the lead re-ran CI's checks on `303fe56` (ruff 0.16.8 check and format, 151 + 171 unit tests OK, `build --check` 0 stale, audits passed in CI mode with the committed reports unchanged) and merges pull request #5 into `main` under the owner's authorisation.
 - Next step: round 6, final release polish: HRMS print formats (Salary Slip and the other HRMS formats) under the Midad Print Style on both versions and both PDF generators; targeted cache clears instead of `frappe.clear_cache()` on identity save (decision 82) if it keeps every race test green; restore headroom in the desk CSS budget (146 of 150 KB) without any visual change; `CHANGELOG.md` and version 1.0.0. Then the lead tags the release.
+- 13:39 UTC 2026-10-14: pull request #5 merged into `main` (merge commit `d944e62`) after CI passed on `bb4720f`. Round 6 (HRMS print formats, targeted cache clears, desk CSS headroom, CHANGELOG and version 1.0.0, release gate on both versions) starts on a new pull request; scope in `docs/team/RESUME_PROMPT.md`.
+
+## Round 6 interrupted (lead)
+
+- 14:56 UTC 2026-10-14: the round-6 run stopped with "Credit balance is too low" (the API key's credits are used up; the run had spent about 14.4 USD). Pushed before it stopped: HRMS print fixes on both versions (watermark position, salary slips in the Midad font and mirrored in Arabic), targeted identity cache clears, the settings-test isolation fix, `CHANGELOG.md` and version 1.0.0. The lead re-ran CI's checks on `ff37d66`: ruff, both unit-test suites, `build --check` and the audits pass.
+- Not done: the desk CSS headroom (item 3), the round-6 hostile reviews and the round-6 release gate on both versions. Pull request #6 therefore stays open and unmerged; `main` stays at `d944e62` (round 5, gate passed on both versions). No `v1.0.0` tag yet.
+- Next step: when credits are available again, add the `claude-resume` label to pull request #6; the run continues from this section (items 3 and 5 of `docs/team/RESUME_PROMPT.md`), then the lead merges and tags `v1.0.0`.
+
+## Round 6 completed (lead, cloud session)
+
+- 2026-10-14, evening UTC: the owner asked the lead to continue round 6 in a Claude Code cloud session, and authorised the lead to merge into `main` without waiting. The session works on `claude/exciting-ride-33ufyd` (the branch its environment names), built on `build/midad-v1` at `490dd98`. Items 3 and 5 of `docs/team/RESUME_PROMPT.md`, both hostile reviews and their fix rounds were done; result in "Round 6 (final polish, release 1.0.0) result" above.
+- Next step: merge `claude/exciting-ride-33ufyd` into `main` (this makes pull request #6 merged, since its head `490dd98` is an ancestor), tag `v1.0.0` on the merge commit, and confirm CI on `main`. Lead verification: `tools/ci/local_ci.sh <log>` on `28f9b86` passed (`docs/team/evidence/round6/final/lead/local_ci.log`: ruff 0.16.8 check and format, 162 + 177 unit tests, `build --check`, audits with an empty dist, committed reports unchanged). Optional follow-ups: a formal accessibility audit with screen readers and Windows High Contrast; `allow_tests` in `build_test_bench.sh`; `tools/ci/local_ci.sh` without a log argument exits 0 without running any check when its stdout is redirected to a file (`/dev/stdout` resolves to an unopenable `/proc/.../pipe:` path), so always pass a log path; upstream reports (HRMS builder slips on Frappe 16.32.0, `<bdi>` around HRMS dates, core's `redis_cache` race, the v16.52.0 Standard salary slip layout).

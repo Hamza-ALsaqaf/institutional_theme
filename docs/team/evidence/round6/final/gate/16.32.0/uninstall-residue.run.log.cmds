@@ -1,0 +1,1 @@
+env EVIDENCE_DIR=/home/user/institutional_theme/docs/team/evidence/round6/final/gate/16.32.0/uninstall-residue tools/bench/uninstall_residue.sh throwaway	0	60	2026-10-14T21:30:41Z

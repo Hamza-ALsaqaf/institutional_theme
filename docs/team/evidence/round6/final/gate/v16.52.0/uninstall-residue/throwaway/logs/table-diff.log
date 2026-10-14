@@ -1,0 +1,11 @@
+=== table-diff  2026-10-14T21:31:48Z
+$ in_sites '/home/user/institutional_theme/tools/bench/fresh_check.py' diff /tmp/ins-residue-before.json /tmp/ins-residue-after.json
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/newest-bench/env, got /home/frappe/newest-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/newest-bench/env, got /home/frappe/newest-bench/sites/../env
+Differences ignored (record activity by nature):
+  tabComment: before 0, after 10
+  tabDeleted Document: before 0, after 11
+  tabPermission Log: before 0, after 1
+  tabVersion: before 0, after 2
+RESIDUE: none
+exit 0

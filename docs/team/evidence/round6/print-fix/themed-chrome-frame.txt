@@ -1,0 +1,8 @@
+themed__leave-application-standard__chrome-ar.pdf hbands [(12, 16), (181, 186)]
+themed__leave-application-standard__chrome-en.pdf hbands [(12, 16), (181, 186)]
+themed__expense-claim-standard__chrome-ar.pdf hbands [(12, 16), (181, 186)]
+themed__expense-claim-standard__chrome-en.pdf hbands [(12, 16), (181, 186)]
+themed__leave-application-standard__chrome-ar.pdf hbands [(13, 17), (183, 187)]
+themed__leave-application-standard__chrome-en.pdf hbands [(13, 17), (183, 187)]
+themed__expense-claim-standard__chrome-ar.pdf hbands [(13, 17), (183, 187)]
+themed__expense-claim-standard__chrome-en.pdf hbands [(13, 17), (183, 187)]

@@ -1,0 +1,6 @@
+=== snapshot-before  2026-10-14T21:30:14Z
+$ in_sites '/home/user/institutional_theme/tools/bench/fresh_check.py' snapshot 'r3fix.test' '/tmp/ins-residue-before.json'
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+244 tables written to /tmp/ins-residue-before.json
+exit 0

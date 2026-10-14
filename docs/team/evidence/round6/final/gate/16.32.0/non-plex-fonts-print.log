@@ -1,0 +1,18 @@
+$ /home/user/institutional_theme/docs/team/evidence/round6/final/gate/scripts/non_plex_fonts.sh /home/user/institutional_theme/docs/team/evidence/round6/final/gate/16.32.0/print/pdffonts.txt
+8 chrome-A4-ar-standard-core.pdf DejaVuSans
+6 chrome-A4-ar-standard-core.pdf Inter-Bold
+1 chrome-A4-ar-standard-core.pdf Inter-Medium
+7 chrome-A4-ar-standard-core.pdf Inter-Regular
+2 chrome-A4-en-standard-core.pdf DejaVuSans
+6 chrome-A4-en-standard-core.pdf Inter-Bold
+3 chrome-A4-en-standard-core.pdf Inter-Medium
+10 chrome-A4-en-standard-core.pdf Inter-Regular
+1 wkhtmltopdf-A4-ar-standard-core.pdf DejaVuSans
+1 wkhtmltopdf-A4-ar-standard-core.pdf DejaVuSans-Bold
+1 wkhtmltopdf-A4-ar-standard-core.pdf Inter-Bold
+1 wkhtmltopdf-A4-ar-standard-core.pdf Inter-Medium
+1 wkhtmltopdf-A4-en-standard-core.pdf DejaVuSans
+1 wkhtmltopdf-A4-en-standard-core.pdf DejaVuSans-Bold
+1 wkhtmltopdf-A4-en-standard-core.pdf Inter-Bold
+1 wkhtmltopdf-A4-en-standard-core.pdf Inter-Medium
+exit 0, 0 s

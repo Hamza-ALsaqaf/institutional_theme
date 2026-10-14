@@ -1,0 +1,5 @@
+$ bench_site --site midad52.test install-app institutional_theme
+
+Installing institutional_theme...
+Updating DocTypes for institutional_theme: [====================                    ] 50%Updating DocTypes for institutional_theme: [========================================] 100%
+Updating Dashboard for institutional_theme

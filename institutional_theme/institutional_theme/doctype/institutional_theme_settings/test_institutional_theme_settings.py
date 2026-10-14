@@ -28,6 +28,11 @@ WEBSITE_MANAGER_ONLY = "ins_webmgr@example.com"
 WOFF2 = b"wOF2" + b"\x00" * 60
 TTF = b"\x00\x01\x00\x00" + b"\x00" * 60
 NOT_A_FONT = b"<html>not a font</html>"
+# The core settings fields these tests write directly, restored by `tearDown`.
+CORE_FIELDS = {
+	"Website Settings": ("app_name", "app_logo", "splash_image", "favicon", "home_page"),
+	"Navbar Settings": ("app_logo",),
+}
 
 
 def _image(seed: int) -> bytes:
@@ -80,6 +85,10 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		frappe.set_user("Administrator")
 		self._files: list[str] = []
 		self._reset()
+		self._core_values = {
+			doctype: {field: frappe.db.get_single_value(doctype, field) for field in fields}
+			for doctype, fields in CORE_FIELDS.items()
+		}
 
 	def tearDown(self) -> None:
 		frappe.set_user("Administrator")
@@ -87,8 +96,15 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		for name in self._files:
 			if frappe.db.exists("File", name):
 				frappe.delete_doc("File", name, force=True, ignore_permissions=True)
+		self._restore_core_values()
 		frappe.db.commit()
 		frappe.clear_cache()
+
+	def _restore_core_values(self) -> None:
+		"""Put back the core settings values the test found. Several tests write a value as "an administrator"
+		(`set_single_value`) that `identity_sync.restore` rightly leaves alone, so they would outlive the suite."""
+		for doctype, values in self._core_values.items():
+			frappe.db.set_single_value(doctype, values, update_modified=False)
 
 	def _reset(self) -> None:
 		"""Back to a never-saved settings document and to the original core identity values."""

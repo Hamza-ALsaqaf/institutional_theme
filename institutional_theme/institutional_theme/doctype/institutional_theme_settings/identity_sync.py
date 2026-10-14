@@ -12,7 +12,8 @@ Rules:
 - Only a field that changed in this save is written, so a save that touches colours never overwrites
   an identity value an administrator changed in Website Settings.
 - Website Settings is written with `frappe.db.set_single_value`: its `save()` needs the Website Manager
-  role and runs unrelated validators (upgrade review, finding 1). Its caches are cleared as its
+  role and runs unrelated validators (upgrade review, finding 1). The caches that hold the identity
+  values are cleared one by one (`clear_website_caches`), not with `frappe.clear_cache()` as its
   `on_update` would. Navbar Settings has no `validate`, so its `save()` is used.
 - The first time a target is written, its current value is stored in the global `ins_identity_prior`;
   each value written is stored in `ins_identity_written`. `restore()` puts the prior value back, but
@@ -130,27 +131,64 @@ def changed_fields(doc: Any, old: Any) -> list[str]:
 	return changed
 
 
+def _identity_documents() -> tuple[str, ...]:
+	"""The core settings documents this write-through writes, derived from `TARGETS`."""
+	return tuple(dict.fromkeys(doctype for targets in TARGETS.values() for doctype, _field in targets))
+
+
+def _drop_document(doctype: str) -> None:
+	"""Every copy of the cached Single `doctype` that a reader of the identity values would use.
+
+	`frappe.clear_document_cache` already ran in the write itself (`set_single_value`, `Document.save`) and
+	again after the commit; this adds what it leaves to asynchronous invalidation, the in-process copy of
+	`frappe.client_cache` (`frappe.get_website_settings` and `bootinfo["navbar_settings"]` read that one).
+	It never queues a callback, so it can run inside one.
+	"""
+	key = frappe.get_document_cache_key(doctype, doctype)
+	frappe.db.value_cache.pop(doctype, None)
+	frappe.cache.delete_value(key)
+	client = getattr(frappe, "client_cache", None)
+	if client is not None:
+		client.delete_value(key)
+	if doctype == "Website Settings" and hasattr(frappe.local, "website_settings"):
+		del frappe.local.website_settings
+
+
+def _drop_boot_payloads() -> None:
+	"""The cached boot payload of every user: it holds `app_logo_url` (`boot.py` `get_bootinfo`)."""
+	frappe.cache.delete_value("bootinfo")
+
+
+def _drop_website_pages() -> None:
+	"""The rendered website pages (`website_page::*`): they hold the name, logo and favicon."""
+	from frappe.website.utils import delete_page_cache
+
+	delete_page_cache()
+
+
 def _clear_website_caches() -> None:
-	import frappe.website.utils
-
-	frappe.clear_cache(user="Guest")
-	frappe.website.utils.clear_cache()
-	frappe.clear_cache()
-
-
-def _clear_website_caches_guarded() -> None:
-	try:
-		_clear_website_caches()
-	except Exception:
-		guard_log.log_once("Institutional Theme: identity caches")
+	"""Drop exactly the caches that hold the identity values (sources in `docs/DEPENDENCY_MANIFEST.md`,
+	"Caches of the identity write-through"). Each step stands alone: one that fails is logged once and does
+	not stop the others. Nothing here calls `frappe.clear_cache()`, `frappe.website.utils.clear_cache()` or
+	`clear_routing_cache()`, which would also empty routes, meta, permissions and the desk's metadata
+	version and would expose a page being served to core's `redis_cache` race (round 5)."""
+	steps = [
+		(f"document {doctype}", lambda d=doctype: _drop_document(d)) for doctype in _identity_documents()
+	]
+	steps += [("boot payloads", _drop_boot_payloads), ("website pages", _drop_website_pages)]
+	for label, step in steps:
+		try:
+			step()
+		except Exception:
+			guard_log.log_once(f"Institutional Theme: identity caches ({label})")
 
 
 def clear_website_caches() -> None:
-	"""The cache clearing that Website Settings `on_update` performs, now and again after the
-	transaction ends: a page rendered in between would otherwise cache the old name or logo until the
+	"""Clear the identity caches now and again after the transaction ends: a page or a boot payload built in
+	between by a request that still sees the old rows would otherwise keep the old name or logo until the
 	next clear (`cache_guard`)."""
 	_clear_website_caches()
-	cache_guard.after_transaction(_clear_website_caches_guarded)
+	cache_guard.after_transaction(_clear_website_caches)
 
 
 def apply(doc: Any, old: Any) -> list[str]:

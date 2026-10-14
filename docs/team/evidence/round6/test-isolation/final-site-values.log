@@ -1,0 +1,12 @@
+midad.test {'app_name': 'Frappe', 'app_logo': None, 'splash_image': None, 'favicon': None, 'home_page': '', 'website_theme': 'Standard', 'title_prefix': ''} navbar None
+  settings doc: {'system_name': '', 'emblem': None, 'favicon': None} sys app_name ERPNext
+  ins globals: ['ins_print_shipped', 'installed_apps']
+  ins-test files: 0
+midad52.test {'app_name': 'Frappe', 'app_logo': None, 'splash_image': None, 'favicon': None, 'home_page': '', 'website_theme': 'Standard', 'title_prefix': ''} navbar None
+  settings doc: {'system_name': '', 'emblem': None, 'favicon': None} sys app_name ERPNext
+  ins globals: ['ins_print_shipped', 'installed_apps']
+  ins-test files: 0
+hrms52.test {'app_name': 'Frappe', 'app_logo': None, 'splash_image': None, 'favicon': None, 'home_page': '', 'website_theme': 'Standard', 'title_prefix': ''} navbar None
+  settings doc: {'system_name': '', 'emblem': None, 'favicon': None} sys app_name ERPNext
+  ins globals: ['ins_print_shipped', 'installed_apps']
+  ins-test files: 0

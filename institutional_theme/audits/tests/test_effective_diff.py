@@ -181,11 +181,15 @@ class SourceReaders(unittest.TestCase):
 		strict = effective_diff.compare(before, text, core, source_reads=source)
 		self.assertTrue(strict.moved)
 		self.assertEqual({m[1] for m in strict.added}, {"--radius-md", "--radius-lg"})
-		# With the committed acceptance they are listed, six declarations (light, dark, automatic) of two names.
+		# With the committed acceptance they are listed. Moves are grouped by name and value, so the two names make two
+		# entries, each naming all five element kinds (round 6: the map is no longer three blocks, so a count of
+		# declarations per block, 6 before, no longer says anything; the element kinds do).
 		covered = effective_diff.compare(before, text, core, source_reads=source, accepted=accepted)
 		self.assertFalse(covered.moved)
-		self.assertEqual(len(covered.accepted), 6)
+		self.assertEqual(len(covered.accepted), 2)
 		self.assertEqual({a[2] for a in covered.accepted}, {"--radius-md", "--radius-lg"})
+		for accepted_move in covered.accepted:
+			self.assertEqual(set(accepted_move[1].split(", ")), set(effective_diff.CONTEXTS))
 
 	def test_16_52_0_is_not_excused(self):
 		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")
@@ -205,14 +209,116 @@ class SourceReaders(unittest.TestCase):
 		self.assertTrue(movement.moved)
 
 
+class Effective(unittest.TestCase):
+	"""Round 6: the map may be written as one shared block plus a dark delta; what it means is compared, not its text."""
+
+	FULL = """html:root[dir],
+html[dir] [data-theme="light"] {
+	--same: var(--ins-a);
+	--differs: var(--ins-light);
+}
+
+html:root[dir][data-theme="dark"],
+html[dir] [data-theme="dark"] {
+	--same: var(--ins-a);
+	--differs: var(--ins-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+	html:root[dir][data-theme="automatic"] {
+		--same: var(--ins-a);
+		--differs: var(--ins-dark);
+	}
+}
+"""
+	DELTA = """html:root[dir],
+html[dir] [data-theme="light"],
+html[dir] [data-theme="dark"] {
+	--same: var(--ins-a);
+	--differs: var(--ins-light);
+}
+
+html:root[dir][data-theme="dark"],
+html[dir] [data-theme="dark"] {
+	--differs: var(--ins-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+	html:root[dir][data-theme="automatic"] {
+		--differs: var(--ins-dark);
+	}
+}
+"""
+	CORE = dead_tokens.CoreVars(frozenset(), frozenset({"--same", "--differs"}), ())
+
+	def test_three_full_blocks_and_a_shared_block_with_a_delta_mean_the_same(self):
+		self.assertEqual(
+			effective_diff.effective_declarations(self.FULL),
+			effective_diff.effective_declarations(self.DELTA),
+		)
+		movement = effective_diff.compare(self.FULL, self.DELTA, self.CORE)
+		self.assertFalse(movement.moved)
+		self.assertEqual(movement.effective_before, movement.effective_after)
+
+	def test_each_element_kind_gets_its_own_value(self):
+		found = effective_diff.effective_declarations(self.DELTA)
+		light, dark = "var(--ins-light)", "var(--ins-dark)"
+		self.assertEqual(found[("root Light", "--differs")], light)
+		self.assertEqual(found[("nested light", "--differs")], light)
+		self.assertEqual(found[("root Dark", "--differs")], dark)
+		self.assertEqual(found[("nested dark", "--differs")], dark)
+		self.assertEqual(found[("root Automatic (dark OS)", "--differs")], dark)
+		for context in effective_diff.CONTEXTS:
+			self.assertEqual(found[(context, "--same")], "var(--ins-a)")
+
+	def test_a_delta_that_forgets_a_dark_value_is_a_movement(self):
+		for forgotten in (
+			self.DELTA.replace(
+				'html:root[dir][data-theme="dark"],\nhtml[dir] [data-theme="dark"] {\n\t--differs: var(--ins-dark);\n}',
+				'html:root[dir][data-theme="dark"] {\n\t--differs: var(--ins-dark);\n}',
+			),
+			self.DELTA.replace("\t\t--differs: var(--ins-dark);\n", ""),
+		):
+			self.assertNotEqual(forgotten, self.DELTA)
+			movement = effective_diff.compare(self.FULL, forgotten, self.CORE)
+			self.assertTrue(movement.moved)
+			self.assertEqual({m[1] for m in movement.changed}, {"--differs"})
+
+	def test_the_shared_block_may_not_put_the_light_values_on_an_automatic_root_under_a_dark_os(self):
+		"""Adding the automatic selector to the shared block would be harmless only if the media block still follows."""
+		broken = self.DELTA.replace("\t\t--differs: var(--ins-dark);\n", "\t\t--other: 1px;\n")
+		movement = effective_diff.compare(self.FULL, broken, self.CORE)
+		self.assertTrue(movement.moved)
+
+	def test_a_moved_group_names_the_element_kinds_together(self):
+		after = self.FULL.replace("--differs: var(--ins-dark);", "--differs: var(--ins-other);")
+		movement = effective_diff.compare(self.FULL, after, self.CORE)
+		self.assertEqual(len(movement.changed), 1)
+		self.assertEqual(
+			set(movement.changed[0][0].split(", ")),
+			{"root Dark", "root Automatic (dark OS)", "nested dark"},
+		)
+
+
 class GeneratedMap(unittest.TestCase):
-	def test_the_real_map_parses_into_every_block_with_every_variable(self):
+	def test_the_real_map_has_a_shared_block_with_every_variable_and_a_dark_delta(self):
 		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")
 		found = effective_diff.parse_declarations(text)
-		selectors = {selector for selector, _ in found}
-		self.assertEqual(len(selectors), 3)
-		per_block = {selector: sum(1 for s, _ in found if s == selector) for selector in selectors}
-		self.assertEqual(len(set(per_block.values())), 1, "light, dark and automatic hold the same variables")
+		selectors = list(dict.fromkeys(selector for selector, _ in found))
+		self.assertEqual(len(selectors), 3, "shared, dark and automatic")
+		counts = {selector: sum(1 for s, _ in found if s == selector) for selector in selectors}
+		automatic = next(n for s, n in counts.items() if s.startswith("@media"))
+		shared = max(counts.values())
+		dark = next(n for s, n in counts.items() if not s.startswith("@media") and n != shared)
+		self.assertEqual(dark, automatic)
+		self.assertLess(dark, shared)
+
+	def test_every_element_kind_holds_the_same_variables(self):
+		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")
+		effective = effective_diff.effective_declarations(text)
+		names = {context: {n for c, n in effective if c == context} for context in effective_diff.CONTEXTS}
+		self.assertEqual(len({frozenset(v) for v in names.values()}), 1)
+		self.assertGreater(len(names["root Light"]), 400)
 
 	def test_comparing_the_working_map_with_itself_does_not_move_16_32_0(self):
 		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")

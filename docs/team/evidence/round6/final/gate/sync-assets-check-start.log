@@ -1,0 +1,5 @@
+$ python3 tools/bench/sync_assets.py --check /home/frappe/frappe-bench /home/frappe/newest-bench
+/home/frappe/frappe-bench: 0 theme entries point at missing files
+/home/frappe/newest-bench: 0 theme entries point at missing files
+both benches are consistent: nothing to do
+exit 0, 0 s

@@ -1,0 +1,4 @@
+load: requests: 1871; by status: 200: 1519, 404: 351, 500: 1
+exit 0, 332 s
+load: requests: 1805; by status: 200: 1468, 404: 333, 500: 4
+exit 0, 312 s

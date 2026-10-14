@@ -11,7 +11,7 @@ import re
 import unittest
 from pathlib import Path
 
-from institutional_theme.audits import dead_tokens, effective_diff, source_readers
+from institutional_theme.audits import dead_tokens, effective_diff, parity, source_readers
 from institutional_theme.midad import emit, model
 
 REPO = Path(__file__).resolve().parents[3]
@@ -242,12 +242,47 @@ class DarkSpecificity(unittest.TestCase):
 		self.assertEqual(_specificity('html:root[dir][data-theme="dark"]'), (0, 3, 1))
 		self.assertEqual(_specificity('html[dir] [data-theme="dark"]'), (0, 2, 1))
 
-	def test_the_generated_dark_block_declares_the_sidebar_background(self):
+	def test_the_map_shapes_beat_core(self):
+		"""The map is one shared block plus a dark delta; every selector of either still beats core's (0,2,0)."""
+		for block in ("shared", "dark", "automatic"):
+			for selector in emit.SHAPES["map"][block]:
+				with self.subTest(block=block, selector=selector):
+					self.assertGreaterEqual(_specificity(selector), (0, 2, 0))
+		self.assertEqual(_specificity("html:root[dir]"), (0, 2, 1))
+		self.assertEqual(_specificity('html:root[dir][data-theme="automatic"]'), (0, 3, 1))
+
+	def test_the_explicit_dark_root_keeps_specificity_3_for_every_mapped_name(self):
+		"""The shared block lists the explicit Dark root selector, so no name drops to (0,2,1) there (round 6, B1)."""
+		blocks = parity.parse_blocks((GENERATED / "_frappe_map.scss").read_text(encoding="utf-8"))
+		dark_root = 'html:root[dir][data-theme="dark"]'
+		self.assertEqual(_specificity(dark_root), (0, 3, 1))
+		names = {prop for prop, _ in blocks[0].declarations}
+		at_dark_root = {
+			prop
+			for block in blocks
+			if dark_root in block.selectors and block.media is None
+			for prop, _ in block.declarations
+		}
+		self.assertEqual(at_dark_root, names)
+		# The one cell that drops: Automatic under a dark OS, where only the differing names come at (0,3,1).
+		self.assertNotIn(dark_root, blocks[2].selectors)
+
+	def test_the_generated_map_gives_dark_the_sidebar_background_and_the_hover_elevation(self):
+		"""Effective values, not text: `--desk-sidebar-bg` is the same in both modes, so only the shared block declares it."""
 		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")
-		dark = re.search(r'html:root\[dir\]\[data-theme="dark"\],.*?\n\}', text, re.DOTALL)
-		self.assertIsNotNone(dark)
-		self.assertIn("--desk-sidebar-bg: var(--ins-surface-sunken);", dark.group(0))
-		self.assertIn("--surface-elevation-3: var(--ins-surface-hover);", dark.group(0))
+		effective = effective_diff.effective_declarations(text)
+		for context in effective_diff.CONTEXTS:
+			with self.subTest(context=context):
+				dark_like = context in ("root Dark", "root Automatic (dark OS)", "nested dark")
+				self.assertEqual(effective[(context, "--desk-sidebar-bg")], "var(--ins-surface-sunken)")
+				self.assertEqual(
+					effective[(context, "--surface-elevation-3")],
+					"var(--ins-surface-hover)" if dark_like else "var(--ins-surface-base)",
+				)
+		shared, dark = parity.parse_blocks(text)[:2]
+		self.assertIn("--desk-sidebar-bg", [prop for prop, _ in shared.declarations])
+		self.assertNotIn("--desk-sidebar-bg", [prop for prop, _ in dark.declarations])
+		self.assertIn(("--surface-elevation-3", "var(--ins-surface-hover)"), dark.declarations)
 
 
 if __name__ == "__main__":

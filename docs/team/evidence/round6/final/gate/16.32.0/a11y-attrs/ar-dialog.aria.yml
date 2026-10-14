@@ -1,0 +1,11 @@
+- heading "Confirm" [level=4]
+- button "أغلق"
+- text: مرجع *
+- textbox "مرجع *":
+  - /placeholder: ""
+- text: ref Kind
+- combobox "Kind":
+  - option "A"
+  - option "B"
+- text: kind
+- button "Submit"

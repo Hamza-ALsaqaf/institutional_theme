@@ -1,0 +1,19 @@
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	8.5
+list-apps-before	bench_site --site midad52.test list-apps	0	2.9
+capture-before	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/user/institutional_theme/tools/bench/capture.mjs before /home/user/institutional_theme/docs/team/evidence/round6/final/gate/v16.52.0/gate http://midad52.test:8001	0	9.0
+install	bench_site --site midad52.test install-app institutional_theme	0	6.6
+doctype-after-install	doctype_exists	0	2.7
+capture-installed	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/user/institutional_theme/tools/bench/capture.mjs installed /home/user/institutional_theme/docs/team/evidence/round6/final/gate/v16.52.0/gate http://midad52.test:8001	0	9.4
+seed-state	bench_state seed midad52.test /tmp/ins-gate-state.json	0	7.9
+uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	11.5
+doctype-after-uninstall	doctype_exists	0	2.5
+residue-after-uninstall	bench_state residue midad52.test /tmp/ins-gate-state.json	0	3.4
+capture-after-uninstall	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/user/institutional_theme/tools/bench/capture.mjs after-uninstall /home/user/institutional_theme/docs/team/evidence/round6/final/gate/v16.52.0/gate http://midad52.test:8001	0	8.7
+reinstall	bench_site --site midad52.test install-app institutional_theme	0	6.3
+kept-seed	bench_state kept-seed midad52.test /tmp/ins-gate-state.json	0	3.5
+kept-uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	8.7
+kept-print	bench_state kept-render midad52.test /tmp/ins-gate-state.json	0	5.8
+final-install	bench_site --site midad52.test install-app institutional_theme	0	6.3
+kept-cleanup	bench_state kept-cleanup midad52.test /tmp/ins-gate-state.json	0	6.0
+list-apps	bench_site --site midad52.test list-apps	0	2.9

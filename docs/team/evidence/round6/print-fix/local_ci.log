@@ -1,0 +1,57 @@
+commit 8dacda4 at 2026-10-14T19:45:02Z
+$ uvx --quiet ruff@0.16.8 check .
+All checks passed!
+exit 0
+$ uvx --quiet ruff@0.16.8 format --check .
+150 files already formatted
+exit 0
+$ python3.14 -m unittest discover -s institutional_theme/midad/tests -t .
+.......................................................................................................................................................
+----------------------------------------------------------------------
+Ran 151 tests in 2.247s
+
+OK
+exit 0
+$ python3.14 -m unittest discover -s institutional_theme/audits/tests -t .
+...........................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 171 tests in 5.594s
+
+OK
+exit 0
+$ python3.14 -m institutional_theme.midad.build --check
+build --check: 12 file(s) checked, 0 stale
+exit 0
+$ python3.14 -m institutional_theme.audits --dist /tmp/tmp.dHQTwiUVfQ
+Presets: midad, graphite, petrol, forest, plum, umber; shipped: midad, graphite, petrol, forest, plum
+contrast  midad     light pass (0 failing)
+contrast  midad     dark  pass (0 failing)
+contrast  graphite  light pass (0 failing)
+contrast  graphite  dark  pass (0 failing)
+contrast  petrol    light pass (0 failing)
+contrast  petrol    dark  pass (0 failing)
+contrast  forest    light pass (0 failing)
+contrast  forest    dark  pass (0 failing)
+contrast  plum      light pass (0 failing)
+contrast  plum      dark  pass (0 failing)
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+avatars: 216 pair measurements, 0 failing in shipped presets, 0 problem(s)
+parity: 56 checks, 0 failed
+colour-vision: 0 failure(s) (status, neighbouring series, gap not in the baseline), 99 baselined chart gap(s) in shipped presets
+dead-tokens 16.32.0: 484 variables: 293 declared and read by core, 106 declared only, 3 read only, 1 consumed by the theme, 81 dead in this version
+dead-tokens 16.52.0: 484 variables: 455 declared and read by core, 8 declared only, 6 read only, 0 consumed by the theme, 15 dead in this version
+dead-tokens 16.32.0: 13 variable(s) read by core only in this version
+dead-tokens 16.52.0: 178 variable(s) read by core only in this version
+dead-tokens: combined over 16.32.0, 16.52.0: 484 variables: 473 declared and read by core, 10 declared only, 1 read only, 0 consumed by the theme, 0 dead in every version
+dead-tokens: 10 variable(s) declared by core and read by nothing in any version, 10 allowed with a reason, 0 problem(s)
+web-scope: 60 desk-only variable(s) left out of the website map, 0 problem(s), 0 unmarked variable(s) no website page reads
+counterparts: 30 pair(s), 0 finding(s)
+budgets: not built (/tmp/tmp.dHQTwiUVfQ holds no ins_* bundles); skipped
+wrote contrast.txt, contrast.json, avatar_contrast.txt, parity.txt, colour_vision.txt, dead_tokens.txt, web_scope.txt to docs/audits
+audits: passed
+exit 0
+$ diff -r /tmp/tmp.jwNlAuzAD1/audits /tmp/tmp.H3BWQlT09s/docs/audits
+exit 0
+CI PASSED

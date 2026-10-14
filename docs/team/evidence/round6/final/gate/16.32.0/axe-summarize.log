@@ -1,0 +1,3 @@
+$ node axe.mjs --summarize --out=/home/user/institutional_theme/docs/team/evidence/round6/final/gate/16.32.0/axe
+summary: 272 nodes, theme 0, core 272
+exit 0, 0 s

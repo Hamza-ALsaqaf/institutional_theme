@@ -1,0 +1,2 @@
+$ tools/ci/local_ci.sh /home/user/institutional_theme/docs/team/evidence/round6/final/gate/fix/local_ci.inner.log
+exit 0, 11 s

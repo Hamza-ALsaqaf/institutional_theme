@@ -310,7 +310,10 @@ class LightOnlyPartials(unittest.TestCase):
 		web = parity.parse_blocks(web_text)[0]
 		desk_only = set(model.desk_only(MODEL))
 		self.assertTrue(desk_only, "the map marks desk-only variables")
-		self.assertEqual(web.selectors, full.selectors)
+		# The desk map's first block is the shared one (light root, nested light and nested dark); the website
+		# file keeps the palette light shape only.
+		self.assertEqual(full.selectors, emit.SHAPES["map"]["shared"])
+		self.assertEqual(web.selectors, emit.SHAPES["palette"]["light"])
 		self.assertEqual(web.declarations, [d for d in full.declarations if d[0] not in desk_only])
 		self.assertTrue(desk_only.isdisjoint(prop for prop, _ in web.declarations))
 		self.assertTrue(desk_only <= {prop for prop, _ in full.declarations})
@@ -357,6 +360,119 @@ class LightOnlyPartials(unittest.TestCase):
 			full = emit.emit_family(family, keys, light, dark, color_scheme=scheme)
 			only = emit.emit_light_family(family, keys, light, color_scheme=scheme)
 			self.assertTrue(full.startswith(only))
+
+
+class FrappeMapShape(unittest.TestCase):
+	"""The desk map is one shared block plus a dark delta; its effective values equal three full blocks."""
+
+	KEYS = ["--a", "--b", "--c"]
+	LIGHT = {"--a": "var(--ins-x)", "--b": "16px", "--c": "var(--ins-slate-50)"}
+	DARK = {"--a": "var(--ins-x)", "--b": "16px", "--c": "var(--ins-night-50)"}
+
+	def test_shared_block_has_every_key_and_the_dark_blocks_only_the_differing_ones(self):
+		blocks = parity.parse_blocks(emit.emit_map_family(self.KEYS, self.LIGHT, self.DARK))
+		shared, dark, automatic = blocks
+		self.assertEqual(shared.selectors, emit.SHAPES["map"]["shared"])
+		self.assertEqual(dark.selectors, emit.SHAPES["map"]["dark"])
+		self.assertEqual(automatic.selectors, emit.SHAPES["map"]["automatic"])
+		self.assertEqual(automatic.media, emit.AUTOMATIC_MEDIA)
+		self.assertEqual(shared.declarations, [(k, self.LIGHT[k]) for k in self.KEYS])
+		self.assertEqual(dark.declarations, [("--c", "var(--ins-night-50)")])
+		self.assertEqual(automatic.declarations, dark.declarations)
+
+	def test_the_shared_list_is_the_union_of_the_light_and_dark_selectors(self):
+		palette = emit.SHAPES["palette"]
+		self.assertEqual(emit.SHAPES["map"]["shared"], (*palette["light"], *palette["dark"]))
+		self.assertEqual(emit.SHAPES["map"]["dark"], palette["dark"])
+		for selector in emit.SHAPES["map"]["shared"]:
+			self.assertNotIn("automatic", selector)
+			self.assertNotRegex(selector, r"^\[data-theme")
+
+	def test_a_key_missing_from_either_mode_is_an_error(self):
+		with self.assertRaises(KeyError):
+			emit.emit_map_family(self.KEYS, {"--a": "1"}, self.DARK)
+		with self.assertRaises(KeyError):
+			emit.emit_map_family(self.KEYS, self.LIGHT, {"--a": "1"})
+
+	def test_delta_follows_the_key_order(self):
+		keys = ["--z", "--m", "--a"]
+		light = {"--z": "1", "--m": "2", "--a": "3"}
+		dark = {"--z": "9", "--m": "2", "--a": "8"}
+		self.assertEqual(emit.dark_delta(keys, light, dark), ["--z", "--a"])
+
+	def test_effective_values_equal_three_full_blocks_for_every_element_kind(self):
+		"""For the real model: Light everywhere light, the model's dark value on a dark root, an automatic root and a nested dark element."""
+		from institutional_theme.audits import effective_diff
+
+		fmap = model.frappe_map(MODEL)
+		light, dark = dict(fmap.declarations["light"]), dict(fmap.declarations["dark"])
+		text = build.render_frappe_map(MODEL)
+		effective = effective_diff.effective_declarations(text)
+		expected = {
+			"root Light": light,
+			"nested light": light,
+			"root Dark": dark,
+			"root Automatic (dark OS)": dark,
+			"nested dark": dark,
+		}
+		self.assertEqual(set(expected), set(effective_diff.CONTEXTS))
+		for context, values in expected.items():
+			with self.subTest(context=context):
+				self.assertEqual({n: v for (c, n), v in effective.items() if c == context}, values)
+
+	def test_the_dark_delta_is_data_driven_and_not_only_the_grays(self):
+		fmap = model.frappe_map(MODEL)
+		light, dark = dict(fmap.declarations["light"]), dict(fmap.declarations["dark"])
+		differing = [n for n in light if light[n] != dark[n]]
+		self.assertGreater(len(differing), 11, "more than the gray ramp differs between the modes")
+		self.assertEqual(emit.dark_delta(list(light), light, dark), differing)
+		blocks = parity.parse_blocks(build.render_frappe_map(MODEL))
+		self.assertEqual([p for p, _ in blocks[1].declarations], differing)
+		self.assertEqual(len(blocks[0].declarations), len(light))
+
+	def test_the_build_refuses_a_value_that_reads_a_variable_of_the_map(self):
+		names = ["--a", "--b"]
+		build._check_map_values_are_independent(
+			names, {"--a": "var(--ins-x)", "--b": "1px"}, {"--a": "1", "--b": "2"}
+		)
+		with self.assertRaises(build.BuildError):
+			build._check_map_values_are_independent(
+				names, {"--a": "var(--ins-x)", "--b": "var(--a)"}, {"--a": "1", "--b": "2"}
+			)
+		with self.assertRaises(build.BuildError):
+			build._check_map_values_are_independent(
+				names, {"--a": "1", "--b": "2"}, {"--a": "1", "--b": "calc(var(--b) + 1px)"}
+			)
+
+	def test_the_real_map_reads_no_variable_of_the_map(self):
+		fmap = model.frappe_map(MODEL)
+		names = [n for n, _ in fmap.declarations["light"]]
+		build._check_map_values_are_independent(
+			names, dict(fmap.declarations["light"]), dict(fmap.declarations["dark"])
+		)
+
+	def test_parity_catches_a_redundant_missing_or_foreign_dark_declaration(self):
+		text = build.render_frappe_map(MODEL)
+		self.assertTrue(all(c.passed for c in parity.check_map_family("_frappe_map.scss", text, MODEL)))
+		blocks = parity.parse_blocks(text)
+		first_light = blocks[0].declarations[0]
+		cases = {
+			"repeats": (
+				"\t--gray-50: var(--ins-night-50);\n",
+				f"\t{first_light[0]}: {first_light[1]};\n\t--gray-50: var(--ins-night-50);\n",
+			),
+			"drops": ("\t--gray-50: var(--ins-night-50);\n", ""),
+			"foreign": (
+				"\t--gray-50: var(--ins-night-50);\n",
+				"\t--gray-50: var(--ins-night-50);\n\t--not-mapped: 1px;\n",
+			),
+		}
+		for label, (old, new) in cases.items():
+			with self.subTest(label=label):
+				self.assertIn(old, text)
+				broken = text.replace(old, new, 1) if label != "foreign" else text.replace(old, new)
+				checks = parity.check_map_family("_frappe_map.scss", broken, MODEL)
+				self.assertFalse(all(c.passed for c in checks))
 
 
 class ParserHelpers(unittest.TestCase):

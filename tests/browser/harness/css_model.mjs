@@ -35,10 +35,15 @@ export function parseBlocks(text) {
 	return blocks;
 }
 
+// A block belongs to the layer of the ROOT selector it lists. The desk Frappe map (round 6) is one shared block whose list holds
+// the plain root, the nested light and dark elements and the explicit Dark root, so a block that lists the plain root (or a
+// light selector) is the light layer; the dark and automatic blocks that follow carry only what differs and layer on top.
 function family(b) {
-	if (/data-theme="dark"/.test(b.selector)) return "dark";
-	if (/data-theme="automatic"/.test(b.selector)) return b.media ? "auto" : "autoplain";
-	if (/data-theme="light"/.test(b.selector) || /^html:root(\[dir\])?(\[data-ins-density="compact"\])?(,|$)/.test(b.selector)) return "light";
+	const members = b.selector.split(",").map((s) => s.trim());
+	const plainRoot = (s) => /^html:root(\[dir\])?(\[data-ins-density="compact"\])?$/.test(s);
+	if (members.some((s) => plainRoot(s) || /data-theme="light"/.test(s))) return "light";
+	if (members.some((s) => /data-theme="dark"/.test(s))) return "dark";
+	if (members.some((s) => /data-theme="automatic"/.test(s))) return b.media ? "auto" : "autoplain";
 	return "any";
 }
 

@@ -1,0 +1,15 @@
+site_new	bench_cmd new-site hrms52.test --db-type postgres --db-host 127.0.0.1 --db-port 5432 --db-root-username postgres --db-root-password postgres --admin-password admin	0	35	site_new.log
+site_config	bench_cmd --site hrms52.test set-config developer_mode 1	0	7	site_config.log
+site_host	bench_cmd --site hrms52.test set-config host_name http://hrms52.test:8002	0	1	site_host.log
+erpnext	newest erpnext	0	91	erpnext.log
+wizard	newest wizard	0	48	wizard.log
+theme	newest install	0	34	theme.log
+get	bench_cmd get-app https://github.com/frappe/hrms --branch v16.50.0 --skip-assets	0	95	get.log
+get_describe	as_bench git -C /home/frappe/newest-bench/apps/hrms describe --tags	0	8	get_describe.log
+install	as_bench bash -c cd /home/frappe/newest-bench/sites && /home/frappe/newest-bench/env/bin/python -I /home/user/institutional_theme/tools/bench/hrms_install.py hrms52.test	0	75	install.log
+build	bench_cmd build --app hrms	0	34	build.log
+web	newest restart-web	0	6	web.log
+seed	as_bench bash -c cd /home/frappe/newest-bench/sites && /home/frappe/newest-bench/env/bin/python -I /home/user/institutional_theme/tools/bench/hrms_seed.py hrms52.test	0	11	seed.log
+list_apps	bench_cmd --site hrms52.test list-apps	0	6	list_apps.log
+ping	curl -s --noproxy * http://localhost:8002/api/method/ping	0	3	ping.log
+check	node /home/user/institutional_theme/tools/bench/hrms_check.mjs	0	31	check.log

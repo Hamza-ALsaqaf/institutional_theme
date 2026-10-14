@@ -1,0 +1,2 @@
+$ tools/bench/b.sh clear-cache
+exit 0, 4 s
