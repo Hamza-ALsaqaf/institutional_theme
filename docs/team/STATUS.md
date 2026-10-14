@@ -21,11 +21,11 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-None. Run ended 20:45 UTC; final report in `docs/team/OWNER_REVIEW.md` (Arabic) and on pull request #2.
+None. Round 2 ended about 00:20 UTC on 2026-10-14; final report in `docs/team/OWNER_REVIEW.md` (Arabic) and on pull request #2.
 
 ## Next step
 
-Owner reviews pull request #2. To continue: fix the two score-3 items in `docs/team/reviews/a11y-final.md` (Appearance page heading and selected tag; calendar chips in Dark), then the "Not delivered" list in OWNER_REVIEW.md section 3 in this order: Print Style and Letter Head, email bundle, proof, size budgets, P2 website pages.
+All phases 0 to 5 have passed. The owner reviews pull request #2 and decides whether to fast-forward `main` (never done by the build team). Optional follow-ups if the owner asks: the items in `docs/team/OWNER_REVIEW.md` section 3 (Gantt month names need a core change; grid-row checkbox names come from core; the proof could grow to the full ADR 0007 scope), then a formal accessibility audit (screen readers, Windows High Contrast).
 
 ## Bench
 
@@ -66,6 +66,9 @@ Owner reviews pull request #2. To continue: fix the two score-3 items in `docs/t
 31-33. See `docs/team/OWNER_REVIEW.md` section 4 (error-page link, desktop icons, background agents cut off at 17:45).
 
 ## Round 2 (started by the lead after the owner said to continue without waiting for approval)
+
+Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`docs/team/evidence/round2/BENCH.md`). Waves: blockers and render checks; print, email, proof, budgets, P2, opt-in; web bundle size; hostile reviews; fix round 1; improvement wave (accessible names, reflow, targets, reduced motion, Arabic strings); final gate (`docs/team/evidence/round2/gate-end/`). Decisions 34-46 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic). Reviews: `docs/team/reviews/upgrade-round2.md`, `a11y-round2.md`.
+
 
 - Lead decisions: login, website and error pages are light only by platform constraint and design, not a dark-parity defect; the Dark calendar chips may use a narrowly scoped, manifest-justified `!important` against Frappe's inline colours if nothing else works; the test site's own `site_config.json` may be edited for verification and restored.
 - Order of work and the end-of-job routine are in `docs/team/RESUME_PROMPT.md` (round 2). `main` stays unchanged; pull request #2 stays open for the owner.
