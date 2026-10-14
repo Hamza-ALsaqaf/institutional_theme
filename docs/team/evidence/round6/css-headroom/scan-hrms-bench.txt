@@ -1,0 +1,5 @@
+424 mapped variable names
+public/frontend/assets/index-Cu43nRYV.css | :root | 74 var(s) e.g. --outline-white
+public/frontend/assets/index-Cu43nRYV.css | [data-theme=dark] | 74 var(s) e.g. --outline-white
+public/roster/assets/index-D6rG5lUy.css | :root | 74 var(s) e.g. --outline-white
+public/roster/assets/index-D6rG5lUy.css | [data-theme=dark] | 74 var(s) e.g. --outline-white

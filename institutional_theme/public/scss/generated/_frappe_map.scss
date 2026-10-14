@@ -2,7 +2,7 @@
 // Frappe variables re-pointed at --ins-* tokens (ADR 0003). Every name comes from design/tokens.json `frappe`.
 //
 // Shape (smaller than three full blocks, same computed values): the first block declares EVERY variable with its
-// light value on the light root and on nested light and dark elements. Each value is a var(--ins-*) expression
+// light value on the light root, the explicit Dark root and nested light and dark elements. Each value is a var(--ins-*) expression
 // that the browser resolves on the element declaring it, so repeating an identical expression for Dark would
 // change nothing. The dark block and the automatic block (dark OS) therefore declare only the 79 of
 // 424 variables whose Dark value differs, in map order. The build fails if a value reads another
@@ -10,6 +10,7 @@
 
 html:root[dir],
 html[dir] [data-theme="light"],
+html:root[dir][data-theme="dark"],
 html[dir] [data-theme="dark"] {
 	--gray-50: var(--ins-slate-50);
 	--gray-100: var(--ins-slate-100);

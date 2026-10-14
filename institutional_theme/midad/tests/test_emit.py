@@ -380,9 +380,9 @@ class FrappeMapShape(unittest.TestCase):
 		self.assertEqual(dark.declarations, [("--c", "var(--ins-night-50)")])
 		self.assertEqual(automatic.declarations, dark.declarations)
 
-	def test_the_shared_list_is_the_union_of_the_light_and_nested_dark_selectors(self):
+	def test_the_shared_list_is_the_union_of_the_light_and_dark_selectors(self):
 		palette = emit.SHAPES["palette"]
-		self.assertEqual(emit.SHAPES["map"]["shared"], (*palette["light"], palette["dark"][1]))
+		self.assertEqual(emit.SHAPES["map"]["shared"], (*palette["light"], *palette["dark"]))
 		self.assertEqual(emit.SHAPES["map"]["dark"], palette["dark"])
 		for selector in emit.SHAPES["map"]["shared"]:
 			self.assertNotIn("automatic", selector)

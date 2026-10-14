@@ -268,7 +268,7 @@ def render_frappe_map(model: Model) -> str:
 		"// Frappe variables re-pointed at --ins-* tokens (ADR 0003). Every name comes from design/tokens.json `frappe`.\n"
 		"//\n"
 		"// Shape (smaller than three full blocks, same computed values): the first block declares EVERY variable with its\n"
-		"// light value on the light root and on nested light and dark elements. Each value is a var(--ins-*) expression\n"
+		"// light value on the light root, the explicit Dark root and nested light and dark elements. Each value is a var(--ins-*) expression\n"
 		"// that the browser resolves on the element declaring it, so repeating an identical expression for Dark would\n"
 		f"// change nothing. The dark block and the automatic block (dark OS) therefore declare only the {len(delta)} of\n"
 		f"// {len(names)} variables whose Dark value differs, in map order. The build fails if a value reads another\n"

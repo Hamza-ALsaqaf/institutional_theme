@@ -1,6 +1,6 @@
 # Desk CSS headroom, phase A (code, unit tests, local CI)
 
-Branch worktree `agent-aa024d900b213286d`, base `490dd98`. Code commit `4814fd7`. Nothing here ran on a bench; phase B does the browser proofs.
+Branch worktree `agent-aa024d900b213286d`, base `490dd98`. Code commit `4814fd7`, amended in step B1 (below) by a commit that adds the explicit Dark root selector to the shared block. Nothing in phase A ran on a bench; B1 captures the "before" baseline (`before/`).
 
 Labels: VERIFIED = ran it here, COMPUTED = derived from files here, ASSUMED = not checked.
 
@@ -8,7 +8,7 @@ Labels: VERIFIED = ran it here, COMPUTED = derived from files here, ASSUMED = no
 
 `institutional_theme/public/scss/generated/_frappe_map.scss` declared all 424 mapped Frappe variables three times (light, dark, automatic). Every value is a `var(--ins-*)` expression (or a literal), and a custom property holding `var()` is resolved on the element that declares it. Re-declaring an identical expression on the same element changes nothing, so the file is now:
 
-1. one shared block with all 424 declarations (light values), selector list `html:root[dir], html[dir] [data-theme="light"], html[dir] [data-theme="dark"]` (the union of the old light selectors and the old nested-dark selector; no bare `[data-theme]`, no nested automatic);
+1. one shared block with all 424 declarations (light values), selector list `html:root[dir], html[dir] [data-theme="light"], html:root[dir][data-theme="dark"], html[dir] [data-theme="dark"]` (the union of the old light and dark selectors; no bare `[data-theme]`, no nested automatic). The explicit Dark root selector was added in step B1 so the Dark root keeps (0,3,1) for every name; the dark block follows at the same specificity and wins for the differing names;
 2. a dark block (`html:root[dir][data-theme="dark"], html[dir] [data-theme="dark"]`) with only the declarations whose dark value differs from the light value;
 3. the same declarations inside `@media (prefers-color-scheme: dark)` for `html:root[dir][data-theme="automatic"]`.
 
@@ -22,10 +22,10 @@ Generator guard: `build._check_map_values_are_independent` fails the build if a 
 
 | file | before | after | change |
 |---|---|---|---|
-| `_frappe_map.scss` source | 52472 B | 24559 B | -27913 B |
-| `ins_desk.bundle` compiled raw | 149222 B | 122458 B | -26764 B (-17.9 %) |
-| `ins_desk.bundle` gzip -9 | 17364 B | 17043 B | -321 B |
-| `ins_desk.bundle` gzip -6 | 17619 B | 17255 B | -364 B |
+| `_frappe_map.scss` source | 52472 B | 24615 B | -27857 B |
+| `ins_desk.bundle` compiled raw | 149222 B | 122490 B | -26732 B (-17.9 %) |
+| `ins_desk.bundle` gzip -9 | 17364 B | 17045 B | -319 B |
+| `ins_desk.bundle` gzip -6 | 17619 B | 17257 B | -362 B |
 | `ins_web.bundle` compiled raw | 55266 B | 55266 B | identical (cmp) |
 
 The bench measures 146.2 KB for the shipped desk bundle (`docs/audits/budgets.txt`, after rtlcss and the bench minifier). Projection by subtracting the 26.1 KB saving: about 120 KB, headroom about 30 KB (ASSUMED that the bench post-processing removes the same bytes; phase B measures the real file). The gzip budget (30 KB) was never the constraint.
@@ -44,7 +44,7 @@ Full output, including the two shipped Frappe versions: `effective-equivalence.t
 
 ### Specificity: where the cascade could differ
 
-Only one thing changes: on the root element in Dark and in Automatic under a dark OS, the 345 non-differing names are now declared at (0,2,1) (shared block) instead of (0,3,1). Everything else keeps its specificity: Light root (0,2,1) both; nested light (0,2,1) both; nested dark (0,2,1) both (shared block, then the dark block later in source order at the same specificity); the 79 differing names are still declared at (0,3,1) on the Dark and Automatic root. An outcome can change only if another rule declares the same name on the same element with a specificity from (0,2,1) up to, and including when loaded earlier, (0,3,1). Every declaration of a mapped name that can reach those elements:
+After step B1 only one cell changes: on the root element in Automatic under a dark OS, the 345 non-differing names are declared at (0,2,1) (shared block) instead of (0,3,1). Everything else keeps its specificity: Light root (0,2,1) both; explicit Dark root (0,3,1) for every name, both (shared block, then the dark block later at the same specificity); nested light (0,2,1) both; nested dark (0,2,1) both; the 79 differing names are still declared at (0,3,1) on the Automatic root. An outcome in that one cell can change only if another rule declares the same name on the same element with a specificity from (0,2,1) up to, and including when loaded earlier, (0,3,1). Every declaration of a mapped name that can reach those elements:
 
 | source | rules that declare a mapped name | can match `html` or a nested `[data-theme]` element at >= (0,2,1)? |
 |---|---|---|
@@ -62,20 +62,24 @@ Outcome per element kind, before and after (COMPUTED from the rule list above):
 |---|---|---|---|---|
 | root, Light | `html:root[dir]` | light value | light value | yes |
 | root, Dark, differing names | shared (0,2,1), dark (0,3,1) | dark value | dark value | yes |
-| root, Dark, other names | shared (0,2,1), formerly also dark (0,3,1) | light = dark expression | same expression | yes (no other rule competes) |
+| root, Dark, other names | shared, at the explicit Dark root selector (0,3,1) | same expression at (0,3,1) | same expression at (0,3,1) | yes, same specificity too |
 | root, Automatic, light OS | `html:root[dir]` | light value | light value | yes |
-| root, Automatic, dark OS | shared, automatic media block (0,3,1) | dark value | dark value (differing) or same expression | yes |
+| root, Automatic, dark OS | shared (0,2,1), automatic media block (0,3,1) | dark value (all names at (0,3,1)) | dark value (differing, (0,3,1)) or same expression at (0,2,1) | yes, unless a rule competes in (0,2,1) to (0,3,1); none found |
 | nested light, in Dark or Light | `html[dir] [data-theme="light"]` (0,2,1) | light value | light value | yes |
 | nested dark, in Light or Dark | `html[dir] [data-theme="dark"]` (0,2,1); after: shared then dark block, same specificity, later wins | dark value | dark value | yes |
 | nested automatic | no selector in either file | inherits | inherits | yes |
 
 The root selectors (`html:root[dir]...`) never match a nested element, and the nested selectors keep their specificity, so the nested rows cannot move. Because the declared values are `var(--ins-*)` expressions, each is resolved on its own element against that element's `--ins-*` (which `_tokens.scss` and the palette files switch per mode), so repeating the identical expression is a no-op.
 
-### Residual exposure (ASSUMED, not checked here)
+### Residual exposure
 
-- ERPNext 16.33.0 sources are not in `/home/user/src`; I did not read the bench copy (instruction). Core's compiled CSS snapshot for ERPNext-era readers is in `institutional_theme/audits/data`, but it does not list selectors. Phase B should dump `getComputedStyle(documentElement)` for all 424 names in Light, Dark, Automatic-dark before and after on the bench with ERPNext and HRMS installed.
-- A third-party app that declares one of the 345 non-differing names on the root with a specificity of (0,2,1) to (0,3,1) would behave differently in Dark and Automatic-dark. The coexistence fixtures in `tests/browser` (`html[lang=ar], html[dir=rtl] { --font-stack }` is (0,1,1)) are below the window.
-- Option if the owner wants that closed: add `html:root[dir][data-theme="dark"]` to the shared selector list (about 40 bytes) so the Dark root keeps every name at (0,3,1). The Automatic-dark root cannot be preserved that way without repeating the declarations, so I did not do it; the brief fixed the selector list.
+Remaining cell: Automatic under a dark OS, 345 non-differing names at (0,2,1) instead of (0,3,1). No rule can exploit it in the code scanned:
+
+- Frappe 16.32.0 and 16.52.0 core: root rules are (0,1,0) (above).
+- ERPNext 16.33.0 (`/home/user/frappe-bench/apps/erpnext`, `scan-erpnext-16.33.0.txt`) and 16.50.0 (`/home/frappe/newest-bench/apps/erpnext`, `scan-erpnext-16.50.0.txt`; the second bench ships 16.50.0, not 16.52.0): the only declarations of mapped names are in the compiled banking single-page app CSS (`public/banking/assets/index-*.css`): `:root`, `:host` and `.dark`, all (0,1,0), on that page only. VERIFIED by reading files, nothing run.
+- HRMS (source 16.20.1 above; bench copy `scan-hrms-bench.txt`): the `/hrms` and `/roster` single-page apps declare `:root` and `[data-theme=dark]` (0,1,0) on their own pages.
+- A third-party app that declares one of those names on the root with a specificity of (0,2,1) to (0,3,1) would differ in Automatic-dark only (ASSUMED none; the coexistence fixtures in `tests/browser` use `html[lang=ar], html[dir=rtl] { --font-stack }`, (0,1,1)).
+- Phase B2 dumps `getComputedStyle(documentElement)` of all 424 names in every mode before and after, including Automatic with the OS emulated dark and light.
 
 ## Code changes and test expectation changes
 
@@ -93,7 +97,7 @@ The root selectors (`html:root[dir]...`) never match a nested element, and the n
 ## Commands run (VERIFIED)
 
 - `python3.14 -m institutional_theme.midad.build` then `--check`: "12 file(s) checked, 0 stale".
-- Unit suites before the final commit: midad 161 tests OK, audits 177 tests OK. Ruff 0.16.8 check and format: clean.
+- Unit suites before the final commit: midad 162 tests OK, audits 177 tests OK. Ruff 0.16.8 check and format: clean.
 - `python3.14 -m institutional_theme.audits --dist <empty dir>`: "audits: passed", `docs/audits` unchanged.
 - Full `tools/ci/local_ci.sh` on the final commit: `phaseA-local_ci.log` in this directory.
 - Compile for the sizes: `sass@1.85.0` installed in a scratch directory (`npm i sass@1.85.0`), `--style=compressed --no-source-map --load-path=institutional_theme/public/scss`.
@@ -103,4 +107,3 @@ The root selectors (`html:root[dir]...`) never match a nested element, and the n
 - Bench cascade in a real browser: `tests/browser/cascade.mjs` (it compiles the SCSS text and works unchanged with the new shape, but I did not run it).
 - Computed-style dump of all 424 names on `documentElement` and on nested `[data-theme]` elements in Light, Dark, Automatic-light, Automatic-dark, before and after, with ERPNext and HRMS installed.
 - Pixel diffs of the shipped screens, RTL bundle, the bench-built `ins_desk.bundle.css` size and `docs/audits/budgets.txt` (needs a bench build; the file is not regenerated by CI with an empty dist).
-- ERPNext 16.33.0 declarations of the mapped names (sources not scanned).

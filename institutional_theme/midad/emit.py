@@ -31,13 +31,21 @@ SHAPES: dict[str, dict[str, tuple[str, ...]]] = {
 		"automatic": ('html:root[dir][data-theme="automatic"]',),
 	},
 	# Frappe variable map (desk only): ONE shared block holds every declaration, the dark and automatic blocks
-	# hold only the declarations whose dark value differs. Shared (0,2,1); dark (0,3,1) and (0,2,1); automatic (0,3,1).
-	# The shared list is the union of the light and the nested-dark selectors of "palette": a value is a `var()`
-	# expression resolved on the element that declares it, so the same expression re-declared on the dark root or
-	# on a nested dark element changes nothing. It does not hold the automatic selector (that would put the light
-	# values on an automatic root in a dark OS before the media block) nor a bare `[data-theme]`.
+	# hold only the declarations whose dark value differs. The shared list is the union of the selectors of the
+	# "palette" light and dark blocks: a value is a `var()` expression resolved on the element that declares it,
+	# so the same expression declared once for Light and Dark changes nothing. Because the explicit Dark root
+	# selector (0,3,1) is in the shared list, every mapped name keeps its old specificity on the Dark root; the
+	# dark block follows at the same specificity and wins for the differing names. Not in the list: the automatic
+	# selector (it would put the light values on an automatic root in a dark OS ahead of the media block) and a
+	# bare `[data-theme]`. Automatic under a dark OS is the one cell where the non-differing names are declared
+	# at (0,2,1) (shared root) instead of (0,3,1).
 	"map": {
-		"shared": ("html:root[dir]", 'html[dir] [data-theme="light"]', 'html[dir] [data-theme="dark"]'),
+		"shared": (
+			"html:root[dir]",
+			'html[dir] [data-theme="light"]',
+			'html:root[dir][data-theme="dark"]',
+			'html[dir] [data-theme="dark"]',
+		),
 		"dark": ('html:root[dir][data-theme="dark"]', 'html[dir] [data-theme="dark"]'),
 		"automatic": ('html:root[dir][data-theme="automatic"]',),
 	},

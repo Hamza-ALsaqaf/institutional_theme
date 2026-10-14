@@ -251,6 +251,22 @@ class DarkSpecificity(unittest.TestCase):
 		self.assertEqual(_specificity("html:root[dir]"), (0, 2, 1))
 		self.assertEqual(_specificity('html:root[dir][data-theme="automatic"]'), (0, 3, 1))
 
+	def test_the_explicit_dark_root_keeps_specificity_3_for_every_mapped_name(self):
+		"""The shared block lists the explicit Dark root selector, so no name drops to (0,2,1) there (round 6, B1)."""
+		blocks = parity.parse_blocks((GENERATED / "_frappe_map.scss").read_text(encoding="utf-8"))
+		dark_root = 'html:root[dir][data-theme="dark"]'
+		self.assertEqual(_specificity(dark_root), (0, 3, 1))
+		names = {prop for prop, _ in blocks[0].declarations}
+		at_dark_root = {
+			prop
+			for block in blocks
+			if dark_root in block.selectors and block.media is None
+			for prop, _ in block.declarations
+		}
+		self.assertEqual(at_dark_root, names)
+		# The one cell that drops: Automatic under a dark OS, where only the differing names come at (0,3,1).
+		self.assertNotIn(dark_root, blocks[2].selectors)
+
 	def test_the_generated_map_gives_dark_the_sidebar_background_and_the_hover_elevation(self):
 		"""Effective values, not text: `--desk-sidebar-bg` is the same in both modes, so only the shared block declares it."""
 		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")

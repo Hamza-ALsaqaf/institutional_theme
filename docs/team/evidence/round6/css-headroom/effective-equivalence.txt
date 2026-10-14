@@ -1,5 +1,5 @@
-# effective_diff: map text at HEAD (490dd98, three full blocks) against the working tree (shared block + dark delta)
-Frappe 16.32.0: generated declarations of variables core reads (compiled CSS and source), HEAD against the working tree
+# effective_diff: map text at 490dd98 (three full blocks) against the working tree (shared block + dark delta)
+Frappe 16.32.0: generated declarations of variables core reads (compiled CSS and source), 490dd98 against the working tree
   effective declarations before: 1370
   effective declarations after:  1370
   changed: 0   removed: 0   added: 0
@@ -7,7 +7,7 @@ Frappe 16.32.0: generated declarations of variables core reads (compiled CSS and
   --ins-* values that existed before and changed: 0
   RESULT: Frappe 16.32.0 does not move
 exit 0
-Frappe 16.52.0: generated declarations of variables core reads (compiled CSS and source), HEAD against the working tree
+Frappe 16.52.0: generated declarations of variables core reads (compiled CSS and source), 490dd98 against the working tree
   effective declarations before: 2015
   effective declarations after:  2015
   changed: 0   removed: 0   added: 0
@@ -19,4 +19,4 @@ exit 0
 # all 424 mapped names, all five element kinds, old text against new text
 effective declarations: old 2120 new 2120 equal: True
 {'root Light': 424, 'root Dark': 424, 'root Automatic (dark OS)': 424, 'nested light': 424, 'nested dark': 424}
-text bytes: old 52472 new 24559
+text bytes: old 52472 new 24615
