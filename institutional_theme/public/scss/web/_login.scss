@@ -30,10 +30,14 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 		display: none;
 	}
 
+	// `[class^="for-"]` stands for core's six section wrappers (`.for-login`, `.for-forgot`,
+	// `.for-login-with-email-link`, `.for-signup`, `.for-email-login`, `.for-reset-password`): each section's
+	// class attribute starts with its name in both versions. The attribute selector weighs the same as the
+	// class list it replaces and is far shorter, which keeps this bundle inside its size budget.
 	// `.for-*` wrappers exist only in core's login.html and update-password.html (VERIFIED, 16.32.0), so the
 	// card rules need no page prefix beyond `body[data-path]`: it has the specificity of the page attribute
 	// and halves the length of every selector below.
-	@at-root html body[data-path] :is(.for-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-email-login, .for-reset-password) {
+	@at-root html body[data-path] [class^="for-"] {
 		.page-card {
 			box-sizing: border-box;
 			max-inline-size: 408px;
@@ -161,7 +165,9 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 						}
 
 						svg {
+							// v16.52.0 keeps `.icon` on this filled glyph; its 1.5px stroke thickens it.
 							fill: currentcolor;
+							stroke: none;
 							inline-size: 16px;
 							block-size: 16px;
 							pointer-events: none;
@@ -175,7 +181,11 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 					fill: var(--ins-text-muted);
 				}
 
-				.email-field input,
+				// Icon at the start of both fields, reveal button at the end of the password field only.
+				.email-field input {
+					padding-inline-start: 38px;
+				}
+
 				.password-field input {
 					padding-inline: 38px;
 				}
@@ -443,7 +453,7 @@ html body[data-path="update-password"] .ins-trust {
 }
 
 @media (forced-colors: active) {
-	html body[data-path] :is(.for-login, .for-forgot, .for-reset-password) .page-card {
+	html body[data-path] [class^="for-"] .page-card {
 		border-color: CanvasText;
 	}
 }
