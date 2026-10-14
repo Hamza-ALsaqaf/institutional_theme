@@ -1,0 +1,25 @@
+FRAPPE 16.32.0 VARIANT themed
+OK themed__salary-slip-salary-slip-standard__wkhtmltopdf-en 19431
+OK themed__salary-slip-salary-slip-standard__wkhtmltopdf-ar 25587
+OK themed__salary-slip-salary-slip-standard__chrome-en 116562
+OK themed__salary-slip-salary-slip-standard__chrome-ar 161356
+FAIL themed__salary-slip-salary-slip-classic__wkhtmltopdf-en TypeError('<pre>Traceback (most recent call last)
+FAIL themed__salary-slip-salary-slip-classic__wkhtmltopdf-ar TypeError('<pre>Traceback (most recent call last)
+FAIL themed__salary-slip-salary-slip-classic__chrome-en TypeError('<pre>Traceback (most recent call last):\n  
+FAIL themed__salary-slip-salary-slip-classic__chrome-ar TypeError('<pre>Traceback (most recent call last):\n  
+FAIL themed__salary-slip-salary-slip-detailed__wkhtmltopdf-en TypeError('<pre>Traceback (most recent call last
+FAIL themed__salary-slip-salary-slip-detailed__wkhtmltopdf-ar TypeError('<pre>Traceback (most recent call last
+FAIL themed__salary-slip-salary-slip-detailed__chrome-en TypeError('<pre>Traceback (most recent call last):\n 
+FAIL themed__salary-slip-salary-slip-detailed__chrome-ar TypeError('<pre>Traceback (most recent call last):\n 
+FAIL themed__salary-slip-salary-slip-compact__wkhtmltopdf-en TypeError('<pre>Traceback (most recent call last)
+FAIL themed__salary-slip-salary-slip-compact__wkhtmltopdf-ar TypeError('<pre>Traceback (most recent call last)
+FAIL themed__salary-slip-salary-slip-compact__chrome-en TypeError('<pre>Traceback (most recent call last):\n  
+FAIL themed__salary-slip-salary-slip-compact__chrome-ar TypeError('<pre>Traceback (most recent call last):\n  
+OK themed__leave-application-standard__wkhtmltopdf-en 20711
+OK themed__leave-application-standard__wkhtmltopdf-ar 28035
+OK themed__leave-application-standard__chrome-en 66186
+OK themed__leave-application-standard__chrome-ar 122392
+OK themed__expense-claim-standard__wkhtmltopdf-en 25164
+OK themed__expense-claim-standard__wkhtmltopdf-ar 36951
+OK themed__expense-claim-standard__chrome-en 126879
+OK themed__expense-claim-standard__chrome-ar 205823

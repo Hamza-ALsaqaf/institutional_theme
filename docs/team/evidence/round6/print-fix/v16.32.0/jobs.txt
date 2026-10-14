@@ -1,0 +1,6 @@
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Standard
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Classic
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Detailed
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Compact
+Leave Application|HR-LAP-2026-00001|Standard
+Expense Claim|HR-EXP-2026-00001|Standard
