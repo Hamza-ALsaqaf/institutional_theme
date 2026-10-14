@@ -1,0 +1,162 @@
+$ tools/bench/b.sh run-tests --app institutional_theme
+Starting test run with parameters: site=midad.test, app=institutional_theme, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 148 integration tests for institutional_theme
+
+institutional_theme.tests.test_api.TestSetAppearance
+   [32m ✔ [0m test_a_disallowed_palette_is_a_validation_error
+   [32m ✔ [0m test_a_value_is_stored_for_the_session_user_only
+   [32m ✔ [0m test_a_value_left_out_is_not_changed
+   [32m ✔ [0m test_an_unknown_palette_and_a_bad_density_are_rejected
+   [32m ✔ [0m test_guest_gets_a_permission_error
+   [32m ✔ [0m test_it_is_whitelisted_for_post_only
+   [32m ✔ [0m test_the_result_is_the_effective_value
+
+institutional_theme.tests.test_web_content.TestWebContent
+   [32m ✔ [0m test_default_notice_in_both_languages
+   [32m ✔ [0m test_environment_words
+   [32m ✔ [0m test_error_page_reference
+   [32m ✔ [0m test_existing_values_are_kept
+   [32m ✔ [0m test_forged_reference_falls_back_to_time_of_error
+   [32m ✔ [0m test_hook_never_raises
+   [32m ✔ [0m test_language_links_keep_the_query
+   [32m ✔ [0m test_login_gets_masthead_footer_and_classes [31m (2.32s)[0m
+   [32m ✔ [0m test_login_title_is_translated
+   [32m ✔ [0m test_message_reference_only_on_error_status
+   [32m ✔ [0m test_message_with_red_indicator_is_an_error
+   [32m ✔ [0m test_not_found_has_no_reference
+   [32m ✔ [0m test_notice_follows_page_language_with_fallback
+   [32m ✔ [0m test_other_templates_are_left_alone
+   [32m ✔ [0m test_release_line
+   [32m ✔ [0m test_settings_values_are_escaped
+   [32m ✔ [0m test_support_is_omitted_when_empty_and_kept_when_set
+   [32m ✔ [0m test_web_page_left_becomes_start_in_arabic_only
+
+institutional_theme.tests.test_boot.TestBoot
+   [32m ✔ [0m test_a_different_failure_is_logged_again
+   [32m ✔ [0m test_a_failure_is_logged_and_leaves_the_boot_without_ins
+   [32m ✔ [0m test_a_log_call_that_raises_never_leaves_the_guard
+   [32m ✔ [0m test_a_persistent_failure_is_logged_once_per_process
+   [32m ✔ [0m test_behaviour_changes_ship_disabled
+   [32m ✔ [0m test_bootinfo_ins_has_the_documented_keys
+   [32m ✔ [0m test_environment_comes_from_site_config_only
+   [32m ✔ [0m test_the_appearance_page_is_open_to_every_desk_user
+   [32m ✔ [0m test_the_behaviour_flags_follow_the_settings
+
+institutional_theme.tests.test_website_hook.TestWebsiteHook
+   [32m ✔ [0m test_a_context_without_a_list_is_left_alone
+   [32m ✔ [0m test_a_custom_palette_is_linked_by_its_generated_file
+   [32m ✔ [0m test_a_font_pairing_bundle_is_linked_with_the_palette
+   [32m ✔ [0m test_a_missing_manifest_key_gives_no_link
+   [32m ✔ [0m test_a_raising_hook_logs_once_and_changes_nothing
+   [32m ✔ [0m test_the_desk_links_the_users_palette_after_the_existing_links
+   [32m ✔ [0m test_the_midad_palette_adds_no_link
+   [32m ✔ [0m test_website_pages_get_the_site_default_in_a_new_list
+
+institutional_theme.tests.test_preferences.TestPreferences
+   [32m ✔ [0m test_a_custom_card_is_never_nameless
+   [32m ✔ [0m test_a_missing_settings_document_gives_the_stock_values
+   [32m ✔ [0m test_a_palette_the_site_does_not_allow_falls_back_and_comes_back
+   [32m ✔ [0m test_a_palette_without_a_stylesheet_is_never_effective
+   [32m ✔ [0m test_a_stored_value_is_read_back
+   [32m ✔ [0m test_allowed_presets_keep_the_shipped_order_and_never_come_back_empty
+   [32m ✔ [0m test_an_unknown_stored_value_is_ignored
+   [32m ✔ [0m test_cards_carry_a_name_and_two_swatches
+   [32m ✔ [0m test_custom_is_offered_only_when_its_palette_passes
+   [32m ✔ [0m test_defaults_are_midad_and_comfortable
+   [32m ✔ [0m test_guest_gets_the_site_defaults
+   [32m ✔ [0m test_site_default_density
+   [32m ✔ [0m test_the_fallback_is_the_site_default_palette
+
+institutional_theme.tests.test_site_files.TestSiteFiles
+   [32m ✔ [0m test_a_deleted_folder_is_regenerated
+   [32m ✔ [0m test_a_failure_after_the_commit_is_logged_once_and_does_not_raise
+   [32m ✔ [0m test_a_palette_that_fails_its_audit_is_never_written
+   [32m ✔ [0m test_a_read_only_folder_gives_no_link_and_no_error
+   [32m ✔ [0m test_after_migrate_regenerates
+   [32m ✔ [0m test_changing_the_colours_writes_a_new_name_and_keeps_one_previous
+   [32m ✔ [0m test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name
+   [32m ✔ [0m test_ensure_never_writes_the_database
+   [32m ✔ [0m test_nothing_is_written_when_nothing_is_wanted
+   [32m ✔ [0m test_old_temporary_files_are_pruned_and_young_ones_kept
+   [32m ✔ [0m test_saving_the_settings_writes_the_file_through_the_on_update_hook
+   [32m ✔ [0m test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing
+   [32m ✔ [0m test_the_name_is_the_hash_of_the_content_and_deterministic
+   [32m ✔ [0m test_uploaded_fonts_are_written_and_a_missing_semibold_drops_that_script
+
+institutional_theme.tests.test_print_ship.TestDecide
+   [32m ✔ [0m test_decisions
+   [32m ✔ [0m test_the_checksum_separates_its_parts
+   [32m ✔ [0m test_the_source_map_comment_is_dropped
+
+institutional_theme.tests.test_print_ship.TestShip
+   [32m ✔ [0m test_a_deleted_record_is_not_created_again
+   [32m ✔ [0m test_a_missing_bundle_skips_without_error
+   [32m ✔ [0m test_a_record_shipped_before_the_guard_is_updated_not_flagged [31m (2.4s)[0m
+   [32m ✔ [0m test_an_administrators_edit_is_not_overwritten
+   [32m ✔ [0m test_an_existing_record_the_theme_did_not_ship_is_left_alone
+   [32m ✔ [0m test_an_unbuilt_manifest_entry_skips
+   [32m ✔ [0m test_an_untouched_record_is_updated_when_the_content_changes [31m (2.66s)[0m
+   [32m ✔ [0m test_missing_templates_skip_without_error
+   [32m ✔ [0m test_nothing_becomes_the_default
+   [32m ✔ [0m test_ships_once
+   [32m ✔ [0m test_the_bundle_is_found_through_the_manifest
+   [32m ✔ [0m test_the_font_block_follows_the_pairing
+   [32m ✔ [0m test_the_header_with_the_app_still_shows_the_emblem
+   [32m ✔ [0m test_the_installed_hooks_are_registered
+   [32m ✔ [0m test_the_second_run_changes_nothing
+   [32m ✔ [0m test_the_shipped_templates_print_without_the_app
+   [32m ✔ [0m test_uninstall_keeps_a_linked_record [31m (4.68s)[0m
+   [32m ✔ [0m test_uninstall_removes_untouched_and_keeps_changed [31m (3.6s)[0m
+
+institutional_theme.tests.test_identity.TestIdentity
+   [32m ✔ [0m test_a_private_or_foreign_emblem_is_not_offered
+   [32m ✔ [0m test_an_emblem_url_cannot_end_an_attribute
+   [32m ✔ [0m test_everything_is_empty_without_settings_and_company
+   [32m ✔ [0m test_fallbacks_when_the_settings_are_empty
+   [32m ✔ [0m test_it_never_raises
+   [32m ✔ [0m test_the_jinja_hook_exposes_the_function
+   [32m ✔ [0m test_the_keys_are_exactly_the_contract
+   [32m ✔ [0m test_the_real_settings_give_strings
+   [32m ✔ [0m test_values_come_from_the_settings
+
+institutional_theme.institutional_theme.doctype.institutional_theme_settings.test_institutional_theme_settings.TestInstitutionalThemeSettings
+[90m  Test Records created: Institutional Theme Settings (0)[0m
+   [32m ✔ [0m test_a_changed_font_is_checked_while_the_pairing_stays_uploaded [31m (2.95s)[0m
+   [32m ✔ [0m test_a_website_copy_that_is_still_shown_stays [31m (5.63s)[0m
+   [32m ✔ [0m test_an_administrators_file_with_the_emblems_bytes_survives_uninstall [31m (5.69s)[0m
+   [32m ✔ [0m test_audit_text_uses_labels_not_token_names
+   [32m ✔ [0m test_before_uninstall_continues_after_a_failing_step [31m (6.41s)[0m
+   [32m ✔ [0m test_before_uninstall_leaves_nothing_behind_and_is_idempotent [31m (10.8s)[0m
+   [32m ✔ [0m test_behaviour_ships_disabled
+   [32m ✔ [0m test_broken_website_settings_does_not_block_saving [31m (3.02s)[0m
+   [32m ✔ [0m test_clearing_a_field_restores_the_original [31m (3.25s)[0m
+   [32m ✔ [0m test_clearing_does_not_overwrite_an_administrators_later_edit [31m (3.33s)[0m
+   [32m ✔ [0m test_contrast_line_wording_for_a_maximum
+   [32m ✔ [0m test_custom_colours_are_required_and_must_be_hex
+   [32m ✔ [0m test_custom_default_needs_allow_custom
+   [32m ✔ [0m test_custom_palette_failing_a_pair_is_rejected_naming_every_pair
+   [32m ✔ [0m test_custom_palette_that_passes_is_saved_with_its_audit
+   [32m ✔ [0m test_default_must_be_allowed
+   [32m ✔ [0m test_defaults_save
+   [32m ✔ [0m test_delete_attachments_keeps_a_navbar_copy_that_is_showing [31m (4.83s)[0m
+   [32m ✔ [0m test_delete_attachments_removes_only_this_doctypes_files
+   [32m ✔ [0m test_delete_attachments_removes_the_navbar_copies_core_made [31m (5.01s)[0m
+   [32m ✔ [0m test_doctype_lists_exactly_the_shipped_presets
+   [32m ✔ [0m test_dropped_preset_is_not_a_valid_default
+   [32m ✔ [0m test_environment_comes_from_site_config_and_is_not_stored
+   [32m ✔ [0m test_environment_labels
+   [32m ✔ [0m test_external_font_url_is_rejected
+   [32m ✔ [0m test_file_that_is_not_a_font_is_rejected
+   [32m ✔ [0m test_form_shows_the_audit_in_words_and_storage_stays_neutral
+   [32m ✔ [0m test_hook_is_registered
+   [32m ✔ [0m test_identity_changed_elsewhere_is_not_overwritten_by_an_unrelated_save [31m (2.14s)[0m
+   [32m ✔ [0m test_identity_is_written_through_by_a_system_manager_without_website_manager [31m (3.9s)[0m
+   [32m ✔ [0m test_idle_warning_range
+   [32m ✔ [0m test_missing_upload_is_named_on_the_form
+   [32m ✔ [0m test_only_system_manager_has_permissions
+       ▸  /home/frappe/frappe-bench/apps/frappe/frappe/model/qb_query.py:153: V17FrappeDeprecationWarning: This codepath was marked (DATE: 2024-01-01) deprecated for removal (from v17 onwards); note:
+       ▸   The 'limit_page_length' parameter is deprecated. Use 'limit' instead.
+       ▸  
+       ▸    deprecation_warning(
