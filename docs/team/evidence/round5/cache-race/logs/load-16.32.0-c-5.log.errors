@@ -1,0 +1,147 @@
+=== 2026-10-14T10:44:10.669+00:00 500 /update-password
+error-content {
+		text-align: left;
+		margin-top: var(--margin-md);
+		border-radius: 8px;
+		background-color: #f5f7fa;
+		max-height: 400px;
+		overflow: auto;
+	}
+
+	code::-webkit-scrollbar {
+		display: none;
+	}
+</style>
+
+<div class="error-page">
+	<div>
+		<h4>
+			Server Error
+		</h4>
+		<div class="details">
+			<p>500: There was an error building this page</p>
+
+			<button class="btn btn-xs btn-secondary text-muted small view-error" >
+				Show Error
+			</button>
+
+			<div class="error-content hidden">
+				<pre><code></code></pre>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<div id="all-symbols" style="display:none"></div><script type="text/javascript">fetch(`/assets/frappe/icons/lucide/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/timeless/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/espresso/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/erpnext/icons/pos-icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script>
+	<!-- js should be loaded in body! -->
+	<script>
+		frappe.boot = {"lang":"en","apps_data":{"apps":[],"is_desk_apps":1,"default_path":""},"sysdefaults":{"float_precision":3,"date_format":"dd-mm-yyyy","time_format":"HH:mm:ss","first_day_of_the_week":"Sunday","number_format":"#,###.##","currency":"SAR"},"time_zone":{"system":"Asia/Riyadh","user":"Asia/Kolkata"},"assets_json":{"billing.bundle.js":"/assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js","bootstrap-4-web.bundle.js":"/assets/frappe/dist/js/bootstrap-4-web.bundle.OGQ7JEDG.js","calendar.bundle.js":"/assets/frappe/dist/js/calendar.bundle.4A4YITIU.js","controls.bundle.js":"/assets/frappe/dist/js/controls.bundle.2WG7Y7XR.js","data_import_tools.bundle.js":"/assets/frappe/dist/js/data_import_tools.bundle.ASV3X6NG.js","desk.bundle.js":"/assets/frappe/dist/js/desk.bundle.RY6OWFAD.js","dialog.bundle.js":"/assets/frappe/dist/js/dialog.bundle.6GXPFWAU.js","form.bundle.js":"/assets/frappe/dist/js/form.bundle.VHUACMX3.js","frappe-web.bundle.js":"/assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js","libs.bundle.js":"/assets/frappe/dist/js/libs.bundle.JEM3HUCP.js","list.bundle.js":"/assets/frappe/dist/js/list.bundle.5EZUZLFN.js","logtypes.bundle.js":"/assets/frappe/dist/js/logtypes.bundle.WKQH7KBM.js","onboarding_tours.bundle.js":"/assets/frappe/dist/js/onboarding_tours.bundle.3QPQU5AO.js","photoswipe.bundle.js":"/assets/frappe/dist/js/photoswipe.bundle.YSXZQA64.js","print.bundle.js":"/assets/frappe/dist/js/print.bundle.27VKHZQE.js","report.bundle.js":"/assets/frappe/dist/js/report.bundle.JY4YJS53.js","sentry.bundle.js":"/assets/frappe/dist/js/sentry.bundle.AX44GVWW.js","syntax_highlighting.bundle.js":"/assets/frappe/dist/js/syntax_highlighting.bundle.YHGNRCUE.js","telemetry.bundle.js":"/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js","video_player.bundle.js":"/assets/frappe/dist/js/video_player.bundle.DUYYLSFO.js","web_form.bundle.js":"/assets/frappe/dist/js/web_form.bundle.KAS2PEDT.js","form_builder.bundle.js":"/assets/frappe/dist/js/form_builder.bundle.CDY5DRY5.js","print_format_builder.bundle.js":"/assets/frappe/dist/js/print_format_builder.bundle.EY2DZ4XK.js","workflow_builder.bundle.js":"/assets/frappe/dist/js/workflow_builder.bundle.O2QPXUEI.js","build_events.bundle.js":"/assets/frappe/dist/js/build_events.bundle.BCX32TWL.js","file_uploader.bundle.js":"/assets/frappe/dist/js/file_uploader.bundle.NFWQ74RI.js","user_onboarding.bundle.js":"/assets/frappe/dist/js/user_onboarding.bundle.AEPV3UEJ.js","kanban_board.bundle.js":"/assets/frappe/dist/js/kanban_board.bundle.IL2IJEHR.js","desk.bundle.css":"/assets/frappe/dist/css/desk.bundle.U47WC74O.css","email.bundle.css":"/assets/frappe/dist/css/email.bundle.GCOVUVIE.css","login.bundle.css":"/assets/frappe/dist/css/login.bundle.7XGEUOYO.css","print.bundle.css":"/assets/frappe/dist/css/print.bundle.CWOQXO4P.css","print_format.bundle.css":"/assets/frappe/dist/css/print_format.bundle.CP6BLLF5.css","report.bundle.css":"/assets/frappe/dist/css/report.bundle.HD24T3Q4.css","web_form.bundle.css":"/assets/frappe/dist/css/web_form.bundle.SJ7MCBWO.css","website.bundle.css":"/assets/frappe/dist/css/website.bundle.I6K4QEEP.css","bank-reconciliation-tool.bundle.js":"/assets/erpnext/dist/js/bank-reconciliation-tool.bundle.3OD5XE4B.js","erpnext.bundle.js":"/assets/erpnext/dist/js/erpnext.bundle.DZUIK47Y.js","item-dashboard.bundle.js":"/assets/erpnext/dist/js/item-dashboard.bundle.7LUKZCYJ.js","point-of-sale.bundle.js":"/assets/erpnext/dist/js/point-of-sale.bundle.USGGAUZO.js","bom_configurator.bundle.js":"/assets/erpnext/dist/js/bom_configurator.bundle.ZQW56QWW.js","erpnext-web.bundle.css":"/assets/erpnext/dist/css/erpnext-web.bundle.3MS3ODUU.css","erpnext.bundle.css":"/assets/erpnext/dist/css/erpnext.bundle.YU7V7RGG.css","erpnext_email.bundle.css":"/assets/erpnext/dist/css/erpnext_email.bundle.SA3DDZKH.css","ins_shell.bundle.js":"/assets/institutional_theme/dist/js/ins_shell.bundle.7KHRY43T.js","ins_web.bundle.js":"/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js","ins_desk.bundle.css":"/assets/institutional_theme/dist/css/ins_desk.bundle.S7SLX3YG.css","ins_email.bundle.css":"/assets/institutional_theme/dist/css/ins_email.bundle.RFDPME4K.css","ins_print.bundle.css":"/assets/institutional_theme/dist/css/ins_print.bundle.JGGUWLOB.css","ins_web.bundle.css":"/assets/institutional_theme/dist/css/ins_web.bundle.NOM62O5C.css","ins_fonts_noto.bundle.css":"/assets/institutional_theme/dist/css/ins_fonts_noto.bundle.IYBS32LC.css","ins_fonts_tajawal.bundle.css":"/assets/institutional_theme/dist/css/ins_fonts_tajawal.bundle.GOVE4YBC.css","ins_palette_forest.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_forest.bundle.UP2SDUPC.css","ins_palette_graphite.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_graphite.bundle.SSDNHJ4I.css","ins_palette_petrol.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_petrol.bundle.KLANNXK3.css","ins_palette_plum.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_plum.bundle.6IKX7YPW.css","rtl_desk.bundle.css":"/assets/frappe/dist/css-rtl/desk.bundle.D4PJ47ZQ.css","rtl_email.bundle.css":"/assets/frappe/dist/css-rtl/email.bundle.ZYDK5UDV.css","rtl_login.bundle.css":"/as
+=== 2026-10-14T10:44:45.169+00:00 500 /login?redirect-to=%2Fdesk
+error-content {
+		text-align: left;
+		margin-top: var(--margin-md);
+		border-radius: 8px;
+		background-color: #f5f7fa;
+		max-height: 400px;
+		overflow: auto;
+	}
+
+	code::-webkit-scrollbar {
+		display: none;
+	}
+</style>
+
+<div class="error-page">
+	<div>
+		<h4>
+			Server Error
+		</h4>
+		<div class="details">
+			<p>500: There was an error building this page</p>
+
+			<button class="btn btn-xs btn-secondary text-muted small view-error" >
+				Show Error
+			</button>
+
+			<div class="error-content hidden">
+				<pre><code></code></pre>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<div id="all-symbols" style="display:none"></div><script type="text/javascript">fetch(`/assets/frappe/icons/lucide/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/timeless/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/espresso/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/erpnext/icons/pos-icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script>
+	<!-- js should be loaded in body! -->
+	<script>
+		frappe.boot = {"lang":"en","apps_data":{"apps":[],"is_desk_apps":1,"default_path":""},"sysdefaults":{"float_precision":3,"date_format":"dd-mm-yyyy","time_format":"HH:mm:ss","first_day_of_the_week":"Sunday","number_format":"#,###.##","currency":"SAR"},"time_zone":{"system":"Asia/Riyadh","user":"Asia/Kolkata"},"assets_json":{"billing.bundle.js":"/assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js","bootstrap-4-web.bundle.js":"/assets/frappe/dist/js/bootstrap-4-web.bundle.OGQ7JEDG.js","calendar.bundle.js":"/assets/frappe/dist/js/calendar.bundle.4A4YITIU.js","controls.bundle.js":"/assets/frappe/dist/js/controls.bundle.2WG7Y7XR.js","data_import_tools.bundle.js":"/assets/frappe/dist/js/data_import_tools.bundle.ASV3X6NG.js","desk.bundle.js":"/assets/frappe/dist/js/desk.bundle.RY6OWFAD.js","dialog.bundle.js":"/assets/frappe/dist/js/dialog.bundle.6GXPFWAU.js","form.bundle.js":"/assets/frappe/dist/js/form.bundle.VHUACMX3.js","frappe-web.bundle.js":"/assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js","libs.bundle.js":"/assets/frappe/dist/js/libs.bundle.JEM3HUCP.js","list.bundle.js":"/assets/frappe/dist/js/list.bundle.5EZUZLFN.js","logtypes.bundle.js":"/assets/frappe/dist/js/logtypes.bundle.WKQH7KBM.js","onboarding_tours.bundle.js":"/assets/frappe/dist/js/onboarding_tours.bundle.3QPQU5AO.js","photoswipe.bundle.js":"/assets/frappe/dist/js/photoswipe.bundle.YSXZQA64.js","print.bundle.js":"/assets/frappe/dist/js/print.bundle.27VKHZQE.js","report.bundle.js":"/assets/frappe/dist/js/report.bundle.JY4YJS53.js","sentry.bundle.js":"/assets/frappe/dist/js/sentry.bundle.AX44GVWW.js","syntax_highlighting.bundle.js":"/assets/frappe/dist/js/syntax_highlighting.bundle.YHGNRCUE.js","telemetry.bundle.js":"/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js","video_player.bundle.js":"/assets/frappe/dist/js/video_player.bundle.DUYYLSFO.js","web_form.bundle.js":"/assets/frappe/dist/js/web_form.bundle.KAS2PEDT.js","form_builder.bundle.js":"/assets/frappe/dist/js/form_builder.bundle.CDY5DRY5.js","print_format_builder.bundle.js":"/assets/frappe/dist/js/print_format_builder.bundle.EY2DZ4XK.js","workflow_builder.bundle.js":"/assets/frappe/dist/js/workflow_builder.bundle.O2QPXUEI.js","build_events.bundle.js":"/assets/frappe/dist/js/build_events.bundle.BCX32TWL.js","file_uploader.bundle.js":"/assets/frappe/dist/js/file_uploader.bundle.NFWQ74RI.js","user_onboarding.bundle.js":"/assets/frappe/dist/js/user_onboarding.bundle.AEPV3UEJ.js","kanban_board.bundle.js":"/assets/frappe/dist/js/kanban_board.bundle.IL2IJEHR.js","desk.bundle.css":"/assets/frappe/dist/css/desk.bundle.U47WC74O.css","email.bundle.css":"/assets/frappe/dist/css/email.bundle.GCOVUVIE.css","login.bundle.css":"/assets/frappe/dist/css/login.bundle.7XGEUOYO.css","print.bundle.css":"/assets/frappe/dist/css/print.bundle.CWOQXO4P.css","print_format.bundle.css":"/assets/frappe/dist/css/print_format.bundle.CP6BLLF5.css","report.bundle.css":"/assets/frappe/dist/css/report.bundle.HD24T3Q4.css","web_form.bundle.css":"/assets/frappe/dist/css/web_form.bundle.SJ7MCBWO.css","website.bundle.css":"/assets/frappe/dist/css/website.bundle.I6K4QEEP.css","bank-reconciliation-tool.bundle.js":"/assets/erpnext/dist/js/bank-reconciliation-tool.bundle.3OD5XE4B.js","erpnext.bundle.js":"/assets/erpnext/dist/js/erpnext.bundle.DZUIK47Y.js","item-dashboard.bundle.js":"/assets/erpnext/dist/js/item-dashboard.bundle.7LUKZCYJ.js","point-of-sale.bundle.js":"/assets/erpnext/dist/js/point-of-sale.bundle.USGGAUZO.js","bom_configurator.bundle.js":"/assets/erpnext/dist/js/bom_configurator.bundle.ZQW56QWW.js","erpnext-web.bundle.css":"/assets/erpnext/dist/css/erpnext-web.bundle.3MS3ODUU.css","erpnext.bundle.css":"/assets/erpnext/dist/css/erpnext.bundle.YU7V7RGG.css","erpnext_email.bundle.css":"/assets/erpnext/dist/css/erpnext_email.bundle.SA3DDZKH.css","ins_shell.bundle.js":"/assets/institutional_theme/dist/js/ins_shell.bundle.7KHRY43T.js","ins_web.bundle.js":"/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js","ins_desk.bundle.css":"/assets/institutional_theme/dist/css/ins_desk.bundle.S7SLX3YG.css","ins_email.bundle.css":"/assets/institutional_theme/dist/css/ins_email.bundle.RFDPME4K.css","ins_print.bundle.css":"/assets/institutional_theme/dist/css/ins_print.bundle.JGGUWLOB.css","ins_web.bundle.css":"/assets/institutional_theme/dist/css/ins_web.bundle.NOM62O5C.css","ins_fonts_noto.bundle.css":"/assets/institutional_theme/dist/css/ins_fonts_noto.bundle.IYBS32LC.css","ins_fonts_tajawal.bundle.css":"/assets/institutional_theme/dist/css/ins_fonts_tajawal.bundle.GOVE4YBC.css","ins_palette_forest.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_forest.bundle.UP2SDUPC.css","ins_palette_graphite.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_graphite.bundle.SSDNHJ4I.css","ins_palette_petrol.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_petrol.bundle.KLANNXK3.css","ins_palette_plum.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_plum.bundle.6IKX7YPW.css","rtl_desk.bundle.css":"/assets/frappe/dist/css-rtl/desk.bundle.D4PJ47ZQ.css","rtl_email.bundle.css":"/assets/frappe/dist/css-rtl/email.bundle.ZYDK5UDV.css","rtl_login.bundle.css":"/as
+=== 2026-10-14T10:47:37.512+00:00 500 /login
+error-content {
+		text-align: left;
+		margin-top: var(--margin-md);
+		border-radius: 8px;
+		background-color: #f5f7fa;
+		max-height: 400px;
+		overflow: auto;
+	}
+
+	code::-webkit-scrollbar {
+		display: none;
+	}
+</style>
+
+<div class="error-page">
+	<div>
+		<h4>
+			Server Error
+		</h4>
+		<div class="details">
+			<p>500: There was an error building this page</p>
+
+			<button class="btn btn-xs btn-secondary text-muted small view-error" >
+				Show Error
+			</button>
+
+			<div class="error-content hidden">
+				<pre><code></code></pre>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<div id="all-symbols" style="display:none"></div><script type="text/javascript">fetch(`/assets/frappe/icons/lucide/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/timeless/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/espresso/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/erpnext/icons/pos-icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script>
+	<!-- js should be loaded in body! -->
+	<script>
+		frappe.boot = {"lang":"en","apps_data":{"apps":[],"is_desk_apps":1,"default_path":""},"sysdefaults":{"float_precision":3,"date_format":"dd-mm-yyyy","time_format":"HH:mm:ss","first_day_of_the_week":"Sunday","number_format":"#,###.##","currency":"SAR"},"time_zone":{"system":"Asia/Riyadh","user":"Asia/Kolkata"},"assets_json":{"billing.bundle.js":"/assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js","bootstrap-4-web.bundle.js":"/assets/frappe/dist/js/bootstrap-4-web.bundle.OGQ7JEDG.js","calendar.bundle.js":"/assets/frappe/dist/js/calendar.bundle.4A4YITIU.js","controls.bundle.js":"/assets/frappe/dist/js/controls.bundle.2WG7Y7XR.js","data_import_tools.bundle.js":"/assets/frappe/dist/js/data_import_tools.bundle.ASV3X6NG.js","desk.bundle.js":"/assets/frappe/dist/js/desk.bundle.RY6OWFAD.js","dialog.bundle.js":"/assets/frappe/dist/js/dialog.bundle.6GXPFWAU.js","form.bundle.js":"/assets/frappe/dist/js/form.bundle.VHUACMX3.js","frappe-web.bundle.js":"/assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js","libs.bundle.js":"/assets/frappe/dist/js/libs.bundle.JEM3HUCP.js","list.bundle.js":"/assets/frappe/dist/js/list.bundle.5EZUZLFN.js","logtypes.bundle.js":"/assets/frappe/dist/js/logtypes.bundle.WKQH7KBM.js","onboarding_tours.bundle.js":"/assets/frappe/dist/js/onboarding_tours.bundle.3QPQU5AO.js","photoswipe.bundle.js":"/assets/frappe/dist/js/photoswipe.bundle.YSXZQA64.js","print.bundle.js":"/assets/frappe/dist/js/print.bundle.27VKHZQE.js","report.bundle.js":"/assets/frappe/dist/js/report.bundle.JY4YJS53.js","sentry.bundle.js":"/assets/frappe/dist/js/sentry.bundle.AX44GVWW.js","syntax_highlighting.bundle.js":"/assets/frappe/dist/js/syntax_highlighting.bundle.YHGNRCUE.js","telemetry.bundle.js":"/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js","video_player.bundle.js":"/assets/frappe/dist/js/video_player.bundle.DUYYLSFO.js","web_form.bundle.js":"/assets/frappe/dist/js/web_form.bundle.KAS2PEDT.js","form_builder.bundle.js":"/assets/frappe/dist/js/form_builder.bundle.CDY5DRY5.js","print_format_builder.bundle.js":"/assets/frappe/dist/js/print_format_builder.bundle.EY2DZ4XK.js","workflow_builder.bundle.js":"/assets/frappe/dist/js/workflow_builder.bundle.O2QPXUEI.js","build_events.bundle.js":"/assets/frappe/dist/js/build_events.bundle.BCX32TWL.js","file_uploader.bundle.js":"/assets/frappe/dist/js/file_uploader.bundle.NFWQ74RI.js","user_onboarding.bundle.js":"/assets/frappe/dist/js/user_onboarding.bundle.AEPV3UEJ.js","kanban_board.bundle.js":"/assets/frappe/dist/js/kanban_board.bundle.IL2IJEHR.js","desk.bundle.css":"/assets/frappe/dist/css/desk.bundle.U47WC74O.css","email.bundle.css":"/assets/frappe/dist/css/email.bundle.GCOVUVIE.css","login.bundle.css":"/assets/frappe/dist/css/login.bundle.7XGEUOYO.css","print.bundle.css":"/assets/frappe/dist/css/print.bundle.CWOQXO4P.css","print_format.bundle.css":"/assets/frappe/dist/css/print_format.bundle.CP6BLLF5.css","report.bundle.css":"/assets/frappe/dist/css/report.bundle.HD24T3Q4.css","web_form.bundle.css":"/assets/frappe/dist/css/web_form.bundle.SJ7MCBWO.css","website.bundle.css":"/assets/frappe/dist/css/website.bundle.I6K4QEEP.css","bank-reconciliation-tool.bundle.js":"/assets/erpnext/dist/js/bank-reconciliation-tool.bundle.3OD5XE4B.js","erpnext.bundle.js":"/assets/erpnext/dist/js/erpnext.bundle.DZUIK47Y.js","item-dashboard.bundle.js":"/assets/erpnext/dist/js/item-dashboard.bundle.7LUKZCYJ.js","point-of-sale.bundle.js":"/assets/erpnext/dist/js/point-of-sale.bundle.USGGAUZO.js","bom_configurator.bundle.js":"/assets/erpnext/dist/js/bom_configurator.bundle.ZQW56QWW.js","erpnext-web.bundle.css":"/assets/erpnext/dist/css/erpnext-web.bundle.3MS3ODUU.css","erpnext.bundle.css":"/assets/erpnext/dist/css/erpnext.bundle.YU7V7RGG.css","erpnext_email.bundle.css":"/assets/erpnext/dist/css/erpnext_email.bundle.SA3DDZKH.css","ins_shell.bundle.js":"/assets/institutional_theme/dist/js/ins_shell.bundle.7KHRY43T.js","ins_web.bundle.js":"/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js","ins_desk.bundle.css":"/assets/institutional_theme/dist/css/ins_desk.bundle.S7SLX3YG.css","ins_email.bundle.css":"/assets/institutional_theme/dist/css/ins_email.bundle.RFDPME4K.css","ins_print.bundle.css":"/assets/institutional_theme/dist/css/ins_print.bundle.JGGUWLOB.css","ins_web.bundle.css":"/assets/institutional_theme/dist/css/ins_web.bundle.NOM62O5C.css","ins_fonts_noto.bundle.css":"/assets/institutional_theme/dist/css/ins_fonts_noto.bundle.IYBS32LC.css","ins_fonts_tajawal.bundle.css":"/assets/institutional_theme/dist/css/ins_fonts_tajawal.bundle.GOVE4YBC.css","ins_palette_forest.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_forest.bundle.UP2SDUPC.css","ins_palette_graphite.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_graphite.bundle.SSDNHJ4I.css","ins_palette_petrol.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_petrol.bundle.KLANNXK3.css","ins_palette_plum.bundle.css":"/assets/institutional_theme/dist/css/ins_palette_plum.bundle.6IKX7YPW.css","rtl_desk.bundle.css":"/assets/frappe/dist/css-rtl/desk.bundle.D4PJ47ZQ.css","rtl_email.bundle.css":"/assets/frappe/dist/css-rtl/email.bundle.ZYDK5UDV.css","rtl_login.bundle.css":"/as

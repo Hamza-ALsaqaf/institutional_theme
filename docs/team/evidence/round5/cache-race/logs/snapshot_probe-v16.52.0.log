@@ -1,0 +1,8 @@
+isolation = 'repeatable read'
+reader_before = 'Comfortable'
+original = 'Comfortable'
+written = 'Compact'
+cache_right_after_commit = False
+reader_after_commit = 'Comfortable'
+cached_default_density_after_reader_finished = 'Comfortable'
+database_default_density = 'Compact'

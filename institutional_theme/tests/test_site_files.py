@@ -25,6 +25,12 @@ def folder() -> Path:
 	return Path(site_files._folder())
 
 
+def temporary_files() -> list[str]:
+	"""Temporary files of THIS process. A desk request on the same site is a process of its own: its file
+	is in flight for a moment and is not what these tests are about (`_write_atomic` names it with its pid)."""
+	return sorted(path.name for path in folder().glob(f"*.{os.getpid()}.*.tmp"))
+
+
 def generated(prefix: str) -> list[Path]:
 	return sorted(folder().glob(f"{prefix}.*.css")) if folder().is_dir() else []
 
@@ -108,7 +114,7 @@ class TestSiteFiles(IntegrationTestCase):
 			thread.join()
 		self.assertEqual(errors, [])
 		self.assertEqual((folder() / name).read_text(encoding="utf-8"), content)
-		self.assertEqual([p.name for p in folder().glob("*.tmp")], [])
+		self.assertEqual(temporary_files(), [])
 
 	def test_a_read_only_folder_gives_no_link_and_no_error(self) -> None:
 		set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
@@ -116,7 +122,7 @@ class TestSiteFiles(IntegrationTestCase):
 		site_files.clear_memo()
 		with mock.patch("os.replace", side_effect=PermissionError("read-only")):
 			self.assertEqual(site_files.ensure(), {})
-		self.assertEqual([p.name for p in folder().glob("*.tmp")], [])
+		self.assertEqual(temporary_files(), [])
 
 	def test_changing_the_colours_writes_a_new_name_and_keeps_one_previous(self) -> None:
 		set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
