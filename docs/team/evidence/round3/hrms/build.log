@@ -1,0 +1,300 @@
+Linking /home/frappe/frappe-bench/apps/frappe/frappe/public to ./assets/frappe  Linking /home/frappe/frappe-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/frappe-bench/apps/hrms/hrms/public to ./assets/hrms        Linking /home/frappe/frappe-bench/apps/hrms/node_modules to ./assets/hrms/node_modules                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/erpnext/public to ./assets/erpnext                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                Linking /home/runner/work/institutional_theme/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps hrms --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+hrms/dist/js/
+├─ hierarchy-chart.bundle.5E224PCR.js                       225.55 Kb
+├─ hrms.bundle.4ZPKX5BG.js                                  17.25 Kb
+├─ interview.bundle.C7CDEMYA.js                             1.66 Kb
+└─ performance.bundle.63UL5NS7.js                           3.70 Kb
+
+hrms/dist/css/
+└─ hrms.bundle.56QAKPHB.css                                 6.30 Kb
+
+hrms/dist/css-rtl/
+└─ hrms.bundle.GILW7VCW.css                                 6.30 Kb
+
+ DONE  Total Build Time: 463.698ms
+
+
+Running build command for hrms
+$ yarn build-pwa && yarn build-roster
+$ cd frontend && yarn build
+$ vite build --base=/assets/hrms/frontend/ && yarn copy-html-entry
+vite v5.4.15 building for production...
+transforming...
+Browserslist: browsers data (caniuse-lite) is 20 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+Inter-DisplayRegular.woff2?v=3.19 referenced in Inter-DisplayRegular.woff2?v=3.19 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+node_modules/@ionic/core/node_modules/@stencil/core/internal/client/index.js (3731:17): A comment
+
+"/*@__PURE__*/"
+
+in "node_modules/@ionic/core/node_modules/@stencil/core/internal/client/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/@stencil/core/internal/client/index.js (3367:17): A comment
+
+"/*@__PURE__*/"
+
+in "node_modules/@stencil/core/internal/client/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+✓ 783 modules transformed.
+rendering chunks...
+computing gzip size...
+../hrms/public/frontend/manifest.webmanifest                                   0.74 kB
+../hrms/public/frontend/index.html                                             8.48 kB │ gzip:   1.17 kB
+../hrms/public/frontend/assets/Inter-Regular-trENmjXB.woff2                  100.79 kB
+../hrms/public/frontend/assets/Inter-Thin-D3JiHKaG.woff2                     101.16 kB
+../hrms/public/frontend/assets/Inter-DisplayBlack-WeYNDCAX.woff2             101.92 kB
+../hrms/public/frontend/assets/Inter-DisplayThin-ChL4oFCg.woff2              102.15 kB
+../hrms/public/frontend/assets/Inter-ExtraLight-CCj5KODw.woff2               102.87 kB
+../hrms/public/frontend/assets/Inter-Light-dIA14uc3.woff2                    103.27 kB
+../hrms/public/frontend/assets/Inter-Black-9EvaAvES.woff2                    103.59 kB
+../hrms/public/frontend/assets/Inter-ExtraBold-Ce88byQn.woff2                104.99 kB
+../hrms/public/frontend/assets/Inter-Bold-R0zHozHF.woff2                     105.21 kB
+../hrms/public/frontend/assets/Inter-Medium-BN7iDkqy.woff2                   105.22 kB
+../hrms/public/frontend/assets/Inter-DisplayLight-w8lPQKnS.woff2             105.34 kB
+../hrms/public/frontend/assets/Inter-DisplayExtraBold-BXf2GJrG.woff2         105.36 kB
+../hrms/public/frontend/assets/Inter-DisplayMedium-DcjtbkcA.woff2            105.38 kB
+../hrms/public/frontend/assets/Inter-SemiBold-CBUekF9E.woff2                 105.40 kB
+../hrms/public/frontend/assets/Inter-DisplaySemiBold-BBWLY5vL.woff2          105.56 kB
+../hrms/public/frontend/assets/Inter-DisplayBold-C-1EDGRh.woff2              105.57 kB
+../hrms/public/frontend/assets/Inter-DisplayExtraLight-D2Ja0abb.woff2        105.87 kB
+../hrms/public/frontend/assets/Inter-DisplayItalic-JNEE2o-3.woff2            106.12 kB
+../hrms/public/frontend/assets/Inter-Italic-ClOttZep.woff2                   106.55 kB
+../hrms/public/frontend/assets/Inter-ThinItalic-Dty9qLU6.woff2               106.64 kB
+../hrms/public/frontend/assets/Inter-DisplayBlackItalic-DFEmIFsd.woff2       107.28 kB
+../hrms/public/frontend/assets/Inter-DisplayThinItalic-Cxxw6hRb.woff2        107.44 kB
+../hrms/public/frontend/assets/Inter-LightItalic-BcJQrN_r.woff2              108.56 kB
+../hrms/public/frontend/assets/Inter-BlackItalic-I0v0TUo2.woff2              108.59 kB
+../hrms/public/frontend/assets/Inter-ExtraLightItalic-BXS8QPqu.woff2         109.00 kB
+../hrms/public/frontend/assets/Inter-DisplayBoldItalic-CISmTavk.woff2        110.20 kB
+../hrms/public/frontend/assets/Inter-DisplaySemiBoldItalic-CNvBGF7e.woff2    110.39 kB
+../hrms/public/frontend/assets/Inter-DisplayMediumItalic-BBCoS5uP.woff2      110.46 kB
+../hrms/public/frontend/assets/Inter-BoldItalic-D0-5Ex_3.woff2               110.52 kB
+../hrms/public/frontend/assets/Inter-ExtraBoldItalic-Cgmm6Ie2.woff2          110.52 kB
+../hrms/public/frontend/assets/Inter-DisplayLightItalic-DBve3eI1.woff2       110.56 kB
+../hrms/public/frontend/assets/Inter-SemiBoldItalic-J43nRLRr.woff2           110.64 kB
+../hrms/public/frontend/assets/Inter-DisplayExtraBoldItalic-Czv3KFD8.woff2   110.82 kB
+../hrms/public/frontend/assets/Inter-MediumItalic-iRTrRc5x.woff2             110.82 kB
+../hrms/public/frontend/assets/Inter-DisplayExtraLightItalic-DRwiM9T2.woff2  111.11 kB
+../hrms/public/frontend/assets/Inter.var-C9xDBOS3.woff2                      264.24 kB
+../hrms/public/frontend/assets/Inter-Italic.var-BGHziHgI.woff2               297.27 kB
+../hrms/public/frontend/assets/requestSummaryFields-DZl4c6pn.css               0.04 kB │ gzip:   0.06 kB
+../hrms/public/frontend/assets/FileUploaderView-B6XMMpRf.css                   0.04 kB │ gzip:   0.06 kB
+../hrms/public/frontend/assets/workflow-yjIbxtTX.css                           0.13 kB │ gzip:   0.13 kB
+../hrms/public/frontend/assets/frappe-ui-IZoKCQSt.css                          4.66 kB │ gzip:   1.64 kB
+../hrms/public/frontend/assets/index-Cu43nRYV.css                            102.66 kB │ gzip:  16.91 kB
+../hrms/public/frontend/assets/settings-DLvssnat.js                            0.16 kB │ gzip:   0.16 kB │ map:     0.37 kB
+../hrms/public/frontend/assets/realtime-DZSBMkek.js                            0.26 kB │ gzip:   0.23 kB │ map:     0.96 kB
+../hrms/public/frontend/assets/useCurrencyConversion-BoK4p72L.js               0.57 kB │ gzip:   0.38 kB │ map:     2.07 kB
+../hrms/public/frontend/assets/notifications-D-qkjvRB.js                       0.65 kB │ gzip:   0.38 kB │ map:     1.56 kB
+../hrms/public/frontend/assets/ShiftIcon-B4bYu0bC.js                           0.68 kB │ gzip:   0.45 kB │ map:     0.91 kB
+../hrms/public/frontend/assets/swipe-back-7WkdgVMo.js                          0.76 kB │ gzip:   0.53 kB │ map:     3.77 kB
+../hrms/public/frontend/assets/claims-D5wPgZJk.js                              0.77 kB │ gzip:   0.39 kB │ map:     2.35 kB
+../hrms/public/frontend/assets/formatters-hJjih-XM.js                          0.77 kB │ gzip:   0.50 kB │ map:     2.41 kB
+../hrms/public/frontend/assets/status-tap-CBihvbi5.js                          0.79 kB │ gzip:   0.52 kB │ map:     2.16 kB
+../hrms/public/frontend/assets/TabButtons-B3waOC2D.js                          0.82 kB │ gzip:   0.53 kB │ map:     0.10 kB
+../hrms/public/frontend/assets/EmployeeCheckinItem-F7GbOdaC.js                 0.84 kB │ gzip:   0.51 kB │ map:     1.07 kB
+../hrms/public/frontend/assets/CustomIonModal-B4OjHB19.js                      0.91 kB │ gzip:   0.58 kB │ map:     1.49 kB
+../hrms/public/frontend/assets/leaves-16t7qul5.js                              0.94 kB │ gzip:   0.48 kB │ map:     2.92 kB
+../hrms/public/frontend/assets/ListItem-BdiyCPvL.js                            0.95 kB │ gzip:   0.52 kB │ map:     1.16 kB
+../hrms/public/frontend/assets/SemicircleChart-e1yROMqA.js                     0.98 kB │ gzip:   0.56 kB │ map:     1.80 kB
+../hrms/public/frontend/assets/InvalidEmployee-CijTws2C.js                     0.99 kB │ gzip:   0.63 kB │ map:     1.39 kB
+../hrms/public/frontend/assets/focus-visible-supuXXMI.js                       1.05 kB │ gzip:   0.55 kB │ map:     3.57 kB
+../hrms/public/frontend/assets/QuickLinks-C6wcAjxB.js                          1.07 kB │ gzip:   0.63 kB │ map:     1.34 kB
+../hrms/public/frontend/assets/ProfileInfoModal-TxpFFKE0.js                    1.10 kB │ gzip:   0.62 kB │ map:     0.11 kB
+../hrms/public/frontend/assets/md.transition--smtf1qa.js                       1.12 kB │ gzip:   0.62 kB │ map:     3.66 kB
+../hrms/public/frontend/assets/EmployeeAdvanceBalance-0TR7ggpI.js              1.37 kB │ gzip:   0.79 kB │ map:     1.40 kB
+../hrms/public/frontend/assets/SalarySlipItem-5XW9pvmr.js                      1.37 kB │ gzip:   0.75 kB │ map:     2.24 kB
+../hrms/public/frontend/assets/EmployeeAvatar-BLoMZAIA.js                      1.37 kB │ gzip:   0.73 kB │ map:     3.13 kB
+../hrms/public/frontend/assets/ShiftAssignmentForm-DOOMe3vv.js                 1.44 kB │ gzip:   0.84 kB │ map:     3.37 kB
+../hrms/public/frontend/assets/ExpenseItems-BpuP-u0B.js                        1.45 kB │ gzip:   0.76 kB │ map:     2.02 kB
+../hrms/public/frontend/assets/LeaveRequestItem-Bxo86QrZ.js                    1.46 kB │ gzip:   0.80 kB │ map:     2.12 kB
+../hrms/public/frontend/assets/AttendanceRequestItem-kS3sH7wz.js               1.46 kB │ gzip:   0.81 kB │ map:     2.14 kB
+../hrms/public/frontend/assets/ShiftAssignmentItem-Bt2mYqTI.js                 1.47 kB │ gzip:   0.80 kB │ map:     2.10 kB
+../hrms/public/frontend/assets/SalaryDetailTable-Cphu9Dzw.js                   1.48 kB │ gzip:   0.79 kB │ map:     2.18 kB
+../hrms/public/frontend/assets/InsertLink-Co_Tv8y5.js                          1.52 kB │ gzip:   0.79 kB │ map:     3.34 kB
+../hrms/public/frontend/assets/Dashboard-BBpsi6KU.js                           1.53 kB │ gzip:   0.86 kB │ map:     0.10 kB
+../hrms/public/frontend/assets/ShiftRequestItem-B4TMPZqw.js                    1.56 kB │ gzip:   0.85 kB │ map:     2.24 kB
+../hrms/public/frontend/assets/EmployeeCheckinList-CzShE5oX.js                 1.57 kB │ gzip:   0.82 kB │ map:     1.27 kB
+../hrms/public/frontend/assets/attendance-DJcQcsiW.js                          1.61 kB │ gzip:   0.59 kB │ map:     5.36 kB
+../hrms/public/frontend/assets/AttendanceRequestList-DjYKUdvv.js               1.62 kB │ gzip:   0.83 kB │ map:     1.35 kB
+../hrms/public/frontend/assets/AttendanceRequestForm-DS7oJ-CZ.js               1.62 kB │ gzip:   0.89 kB │ map:     4.08 kB
+../hrms/public/frontend/assets/ShiftAssignmentList-DoF6zyN9.js                 1.63 kB │ gzip:   0.82 kB │ map:     1.36 kB
+../hrms/public/frontend/assets/BaseLayout-DCbyBWBW.js                          1.64 kB │ gzip:   0.86 kB │ map:     2.45 kB
+../hrms/public/frontend/assets/LeaveBalance-CAaFlhfl.js                        1.68 kB │ gzip:   0.92 kB │ map:     2.41 kB
+../hrms/public/frontend/assets/Form-BheYEYJE.js                                1.69 kB │ gzip:   0.93 kB │ map:     3.90 kB
+../hrms/public/frontend/assets/Link-vdcFz-b7.js                                1.74 kB │ gzip:   0.91 kB │ map:     4.89 kB
+../hrms/public/frontend/assets/Home-cDhNz7YK.js                                1.78 kB │ gzip:   0.89 kB │ map:     2.53 kB
+../hrms/public/frontend/assets/ShiftRequestForm-CgZ58sf0.js                    1.79 kB │ gzip:   0.98 kB │ map:     4.29 kB
+../hrms/public/frontend/assets/FormattedField-BCmyk50r.js                      1.85 kB │ gzip:   1.00 kB │ map:     2.72 kB
+../hrms/public/frontend/assets/EmployeeAdvanceItem-BlXgOfAw.js                 1.89 kB │ gzip:   0.96 kB │ map:     2.94 kB
+../hrms/public/frontend/assets/InsertImage-hOOfhJkb.js                         1.91 kB │ gzip:   1.02 kB │ map:     4.00 kB
+../hrms/public/frontend/assets/List-BDILTBGL.js                                1.94 kB │ gzip:   0.93 kB │ map:     2.29 kB
+../hrms/public/frontend/assets/RequestPanel-BlGOi_Qt.js                        1.94 kB │ gzip:   1.01 kB │ map:     4.33 kB
+../hrms/public/frontend/assets/index9-DxD1MGh6.js                              1.95 kB │ gzip:   0.97 kB │ map:     9.21 kB
+../hrms/public/frontend/assets/EmployeeAdvanceIcon-BKxNyglq.js                 1.95 kB │ gzip:   0.80 kB │ map:     2.54 kB
+../hrms/public/frontend/assets/ShiftRequestList-DgMbXkHR.js                    1.97 kB │ gzip:   0.93 kB │ map:     2.28 kB
+../hrms/public/frontend/assets/InsertVideo-DxuHl0l3.js                         2.05 kB │ gzip:   1.04 kB │ map:     4.68 kB
+../hrms/public/frontend/assets/List-Bx1GM-7-.js                                2.07 kB │ gzip:   0.97 kB │ map:     2.68 kB
+../hrms/public/frontend/assets/Dashboard-Cg-IiChu.js                           2.12 kB │ gzip:   1.06 kB │ map:     0.81 kB
+../hrms/public/frontend/assets/ExpenseClaimItem-C_XLBFbH.js                    2.18 kB │ gzip:   1.06 kB │ map:     4.30 kB
+../hrms/public/frontend/assets/List-DisiRcCn.js                                2.29 kB │ gzip:   0.99 kB │ map:     2.55 kB
+../hrms/public/frontend/assets/ExpenseAdvancesTable-BoWjBYjB.js                2.39 kB │ gzip:   1.13 kB │ map:     3.26 kB
+../hrms/public/frontend/assets/FontColor-91g370bL.js                           2.44 kB │ gzip:   1.04 kB │ map:     6.13 kB
+../hrms/public/frontend/assets/ExpenseClaimSummary-CQw39FXf.js                 2.48 kB │ gzip:   0.88 kB │ map:     3.63 kB
+../hrms/public/frontend/assets/RequestList-D2zWmZk2.js                         2.49 kB │ gzip:   1.34 kB │ map:     3.40 kB
+../hrms/public/frontend/assets/ForgotPassword-DJcJhYfZ.js                      2.63 kB │ gzip:   1.39 kB │ map:     5.02 kB
+../hrms/public/frontend/assets/AttendanceCalendar-Ce2vY1nF.js                  2.70 kB │ gzip:   1.26 kB │ map:     5.51 kB
+../hrms/public/frontend/assets/FileUploaderView-nvd96RKq.js                    2.71 kB │ gzip:   1.34 kB │ map:     4.38 kB
+../hrms/public/frontend/assets/ChangePassword-FSUDuVQH.js                      2.73 kB │ gzip:   1.28 kB │ map:     5.14 kB
+../hrms/public/frontend/assets/Holidays-DvMmnIuj.js                            2.78 kB │ gzip:   1.19 kB │ map:     4.28 kB
+../hrms/public/frontend/assets/Dashboard-CnTCB7m1.js                           2.89 kB │ gzip:   1.25 kB │ map:     4.33 kB
+../hrms/public/frontend/assets/Dashboard-jeRCY7uz.js                           2.99 kB │ gzip:   1.49 kB │ map:     5.82 kB
+../hrms/public/frontend/assets/ListFiltersActionSheet-bG-Kse0R.js              3.01 kB │ gzip:   1.28 kB │ map:     4.90 kB
+../hrms/public/frontend/assets/Detail-Btsgm5Y4.js                              3.29 kB │ gzip:   1.67 kB │ map:     6.81 kB
+../hrms/public/frontend/assets/AppSettings-DMJjl9tE.js                         3.39 kB │ gzip:   1.40 kB │ map:     7.12 kB
+../hrms/public/frontend/assets/Notifications-DV_40bp9.js                       3.52 kB │ gzip:   1.66 kB │ map:     6.65 kB
+../hrms/public/frontend/assets/Form-CuPJ23er.js                                4.27 kB │ gzip:   1.70 kB │ map:    13.34 kB
+../hrms/public/frontend/assets/CheckInPanel-BPNJ804W.js                        4.97 kB │ gzip:   2.28 kB │ map:    10.01 kB
+../hrms/public/frontend/assets/FormField-BE3W-YmI.js                           5.01 kB │ gzip:   1.70 kB │ map:     8.40 kB
+../hrms/public/frontend/assets/input-shims-D6Ty0Mrg.js                         5.19 kB │ gzip:   2.25 kB │ map:    31.96 kB
+../hrms/public/frontend/assets/Profile-DVXS465G.js                             5.75 kB │ gzip:   2.46 kB │ map:    12.06 kB
+../hrms/public/frontend/assets/workflow-8qckrxyC.js                            5.79 kB │ gzip:   2.60 kB │ map:    12.77 kB
+../hrms/public/frontend/assets/ExpensesTable-n5QeknwI.js                       6.02 kB │ gzip:   2.50 kB │ map:    10.18 kB
+../hrms/public/frontend/assets/ExpenseTaxesTable-CxlGSfnd.js                   6.20 kB │ gzip:   2.59 kB │ map:    10.96 kB
+../hrms/public/frontend/assets/Login-BcYPtsqB.js                               6.61 kB │ gzip:   2.88 kB │ map:     9.80 kB
+../hrms/public/frontend/assets/ListView-DV7Z_Ojk.js                            8.07 kB │ gzip:   3.57 kB │ map:    17.00 kB
+../hrms/public/frontend/assets/Form-D_Lyu-4W.js                                8.61 kB │ gzip:   2.98 kB │ map:    22.35 kB
+../hrms/public/frontend/assets/ios.transition-Ceqfqiqi.js                      9.55 kB │ gzip:   2.75 kB │ map:    37.43 kB
+../hrms/public/frontend/assets/FormView-B7Jlhyma.js                           17.00 kB │ gzip:   5.89 kB │ map:    38.50 kB
+../hrms/public/frontend/assets/requestSummaryFields-yFgkPPC0.js               17.09 kB │ gzip:   5.14 kB │ map:    21.83 kB
+../hrms/public/frontend/assets/index-B6Uwcn21.js                             465.32 kB │ gzip: 109.58 kB │ map: 1,668.55 kB
+../hrms/public/frontend/assets/frappe-ui-DCs81Cw-.js                         931.27 kB │ gzip: 298.58 kB │ map: 4,740.83 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 8.57s
+
+PWA v0.20.5
+Building public/sw.js service worker ("es" format)...
+vite v5.4.15 building for production...
+transforming...
+✓ 75 modules transformed.
+rendering chunks...
+computing gzip size...
+../hrms/public/frontend/sw.mjs  99.48 kB │ gzip: 21.17 kB │ map: 464.54 kB
+✓ built in 258ms
+
+PWA v0.20.5
+mode      injectManifest
+format:   es
+precache  95 entries (1713.42 KiB)
+files generated
+  ../hrms/public/frontend/sw.js
+  ../hrms/public/frontend/sw.js.map
+$ cp ../hrms/public/frontend/index.html ../hrms/www/hrms.html
+$ cd roster && yarn build
+$ vite build --base=/assets/hrms/roster/ && yarn copy-html-entry
+vite v5.4.15 building for production...
+transforming...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+Inter-DisplayRegular.woff2?v=3.19 referenced in Inter-DisplayRegular.woff2?v=3.19 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+✓ 518 modules transformed.
+rendering chunks...
+computing gzip size...
+../hrms/public/roster/index.html                                             0.62 kB │ gzip:   0.37 kB
+../hrms/public/roster/assets/Inter-Regular-trENmjXB.woff2                  100.79 kB
+../hrms/public/roster/assets/Inter-Thin-D3JiHKaG.woff2                     101.16 kB
+../hrms/public/roster/assets/Inter-DisplayBlack-WeYNDCAX.woff2             101.92 kB
+../hrms/public/roster/assets/Inter-DisplayThin-ChL4oFCg.woff2              102.15 kB
+../hrms/public/roster/assets/Inter-ExtraLight-CCj5KODw.woff2               102.87 kB
+../hrms/public/roster/assets/Inter-Light-dIA14uc3.woff2                    103.27 kB
+../hrms/public/roster/assets/Inter-Black-9EvaAvES.woff2                    103.59 kB
+../hrms/public/roster/assets/Inter-ExtraBold-Ce88byQn.woff2                104.99 kB
+../hrms/public/roster/assets/Inter-Bold-R0zHozHF.woff2                     105.21 kB
+../hrms/public/roster/assets/Inter-Medium-BN7iDkqy.woff2                   105.22 kB
+../hrms/public/roster/assets/Inter-DisplayLight-w8lPQKnS.woff2             105.34 kB
+../hrms/public/roster/assets/Inter-DisplayExtraBold-BXf2GJrG.woff2         105.36 kB
+../hrms/public/roster/assets/Inter-DisplayMedium-DcjtbkcA.woff2            105.38 kB
+../hrms/public/roster/assets/Inter-SemiBold-CBUekF9E.woff2                 105.40 kB
+../hrms/public/roster/assets/Inter-DisplaySemiBold-BBWLY5vL.woff2          105.56 kB
+../hrms/public/roster/assets/Inter-DisplayBold-C-1EDGRh.woff2              105.57 kB
+../hrms/public/roster/assets/Inter-DisplayExtraLight-D2Ja0abb.woff2        105.87 kB
+../hrms/public/roster/assets/Inter-DisplayItalic-JNEE2o-3.woff2            106.12 kB
+../hrms/public/roster/assets/Inter-Italic-ClOttZep.woff2                   106.55 kB
+../hrms/public/roster/assets/Inter-ThinItalic-Dty9qLU6.woff2               106.64 kB
+../hrms/public/roster/assets/Inter-DisplayBlackItalic-DFEmIFsd.woff2       107.28 kB
+../hrms/public/roster/assets/Inter-DisplayThinItalic-Cxxw6hRb.woff2        107.44 kB
+../hrms/public/roster/assets/Inter-LightItalic-BcJQrN_r.woff2              108.56 kB
+../hrms/public/roster/assets/Inter-BlackItalic-I0v0TUo2.woff2              108.59 kB
+../hrms/public/roster/assets/Inter-ExtraLightItalic-BXS8QPqu.woff2         109.00 kB
+../hrms/public/roster/assets/Inter-DisplayBoldItalic-CISmTavk.woff2        110.20 kB
+../hrms/public/roster/assets/Inter-DisplaySemiBoldItalic-CNvBGF7e.woff2    110.39 kB
+../hrms/public/roster/assets/Inter-DisplayMediumItalic-BBCoS5uP.woff2      110.46 kB
+../hrms/public/roster/assets/Inter-BoldItalic-D0-5Ex_3.woff2               110.52 kB
+../hrms/public/roster/assets/Inter-ExtraBoldItalic-Cgmm6Ie2.woff2          110.52 kB
+../hrms/public/roster/assets/Inter-DisplayLightItalic-DBve3eI1.woff2       110.56 kB
+../hrms/public/roster/assets/Inter-SemiBoldItalic-J43nRLRr.woff2           110.64 kB
+../hrms/public/roster/assets/Inter-DisplayExtraBoldItalic-Czv3KFD8.woff2   110.82 kB
+../hrms/public/roster/assets/Inter-MediumItalic-iRTrRc5x.woff2             110.82 kB
+../hrms/public/roster/assets/Inter-DisplayExtraLightItalic-DRwiM9T2.woff2  111.11 kB
+../hrms/public/roster/assets/Inter.var-C9xDBOS3.woff2                      264.24 kB
+../hrms/public/roster/assets/Inter-Italic.var-BGHziHgI.woff2               297.27 kB
+../hrms/public/roster/assets/Home-9JR8wKkI.css                               0.42 kB │ gzip:   0.26 kB
+../hrms/public/roster/assets/index-D6rG5lUy.css                             98.06 kB │ gzip:  15.72 kB
+../hrms/public/roster/assets/Home-DS6aeGTW.js                              167.40 kB │ gzip:  54.44 kB
+../hrms/public/roster/assets/index-btX0BJWy.js                             610.75 kB │ gzip: 199.59 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 4.83s
+$ cp ../hrms/public/roster/index.html ../hrms/www/roster.html
+Done in 17.29s.
+Compiling translations for hrms
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/ar/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/vi/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sl/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/th/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sr_CS/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/pt_BR/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/nb/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/hr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/af/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/ta/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/sv/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/da/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/de/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/id/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/pt/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/zh/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/eo/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/tr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/hu/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/fr/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/it/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/fi/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/cs/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/fa/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/my/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/es/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/ru/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/nl/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/pl/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/bs/LC_MESSAGES/hrms.mo
+MO file created at /home/frappe/frappe-bench/sites/assets/locale/zh_TW/LC_MESSAGES/hrms.mo
