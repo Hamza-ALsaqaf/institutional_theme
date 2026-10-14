@@ -97,3 +97,4 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 
 - 05:15 UTC 2026-10-14: the lead re-ran CI's own checks on `01b7c18` (ruff 0.16.8 check and format, 130 + 48 unit tests, `build --check` 0 stale, all audits including avatars passed), confirmed that the HRMS PostgreSQL workaround (`tools/bench/hrms_install.py`) is test-bench only and edits nothing on disk, and merges pull request #3 into `main` under the owner's authorisation.
 - Next step: round 4, forward compatibility with the newest v16 tag (v16.52.0) while keeping 16.32.0 fully supported (`docs/UPGRADE_AND_QA_CHECKLIST.md` G1 to G8).
+- 05:12 UTC 2026-10-14: pull request #3 merged into `main` (merge commit `713cf80`) after CI passed on `caec1ed`. Round 4 (forward compatibility with v16.52.0, no regression on 16.32.0) starts on a new pull request; scope in `docs/team/RESUME_PROMPT.md`.
