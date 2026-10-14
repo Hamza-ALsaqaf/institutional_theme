@@ -22,10 +22,10 @@ fs.mkdirSync(OUT, { recursive: true });
 const T = {
 	en: { menu: "Menu", close: "Close", home: "Home", all: "Select all rows", row: (n) => `Select row ${n}`, pick: (t) => `Select ${t}`, field: "Field", cond: "Condition", value: "Value",
 		collapse: (n) => `Collapse ${n}`, expand: (n) => `Expand ${n}`, top: "Scroll to top", assign: "Assign", attach: "Add Attachment", share: "Share", tags: "Add Tags", match: "Match type", minimize: "Minimize", desc: "Description", paste: "Paste into table", filter: "Filter",
-		filterCol: (n) => `Filter ${n}`, rowNumber: "Row Number", rowEditorCollapse: "Collapse", prev: "Previous Document", next: "Next Document", clearAll: "Clear all filters" },
+		filterCol: (n) => `Filter ${n}`, checkValue: (c, n) => `${c}, row ${n}`, rowNumber: "Row Number", rowEditorCollapse: "Collapse", prev: "Previous Document", next: "Next Document", clearAll: "Clear all filters" },
 	ar: { menu: "الخيارات", close: "أغلق", home: "الصفحة الرئيسية", all: "تحديد جميع الصفوف", row: (n) => `تحديد الصف ${n}`, pick: (t) => `حدد ${t}`, field: "حقل", cond: "الشرط", value: "القيمة",
 		collapse: (n) => `طيّ ${n}`, expand: (n) => `توسيع ${n}`, top: "العودة إلى الأعلى", assign: "عين", attach: "إضافة مرفق", share: "مشاركة", tags: "إضافة وسوم", match: "نوع المطابقة", minimize: "تصغير", desc: "وصف", paste: "لصق في الجدول", filter: "تصفية",
-		filterCol: (n) => `تصفية ${n}`, rowNumber: "رقم الصف", rowEditorCollapse: "طيّ", prev: "المستند السابق", next: "المستند التالي", clearAll: "مسح جميع الفلاتر" },
+		filterCol: (n) => `تصفية ${n}`, checkValue: (c, n) => `${c}، الصف ${n}`, rowNumber: "رقم الصف", rowEditorCollapse: "طيّ", prev: "المستند السابق", next: "المستند التالي", clearAll: "مسح جميع الفلاتر" },
 };
 
 const results = [];
@@ -161,11 +161,16 @@ async function run(browser, lang) {
 		await page.evaluate(() => frappe.model.user_settings.save("User", "Report", { fields: [["name", "User"], ["full_name", "User"], ["enabled", "User"]] }));
 		await settle(page, 800);
 		await open(page, "/desk/user/view/report", ".datatable .dt-scrollable .dt-cell");
-		const cols = await page.evaluate(() => [...document.querySelectorAll(".dt-scrollable .dt-row")].slice(0, 5).map((r) => [...r.querySelectorAll("input[type='checkbox']")].map((c) => ({ col: (c.closest(".dt-cell").className.match(/dt-cell--col-(\d+)/) || [])[1], disabled: c.disabled, label: c.getAttribute("aria-label"), cls: c.className }))));
+		const cols = await page.evaluate(() => [...document.querySelectorAll(".dt-scrollable .dt-row")].slice(0, 5).map((r) => [...r.querySelectorAll("input[type='checkbox']")].map((c) => {
+			const cell = c.closest(".dt-cell");
+			const h = document.querySelector(`.dt-header .dt-cell[data-is-header][data-col-index="${cell.getAttribute("data-col-index")}"] .dt-cell__content`);
+			return { col: (cell.className.match(/dt-cell--col-(\d+)/) || [])[1], row: Number(cell.getAttribute("data-row-index")) + 1, column: h && (h.getAttribute("title") || h.textContent).trim(), disabled: c.disabled, label: c.getAttribute("aria-label"), cls: c.className };
+		})));
 		const sel = cols.flat().filter((c) => c.col === "0");
 		const val = cols.flat().filter((c) => c.col !== "0");
 		check(`${tag} report with a Check column: the Check values render as disabled checkboxes`, val.length > 0 && val.every((c) => c.disabled && /disabled-(selected|deselected)/.test(c.cls)), JSON.stringify(val.slice(0, 2)));
-		check(`${tag} report with a Check column: selection checkboxes are named, Check values are not`, sel.length > 0 && sel.every((c) => !!c.label) && val.every((c) => c.label === null), JSON.stringify({ sel: sel.slice(0, 2), val: val.slice(0, 2) }));
+		check(`${tag} report with a Check column: selection checkboxes are named "Select row N"`, sel.length > 0 && sel.every((c) => c.label === t.row(c.row)), JSON.stringify(sel.slice(0, 2)));
+		check(`${tag} report with a Check column: a Check value is named by its column and row, never "Select row N"`, val.length > 0 && val.every((c) => c.column && c.label === t.checkValue(c.column, c.row)), JSON.stringify(val.slice(0, 2)));
 		const edit = await page.evaluate(async () => {
 			const cell = document.querySelector(".dt-scrollable .dt-row .dt-cell:not(.dt-cell--col-0)");
 			const host = cell.querySelector(".dt-cell__edit") || cell.appendChild(Object.assign(document.createElement("div"), { className: "dt-cell__edit" }));

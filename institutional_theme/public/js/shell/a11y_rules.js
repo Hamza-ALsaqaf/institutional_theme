@@ -182,7 +182,8 @@ function nameListRow(check) {
 // as `.dt-cell--col-0 [type="checkbox"]`, rowmanager.js:45,127); the cell carries data-is-header or
 // data-row-index. Core's Check formatter also writes a checkbox into a cell (`<input type="checkbox" disabled>`,
 // frappe/public/js/frappe/form/formatters.js:165-167), and a Check field edited inline sits inside
-// `.dt-cell__edit`: those show a field value, not a row selection, so they are never named here.
+// `.dt-cell__edit`: those show a field value, not a row selection, so they are never named as one here (see
+// nameDatatableValue).
 function nameDatatableCheckbox(check) {
 	if (check.disabled || check.closest(".dt-cell__edit")) return;
 	if (hasName(check) || check.getAttribute("title")) return;
@@ -194,6 +195,22 @@ function nameDatatableCheckbox(check) {
 	}
 	const index = parseInt(cell.getAttribute("data-row-index"), 10);
 	put(check, "aria-label", Number.isNaN(index) ? translate("Select row") : translate("Select row {0}", [index + 1]));
+}
+
+// A Check value shown in a report cell is core's disabled checkbox (formatters.js:165-167); it has no label of its
+// own, and axe rule `label` rejects it. Its name is the column title (the header cell with the same
+// data-col-index) and the row number, so "Enabled, row 3" says what the value is and where it is. A checkbox in the
+// header, in column 0 (the selector) or inside an inline editor is not handled here.
+function nameDatatableValue(check) {
+	if (!check.disabled || check.closest(".dt-cell__edit") || hasName(check) || check.getAttribute("title")) return;
+	const cell = check.closest(".dt-cell");
+	if (!cell || cell.hasAttribute("data-is-header") || cell.classList.contains("dt-cell--col-0")) return;
+	const index = parseInt(cell.getAttribute("data-row-index"), 10);
+	const table = cell.closest(".datatable");
+	const header = table && table.querySelector(`.dt-cell[data-is-header][data-col-index="${cell.getAttribute("data-col-index")}"] .dt-cell__content`);
+	const column = clean(header && (header.getAttribute("title") || header.textContent));
+	if (!column) return;
+	put(check, "aria-label", Number.isNaN(index) ? column : translate("{0}, row {1}", [column, index + 1]));
 }
 
 // frappe-datatable (src/datatable.js:126) writes one off-screen `<textarea class="dt-paste-target">`; cellmanager.js:153-157
@@ -254,6 +271,7 @@ export const RULES = [
 	{ select: "textarea.dt-paste-target", apply: namePasteTarget },
 	{ select: ".dt-row-filter input.dt-filter, .dt-cell[data-is-filter] input.dt-filter", apply: nameDatatableFilter },
 	{ select: ".dt-cell--col-0 input[type='checkbox']:not([disabled])", apply: nameDatatableCheckbox },
+	{ select: ".dt-cell:not(.dt-cell--col-0) input[type='checkbox'][disabled]", apply: nameDatatableValue },
 	{
 		select: ".filter-box select.condition, .filter-box .fieldname-select-area input, .filter-box .filter-field input:not([type='hidden']):not([type='checkbox']), .filter-box .filter-field select, .filter-box .filter-field textarea",
 		apply: nameFilterField,
