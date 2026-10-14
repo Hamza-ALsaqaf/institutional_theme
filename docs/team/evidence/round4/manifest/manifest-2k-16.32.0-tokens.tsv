@@ -1,0 +1,40 @@
+section	row	name	state	where
+2k	1	es-menu	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	1	es-menu__item	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	2	es-popover	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	2	es-menu	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	3	es-breadcrumbs	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	3	navbar-breadcrumbs	present	in the cited file
+2k	3	es-breadcrumbs__item	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	4	es-breadcrumbs	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	4	es-breadcrumbs__item	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	5	es-tab-buttons	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	5	es-pill	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	5	data-state	moved	not in the cited file; now in frappe/public/js/frappe/form/toolbar.js
+2k	6	es-toast	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	6	es-toast-container	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	7	es-badge	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	7	data-theme	moved	not in the cited file; now in frappe/public/js/form_builder/components/Field.vue
+2k	8	es-button	moved	not in the cited file; now in frappe/public/js/frappe/ui/toolbar/about.js
+2k	8	data-variant	moved	not in the cited file; now in frappe/public/js/frappe/ui/toolbar/about.js
+2k	9	has-error-mandatory	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	9	has-error-invalid	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	9	has-error	present	in the cited file
+2k	10	current-highlight	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	10	current-ball-highlight	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	10	current-date-highlight	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	11	grid-header	present	in the cited file
+2k	11	gantt-container	present	in the cited file
+2k	11	upper-text	present	in the cited file
+2k	11	lower-text	present	in the cited file
+2k	12	gantt-container	present	in the cited file
+2k	12	gantt-modern	present	in the cited file
+2k	18	page-card-actions	present	in the cited file
+2k	18	es-button	moved	not in the cited file; now in frappe/public/js/frappe/ui/toolbar/about.js
+2k	18	data-variant	moved	not in the cited file; now in frappe/public/js/frappe/ui/toolbar/about.js
+2k	25	es-button	moved	not in the cited file; now in frappe/public/js/frappe/ui/toolbar/about.js
+2k	25	data-variant	moved	not in the cited file; now in frappe/public/js/frappe/ui/toolbar/about.js
+2k	29	es-button	present	no source line cited; found in frappe/public/js/frappe/ui/toolbar/about.js
+2k	29	data-theme	present	no source line cited; found in frappe/public/js/form_builder/components/Field.vue
+2k	30	es-badge	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2k	31	gantt-container	present	no source line cited; found in frappe/public/scss/desk/frappe_gantt.scss
