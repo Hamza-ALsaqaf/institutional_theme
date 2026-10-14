@@ -54,6 +54,17 @@ html:root[dir] .es-toast {
 	box-shadow: var(--ins-elevation-dialog);
 }
 
+// v16.52.0 toast colours are local reads of global gray tokens (css/espresso/components/toast.css:34-52,133-223: --surface-gray-9, --ink-base,
+// --surface-gray-8, --ink-gray-3, --outline-gray-3). Those tokens mean something else elsewhere (ADR 0011 R3c), so the toast repoints its own
+// copies (R4) to the overlay surface with ink text, as a dialog. Core is (0,1,0); this is (0,2,1). 16.32.0 has no `.es-toast`.
+html:root[dir] .es-toast {
+	--surface-gray-9: var(--ins-surface-overlay);
+	--surface-gray-8: var(--ins-surface-hover);
+	--ink-base: var(--ins-text);
+	--ink-gray-3: var(--ins-text-muted);
+	--outline-gray-3: var(--ins-border);
+}
+
 // ---- Awesomplete list (link and awesomebar suggestions): same overlay surface.
 html:root[dir] .awesomplete > ul {
 	background: var(--ins-surface-overlay);

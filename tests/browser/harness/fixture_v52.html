@@ -1,0 +1,38 @@
+	<!-- v16.52.0 only. Markup quoted from v16.52.0 source. cascade.mjs injects this file at the end of each scenario, so the older assertions never see it. -->
+	<!-- ui/page.html:61 via ui/components/button.js:55-59: frappe.ui.button.html({ variant: "solid", css_class: "primary-action" }) -->
+	<button class="es-button primary-action" id="es-solid" data-variant="solid" tabindex="-1" type="button"><svg class="icon icon-sm" id="es-solid-icon" stroke="currentColor" aria-hidden="true"><use href="#icon-plus"></use></svg>Save</button>
+	<button class="es-button" id="es-solid-red" data-variant="solid" data-theme="red" tabindex="-1" type="button">Delete</button>
+	<button class="es-button" id="es-subtle" tabindex="-1" type="button">Menu</button>
+	<button class="es-button" id="es-disabled" tabindex="-1" type="button" disabled>Off</button>
+	<!-- list/list_view.js:1896 via ui/components/badge.js:36-50: theme "gray" gives no data-theme, "orange" becomes "amber" -->
+	<span class="es-badge" id="badge-plain">3</span>
+	<span class="es-badge filterable ellipsis" id="badge-gray" data-filter="status,=,Open">Open</span>
+	<span class="es-badge filterable ellipsis" id="badge-grey" data-theme="grey">Grey</span>
+	<span class="es-badge filterable ellipsis" id="badge-darkgrey" data-theme="darkgrey">Closed</span>
+	<span class="es-badge filterable ellipsis" id="badge-green" data-theme="green">Paid</span>
+	<span class="es-badge filterable ellipsis" id="badge-red" data-theme="red">Rejected</span>
+	<span class="es-badge filterable ellipsis" id="badge-amber" data-theme="amber">Pending</span>
+	<span class="es-badge filterable ellipsis" id="badge-orange" data-theme="orange">Orange</span>
+	<span class="es-badge filterable ellipsis" id="badge-yellow" data-theme="yellow">On hold</span>
+	<span class="es-badge filterable ellipsis" id="badge-blue" data-theme="blue">Submitted</span>
+	<span class="es-badge filterable ellipsis" id="badge-light-blue" data-theme="light-blue">Info</span>
+	<span class="es-badge filterable ellipsis" id="badge-cyan" data-theme="cyan">Cyan</span>
+	<span class="es-badge filterable ellipsis" id="badge-violet" data-theme="violet">Plum</span>
+	<span class="es-badge filterable ellipsis" id="badge-purple" data-theme="purple">Purple</span>
+	<span class="es-badge filterable ellipsis" id="badge-pink" data-theme="pink">Pink</span>
+	<span class="es-badge filterable ellipsis" id="badge-draft" data-theme="red" data-filter="docstatus,=,0">Draft</span>
+	<span class="es-badge filterable ellipsis" id="badge-cancelled" data-theme="red" data-filter="docstatus,=,2">Cancelled</span>
+	<!-- ui/page.html:24 and ui/page.js:259: the page-status chip, theme set with attr("data-theme", color) -->
+	<span class="es-badge page-indicator-pill" id="badge-page" data-theme="green">Paid</span>
+	<span class="es-badge page-indicator-pill" id="badge-page-gray">Open</span>
+	<div data-ins-docstatus="0"><div class="title-area"><span class="es-badge page-indicator-pill" id="badge-title-draft" data-theme="red">Draft</span></div></div>
+	<div data-ins-docstatus="2"><div class="title-area"><span class="es-badge page-indicator-pill" id="badge-title-cancelled" data-theme="red">Cancelled</span></div></div>
+	<!-- ui/sidebar/sidebar.html:1-9 and sidebar_item.html:2-37 -->
+	<div class="body-sidebar-container expanded"><div class="body-sidebar" id="sb-panel">
+		<div class="sidebar-item-container"><div class="standard-sidebar-item active-sidebar" id="sb-active"><a class="item-anchor" href="#a" tabindex="-1"><span class="sidebar-item-label" id="sb-active-label">Current</span></a></div></div>
+		<div class="sidebar-item-container"><div class="standard-sidebar-item"><a class="item-anchor" href="#b" tabindex="-1"><span class="sidebar-item-label" id="sb-idle-label">Other</span></a></div></div>
+	</div></div>
+	<!-- ui/components/menu.js:170,332 and css/espresso/components/menu.css:109 -->
+	<div class="es-menu" id="menu-panel"><a class="es-menu__item" id="menu-hi" data-highlighted tabindex="-1">Item</a></div>
+	<!-- ui/components/toast.js:57-97 -->
+	<div class="es-toast" id="toast"><div class="es-toast__content"><div class="es-toast__message">Saved</div></div><button class="es-toast__action" id="toast-action" type="button" tabindex="-1">Undo</button><button class="es-toast__close close" id="toast-close" type="button" tabindex="-1" aria-label="Close">x</button></div>

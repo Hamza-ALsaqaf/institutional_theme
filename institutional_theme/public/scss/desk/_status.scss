@@ -79,11 +79,13 @@ $ins-indicators: (
 	"red": ("danger", cross),
 	"orange": ("pending", half),
 	"yellow": ("warning", bars),
+	"amber": ("pending", half),
 	"blue": ("progress", dot),
 	"light-blue": ("info", dot),
 	"cyan": ("teal", dot),
 	"purple": ("special", diamond),
 	"pink": ("plum", diamond),
+	"violet": ("plum", diamond),
 	"gray": ("neutral", ring),
 	"grey": ("neutral", ring),
 	"darkgrey": ("muted", ring),
@@ -130,6 +132,50 @@ html:root[dir] .indicator::before {
 	}
 }
 
+// ---- v16.52.0 renders list and page-head statuses as `span.es-badge[data-theme]` (list/list_view.js:1896, ui/page.js:259, ui/page.html:24),
+// painted by the local --c-fill, --c-fg and --c-line (css/espresso/components/badge.css:7-14,55-89; badge-legacy-colors.css:12-45). Core's selector is
+// (0,2,0); this one is (0,4,1). The vars are repointed at the status families (ADR 0011 R4), the shape is the same as the pill's. A badge without
+// data-theme is gray: neutral. The shape needs a theme, a list status filter (`data-filter`) or the page-status chip, so counters and other plain badges stay shapeless.
+// 16.32.0 has no `.es-badge`; these selectors match nothing there (its status is `.indicator-pill` above).
+html:root[dir] .es-badge {
+	--c-fill: var(--ins-status-neutral-bg);
+	--c-fg: var(--ins-status-neutral-fg);
+	--c-line: var(--ins-status-neutral-border);
+}
+
+html:root[dir] .es-badge:not([data-variant]):is([data-theme], [data-filter], .page-indicator-pill) {
+	border-color: var(--c-line);
+}
+
+html:root[dir] .es-badge:is([data-theme], [data-filter], .page-indicator-pill)::before {
+	content: "";
+	display: inline-block;
+	flex: none;
+	box-sizing: border-box;
+	margin-block: 0;
+	margin-inline: 0;
+	@include ins-shape(ring);
+}
+
+@each $name, $spec in $ins-indicators {
+	$family: nth($spec, 1);
+	$kind: nth($spec, 2);
+
+	html:root[dir] .es-badge[data-theme="#{$name}"] {
+		--c-fill: var(--ins-status-#{$family}-bg);
+		--c-fg: var(--ins-status-#{$family}-fg);
+		--c-line: var(--ins-status-#{$family}-border);
+	}
+
+	html:root[dir] .es-badge[data-theme="#{$name}"]::before {
+		@include ins-shape($kind);
+		margin-inline: 0;
+		@if $kind == check or $kind == diamond {
+			margin-inline: 2px 1px;
+		}
+	}
+}
+
 // ---- `black` has no core rule (workflow style "Inverse", findings 4): give it the ink pair.
 html:root[dir] .indicator-pill.black,
 html:root[dir] .indicator-pill-right.black {
@@ -147,9 +193,23 @@ html:root[dir] .indicator-pill[data-filter="docstatus,=,0"] {
 	box-shadow: inset 0 0 0 1px var(--ins-status-neutral-border);
 }
 
+// v16.52.0: the same states on the badge (list: `data-filter` on the badge, list_view.js:1896; page head: `.es-badge.page-indicator-pill`).
+html:root[dir] [data-ins-docstatus="0"] .title-area .es-badge.page-indicator-pill[data-theme="red"],
+html:root[dir] .es-badge[data-filter="docstatus,=,0"] {
+	--c-fill: var(--ins-status-neutral-bg);
+	--c-fg: var(--ins-status-neutral-fg);
+	--c-line: var(--ins-status-neutral-border);
+}
+
 html:root[dir] [data-ins-docstatus="0"] .title-area .indicator-pill.red::before,
 html:root[dir] .indicator-pill[data-filter="docstatus,=,0"]::before {
 	@include ins-shape(ring);
+}
+
+html:root[dir] [data-ins-docstatus="0"] .title-area .es-badge.page-indicator-pill[data-theme="red"]::before,
+html:root[dir] .es-badge[data-filter="docstatus,=,0"]::before {
+	@include ins-shape(ring);
+	margin-inline: 0;
 }
 
 html:root[dir] [data-ins-docstatus="2"] .title-area .indicator-pill.red,
@@ -159,9 +219,22 @@ html:root[dir] .indicator-pill[data-filter="docstatus,=,2"] {
 	box-shadow: inset 0 0 0 1px var(--ins-status-muted-border);
 }
 
+html:root[dir] [data-ins-docstatus="2"] .title-area .es-badge.page-indicator-pill[data-theme="red"],
+html:root[dir] .es-badge[data-filter="docstatus,=,2"] {
+	--c-fill: var(--ins-status-muted-bg);
+	--c-fg: var(--ins-status-muted-fg);
+	--c-line: var(--ins-status-muted-border);
+}
+
 html:root[dir] [data-ins-docstatus="2"] .title-area .indicator-pill.red::before,
 html:root[dir] .indicator-pill[data-filter="docstatus,=,2"]::before {
 	@include ins-shape(square);
+}
+
+html:root[dir] [data-ins-docstatus="2"] .title-area .es-badge.page-indicator-pill[data-theme="red"]::before,
+html:root[dir] .es-badge[data-filter="docstatus,=,2"]::before {
+	@include ins-shape(square);
+	margin-inline: 0;
 }
 
 // ---- Blinking dots (core `.indicator.blink`): the shape stays, the pulse stops under reduced motion (_base.scss collapses it).
@@ -169,7 +242,7 @@ html:root[dir] .indicator-pill[data-filter="docstatus,=,2"]::before {
 // ---- Forced colours: backgrounds are dropped, so the pill keeps its outline (_base.scss) and the shape keeps currentColor.
 // Gradient-filled shapes (cross, half, bars, dot, diamond, square) are not forced, so they stay visible; ring and check use borders.
 @media (forced-colors: active) {
-	html:root[dir] .indicator-pill::before {
+	html:root[dir] :is(.indicator-pill, .es-badge:is([data-theme], [data-filter], .page-indicator-pill))::before {
 		forced-color-adjust: none;
 		color: CanvasText;
 	}

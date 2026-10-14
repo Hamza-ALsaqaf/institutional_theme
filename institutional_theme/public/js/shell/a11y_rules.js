@@ -147,7 +147,10 @@ function presentTabItem(item) {
 	}).observe(list, { attributes: true, subtree: true, attributeFilter: ["class"] });
 }
 
-// views/breadcrumbs.js:282: the first breadcrumb is an icon-only link to /desk.
+// 16.32.0, views/breadcrumbs.js:282: the first breadcrumb is an icon-only link to /desk, in `ul.navbar-breadcrumbs > li > a`.
+// v16.52.0 has no equivalent: its crumbs are `nav.es-breadcrumbs.navbar-breadcrumbs > ol > li > .es-breadcrumbs__item`, the first one is the
+// doctype crumb with a label (views/breadcrumbs.js:160-161), and core names any icon-only crumb itself from its title
+// (ui/components/breadcrumbs.js:63-67). The selector below therefore matches nothing there, by design.
 function nameHomeLink(link) {
 	if (link.hasAttribute("aria-labelledby") || clean(link.textContent) !== "" || !link.querySelector("svg")) return;
 	put(link, "aria-label", translate("Home"));
