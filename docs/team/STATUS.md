@@ -140,3 +140,8 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 ## After round 5 (build job)
 
 - 13:40 UTC 2026-10-14: round 5 gate passed on both versions; pull request #5 updated with the Arabic summary. `main` untouched.
+
+## After round 5 (lead)
+
+- 13:40 UTC 2026-10-14: the lead re-ran CI's checks on `303fe56` (ruff 0.16.8 check and format, 151 + 171 unit tests OK, `build --check` 0 stale, audits passed in CI mode with the committed reports unchanged) and merges pull request #5 into `main` under the owner's authorisation.
+- Next step: round 6, final release polish: HRMS print formats (Salary Slip and the other HRMS formats) under the Midad Print Style on both versions and both PDF generators; targeted cache clears instead of `frappe.clear_cache()` on identity save (decision 82) if it keeps every race test green; restore headroom in the desk CSS budget (146 of 150 KB) without any visual change; `CHANGELOG.md` and version 1.0.0. Then the lead tags the release.
