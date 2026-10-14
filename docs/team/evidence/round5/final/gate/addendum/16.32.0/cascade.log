@@ -1,0 +1,22 @@
+$ node cascade.mjs --bench /home/frappe/frappe-bench --out /tmp/r5gate-c2-1632 --evidence /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round5/final/gate/addendum/16.32.0/cascade
+{
+ "version": "16.32.0",
+ "generated": "2026-10-14T13:00:40.163Z",
+ "core": {
+  "ltr": "/home/frappe/frappe-bench/sites/assets/frappe/dist/css/desk.bundle.U47WC74O.css",
+  "rtl": "/home/frappe/frappe-bench/sites/assets/frappe/dist/css-rtl/desk.bundle.D4PJ47ZQ.css"
+ },
+ "bundles": {
+  "desk": 165604,
+  "graphite": 2342
+ },
+ "sassWarnings": [],
+ "rtlIdentical": {
+  "desk": true,
+  "graphite": true
+ },
+ "total": 4576,
+ "pass": 4576,
+ "fail": 0
+}
+exit 0, 15 s

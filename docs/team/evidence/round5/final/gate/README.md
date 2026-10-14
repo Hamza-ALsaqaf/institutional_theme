@@ -85,3 +85,33 @@ round-4 default of `cascade.mjs`.
 - HRMS screens on 8002 were not re-run: only `/login`, the ping and `list-apps` of that site were checked.
 - Behaviour of the uncommitted `_list.scss` edit seen in the working tree (not part of the tested commit).
 - Real touch devices, screen readers, browsers other than Chromium.
+
+## Addendum: final commit
+
+Requested by the lead after commit `94ec765` (`institutional_theme/public/scss/desk/_list.scss`, rules for 576 px and below only). Run 12:59 to 13:35 UTC;
+logs and results in `addendum/` (same layout, same scripts, one version at a time). Labels: VERIFIED.
+
+**Commit and dist.** CI, audits and cascade ran on `e8265153ed8fb91798b3fb2910636f4bc9056859` (`addendum/commit.txt`, `addendum/cascade-export.txt`).
+HEAD moved afterwards to `e358c64`; `git diff --name-only 94ec765 HEAD` outside `docs/` prints nothing, so no code changed after the tested commit.
+The dist on both benches is the css-engineer's build of 12:45:21 (`ins_desk.bundle.RVGYJL52.css`, in `assets.json` of both benches; `_list.scss` was last
+written 12:45:18, the 94ec765 commit is 12:49; the built file contains the new `level-left{white-space:normal` rule). It stayed unchanged to the end of
+the addendum (newest file in `dist/css` still 12:45:21). `sync_assets.py --check`: both benches consistent, 0 entries to missing files.
+**No `run-tests`** (not requested, no Python changed): `git diff --name-only 0e3bb0f HEAD | grep -v '^docs/'` prints `README.md`,
+`institutional_theme/public/scss/desk/_list.scss` and `tools/bench/hrms_stock_patch_check.py` (`addendum/git-diff-code.log`); the first and last are not
+loaded by the app, the SCSS is covered by the cascade, axe and budgets below. Install, print and residue checks were not repeated.
+
+| Check | 16.32.0 | v16.52.0 | Evidence |
+|---|---|---|---|
+| Local CI on `e826515` | PASS, 9 s, `CI PASSED` (ruff, 151 and 171 unit tests, `build --check`, audits, `docs/audits` unchanged) | same | `addendum/ci-local_ci.log`, `addendum/ci-local_ci.inner.log` |
+| Budgets on the rebuilt dist | PASS: `ins_desk` **146.2** of 150 KB raw (was 145.7), gzip 17.1 of 30, `RESULT: within budget`; `audits: passed` | PASS: same | `addendum/*/budgets.log`, `addendum/*/audits-bench-dist-snapshots.log` |
+| `audits --core-css` both live core sets | PASS: `audits: passed` | same run | `addendum/audits-livecore.log` |
+| Cascade, clean export of HEAD | PASS: **4576 of 4576** | PASS: **7680 of 7680** | `addendum/*/cascade.log`, `addendum/*/cascade/` |
+| axe themed and core (24 screens per mode, no scan errors) | PASS: 256 nodes, **0 caused by the theme**, worse than core 0, theme removes 1106 | PASS: 348 nodes, **0 caused by the theme**, worse than core 0, theme removes 991 | `addendum/*/axe/summary.md`, `addendum/*/axe-run.log` |
+| `a11y_attrs.mjs` | PASS: 100 of 100 | PASS: 99 of 99 | `addendum/*/a11y-attrs/results.md` |
+| `grid_names.mjs` | PASS: 48 PASS, 0 FAIL | PASS: 48 PASS, 0 FAIL | `addendum/*/grid-names.log` |
+| End state | `/login` 200 on 8000 | `/login` 200 on 8001; 8002 (`hrms52.test`) `/login` 200 | checked after the last run |
+
+No login step failed in this addendum; every script ran once and passed, no failed log to keep. Differences to the main gate: `ins_desk` +0.5 KB,
+"theme removes" 1106 against 1094 (16.32.0) and 991 against 979 (v16.52.0), both from the changed list rules and the data of the shared test users; the theme-caused count is
+0 in every run. The 320 px rule itself (date of the list row's second line) is covered by the cascade assertions only if one exists for it; I did not
+add or check a 320 px screenshot (NOT VERIFIED here; the css-engineer's fix round holds that evidence).

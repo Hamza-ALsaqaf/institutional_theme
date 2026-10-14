@@ -1,0 +1,5 @@
+$ bash -c git diff --name-only 0e3bb0f HEAD | grep -v "^docs/"
+README.md
+institutional_theme/public/scss/desk/_list.scss
+tools/bench/hrms_stock_patch_check.py
+exit 0, 0 s

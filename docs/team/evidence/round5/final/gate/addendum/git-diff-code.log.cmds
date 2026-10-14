@@ -1,0 +1,1 @@
+bash -c git diff --name-only 0e3bb0f HEAD | grep -v "^docs/"	0	0	2026-10-14T13:00:18Z
