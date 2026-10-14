@@ -126,13 +126,33 @@ html:root[dir] .like-action {
 	min-block-size: var(--ins-target-min);
 }
 
-// ---- Narrow viewports and zoom (WCAG 1.4.10): v16.52.0 clips `.result-container` (overflow-x hidden, list.scss:815-818) while its `.result` table
-// grows to the rows' content width, so the status badge of `.level-right` falls outside the clip. A fixed table layout at the container width
-// lets the subject column shrink (it is already an ellipsis flex item) and keeps the badge in view. 576px is core's `sm` breakpoint (the same media query).
+// ---- Narrow viewports and zoom (WCAG 1.4.10, 2.4.7): v16.52.0 clips `.result-container` (overflow-x hidden, list.scss:815-818) while its `.result` table
+// grows to the rows' content width (`display: table; width: auto`, :3-8), so the status badge of `.level-right` falls outside the clip.
+// A fixed table layout at the container width, rows that may shrink to it (so the focus ring of `.list-row-container` stays inside the clip), and a
+// subject that ellipsises (core's `.level-item.ellipsis` is `flex: 0 0 auto`, so its ellipsis never fired). `unicode-bidi: plaintext` puts a Latin
+// subject in an Arabic row at its own start, so the ellipsis lands at its end. 576px is core's `sm` breakpoint (the same media query).
 @media (max-width: 576px) {
 	html:root[dir] .layout-main-section .frappe-list .result-container .result {
 		table-layout: fixed;
 		inline-size: 100%;
 		max-inline-size: 100%;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container,
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container .list-row {
+		max-inline-size: 100%;
+		min-inline-size: 0;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-col.list-subject .level-item.ellipsis {
+		flex: 0 1 auto;
+		min-inline-size: 0;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-col.list-subject a {
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		unicode-bidi: plaintext;
 	}
 }
