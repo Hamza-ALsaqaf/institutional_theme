@@ -1,0 +1,103 @@
+- checkbox "Select All"
+- text: Full Name Status User Type ID 20 of 23
+- img
+- checkbox "Select G ar (g-ar-light@midad.test)"
+- link "G ar":
+  - /url: /desk/user/g-ar-light%40midad.test
+- text: Active System User g-ar-light@midad.test 48 m 0 ·
+- img
+- checkbox "Select G en (g-en-light@midad.test)"
+- link "G en":
+  - /url: /desk/user/g-en-light%40midad.test
+- text: Active System User g-en-light@midad.test 48 m 0 ·
+- img
+- checkbox "Select Css3 ar-dark (css3-ar-dark@midad.test)"
+- link "Css3 ar-dark":
+  - /url: /desk/user/css3-ar-dark%40midad.test
+- text: Active System User css3-ar-dark@midad.test 1 h 0 ·
+- img
+- checkbox "Select Css3 ar-light (css3-ar-light@midad.test)"
+- link "Css3 ar-light":
+  - /url: /desk/user/css3-ar-light%40midad.test
+- text: Active System User css3-ar-light@midad.test 1 h 0 ·
+- img
+- checkbox "Select Css3 en-dark (css3-en-dark@midad.test)"
+- link "Css3 en-dark":
+  - /url: /desk/user/css3-en-dark%40midad.test
+- text: Active System User css3-en-dark@midad.test 1 h 0 ·
+- img
+- checkbox "Select Css3 x (css3-en-light@midad.test)"
+- link "Css3 x":
+  - /url: /desk/user/css3-en-light%40midad.test
+- text: Active System User css3-en-light@midad.test 1 h 0 ·
+- img
+- checkbox "Select CssR2 arlight (css-r2-ar-light@midad.test)"
+- link "CssR2 arlight":
+  - /url: /desk/user/css-r2-ar-light%40midad.test
+- text: Active System User css-r2-ar-light@midad.test 2 h 0 ·
+- img
+- checkbox "Select CssR2 enlight (css-r2-en-light@midad.test)"
+- link "CssR2 enlight":
+  - /url: /desk/user/css-r2-en-light%40midad.test
+- text: Active System User css-r2-en-light@midad.test 2 h 0 ·
+- img
+- checkbox "Select Grid (grid-ar@midad.test)"
+- link "Grid":
+  - /url: /desk/user/grid-ar%40midad.test
+- text: Active System User grid-ar@midad.test 3 h 0 ·
+- img
+- checkbox "Select Grid (grid-en@midad.test)"
+- link "Grid":
+  - /url: /desk/user/grid-en%40midad.test
+- text: Active System User grid-en@midad.test 3 h 0 ·
+- img
+- checkbox "Select Axe ar-dark (axe-ar-dark@midad.test)"
+- link "Axe ar-dark":
+  - /url: /desk/user/axe-ar-dark%40midad.test
+- text: Active System User axe-ar-dark@midad.test now 0 ·
+- img
+- checkbox "Select Axe ar-light (axe-ar-light@midad.test)"
+- link "Axe ar-light":
+  - /url: /desk/user/axe-ar-light%40midad.test
+- text: Active System User axe-ar-light@midad.test now 0 ·
+- img
+- checkbox "Select Axe en-dark (axe-en-dark@midad.test)"
+- link "Axe en-dark":
+  - /url: /desk/user/axe-en-dark%40midad.test
+- text: Active System User axe-en-dark@midad.test now 0 ·
+- img
+- checkbox "Select Hrms (hrms-en-dark@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-en-dark%40midad.test
+- text: Active System User hrms-en-dark@midad.test 1 h 0 ·
+- img
+- checkbox "Select Axe en-light (axe-en-light@midad.test)"
+- link "Axe en-light":
+  - /url: /desk/user/axe-en-light%40midad.test
+- text: Active System User axe-en-light@midad.test now 0 ·
+- img
+- checkbox "Select Hrms (hrms-en-light@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-en-light%40midad.test
+- text: Active System User hrms-en-light@midad.test 1 h 0 ·
+- img
+- checkbox "Select Hrms (hrms-ar-light@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-ar-light%40midad.test
+- text: Active System User hrms-ar-light@midad.test 1 h 0 ·
+- img
+- checkbox "Select Hrms (hrms-ar-dark@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-ar-dark%40midad.test
+- text: Active System User hrms-ar-dark@midad.test 1 h 0 ·
+- img
+- checkbox "Select Coex (coex-en-dark@midad.test)"
+- link "Coex":
+  - /url: /desk/user/coex-en-dark%40midad.test
+- text: Active System User coex-en-dark@midad.test 4 h 0 ·
+- img
+- checkbox "Select Coex (coex-en-light@midad.test)"
+- link "Coex":
+  - /url: /desk/user/coex-en-light%40midad.test
+- text: Active System User coex-en-light@midad.test 4 h 0 ·
+- img

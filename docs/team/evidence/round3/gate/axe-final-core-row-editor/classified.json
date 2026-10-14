@@ -1,0 +1,1273 @@
+{
+ "rows": [],
+ "fixedByTheme": [
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".show-in-edit-mode"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"إخطارات\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"مهمة في الخلفية\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"السجلات\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".grid-collapse-row"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".keyboard-shortcut",
+   "contrast": {
+    "fg": "#717171",
+    "bg": "#0f0f0f",
+    "ratio": 3.92,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".avatar-medium-2 > .avatar-frame.standard-image[title=\"Axe ar-dark\"]",
+   "contrast": {
+    "fg": "#e4f5e9",
+    "bg": "#59ba8b",
+    "ratio": 2.1,
+    "expected": "4.5:1",
+    "fontSize": "10.5pt (14px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-string > .hljs-string",
+   "contrast": {
+    "fg": "#718c00",
+    "bg": "#ffffff",
+    "ratio": 3.85,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-number > .hljs-number",
+   "contrast": {
+    "fg": "#f5871f",
+    "bg": "#ffffff",
+    "ratio": 2.5,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".grid-delete-row",
+   "contrast": {
+    "fg": "#ffffff",
+    "bg": "#e03636",
+    "ratio": 4.42,
+    "expected": "4.5:1",
+    "fontSize": "10.5pt (14px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-comment > .hljs-comment > .hljs-comment",
+   "contrast": {
+    "fg": "#8e908c",
+    "bg": "#ffffff",
+    "ratio": 3.22,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "image-alt",
+   "target": ".header-logo > img"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"__newname\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"subject\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"DocType\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Email Account\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-check.sortable-handle.col > .grid-row-check[type=\"checkbox\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"bcc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-doctype=\"Notification Recipient\"][data-fieldname=\"condition\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "link-name",
+   "target": "a[href$=\"desk\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "meta-viewport",
+   "target": "meta[name=\"viewport\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"channel\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"event\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-fieldname=\"condition_type\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-doctype=\"Notification Recipient\"][data-fieldname=\"receiver_by_document_field\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "target-size",
+   "target": "a[href$=\"desk\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".show-in-edit-mode"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"إخطارات\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"مهمة في الخلفية\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"السجلات\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".grid-collapse-row"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".keyboard-shortcut",
+   "contrast": {
+    "fg": "#999999",
+    "bg": "#f8f8f8",
+    "ratio": 2.68,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".text-secondary",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#f8f8f8",
+    "ratio": 3.93,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-string > .hljs-string",
+   "contrast": {
+    "fg": "#718c00",
+    "bg": "#ffffff",
+    "ratio": 3.85,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-number > .hljs-number",
+   "contrast": {
+    "fg": "#f5871f",
+    "bg": "#ffffff",
+    "ratio": 2.5,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".grid-delete-row",
+   "contrast": {
+    "fg": "#ffffff",
+    "bg": "#e03636",
+    "ratio": 4.42,
+    "expected": "4.5:1",
+    "fontSize": "10.5pt (14px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-comment > .hljs-comment > .hljs-comment",
+   "contrast": {
+    "fg": "#8e908c",
+    "bg": "#ffffff",
+    "ratio": 3.22,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "image-alt",
+   "target": ".header-logo > img"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"__newname\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"subject\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"DocType\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Email Account\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-check.sortable-handle.col > .grid-row-check[type=\"checkbox\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"bcc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-doctype=\"Notification Recipient\"][data-fieldname=\"condition\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "link-name",
+   "target": "a[href$=\"desk\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "meta-viewport",
+   "target": "meta[name=\"viewport\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"channel\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"event\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-fieldname=\"condition_type\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-doctype=\"Notification Recipient\"][data-fieldname=\"receiver_by_document_field\"]"
+  },
+  {
+   "lang": "ar",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "target-size",
+   "target": "a[href$=\"desk\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".show-in-edit-mode"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"Notifications\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"Background Job\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"Logs\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".grid-collapse-row"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".keyboard-shortcut",
+   "contrast": {
+    "fg": "#717171",
+    "bg": "#0f0f0f",
+    "ratio": 3.92,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".item-anchor[href$=\"notification\"][target=\"\"] > .sidebar-item-label",
+   "contrast": {
+    "fg": "#999999",
+    "bg": "#424242",
+    "ratio": 3.52,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".avatar-medium-2 > .avatar-frame.standard-image[title=\"Axe en-dark\"]",
+   "contrast": {
+    "fg": "#fff7f7",
+    "bg": "#e03636",
+    "ratio": 4.18,
+    "expected": "4.5:1",
+    "fontSize": "10.5pt (14px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-string > .hljs-string",
+   "contrast": {
+    "fg": "#718c00",
+    "bg": "#ffffff",
+    "ratio": 3.85,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-number > .hljs-number",
+   "contrast": {
+    "fg": "#f5871f",
+    "bg": "#ffffff",
+    "ratio": 2.5,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-index.sortable-handle.grid-static-col > span",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#383838",
+    "ratio": 2.8,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": "div[title=\"Condition\"] > .static-area.ellipsis",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#383838",
+    "ratio": 2.8,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".grid-delete-row",
+   "contrast": {
+    "fg": "#ffffff",
+    "bg": "#e03636",
+    "ratio": 4.42,
+    "expected": "4.5:1",
+    "fontSize": "10.5pt (14px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-comment > .hljs-comment > .hljs-comment",
+   "contrast": {
+    "fg": "#8e908c",
+    "bg": "#ffffff",
+    "ratio": 3.22,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "image-alt",
+   "target": ".header-logo > img"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"__newname\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"subject\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"DocType\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Email Account\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-check.sortable-handle.col > .grid-row-check[type=\"checkbox\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"bcc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-doctype=\"Notification Recipient\"][data-fieldname=\"condition\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "link-name",
+   "target": "a[href$=\"desk\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "meta-viewport",
+   "target": "meta[name=\"viewport\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"channel\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"event\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-fieldname=\"condition_type\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-doctype=\"Notification Recipient\"][data-fieldname=\"receiver_by_document_field\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "dark",
+   "screen": "form-row-editor",
+   "rule": "target-size",
+   "target": "a[href$=\"desk\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-required-attr",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "aria-valid-attr-value",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".show-in-edit-mode"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"Notifications\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"Background Job\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": "div[item-name=\"Logs\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "button-name",
+   "target": ".grid-collapse-row"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".keyboard-shortcut",
+   "contrast": {
+    "fg": "#999999",
+    "bg": "#f8f8f8",
+    "ratio": 2.68,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".avatar-medium-2 > .avatar-frame.standard-image[title=\"Axe en-light\"]",
+   "contrast": {
+    "fg": "#e34aa6",
+    "bg": "#fff7fc",
+    "ratio": 3.44,
+    "expected": "4.5:1",
+    "fontSize": "10.5pt (14px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".text-secondary",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#f8f8f8",
+    "ratio": 3.93,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".title-text",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#ffffff",
+    "ratio": 4.17,
+    "expected": "4.5:1",
+    "fontSize": "12.0pt (16px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".input-max-width[data-fieldname=\"subject\"][data-fieldtype=\"Data\"] > .horizontal.form-group > .control-input-wrapper > .help-box.text-extra-muted.small",
+   "contrast": {
+    "fg": "#999999",
+    "bg": "#ffffff",
+    "ratio": 2.84,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".input-max-width[data-fieldname=\"send_system_notification\"][data-fieldtype=\"Check\"] > .checkbox > .help-box.text-extra-muted.small",
+   "contrast": {
+    "fg": "#999999",
+    "bg": "#ffffff",
+    "ratio": 2.84,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-string > .hljs-string",
+   "contrast": {
+    "fg": "#718c00",
+    "bg": "#ffffff",
+    "ratio": 3.85,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-number > .hljs-number",
+   "contrast": {
+    "fg": "#f5871f",
+    "bg": "#ffffff",
+    "ratio": 2.5,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-index.sortable-handle.grid-static-col > span",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#f3f3f3",
+    "ratio": 3.76,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": "div[title=\"Condition\"] > .static-area.ellipsis",
+   "contrast": {
+    "fg": "#7c7c7c",
+    "bg": "#f3f3f3",
+    "ratio": 3.76,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".grid-delete-row",
+   "contrast": {
+    "fg": "#ffffff",
+    "bg": "#e03636",
+    "ratio": 4.42,
+    "expected": "4.5:1",
+    "fontSize": "10.5pt (14px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .help-box.text-extra-muted.small",
+   "contrast": {
+    "fg": "#999999",
+    "bg": "#ffffff",
+    "ratio": 2.84,
+    "expected": "4.5:1",
+    "fontSize": "9.8pt (13px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "color-contrast",
+   "target": ".hljs-comment > .hljs-comment > .hljs-comment",
+   "contrast": {
+    "fg": "#8e908c",
+    "bg": "#ffffff",
+    "ratio": 3.22,
+    "expected": "4.5:1",
+    "fontSize": "9.2pt (12.25px)",
+    "fontWeight": "normal"
+   }
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "image-alt",
+   "target": ".header-logo > img"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"__newname\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".bold[data-fieldname=\"subject\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"DocType\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Email Account\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-check.sortable-handle.col > .grid-row-check[type=\"checkbox\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-target=\"Role\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"bcc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "input[data-doctype=\"Notification Recipient\"][data-fieldname=\"condition\"][data-fieldtype=\"Data\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "label",
+   "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "link-name",
+   "target": "a[href$=\"desk\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "meta-viewport",
+   "target": "meta[name=\"viewport\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"channel\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": ".bold[data-fieldname=\"event\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-fieldname=\"condition_type\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "select-name",
+   "target": "select[data-doctype=\"Notification Recipient\"][data-fieldname=\"receiver_by_document_field\"]"
+  },
+  {
+   "lang": "en",
+   "mode": "light",
+   "screen": "form-row-editor",
+   "rule": "target-size",
+   "target": "a[href$=\"desk\"]"
+  }
+ ],
+ "coverage": [
+  {
+   "variant": "core",
+   "lang": "ar",
+   "mode": "dark",
+   "screens": 1,
+   "errors": []
+  },
+  {
+   "variant": "core",
+   "lang": "ar",
+   "mode": "light",
+   "screens": 1,
+   "errors": []
+  },
+  {
+   "variant": "core",
+   "lang": "en",
+   "mode": "dark",
+   "screens": 1,
+   "errors": []
+  },
+  {
+   "variant": "core",
+   "lang": "en",
+   "mode": "light",
+   "screens": 1,
+   "errors": []
+  }
+ ]
+}
