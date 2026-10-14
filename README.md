@@ -20,6 +20,7 @@ Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (
 | `docs/team/WORKFLOW.md` | The team, phases and gates |
 | `docs/team/KICKOFF_PROMPT.md` | The prompts that start each phase |
 | `.claude/agents/` | The seven specialised agents |
+| `CHANGELOG.md` | Release history, starting with 1.0.0 |
 
 ## The identity
 
@@ -28,6 +29,8 @@ Midad (مداد, "ink"): Prussian ink as the primary colour, antique brass as a 
 Users may choose among audited colour presets; `midad` is the default. A site administrator controls the default, the allowed presets, an optional custom brand preset and the font pairing.
 
 ## Install
+
+This README describes release 1.0.0 (tag `v1.0.0`, created by the release lead after the release gate; release history in [CHANGELOG.md](CHANGELOG.md)). To install that release rather than the default branch, add `--branch v1.0.0` to the `get-app` line below once the tag exists.
 
 Run as the bench user, in the bench directory. The bench is a Frappe v16 bench with at least one site (ERPNext is optional: the theme installs and uninstalls the same way on a Frappe-only site and on a site with ERPNext).
 
@@ -52,7 +55,7 @@ bench --site <site> list-apps
 curl -s http://<site-host>/login | grep -o 'ins_web.bundle[^"]*'
 ```
 
-`list-apps` shows `institutional_theme 0.1.0`; the login page of a site with the app links `ins_web.bundle.<hash>.css` and `.js`, and the desk (`/desk`, signed in) links `ins_desk.bundle` and `ins_shell.bundle`.
+`list-apps` shows `institutional_theme 1.0.0` (the running web process reports the version it loaded: restart it after the upgrade); the login page of a site with the app links `ins_web.bundle.<hash>.css` and `.js`, and the desk (`/desk`, signed in) links `ins_desk.bundle` and `ins_shell.bundle`.
 
 ## Optional site configuration
 
