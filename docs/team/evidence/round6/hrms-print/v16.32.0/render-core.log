@@ -1,0 +1,113 @@
+FRAPPE 16.32.0 VARIANT core
+OK core__salary-slip-salary-slip-standard__wkhtmltopdf-en 30255
+OK core__salary-slip-salary-slip-standard__wkhtmltopdf-ar 34576
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4548 seconds
+OK core__salary-slip-salary-slip-standard__chrome-en 57469
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.5054 seconds
+OK core__salary-slip-salary-slip-standard__chrome-ar 104441
+FAIL core__salary-slip-salary-slip-classic__wkhtmltopdf-en TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-classic__wkhtmltopdf-ar TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-classic__chrome-en TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-classic__chrome-ar TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-detailed__wkhtmltopdf-en TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-detailed__wkhtmltopdf-ar TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-detailed__chrome-en TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-detailed__chrome-ar TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-compact__wkhtmltopdf-en TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-compact__wkhtmltopdf-ar TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-compact__chrome-en TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+FAIL core__salary-slip-salary-slip-compact__chrome-ar TypeError('<pre>Traceback (most recent call last):\n  File &quot;apps/frappe/frappe/utils/jinja.py&quot;, line 156, in render_template\n    return compiled_template.render(context)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File &quot;env/lib/python3.14/site-packages/jinja2/environment.py&quot
+OK core__salary-slip-salary-slip-with-year-to-date__wkhtmltopdf-en 30741
+OK core__salary-slip-salary-slip-with-year-to-date__wkhtmltopdf-ar 35762
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.3844 seconds
+OK core__salary-slip-salary-slip-with-year-to-date__chrome-en 62269
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.5141 seconds
+OK core__salary-slip-salary-slip-with-year-to-date__chrome-ar 110609
+OK core__salary-slip-salary-slip-based-on-timesheet__wkhtmltopdf-en 29125
+OK core__salary-slip-salary-slip-based-on-timesheet__wkhtmltopdf-ar 34220
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4195 seconds
+OK core__salary-slip-salary-slip-based-on-timesheet__chrome-en 52134
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4677 seconds
+OK core__salary-slip-salary-slip-based-on-timesheet__chrome-ar 99680
+OK core__salary-slip-standard__wkhtmltopdf-en 34977
+OK core__salary-slip-standard__wkhtmltopdf-ar 43172
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4030 seconds
+OK core__salary-slip-standard__chrome-en 84884
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4415 seconds
+OK core__salary-slip-standard__chrome-ar 160350
+OK core__appointment-letter-standard-appointment-letter__wkhtmltopdf-en 13836
+OK core__appointment-letter-standard-appointment-letter__wkhtmltopdf-ar 13895
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.1510 seconds
+OK core__appointment-letter-standard-appointment-letter__chrome-en 20817
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.1777 seconds
+OK core__appointment-letter-standard-appointment-letter__chrome-ar 20882
+OK core__job-offer-job-offer__wkhtmltopdf-en 12582
+OK core__job-offer-job-offer__wkhtmltopdf-ar 12655
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.1929 seconds
+OK core__job-offer-job-offer__chrome-en 19137
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.1981 seconds
+OK core__job-offer-job-offer__chrome-ar 19219
+OK core__employee-standard__wkhtmltopdf-en 20980
+OK core__employee-standard__wkhtmltopdf-ar 29636
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4226 seconds
+OK core__employee-standard__chrome-en 39630
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.5267 seconds
+OK core__employee-standard__chrome-ar 79317
+OK core__leave-application-standard__wkhtmltopdf-en 14537
+OK core__leave-application-standard__wkhtmltopdf-ar 30784
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.3290 seconds
+OK core__leave-application-standard__chrome-en 36175
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.3856 seconds
+OK core__leave-application-standard__chrome-ar 87815
+OK core__attendance-standard__wkhtmltopdf-en 20401
+OK core__attendance-standard__wkhtmltopdf-ar 29666
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4633 seconds
+OK core__attendance-standard__chrome-en 38935
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4083 seconds
+OK core__attendance-standard__chrome-ar 72437
+OK core__expense-claim-standard__wkhtmltopdf-en 22880
+OK core__expense-claim-standard__wkhtmltopdf-ar 35499
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4369 seconds
+OK core__expense-claim-standard__chrome-en 54204
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 0.4548 seconds
+OK core__expense-claim-standard__chrome-ar 115661

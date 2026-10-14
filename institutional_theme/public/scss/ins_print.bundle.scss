@@ -348,11 +348,16 @@ body.print-format-doc {
 	// Watermark for Draft and Cancelled: the text core already prints, lifted out of the flow, set large,
 	// and framed (no tilt: the patched wkhtmltopdf build ignores the transform). A fixed box repeats on every
 	// page in both generators. The frame is a border, so a photocopy still shows a boxed word; the text is
-	// the meaning.
+	// the meaning. `top` is a length, not a percentage: wkhtmltopdf resolves a percentage against the height of
+	// the document content, so 40% put the box over the title of a short document (round 6, Expense Claim).
+	// 118mm lands it near the middle of A4 and Letter there. Chrome prints a fixed box only inside the first
+	// ~45mm of the page (a box at 10mm is whole, at 20mm its lower edge is cut; measured with tops of 10 to 118mm, round 6), so a box lower than that is not
+	// printed at all and a Draft document would carry no mark: the `@supports` block below, which the old
+	// WebKit of wkhtmltopdf does not implement, keeps the box inside that area for Chrome.
 	[document-status="draft"],
 	[document-status="cancelled"] {
 		position: fixed;
-		top: 40%;
+		top: 118mm;
 		left: 15%;
 		right: 15%;
 		z-index: 0;
@@ -373,6 +378,13 @@ body.print-format-doc {
 
 	[document-status="cancelled"] {
 		border-style: dashed;
+	}
+
+	@supports (display: grid) {
+		[document-status="draft"],
+		[document-status="cancelled"] {
+			top: 10mm;
+		}
 	}
 }
 

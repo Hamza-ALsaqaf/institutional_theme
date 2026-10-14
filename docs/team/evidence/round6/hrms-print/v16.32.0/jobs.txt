@@ -1,0 +1,13 @@
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Standard
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Classic
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Detailed
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip Compact
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Salary Slip with Year to Date
+Salary Slip|Sal Slip/HR-EMP-00004/00001|Salary Slip based on Timesheet
+Salary Slip|Sal Slip/HR-EMP-00003/00001|Standard
+Appointment Letter|HR-APP-LETTER-00001|Standard Appointment Letter
+Job Offer|HR-OFF-2026-00001|Job Offer
+Employee|HR-EMP-00003|Standard
+Leave Application|HR-LAP-2026-00001|Standard
+Attendance|HR-ATT-2026-00001|Standard
+Expense Claim|HR-EXP-2026-00001|Standard
