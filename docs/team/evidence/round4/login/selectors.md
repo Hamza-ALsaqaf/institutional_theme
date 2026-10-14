@@ -1,5 +1,8 @@
 # Login, forgot-password, 2FA, update-password and auth emails: selectors for Frappe 16.32.0 and v16.52.0
 
+> Corrected by scribe (round-4 second pass, 2026-10-14): the lines marked "corrected by scribe" were checked against `/tmp/src/frappe-16.32.0`, `/tmp/src/frappe-16.52.0` and the bench node_modules. The rest of this file is as the engineer wrote it.
+
+
 Round 4, print-web-engineer. Source read from `/tmp/src/frappe-16.32.0` and `/tmp/src/frappe-16.52.0` (COMPUTED); rendering done on `midad.test` (16.32.0, port 8000) and `midad52.test` (v16.52.0, port 8001) (VERIFIED by running; screenshots and `*-measurements.json` in this folder). All theme rules are in `institutional_theme/public/scss/web/_login.scss`, `web/_base.scss` and `ins_email.bundle.scss`. Every new selector sits next to the old one; where a name is absent it matches nothing. No version test, no `!important`, only existing tokens and literals.
 
 Paths under `frappe/`. "login.html" is `www/login.html`, "bundle" is `public/scss/login.bundle.scss`, "button.css" is `public/css/espresso/components/button.css`.
@@ -8,7 +11,7 @@ Paths under `frappe/`. "login.html" is `www/login.html`, "bundle" is `public/scs
 
 | Item | 16.32.0 | v16.52.0 | Theme rule |
 |---|---|---|---|
-| Sign-in button | `button.btn.btn-sm.btn-default.btn-block.btn-login` (login.html:56,60), styled by bundle:78 | `button.es-button.w-full[data-variant="solid"][type=submit]` (login.html:45-49), grey-10 fill (button.css:29-30,149-152), so near-black | `.page-card-actions .es-button[data-variant="solid"]` next to `.btn-login`, `.btn-ldap-login`, `.btn-signup:not(:disabled)`. The `.es-button` block sets core's own local variables `--bt-solid-bg`, `-hover`, `-active`, `--bt-solid-fg`, `--bt-focus`, `--es-bt-h` to theme tokens, so core's hover, active, focus and disabled rules follow the theme without repeating them |
+| Sign-in button | `button.btn.btn-sm.btn-default.btn-block.btn-login` (login.html:56,60), styled by bundle:78 | `button.es-button.w-full[data-variant="solid"][type=submit]` (login.html:45-49), grey-10 fill (button.css:34,149-152 (corrected by scribe: `:29-30` is a comment end in 16.52.0; the `.es-button` rule opens at `:31`)), so near-black | `.page-card-actions .es-button[data-variant="solid"]` next to `.btn-login`, `.btn-ldap-login`, `.btn-signup:not(:disabled)`. The `.es-button` block sets core's own local variables `--bt-solid-bg`, `-hover`, `-active`, `--bt-solid-fg`, `--bt-focus`, `--es-bt-h` to theme tokens, so core's hover, active, focus and disabled rules follow the theme without repeating them |
 | Secondary option button | `.btn-login-option` (login.html:65, bundle:138) | `a.es-button.w-full.btn-login-option` (login.html:54) | `.btn-login-option, .es-button.btn-login-option` |
 | Forgot, send-link button | `.btn.btn-primary.btn-signup.btn-forgot` (login.html:183) | `.es-button.btn-forgot[data-variant="solid"]`, disabled until typed (login.html:170-171) | solid selector above; disabled `.btn-signup:disabled, .es-button:disabled`: dashed border, muted text (state by border, not tint) |
 | Email and password labels | `label.form-label` (login.html:17,32) | bare `label.text-base.text-ink-gray-5` inside `.form-group` (login.html:13,24) | `.form-label, .form-group > label, .form-group > div > label` |

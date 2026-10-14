@@ -1,111 +1,111 @@
 section	row	verdict	item	detail
 1	1	present	`app_include_css`	frappe/www/desk.py: 38-39 same; 49-50 same | frappe/www/desk.html: 24-26 same
 1	2	present	`app_include_js`	frappe/www/desk.py: 38-38 same; 49-49 same
-1	3	present	`web_include_css`	
-1	4	present	`web_include_js`	
+1	3	present	`web_include_css`	frappe/templates/includes/head.html: 12-12 same
+1	4	present	`web_include_js`	frappe/templates/base.html: 105-105 same
 1	5	present	`update_website_context`	frappe/website/page_renderers/base_template_page.py: 69-75 same
 1	6	present	`extend_bootinfo`	frappe/sessions.py: 169-170 same; 139-147 same
 1	7	present	`doc_events` (`Institutional Theme Settings`, `on_update`)	frappe/model/document.py: 1650-1660 same
 1	8	present	`after_migrate`	frappe/migrate.py: 200-203 same
 1	9	present	`before_uninstall`	frappe/installer.py: 445-446 same
 1	10	present	`doc_events` (`Institutional Theme Settings`, `on_update`), second handler	frappe/model/document.py: 1650-1660 same
-1	11	present	`jinja` (`methods`)	frappe/utils/jinja.py: 223-250 same | frappe/www/printview.py: 231-241 same
+1	11	present	`jinja` (`methods`)	frappe/utils/jinja.py: 223-223 same; 36-36 same | frappe/www/printview.py: 231-241 same
 1	12	present	`after_install`	frappe/installer.py: 360-361 same
 1	13	present	`email_css`	frappe/email/email_body.py: 477-477 same
 2a	1	present	`.indicator-pill`	frappe/public/scss/common/indicator.scss: 2-2 same
 2a	2	present	`.control-label.reqd:after`	frappe/public/scss/common/controls.scss: 151-151 same
 2a	3	present	`.like-disabled-input`	frappe/public/js/frappe/form/controls/base_input.js: 29-29 same | frappe/public/scss/common/form.scss: 14-14 same
-2a	4	present	`.form-tabs-list .form-tabs .nav-item .nav-link`	frappe/public/scss/desk/form.scss: 484-500 same
-2a	5	present	`.form-message` (colour classes)	frappe/public/scss/desk/form.scss: 359-378 same
+2a	4	present	`.form-tabs-list .form-tabs .nav-item .nav-link`	frappe/public/scss/desk/form.scss: 484-484 same; 492-492 same; 497-497 same; 500-500 same
+2a	5	present	`.form-message` (colour classes)	frappe/public/scss/desk/form.scss: 359-359 same; 372-372 same
 2a	6	present	`.form-links .document-link`	frappe/public/scss/desk/form.scss: 239-239 same
 2a	7	present	`.form-section .section-head`	frappe/public/scss/desk/form.scss: 41-41 same
-2a	8	present	`.fc-event-main-frame`, `.fc-daygrid-dot-event`	frappe/public/scss/desk/calendar.scss: 71-71: old text empty or out of range; 99-99 same
+2a	8	present	`.fc-event-main-frame`, `.fc-daygrid-dot-event`	frappe/public/scss/desk/calendar.scss: 68-68 same; 94-94 same
 2a	9	present	`.btn.btn-primary`, `.btn.btn-secondary`	frappe/public/scss/common/buttons.scss: 80-80 same; 117-117 same
 2a	10	present	`.btn.btn-default`	frappe/public/scss/common/buttons.scss: 80-80 same; 117-117 same
 2a	11	present	`.modal`, `.form-in-grid`	frappe/public/scss/desk/dark.scss: 174-175 same
 2a	12	present	`.grid-body .editable-row`	frappe/public/scss/desk/dark.scss: 189-193 same | frappe/public/scss/common/grid.scss: 283-286 same
 2a	13	present	`.chart-container`	frappe/public/scss/desk/dark.scss: 222-234 same
-2a	14	present	`.new-timeline .timeline-item`	
-2a	15	present	`.switch-control`	frappe/public/scss/common/controls.scss: 709-806 same
-2a	16	present	`.rating`	
-2a	17	present	`get_textstyle` letter-spacing	frappe/public/scss/espresso/_typography.scss: 99-99 same
+2a	14	present	`.new-timeline .timeline-item`	frappe/public/scss/desk/timeline.scss: 21-21 same; 51-51 same
+2a	15	present	`.switch-control`	frappe/public/scss/common/controls.scss: 712-712 same; 723-723 same
+2a	16	moved	`.rating`	frappe/public/scss/desk/global.scss: file exists | rating: not in the cited file; now in frappe/public/js/form_builder/components/controls/RatingControl.vue
+2a	17	present	`get_textstyle` letter-spacing	frappe/public/scss/espresso/_typography.scss: 96-96 same; 99-99 same
 2a	18	present	`.modal` and related descendant rules (overall)	
-2b	1	present	`.body-sidebar-container .body-sidebar .standard-sidebar-item`, `.active-sidebar`, `.item-	frappe/public/scss/desk/sidebar.scss: 19-23 same; 62-117 same; 271-274 same | frappe/public/js/frappe/ui/sidebar/sidebar.html: 1-1 same | frappe/public/js/frappe/ui/sidebar/sidebar.js: 389-389 same
+2b	1	present	`.body-sidebar-container .body-sidebar .standard-sidebar-item`, `.active-sidebar`, `.item-	frappe/public/scss/desk/sidebar.scss: 85-85 same; 99-99 same; 112-112 same | frappe/public/js/frappe/ui/sidebar/sidebar.js: 389-389 same | frappe/public/js/frappe/ui/sidebar/sidebar.html: 1-1 same
 2b	2	present	`.dropdown-menu-item`	frappe/public/scss/desk/menu.scss: 18-24 same | frappe/public/js/frappe/ui/menu.js: 87-102 same
 2b	3	present	`.page-head`, `.page-title .title-text`	frappe/public/scss/desk/page.scss: 119-130 same | frappe/public/js/frappe/ui/page.js: 735-735 same
 2b	4	present	`.navbar-breadcrumbs a`, `a::before`	frappe/public/scss/desk/breadcrumb.scss: 6-30 same | frappe/public/js/frappe/ui/page.html: 17-17 same
 2b	5	present	`.list-row`, `.list-row-head`, `.level-left .list-subject`, `.level-right`, `.list-row-che	frappe/public/scss/desk/list.scss: 137-178 same; 223-250 same; 329-329 same | frappe/public/js/frappe/list/list_view.js: 771-771 same; 825-825 same; 1025-1025 same
-2b	6	present	`.frappe-list .result-container`	frappe/public/scss/desk/list.scss: 1-27 same | frappe/public/js/frappe/list/base_list.js: file exists
+2b	6	present	`.frappe-list .result-container`	frappe/public/scss/desk/list.scss: 2-3 same | frappe/public/js/frappe/list/base_list.js: 337-337 same
 2b	7	present	`.msg-box`	frappe/public/scss/desk/global.scss: 538-542 same
 2b	8	present	`.list-paging-area .btn-group .btn.btn-paging.btn-info`	frappe/public/scss/desk/list.scss: 293-312 same | frappe/public/js/frappe/list/base_list.js: 377-406 same
 2b	9	present	`.datatable .dt-cell__content`, `.dt-header .dt-cell--header`, `.dt-row-header`, `.dt-row`	node_modules/frappe-datatable/dist/frappe-datatable.css: 118-118 same; 185-185 same | node_modules/frappe-datatable/src/rowmanager.js: 353-353 same | frappe/public/scss/desk/frappe_datatable.scss: 55-63 same; 113-113 same
 2b	10	present	`.grid-heading-row`, `.grid-heading-row .grid-row`, `.grid-empty`, `.form-grid .grid-body 	frappe/public/scss/common/grid.scss: 19-35 same; 154-169 same
-2b	11	moved	`.modal-content`, `#freeze`, `#freeze.in`, `.freeze-message-container`, `.dropdown-menu`, 	frappe/public/scss/desk/global.scss: 327-330 same; 347-352 same; 511-531 same | frappe/public/scss/desk/form.scss: 3-11 same | frappe/public/scss/desk/toast.scss: 12-40 same | modal-content: not in the cited file; now in frappe/public/js/frappe/form/form_tour.js | awesomplete: not in the cited file; now in frappe/public/js/frappe/form/controls/autocomplete.js
-2b	12	present	`.datepicker`	
-2b	13	present	`.widget.number-widget-box`, `.shortcut-widget-box`, `.links-widget-box`, `.widget-title`,	frappe/public/scss/desk/desktop.scss: 91-100 same; 538-600 same; 636-665 same | frappe/public/js/frappe/widgets/number_card_widget.js: 26-26 same; 286-286 same | frappe/public/js/frappe/widgets/shortcut_widget.js: 78-78 same | frappe/public/js/frappe/widgets/links_widget.js: 27-27 same; 106-106 same
+2b	11	moved	`.modal-content`, `#freeze`, `#freeze.in`, `.freeze-message-container`, `.dropdown-menu`, 	frappe/public/scss/desk/global.scss: 511-511 same; 517-517 same; 529-529 same | frappe/public/scss/desk/form.scss: 3-11 same | node_modules/bootstrap/scss/_modal.scss: 62-62 same | desk-alert: not in the cited file; now in frappe/public/js/frappe/ui/messages.js | awesomplete: not in the cited file; now in frappe/public/js/frappe/form/controls/autocomplete.js
+2b	12	present	`.datepicker`	node_modules/air-datepicker/dist/css/datepicker.min.css: file exists
+2b	13	present	`.widget.number-widget-box`, `.shortcut-widget-box`, `.links-widget-box`, `.widget-title`,	frappe/public/scss/desk/desktop.scss: 538-538 same; 568-568 same; 638-638 same; 916-916 same; 919-919 same; 981-981 same | frappe/public/js/frappe/widgets/number_card_widget.js: 26-26 same | frappe/public/js/frappe/widgets/shortcut_widget.js: 78-78 same | frappe/public/js/frappe/widgets/links_widget.js: 27-27 same
 2c	1	present	`body[data-path]`, body class, `banner_html`, `body_include` slots	frappe/templates/base.html: 57-57 same; 61-62 same; 115-115 same
 2c	2	present	`.page-content-wrapper` (min-height, padding)	frappe/public/scss/login.bundle.scss: 5-13 same | frappe/templates/web.html: 8-8 same
 2c	3	present	`.page_content` (min-height 50vh)	frappe/public/scss/website/index.scss: 128-130 same
-2c	4	present	`.for-login .page-card` and siblings `.for-forgot`, `.for-login-with-email-link`, `.for-si	frappe/public/scss/login.bundle.scss: 27-50 same | frappe/www/login.html: 119-119 same; 135-135 same; 150-150 same; 165-165 same | frappe/www/update-password.html: 14-14 same
-2c	5	present	`.page-card form`, `.form-group`	frappe/public/scss/login.bundle.scss: 52-70 same
+2c	4	present	`.for-login .page-card` and siblings `.for-forgot`, `.for-login-with-email-link`, `.for-si	frappe/public/scss/login.bundle.scss: 32-32 same | frappe/www/login.html: 118-118 same | frappe/www/update-password.html: 15-15 same
+2c	5	present	`.page-card form`, `.form-group`	frappe/public/scss/login.bundle.scss: 32-32 same; 58-58 same
 2c	6	present	`.page-card-actions .btn-login`, `.btn-ldap-login`, `.btn-signup`, `.btn-login-option`	frappe/public/scss/login.bundle.scss: 72-165 same | frappe/www/login.html: file exists
 2c	7	present	`.page-card-body` inputs, `.form-label`, `.field-icon`, `.email-field`, `.password-field`,	frappe/public/scss/login.bundle.scss: 210-352 same | frappe/www/login.html: 9-48 same
-2c	8	present	`.sign-up-message`	frappe/public/scss/login.bundle.scss: 356-372 same | frappe/www/login.html: 125-125 same; 168-168 same
-2c	9	present	`.page-card-head`, `img.app-logo`, `h4`, `.page-card-subtitle`	frappe/public/scss/login.bundle.scss: 398-435 same | frappe/www/login.html: 92-93 same
+2c	8	present	`.sign-up-message`	frappe/public/scss/login.bundle.scss: 356-356 same | frappe/www/login.html: 125-125 same
+2c	9	present	`.page-card-head`, `img.app-logo`, `h4`, `.page-card-subtitle`	frappe/public/scss/login.bundle.scss: 398-398 same; 407-407 same | frappe/www/login.html: 92-93 same
 2c	10	present	`.invalid-login` (wiggle)	frappe/public/scss/login.bundle.scss: 374-376 same
-2c	11	present	2FA: `#twofactor_div`, `.form-verify`, `#login_token`, `#verify_token`, `.text-muted` hint	frappe/templates/includes/login/login.js: 365-381 same
-2c	12	present	Update-password strength: `.for-reset-password .password-strength-bar-track`	frappe/public/scss/login.bundle.scss: file exists | frappe/www/update-password.html: 55-55 same
-2c	13	present	`.error-page`, `.details`, `h4`, `.error-content`, `.btn-primary`	frappe/public/scss/website/error-state.scss: 1-24 same | frappe/www/error.html: 19-19 same; 33-45 same | frappe/www/message.html: 14-28 same
-2d	1	present	`.fc-event` (`border: none !important`), `.fc-event-main`, `.fc-daygrid-dot-event`	frappe/public/scss/desk/calendar.scss: 65-65 same | fc-event-main: not in 16.32.0 source either (this theme's own name, or a description)
+2c	11	present	2FA: `#twofactor_div`, `.form-verify`, `#login_token`, `#verify_token`, `.text-muted` hint	frappe/templates/includes/login/login.js: 349-349 same; 368-368 same
+2c	12	present	Update-password strength: `.for-reset-password .password-strength-bar-track`	frappe/public/scss/login.bundle.scss: 515-515 same | frappe/www/update-password.html: 55-55 same
+2c	13	present	`.error-page`, `.details`, `h4`, `.error-content`, `.btn-primary`	frappe/public/scss/website/error-state.scss: 1-1 same; 17-17 same | frappe/www/error.html: 33-33 same; 38-38 same | frappe/www/message.html: 14-14 same; 19-19 same
+2d	1	present	`.fc-event` (`border: none !important`), `.fc-event-main`, `.fc-daygrid-dot-event`	frappe/public/scss/desk/calendar.scss: 63-63 same; 68-68 same; 94-94 same | fc-event-main: not in 16.32.0 source either (this theme's own name, or a description)
 2d	2	present	`.frappe-control.has-error`, `.control-input`, `[data-fieldtype]`	frappe/public/js/frappe/form/controls/base_input.js: 277-277 same; 286-286 same | frappe/public/scss/common/controls.scss: 222-222 same
-2d	3	present	`.tree-children`, `.tree-label`, `.tree-node-toolbar`	frappe/public/scss/desk/tree.scss: 46-46 same; 51-51 same; 108-108 same
-2d	4	present	`.gantt .grid-header`, `.grid-row`, `.row-line`, `.tick`, `.today-highlight`, `.upper-text	node_modules/frappe-gantt/dist/frappe-gantt.css: 1-27 same; 91-100 same | frappe/public/js/frappe/views/gantt/gantt_view.js: 228-228 same
+2d	3	present	`.tree-children`, `.tree-label`, `.tree-node-toolbar`	frappe/public/scss/desk/tree.scss: 45-45 same; 50-50 same; 105-105 same
+2d	4	present	`.gantt .grid-header`, `.grid-row`, `.row-line`, `.tick`, `.today-highlight`, `.upper-text	node_modules/frappe-gantt/dist/frappe-gantt.css: 4-4 same; 9-9 same; 25-25 same
 2d	5	present	`.gantt-container`	frappe/public/js/frappe/views/gantt/gantt_view.js: file exists | frappe/public/scss/desk/frappe_gantt.scss: 88-88 same
-2d	6	present	`body { padding: 0 !important }`; `body { display: flex; align-items: flex-start }`; `.mai	frappe/public/scss/desk/mobile.scss: 1-5 same | frappe/public/scss/desk/main.scss: 28-35 same; 37-43 same
-2d	7	present	`.body-sidebar`, `.body-sidebar-container`, `.body-sidebar-container.expanded .body-sideba	frappe/public/scss/desk/sidebar.scss: 34-52 same; 23-27 same; 168-216 same (ambiguous: 2 files named so)
+2d	6	present	`body { padding: 0 !important }`; `body { display: flex; align-items: flex-start }`; `.mai	frappe/public/scss/desk/main.scss: 29-29 same; 39-39 same | frappe/public/scss/desk/mobile.scss: 1-5 same
+2d	7	present	`.body-sidebar`, `.body-sidebar-container`, `.body-sidebar-container.expanded .body-sideba	frappe/public/scss/desk/sidebar.scss: 23-23 same; 36-36 same; 215-215 same
 2d	8	present	`.page-head` sticky `top: 0`	frappe/public/scss/desk/page.scss: 121-128 same
 2d	9	unchecked	`body:has(> .ins-banner)`, `body:has(> .ins-banner) > .ins-banner`, `body:has(> .ins-banne	
-2d	10	unchecked	`.ins-banner`, `[data-ins-banner]`, `.ins-banner-text`, `.ins-banner-action`	banner.js: not found in the old tree either (manifest path not resolvable)
-2d	11	unchecked	`.ins-appearance > h1`	ins_appearance.js: not found in the old tree either (manifest path not resolvable)
-2d	12	present	`.ace_editor`	frappe/public/scss/common/controls.scss: 243-265 same
-2d	13	moved	Ace theme `tomorrow` (`ace/theme/tomorrow`, class `ace-tomorrow`): `.ace_keyword`, `.ace_s	frappe/public/js/frappe/form/controls/code.js: 84-84 same | ace-tomorrow: not in 16.32.0 source either (this theme's own name, or a description) | ace_keyword: not in 16.32.0 source either (this theme's own name, or a description) | ace_storage: not in 16.32.0 source either (this theme's own name, or a description) | ace_meta: not in 16.32.0 source either (this theme's own name, or a description) | ace_tag: not in 16.32.0 source either (this theme's own name, or a description) | ace_tag-name: not in 16.32.0 source either (this theme's own name, or a description) | ace_string: not in 16.32.0 source either (this theme's own name, or a description) | ace_regexp: not in 16.32.0 source either (this theme's own name, or a description) | ace_constant: not in 16.32.0 source either (this theme's own name, or a description) | ace_numeric: not in 16.32.0 source either (this theme's own name, or a description) | ace_comment: not in 16.32.0 source either (this theme's own name, or a description) | ace_variable: not in 16.32.0 source either (this theme's own name, or a description) | ace_support: not in 16.32.0 source either (this theme's own name, or a description) | ace_entity: not in 16.32.0 source either (this theme's own name, or a description) | ace_marker-layer: not in the cited file; now in frappe/public/scss/common/controls.scss | ace_selection: not in 16.32.0 source either (this theme's own name, or a description) | ace_cursor: not in 16.32.0 source either (this theme's own name, or a description) | ace_invisible: not in 16.32.0 source either (this theme's own name, or a description) | ace_indent-guide: not in 16.32.0 source either (this theme's own name, or a description)
-2d	14	unchecked	`.ql-editor.ql-blank::before`; `.ql-editor`	dist/quill.snow.css: not found in the old tree either (manifest path not resolvable) | frappe/public/scss/common/quill.scss: 11-11 same
-2d	15	present	`kbd` (shortcuts dialog `<kbd>` chips)	frappe/public/js/frappe/ui/keyboard.js: 117-118 same; 84-150 same
-2d	16	moved	Datatable markup in the proof (`.dt-instance-N .dt-cell`, `.dt-row`, `.dt-cell`)	frappe/public/js/frappe/ui/datatable.js: 116-124: old text empty or out of range (ambiguous: 2 files named so) | rowmanager.js: not found in the old tree either (manifest path not resolvable) | cellmanager.js: not found in the old tree either (manifest path not resolvable) | style.js: not found in the old tree either (manifest path not resolvable) | dt-instance-N: not in 16.32.0 source either (this theme's own name, or a description) | dt-cell: not in the cited file; now in frappe/public/js/frappe/data_import/import_preview.js | dt-row: not in the cited file; now in frappe/public/js/frappe/views/reports/report_view.js
-2d	17	present	List subject: `.level-item bold ellipsis` (unseen), bare span (seen)	frappe/public/js/frappe/list/list_view.js: 1323-1343 same
-2e	1	moved	`.print-format`, `.print-heading`, `.sub-heading`, `.page-break`, `.letter-head`, `.letter	frappe/templates/styles/standard.css: file exists | frappe/templates/print_formats/standard_macros.html: 198-212 same | letter-head-footer: not in the cited file; now in frappe/public/html/print_template.html
+2d	10	unchecked	`.ins-banner`, `[data-ins-banner]`, `.ins-banner-text`, `.ins-banner-action`	institutional_theme/public/js/shell/banner.js: not found in the old tree either (manifest path not resolvable) | public/scss/desk/_banners.scss: not found in the old tree either (manifest path not resolvable)
+2d	11	unchecked	`.ins-appearance > h1`	ins_appearance.js: not found in the old tree either (manifest path not resolvable) | public/scss/desk/_appearance.scss: not found in the old tree either (manifest path not resolvable)
+2d	12	present	`.ace_editor`	frappe/public/scss/common/controls.scss: 243-243 same
+2d	13	present	Ace theme `tomorrow` (`ace/theme/tomorrow`, class `ace-tomorrow`): `.ace_keyword`, `.ace_s	frappe/public/js/frappe/form/controls/code.js: 84-84 same | node_modules/ace-builds/src-noconflict/theme-tomorrow.js: file exists | ace_tag-name: not in 16.32.0 source either (this theme's own name, or a description)
+2d	14	present	`.ql-editor.ql-blank::before`; `.ql-editor`	frappe/public/scss/common/quill.scss: 11-11 same; 319-319 same
+2d	15	present	`kbd` (shortcuts dialog `<kbd>` chips)	frappe/public/js/frappe/ui/keyboard.js: 118-118 same
+2d	16	present	Datatable markup in the proof (`.dt-instance-N .dt-cell`, `.dt-row`, `.dt-cell`)	node_modules/frappe-datatable/src/style.js: 18-18 same | src/rowmanager.js: not found in the old tree either (manifest path not resolvable) | cellmanager.js: not found in the old tree either (manifest path not resolvable) | dt-instance-N: not in 16.32.0 source either (this theme's own name, or a description)
+2d	17	present	List subject: `.level-item bold ellipsis` (unseen), bare span (seen)	frappe/public/js/frappe/list/list_view.js: 770-770 same; 897-897 same; 1323-1343 same
+2e	1	moved	`.print-format`, `.print-heading`, `.sub-heading`, `.page-break`, `.letter-head`, `.letter	frappe/templates/styles/standard.css: 116-116 same | frappe/templates/print_formats/standard_macros.html: 205-205 same | frappe/templates/styles/standard.css: 2-2 same | letter-head-footer: not in the cited file; now in frappe/public/html/print_template.html
 2e	2	present	`[document-status="draft"]`, `[document-status="cancelled"]`	frappe/templates/print_formats/standard_macros.html: 215-215 same; 220-220 same
 2e	3	present	`.data-field[data-fieldname=...]`	frappe/templates/print_formats/standard_macros.html: 90-110 same
 2e	4	present	`.table`, `.table-bordered` (child selectors)	frappe/public/css/bootstrap.css: 1487-1501 same
 2e	5	unchecked	`.items-table`, `.tax-table`, `.highlight-bg`, `.invoice-page`	erpnext/accounts/print_format/sales_invoice_standard/sales_invoice_standard.json: not found in the old tree either (manifest path not resolvable) | items-table: not in 16.32.0 source either (this theme's own name, or a description) | tax-table: not in 16.32.0 source either (this theme's own name, or a description) | highlight-bg: not in 16.32.0 source either (this theme's own name, or a description) | invoice-page: not in 16.32.0 source either (this theme's own name, or a description)
-2e	6	moved	`td.text-right`, `td.text-left` (figures)	frappe/templates/print_formats/standard_macros.html: 189-196 same | text-left: not in the cited file; now in frappe/public/css/bootstrap.css
+2e	6	moved	`td.text-right`, `td.text-left` (figures)	frappe/templates/print_formats/standard_macros.html: 192-192 same | text-left: not in the cited file; now in frappe/public/css/bootstrap.css
 2e	7	present	`html[dir]` in both PDF generators	frappe/www/printview.html: 2-2 same | frappe/templates/print_formats/pdf_header_footer.html: 2-2 same
-2e	8	present	`body:not([onload])` `.print-format .wrapper .letter-head .ins-lh` (margin-top 16mm) and `	frappe/templates/print_formats/chrome_pdf_header_footer.html: file exists | frappe/templates/print_formats/pdf_header_footer.html: file exists | frappe/utils/pdf_generator/browser.py: 171-171 same; 301-340 same
-2e	9	present	`.body-table`, `.email-container`, `.email-masthead`, `.email-title-cell`, `.email-body-ce	frappe/templates/emails/standard.html: file exists | frappe/templates/emails/email_header.html: file exists | frappe/templates/emails/email_footer.html: file exists | frappe/public/scss/email.bundle.scss: file exists
-2e	10	present	Email physical properties: `border-left` (two rules, `ins_email.bundle.scss:117,134`), `te	
-2e	11	present	Print bundle physical properties (`border-top`, `margin-right`, `border-right-width`, `tex	
-2e	12	unchecked	ERPNext format declarations `color: ... !important` on `.items-table thead td` and `paddin	items-table: not in 16.32.0 source either (this theme's own name, or a description)
+2e	8	present	`body:not([onload])` `.print-format .wrapper .letter-head .ins-lh` (margin-top 16mm) and `	frappe/templates/print_formats/chrome_pdf_header_footer.html: 15-15 same; 16-16 same | frappe/templates/print_formats/pdf_header_footer.html: 26-26 same; 31-31 same | frappe/utils/pdf_generator/browser.py: 12-12 same; 71-71 same; 83-83 same | frappe/utils/pdf_generator/browser.py: 171-171 same; 301-340 same
+2e	9	moved	`.body-table`, `.email-container`, `.email-masthead`, `.email-title-cell`, `.email-body-ce	frappe/templates/emails/standard.html: 11-11 same; 14-14 same | frappe/public/scss/email.bundle.scss: 68-68 same; 90-90 same; 96-96 same; 152-152 same; 167-167 same; 174-174 same; 178-178 same; 181-181 same | indicator-: not in the cited file; now in frappe/templates/emails/email_header.html
+2e	10	unchecked	Email physical properties: `border-left` (two rules, `ins_email.bundle.scss:117,134`), `te	institutional_theme/public/scss/ins_email.bundle.scss: not found in the old tree either (manifest path not resolvable)
+2e	11	unchecked	Print bundle physical properties (`border-top`, `margin-right`, `border-right-width`, `tex	institutional_theme/public/scss/ins_print.bundle.scss: not found in the old tree either (manifest path not resolvable)
+2e	12	unchecked	ERPNext format declarations `color: ... !important` on `.items-table thead td` and `paddin	erpnext/accounts/print_format/sales_invoice_standard/sales_invoice_standard.json: not found in the old tree either (manifest path not resolvable) | items-table: not in 16.32.0 source either (this theme's own name, or a description)
 2f	1	present	`h1` letter-spacing	frappe/public/scss/website/base.scss: 19-38 same
 2f	2	present	`[data-doctype="Web Form"] .page-content-wrapper .container .page_content`, `.web-form-int	frappe/public/scss/website/web_form.scss: file exists
 2f	3	present	`--*-avatar-bg`, `--*-avatar-color` (core variables remapped to the status pairs)	frappe/public/scss/website/website_avatar.scss: 5-7 same
-2f	4	present	`.empty-apps-state`	frappe/templates/includes/list/list.html: 5-9 same
+2f	4	present	`.empty-apps-state`	frappe/templates/includes/list/list.html: 5-5 same
 2f	5	present	`.no-result`	frappe/public/js/frappe/web_form/web_form_list.js: 258-258 same (ambiguous: 2 files named so)
 2f	6	present	Web Page `text_align` inline style (`web_page.html:23`)	frappe/website/doctype/web_page/templates/web_page.html: 23-23 same
-2f	7	present	Error and message pages, login headings (`.page-card-head-text h4`, `.page-card-subtitle`)	frappe/www/update-password.html: 17-20 same | frappe/www/login.html: 151-151 same | frappe/www/error.html: 19-50 same | frappe/public/css/hljs-night-owl.css: 30-30 same
-2g	1	present	`shell/field_errors.js` (`aria-invalid` on invalid and mandatory fields)	frappe/public/js/frappe/form/controls/base_input.js: 277-277 same; 286-286 same | aria-invalid: not in 16.32.0 source either (this theme's own name, or a description)
-2g	2	present	Print bundle `span.title` `margin-left: 0.35em` (physical)	
-2g	3	unchecked	Print bundle `div.info-text` `unicode-bidi: plaintext` (and `-webkit-plaintext`)	info-text: not in 16.32.0 source either (this theme's own name, or a description)
+2f	7	present	Error and message pages, login headings (`.page-card-head-text h4`, `.page-card-subtitle`)	frappe/www/login.html: 94-94 same | frappe/public/css/hljs-night-owl.css: 34-34 same; 30-30 same
+2g	1	present	`shell/field_errors.js` (`aria-invalid` on invalid and mandatory fields)	frappe/public/js/frappe/form/controls/base_input.js: 277-277 same; 286-286 same | institutional_theme/public/js/shell/field_errors.js: not found in the old tree either (manifest path not resolvable) | aria-invalid: not in 16.32.0 source either (this theme's own name, or a description)
+2g	2	unchecked	Print bundle `span.title` `margin-left: 0.35em` (physical)	institutional_theme/public/scss/ins_print.bundle.scss: not found in the old tree either (manifest path not resolvable)
+2g	3	unchecked	Print bundle `div.info-text` `unicode-bidi: plaintext` (and `-webkit-plaintext`)	institutional_theme/public/scss/ins_print.bundle.scss: not found in the old tree either (manifest path not resolvable) | info-text: not in 16.32.0 source either (this theme's own name, or a description)
 2g	4	present	Watermark `letter-spacing: 0` on `[document-status="draft"] h4` and `[document-status="can	frappe/templates/print_formats/standard_macros.html: 215-215 same; 220-220 same
 2g	5	present	Letter Head `ins_identity is defined` guard (`{%- set ... -%}` in both templates)	frappe/utils/jinja.py: 66-66 same; 157-160 same
 2g	6	present	`web_content.py` login `<title>` replacement (`values["title"]`)	frappe/www/login.py: 45-45 same
-2h	1	moved	`shell/field_labels.js` (`aria-labelledby` on each control, `id` on its label)	frappe/public/js/frappe/form/controls/base_input.js: 24-24 same | frappe/public/js/frappe/form/form.js: 625-625 same | aria-labelledby: not in the cited file; now in frappe/public/js/frappe/form/tab.js
+2h	1	moved	`shell/field_labels.js` (`aria-labelledby` on each control, `id` on its label)	frappe/public/js/frappe/form/controls/base_input.js: 24-24 same | frappe/public/js/frappe/form/form.js: 625-625 same | institutional_theme/public/js/shell/field_labels.js: not found in the old tree either (manifest path not resolvable) | aria-labelledby: not in the cited file; now in frappe/public/js/frappe/form/tab.js
 2h	2	present	`span.like-action` target size: `--ins-target-min` 24px, 44px under `(pointer: coarse)`	frappe/public/js/frappe/list/list_view.js: 2727-2727 same
 2h	3	present	Reduced-motion rule for Bootstrap `.modal.fade .modal-dialog` transition	node_modules/bootstrap/scss/_modal.scss: 44-47 same | frappe/public/scss/desk/index.scss: 7-7 same
-2i	1	present	`html:root[dir] .desktop-navbar { border-block-end: 1px solid var(--border-color) }` (0,3,	frappe/desk/page/desktop/desktop.html: 3-3 same | frappe/public/scss/desk/navbar.scss: 1-4 same
+2i	1	present	`html:root[dir] .desktop-navbar { border-block-end: 1px solid var(--border-color) }` (0,3,	frappe/desk/page/desktop/desktop.html: 3-3 same | frappe/public/scss/desk/navbar.scss: 4-4 same
 2i	2	unchecked	`--font-stack` in the `html:root[dir]` block (0,2,1) (the map, not a new rule)	
-2i	3	present	`html:root[dir] .btn.btn-primary` and `:hover` (0,4,1) and (0,5,1)	
+2i	3	unchecked	`html:root[dir] .btn.btn-primary` and `:hover` (0,4,1) and (0,5,1)	institutional_theme/public/scss/desk/_actions.scss: not found in the old tree either (manifest path not resolvable) | frappe/public/scss/common/buttons.scss: 80-80 same; 117-117 same
 2i	1	moved	`.text-primary`, `.text-dark`, `.text-secondary`, `a.text-secondary:is(:hover, :focus)`, `	desk.bundle.css: not found in the old tree either (manifest path not resolvable) | frappe/core/README.md: file exists (ambiguous: 42 files named so) | hrms/public/js/templates/feedback_summary.html: not found in the old tree either (manifest path not resolvable) | interview_feedback.html: not found in the old tree either (manifest path not resolvable) | text-primary: not in the cited file; now in frappe/public/css/bootstrap.css | text-dark: not in the cited file; now in frappe/templates/includes/navbar/navbar_items.html | text-secondary: not in the cited file; now in frappe/public/js/frappe/ui/sidebar/sidebar.html | text-success: not in the cited file; now in frappe/public/css/bootstrap.css | text-info: not in the cited file; now in frappe/public/css/bootstrap.css | text-warning: not in the cited file; now in frappe/public/css/bootstrap.css | text-danger: not in the cited file; now in frappe/public/css/bootstrap.css
-2i	2	present	`.text-extra-muted` (core `color: var(--gray-500) !important`)	frappe/public/scss/desk/global.scss: 608-610 same | frappe/public/js/frappe/form/controls/select.js: 28-28 same
+2i	2	present	`.text-extra-muted` (core `color: var(--gray-500) !important`)	frappe/public/scss/desk/global.scss: 608-608 same | frappe/public/js/frappe/form/controls/select.js: 28-28 same
 2i	3	unchecked	`.node-card`, `.node-card.collapsed`, `.node-group` (read only, not restyled by this theme	hrms/public/scss/hierarchy_chart.scss: not found in the old tree either (manifest path not resolvable) | hrms/public/js/templates/node_card.html: not found in the old tree either (manifest path not resolvable) | hrms/public/js/hierarchy_chart/hierarchy_chart_mobile.js: not found in the old tree either (manifest path not resolvable) | node-card: not in 16.32.0 source either (this theme's own name, or a description) | node-group: not in 16.32.0 source either (this theme's own name, or a description)
 2i	4	unchecked	HRMS `hrms.bundle.css` reads `--gray-100` to `--gray-800`, `--border-color`, `--shadow-*`,	hrms/public/scss/hierarchy_chart.scss: not found in the old tree either (manifest path not resolvable) | feedback.scss: not found in the old tree either (manifest path not resolvable) | circular_progress.scss: not found in the old tree either (manifest path not resolvable)
 2i	1	present	`input.grid-row-check` (checkbox with no name in core)	frappe/public/js/frappe/form/grid_row.js: 17-17 same; 215-215 same; 250-250 same
@@ -113,11 +113,11 @@ section	row	verdict	item	detail
 2i	3	present	`form-refresh` event (fires before the fields exist)	frappe/public/js/frappe/form/form.js: 625-625 same
 2i	4	present	Grids inside dialogs (Table field in `frappe.ui.Dialog`), Report View, Sales Invoice items	frappe/public/js/frappe/form/grid_row.js: file exists
 2j	1	present	`ul[role='tablist'] > li.nav-item` (`role="presentation"` written on the `li`)	frappe/public/js/frappe/form/tab.js: 31-31 same; 36-36 same | frappe/public/js/frappe/form/layout.js: 46-46 same | frappe/public/js/frappe/icon_picker/icon_picker.js: 61-68 same
-2j	2	moved	`.navbar-breadcrumbs > li:first-child > a` (`aria-label` "Home")	frappe/public/js/frappe/views/breadcrumbs.js: 281-282 same; 100-102 same | aria-label: not in the cited file; now in frappe/public/js/bootstrap-4-web.bundle.js
-2j	3	present	`.sidebar-header .header-logo > img` (`alt=""`)	frappe/public/js/frappe/ui/sidebar/sidebar_header.html: 2-4 same; 10-10 same
-2j	4	moved	`.sidebar-header > button.drop-icon` (`aria-label` "Menu")	frappe/public/js/frappe/ui/sidebar/sidebar_header.html: 17-17 same | frappe/public/js/frappe/ui/sidebar/sidebar_header.js: 334-340 same; 335-335 same | aria-label: not in the cited file; now in frappe/public/js/bootstrap-4-web.bundle.js
-2j	5	moved	`.item-anchor > .sidebar-item-control > button.drop-icon` (`Collapse {0}` / `Expand {0}`, 	frappe/public/js/frappe/ui/sidebar/sidebar_item.js: 207-218 same; 252-252 same; 288-290 same | item-anchor: not in the cited file; now in frappe/public/js/frappe/views/workspace/workspace.js
-2j	6	present	`button` with a tooltip (`data-original-title` or `title`)	frappe/public/js/frappe/ui/page.js: 224-246 same | frappe/public/js/frappe/list/base_list.js: 244-251 same | frappe/public/js/frappe/views/reports/query_report.js: 94-94 same | frappe/public/js/frappe/form/toolbar.js: 205-205 same; 338-352 same; 343-343 same | frappe/public/js/frappe/form/sidebar/form_sidebar.js: 92-92 same | frappe/public/js/frappe/views/workspace/workspace.js: 220-221 same
+2j	2	moved	`.navbar-breadcrumbs > li:first-child > a` (`aria-label` "Home")	frappe/public/js/frappe/views/breadcrumbs.js: 282-282 same | aria-label: not in the cited file; now in frappe/public/js/bootstrap-4-web.bundle.js
+2j	3	present	`.sidebar-header .header-logo > img` (`alt=""`)	frappe/public/js/frappe/ui/sidebar/sidebar_header.html: 4-4 same
+2j	4	moved	`.sidebar-header > button.drop-icon` (`aria-label` "Menu")	frappe/public/js/frappe/ui/sidebar/sidebar_header.html: 17-17 same | frappe/public/js/frappe/ui/sidebar/sidebar_header.js: 335-335 same | aria-label: not in the cited file; now in frappe/public/js/bootstrap-4-web.bundle.js
+2j	5	moved	`.item-anchor > .sidebar-item-control > button.drop-icon` (`Collapse {0}` / `Expand {0}`, 	frappe/public/js/frappe/ui/sidebar/sidebar_item.js: 252-252 same | item-anchor: not in the cited file; now in frappe/public/js/frappe/views/workspace/workspace.js
+2j	6	moved	`button` with a tooltip (`data-original-title` or `title`)	frappe/public/js/frappe/ui/page.js: 226-226 same | frappe/public/js/frappe/form/toolbar.js: 343-343 same; 351-351 same | data-original-title: not in the cited file; now in frappe/public/js/frappe/views/workspace/workspace.js
 2j	7	present	`.btn-modal-close` (`Close`)	frappe/public/js/frappe/dom.js: 354-354 same
 2j	8	present	`.onb-header-actions > button:first-child` (`Minimize`), `:last-child` (`Close`), `.onb-ti	frappe/public/js/frappe/ui/user_onboarding/OnboardingPanel.vue: 236-238 same; 248-248 same
 2j	9	present	`.scroll-to-top` (`Scroll to top`)	frappe/public/js/frappe/form/templates/form_footer.html: 6-6 same
@@ -129,16 +129,16 @@ section	row	verdict	item	detail
 2j	15	present	`.page-icon-group` and the ellipsis button (`use[href$='icon-ellipsis']`, `Menu`)	frappe/public/js/frappe/ui/page.js: 166-166 same | frappe/public/js/frappe/ui/page.html: 57-57 same
 2j	16	present	`input.list-row-checkbox` and `a[data-name]` inside `.list-subject`	frappe/public/js/frappe/list/list_view.js: 1334-1336 same; 2706-2706 same; 2746-2751 same
 2j	17	present	`textarea.dt-paste-target` (`Paste into table`)	node_modules/frappe-datatable/src/datatable.js: 126-126 same | node_modules/frappe-datatable/src/cellmanager.js: 153-157 same
-2j	18	moved	`.dt-row-filter input.dt-filter`, `.dt-cell[data-is-filter] input.dt-filter` (`Filter`, co	node_modules/frappe-datatable/src/columnmanager.js: 39-39 same; 369-369 same | node_modules/frappe-datatable/src/rowmanager.js: 362-362 same | node_modules/frappe-datatable/src/cellmanager.js: 813-821 same | node_modules/frappe-datatable/src/utils.js: 9-17 same | data-is-filter: not in the cited file; now in frappe/public/scss/desk/frappe_datatable.scss
+2j	18	moved	`.dt-row-filter input.dt-filter`, `.dt-cell[data-is-filter] input.dt-filter` (`Filter`, co	node_modules/frappe-datatable/src/columnmanager.js: 39-39 same; 369-369 same | src/rowmanager.js: not found in the old tree either (manifest path not resolvable) | data-is-filter: not in the cited file; now in frappe/public/scss/desk/frappe_datatable.scss
 2j	19	present	`.dt-cell--col-0 input[type='checkbox']:not([disabled])` (report view selection checkbox, 	node_modules/frappe-datatable/src/datamanager.js: 55-68 same; 387-387 same; 623-625 same | node_modules/frappe-datatable/src/rowmanager.js: 45-45 same; 127-127 same | node_modules/frappe-datatable/src/cellmanager.js: 838-838 same; 812-850 same; 812-850 same | node_modules/frappe-datatable/src/utils.js: 9-21 same
-2j	20	present	`.dt-cell:not(.dt-cell--col-0) input[type='checkbox'][disabled]` (read-only Check value; n	frappe/public/js/frappe/form/formatters.js: 165-167 same | node_modules/frappe-datatable/src/cellmanager.js: 812-850 same | dt-cell--col-0: not in 16.32.0 source either (this theme's own name, or a description)
+2j	20	moved	`.dt-cell:not(.dt-cell--col-0) input[type='checkbox'][disabled]` (read-only Check value; n	node_modules/frappe-datatable/src/datamanager.js: 56-56 same; 58-58 same | frappe/public/js/frappe/form/formatters.js: file exists | dt-cell: not in the cited file; now in frappe/public/js/frappe/data_import/import_preview.js | dt-cell--col-0: not in 16.32.0 source either (this theme's own name, or a description)
 2j	21	present	`.dt-cell__edit` (skip: a checkbox inside an inline editor is not a row selector)	node_modules/frappe-datatable/src/cellmanager.js: 466-466 same; 945-945 same
 2j	22	present	`.filter-box select.condition` (`Condition`, context Filter)	frappe/public/js/frappe/ui/filters/edit_filter.html: 1-1 same; 10-10 same
 2j	23	moved	`.filter-box .fieldname-select-area input` (`Field`)	frappe/public/js/frappe/ui/filters/filter.js: 106-106 same | filter-box: not in the cited file; now in frappe/public/js/frappe/list/base_list.js
 2j	24	present	`.filter-box .filter-field input, select, textarea` (`Value`)	frappe/public/js/frappe/ui/filters/edit_filter.html: 17-17 same | frappe/public/js/frappe/ui/filters/filter.js: 298-298 same; 300-303 same
-2j	25	moved	`.modal .frappe-control` (`aria-labelledby` and `id` through `labelWrapper` in `field_labe	frappe/public/js/frappe/dom.js: 341-359 same | frappe/public/js/frappe/form/controls/base_input.js: 24-24 same | aria-labelledby: not in the cited file; now in frappe/public/js/frappe/form/tab.js
+2j	25	moved	`.modal .frappe-control` (`aria-labelledby` and `id` through `labelWrapper` in `field_labe	frappe/public/js/frappe/dom.js: 341-341 same; 359-359 same | frappe/public/js/frappe/form/controls/base_input.js: 24-24 same | aria-labelledby: not in the cited file; now in frappe/public/js/frappe/form/tab.js
 2j	26	moved	`.form-in-grid .frappe-control` (row editor fields; `labelWrapper` through `ownControls`, 	frappe/public/js/frappe/form/grid_row_form.js: 4-4 same | frappe-control: not in the cited file; now in frappe/public/js/frappe/form/controls/comment.js
-2j	27	present	`.grid-collapse-row` (`Collapse`, row editor; `Collapse` string, context "Row editor")	frappe/public/js/frappe/form/grid_row_form.js: 49-51 same
+2j	27	present	`.grid-collapse-row` (`Collapse`, row editor; `Collapse` string, context "Row editor")	frappe/public/js/frappe/form/grid_row_form.js: 49-49 same
 2j	28	present	`#body` gets `role="main"` (only when the page has no `main` or `[role=main]` and `#body` 	frappe/www/desk.html: 38-42 same | frappe/public/js/frappe/views/container.js: 12-12 same
 2j	29	present	`ul[role='tablist'] > li.nav-item > button[role='tab']` `aria-selected` (`true` or `false`	frappe/public/js/frappe/form/tab.js: 31-31 same; 36-36 same; 95-108 same; 129-132 same | frappe/public/js/frappe/form/layout.js: 46-46 same; 555-555 same | frappe/public/js/frappe/form/form.js: 2120-2121 same | node_modules/bootstrap/js/src/tab.js: 57-64 same; 167-176 same
 2j	30	present	`meta[name='viewport']` `content` (removes `maximum-scale`, `minimum-scale`, `user-scalabl	frappe/www/desk.html: 14-15 same
@@ -147,46 +147,46 @@ section	row	verdict	item	detail
 2j	2	present	`.datepicker--cell-day.-other-month-`, `.datepicker--cell-year.-other-decade-` (and `:hove	node_modules/air-datepicker/dist/css/datepicker.min.css: file exists | package.json: file exists
 2j	3	present	`.hljs`, `.hljs-comment`, `.hljs-string` and the other token classes	frappe/public/scss/desk.bundle.scss: 12-12 same | node_modules/highlight.js/styles/tomorrow.css: file exists | frappe/public/js/frappe/form/controls/base_input.js: 248-251 same | frappe/public/js/syntax_highlighting.bundle.js: 1-5 same
 2j	4	present	`.onb-progress-badge`, `.onb-progress-badge-complete`	frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js: 209-209 same; 218-218 same | frappe/public/js/frappe/ui/user_onboarding/OnboardingPanel.vue: 259-259 same; 262-262 same
-2j	5	present	`.folder-icon .icons > .desktop-icon` (folder thumbnails, `min-block-size` and `min-inline	frappe/desk/page/desktop/desktop.css: 278-308 same; 278-278 same; 285-285 same; 288-288 same | frappe/public/js/frappe/ui/desktop_icon.html: 1-1 same | min-block-size: not in 16.32.0 source either (this theme's own name, or a description) | min-inline-size: not in 16.32.0 source either (this theme's own name, or a description)
-2j	6	present	`.icons-container` (the clip the folder ring must stay inside; `overflow` hidden as observ	frappe/desk/page/desktop/desktop.css: 82-101 same
-2j	7	present	`.new-timeline .timeline-item .timeline-content a` (permanent underline)	frappe/public/scss/desk/timeline.scss: 21-21 same; 51-51 same; 58-58 same; 94-94 same | frappe/public/js/frappe/form/footer/version_timeline_content_builder.js: file exists
+2j	5	present	`.folder-icon .icons > .desktop-icon` (folder thumbnails, `min-block-size` and `min-inline	frappe/desk/page/desktop/desktop.css: 278-278 same; 118-118 same | frappe/public/js/frappe/ui/desktop_icon.html: file exists | min-block-size: not in 16.32.0 source either (this theme's own name, or a description) | min-inline-size: not in 16.32.0 source either (this theme's own name, or a description)
+2j	6	present	`.icons-container` (the clip the folder ring must stay inside; `overflow` hidden as observ	frappe/desk/page/desktop/desktop.css: 82-82 same; 92-92 same; 96-96 same
+2j	7	present	`.new-timeline .timeline-item .timeline-content a` (permanent underline)	frappe/public/scss/desk/timeline.scss: 21-21 same; 51-51 same; 58-58 same | frappe/public/js/frappe/form/footer/version_timeline_content_builder.js: file exists
 2j	8	present	`.btn.btn-danger` (solid danger button: `--ins-on-danger` on `--ins-danger`, hover and act	frappe/public/scss/common/buttons.scss: 130-133 same
-2j	9	present	`.grid-delete-row` (the Delete button of the child-table row editor; the only `.btn-danger	frappe/public/js/frappe/form/grid_row_form.js: 62-62 same; 90-93 same | frappe/public/js/frappe/form/grid_row.js: 1494-1498 same
-2j	10	present	`.list-row .level-right` (sticky inline-end block, `z-index` 1 so the status chip is not c	frappe/public/scss/desk/list.scss: 155-158 same; 280-283 same; 637-647 same; 649-710 same; 11-14 same
-2j	11	moved	`.navbar-breadcrumbs > li:first-child > a` (home link sizing: inline-flex, 24 x 24 minimum	frappe/public/scss/desk/breadcrumb.scss: 7-30 same | frappe/public/js/frappe/views/breadcrumbs.js: 281-282 same | frappe/public/js/frappe/ui/page.html: 17-17 same | outline-offset: not in the cited file; now in frappe/public/css/bootstrap.css
+2j	9	present	`.grid-delete-row` (the Delete button of the child-table row editor; the only `.btn-danger	frappe/public/js/frappe/form/grid_row_form.js: 62-62 same; 90-90 same | frappe/public/js/frappe/form/grid_row.js: 1497-1497 same
+2j	10	present	`.list-row .level-right` (sticky inline-end block, `z-index` 1 so the status chip is not c	frappe/public/scss/desk/list.scss: 31-31 same; 111-111 same; 231-231 same; 280-280 same
+2j	11	moved	`.navbar-breadcrumbs > li:first-child > a` (home link sizing: inline-flex, 24 x 24 minimum	frappe/public/scss/desk/breadcrumb.scss: 6-30 same | frappe/public/js/frappe/views/breadcrumbs.js: 282-282 same | frappe/public/js/frappe/ui/page.html: 17-17 same | outline-offset: not in the cited file; now in frappe/public/css/bootstrap.css
 2j	1	present	`.alert.desk-alert`, `#alert-container` (toast markup in the proof, workspace and toasts s	frappe/public/js/frappe/ui/messages.js: 430-430 same; 443-443 same; 456-456 same
-2j	2	present	`.shortcut-widget-box`, `.links-widget-box`, `.link-item` (workspace blocks)	frappe/public/js/frappe/widgets/shortcut_widget.js: 78-78 same | frappe/public/js/frappe/widgets/links_widget.js: 27-27 same; 106-106 same
+2j	2	present	`.shortcut-widget-box`, `.links-widget-box`, `.link-item` (workspace blocks)	frappe/public/js/frappe/widgets/shortcut_widget.js: 78-78 same | frappe/public/js/frappe/widgets/links_widget.js: 27-27 same | frappe/public/js/frappe/widgets/links_widget.js: 106-106 same
 2j	3	present	`.ce-header .h4` under `[data-page-route=Workspaces]` (workspace heading)	frappe/public/scss/desk/desktop.scss: 1012-1012 same; 1124-1124 same
-4	1	present	`[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) { background-color: var(--in	frappe/public/js/frappe/views/calendar/calendar.js: 441-449 same; 431-449 same
+4	1	present	`[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) { background-color: var(--in	frappe/public/js/frappe/views/calendar/calendar.js: 431-431 same
 4	2	present	`border-inline-start-style: solid !important; border-inline-start-width: 4px !important` (	frappe/public/scss/desk/calendar.scss: 65-65 same
-4	3	present	`[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) .fc-event-main { color: var(	frappe/public/js/frappe/views/calendar/calendar.js: 441-449 same
-4	4	present	Bootstrap `.text-muted { color: $text-muted !important }` (`apps/frappe/node_modules/boots	
+4	3	present	`[data-theme="dark"] .fc .fc-event:not(.fc-daygrid-dot-event) .fc-event-main { color: var(	frappe/public/js/frappe/views/calendar/calendar.js: 431-431 same
+4	4	present	Bootstrap `.text-muted { color: $text-muted !important }` (`apps/frappe/node_modules/boots	node_modules/bootstrap/scss/utilities/_text.scss: 52-52 same
 4	1	unchecked	`color` only, re-pointed at the text and feedback tokens	
 4	2	present	`color` only, re-pointed at `--ins-text-muted`	frappe/public/scss/desk/global.scss: 608-610 same | frappe/public/js/frappe/form/controls/select.js: file exists
-6	1	present	`frappe.db.after_commit`	frappe/database/database.py: 130-130 same; 1194-1194 same; 1203-1203 same | docs/team/reviews/upgrade-final.md: not found in the old tree either (manifest path not resolvable)
+6	1	present	`frappe.db.after_commit`	frappe/database/database.py: 130-130 same; 1194-1194 same; 1203-1203 same
 6	2	present	`frappe.auth.get_logged_user` (session keep-alive for the idle warning)	frappe/auth.py: 450-450 same
 6	3	present	Session updated at the end of every request	frappe/app.py: 434-434 same | frappe/sessions.py: 406-440 same
 6	4	moved	`session_expiry` (`sessions.py:277, 366-368, 501-523`); saved System Settings copied to `s	frappe/sessions.py: 277-277 same; 519-519 same | py: not in the cited file; now in frappe/public/js/frappe/form/controls/link.js
 6	5	present	`frappe.realtime.socket` (socket.io client; `disconnect` and `connect` events)	frappe/public/js/frappe/socketio_client.js: 62-72 same
 6	6	present	`frappe.is_online` offline toast (core's own "Connection lost" toast appears alongside the	frappe/public/js/frappe/dom.js: 375-375 same | frappe/public/js/frappe/request.js: 32-32 same
-6	7	present	401 handling (core redirects to the login page)	frappe/public/js/frappe/request.js: 135-139 same
+6	7	present	401 handling (core redirects to the login page)	frappe/public/js/frappe/request.js: 135-135 same
 6	8	present	`page-change` jQuery event	frappe/public/js/frappe/views/container.js: 19-19 same | frappe/public/js/frappe/ui/toolbar/toolbar.js: 69-69 same
 6	9	present	Masked fields: `masked_fields` cache (`model/meta.py:199-218`); form masking (`desk/form/m	frappe/model/meta.py: 199-218 same | frappe/desk/form/meta.py: 80-80 same | frappe/public/js/frappe/form/form.js: 1214-1220 same
 6	10	present	Letter Head `before_insert`, default rule and `validate_disabled_and_default`	frappe/printing/doctype/letter_head/letter_head.py: 38-60 same; 43-43 same
-6	11	present	Print Style append and Letter Head render	frappe/www/printview.py: 231-241 same; 421-442 same; 592-609 same | frappe/printing/doctype/print_style/print_style.py: 24-35 same
+6	11	present	Print Style append and Letter Head render	frappe/www/printview.py: 421-421 same; 592-592 same; 608-608 same | frappe/printing/doctype/print_style/print_style.py: 24-24 same; 33-33 same
 6	12	present	`frappe.lang` in Letter Head Jinja	frappe/utils/safe_exec.py: 492-492 same
-6	13	present	HTML Editor sanitising on save	frappe/model/base_document.py: 1307-1347 same
+6	13	present	HTML Editor sanitising on save	frappe/model/base_document.py: 1345-1345 same
 6	14	present	Link check on delete (`LinkExistsError`)	frappe/model/delete_doc.py: 172-172 same; 376-376 same
-6	15	present	`ins_identity()` (Jinja method, `jinja.methods`)	frappe/utils/jinja.py: 223-250 same | ins_identity: not in 16.32.0 source either (this theme's own name, or a description)
+6	15	unchecked	`ins_identity()` (Jinja method, `jinja.methods`)	institutional_theme/identity.py: not found in the old tree either (manifest path not resolvable) | frappe/utils/jinja.py: 223-250 same | ins_identity: not in 16.32.0 source either (this theme's own name, or a description)
 6	16	present	`pdf_generator = "chrome"` (`get_chrome_pdf`)	frappe/hooks.py: 109-109 same
 6	17	unchecked	wkhtmltopdf patched Qt build (0.12.6.1) for repeat header and footer and page width	
-6	18	present	`frappe.get_print` with `as_pdf=True`; core keeps `frappe.local.form_dict.pdf_generator` f	
-6	19	present	Core 403 page (`NotPermittedPage`) and the error reference: `base_template_page.py:30-31, 	
-6	20	present	`web_include_js` rendering (consumer for the row in section 1)	frappe/templates/base.html: 105-105 same | upgrade-final.md: not found in the old tree either (manifest path not resolvable)
+6	18	present	`frappe.get_print` with `as_pdf=True`; core keeps `frappe.local.form_dict.pdf_generator` f	frappe/__init__.py: 1611-1611 same | frappe/utils/print_utils.py: 15-15 same
+6	19	moved	Core 403 page (`NotPermittedPage`) and the error reference: `base_template_page.py:30-31, 	frappe/website/page_renderers/base_template_page.py: 52-54 same | py: not in the cited file; now in frappe/public/js/frappe/form/controls/link.js
+6	20	present	`web_include_js` rendering (consumer for the row in section 1)	frappe/templates/base.html: 105-105 same
 6	21	present	`body[data-path]` (`templates/base.html`)	frappe/templates/base.html: file exists
-6	22	present	Core File row creation on save: `attach_files_to_document` (`doc_events["*"]["on_update"]`	frappe/hooks.py: 176-176 same | frappe/core/doctype/file/utils.py: 312-372 same
-6	23	present	`FILE_ENCODING_OPTIONS = ("utf-8-sig", "utf-8", "windows-1250", "windows-1252")` (re-read 	frappe/core/doctype/file/file.py: 45-45 same; 691-725 same; 780-860 same; 477-503 same
+6	22	present	Core File row creation on save: `attach_files_to_document` (`doc_events["*"]["on_update"]`	frappe/hooks.py: 176-176 same; 198-198 same
+6	23	present	`FILE_ENCODING_OPTIONS = ("utf-8-sig", "utf-8", "windows-1250", "windows-1252")` (re-read 	frappe/core/doctype/file/file.py: 45-45 same
 6	24	present	`_delete_file_on_disk` (`file.py:605-618`)	frappe/core/doctype/file/file.py: 605-618 same
-6	25	unchecked	`ins_identity_files` global (this app; not core)	institutional_theme/institutional_theme/doctype/institutional_theme_settings/identity_sync.py: not found in the old tree either (manifest path not resolvable) | frappe/utils/install.py: 26-26 same; 30-30 same | ins_identity_files: not in 16.32.0 source either (this theme's own name, or a description)
-6	26	moved	Core `.text-muted` and Bootstrap `.text-muted !important`	bootstrap/scss/utilities/_text.scss: not found in the old tree either (manifest path not resolvable) | frappe/public/scss/website/index.scss: 4-4 same | text-muted: not in the cited file; now in frappe/public/js/frappe/ui/page.js
+6	25	unchecked	`ins_identity_files` global (this app; not core)	institutional_theme/institutional_theme/doctype/institutional_theme_settings/identity_sync.py: not found in the old tree either (manifest path not resolvable) | ins_identity_files: not in 16.32.0 source either (this theme's own name, or a description)
+6	26	present	Core `.text-muted` and Bootstrap `.text-muted !important`	node_modules/bootstrap/scss/utilities/_text.scss: 52-52 same
 6	27	unchecked	Core 417 on standard web forms (`base_document.py:549`; `document_page.py:56`)	

@@ -4,14 +4,14 @@ Rows in the manifest's checked tables: 225 (sections 1, 2a to 2k, 4 and 6). Of t
 
 | Status (per version) | 16.32.0 (cell label) | 16.52.0 (cell label) |
 |---|---|---|
-| VERIFIED | 1 | 2 |
-| COMPUTED | 167 | 122 |
-| UNVERIFIED | 41 | 78 |
+| VERIFIED | 80 | 81 |
+| COMPUTED | 117 | 111 |
+| UNVERIFIED | 0 | 0 |
 | UNVERIFIED (HRMS not in check) | 3 | 0 |
-| absent | 7 | 11 |
-| not checked | 0 | 10 |
-| not a Frappe citation | 0 | 2 |
-| not cited | 6 | 0 |
+| absent | 8 | 13 |
+| not checked | 0 | 9 |
+| not a Frappe citation | 9 | 9 |
+| not cited | 8 | 2 |
 
 Status column, as given in round 3 (16.32.0 basis, not changed): VERIFIED 170, COMPUTED 34, UNVERIFIED 17, ASSUMED 3, NOT 1
 
@@ -19,8 +19,8 @@ Tool verdicts (`manifest_selectors.py`, Frappe 16.32.0 self-check on the 191 row
 
 | Run | Rows | present | moved | changed | missing | unchecked | exit |
 |---|---|---|---|---|---|---|---|
-| 16.32.0 against 16.32.0 (no 2k) | 191 | 159 | 17 | 0 | 0 | 15 | 0 |
-| 16.32.0 against 16.52.0 (no 2k) | 191 | 41 | 68 | 56 | 11 | 15 | 1 |
+| 16.32.0 against 16.32.0 (no 2k) | 191 | 153 | 19 | 0 | 0 | 19 | 0 |
+| 16.32.0 against 16.52.0 (no 2k) | 191 | 36 | 92 | 35 | 11 | 17 | 1 |
 | section 2k, 16.32.0 side | 34 | 20 | 5 | 0 | 0 | 9 | 0 |
 | section 2k, 16.52.0 side | 34 | 31 | 1 | 0 | 0 | 2 | 0 |
 

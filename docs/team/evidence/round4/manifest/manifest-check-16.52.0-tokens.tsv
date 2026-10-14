@@ -1,8 +1,8 @@
 section	row	name	state	where
 1	1	app_include_css	present	in the cited file
 1	2	app_include_js	present	in the cited file
-1	3	web_include_css	present	no source line cited; found in frappe/hooks.py
-1	4	web_include_js	present	no source line cited; found in frappe/translate.py
+1	3	web_include_css	present	in the cited file
+1	4	web_include_js	present	in the cited file
 1	5	update_website_context	present	in the cited file
 1	6	extend_bootinfo	present	in the cited file
 1	7	doc_events	present	in the cited file
@@ -38,10 +38,10 @@ section	row	name	state	where
 2a	12	grid-body	present	in the cited file
 2a	12	editable-row	present	in the cited file
 2a	13	chart-container	present	in the cited file
-2a	14	new-timeline	present	no source line cited; found in frappe/public/js/frappe/form/footer/base_timeline.js
-2a	14	timeline-item	present	no source line cited; found in frappe/public/js/frappe/form/footer/base_timeline.js
+2a	14	new-timeline	present	in the cited file
+2a	14	timeline-item	present	in the cited file
 2a	15	switch-control	present	in the cited file
-2a	16	rating	present	no source line cited; found in frappe/public/js/form_builder/components/controls/RatingControl.vue
+2a	16	rating	moved	not in the cited file; now in frappe/public/js/form_builder/components/controls/RatingControl.vue
 2a	17	get_textstyle	present	in the cited file
 2a	18	modal	present	no source line cited; found in frappe/public/js/frappe/form/form_tour.js
 2b	1	body-sidebar-container	present	in the cited file
@@ -84,7 +84,7 @@ section	row	name	state	where
 2b	10	form-grid	present	in the cited file
 2b	10	grid-body	present	in the cited file
 2b	10	rows	present	in the cited file
-2b	11	modal-content	moved	not in the cited file; now in frappe/public/js/frappe/form/form_tour.js
+2b	11	modal-content	present	in the cited file
 2b	11	freeze	present	in the cited file
 2b	11	in	present	in the cited file
 2b	11	freeze-message-container	present	in the cited file
@@ -93,7 +93,7 @@ section	row	name	state	where
 2b	11	tooltip-content	present	in the cited file
 2b	11	desk-alert	missing	gone from 16.52.0 (was in frappe/public/js/frappe/ui/messages.js)
 2b	11	awesomplete	moved	not in the cited file; now in frappe/public/js/frappe/data_import/import_preview.js
-2b	12	datepicker	present	no source line cited; found in frappe/public/js/controls.bundle.js
+2b	12	datepicker	present	in the cited file
 2b	13	widget	present	in the cited file
 2b	13	number-widget-box	present	in the cited file
 2b	13	shortcut-widget-box	present	in the cited file
@@ -173,30 +173,30 @@ section	row	name	state	where
 2d	7	expanded	present	in the cited file
 2d	8	page-head	present	in the cited file
 2d	12	ace_editor	present	in the cited file
-2d	13	ace-tomorrow	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_keyword	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_storage	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_meta	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_tag	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2d	13	ace-tomorrow	present	in the cited file
+2d	13	ace_keyword	present	in the cited file
+2d	13	ace_storage	present	in the cited file
+2d	13	ace_meta	present	in the cited file
+2d	13	ace_tag	present	in the cited file
 2d	13	ace_tag-name	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_string	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_regexp	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_constant	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_numeric	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_comment	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_variable	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_support	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_entity	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_marker-layer	moved	not in the cited file; now in frappe/public/scss/common/controls.scss
-2d	13	ace_selection	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_cursor	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_invisible	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	13	ace_indent-guide	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
+2d	13	ace_string	present	in the cited file
+2d	13	ace_regexp	present	in the cited file
+2d	13	ace_constant	present	in the cited file
+2d	13	ace_numeric	present	in the cited file
+2d	13	ace_comment	present	in the cited file
+2d	13	ace_variable	present	in the cited file
+2d	13	ace_support	present	in the cited file
+2d	13	ace_entity	present	in the cited file
+2d	13	ace_marker-layer	present	in the cited file
+2d	13	ace_selection	present	in the cited file
+2d	13	ace_cursor	present	in the cited file
+2d	13	ace_invisible	present	in the cited file
+2d	13	ace_indent-guide	present	in the cited file
 2d	14	ql-editor	present	in the cited file
 2d	14	ql-blank	present	in the cited file
 2d	16	dt-instance-N	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-2d	16	dt-cell	moved	not in the cited file; now in frappe/public/js/frappe/data_import/import_preview.js
-2d	16	dt-row	moved	not in the cited file; now in frappe/public/js/frappe/data_import/import_preview.js
+2d	16	dt-cell	present	in the cited file
+2d	16	dt-row	present	in the cited file
 2d	17	level-item	present	in the cited file
 2e	1	print-format	present	in the cited file
 2e	1	print-heading	present	in the cited file
@@ -228,7 +228,7 @@ section	row	name	state	where
 2e	9	table	present	in the cited file
 2e	9	callout-warning	missing	gone from 16.52.0 (was in frappe/public/scss/email.bundle.scss)
 2e	9	verification-code	missing	gone from 16.52.0 (was in frappe/public/scss/email.bundle.scss)
-2e	9	indicator-	present	in the cited file
+2e	9	indicator-	moved	not in the cited file; now in frappe/templates/emails/email_header.html
 2e	10	border-left	present	no source line cited; found in frappe/public/css/bootstrap.css
 2e	11	border-top	present	no source line cited; found in frappe/public/css/bootstrap.css
 2e	11	margin-right	present	no source line cited; found in frappe/public/css/bootstrap.css
@@ -255,8 +255,8 @@ section	row	name	state	where
 2h	3	fade	present	in the cited file
 2h	3	modal-dialog	present	in the cited file
 2i	1	desktop-navbar	present	in the cited file
-2i	3	btn	present	no source line cited; found in frappe/public/js/frappe/form/controls/comment.js
-2i	3	btn-primary	present	no source line cited; found in frappe/public/js/frappe/form/controls/comment.js
+2i	3	btn	present	in the cited file
+2i	3	btn-primary	present	in the cited file
 2i	1	text-primary	moved	not in the cited file; now in frappe/public/css/bootstrap.css
 2i	1	text-dark	moved	not in the cited file; now in frappe/templates/includes/navbar/navbar_items.html
 2i	1	text-secondary	moved	not in the cited file; now in frappe/public/js/frappe/ui/sidebar/sidebar.html
@@ -288,7 +288,7 @@ section	row	name	state	where
 2j	5	sidebar-item-control	present	in the cited file
 2j	5	drop-icon	present	in the cited file
 2j	5	data-state	present	in the cited file
-2j	6	data-original-title	present	in the cited file
+2j	6	data-original-title	moved	not in the cited file; now in frappe/public/js/frappe/views/workspace/workspace.js
 2j	7	btn-modal-close	present	in the cited file
 2j	8	onb-header-actions	missing	gone from 16.52.0 (was in frappe/public/js/frappe/ui/user_onboarding/OnboardingPanel.vue)
 2j	8	onb-title-icon	missing	gone from 16.52.0 (was in frappe/public/js/frappe/ui/user_onboarding/OnboardingPanel.vue)
@@ -310,7 +310,7 @@ section	row	name	state	where
 2j	18	dt-cell	present	in the cited file
 2j	18	data-is-filter	moved	not in the cited file; now in frappe/public/scss/desk/frappe_datatable.scss
 2j	19	dt-cell--col-0	present	in the cited file
-2j	20	dt-cell	present	in the cited file
+2j	20	dt-cell	moved	not in the cited file; now in frappe/public/js/frappe/data_import/import_preview.js
 2j	20	dt-cell--col-0	moved	not in the cited file; now in frappe/public/scss/desk/data_import_wizard.scss
 2j	21	dt-cell__edit	present	in the cited file
 2j	22	filter-box	present	in the cited file
@@ -370,7 +370,7 @@ section	row	name	state	where
 2j	3	ce-header	present	in the cited file
 2j	3	h4	present	in the cited file
 2j	3	data-page-route	present	in the cited file
-4	4	text-muted	present	no source line cited; found in frappe/public/js/frappe/ui/page.js
+4	4	text-muted	present	in the cited file
 6	1	after_commit	present	in the cited file
 6	2	get_logged_user	present	in the cited file
 6	4	session_expiry	present	in the cited file
@@ -382,11 +382,11 @@ section	row	name	state	where
 6	10	validate_disabled_and_default	present	in the cited file
 6	15	ins_identity	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
 6	16	get_chrome_pdf	present	in the cited file
-6	18	get_print	present	no source line cited; found in frappe/__init__.py
-6	18	pdf_generator	present	no source line cited; found in frappe/hooks.py
-6	19	py	present	no source line cited; found in frappe/public/js/frappe/ui/sidebar/sidebar.js
+6	18	get_print	present	in the cited file
+6	18	pdf_generator	present	in the cited file
+6	19	py	moved	not in the cited file; now in frappe/public/js/frappe/ui/sidebar/sidebar.js
 6	20	web_include_js	present	in the cited file
 6	21	data-path	present	in the cited file
 6	22	attach_files_to_document	present	in the cited file
 6	25	ins_identity_files	unchecked	not in 16.32.0 source either (this theme's own name, or a description)
-6	26	text-muted	moved	not in the cited file; now in frappe/public/js/frappe/ui/page.js
+6	26	text-muted	present	in the cited file

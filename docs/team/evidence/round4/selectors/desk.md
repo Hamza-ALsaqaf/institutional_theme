@@ -1,5 +1,8 @@
 # Desk selectors added for Frappe v16.52.0 (round 4, css-engineer)
 
+> Corrected by scribe (round-4 second pass, 2026-10-14): the lines marked "corrected by scribe" were checked against `/tmp/src/frappe-16.32.0`, `/tmp/src/frappe-16.52.0` and the bench node_modules. The rest of this file is as the engineer wrote it.
+
+
 Evidence level: COMPUTED from source (both trees read at `v16.32.0` and `v16.52.0`; frappe-gantt from `/home/frappe/newest-bench/apps/frappe/node_modules` 1.1.0 and `/home/frappe/frappe-bench/...` 0.6.1) and compiled (`build-1632.log`: `bench build --app institutional_theme` exit 0, no warnings). Nothing here was rendered; the rendering checks are a later task. Every new selector sits next to the old one; where it is absent it matches nothing. No `!important` added, no datatable height touched, only `--ins-*` tokens used.
 
 All paths are under `frappe/public/` unless stated. "Theme" paths are under `institutional_theme/public/scss/desk/`.
@@ -32,7 +35,7 @@ Not replaced, by design: `.es-tooltip` (`tooltip.css:28`, bubble and arrow both 
 | (n/a) `.tick.thick` | `.gantt .tick.thick` (`gantt.css`, thicker) | stroke `--ins-border-strong` |
 | (n/a) `.current-upper` literal `background: #fff` (`gantt.css:116`) | | `--ins-surface-raised` |
 | popup `rgba` dark, white `.title` from core `frappe_gantt.scss` | popup `background: #fff` while core still paints a white `.title` and `--gray-500` `.subtitle` (`scss/desk/frappe_gantt.scss:6-16`): white on white | `.gantt-container:has(> .grid-header) .popup-wrapper`, `.title`, `.subtitle` (true only for 1.1.0, whose header is a div child of the container; 0.6.1's is an SVG rect) |
-| `.gantt-modern .gantt ...` (class added by 16.32.0 `views/gantt/gantt_view.js:96`) | class is no longer added (`gantt_view.js` of v16.52.0 has no `addClass`); `scss/desk/frappe_gantt.scss:25` still names it | every `.gantt-modern .gantt*` rule and the RTL `direction: ltr` pin re-keyed on `.gantt-container` (created by both libraries, `index.js:62`) |
+| `.gantt-modern .gantt ...` (class added by 16.32.0 `views/gantt/gantt_view.js:96`) | class is no longer added (`gantt_view.js` of v16.52.0 has no `addClass`); `scss/desk/frappe_gantt.scss:1,84` still names it (corrected by scribe; `:25` is not a `.gantt-modern` line in 16.32.0) | every `.gantt-modern .gantt*` rule and the RTL `direction: ltr` pin re-keyed on `.gantt-container` (created by both libraries, `index.js:62`) |
 
 Not themed: `.gantt .grid-column:hover { fill: #3131310d !important }` (library, `!important` on `fill`; a translucent dark that is faint on Dark; matching it would need a theme `!important`).
 
@@ -53,7 +56,7 @@ Not themed: `.gantt .grid-column:hover { fill: #3131310d !important }` (library,
 | Collapsed rail: `.body-sidebar-container:not(.expanded) .sidebar-item-container:has(> .nested-container.hidden .active-sidebar) > .standard-sidebar-item` (`sidebar.scss:365-375`) | `_shell.scss` `$ins-rail-active-group`: hairline ring, `--ins-radius-sm`, strong anchor |
 | `.dock`, `.dock-item`, `.dock-item.active` (`dock.scss:30,145,203`; markup `ui/sidebar/dock.js:21-40,305-312`) | new `_dock.scss`: tile radius, active ring and inline-start accent bar (as the sidebar row), floating tray hairline and `--ins-radius-lg` (`body:not(.dock-pinned)`) |
 | `.sidebar-panel` (`sidebar_panel.scss:8-32`, literal `rgba(0,0,0,.1) 8px 0 8px`, physical `border-right`) and `.panel-header .panel-header-actions span` | `_dock.scss`: `border-color` (side-agnostic, so core's own RTL flip is not doubled), overlay elevation token, 4px radius |
-| `.body-sidebar-container.expanded .overlay` below md: literal `rgba(0,0,0,.5)` (`sidebar.scss:535`; 16.32.0 `rgba(128,128,128,.5)` at `:255`) | `_hardcoded.scss`: `--ins-surface-scrim`, so the scrim is token-driven on both versions (small intended change on 16.32.0) |
+| `.body-sidebar-container.expanded .overlay` below md: literal `rgba(0,0,0,.5)` (`sidebar.scss:535`; 16.32.0 `rgba(128,128,128,.5)` at `:256` (corrected by scribe; was `:255`)) | `_hardcoded.scss`: `--ins-surface-scrim`, so the scrim is token-driven on both versions (small intended change on 16.32.0) |
 | Pinned dock is a third full-height in-flow column of `body` (`dock.scss:223-246`) | `_banners.scss`: three grid columns and the row reset when a banner exists; `_ribbon.scss`: dock clears the environment ribbon |
 | Scrollers that clip: `.es-menu` (`menu.css:52`), `.dock`/`.dock-items` (`dock.scss:50,249`), `.body-sidebar-top` (`sidebar.scss:112`) | `_base.scss`: added to the inset-focus-ring container list |
 
@@ -63,7 +66,7 @@ Not styled, by design: `.sidebar-edge` and `.sidebar-collapse-arrow` (`sidebar.s
 
 Declared by v16.52.0 desk shell and read by the rules above or by core components I did not override. Light and Dark both need values.
 
-- Shell: `--desk-sidebar-bg` (declared twice: `:root` and `[data-theme="dark"]`, `sidebar.scss:15,19`; the Dark override has specificity (0,2,0), so the generated Dark map must use a selector of equal or higher specificity), `--dock-bg` (defaults to it), `--dock-ink`, `--dock-ink-hover`, `--dock-ink-active`, `--surface-elevation-2`, `--surface-elevation-3` (active row, active dock tile, collapse arrow), `--outline-elevation-2`, `--surface-alpha-gray-2` (menu highlight), `--surface-gray-8`, `--surface-gray-9` (toast), `--surface-gray-10` (tooltip bubble and arrow), `--surface-red-3` (destructive menu row), `--ink-base` (text on the inverse toast and tooltip, light on both modes), `--ink-gray-3`, `--ink-blue-link`, `--ink-blue-5`, `--ink-green-5`, `--ink-amber-5`, `--ink-red-5` (toast icons).
+- Shell: `--desk-sidebar-bg` (declared twice: `:root` and `[data-theme="dark"]`, `sidebar.scss:24,28` (corrected by scribe: `:15,19` are comments in 16.52.0); the Dark override has specificity (0,2,0), so the generated Dark map must use a selector of equal or higher specificity), `--dock-bg` (defaults to it), `--dock-ink`, `--dock-ink-hover`, `--dock-ink-active`, `--surface-elevation-2`, `--surface-elevation-3` (active row, active dock tile, collapse arrow), `--outline-elevation-2`, `--surface-alpha-gray-2` (menu highlight), `--surface-gray-8`, `--surface-gray-9` (toast), `--surface-gray-10` (tooltip bubble and arrow), `--surface-red-3` (destructive menu row), `--ink-base` (text on the inverse toast and tooltip, light on both modes), `--ink-gray-3`, `--ink-blue-link`, `--ink-blue-5`, `--ink-green-5`, `--ink-amber-5`, `--ink-red-5` (toast icons).
 - Effects: `--focus-outline-default` (`css/espresso/effects.css:28,43`; read by `.es-pill`, `.es-breadcrumbs__item`, `.es-toast__action`; the theme's ring wins by specificity on `button`/`a`, the map should still point it at the ring), `--elevation-base`, `--elevation-2`, `--elevation-lg`, `--elevation-xl`, `--elevation-2xl` (menu, popover, toast, tab pill), `--radius`, `--radius-md`, `--radius-lg`, `--radius-4`, `--radius-5` (dock tile and logo radius).
 - Layout, not to be mapped: `--sidebar-width`, `--sidebar-collapsed-width`, `--dock-tile`, `--dock-width`, `--spacing`, `--page-head-height`.
 - Gantt `--g-*` are third-party and are mapped in `_gantt.scss` (not by the generated map).
