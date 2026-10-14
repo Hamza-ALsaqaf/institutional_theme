@@ -5,6 +5,8 @@
 Shows whether the workaround of hrms_install.py is still needed on a given HRMS tag: the stock patch is called
 unmodified; on PostgreSQL it raises DatatypeMismatch ("argument of AND must be type boolean, not type numeric").
 Nothing is committed.
+Only on a site without Employee Advance rows: on a tag where the stock patch succeeds it commits internally, and then
+"Nothing is committed" would not hold (upgrade-round5 N6).
 """
 
 from __future__ import annotations

@@ -1,7 +1,9 @@
 """Render one fictional Quotation in a print format, wkhtmltopdf and Chrome, A4 and Letter, en and ar.
 python render.py SITE OUTDIR VARIANT [FORMAT]   VARIANT: themed | core | noapp
 themed: Print Style Midad + Letter Head Midad. core: Print Style Standard, no letter head (theme installed).
-noapp: like core, and the app is removed from this process (get_installed_apps patched before any hook is read); the site is not changed."""
+noapp: like core, and the app is removed from this process (get_installed_apps patched before any hook is read); the site is not changed.
+
+WARNING (upgrade-round5 N5): the noapp variant is safe only on a developer_mode site. With developer_mode 1 the hooks are cached in the process-local site_cache (frappe/__init__.py:1005-1006 in 16.32.0). On a production-mode site the same patch would write the app-less hooks into the shared client_cache (:1008-1011) for every worker. Never run noapp on a production-mode site."""
 import json, sys
 import frappe
 site, out, variant = sys.argv[1:4]
