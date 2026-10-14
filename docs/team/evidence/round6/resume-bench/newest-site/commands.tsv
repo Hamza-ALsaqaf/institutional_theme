@@ -1,2 +1,4 @@
 name	exit	seconds	command
 stage-preflight	0	2	stage_preflight
+stage-config	0	10	stage_config
+stage-redis	0	4	stage_redis
