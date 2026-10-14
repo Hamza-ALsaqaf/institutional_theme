@@ -11,7 +11,7 @@ import re
 import unittest
 from pathlib import Path
 
-from institutional_theme.audits import dead_tokens
+from institutional_theme.audits import dead_tokens, effective_diff, source_readers
 from institutional_theme.midad import emit, model
 
 REPO = Path(__file__).resolve().parents[3]
@@ -92,14 +92,12 @@ ADDED = (
 )
 RAW_950 = ("--gray-950", *(f"--{hue}-950" for hue in MODEL["frappe"]["raw_hues"]))
 
-# Names that no compiled stylesheet of 16.32.0 reads but that its source mentions outside the scanned
-# CSS (docs/team/evidence/round4/tokens/source-scan-16.32.0.txt): both are `border-radius` of an
-# inline rule that reads a name 16.32.0 never declares, so it computes to 0 there and takes the
-# design's container radius now. Accepted by the lead's report, not hidden.
-SOURCE_READERS_16_32_0 = {
-	"--radius-lg": "frappe/core/doctype/error_log/error_log.js:78,86 (inline blocks of the Error Log form)",
-	"--radius-md": "frappe/desk/page/desktop/desktop.css:69 (.desktop-cloud-settings, Frappe Cloud only)",
-}
+# Names that no compiled stylesheet of 16.32.0 reads but that its source does (finding N1f): both are
+# `border-radius` of an inline rule that reads a name 16.32.0 never declares, so it computes to 0 there and
+# takes the design's container radius now. The readers live in the committed source snapshot
+# (audits/data/source_readers_frappe_16.32.0.json) and the acceptance, with its reason, in
+# audits/data/accepted_movement.json; effective_diff lists them, so no result says "does not move" without them.
+SOURCE_READERS_16_32_0 = tuple(sorted(effective_diff.load_accepted("16.32.0")))
 
 
 def _previous(name: str) -> tuple[str, str] | None:
@@ -173,6 +171,13 @@ class Frappe1632DoesNotMove(unittest.TestCase):
 		moved = moved_names(OLD, (*PREVIOUS, *ADDED, *RAW_950), _previous, _current)
 		self.assertEqual(moved, [], "16.32.0 core reads these names and their value changed")
 
+	def test_the_same_holds_for_the_names_its_source_reads_except_the_accepted_two(self):
+		everything = dead_tokens.CoreVars(
+			OLD.declared, OLD.read | frozenset(source_readers.load_snapshot("16.32.0")), OLD.sources
+		)
+		moved = moved_names(everything, (*PREVIOUS, *ADDED, *RAW_950), _previous, _current)
+		self.assertEqual(sorted(moved), sorted(SOURCE_READERS_16_32_0))
+
 	def test_every_remap_is_declared_only_in_16_32_0(self):
 		# The remaps replace a declared-only name: the theme set it, core never read it.
 		for name in PREVIOUS:
@@ -187,9 +192,14 @@ class Frappe1632DoesNotMove(unittest.TestCase):
 				self.assertNotIn(name, OLD.read)
 
 	def test_source_readers_outside_the_scanned_css_are_listed_and_real(self):
-		self.assertEqual(sorted(SOURCE_READERS_16_32_0), ["--radius-lg", "--radius-md"])
+		self.assertEqual(list(SOURCE_READERS_16_32_0), ["--radius-lg", "--radius-md"])
+		readers = source_readers.load_snapshot("16.32.0")
+		added_and_read_by_source = {n for n in ADDED if n in readers and n not in OLD.read}
+		self.assertEqual(added_and_read_by_source, set(SOURCE_READERS_16_32_0))
 		for name in SOURCE_READERS_16_32_0:
 			self.assertIn(name, ADDED)
+			self.assertNotIn(name, OLD.read)
+			self.assertNotIn(name, OLD.declared)
 
 	def test_the_check_reports_a_name_core_reads_whose_value_moved(self):
 		core = dead_tokens.CoreVars(frozenset(), frozenset({"--a", "--b", "--c"}), ())

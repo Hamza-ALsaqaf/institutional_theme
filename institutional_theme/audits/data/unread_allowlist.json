@@ -1,0 +1,35 @@
+{
+ "_comment": "Mapped or theme-declared variables that core declares and nothing reads in any audited version: no compiled stylesheet, no source reader (source_readers_frappe_<version>.json), not this theme. Each needs a reason; the audit fails on a name that is unread and not listed here, and on an entry that is stale (python -m institutional_theme.audits, finding N3b). Order of the audit report.",
+ "names": {
+  "--surface-cards": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); 16.32.0 declares it (frappe/public/scss/espresso/_colors.scss:326). Kept so that a third-party reader of the stock Espresso name follows the theme."
+  },
+  "--outline-white": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); 16.32.0 declares it (espresso/_colors.scss:282). Kept so that a third-party reader of the stock Espresso name follows the theme."
+  },
+  "--outline-gray-modals": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); 16.32.0 declares it (espresso/_colors.scss:222,296). The ERPNext banking app reads a variable of the same name but declares its own, so it does not read this one. Kept for third-party readers."
+  },
+  "--divider-color": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); 16.32.0 declares it (frappe/public/scss/desk/sidebar.scss:6,13) for the sidebar divider and no longer reads it. Kept for third-party readers."
+  },
+  "--brand-color": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); Declared as var(--primary) in 16.32.0 (scss/common/css_variables.scss:6) and v16.52.0 (public/css/espresso/legacy.css:118). Kept for third-party readers."
+  },
+  "--text-on-dark-gray": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); Declared in 16.32.0 (css_variables.scss:63, desk/dark.scss:78) and v16.52.0 (legacy.css:86). Kept for third-party readers."
+  },
+  "--bg-dark-blue": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); Declared in 16.32.0 (css_variables.scss:39, desk/dark.scss:54) and v16.52.0 (legacy.css:62). Kept for third-party readers."
+  },
+  "--text-on-dark-blue": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); Declared in 16.32.0 (css_variables.scss:55, desk/dark.scss:70) and v16.52.0 (legacy.css:78). Kept for third-party readers."
+  },
+  "--g-weekend-label-color": {
+   "reason": "frappe-gantt 1.1.0 declares it (src/styles/light.css:14) and its only use, src/styles/gantt.css:208, is written `background: --g-weekend-label-color` without var(), so it never applies. Upstream defect; the override costs one declaration and starts to work if the library fixes it. frappe-gantt 0.6.1 (16.32.0) has no --g-* variable."
+  },
+  "--icon-fill-bg": {
+   "reason": "No reader in the Frappe, ERPNext 16.33.0/16.50.0 or HRMS 16.20.1 source or compiled CSS of either version (source_readers_frappe_*.json); Declared in 16.32.0 (css_variables.scss:33, common/buttons.scss:122) and v16.52.0 (legacy.css:129, buttons.scss:163). Kept for third-party readers."
+  }
+ }
+}

@@ -3,7 +3,7 @@
 import unittest
 from pathlib import Path
 
-from institutional_theme.audits import dead_tokens, effective_diff
+from institutional_theme.audits import dead_tokens, effective_diff, source_readers
 
 GENERATED = Path(effective_diff.__file__).resolve().parents[1] / "public" / "scss" / "generated"
 
@@ -103,6 +103,106 @@ class Compare(unittest.TestCase):
 		self.assertIn("RESULT: moved", text)
 		quiet = effective_diff.render(effective_diff.compare(BEFORE, BEFORE, CORE), "9.9.9", "HEAD")
 		self.assertIn("RESULT: Frappe 9.9.9 does not move", quiet)
+
+
+class SourceReaders(unittest.TestCase):
+	"""N3d: a version's source readers count as readers, and an accepted move is listed, never hidden."""
+
+	SOURCE = frozenset({"--read-new"})
+	ACCEPT = {"--read-new": "inline style of one form; cosmetic"}
+
+	def test_a_source_reader_makes_an_added_declaration_a_movement(self):
+		core = dead_tokens.CoreVars(frozenset(), frozenset({"--read-kept"}), ())
+		blind = effective_diff.compare(BEFORE, AFTER, core)
+		self.assertFalse(blind.moved, "the compiled CSS alone does not see the reader")
+		movement = effective_diff.compare(BEFORE, AFTER, core, source_reads=self.SOURCE)
+		self.assertTrue(movement.moved)
+		self.assertEqual([m[1] for m in movement.added], ["--read-new"])
+
+	def test_an_accepted_name_is_listed_apart_and_does_not_move_the_version(self):
+		core = dead_tokens.CoreVars(frozenset(), frozenset({"--read-kept"}), ())
+		movement = effective_diff.compare(BEFORE, AFTER, core, source_reads=self.SOURCE, accepted=self.ACCEPT)
+		self.assertFalse(movement.moved)
+		self.assertEqual([(a[0], a[2]) for a in movement.accepted], [("ADDED", "--read-new")])
+		text = effective_diff.render(movement, "9.9.9", "HEAD")
+		self.assertIn("ACCEPTED ADDED --read-new", text)
+		self.assertIn("inline style of one form", text)
+		self.assertIn("does not move except 1 accepted declaration(s) of 1 name(s)", text)
+		self.assertNotIn("RESULT: moved", text)
+
+	def test_a_name_the_compiled_css_reads_is_never_accepted(self):
+		movement = effective_diff.compare(
+			BEFORE, AFTER, CORE, source_reads=self.SOURCE, accepted={"--read-new": "x", "--read-moved": "x"}
+		)
+		# CORE reads both names in its compiled CSS: both moves stand, whatever the source snapshot says.
+		self.assertTrue(movement.moved)
+		self.assertEqual([m[1] for m in movement.added], ["--read-new"])
+		self.assertEqual([m[1] for m in movement.changed], ["--read-moved"])
+		self.assertEqual([a[2] for a in movement.accepted], [])
+
+	def test_a_name_without_a_source_reader_cannot_be_accepted(self):
+		core = dead_tokens.CoreVars(frozenset(), frozenset({"--read-kept"}), ())
+		movement = effective_diff.compare(BEFORE, AFTER, core, accepted=self.ACCEPT)
+		self.assertEqual(movement.accepted, [])
+
+	def test_an_unaccepted_source_move_is_not_hidden_by_other_acceptances(self):
+		core = dead_tokens.CoreVars(frozenset(), frozenset({"--read-kept"}), ())
+		movement = effective_diff.compare(
+			BEFORE,
+			AFTER,
+			core,
+			source_reads=frozenset({"--read-new", "--read-moved"}),
+			accepted=self.ACCEPT,
+		)
+		self.assertTrue(movement.moved)
+		self.assertEqual([m[1] for m in movement.changed], ["--read-moved"])
+
+	def test_load_accepted_reads_a_version_and_tolerates_none(self):
+		self.assertEqual(effective_diff.load_accepted("9.9.9"), {})
+		self.assertEqual(sorted(effective_diff.load_accepted("16.32.0")), ["--radius-lg", "--radius-md"])
+		self.assertEqual(effective_diff.load_accepted("16.52.0"), {})
+
+	def test_the_two_16_32_0_radius_readers_are_covered_explicitly(self):
+		"""Before the round the map had no --radius-md and --radius-lg; the committed data covers both."""
+		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")
+		before = "\n".join(
+			line
+			for line in text.splitlines()
+			if not line.lstrip().startswith(("--radius-md:", "--radius-lg:"))
+		)
+		self.assertNotEqual(before, text)
+		core = dead_tokens.load_snapshot(dead_tokens.snapshot_path("16.32.0"))
+		source = frozenset(source_readers.load_snapshot("16.32.0"))
+		accepted = effective_diff.load_accepted("16.32.0")
+		# The compiled-CSS-only check could not see the two readers: it said "does not move".
+		blind = effective_diff.compare(before, text, core)
+		self.assertFalse(blind.moved)
+		# With the source readers and no acceptance, both names are reported as added declarations.
+		strict = effective_diff.compare(before, text, core, source_reads=source)
+		self.assertTrue(strict.moved)
+		self.assertEqual({m[1] for m in strict.added}, {"--radius-md", "--radius-lg"})
+		# With the committed acceptance they are listed, six declarations (light, dark, automatic) of two names.
+		covered = effective_diff.compare(before, text, core, source_reads=source, accepted=accepted)
+		self.assertFalse(covered.moved)
+		self.assertEqual(len(covered.accepted), 6)
+		self.assertEqual({a[2] for a in covered.accepted}, {"--radius-md", "--radius-lg"})
+
+	def test_16_52_0_is_not_excused(self):
+		text = (GENERATED / "_frappe_map.scss").read_text(encoding="utf-8")
+		before = "\n".join(
+			line
+			for line in text.splitlines()
+			if not line.lstrip().startswith(("--radius-md:", "--radius-lg:"))
+		)
+		core = dead_tokens.load_snapshot(dead_tokens.snapshot_path("16.52.0"))
+		movement = effective_diff.compare(
+			before,
+			text,
+			core,
+			source_reads=frozenset(source_readers.load_snapshot("16.52.0")),
+			accepted=effective_diff.load_accepted("16.52.0"),
+		)
+		self.assertTrue(movement.moved)
 
 
 class GeneratedMap(unittest.TestCase):

@@ -1,0 +1,7 @@
+{
+ "_comment": "Declarations of a generated map that move a Frappe version, accepted by the lead's report because the only reader is outside the compiled CSS (a source reader in source_readers_frappe_<version>.json) and the change is cosmetic and off the P0 screens. effective_diff lists them as ACCEPTED, apart from the moves it fails on. A name is accepted only while a source reader exists and no compiled stylesheet reads it (finding N1f, N3d).",
+ "16.32.0": {
+  "--radius-md": "frappe/desk/page/desktop/desktop.css:69 gives .desktop-cloud-settings (Frappe Cloud only) border-radius: var(--radius-md), a name 16.32.0 never declares, so it computes to 0. The map now declares it as the 6px container tier (tokens.json radius-md).",
+  "--radius-lg": "frappe/core/doctype/error_log/error_log.js:78,86 gives two inline blocks of the Error Log form border-radius: var(--radius-lg), a name 16.32.0 never declares, so it computes to 0. The map now declares it as the 6px container tier (tokens.json radius-md)."
+ }
+}

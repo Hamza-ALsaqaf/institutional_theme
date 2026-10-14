@@ -7,6 +7,11 @@ such a variable moves that version; the report lists them and the command exits 
 It also checks that every `--ins-*` value of `_tokens.scss` that existed before is unchanged, because
 the map points at those values.
 
+A variable is "read" when the version's compiled CSS reads it or when its source does (an inline style, a page
+stylesheet, JavaScript, a library: `source_readers.py`, finding N3d). A moved declaration of a variable that
+only the source reads is failed too, unless `data/accepted_movement.json` accepts that name for the version
+with a reason; accepted moves are listed apart, so the result never says "does not move" without them.
+
     python -m institutional_theme.audits.effective_diff [--ref HEAD] [--version 16.32.0] [--out FILE]
 
 `--ref` is the git revision of the "before" files. Never imports Frappe.
@@ -15,18 +20,21 @@ the map points at those values.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from .dead_tokens import DEFAULT_VERSION, CoreVars, load_snapshot, snapshot_path
+from . import source_readers
+from .dead_tokens import DATA_DIR, DEFAULT_VERSION, CoreVars, load_snapshot, snapshot_path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 GENERATED = Path("institutional_theme/public/scss/generated")
 MAP_FILE = GENERATED / "_frappe_map.scss"
 TOKENS_FILE = GENERATED / "_tokens.scss"
+ACCEPTED_FILE = DATA_DIR / "accepted_movement.json"
 
 Declarations = dict[tuple[str, str], str]
 
@@ -68,18 +76,40 @@ class Movement:
 	added_unread: int = 0
 	changed_unread: int = 0
 	token_changes: list[tuple[str, str, str, str]] = field(default_factory=list)
+	# (kind, selector, name, value, reason): moves of source-read names that the data file accepts.
+	accepted: list[tuple[str, str, str, str, str]] = field(default_factory=list)
 
 	@property
 	def moved(self) -> bool:
 		return bool(self.changed or self.removed or self.added or self.token_changes)
 
 
+def load_accepted(version: str, path: Path = ACCEPTED_FILE) -> dict[str, str]:
+	"""`{name: reason}` accepted for a version; empty when the file or the version is absent."""
+	if not path.is_file():
+		return {}
+	return dict(json.loads(path.read_text(encoding="utf-8")).get(version, {}))
+
+
 def compare(
-	before_map: str, after_map: str, core: CoreVars, before_tokens: str = "", after_tokens: str = ""
+	before_map: str,
+	after_map: str,
+	core: CoreVars,
+	before_tokens: str = "",
+	after_tokens: str = "",
+	source_reads: frozenset[str] = frozenset(),
+	accepted: dict[str, str] | None = None,
 ) -> Movement:
-	"""Compare two map texts for the variables `core` reads, and two token texts for kept names."""
+	"""Compare two map texts for the variables the version reads, and two token texts for kept names.
+
+	`source_reads` are the names its source reads outside the compiled CSS. A moved declaration of such a name
+	(and of no compiled read) whose name is in `accepted` goes to `Movement.accepted`; it does not make the
+	version "moved". A name the compiled CSS reads is never accepted.
+	"""
 	before, after = parse_declarations(before_map), parse_declarations(after_map)
-	reads = core.read
+	reads = core.read | source_reads
+	accepted = accepted or {}
+	acceptable = {name: reason for name, reason in accepted.items() if name in source_reads - core.read}
 	movement = Movement()
 	movement.effective_before = sum(1 for (_, name) in before if name in reads)
 	movement.effective_after = sum(1 for (_, name) in after if name in reads)
@@ -96,7 +126,9 @@ def compare(
 	for key, value in after.items():
 		selector, name = key
 		if key not in before:
-			if name in reads:
+			if name in acceptable:
+				movement.accepted.append(("ADDED", selector, name, value, acceptable[name]))
+			elif name in reads:
 				movement.added.append((selector, name, value))
 			else:
 				movement.added_unread += 1
@@ -112,7 +144,8 @@ def compare(
 def render(movement: Movement, version: str, ref: str) -> str:
 	"""A text report: counts, then every moved declaration."""
 	lines = [
-		f"Frappe {version}: generated declarations of variables core reads, {ref} against the working tree",
+		f"Frappe {version}: generated declarations of variables core reads (compiled CSS and source), "
+		f"{ref} against the working tree",
 		f"  effective declarations before: {movement.effective_before}",
 		f"  effective declarations after:  {movement.effective_after}",
 		f"  changed: {len(movement.changed)}   removed: {len(movement.removed)}   added: {len(movement.added)}",
@@ -128,7 +161,20 @@ def render(movement: Movement, version: str, ref: str) -> str:
 		lines.append(f"  ADDED {name} in {selector}: {new}")
 	for selector, name, old, new in movement.token_changes:
 		lines.append(f"  TOKEN {name} in {selector}: {old} -> {new}")
-	lines.append("  RESULT: moved" if movement.moved else f"  RESULT: Frappe {version} does not move")
+	for kind, selector, name, value, _ in movement.accepted:
+		lines.append(f"  ACCEPTED {kind} {name} in {selector}: {value}")
+	for name, reason in sorted({(name, reason) for _, _, name, _, reason in movement.accepted}):
+		lines.append(f"  ACCEPTED because {name} is read only by source: {reason}")
+	if movement.moved:
+		lines.append("  RESULT: moved")
+	elif movement.accepted:
+		names = sorted({name for _, _, name, _, _ in movement.accepted})
+		lines.append(
+			f"  RESULT: Frappe {version} does not move except {len(movement.accepted)} accepted declaration(s) "
+			f"of {len(names)} name(s) that only its source reads: {', '.join(names)}"
+		)
+	else:
+		lines.append(f"  RESULT: Frappe {version} does not move")
 	return "\n".join(lines) + "\n"
 
 
@@ -153,12 +199,15 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument("--out", help="also write the report to this file")
 	args = parser.parse_args(argv)
 	core = load_snapshot(snapshot_path(args.version))
+	source_reads = frozenset(source_readers.load_snapshot(args.version))
 	movement = compare(
 		_git_show(args.ref, MAP_FILE),
 		(REPO_ROOT / MAP_FILE).read_text(encoding="utf-8"),
 		core,
 		_git_show(args.ref, TOKENS_FILE),
 		(REPO_ROOT / TOKENS_FILE).read_text(encoding="utf-8"),
+		source_reads,
+		load_accepted(args.version),
 	)
 	text = render(movement, args.version, args.ref)
 	print(text, end="")

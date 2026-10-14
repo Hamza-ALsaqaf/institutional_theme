@@ -249,7 +249,7 @@ def audit_model(model: Model) -> list[Check]:
 		checks.append(check)
 	frappe = Check("model: every Frappe variable defines light and dark")
 	for var, entry in model["frappe"]["vars"].items():
-		if set(entry) != {"light", "dark"}:
+		if not {"light", "dark"} <= set(entry) or set(entry) - {"light", "dark", "scope"}:
 			frappe.problems.append(f"{var}: {sorted(entry)}")
 	checks.append(frappe)
 	return checks
@@ -259,7 +259,13 @@ def audit_files(model: Model, scss_dir: Path) -> list[Check]:
 	"""Audit the generated partials and every palette bundle in a directory."""
 	checks: list[Check] = []
 	paths = {p.name: p for p in sorted(scss_dir.glob("*.scss"))}
-	required = ["_tokens.scss", "_frappe_map.scss", "_scale.scss", "_literals.scss"]
+	required = [
+		"_tokens.scss",
+		"_frappe_map.scss",
+		"_frappe_map_light.scss",
+		"_scale.scss",
+		"_literals.scss",
+	]
 	missing = Check("generated files present")
 	for name in required:
 		if name not in paths:
@@ -303,6 +309,21 @@ def audit_files(model: Model, scss_dir: Path) -> list[Check]:
 	if found != expected:
 		names.problems.append(f"missing {sorted(expected - found)[:5]}, extra {sorted(found - expected)[:5]}")
 	checks.append(names)
+
+	website = Check("_frappe_map_light.scss: the light map without the desk-only names, nothing else")
+	expected_web = [name for name, _ in model_mod.frappe_map(model, model_mod.WEB).declarations["light"]]
+	blocks = parse_blocks(texts["_frappe_map_light.scss"])
+	found_web = [prop for block in blocks[:1] for prop, _ in block.declarations]
+	if len(blocks) != 1:
+		website.problems.append(f"{len(blocks)} blocks, expected the light block only")
+	if found_web != expected_web:
+		website.problems.append(
+			f"missing {sorted(set(expected_web) - set(found_web))[:5]}, extra {sorted(set(found_web) - set(expected_web))[:5]}"
+		)
+	desk_read = [name for name in model_mod.desk_only(model) if name in found_web]
+	if desk_read:
+		website.problems.append(f"desk-only names present: {desk_read[:5]}")
+	checks.append(website)
 
 	collisions = Check("--ins-* names are unique across colour and scale tokens")
 	overlap = base_keys & scale_keys

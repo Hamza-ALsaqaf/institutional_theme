@@ -8,6 +8,8 @@ stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED pres
 pair (or one of the nine desk avatar pairs, `avatars.py`) or the status check, when a built bundle or the fonts exceed a size budget (`budgets.py`;
 skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, when a variable the theme
 overrides or declares in its hand-written SCSS is neither in core nor used by the theme of ANY supported Frappe version (F1), or
+when core declares such a variable and nothing in any version reads it (compiled CSS, source readers, the theme) and `data/unread_allowlist.json`
+gives no reason (N3b), or when a variable marked `scope: desk` in tokens.json is read by a website page of a supported version (`web_scope.py`), or
 when the counterpart table breaks one of its checks (`counterparts.py`, F2). Core is read
 from one committed snapshot per version (`audits/data/core_vars_frappe_<version>.json`); `--core-css`
 names compiled stylesheets of a version (`16.52.0=PATH`; a bare PATH stands for 16.32.0) and replaces that
@@ -24,7 +26,17 @@ from pathlib import Path
 
 from institutional_theme.midad import model as model_mod
 
-from . import avatars, budgets, colour_vision, contrast, counterparts, dead_tokens, parity
+from . import (
+	avatars,
+	budgets,
+	colour_vision,
+	contrast,
+	counterparts,
+	dead_tokens,
+	parity,
+	source_readers,
+	web_scope,
+)
 
 PACKAGE_DIR = Path(__file__).resolve().parents[1]
 REPO_ROOT = PACKAGE_DIR.parent
@@ -137,11 +149,13 @@ def main(argv: list[str] | None = None) -> int:
 		cores[version] = (core, origin)
 	if not cores:
 		parser.error("no committed core snapshot and no --core-css")
-	combined = dead_tokens.audit_versions(model, cores, PACKAGE_DIR / "public")
+	source_reads = {version: frozenset(source_readers.load_snapshot(version)) for version in cores}
+	combined = dead_tokens.audit_versions(model, cores, PACKAGE_DIR / "public", source_reads)
+	allowlist = dead_tokens.load_unread_allowlist()
 	pairs = counterparts.load_pairs()
 	core_vars = {version: core for version, (core, _) in cores.items()}
 	pair_findings = counterparts.check(model, pairs, core_vars)
-	outputs["dead_tokens.txt"] = dead_tokens.render_text(combined) + counterparts.render_text(
+	outputs["dead_tokens.txt"] = dead_tokens.render_text(combined, allowlist) + counterparts.render_text(
 		pairs,
 		pair_findings,
 		counterparts.unmapped_reads(model, pairs, core_vars, PACKAGE_DIR / "public"),
@@ -168,6 +182,26 @@ def main(argv: list[str] | None = None) -> int:
 	for name in combined.dead:
 		print(f"dead-tokens FAIL {name}: in no supported version's core and not used by the theme")
 	failures += total["dead"]
+	unread_problems = dead_tokens.check_unread(combined, allowlist)
+	for problem in unread_problems:
+		print(f"dead-tokens FAIL {problem}")
+	print(
+		f"dead-tokens: {len(dead_tokens.unread_everywhere(combined))} variable(s) declared by core and read by nothing "
+		f"in any version, {len(allowlist)} allowed with a reason, {len(unread_problems)} problem(s)"
+	)
+	failures += len(unread_problems)
+
+	# Website scope: no variable left out of the website map is read by a website page of any version
+	web_reads = {version: web_scope.load_reads(version) for version in dead_tokens.snapshot_versions()}
+	scope = web_scope.check(model, web_reads, web_scope.theme_reads(PACKAGE_DIR / "public"))
+	outputs["web_scope.txt"] = web_scope.render_text(scope, len(dead_tokens.overridden_variables(model)))
+	for problem in scope.problems:
+		print(f"web-scope FAIL {problem}")
+	print(
+		f"web-scope: {len(scope.desk_only)} desk-only variable(s) left out of the website map, "
+		f"{len(scope.problems)} problem(s), {len(scope.candidates)} unmarked variable(s) no website page reads"
+	)
+	failures += len(scope.problems)
 
 	# Counterpart table (F2)
 	for finding in pair_findings:

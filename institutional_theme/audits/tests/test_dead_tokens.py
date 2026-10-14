@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-from institutional_theme.audits import dead_tokens
+from institutional_theme.audits import dead_tokens, source_readers
 from institutional_theme.midad import model as model_mod
 
 PUBLIC = Path(dead_tokens.__file__).resolve().parents[1] / "public"
@@ -209,6 +209,168 @@ class Snapshot(unittest.TestCase):
 			self.assertEqual((again.declared, again.read), (core.declared, core.read))
 
 
+class ThemeComments(unittest.TestCase):
+	"""N3a: a custom property written in a comment is documentation, not use."""
+
+	TEXT = (
+		"/* block: var(--in-block) */\n"
+		"// line: var(--in-line)\n"
+		".a { color: var(--used); } // trailing: var(--in-trailing)\n"
+		".b { background: url(//cdn.example/x.png) var(--after-url); }\n"
+		"/* multi\n   line var(--in-multiline)\n*/\n"
+		".c { border-color: var(--used-too); }\n"
+	)
+
+	def _scan(self, name, text):
+		with tempfile.TemporaryDirectory() as tmp:
+			Path(tmp, name).write_text(text, encoding="utf-8")
+			return dead_tokens.scan_theme(Path(tmp))
+
+	def test_scss_comments_are_not_use(self):
+		self.assertEqual(self._scan("a.scss", self.TEXT), {"--used", "--after-url", "--used-too"})
+
+	def test_js_comments_are_not_use(self):
+		self.assertEqual(self._scan("a.js", self.TEXT), {"--used", "--after-url", "--used-too"})
+
+	def test_css_keeps_double_slash_but_drops_block_comments(self):
+		found = self._scan("a.css", "/* var(--gone) */ .a { color: var(--kept) } // var(--odd)\n")
+		self.assertEqual(found, {"--kept", "--odd"})
+
+	def test_the_raw_scan_would_have_counted_every_comment(self):
+		# Negative control: the scan before the fix (no comment stripping) finds all seven names.
+		raw = set(dead_tokens._READ.findall(self.TEXT))
+		self.assertEqual(
+			raw,
+			{
+				"--in-block",
+				"--in-line",
+				"--used",
+				"--in-trailing",
+				"--after-url",
+				"--in-multiline",
+				"--used-too",
+			},
+		)
+
+	def test_a_name_used_only_in_a_comment_is_dead_not_theme(self):
+		model = model_mod.load_model()
+		name = "--commented-only"
+		with tempfile.TemporaryDirectory() as tmp:
+			Path(tmp, "a.scss").write_text(f"/* var({name}) */\n// var({name})\n", encoding="utf-8")
+			theme = dead_tokens.scan_theme(Path(tmp))
+		self.assertNotIn(name, theme)
+		(result,) = dead_tokens.audit(model, _core(set(), set()), PUBLIC, theme, [name])
+		self.assertEqual(result.where, "dead")
+		(old,) = dead_tokens.audit(model, _core(set(), set()), PUBLIC, {name}, [name])
+		self.assertEqual(old.where, "theme")  # what a comment did before the fix
+
+	def test_the_declared_scan_uses_the_same_stripping(self):
+		with tempfile.TemporaryDirectory() as tmp:
+			Path(tmp, "a.scss").write_text(
+				".a { --real: 1; } // --trailing: 2\n/* --block: 3 */\n", encoding="utf-8"
+			)
+			self.assertEqual(dead_tokens.scan_theme_declared(Path(tmp)), {"--real"})
+
+
+class UnreadEverywhere(unittest.TestCase):
+	"""N3b: a name core declares and nothing reads fails unless the allowlist gives a reason."""
+
+	def setUp(self):
+		self.model = model_mod.load_model()
+		theme = dead_tokens.scan_theme(PUBLIC)
+		names = [n for n in dead_tokens.overridden_variables(self.model) if n not in theme]
+		self.a, self.b = names[:2]
+		self.rest = set(names) - {self.a, self.b}
+
+	def _combined(self, *cores, source=None):
+		cores_by_version = {f"{i}.0.0": (core, "test") for i, core in enumerate(cores, start=1)}
+		return dead_tokens.audit_versions(self.model, cores_by_version, PUBLIC, source)
+
+	def _declares_everything_but(self, *skipped):
+		names = {n for n in dead_tokens.watched_variables(self.model, PUBLIC)} - set(skipped)
+		return _core(names, names)
+
+	def test_a_declared_name_that_nothing_reads_is_reported(self):
+		core = _core({self.a}, set())
+		combined = self._combined(core, core)
+		self.assertIn(self.a, dead_tokens.unread_everywhere(combined))
+
+	def test_a_compiled_reader_in_any_version_makes_it_live(self):
+		combined = self._combined(_core({self.a}, set()), _core({self.a}, {self.a}))
+		self.assertNotIn(self.a, dead_tokens.unread_everywhere(combined))
+
+	def test_a_source_reader_in_any_version_makes_it_live(self):
+		core = _core({self.a}, set())
+		bare = self._combined(core, core)
+		self.assertIn(self.a, dead_tokens.unread_everywhere(bare))
+		covered = self._combined(core, core, source={"2.0.0": frozenset({self.a})})
+		self.assertNotIn(self.a, dead_tokens.unread_everywhere(covered))
+		self.assertEqual({r.name: r.where for r in covered.versions[1].results}[self.a], "declared-read")
+		self.assertEqual({r.name: r.where for r in covered.versions[0].results}[self.a], "declared-only")
+
+	def test_a_name_core_never_declares_is_dead_not_unread(self):
+		combined = self._combined(_core(set(), set()))
+		self.assertNotIn(self.a, dead_tokens.unread_everywhere(combined))
+		self.assertIn(self.a, combined.dead)
+
+	def test_unlisted_unread_names_fail_and_listed_ones_pass(self):
+		combined = self._combined(_core({self.a}, set()))
+		self.assertEqual([p.split(":")[0] for p in dead_tokens.check_unread(combined, {})], [self.a])
+		self.assertEqual(
+			dead_tokens.check_unread(combined, {self.a: "no reader; kept for third parties"}), []
+		)
+
+	def test_an_entry_without_a_reason_fails(self):
+		combined = self._combined(_core({self.a}, set()))
+		problems = dead_tokens.check_unread(combined, {self.a: "  "})
+		self.assertEqual(len(problems), 1)
+		self.assertIn("without a reason", problems[0])
+
+	def test_a_stale_entry_fails(self):
+		combined = self._combined(_core({self.a, self.b}, {self.b}))
+		allow = {self.a: "listed", self.b: "now read", "--not-watched": "gone"}
+		problems = dead_tokens.check_unread(combined, allow)
+		self.assertEqual(len(problems), 2)
+		self.assertTrue(any(p.startswith(self.b) and "stale" in p for p in problems))
+		self.assertTrue(any(p.startswith("--not-watched") and "stale" in p for p in problems))
+
+	def test_the_committed_allowlist_covers_exactly_the_committed_findings(self):
+		model = self.model
+		cores = {
+			v: (dead_tokens.load_snapshot(dead_tokens.snapshot_path(v)), "snapshot")
+			for v in dead_tokens.snapshot_versions()
+		}
+		source = {v: frozenset(source_readers.load_snapshot(v)) for v in cores}
+		combined = dead_tokens.audit_versions(model, cores, PUBLIC, source)
+		allow = dead_tokens.load_unread_allowlist()
+		self.assertEqual(dead_tokens.check_unread(combined, allow), [])
+		self.assertEqual(set(dead_tokens.unread_everywhere(combined)), set(allow))
+		# Negative control: drop one entry and the audit names it.
+		victim = sorted(allow)[0]
+		reduced = {k: v for k, v in allow.items() if k != victim}
+		self.assertEqual([p.split(":")[0] for p in dead_tokens.check_unread(combined, reduced)], [victim])
+		# Negative control: without the source snapshots more names have no reader at all.
+		bare = dead_tokens.audit_versions(model, cores, PUBLIC)
+		self.assertGreater(len(dead_tokens.unread_everywhere(bare)), len(allow))
+
+	def test_a_missing_allowlist_file_is_empty(self):
+		self.assertEqual(dead_tokens.load_unread_allowlist(Path("/nonexistent/allow.json")), {})
+
+	def test_the_report_lists_each_unread_name_with_its_reason(self):
+		combined = self._combined(_core({self.a}, set()))
+		text = dead_tokens.render_text(combined, {self.a: "a reason"})
+		self.assertIn(f"{self.a}: a reason", text)
+		self.assertIn("NO REASON GIVEN", dead_tokens.render_text(combined, {}))
+
+	def test_the_command_fails_for_an_unlisted_name_and_passes_with_the_list(self):
+		with mock.patch.object(dead_tokens, "load_unread_allowlist", return_value={}):
+			code, out = CommandLine._run(self, "--no-write")
+		self.assertEqual(code, 1)
+		self.assertIn("dead-tokens FAIL --surface-cards: declared by core, read by nothing", out)
+		code, out = CommandLine._run(self)
+		self.assertEqual(code, 0)
+
+
 class DualVersion(unittest.TestCase):
 	"""A variable is dead only when it is dead in every supported version."""
 
@@ -248,9 +410,27 @@ class DualVersion(unittest.TestCase):
 		new = _core({self.a}, {self.a, self.b})  # a declared-read; b read-only
 		where = {r.name: r.where for r in self._combined(old, new).results}
 		self.assertEqual(where[self.a], "declared-read")
-		self.assertEqual(where[self.b], "declared-only")
+		self.assertEqual(where[self.b], "read-only")
 		self.assertEqual(where[self.c], "read-only")
 		self.assertEqual(where[self.d], "dead")
+
+	def test_a_name_one_version_reads_is_not_reported_inert_in_the_combined_verdict(self):
+		# N3c: declared in 1.0.0 and read by nothing there, read (not declared) in 2.0.0. It acts in 2.0.0.
+		old = _core({self.a}, set())
+		new = _core(set(), {self.a})
+		for versions in ((old, new), (new, old)):
+			combined = self._combined(*versions)
+			where = {r.name: r.where for r in combined.results}
+			self.assertEqual(where[self.a], "read-only")
+			self.assertNotIn(self.a, dead_tokens.unread_everywhere(combined))
+
+	def test_the_old_merge_order_would_have_labelled_it_inert(self):
+		# Negative control: the order that ranked declared-only above read-only gives the wrong label.
+		old_order = ("declared-read", "declared-only", "read-only", "theme", "dead")
+		strength = {kind: rank for rank, kind in enumerate(old_order)}
+		with mock.patch.object(dead_tokens, "_STRENGTH", strength):
+			combined = self._combined(_core({self.a}, set()), _core(set(), {self.a}))
+		self.assertEqual({r.name: r.where for r in combined.results}[self.a], "declared-only")
 
 	def test_version_specific_reads(self):
 		old = _core({self.a, self.b}, {self.a, self.b})
@@ -348,7 +528,10 @@ class CommandLine(unittest.TestCase):
 		self.assertNotIn("dead-tokens FAIL", out)
 
 	def test_a_live_scan_without_the_scoped_names_fails_on_them(self):
-		with tempfile.TemporaryDirectory() as tmp:
+		with (
+			tempfile.TemporaryDirectory() as tmp,
+			mock.patch.object(source_readers, "load_snapshot", return_value={}),
+		):
 			Path(tmp, "a.css").write_text(":root{--unrelated:1}", encoding="utf-8")
 			code, out = self._run("--core-css", f"16.52.0={tmp}")
 		# --bt-*, --c-* and --g-* are core's only on v16.52.0: without them nothing keeps them alive.

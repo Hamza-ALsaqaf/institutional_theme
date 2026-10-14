@@ -70,6 +70,12 @@ def _frappe_vars(frappe: dict[str, Any]) -> dict[str, dict[str, str]]:
 			out[name] = {"light": entry["both"], "dark": entry["both"]}
 		else:
 			out[name] = {"light": entry["light"], "dark": entry["dark"]}
+		if "scope" in entry:
+			if entry["scope"] != model_mod.SCOPE_DESK:
+				raise BuildError(
+					f'{name}: scope must be "{model_mod.SCOPE_DESK}" or absent, not {entry["scope"]!r}'
+				)
+			out[name]["scope"] = entry["scope"]
 	return out
 
 
@@ -224,8 +230,10 @@ def render_tokens_light(model: Model) -> str:
 	return emit.header() + intro + emit.emit_light_family("base", props, light, color_scheme=True)
 
 
-def _frappe_map_parts(model: Model) -> tuple[list[str], dict[str, str], dict[str, str]]:
-	fmap = model_mod.frappe_map(model)
+def _frappe_map_parts(
+	model: Model, scope: str | None = None
+) -> tuple[list[str], dict[str, str], dict[str, str]]:
+	fmap = model_mod.frappe_map(model, scope)
 	names = [name for name, _ in fmap.declarations["light"]]
 	if names != [name for name, _ in fmap.declarations["dark"]]:
 		raise BuildError("The Frappe map differs between light and dark")
@@ -246,11 +254,16 @@ def render_frappe_map(model: Model) -> str:
 
 
 def render_frappe_map_light(model: Model) -> str:
-	"""The light block of `_frappe_map.scss` alone, for the website bundle (Light only)."""
-	names, light, _ = _frappe_map_parts(model)
+	"""The light block of `_frappe_map.scss` for the website bundle (Light only), without the desk-only names.
+
+	The variables marked `"scope": "desk"` in tokens.json are left out: no website page of a supported
+	version reads one (`audits/web_scope.py` proves it from committed snapshots of what the pages load).
+	"""
+	names, light, _ = _frappe_map_parts(model, model_mod.WEB)
+	omitted = len(model_mod.desk_only(model))
 	intro = (
-		"// Light block of _frappe_map.scss only, for bundles that never render Dark (website, portal).\n"
-		"// Same selectors and values as the light block there.\n\n"
+		"// Light block of _frappe_map.scss for bundles that never render Dark (website, portal), without the\n"
+		f"// {omitted} variables only desk components read (tokens.json `scope: desk`). Same selectors and values.\n\n"
 	)
 	return emit.header() + intro + emit.emit_light_family("palette", names, light)
 

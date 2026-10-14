@@ -20,6 +20,8 @@ Everything lives outside the repository except these scripts.
 | `manifest_selectors.py`, `dead_token_diff.py` | Helpers of `newest_tag.sh`: citations and selectors of `docs/DEPENDENCY_MANIFEST.md` against a Frappe tree; category changes of the overridden variables between two core CSS sets. |
 | `ci_prereqs.sh` | Playwright-core and a Pillow venv for the gate captures on a machine without them (GitHub runner). |
 | `capture.mjs`, `pixel_diff.py` | Playwright capture of asset lists and screenshots; pixel comparison. |
+| `write_source_readers.sh` | Round 4 fix 1: writes the committed snapshots of what Frappe, ERPNext, HRMS and the self-styling libraries read outside the compiled CSS (`audits/source_readers.py`, `source_readers_frappe_<version>.json`) and of what the website pages read (`audits/web_scope.py`, `web_reads_frappe_<version>.json`), one pair per supported version, from the source trees and the built bundles. Paths are overridable variables at the top of the script. |
+| `web_style_capture.mjs`, `web_style_diff.py` | Round 4 fix 1: the computed style (colour, line, shadow, shape, type, spacing properties) of every element of the login pages in English and Arabic, the 404, the update-password page, the portal pages and two web forms, plus the resolved value of every mapped custom property on `html`; and the comparison of two such captures. Used to show that the website bundle without the desk-only names renders every page identically. |
 
 ## Why it looks the way it does
 

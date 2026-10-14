@@ -187,8 +187,24 @@ class FrappeMap(NamedTuple):
 	primitives: list[tuple[str, str]]
 
 
-def frappe_map(model: Model) -> FrappeMap:
+SCOPE_DESK = "desk"
+WEB = "web"
+
+
+def desk_only(model: Model) -> list[str]:
+	"""Frappe variables marked `"scope": "desk"` in tokens.json, in map order.
+
+	Only desk components read them; the website variant of the map leaves them out (the audit proves that no
+	website page of a supported version reads one: `audits/web_scope.py`).
+	"""
+	return [name for name, entry in model["frappe"]["vars"].items() if entry.get("scope") == SCOPE_DESK]
+
+
+def frappe_map(model: Model, scope: str | None = None) -> FrappeMap:
 	"""Translate tokens.json `frappe` into CSS declarations that reference `--ins-*` only.
+
+	`scope="web"` returns the map of the website bundle: the variables marked `"scope": "desk"` are left out
+	and so are the primitives that only they reference.
 
 	`@name` becomes `var(--ins-name)`, `$name` becomes `var(--ins-name)` and `ramp.step` becomes
 	`var(--ins-ramp-step)`; anything else is emitted verbatim. Only variables listed in
@@ -234,6 +250,8 @@ def frappe_map(model: Model) -> FrappeMap:
 			for mode in MODES:
 				declarations[mode].append((f"--{hue}-{step}", css(f"{ramp}.{step}")))
 	for name, entry in frappe["vars"].items():
+		if scope == WEB and entry.get("scope") == SCOPE_DESK:
+			continue
 		for mode in MODES:
 			declarations[mode].append((name, css(entry[mode])))
 

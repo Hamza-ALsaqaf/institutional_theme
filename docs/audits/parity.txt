@@ -42,6 +42,7 @@ ok   _scale.scss: selector shapes
 ok   _scale.scss: compact and coarse keys nest in comfortable
 ok   _frappe_map.scss: every var(--ins-*) is defined
 ok   _frappe_map.scss: sets the variables of tokens.json and nothing else
+ok   _frappe_map_light.scss: the light map without the desk-only names, nothing else
 ok   --ins-* names are unique across colour and scale tokens
 ok   ins_palette_forest.bundle.scss: selector shapes
 ok   ins_palette_forest.bundle.scss: key-set parity
@@ -60,4 +61,4 @@ ok   ins_palette_plum.bundle.scss: key-set parity
 ok   ins_palette_plum.bundle.scss: color-scheme
 ok   ins_palette_plum.bundle.scss: custom properties only, all defined by the base tokens
 
-55 checks, 0 failed
+56 checks, 0 failed
