@@ -1,0 +1,110 @@
+themed [
+ {
+  "http": 404,
+  "url": "http://localhost:8000/socket.io/?EIO=4&transport=polling&t=Q4uVH1c"
+ },
+ {
+  "http": 403,
+  "url": "http://localhost:8000/api/method/frappe.desk.doctype.number_card.number_card.get_result"
+ },
+ {
+  "text": "Uncaught (in promise)",
+  "exc": "undefined",
+  "url": "http://localhost:8000/assets/frappe/dist/js/desk.bundle.RY6OWFAD.js",
+  "line": 1607,
+  "frames": [
+   "render_card@desk.bundle.RY6OWFAD.js:1607"
+  ],
+  "cur": "http://localhost:8000/desk/invoicing"
+ },
+ {
+  "http": 403,
+  "url": "http://localhost:8000/api/method/frappe.desk.doctype.number_card.number_card.get_result"
+ },
+ {
+  "http": 403,
+  "url": "http://localhost:8000/api/method/frappe.desk.query_report.get_script"
+ },
+ {
+  "http": 403,
+  "url": "http://localhost:8000/api/method/frappe.desk.doctype.number_card.number_card.get_result"
+ },
+ {
+  "text": "Uncaught (in promise)",
+  "exc": "undefined",
+  "url": "http://localhost:8000/desk/invoicing",
+  "line": 0,
+  "frames": [],
+  "cur": "http://localhost:8000/desk/invoicing"
+ },
+ {
+  "http": 403,
+  "url": "http://localhost:8000/api/method/frappe.desk.doctype.number_card.number_card.get_result"
+ },
+ {
+  "text": "Uncaught (in promise)",
+  "exc": "undefined",
+  "url": "http://localhost:8000/assets/frappe/dist/js/desk.bundle.RY6OWFAD.js",
+  "line": 1607,
+  "frames": [
+   "render_card@desk.bundle.RY6OWFAD.js:1607"
+  ],
+  "cur": "http://localhost:8000/desk/invoicing"
+ },
+ {
+  "text": "Uncaught (in promise)",
+  "exc": "undefined",
+  "url": "http://localhost:8000/assets/frappe/dist/js/desk.bundle.RY6OWFAD.js",
+  "line": 1607,
+  "frames": [
+   "render_card@desk.bundle.RY6OWFAD.js:1607"
+  ],
+  "cur": "http://localhost:8000/desk/invoicing"
+ },
+ {
+  "text": "Uncaught (in promise)",
+  "exc": "undefined",
+  "url": "http://localhost:8000/assets/frappe/dist/js/desk.bundle.RY6OWFAD.js",
+  "line": 1607,
+  "frames": [
+   "render_card@desk.bundle.RY6OWFAD.js:1607"
+  ],
+  "cur": "http://localhost:8000/desk/invoicing"
+ },
+ {
+  "http": 404,
+  "url": "http://localhost:8000/socket.io/?EIO=4&transport=polling&t=Q4uVHDV"
+ },
+ {
+  "http": 404,
+  "url": "http://localhost:8000/socket.io/?EIO=4&transport=polling&t=Q4uVHWe"
+ },
+ {
+  "http": 404,
+  "url": "http://localhost:8000/socket.io/?EIO=4&transport=polling&t=Q4uVIAA"
+ },
+ {
+  "http": 404,
+  "url": "http://localhost:8000/socket.io/?EIO=4&transport=polling&t=Q4uVIZU"
+ },
+ {
+  "http": 403,
+  "url": "http://localhost:8000/api/method/frappe.desk.query_report.get_script"
+ },
+ {
+  "text": "Uncaught (in promise)",
+  "exc": "undefined",
+  "url": "http://localhost:8000/desk/query-report/General%20Ledger",
+  "line": 0,
+  "frames": [],
+  "cur": "http://localhost:8000/desk/query-report/General%20Ledger"
+ },
+ {
+  "http": 404,
+  "url": "http://localhost:8000/socket.io/?EIO=4&transport=polling&t=Q4uVIoP"
+ },
+ {
+  "http": 404,
+  "url": "http://localhost:8000/socket.io/?EIO=4&transport=polling&t=Q4uVJ4u"
+ }
+]

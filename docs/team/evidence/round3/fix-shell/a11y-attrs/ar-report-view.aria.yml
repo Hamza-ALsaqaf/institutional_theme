@@ -1,0 +1,24 @@
+- checkbox "تحديد جميع الصفوف"
+- text: هوية شخصية
+- img
+- text: الحالة
+- img
+- text: الاسم الكامل
+- img
+- text: صورة المستخدم
+- img
+- text: اسم االمستخدم
+- img
+- text: نوع المستخدم
+- img
+- text: تمكين
+- img
+- textbox "تصفية" [disabled]
+- textbox "تصفية رقم الصف"
+- textbox "تصفية هوية شخصية"
+- textbox "تصفية الحالة"
+- textbox "تصفية الاسم الكامل"
+- textbox "تصفية صورة المستخدم"
+- textbox "تصفية اسم االمستخدم"
+- textbox "تصفية نوع المستخدم"
+- textbox "تصفية تمكين"

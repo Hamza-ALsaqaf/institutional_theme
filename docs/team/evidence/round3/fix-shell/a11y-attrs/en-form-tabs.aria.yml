@@ -1,0 +1,7 @@
+- tablist:
+  - tab "User Details"
+  - tab "Roles & Permissions" [selected]
+  - tab "More Information"
+  - tab "Settings"
+  - tab "Connections"
+  - tab "Sessions"

@@ -1,0 +1,30 @@
+axe-en-light@midad.test updated 503
+axe-en-dark@midad.test updated 503
+axe-ar-light@midad.test updated 503
+axe-ar-dark@midad.test updated 503
+themed en-light list: 0 rules, 0 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-light form: 0 rules, 0 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-light form-child-table: 0 rules, 0 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-light form-row-editor: 2 rules, 2 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-light search: 5 rules, 56 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-light appearance: 0 rules, 0 nodes (theme=light, dir=ltr, ins sheets=1)
+themed en-dark list: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark form: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark form-child-table: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark form-row-editor: 3 rules, 3 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark search: 5 rules, 56 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed en-dark appearance: 0 rules, 0 nodes (theme=dark, dir=ltr, ins sheets=1)
+themed ar-light list: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light form: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light form-child-table: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light form-row-editor: 2 rules, 2 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light search: 5 rules, 56 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-light appearance: 0 rules, 0 nodes (theme=light, dir=rtl, ins sheets=1)
+themed ar-dark list: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark form: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark form-child-table: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark form-row-editor: 3 rules, 3 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark search: 5 rules, 56 nodes (theme=dark, dir=rtl, ins sheets=1)
+themed ar-dark appearance: 0 rules, 0 nodes (theme=dark, dir=rtl, ins sheets=1)
+summary: 234 nodes, theme 234, core 0
+exit 0

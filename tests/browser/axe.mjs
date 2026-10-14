@@ -71,6 +71,20 @@ const screens = [
 			await settle(page, 800);
 		},
 	}),
+	// The child-table row editor (`.form-in-grid`, grid_row_form.js) is a form of its own under a row; the screen above
+	// only adds a row, so its controls were never scanned.
+	desk("form-row-editor", "/desk/notification/new", ".form-layout", {
+		action: async (page) => {
+			await page.evaluate(() => {
+				cur_frm.add_child("recipients");
+				cur_frm.refresh_field("recipients");
+			});
+			await settle(page, 700);
+			await page.locator(".form-grid .grid-row .btn-open-row").first().click();
+			await page.waitForSelector(".form-in-grid .frappe-control input, .form-in-grid .frappe-control select", { timeout: 10000 });
+			await settle(page, 1200);
+		},
+	}),
 	desk("datepicker", "/desk/todo/new", ".form-layout", {
 		action: async (page) => {
 			await page.locator('[data-fieldname="date"] input').first().click();
@@ -150,6 +164,51 @@ const screens = [
 ];
 
 // ---------------------------------------------------------------- helpers
+// For a colour-contrast node that axe could not decide (gradient, overlap, obscured), measure it: hide every glyph, take
+// a screenshot of the element's box, and compare the text colour (alpha composited over each pixel) with every pixel
+// that is painted behind it. Reports the worst and the 5th-percentile ratio over the box, WCAG 2.x relative luminance.
+async function measureContrast(page, target) {
+	if (target.includes(" >> ")) return { error: "frame or shadow target" };
+	const info = await page.evaluate((sel) => {
+		const el = document.querySelector(sel);
+		if (!el) return null;
+		el.scrollIntoView({ block: "center", inline: "nearest" });
+		const cs = getComputedStyle(el);
+		const r = el.getBoundingClientRect();
+		return { color: cs.color, rect: { x: r.x, y: r.y, width: r.width, height: r.height }, text: (el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 40) };
+	}, target);
+	if (!info) return { error: "element not found" };
+	const clip = { x: Math.max(0, info.rect.x), y: Math.max(0, info.rect.y), width: Math.min(info.rect.width, 600), height: Math.min(info.rect.height, 120) };
+	if (clip.width < 1 || clip.height < 1) return { error: "empty box", text: info.text };
+	// Transitions are switched off for the whole measurement: a colour that fades back after the glyphs are restored would read as transparent.
+	if (!(await page.evaluate(() => !!document.getElementById("axe-measure-still")))) {
+		const still = await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation:none!important}" });
+		await still.evaluate((e) => (e.id = "axe-measure-still"));
+	}
+	const hide = await page.addStyleTag({ content: "*,*::before,*::after{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;caret-color:transparent!important}" });
+	let png;
+	try { png = await page.screenshot({ clip, animations: "disabled" }); } finally { await hide.evaluate((e) => e.remove()); }
+	const out = await page.evaluate(async ({ b64, color }) => {
+		const img = await createImageBitmap(await (await fetch("data:image/png;base64," + b64)).blob());
+		const c = new OffscreenCanvas(img.width, img.height); const g = c.getContext("2d"); g.drawImage(img, 0, 0);
+		const px = g.getImageData(0, 0, img.width, img.height).data;
+		const m = color.match(/[\d.]+/g).map(Number); const fa = m.length > 3 ? m[3] : 1;
+		const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+		const lum = (r, g2, b) => 0.2126 * lin(r) + 0.7152 * lin(g2) + 0.0722 * lin(b);
+		const ratios = [];
+		for (let i = 0; i < px.length; i += 4) {
+			const bgl = [px[i], px[i + 1], px[i + 2]];
+			const f = [0, 1, 2].map((k) => m[k] * fa + bgl[k] * (1 - fa));
+			const L1 = lum(...f), L2 = lum(...bgl);
+			ratios.push((Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05));
+		}
+		ratios.sort((a, b) => a - b);
+		const distinct = new Set(); for (let i = 0; i < px.length; i += 4) distinct.add(px[i] + "," + px[i + 1] + "," + px[i + 2]);
+		return { n: ratios.length, min: +ratios[0].toFixed(2), p5: +ratios[Math.floor(ratios.length * 0.05)].toFixed(2), median: +ratios[Math.floor(ratios.length / 2)].toFixed(2), distinctBackgroundColours: distinct.size, fg: color };
+	}, { b64: png.toString("base64"), color: info.color });
+	return { ...out, text: info.text };
+}
+
 const { chromium } = req("playwright-core");
 const AxeBuilder = req("@axe-core/playwright").default || req("@axe-core/playwright").AxeBuilder;
 const userOf = (lang, mode) => `axe-${lang}-${mode}@midad.test`;
@@ -199,6 +258,11 @@ function shape(r) {
 			}),
 		})),
 		incomplete: Object.fromEntries(r.incomplete.map((v) => [v.id, v.nodes.length])),
+		incompleteNodes: Object.fromEntries(r.incomplete.map((v) => [v.id, v.nodes.map((n) => {
+			const check = [...(n.any || []), ...(n.all || []), ...(n.none || [])][0];
+			const d = (check && check.data) || {};
+			return { target: n.target.join(" >> "), html: trim(n.html, 200), key: d.messageKey || undefined, message: trim(check && check.message, 200), axeContrast: d.contrastRatio, fg: d.fgColor, bg: d.bgColor, fontSize: d.fontSize, fontWeight: d.fontWeight };
+		})])),
 		passes: r.passes.length,
 	};
 }
@@ -206,6 +270,7 @@ function shape(r) {
 async function runOne(browser, variant, lang, mode) {
 	const file = path.join(OUT, `run-${variant}-${lang}-${mode}.json`);
 	const result = { variant, lang, mode, base: BASE, axe: req("axe-core/package.json").version, tags: TAGS, started: new Date().toISOString(), screens: {} };
+	let currentScreen = "(login)";
 	const mk = async (guest) => {
 		const ctx = await browser.newContext({
 			viewport: { width: 1280, height: 800 }, locale: lang === "ar" ? "ar-SA" : "en-US", reducedMotion: "reduce",
@@ -213,6 +278,7 @@ async function runOne(browser, variant, lang, mode) {
 		});
 		if (variant === "core") await ctx.route("**/assets/institutional_theme/**", (r) => r.abort());
 		const page = await ctx.newPage();
+		page.on("pageerror", (e) => (result.pageErrorDetails ||= []).push({ screen: currentScreen, message: trim(e.message, 160), name: e.name, stack: trim(e.stack, 400) }));
 		page.on("pageerror", (e) => (result.pageErrors ||= []).push(trim(e.message, 160)));
 		if (!guest) {
 			await page.goto(`${BASE}/login`);
@@ -227,6 +293,7 @@ async function runOne(browser, variant, lang, mode) {
 	for (const s of screens) {
 		if (only && !only.includes(s.name)) continue;
 		if (s.guest && mode === "dark") continue; // the website pages are always light
+		currentScreen = s.name;
 		let page = gpage;
 		if (s.guest) { guestSession ||= await mk(true); page = guestSession.page; }
 		try {
@@ -237,7 +304,13 @@ async function runOne(browser, variant, lang, mode) {
 			const meta = await page.evaluate(() => ({ theme: document.documentElement.dataset.theme || null, dir: document.documentElement.dir, lang: document.documentElement.lang, url: location.pathname + location.hash, forgotDisplay: document.querySelector(".for-forgot") ? getComputedStyle(document.querySelector(".for-forgot")).display : null, insStyles: [...document.styleSheets].filter((x) => (x.href || "").includes("institutional_theme")).map((x) => x.href.split("/").pop()) }));
 			let b = new AxeBuilder({ page }).withTags(TAGS);
 			if (s.include) b = b.include(s.include);
-			result.screens[s.name] = { meta, ...shape(await b.analyze()) };
+			const res = shape(await b.analyze());
+			if (arg("measure") !== "no") {
+				for (const n of (res.incompleteNodes["color-contrast"] || [])) {
+					try { n.measured = await measureContrast(page, n.target); } catch (e) { n.measured = { error: trim(e.message.split("\n")[0], 120) }; }
+				}
+			}
+			result.screens[s.name] = { meta, ...res };
 			const n = result.screens[s.name].violations.reduce((a, v) => a + v.nodes.length, 0);
 			console.log(`${variant} ${lang}-${mode} ${s.name}: ${result.screens[s.name].violations.length} rules, ${n} nodes (theme=${meta.theme}, dir=${meta.dir}, ins sheets=${meta.insStyles.length})`);
 		} catch (e) {
@@ -249,6 +322,39 @@ async function runOne(browser, variant, lang, mode) {
 	if (guestSession) await guestSession.ctx.close();
 	result.finished = new Date().toISOString();
 	fs.writeFileSync(file, JSON.stringify(result, null, 1));
+}
+
+// ---------------------------------------------------------------- incomplete results
+// axe reports what it could not decide as "incomplete". Each node is listed with the reason axe gives (`key`), whether the
+// same node is also incomplete with the theme blocked, and, for colour contrast, the measured ratio (measureContrast).
+function incompleteSection(runs, norm) {
+	const nodes = [];
+	for (const r of runs) for (const [sn, s] of Object.entries(r.screens)) for (const [rule, list] of Object.entries(s.incompleteNodes || {})) for (const n of list) nodes.push({ variant: r.variant, lang: r.lang, mode: r.mode, screen: sn, rule, ...n });
+	if (!nodes.length) return "";
+	const k = (x) => [x.lang, x.mode, x.screen, x.rule, norm(x.target)].join("\u0001");
+	const coreSet = new Set(nodes.filter((x) => x.variant === "core").map(k));
+	const themed = nodes.filter((x) => x.variant === "themed").map((x) => ({ ...x, alsoInCore: coreSet.size ? coreSet.has(k(x)) : null }));
+	const px = (f) => { const m = /\((\d+(?:\.\d+)?)px\)/.exec(f || ""); return m ? Number(m[1]) : 16; };
+	const required = (x) => (px(x.fontSize) >= 24 || (px(x.fontSize) >= 18.66 && Number(x.fontWeight) >= 700) ? 3 : 4.5);
+	for (const x of themed) if (x.rule === "color-contrast") {
+		x.required = required(x);
+		const m = x.measured;
+		x.verdict = !m ? "not measured" : m.error ? `not measurable (${m.error})` : m.min >= x.required ? "passes at every pixel" : m.p5 >= x.required ? "passes except under 5% of pixels" : "FAILS";
+	}
+	fs.writeFileSync(path.join(OUT, "incomplete.json"), JSON.stringify(themed, null, 1));
+	const tally = (list, f) => { const m = new Map(); for (const x of list) m.set(f(x), (m.get(f(x)) || 0) + 1); return [...m.entries()].sort((a, b) => b[1] - a[1]); };
+	let md = `\n## Incomplete results (themed runs): ${themed.length} nodes\n\n| rule | nodes | also incomplete with the theme blocked | reasons (axe messageKey) |\n|---|---|---|---|\n`;
+	for (const [rule, n] of tally(themed, (x) => x.rule)) {
+		const list = themed.filter((x) => x.rule === rule);
+		const also = coreSet.size ? list.filter((x) => x.alsoInCore).length : "n/a";
+		md += `| ${rule} | ${n} | ${also} | ${tally(list, (x) => x.key || "-").map(([a, b]) => `${a}: ${b}`).join(", ")} |\n`;
+	}
+	const cc = themed.filter((x) => x.rule === "color-contrast");
+	if (cc.length && cc.some((x) => x.measured)) {
+		md += `\n### Colour-contrast incompletes, measured (${cc.length} nodes)\n\n| verdict | nodes |\n|---|---|\n${tally(cc, (x) => x.verdict).map(([a, b]) => `| ${a} | ${b} |`).join("\n")}\n\n| lang-mode | screen | reason | text | colour | required | measured min / p5 / median | verdict | selector |\n|---|---|---|---|---|---|---|---|---|\n`;
+		md += cc.map((x) => `| ${x.lang}-${x.mode} | ${x.screen} | ${x.key || "-"} | ${(x.measured && x.measured.text || "").replace(/\|/g, "/")} | ${x.measured && x.measured.fg || x.fg || "-"} | ${x.required} | ${x.measured && x.measured.min !== undefined ? `${x.measured.min} / ${x.measured.p5} / ${x.measured.median}` : "-"} | ${x.verdict} | \`${norm(x.target).replace(/\|/g, "\\|")}\` |`).join("\n") + "\n";
+	}
+	return md;
 }
 
 // ---------------------------------------------------------------- summary
@@ -299,6 +405,7 @@ function summarize() {
 	}
 	md += `\n## Colour contrast detail, themed runs (mode | foreground | background | ratio | required | font size)\n\n| pair | nodes | langs | screens | class | same node in core | sample selectors |\n|---|---|---|---|---|---|---|\n`;
 	md += [...cc.values()].sort((a, b) => b.n - a.n).map((g) => `| ${g.k} | ${g.n} | ${[...g.langs].join(",")} | ${[...g.screens].join(", ")} | ${[...g.cls].join(",")} | ${[...g.core].slice(0, 2).join("; ") || "-"} | ${[...g.sel].map((t) => `\`${t.replace(/\|/g, "\\|")}\``).join("<br>")} |`).join("\n") + "\n";
+	md += incompleteSection(runs, norm);
 	fs.writeFileSync(path.join(OUT, "summary.md"), md);
 	console.log(`summary: ${rows.length} nodes, theme ${themeRows.length}, core ${coreRows.length}`);
 }

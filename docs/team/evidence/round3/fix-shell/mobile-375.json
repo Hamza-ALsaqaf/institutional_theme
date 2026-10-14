@@ -1,0 +1,38 @@
+[
+ {
+  "variant": "themed-zoomable",
+  "name": "list",
+  "meta": "width=device-width, initial-scale=1.0, minimal-ui",
+  "innerWidth": 375,
+  "scrollWidth": 375,
+  "bodyScrollWidth": 375,
+  "vv": {
+   "scale": 1,
+   "width": 375
+  }
+ },
+ {
+  "variant": "themed-zoomable",
+  "name": "form",
+  "meta": "width=device-width, initial-scale=1.0, minimal-ui",
+  "innerWidth": 375,
+  "scrollWidth": 375,
+  "bodyScrollWidth": 375,
+  "vv": {
+   "scale": 1,
+   "width": 375
+  }
+ },
+ {
+  "variant": "themed-zoomable",
+  "name": "report",
+  "meta": "width=device-width, initial-scale=1.0, minimal-ui",
+  "innerWidth": 375,
+  "scrollWidth": 375,
+  "bodyScrollWidth": 375,
+  "vv": {
+   "scale": 1,
+   "width": 375
+  }
+ }
+]

@@ -1,0 +1,88 @@
+- checkbox "حدد الكل"
+- text: الاسم الكامل الحالة نوع المستخدم هوية شخصية 17 من 17
+- img
+- checkbox "حدد CssR2 arlight (css-r2-ar-light@midad.test)"
+- link "CssR2 arlight":
+  - /url: /desk/user/css-r2-ar-light%40midad.test
+- text: نشط System User css-r2-ar-light@midad.test 1 ح 0 ·
+- img
+- checkbox "حدد CssR2 enlight (css-r2-en-light@midad.test)"
+- link "CssR2 enlight":
+  - /url: /desk/user/css-r2-en-light%40midad.test
+- text: نشط System User css-r2-en-light@midad.test 1 ح 0 ·
+- img
+- checkbox "حدد Grid (grid-ar@midad.test)"
+- link "Grid":
+  - /url: /desk/user/grid-ar%40midad.test
+- text: نشط System User grid-ar@midad.test 2 ح 0 ·
+- img
+- checkbox "حدد Grid (grid-en@midad.test)"
+- link "Grid":
+  - /url: /desk/user/grid-en%40midad.test
+- text: نشط System User grid-en@midad.test 2 ح 0 ·
+- img
+- checkbox "حدد Axe ar-dark (axe-ar-dark@midad.test)"
+- link "Axe ar-dark":
+  - /url: /desk/user/axe-ar-dark%40midad.test
+- text: نشط System User axe-ar-dark@midad.test 3 م 0 ·
+- img
+- checkbox "حدد Axe ar-light (axe-ar-light@midad.test)"
+- link "Axe ar-light":
+  - /url: /desk/user/axe-ar-light%40midad.test
+- text: نشط System User axe-ar-light@midad.test 3 م 0 ·
+- img
+- checkbox "حدد Axe en-dark (axe-en-dark@midad.test)"
+- link "Axe en-dark":
+  - /url: /desk/user/axe-en-dark%40midad.test
+- text: نشط System User axe-en-dark@midad.test 3 م 0 ·
+- img
+- checkbox "حدد Hrms (hrms-en-dark@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-en-dark%40midad.test
+- text: نشط System User hrms-en-dark@midad.test 36 م 0 ·
+- img
+- checkbox "حدد Axe en-light (axe-en-light@midad.test)"
+- link "Axe en-light":
+  - /url: /desk/user/axe-en-light%40midad.test
+- text: نشط System User axe-en-light@midad.test 3 م 0 ·
+- img
+- checkbox "حدد Hrms (hrms-en-light@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-en-light%40midad.test
+- text: نشط System User hrms-en-light@midad.test 36 م 0 ·
+- img
+- checkbox "حدد Hrms (hrms-ar-light@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-ar-light%40midad.test
+- text: نشط System User hrms-ar-light@midad.test 38 م 0 ·
+- img
+- checkbox "حدد Hrms (hrms-ar-dark@midad.test)"
+- link "Hrms":
+  - /url: /desk/user/hrms-ar-dark%40midad.test
+- text: نشط System User hrms-ar-dark@midad.test 37 م 0 ·
+- img
+- checkbox "حدد Coex (coex-en-dark@midad.test)"
+- link "Coex":
+  - /url: /desk/user/coex-en-dark%40midad.test
+- text: نشط System User coex-en-dark@midad.test 2 ح 0 ·
+- img
+- checkbox "حدد Coex (coex-en-light@midad.test)"
+- link "Coex":
+  - /url: /desk/user/coex-en-light%40midad.test
+- text: نشط System User coex-en-light@midad.test 2 ح 0 ·
+- img
+- checkbox "حدد Coex (coex-ar-dark@midad.test)"
+- link "Coex":
+  - /url: /desk/user/coex-ar-dark%40midad.test
+- text: نشط System User coex-ar-dark@midad.test 2 ح 0 ·
+- img
+- checkbox "حدد Coex (coex-ar-light@midad.test)"
+- link "Coex":
+  - /url: /desk/user/coex-ar-light%40midad.test
+- text: نشط System User coex-ar-light@midad.test 2 ح 0 ·
+- img
+- checkbox "حدد Test Administrator (admin@example.com)"
+- link "Test Administrator":
+  - /url: /desk/user/admin%40example.com
+- text: نشط System User admin@example.com 2 ح 0 ·
+- img
