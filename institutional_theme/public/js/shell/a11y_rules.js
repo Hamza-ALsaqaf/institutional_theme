@@ -131,6 +131,15 @@ function decorateLogo(image) {
 	put(image, "alt", "");
 }
 
+// ui/user_onboarding/OnboardingPanel.vue:248-250: the panel icon (an <img> built from the desktop icon) sits
+// next to the visible panel title.
+function decorateOnboardingIcon(image) {
+	const title = image.closest(".onb-title");
+	const text = title && title.querySelector(".text-base");
+	if (!text || !clean(text.textContent)) return;
+	put(image, "alt", "");
+}
+
 // list/list_view.js:2706 creates the row checkbox with no name. The row title is the subject link rendered
 // next to it; the document name is added when it differs, because two rows can share a title.
 function nameListRow(check) {
@@ -154,6 +163,20 @@ function nameDatatableCheckbox(check) {
 	}
 	const index = parseInt(cell.getAttribute("data-row-index"), 10);
 	put(check, "aria-label", Number.isNaN(index) ? translate("Select row") : translate("Select row {0}", [index + 1]));
+}
+
+// frappe-datatable (src/datatable.js:126) writes one off-screen `<textarea class="dt-paste-target">`; cellmanager.js:153-157
+// focuses it on paste and reads the pasted text into the cells.
+function namePasteTarget(area) {
+	if (hasName(area) || clean(area.getAttribute("title"))) return;
+	put(area, "aria-label", translate("Paste into table"));
+}
+
+// The filter row of the datatable has one `input.dt-filter` per column. Core titles them "Filter based on {column}"
+// except the disabled one above the checkbox column.
+function nameDatatableFilter(input) {
+	if (hasName(input) || clean(input.getAttribute("title"))) return;
+	put(input, "aria-label", translate("Filter", null, "Column filter"));
 }
 
 // ui/filters/edit_filter.html:10 (condition select), filter.js builds the field-name awesomplete input and
@@ -180,7 +203,10 @@ export const RULES = [
 	{ select: ".sidebar-header > button.drop-icon", apply: nameHeaderButton },
 	{ select: ".item-anchor > .sidebar-item-control > button.drop-icon", apply: nameSectionToggle },
 	{ select: "button", apply: nameButton },
+	{ select: ".onb-title-icon > img", apply: decorateOnboardingIcon },
 	{ select: "input.list-row-checkbox", apply: nameListRow },
+	{ select: "textarea.dt-paste-target", apply: namePasteTarget },
+	{ select: ".dt-row-filter input.dt-filter, .dt-cell[data-is-filter] input.dt-filter", apply: nameDatatableFilter },
 	{ select: ".dt-cell input[type='checkbox']", apply: nameDatatableCheckbox },
 	{
 		select: ".filter-box select.condition, .filter-box .fieldname-select-area input, .filter-box .filter-field input:not([type='hidden']):not([type='checkbox']), .filter-box .filter-field select, .filter-box .filter-field textarea",

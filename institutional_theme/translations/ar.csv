@@ -81,6 +81,7 @@ Expand {0},توسيع {0}
 Favicon,أيقونة المتصفح
 Field background,خلفية الحقل
 Field background on grey,خلفية الحقل على الرمادي
+Filter,تصفية,Column filter
 Focus ring,حلقة التركيز
 Font pairing,ثنائية الخطوط
 Forgot Password?,نسيت كلمة المرور؟
@@ -138,6 +139,7 @@ On hold,معلَّق
 Overdue,متأخر
 Page background,خلفية الصفحة
 "Passed pairs out of all pairs, and the lowest ratio. Set when the settings are saved.",عدد الأزواج الناجحة من مجموع الأزواج، وأدنى نسبة تباين. تُحدَّد عند حفظ الإعدادات.
+Paste into table,لصق في الجدول
 Pending approval,بانتظار الاعتماد
 Pending banner background,خلفية شريط الانتظار
 Pending banner text,نص شريط الانتظار

@@ -21,9 +21,9 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const T = {
 	en: { menu: "Menu", close: "Close", home: "Home", all: "Select all rows", row: (n) => `Select row ${n}`, pick: (t) => `Select ${t}`, field: "Field", cond: "Condition", value: "Value",
-		collapse: (n) => `Collapse ${n}`, expand: (n) => `Expand ${n}`, top: "Scroll to top", assign: "Assign", attach: "Add Attachment", share: "Share", tags: "Add Tags", match: "Match type", minimize: "Minimize", desc: "Description" },
+		collapse: (n) => `Collapse ${n}`, expand: (n) => `Expand ${n}`, top: "Scroll to top", assign: "Assign", attach: "Add Attachment", share: "Share", tags: "Add Tags", match: "Match type", minimize: "Minimize", desc: "Description", paste: "Paste into table", filter: "Filter" },
 	ar: { menu: "الخيارات", close: "أغلق", home: "الصفحة الرئيسية", all: "تحديد جميع الصفوف", row: (n) => `تحديد الصف ${n}`, pick: (t) => `حدد ${t}`, field: "حقل", cond: "الشرط", value: "القيمة",
-		collapse: (n) => `طيّ ${n}`, expand: (n) => `توسيع ${n}`, top: "العودة إلى الأعلى", assign: "عين", attach: "إضافة مرفق", share: "مشاركة", tags: "إضافة وسوم", match: "نوع المطابقة", minimize: "تصغير", desc: "وصف" },
+		collapse: (n) => `طيّ ${n}`, expand: (n) => `توسيع ${n}`, top: "العودة إلى الأعلى", assign: "عين", attach: "إضافة مرفق", share: "مشاركة", tags: "إضافة وسوم", match: "نوع المطابقة", minimize: "تصغير", desc: "وصف", paste: "لصق في الجدول", filter: "تصفية" },
 };
 
 const results = [];
@@ -129,6 +129,9 @@ async function run(browser, lang) {
 	check(`${tag} report: header checkbox`, head === t.all, String(head));
 	const dtRows = await page.evaluate(() => [...document.querySelectorAll(".dt-row:not(.dt-row-header) .dt-cell input[type='checkbox']")].map((c) => [c.getAttribute("aria-label"), c.closest(".dt-cell").getAttribute("data-row-index")]));
 	check(`${tag} report: row checkboxes numbered from data-row-index`, dtRows.length > 0 && dtRows.every(([l, i]) => l === t.row(Number(i) + 1)), JSON.stringify(dtRows.slice(0, 3)));
+	check(`${tag} report: paste target textarea`, (await attr(page, "textarea.dt-paste-target", "aria-label")) === t.paste, String(await attr(page, "textarea.dt-paste-target", "aria-label")));
+	const filters = await page.evaluate(() => [...document.querySelectorAll(".dt-row-filter input.dt-filter, .dt-cell[data-is-filter] input.dt-filter")].map((i) => [i.getAttribute("title"), i.getAttribute("aria-label")]));
+	check(`${tag} report: filter inputs keep core's title; the untitled one is named`, filters.length > 1 && filters.every(([title, label]) => (title ? label === null : label === t.filter)) && filters.some(([title]) => !title), JSON.stringify(filters.slice(0, 3)));
 	await snap(page, lang, "report-view", ".datatable .dt-header");
 
 	// virtual scrolling: DocType has hundreds of rows; labels must follow the recycled rows
@@ -199,6 +202,8 @@ async function run(browser, lang) {
 		onb: [...document.querySelectorAll(".onb-header-actions > button")].map((b) => b.getAttribute("aria-label")),
 	}));
 	check(`${tag} workspace: chart menu button`, ws.chart.length > 0 && ws.chart.every((l) => l === t.menu), JSON.stringify(ws));
+	const onbIcon = await attr(page, ".onb-title-icon > img", "alt");
+	if (onbIcon !== undefined) check(`${tag} workspace: onboarding panel icon is decorative`, onbIcon === "", String(onbIcon));
 	if (ws.onb.length) check(`${tag} workspace: onboarding panel buttons`, ws.onb[0] === t.minimize && ws.onb[1] === t.close, JSON.stringify(ws.onb));
 	await open(page, "/desk/build", ".layout-main-section");
 	await settle(page, 1500);
