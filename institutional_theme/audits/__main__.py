@@ -3,9 +3,9 @@
     python -m institutional_theme.audits [--core-css PATH ...] [--write-core-snapshot]
                                          [--dist DIR] [--no-write] [--strict]
 
-Runs the contrast, parity, colour-vision and dead-token audits against the generated model and
+Runs the contrast, avatar, parity, colour-vision and dead-token audits against the generated model and
 stylesheets, writes the reports to docs/audits/, and exits 1 when a SHIPPED preset fails a contrast
-pair or the status check, when a built bundle or the fonts exceed a size budget (`budgets.py`;
+pair (or one of the nine desk avatar pairs, `avatars.py`) or the status check, when a built bundle or the fonts exceed a size budget (`budgets.py`;
 skipped with a message when nothing is built, so CI is not blocked), when a generated file breaks parity, or when a variable the theme
 overrides is neither in core nor used by the theme. Core is read from the committed snapshot
 (`audits/data/core_vars_frappe_16.32.0.json`) unless `--core-css` names compiled stylesheets;
@@ -21,7 +21,7 @@ from pathlib import Path
 
 from institutional_theme.midad import model as model_mod
 
-from . import budgets, colour_vision, contrast, dead_tokens, parity
+from . import avatars, budgets, colour_vision, contrast, dead_tokens, parity
 
 PACKAGE_DIR = Path(__file__).resolve().parents[1]
 REPO_ROOT = PACKAGE_DIR.parent
@@ -73,6 +73,22 @@ def main(argv: list[str] | None = None) -> int:
 	count = contrast.fatal_count(presets)
 	failures += count
 	print(f"contrast: {count} failing pair(s) in shipped presets")
+
+	# Avatar pairs (desk and website remaps of core's nine avatar colours)
+	avatar_audit = avatars.run(model, palettes, PACKAGE_DIR / "public")
+	outputs["avatar_contrast.txt"] = avatars.render_text(avatar_audit, palettes)
+	for problem in avatar_audit.problems:
+		print(f"avatars FAIL {problem[:200]}")
+	for result in avatar_audit.failures:
+		print(
+			f"avatars FAIL {result.preset} {result.mode} {result.colour}: "
+			f"{result.ratio:.2f}:1, required {avatars.MINIMUM}:1"
+		)
+	print(
+		f"avatars: {len(avatar_audit.results)} pair measurements, "
+		f"{len(avatar_audit.failures)} failing in shipped presets, {len(avatar_audit.problems)} problem(s)"
+	)
+	failures += avatar_audit.fatal
 
 	# Parity
 	checks = parity.audit_model(model) + parity.audit_files(model, SCSS_DIR)

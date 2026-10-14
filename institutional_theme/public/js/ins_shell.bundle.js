@@ -13,6 +13,7 @@ import { initMaskedFields } from "./shell/masked_fields.js";
 import { initFieldErrors } from "./shell/field_errors.js";
 import { initFieldLabels } from "./shell/field_labels.js";
 import { initGridNames } from "./shell/grid_names.js";
+import { initA11yNames } from "./shell/a11y_names.js";
 import { initRibbon } from "./shell/ribbon.js";
 import { initIdleWarning } from "./shell/idle_warning.js";
 import { initConnectionBanner } from "./shell/connection_banner.js";
@@ -31,6 +32,7 @@ import { initConnectionBanner } from "./shell/connection_banner.js";
 		initFieldErrors,
 		initFieldLabels,
 		initGridNames,
+		initA11yNames,
 		initRibbon,
 		initIdleWarning,
 		initConnectionBanner,
