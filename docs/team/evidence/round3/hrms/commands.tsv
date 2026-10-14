@@ -1,3 +1,5 @@
 step	command	exit	seconds	log
 get_pip	uv pip install --quiet -e /home/user/frappe-bench/apps/hrms --python /home/user/frappe-bench/env/bin/python	0	7	get_pip.log
 install	PYTHONPATH=/home/runner/work/institutional_theme/institutional_theme/tools/bench bench --site midad.test install-app hrms 	1	5	install.log
+get_pip	uv pip install --quiet -e /home/user/frappe-bench/apps/hrms --python /home/user/frappe-bench/env/bin/python	0	2	get_pip.log
+get_apps_txt	grep -qx hrms sites/apps.txt || echo hrms >> sites/apps.txt	0	0	get_apps_txt.log

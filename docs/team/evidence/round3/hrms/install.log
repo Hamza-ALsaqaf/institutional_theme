@@ -1,29 +1,4 @@
 App erpnext already installed
-An error occurred while installing hrms: App hrms not in apps.txt
-Traceback with variables (most recent call last):
-  File "apps/frappe/frappe/commands/site.py", line 522, in install_app
-    _install_app(app, verbose=context.verbose, force=force)
-      context = CliCtxObj(force=False, profile=False, sites=['midad.test'], verbose=False)
-      apps = ('hrms')
-      force = False
-      _install_app = <function install_app at 0x7f174d6452d0>
-      filelock = <function filelock at 0x7f174db75c70>
-      exit_code = 0
-      site = 'midad.test'
-      app = 'hrms'
-      err = App hrms not in apps.txt
-  File "apps/frappe/frappe/installer.py", line 317, in install_app
-    raise Exception(f"App {name} not in apps.txt")
-      name = 'hrms'
-      verbose = False
-      set_as_patched = True
-      force = False
-      sync_jobs = <function sync_jobs at 0x7f174d588670>
-      sync_for = <function sync_for at 0x7f174d589bc0>
-      sync_customizations = <function sync_customizations at 0x7f174dbcc1a0>
-      sync_fixtures = <function sync_fixtures at 0x7f174d58a090>
-      installed_apps = ['frappe', 'erpnext', 'institutional_theme']
-      app = 'frappe/erpnext'
-      required_app = 'erpnext'
-      app_hooks = {'accounting_dimension_doctypes': ['Expense Claim', 'Expense Claim Detail', 'Expense Taxes and Charges', 'Payroll Entry', 'Leave Encashment'], 'add_to_apps_screen': [{'name': 'hrms', 'logo': '/assets/hrms/images/frappe-hr-logo.svg', 'title': 'Frappe HR', 'route': '/desk/people', 'has_permission': 'hrms.hr.utils.check_app_permission'}], 'advance_payment_payable_doctypes': ['Leave Encashment', 'Gratuity', 'Employee Advance'], 'after_app_install': ['hrms.setup.after_app_install'], 'after_install': ['hrms.install.after_install'], 'after_migrate': ['hrms.setup.update_select_perm_after_install'], 'app_description': ['Modern HR and Payroll Software'], 'app_email': ['contact@frappe.io'], 'app_home':..., 'setup_wizard_stages': ['hrms.setup_wizard.get_setup_stages'], 'source_link': ['http://github.com/frappe/hrms'], 'website_generators': ['Job Opening'], 'website_route_rules': [{'from_route': '/hrms/<path:app_path>', 'to_route': 'hrms'}, {'from_route': '/hr/<path:app_path>', 'to_route': 'roster'}]}
-builtins.Exception: App hrms not in apps.txt
+
+Installing hrms...
+Updating DocTypes for hrms.........................................................................................................................................................................................................................................

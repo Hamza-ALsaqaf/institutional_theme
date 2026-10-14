@@ -21,7 +21,10 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-None. Round 2 ended about 00:20 UTC on 2026-10-14; final report in `docs/team/OWNER_REVIEW.md` (Arabic) and on pull request #2.
+Round 3 (started 00:22 UTC 2026-10-14, pull request #3; scope `docs/team/RESUME_PROMPT.md`, ownership `docs/team/PLAN.md` "Round 3"). Bench rebuilt 00:31 (`docs/team/evidence/round3/BENCH.md`). Wave 1, dispatched about 00:25:
+- backend-engineer A: item 3 (newest v16 tag), then item 1 (fresh bench, fresh site, install from README).
+- backend-engineer B: item 2 (HRMS 16.20.1 on `midad.test`), then item 5 (axe-core scan).
+- css-engineer: item 4 (brand-app coexistence), then HRMS screens and fixes.
 
 ## Next step
 
