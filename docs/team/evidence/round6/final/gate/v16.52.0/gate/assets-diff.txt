@@ -1,0 +1,119 @@
+### diff assets-before.txt assets-installed.txt
+--- /dev/fd/63	2026-10-14 21:28:47.821840130 +0000
++++ /dev/fd/62	2026-10-14 21:28:47.821840130 +0000
+@@ -2,14 +2,16 @@
+ 
+ # GET /login -> 200
+ 
+-## /login stylesheets (3)
++## /login stylesheets (4)
+ /assets/frappe/dist/css/website.bundle.YO6DKRWZ.css
+ /assets/erpnext/dist/css/erpnext-web.bundle.QYNXX66H.css
++/assets/institutional_theme/dist/css/ins_web.bundle.3OVQ47Z4.css
+ /assets/frappe/dist/css/login.bundle.JGVGULV4.css
+ 
+-## /login scripts (2)
++## /login scripts (3)
+ /assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+ /website_script.js
++/assets/institutional_theme/dist/js/ins_web.bundle.AZFGUWQZ.js
+ 
+ ## /login data-theme attributes (raw html) (5)
+ data-theme="red"
+@@ -25,12 +27,13 @@
+ 
+ # GET /app -> 200
+ 
+-## /app stylesheets (3)
++## /app stylesheets (4)
+ /assets/frappe/dist/css/desk.bundle.DKYJHWDK.css
+ /assets/frappe/dist/css/report.bundle.V6647WXN.css
+ /assets/erpnext/dist/css/erpnext.bundle.26YI7L4U.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.DJ3JC77E.css
+ 
+-## /app scripts (9)
++## /app scripts (10)
+ /assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+ /assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+ /assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+@@ -40,6 +43,7 @@
+ /assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+ /assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+ /assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js
++/assets/institutional_theme/dist/js/ins_shell.bundle.AJZEYFI2.js
+ 
+ ## /app data-theme attributes (raw html) (2)
+ data-theme-mode="light"
+@@ -48,8 +52,9 @@
+ ## /app/todo data-theme (live DOM)
+ {"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+ 
+-## /app/todo stylesheets (live DOM) (3)
++## /app/todo stylesheets (live DOM) (4)
+ /assets/frappe/dist/css/desk.bundle.DKYJHWDK.css
+ /assets/frappe/dist/css/report.bundle.V6647WXN.css
+ /assets/erpnext/dist/css/erpnext.bundle.26YI7L4U.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.DJ3JC77E.css
+ 
+
+### diff assets-before.txt assets-after-uninstall.txt
+(identical)
+
+### diff assets-installed.txt assets-after-uninstall.txt
+--- /dev/fd/63	2026-10-14 21:28:47.825840130 +0000
++++ /dev/fd/62	2026-10-14 21:28:47.825840130 +0000
+@@ -2,16 +2,14 @@
+ 
+ # GET /login -> 200
+ 
+-## /login stylesheets (4)
++## /login stylesheets (3)
+ /assets/frappe/dist/css/website.bundle.YO6DKRWZ.css
+ /assets/erpnext/dist/css/erpnext-web.bundle.QYNXX66H.css
+-/assets/institutional_theme/dist/css/ins_web.bundle.3OVQ47Z4.css
+ /assets/frappe/dist/css/login.bundle.JGVGULV4.css
+ 
+-## /login scripts (3)
++## /login scripts (2)
+ /assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+ /website_script.js
+-/assets/institutional_theme/dist/js/ins_web.bundle.AZFGUWQZ.js
+ 
+ ## /login data-theme attributes (raw html) (5)
+ data-theme="red"
+@@ -27,13 +25,12 @@
+ 
+ # GET /app -> 200
+ 
+-## /app stylesheets (4)
++## /app stylesheets (3)
+ /assets/frappe/dist/css/desk.bundle.DKYJHWDK.css
+ /assets/frappe/dist/css/report.bundle.V6647WXN.css
+ /assets/erpnext/dist/css/erpnext.bundle.26YI7L4U.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.DJ3JC77E.css
+ 
+-## /app scripts (10)
++## /app scripts (9)
+ /assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+ /assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+ /assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+@@ -43,7 +40,6 @@
+ /assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+ /assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+ /assets/erpnext/dist/js/erpnext.bundle.EQSHBQJW.js
+-/assets/institutional_theme/dist/js/ins_shell.bundle.AJZEYFI2.js
+ 
+ ## /app data-theme attributes (raw html) (2)
+ data-theme-mode="light"
+@@ -52,9 +48,8 @@
+ ## /app/todo data-theme (live DOM)
+ {"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+ 
+-## /app/todo stylesheets (live DOM) (4)
++## /app/todo stylesheets (live DOM) (3)
+ /assets/frappe/dist/css/desk.bundle.DKYJHWDK.css
+ /assets/frappe/dist/css/report.bundle.V6647WXN.css
+ /assets/erpnext/dist/css/erpnext.bundle.26YI7L4U.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.DJ3JC77E.css
+ 
+

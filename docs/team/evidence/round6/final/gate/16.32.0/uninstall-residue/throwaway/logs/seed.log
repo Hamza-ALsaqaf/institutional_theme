@@ -1,0 +1,19 @@
+=== seed  2026-10-14T21:30:20Z
+$ as_frappe bash -c cd '/home/frappe/frappe-bench/sites' && GATE_ADMIN_TARGET='Navbar Settings.app_logo' ../env/bin/python '/home/user/institutional_theme/tools/bench/gate_state.py' seed 'r3fix.test' '/tmp/ins-residue-r3fix.test.json'
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+{
+ "seeded": {
+  "Website Settings.app_name": "Gate Test Authority",
+  "Website Settings.app_logo": "/files/gate-admin-emblem.png",
+  "Website Settings.splash_image": "/files/gate-admin-emblem.png",
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": "/files/gate-admin-emblem.png"
+ },
+ "print_records_after_install": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ }
+}
+exit 0

@@ -1,0 +1,13 @@
+$ env EVIDENCE_DIR=/home/user/institutional_theme/docs/team/evidence/round6/final/gate/16.32.0/uninstall-residue tools/bench/uninstall_residue.sh throwaway
+new-site               exit 0     33s
+snapshot-before        exit 0      1s
+install-app            exit 0      5s
+seed                   exit 0      6s
+uninstall-app          exit 0      8s
+residue                exit 0      3s
+files-on-disk          exit 0      0s
+snapshot-after         exit 0      1s
+table-diff             exit 0      1s
+drop-site              exit 0      2s
+failed steps: 0 (residue and table-diff exit 1 when something is left)
+exit 0, 60 s
