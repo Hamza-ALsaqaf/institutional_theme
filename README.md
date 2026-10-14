@@ -2,9 +2,9 @@
 
 An upgrade-safe visual identity and UI theme for the Frappe / ERPNext v16 desk, designed for a government institution: Light and Dark of equal quality, Arabic-first with full English parity, zero core edits.
 
-**Status: Round 4 (forward compatibility) passed its release gate: one code base verified on Frappe 16.32.0 and v16.52.0 (cascade test, P0 screenshots in Light and Dark, Arabic and English, axe with 0 violations caused by the theme, the Frappe test suite, print and email, and the install and uninstall gate with no residue, on each version), and both hostile reviews with no open blocking finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round4/`. The build is carried out by the agent team described in `docs/team/`.
+**Status: release 1.0.0. Round 6 (final polish) passed its release gate on Frappe 16.32.0 and v16.52.0: CI, every audit, the size budgets (desk 120.1 of 150 KB), the Frappe test suite loaded and unloaded, the cascade test, axe with 0 violations caused by the theme, print and email, and the install and uninstall gate with no residue, on each version; both hostile reviews have no open blocking or major finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round6/final/gate/`. The build is carried out by the agent team described in `docs/team/`.
 
-Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS v16.50.0 on v16.52.0 tested for the desk screens only, `docs/team/evidence/round5/hrms52/README.md`). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
+Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS v16.50.0 on v16.52.0 tested for the desk screens, `docs/team/evidence/round5/hrms52/README.md`, and the print formats, `docs/team/evidence/round6/hrms-print/README.md`). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
 
 ## Where to look
 
