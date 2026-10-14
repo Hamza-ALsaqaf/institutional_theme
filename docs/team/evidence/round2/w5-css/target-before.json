@@ -1,0 +1,824 @@
+{
+ "en-comfortable-list": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.title-text",
+   "w": 65.1,
+   "h": 18.1,
+   "txt": "To Do",
+   "inline": false
+  },
+  {
+   "el": "input.list-header-checkbox.list-check-all",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 317.2,
+   "h": 18,
+   "txt": "css2-proof task 6: r",
+   "inline": true
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 326.2,
+   "h": 21,
+   "txt": "css2-proof task 5: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 326.2,
+   "h": 21,
+   "txt": "css2-proof task 4: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 326.2,
+   "h": 21,
+   "txt": "css2-proof task 3: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 326.2,
+   "h": 21,
+   "txt": "css2-proof task 2: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 326.2,
+   "h": 21,
+   "txt": "css2-proof task 1: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  }
+ ],
+ "en-comfortable-form": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.title-text",
+   "w": 60.7,
+   "h": 23,
+   "txt": "ToDo",
+   "inline": true
+  },
+  {
+   "el": "a.title-text-form",
+   "w": 78.4,
+   "h": 16.1,
+   "txt": "New ToDo",
+   "inline": false
+  }
+ ],
+ "en-comfortable-home": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.",
+   "w": 53.3,
+   "h": 16.1,
+   "txt": "Home",
+   "inline": false
+  }
+ ],
+ "en-compact-list": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.title-text",
+   "w": 65.1,
+   "h": 18.1,
+   "txt": "To Do",
+   "inline": false
+  },
+  {
+   "el": "input.list-header-checkbox.list-check-all",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 294.2,
+   "h": 17,
+   "txt": "css2-proof task 6: r",
+   "inline": true
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 305.2,
+   "h": 19.5,
+   "txt": "css2-proof task 5: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 305.2,
+   "h": 19.5,
+   "txt": "css2-proof task 4: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 305.2,
+   "h": 19.5,
+   "txt": "css2-proof task 3: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 305.2,
+   "h": 19.5,
+   "txt": "css2-proof task 2: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 305.2,
+   "h": 19.5,
+   "txt": "css2-proof task 1: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  }
+ ],
+ "en-compact-form": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.title-text",
+   "w": 60.7,
+   "h": 23,
+   "txt": "ToDo",
+   "inline": true
+  },
+  {
+   "el": "a.title-text-form",
+   "w": 78.4,
+   "h": 16.1,
+   "txt": "New ToDo",
+   "inline": false
+  }
+ ],
+ "en-compact-home": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.",
+   "w": 53.3,
+   "h": 16.1,
+   "txt": "Home",
+   "inline": false
+  }
+ ],
+ "ar-comfortable-list": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-header-checkbox.list-check-all",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 313,
+   "h": 23.1,
+   "txt": "css2-proof task 6: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 313,
+   "h": 23.1,
+   "txt": "css2-proof task 5: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 313,
+   "h": 23.1,
+   "txt": "css2-proof task 4: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 313,
+   "h": 23.1,
+   "txt": "css2-proof task 3: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 313,
+   "h": 23.1,
+   "txt": "css2-proof task 2: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 313,
+   "h": 23.1,
+   "txt": "css2-proof task 1: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 18,
+   "txt": "",
+   "inline": true
+  }
+ ],
+ "ar-comfortable-form": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.title-text",
+   "w": 106,
+   "h": 23,
+   "txt": "قائمة المهام",
+   "inline": true
+  },
+  {
+   "el": "a.title-text-form",
+   "w": 106,
+   "h": 21.4,
+   "txt": "قائمة المهام جديد",
+   "inline": false
+  }
+ ],
+ "ar-comfortable-home": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.",
+   "w": 99,
+   "h": 21.4,
+   "txt": "الصفحة الرئيسية",
+   "inline": false
+  }
+ ],
+ "ar-compact-list": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-header-checkbox.list-check-all",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 293,
+   "h": 21.4,
+   "txt": "css2-proof task 6: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 293,
+   "h": 21.4,
+   "txt": "css2-proof task 5: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 293,
+   "h": 21.4,
+   "txt": "css2-proof task 4: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 293,
+   "h": 21.4,
+   "txt": "css2-proof task 3: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 293,
+   "h": 21.4,
+   "txt": "css2-proof task 2: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "input.list-row-checkbox",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.ellipsis",
+   "w": 293,
+   "h": 21.4,
+   "txt": "css2-proof task 1: r",
+   "inline": false
+  },
+  {
+   "el": "span.like-action.not-liked",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  }
+ ],
+ "ar-compact-form": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.title-text",
+   "w": 106,
+   "h": 23,
+   "txt": "قائمة المهام",
+   "inline": true
+  },
+  {
+   "el": "a.title-text-form",
+   "w": 106,
+   "h": 21.4,
+   "txt": "قائمة المهام جديد",
+   "inline": false
+  }
+ ],
+ "ar-compact-home": [
+  {
+   "el": "button.btn-reset.drop-icon.show-in-edit-mode",
+   "w": 16,
+   "h": 16,
+   "txt": "",
+   "inline": false
+  },
+  {
+   "el": "a.",
+   "w": 16,
+   "h": 17,
+   "txt": "",
+   "inline": true
+  },
+  {
+   "el": "a.",
+   "w": 99,
+   "h": 21.4,
+   "txt": "الصفحة الرئيسية",
+   "inline": false
+  }
+ ]
+}

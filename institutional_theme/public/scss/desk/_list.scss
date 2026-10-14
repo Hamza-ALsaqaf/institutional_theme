@@ -77,3 +77,13 @@ html:root[dir] .list-paging-area .btn-group .btn.btn-paging.btn-info {
 	background: var(--ins-surface-active);
 	color: var(--ins-text-strong);
 }
+
+// ---- Target size (WCAG 2.5.8): the like heart is a 16px span; give it the target minimum (24px, 44px on coarse pointers).
+// Source: frappe/public/js/frappe/list/list_view.js:2727-2731 (span.like-action > svg).
+html:root[dir] .like-action {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-inline-size: var(--ins-target-min);
+	min-block-size: var(--ins-target-min);
+}

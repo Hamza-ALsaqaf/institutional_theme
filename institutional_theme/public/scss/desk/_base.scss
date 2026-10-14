@@ -98,6 +98,11 @@ html:root :is(input, textarea, select):-webkit-autofill:focus {
 		scroll-behavior: auto;
 	}
 
+	// Bootstrap's `.modal.fade .modal-dialog { transition: transform .3s }` sits at (0,3,0) and outranks the universal collapse.
+	html:root[dir] .modal.fade .modal-dialog {
+		transition-duration: 0.01ms;
+	}
+
 	// Looping busy indicators: the collapse above ends them on their base style, which is invisible for
 	// `.spinner-grow` (core: opacity 0). Stop them explicitly and give each a static cue that still reads as busy:
 	// the open ring of `.spinner-border` (core's border-right-color: transparent), a half-size dot for the grow

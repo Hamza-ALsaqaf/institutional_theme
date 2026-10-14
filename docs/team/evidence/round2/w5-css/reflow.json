@@ -1,0 +1,233 @@
+{
+ "en-z200-home": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": []
+ },
+ "en-z200-workspace": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": []
+ },
+ "en-z200-list": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": []
+ },
+ "en-z200-form": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": []
+ },
+ "en-z200-report": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": []
+ },
+ "en-z200-dialog": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": []
+ },
+ "en-z400-home": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": [
+   "A.desktop-icon:329",
+   "A.desktop-icon:329",
+   "A.desktop-icon:329",
+   "A.desktop-icon:329"
+  ]
+ },
+ "en-z400-workspace": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": []
+ },
+ "en-z400-list": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": []
+ },
+ "en-z400-form": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": []
+ },
+ "en-z400-report": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": []
+ },
+ "en-z400-dialog": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": []
+ },
+ "ar-z200-home": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": []
+ },
+ "ar-z200-workspace": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:652",
+   "svg.[object SVGAnimatedString]:646",
+   "use.[object SVGAnimatedString]:642",
+   "DIV.sidebar-resize-handle:644"
+  ]
+ },
+ "ar-z200-list": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:652",
+   "svg.[object SVGAnimatedString]:646",
+   "use.[object SVGAnimatedString]:642",
+   "DIV.sidebar-resize-handle:644"
+  ]
+ },
+ "ar-z200-form": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:652",
+   "svg.[object SVGAnimatedString]:646",
+   "use.[object SVGAnimatedString]:642",
+   "DIV.sidebar-resize-handle:644"
+  ]
+ },
+ "ar-z200-report": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:652",
+   "svg.[object SVGAnimatedString]:646",
+   "use.[object SVGAnimatedString]:642",
+   "DIV.sidebar-resize-handle:644"
+  ]
+ },
+ "ar-z200-dialog": {
+  "vw": 640,
+  "docSW": 640,
+  "bodySW": 640,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:652",
+   "svg.[object SVGAnimatedString]:646",
+   "use.[object SVGAnimatedString]:642",
+   "DIV.sidebar-resize-handle:644"
+  ]
+ },
+ "ar-z400-home": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": [
+   "DIV.sticky-top:330",
+   "DIV.:330",
+   "DIV.content page-container:330",
+   "DIV.container page-body:330",
+   "DIV.page-wrapper:330",
+   "DIV.page-content:330",
+   "DIV.clearfix:330"
+  ]
+ },
+ "ar-z400-workspace": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:332",
+   "svg.[object SVGAnimatedString]:326",
+   "use.[object SVGAnimatedString]:322",
+   "DIV.sidebar-resize-handle:324"
+  ]
+ },
+ "ar-z400-list": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:332",
+   "svg.[object SVGAnimatedString]:326",
+   "use.[object SVGAnimatedString]:322",
+   "DIV.sidebar-resize-handle:324"
+  ]
+ },
+ "ar-z400-form": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:332",
+   "svg.[object SVGAnimatedString]:326",
+   "use.[object SVGAnimatedString]:322",
+   "DIV.sidebar-resize-handle:324"
+  ]
+ },
+ "ar-z400-report": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:332",
+   "svg.[object SVGAnimatedString]:326",
+   "use.[object SVGAnimatedString]:322",
+   "DIV.sidebar-resize-handle:324"
+  ]
+ },
+ "ar-z400-dialog": {
+  "vw": 320,
+  "docSW": 320,
+  "bodySW": 320,
+  "over": false,
+  "wide": [
+   "BUTTON.collapse-sidebar-link sidebar-toggle-btn:332",
+   "svg.[object SVGAnimatedString]:326",
+   "use.[object SVGAnimatedString]:322",
+   "DIV.sidebar-resize-handle:324"
+  ]
+ }
+}
