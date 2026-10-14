@@ -1,0 +1,27 @@
+=== residue  2026-10-14T12:40:46Z
+$ in_sites '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' residue 'r3fix.test' '/tmp/ins-residue-r3fix.test.json'
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/frappe-bench/env, got /home/frappe/frappe-bench/sites/../env
+{
+ "print_after_uninstall": {
+  "print_style": false,
+  "letter_head": false,
+  "globals": 0
+ },
+ "print_at_seed": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ }
+}
+{
+ "after_uninstall": {
+  "Website Settings.app_name": "Frappe",
+  "Website Settings.app_logo": null,
+  "Website Settings.splash_image": null,
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": null
+ }
+}
+RESIDUE: none
+exit 0

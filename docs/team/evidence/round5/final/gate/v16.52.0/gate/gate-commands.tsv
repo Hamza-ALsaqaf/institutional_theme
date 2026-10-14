@@ -1,0 +1,19 @@
+label	command	exit_code	seconds
+preclean-uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	5.9
+list-apps-before	bench_site --site midad52.test list-apps	0	2.0
+capture-before	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs before /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round5/final/gate/v16.52.0/gate http://midad52.test:8001	0	7.7
+install	bench_site --site midad52.test install-app institutional_theme	0	4.3
+doctype-after-install	doctype_exists	0	1.9
+capture-installed	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs installed /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round5/final/gate/v16.52.0/gate http://midad52.test:8001	0	7.9
+seed-state	bench_state seed midad52.test /tmp/ins-gate-state.json	0	5.3
+uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	7.8
+doctype-after-uninstall	doctype_exists	0	1.9
+residue-after-uninstall	bench_state residue midad52.test /tmp/ins-gate-state.json	0	2.1
+capture-after-uninstall	env NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node /home/runner/work/institutional_theme/institutional_theme/tools/bench/capture.mjs after-uninstall /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round5/final/gate/v16.52.0/gate http://midad52.test:8001	0	7.2
+reinstall	bench_site --site midad52.test install-app institutional_theme	0	4.2
+kept-seed	bench_state kept-seed midad52.test /tmp/ins-gate-state.json	0	2.3
+kept-uninstall	bench_site --site midad52.test uninstall-app institutional_theme --yes --no-backup	0	5.5
+kept-print	bench_state kept-render midad52.test /tmp/ins-gate-state.json	0	4.0
+final-install	bench_site --site midad52.test install-app institutional_theme	0	4.1
+kept-cleanup	bench_state kept-cleanup midad52.test /tmp/ins-gate-state.json	0	3.4
+list-apps	bench_site --site midad52.test list-apps	0	1.9
