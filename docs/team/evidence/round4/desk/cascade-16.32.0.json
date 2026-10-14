@@ -1,13 +1,13 @@
 {
  "summary": {
   "version": "16.32.0",
-  "generated": "2026-10-14T06:01:06.526Z",
+  "generated": "2026-10-14T06:13:43.055Z",
   "core": {
-   "ltr": "/home/frappe/frappe-bench/sites/assets/frappe/dist/css/desk.bundle.3X47RWOV.css",
-   "rtl": "/home/frappe/frappe-bench/sites/assets/frappe/dist/css-rtl/desk.bundle.3Z3EGJPI.css"
+   "ltr": "/home/user/frappe-bench/sites/assets/frappe/dist/css/desk.bundle.3X47RWOV.css",
+   "rtl": "/home/user/frappe-bench/sites/assets/frappe/dist/css-rtl/desk.bundle.3Z3EGJPI.css"
   },
   "bundles": {
-   "desk": 157932,
+   "desk": 158327,
    "graphite": 2342
   },
   "sassWarnings": [],

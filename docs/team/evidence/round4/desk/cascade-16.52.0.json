@@ -1,13 +1,13 @@
 {
  "summary": {
   "version": "16.52.0",
-  "generated": "2026-10-14T06:01:58.219Z",
+  "generated": "2026-10-14T06:14:36.548Z",
   "core": {
    "ltr": "/home/frappe/newest-bench/sites/assets/frappe/dist/css/desk.bundle.SUMWTHJ2.css",
    "rtl": "/home/frappe/newest-bench/sites/assets/frappe/dist/css-rtl/desk.bundle.AH5PZWG2.css"
   },
   "bundles": {
-   "desk": 157932,
+   "desk": 158327,
    "graphite": 2342
   },
   "sassWarnings": [],

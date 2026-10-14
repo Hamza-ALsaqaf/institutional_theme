@@ -65,6 +65,24 @@ html:root[dir] .es-toast {
 	--outline-gray-3: var(--ins-border);
 }
 
+// The type icons read --ink-{blue,green,amber,red}-5, raw 400 steps (1.9 to 2.5:1 on the overlay surface). Status ink tokens
+// give 3:1 or more in both modes. Written on the type selectors, so no global token is repurposed (ADR 0011 R4). Core is (0,2,0); this is (0,3,1).
+html:root[dir] .es-toast[data-type="info"] {
+	--es-toast-icon: var(--ins-status-info-solid);
+}
+
+html:root[dir] .es-toast[data-type="success"] {
+	--es-toast-icon: var(--ins-status-success-solid);
+}
+
+html:root[dir] .es-toast[data-type="warning"] {
+	--es-toast-icon: var(--ins-status-warning-solid);
+}
+
+html:root[dir] .es-toast[data-type="error"] {
+	--es-toast-icon: var(--ins-status-danger-solid);
+}
+
 // ---- Awesomplete list (link and awesomebar suggestions): same overlay surface.
 html:root[dir] .awesomplete > ul {
 	background: var(--ins-surface-overlay);
