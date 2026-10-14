@@ -7,7 +7,7 @@ from unittest import mock
 import frappe
 from frappe.tests import IntegrationTestCase
 
-from institutional_theme import preferences, site_files
+from institutional_theme import cache_guard, preferences, site_files
 
 from .helpers import all_bundles_linkable, delete_user, make_user, reset_settings, set_settings
 
@@ -51,7 +51,7 @@ class TestPreferences(IntegrationTestCase):
 			frappe.defaults.set_user_default(preferences.PALETTE_KEY, "graphite", USER)
 			set_settings(allow_graphite=0)
 			self.assertEqual(preferences.get_effective(USER)["palette"], "midad")
-			self.assertEqual(frappe.defaults.get_defaults_for(USER).get("ins_palette"), "graphite")
+			self.assertEqual(cache_guard.user_defaults(USER, ("ins_palette",))["ins_palette"], "graphite")
 			set_settings(allow_graphite=1)
 			self.assertEqual(preferences.get_effective(USER)["palette"], "graphite")
 

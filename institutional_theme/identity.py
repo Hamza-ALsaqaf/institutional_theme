@@ -17,7 +17,7 @@ from urllib.parse import quote
 
 import frappe
 
-from institutional_theme import guard_log
+from institutional_theme import cache_guard, guard_log
 
 KEYS: tuple[str, ...] = (
 	"institution_name",
@@ -50,7 +50,7 @@ def _public_url(value: str) -> str:
 
 def _settings() -> Any:
 	try:
-		return frappe.get_cached_doc(SETTINGS)
+		return cache_guard.settings_doc(SETTINGS)
 	except Exception:
 		return None
 

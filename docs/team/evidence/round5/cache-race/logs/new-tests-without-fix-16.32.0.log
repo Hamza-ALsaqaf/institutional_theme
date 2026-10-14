@@ -1,0 +1,193 @@
+stashed: stash@{0}: On build/midad-v1: cache-race-fix
+Starting test run with parameters: site=midad.test, app=institutional_theme, module=institutional_theme.tests.test_cache_race, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 12 integration tests for institutional_theme
+
+institutional_theme.tests.test_cache_race.TestCacheRace
+   [31m ✖ [0m test_a_palette_choice_is_read_from_the_table_not_from_the_defaults_cache
+   [31m ✖ [0m test_a_palette_saved_through_the_api_is_not_cached_old_after_the_commit
+   [31m ✖ [0m test_a_print_record_that_is_cleared_stays_cleared_after_the_commit
+   [31m ✖ [0m test_the_identity_record_is_not_cached_old_after_the_commit
+   [31m ✖ [0m test_the_identity_record_is_read_back_after_a_refill_with_the_old_rows
+   [31m ✖ [0m test_the_print_record_is_read_back_after_a_refill_with_the_old_rows
+   [31m ✖ [0m test_the_settings_document_is_dropped_before_the_website_caches_are_cleared
+   [31m ✖ [0m test_the_settings_document_is_fresh_after_a_late_refill_with_the_old_one
+   [31m ✖ [0m test_the_website_caches_are_cleared_again_after_the_identity_write
+   [31m ✖ [0m test_uninstalling_the_globals_leaves_no_cached_row_after_the_commit
+   [31m ✖ [0m test_uninstalling_the_user_choices_leaves_no_cached_row_after_the_commit
+   [31m ✖ [0m test_website_pages_get_the_new_default_after_a_late_refill_with_the_old_settings
+
+
+======================================================================
+ ERROR  test_the_identity_record_is_not_cached_old_after_the_commit (institutional_theme.tests.test_cache_race.TestCacheRace.test_the_identity_record_is_not_cached_old_after_the_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 94, in test_the_identity_record_is_not_cached_old_after_the_commit
+    self.assertEqual(json.loads(frappe.db.get_global(key)), {"Website Settings.app_name": "Frappe"})
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    key = 'ins_identity_racetest'
+    old = {'installed_apps': '["frappe", "erpnext", "institutional_theme"]', 'ins_print_shipped': '{"letter_head": "9087630b346bd3873cdda44f70860fb050c5fa94e4c976ea7b9773f2968d10e0", "print_style": "1ff63f6f8a8431d3b15d811d6d53e8a630f17a3df2f71e507a6f7be1606cae1c"}'}
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_the_identity_record_is_not_cached_old_after_the_commit>
+  File "/opt/python3.14/lib/python3.14/json/__init__.py", line 345, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+                    f'not {s.__class__.__name__}')
+    cls = None
+    kw = {}
+    object_hook = None
+    object_pairs_hook = None
+    parse_constant = None
+    parse_float = None
+    parse_int = None
+    s = None
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+
+======================================================================
+ FAIL  test_a_palette_choice_is_read_from_the_table_not_from_the_defaults_cache (institutional_theme.tests.test_cache_race.TestCacheRace.test_a_palette_choice_is_read_from_the_table_not_from_the_defaults_cache)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 138, in test_a_palette_choice_is_read_from_the_table_not_from_the_defaults_cache
+    self.assertEqual(preferences.get_effective(USER)["palette"], "graphite")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_a_palette_choice_is_read_from_the_table_not_from_the_defaults_cache>
+AssertionError: 'midad' != 'graphite'
+- midad
++ graphite
+
+
+======================================================================
+ FAIL  test_a_palette_saved_through_the_api_is_not_cached_old_after_the_commit (institutional_theme.tests.test_cache_race.TestCacheRace.test_a_palette_saved_through_the_api_is_not_cached_old_after_the_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 127, in test_a_palette_saved_through_the_api_is_not_cached_old_after_the_commit
+    self.assertEqual(preferences.get_effective(USER)["palette"], "graphite", "read before the commit")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    old = {}
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_a_palette_saved_through_the_api_is_not_cached_old_after_the_commit>
+AssertionError: 'midad' != 'graphite'
+- midad
++ graphite
+ : read before the commit
+
+======================================================================
+ FAIL  test_a_print_record_that_is_cleared_stays_cleared_after_the_commit (institutional_theme.tests.test_cache_race.TestCacheRace.test_a_print_record_that_is_cleared_stays_cleared_after_the_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 106, in test_a_print_record_that_is_cleared_stays_cleared_after_the_commit
+    self.assertIsNone(frappe.db.get_global("ins_print_racetest"))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    old = {'installed_apps': '["frappe", "erpnext", "institutional_theme"]', 'ins_print_shipped': '{"letter_head": "9087630b346bd3873cdda44f70860fb050c5fa94e4c976ea7b9773f2968d10e0", "print_style": "1ff63f6f8a8431d3b15d811d6d53e8a630f17a3df2f71e507a6f7be1606cae1c"}', 'ins_print_racetest': '{"style": "abc"}'}
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_a_print_record_that_is_cleared_stays_cleared_after_the_commit>
+AssertionError: '{"style": "abc"}' is not None
+
+======================================================================
+ FAIL  test_the_identity_record_is_read_back_after_a_refill_with_the_old_rows (institutional_theme.tests.test_cache_race.TestCacheRace.test_the_identity_record_is_read_back_after_a_refill_with_the_old_rows)
+The flaky `ins_identity_prior` read of round 4: the app reads its own record in the same save.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 85, in test_the_identity_record_is_read_back_after_a_refill_with_the_old_rows
+    self.assertEqual(identity_sync._load(key), {"Website Settings.app_name": "Frappe"})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    key = 'ins_identity_racetest'
+    old = {'installed_apps': '["frappe", "erpnext", "institutional_theme"]', 'ins_print_shipped': '{"letter_head": "9087630b346bd3873cdda44f70860fb050c5fa94e4c976ea7b9773f2968d10e0", "print_style": "1ff63f6f8a8431d3b15d811d6d53e8a630f17a3df2f71e507a6f7be1606cae1c"}'}
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_the_identity_record_is_read_back_after_a_refill_with_the_old_rows>
+AssertionError: {} != {'Website Settings.app_name': 'Frappe'}
+- {}
++ {'Website Settings.app_name': 'Frappe'}
+
+======================================================================
+ FAIL  test_the_print_record_is_read_back_after_a_refill_with_the_old_rows (institutional_theme.tests.test_cache_race.TestCacheRace.test_the_print_record_is_read_back_after_a_refill_with_the_old_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 114, in test_the_print_record_is_read_back_after_a_refill_with_the_old_rows
+    self.assertEqual(ship._load(), {"style": "abc"})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    old = {'installed_apps': '["frappe", "erpnext", "institutional_theme"]', 'ins_print_shipped': '{"letter_head": "9087630b346bd3873cdda44f70860fb050c5fa94e4c976ea7b9773f2968d10e0", "print_style": "1ff63f6f8a8431d3b15d811d6d53e8a630f17a3df2f71e507a6f7be1606cae1c"}'}
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_the_print_record_is_read_back_after_a_refill_with_the_old_rows>
+AssertionError: {} != {'style': 'abc'}
+- {}
++ {'style': 'abc'}
+
+======================================================================
+ FAIL  test_the_settings_document_is_dropped_before_the_website_caches_are_cleared (institutional_theme.tests.test_cache_race.TestCacheRace.test_the_settings_document_is_dropped_before_the_website_caches_are_cleared)
+A page rendered after the website caches were cleared must not read the old document.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 213, in test_the_settings_document_is_dropped_before_the_website_caches_are_cleared
+    self.assertEqual(seen[0], None, "the old settings document was still cached when they were cleared")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    doc = <InstitutionalThemeSettings: doctype=Institutional Theme Settings Institutional Theme Settings>
+    key = 'document_cache::Institutional Theme Settings::Institutional Theme Settings'
+    seen = [<InstitutionalThemeSettings: doctype=Institutional Theme Settings Institutional Theme Settings>]
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_the_settings_document_is_dropped_before_the_website_caches_are_cleared>
+    stale = <InstitutionalThemeSettings: doctype=Institutional Theme Settings Institutional Theme Settings>
+AssertionError: <InstitutionalThemeSettings: doctype=Inst[49 chars]ings> != None : the old settings document was still cached when they were cleared
+
+======================================================================
+ FAIL  test_the_settings_document_is_fresh_after_a_late_refill_with_the_old_one (institutional_theme.tests.test_cache_race.TestCacheRace.test_the_settings_document_is_fresh_after_a_late_refill_with_the_old_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 186, in test_the_settings_document_is_fresh_after_a_late_refill_with_the_old_one
+    self.assertEqual(site_files.get_settings().default_palette, "petrol")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_the_settings_document_is_fresh_after_a_late_refill_with_the_old_one>
+    stale = <InstitutionalThemeSettings: doctype=Institutional Theme Settings Institutional Theme Settings>
+AssertionError: 'midad' != 'petrol'
+- midad
++ petrol
+
+
+======================================================================
+ FAIL  test_the_website_caches_are_cleared_again_after_the_identity_write (institutional_theme.tests.test_cache_race.TestCacheRace.test_the_website_caches_are_cleared_again_after_the_identity_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 219, in test_the_website_caches_are_cleared_again_after_the_identity_write
+    self.assertIsNone(frappe.cache.get_value("website_page::/ins-race"))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_the_website_caches_are_cleared_again_after_the_identity_write>
+AssertionError: '<html>old name</html>' is not None
+
+======================================================================
+ FAIL  test_uninstalling_the_globals_leaves_no_cached_row_after_the_commit (institutional_theme.tests.test_cache_race.TestCacheRace.test_uninstalling_the_globals_leaves_no_cached_row_after_the_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 160, in test_uninstalling_the_globals_leaves_no_cached_row_after_the_commit
+    self.assertIsNone(frappe.db.get_global("ins_identity_racetest"))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    old = {'installed_apps': '["frappe", "erpnext", "institutional_theme"]', 'ins_print_shipped': '{"letter_head": "9087630b346bd3873cdda44f70860fb050c5fa94e4c976ea7b9773f2968d10e0", "print_style": "1ff63f6f8a8431d3b15d811d6d53e8a630f17a3df2f71e507a6f7be1606cae1c"}', 'ins_identity_racetest': 'x'}
+    restore = <function TestCacheRace.test_uninstalling_the_globals_leaves_no_cached_row_after_the_commit.<locals>.restore at 0x7f65aaca6da0>
+    rows = [{'defkey': 'ins_print_shipped', 'defvalue': '{"letter_head": "9087630b346bd3873cdda44f70860fb050c5fa94e4c976ea7b9773f2968d10e0", "print_style": "1ff63f6f8a8431d3b15d811d6d53e8a630f17a3df2f71e507a6f7be1606cae1c"}'}, {'defkey': 'installed_apps', 'defvalue': '["frappe", "erpnext", "institutional_theme"]'}]
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_uninstalling_the_globals_leaves_no_cached_row_after_the_commit>
+AssertionError: 'x' is not None
+
+======================================================================
+ FAIL  test_uninstalling_the_user_choices_leaves_no_cached_row_after_the_commit (institutional_theme.tests.test_cache_race.TestCacheRace.test_uninstalling_the_user_choices_leaves_no_cached_row_after_the_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 170, in test_uninstalling_the_user_choices_leaves_no_cached_row_after_the_commit
+    self.assertIsNone(frappe.defaults.get_defaults_for(USER).get("ins_density"))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    old = {'ins_density': 'compact'}
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_uninstalling_the_user_choices_leaves_no_cached_row_after_the_commit>
+AssertionError: 'compact' is not None
+
+======================================================================
+ FAIL  test_website_pages_get_the_new_default_after_a_late_refill_with_the_old_settings (institutional_theme.tests.test_cache_race.TestCacheRace.test_website_pages_get_the_new_default_after_a_late_refill_with_the_old_settings)
+The flaky `test_website_pages_get_the_site_default_in_a_new_list` of round 4.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/institutional_theme/institutional_theme/institutional_theme/tests/test_cache_race.py", line 196, in test_website_pages_get_the_new_default_after_a_late_refill_with_the_old_settings
+    self.assertEqual(result, {"web_include_css": ["ins_web.bundle.css", PETROL]})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    context = {'template': 'www/login.html', 'web_include_css': ['ins_web.bundle.css']}
+    result = None
+    self = <institutional_theme.tests.test_cache_race.TestCacheRace testMethod=test_website_pages_get_the_new_default_after_a_late_refill_with_the_old_settings>
+    stale = <InstitutionalThemeSettings: doctype=Institutional Theme Settings Institutional Theme Settings>
+AssertionError: None != {'web_include_css': ['ins_web.bundle.css', 'ins_palette_petrol.bundle.css']}
+
+----------------------------------------------------------------------
+Ran 12 tests in 6.044s
+
+FAILED (failures=11, errors=1)
+restored fix, pop exit 0
+run-tests exit 1

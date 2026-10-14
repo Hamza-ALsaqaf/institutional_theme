@@ -15,7 +15,7 @@ from unittest import mock
 import frappe
 from frappe.tests import IntegrationTestCase
 
-from institutional_theme import install
+from institutional_theme import cache_guard, install
 from institutional_theme.midad import model as midad
 
 from . import identity_sync
@@ -408,7 +408,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertEqual(self.website("app_logo"), logo)
 		self.assertEqual(self.website("splash_image"), logo)
 		self.assertEqual(frappe.db.get_single_value("Navbar Settings", "app_logo"), logo)
-		prior = json.loads(frappe.db.get_global(identity_sync.PRIOR_KEY))
+		prior = json.loads(cache_guard.get_global(identity_sync.PRIOR_KEY))
 		self.assertEqual(prior["Website Settings.app_name"], original)
 
 	def test_save_without_identity_change_writes_nothing(self) -> None:
@@ -443,7 +443,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		doc.save()
 		self.assertEqual(self.website("app_name"), original)
 		self.assertNotIn(
-			"Website Settings.app_name", json.loads(frappe.db.get_global(identity_sync.WRITTEN_KEY))
+			"Website Settings.app_name", json.loads(cache_guard.get_global(identity_sync.WRITTEN_KEY))
 		)
 
 	def test_clearing_does_not_overwrite_an_administrators_later_edit(self) -> None:
@@ -457,7 +457,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertEqual(self.website("app_name"), "Changed by an administrator")
 		self.assertNotEqual(self.website("app_name"), original)
 		self.assertNotIn(
-			"Website Settings.app_name", json.loads(frappe.db.get_global(identity_sync.WRITTEN_KEY))
+			"Website Settings.app_name", json.loads(cache_guard.get_global(identity_sync.WRITTEN_KEY))
 		)
 		frappe.db.set_single_value("Website Settings", "app_name", original)
 
@@ -477,8 +477,8 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		install.before_uninstall()  # idempotent
 
 		self.assertEqual(self.website("app_name"), original)
-		self.assertFalse(frappe.db.get_global(identity_sync.PRIOR_KEY))
-		self.assertFalse(frappe.db.get_global(identity_sync.WRITTEN_KEY))
+		self.assertFalse(cache_guard.get_global(identity_sync.PRIOR_KEY))
+		self.assertFalse(cache_guard.get_global(identity_sync.WRITTEN_KEY))
 		self.assertFalse(frappe.get_all("File", filters={"attached_to_doctype": DOCTYPE}))
 		self.assertFalse(frappe.db.count("DefaultValue", {"defkey": ("in", install.USER_DEFAULT_KEYS)}))
 		self.assertFalse(frappe.db.count("DefaultValue", {"defkey": ("like", "ins_identity_%")}))
@@ -516,8 +516,8 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertIn("Website Settings.app_name", restored)
 		self.assertEqual(self.website("app_name"), original)
 		self.assertEqual(frappe.db.get_single_value("Navbar Settings", "app_logo"), navbar_original)
-		self.assertFalse(frappe.db.get_global(identity_sync.PRIOR_KEY))
-		self.assertFalse(frappe.db.get_global(identity_sync.WRITTEN_KEY))
+		self.assertFalse(cache_guard.get_global(identity_sync.PRIOR_KEY))
+		self.assertFalse(cache_guard.get_global(identity_sync.WRITTEN_KEY))
 		self.assertEqual(identity_sync.restore(), [])
 
 	def test_restore_leaves_a_value_an_administrator_changed(self) -> None:
@@ -629,7 +629,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 			pluck="name",
 		)
 		self.assertTrue(navbar_copies, "the sync itself makes core attach a copy to Navbar Settings")
-		recorded = json.loads(frappe.db.get_global(identity_sync.FILES_KEY))
+		recorded = json.loads(cache_guard.get_global(identity_sync.FILES_KEY))
 		self.assertEqual(recorded["Navbar Settings.app_logo"][0]["names"], sorted(navbar_copies))
 		identity_sync.restore()
 		self.assertGreaterEqual(identity_sync.delete_attachments(), 2)
@@ -638,7 +638,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertTrue(
 			os.path.exists(frappe.get_site_path("public", logo.lstrip("/"))), "theirs keeps the file"
 		)
-		self.assertFalse(frappe.db.get_global(identity_sync.FILES_KEY))
+		self.assertFalse(cache_guard.get_global(identity_sync.FILES_KEY))
 
 	def test_website_settings_copies_made_by_a_later_save_are_removed(self) -> None:
 		"""Upgrade review round 3, should-fix 1."""
@@ -659,7 +659,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		identity_sync.restore()
 		identity_sync.delete_attachments()
 		left = frappe.get_all("File", filters={"name": ("in", [row.name for row in copies])}, fields=fields)
-		self.assertFalse(left, f"left: {left}; recorded: {frappe.db.get_global(identity_sync.FILES_KEY)}")
+		self.assertFalse(left, f"left: {left}; recorded: {cache_guard.get_global(identity_sync.FILES_KEY)}")
 		self.assertFalse(os.path.exists(frappe.get_site_path("public", logo.lstrip("/"))))
 
 	def test_a_website_copy_that_is_still_shown_stays(self) -> None:

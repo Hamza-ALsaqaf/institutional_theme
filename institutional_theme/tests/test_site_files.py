@@ -13,7 +13,7 @@ from unittest import mock
 import frappe
 from frappe.tests import IntegrationTestCase
 
-from institutional_theme import fonts, guard_log, site_files
+from institutional_theme import cache_guard, fonts, guard_log, site_files
 
 from .helpers import reset_settings, set_settings
 
@@ -81,7 +81,7 @@ class TestSiteFiles(IntegrationTestCase):
 
 	def test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name(self) -> None:
 		set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
-		content = site_files.palette_content(frappe.get_cached_doc(site_files.DOCTYPE))
+		content = site_files.palette_content(cache_guard.settings_doc(site_files.DOCTYPE))
 		name = site_files.file_name(site_files.PALETTE_PREFIX, content)
 		errors: list[BaseException] = []
 		target = str(folder())  # frappe.local is per thread: resolve the path here

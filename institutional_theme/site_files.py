@@ -23,7 +23,7 @@ from urllib.parse import quote
 
 import frappe
 
-from institutional_theme import fonts, guard_log
+from institutional_theme import cache_guard, fonts, guard_log
 from institutional_theme.midad import model as midad
 
 DOCTYPE = "Institutional Theme Settings"
@@ -51,7 +51,7 @@ _memo_lock = threading.Lock()
 def get_settings() -> Any:
 	"""The cached settings document, or `None` when the doctype is not installed yet."""
 	try:
-		return frappe.get_cached_doc(DOCTYPE)
+		return cache_guard.settings_doc(DOCTYPE)
 	except Exception:
 		return None
 
@@ -319,6 +319,10 @@ def on_settings_update(doc: Any = None, method: str | None = None) -> None:
 	Both wait for `frappe.db.after_commit` (`database/database.py:130,1194`): a web request cannot
 	re-cache a page with the old links before the new state exists, and a save that rolls back writes
 	nothing (the callbacks are dropped on rollback, `database.py:1203`).
+
+	The settings document is dropped from the cache first, in this callback: core drops it only in a
+	callback queued after this one, so a page cached in between would carry the old document's links
+	until the next clear (round 5, `cache_guard`).
 	"""
 	clear_memo()
 	frappe.db.after_commit.add(lambda: _regenerate(doc))
@@ -329,6 +333,7 @@ def _regenerate(doc: Any) -> None:
 	try:
 		import frappe.website.utils
 
+		frappe.clear_document_cache(DOCTYPE, DOCTYPE)
 		clear_memo()
 		ensure(doc)
 		frappe.website.utils.clear_cache()

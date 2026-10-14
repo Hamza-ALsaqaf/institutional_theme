@@ -16,7 +16,7 @@ from collections.abc import Callable
 
 import frappe
 
-from institutional_theme import site_files
+from institutional_theme import cache_guard, guard_log, site_files
 from institutional_theme.institutional_theme.doctype.institutional_theme_settings import identity_sync
 from institutional_theme.print import ship
 
@@ -38,6 +38,7 @@ def clear_globals() -> int:
 		)
 	for name in names:
 		frappe.db.delete("DefaultValue", {"name": name})
+	cache_guard.forget_defaults(cache_guard.GLOBAL)
 	return len(names)
 
 
@@ -45,6 +46,7 @@ def clear_user_defaults() -> int:
 	"""Delete every user's palette and density choice."""
 	count = frappe.db.count("DefaultValue", {"defkey": ("in", USER_DEFAULT_KEYS)})
 	frappe.db.delete("DefaultValue", {"defkey": ("in", USER_DEFAULT_KEYS)})
+	cache_guard.forget_defaults(None)
 	return count
 
 
@@ -88,6 +90,13 @@ def after_migrate() -> None:
 	ship.safe_ship()
 
 
+def _clear_cache_guarded() -> None:
+	try:
+		frappe.clear_cache()
+	except Exception:
+		guard_log.log_once("Institutional Theme uninstall: clear cache after commit")
+
+
 def before_uninstall() -> None:
 	"""Restore core settings, then delete the app's files, globals and per-user defaults."""
 	_run(
@@ -103,5 +112,6 @@ def before_uninstall() -> None:
 	)
 	try:
 		frappe.clear_cache()
+		cache_guard.after_transaction(_clear_cache_guarded)
 	except Exception:
 		frappe.log_error(title="Institutional Theme uninstall: clear cache")
