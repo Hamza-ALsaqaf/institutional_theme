@@ -1,0 +1,8 @@
+diff --git a/institutional_theme/site_files.py b/institutional_theme/site_files.py
+index 1d5c285..a7f12d5 100644
+--- a/institutional_theme/site_files.py
++++ b/institutional_theme/site_files.py
+@@ -327,2 +327,3 @@ def on_settings_update(doc: Any = None, method: str | None = None) -> None:
+ 	clear_memo()
++	ensure(doc)  # MUTATION: writes at save time
+ 	frappe.db.after_commit.add(lambda: _regenerate(doc))
