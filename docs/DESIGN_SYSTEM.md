@@ -131,6 +131,7 @@ Dark block equals Light block for every step: yes.
 | 200 | #d0d5db |
 | 300 | #b9bec6 |
 | 400 | #9da4ac |
+| 450 | #899099 |
 | 500 | #6f7781 |
 | 600 | #4b535e |
 | 700 | #2e3641 |
@@ -209,6 +210,7 @@ Dark block equals Light block for every step: yes.
 | 700 | #786000 |
 | 800 | #584600 |
 | 900 | #3c2f00 |
+| 950 | #291f00 |
 
 ### green
 
@@ -244,6 +246,7 @@ Dark block equals Light block for every step: yes.
 | 700 | #00635d |
 | 800 | #004945 |
 | 900 | #00322f |
+| 950 | #002422 |
 
 ### cyan
 
@@ -315,6 +318,7 @@ Dark block equals Light block for every step: yes.
 | 700 | #6c3d86 |
 | 800 | #502b65 |
 | 900 | #371c47 |
+| 950 | #271532 |
 
 ### pink
 
@@ -347,7 +351,7 @@ Generated from `institutional_theme/midad/generated/model.json`, `institutional_
 | `--ins-surface-hover` | surface | #f1f4f8 | #252c37 |
 | `--ins-surface-active` | surface | #e8ebf1 | #2e3641 |
 | `--ins-surface-selected` | surface | #f2f7fe | #1a2f46 |
-| `--ins-surface-selected-strong` | surface | #e4effd | #1f3c5b |
+| `--ins-surface-selected-strong` | surface | #e4effd | #1d3958 |
 | `--ins-surface-fill` | surface | #f1f4f8 | #1d252f |
 | `--ins-surface-fill-hover` | surface | #e8ebf1 | #252c37 |
 | `--ins-surface-field` | surface | #ffffff | #0b1119 |
@@ -442,11 +446,11 @@ Generated from `institutional_theme/midad/generated/model.json`, `institutional_
 | `--ins-feedback-danger-fg` | feedback | #741417 | #ffcfca |
 | `--ins-mark-bg` | feedback | #f4e2ae | #584600 |
 | `--ins-chart-1` | chart | #1b5086 | #a7c9f0 |
-| `--ins-chart-2` | chart | #885700 | #dc9322 |
+| `--ins-chart-2` | chart | #a76fc7 | #c392e1 |
 | `--ins-chart-3` | chart | #008079 | #2a9e96 |
-| `--ins-chart-4` | chart | #741417 | #fb7e77 |
-| `--ins-chart-5` | chart | #a76fc7 | #c392e1 |
-| `--ins-chart-6` | chart | #d06b26 | #ae5000 |
+| `--ins-chart-4` | chart | #885700 | #dc9322 |
+| `--ins-chart-5` | chart | #d06b26 | #ae5000 |
+| `--ins-chart-6` | chart | #741417 | #fb7e77 |
 | `--ins-chart-7` | chart | #007c94 | #92d1e4 |
 | `--ins-chart-8` | chart | #858d97 | #899099 |
 | `--ins-chart-grid` | chart | #e8ebf1 | #252c37 |
@@ -486,6 +490,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--gray-700` | `--ins-slate-700` | #424b57 | `--ins-night-700` | #2e3641 |
 | `--gray-800` | `--ins-slate-800` | #28313c | `--ins-night-800` | #1d252f |
 | `--gray-900` | `--ins-slate-900` | #141b25 | `--ins-night-900` | #111820 |
+| `--gray-950` | `--ins-slate-950` | #091018 | `--ins-night-950` | #0b1119 |
 | `--blue-50` | `--ins-blue-50` | #f0f8ff | `--ins-blue-50` | #f0f8ff |
 | `--blue-100` | `--ins-blue-100` | #dfefff | `--ins-blue-100` | #dfefff |
 | `--blue-200` | `--ins-blue-200` | #c1e0ff | `--ins-blue-200` | #c1e0ff |
@@ -496,6 +501,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--blue-700` | `--ins-blue-700` | #005895 | `--ins-blue-700` | #005895 |
 | `--blue-800` | `--ins-blue-800` | #004170 | `--ins-blue-800` | #004170 |
 | `--blue-900` | `--ins-blue-900` | #002c4f | `--ins-blue-900` | #002c4f |
+| `--blue-950` | `--ins-blue-950` | #001f3a | `--ins-blue-950` | #001f3a |
 | `--green-50` | `--ins-green-50` | #f0f9f4 | `--ins-green-50` | #f0f9f4 |
 | `--green-100` | `--ins-green-100` | #def3e6 | `--ins-green-100` | #def3e6 |
 | `--green-200` | `--ins-green-200` | #c0e8cf | `--ins-green-200` | #c0e8cf |
@@ -506,6 +512,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--green-700` | `--ins-green-700` | #00663e | `--ins-green-700` | #00663e |
 | `--green-800` | `--ins-green-800` | #004c2c | `--ins-green-800` | #004c2c |
 | `--green-900` | `--ins-green-900` | #00341d | `--ins-green-900` | #00341d |
+| `--green-950` | `--ins-green-950` | #022514 | `--ins-green-950` | #022514 |
 | `--red-50` | `--ins-red-50` | #fff4f3 | `--ins-red-50` | #fff4f3 |
 | `--red-100` | `--ins-red-100` | #ffe6e4 | `--ins-red-100` | #ffe6e4 |
 | `--red-200` | `--ins-red-200` | #ffcfca | `--ins-red-200` | #ffcfca |
@@ -516,6 +523,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--red-700` | `--ins-red-700` | #992225 | `--ins-red-700` | #992225 |
 | `--red-800` | `--ins-red-800` | #741417 | `--ins-red-800` | #741417 |
 | `--red-900` | `--ins-red-900` | #510b0d | `--ins-red-900` | #510b0d |
+| `--red-950` | `--ins-red-950` | #3a0b0b | `--ins-red-950` | #3a0b0b |
 | `--orange-50` | `--ins-orange-50` | #fff4ef | `--ins-orange-50` | #fff4ef |
 | `--orange-100` | `--ins-orange-100` | #ffe7db | `--ins-orange-100` | #ffe7db |
 | `--orange-200` | `--ins-orange-200` | #ffd1b9 | `--ins-orange-200` | #ffd1b9 |
@@ -526,6 +534,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--orange-700` | `--ins-orange-700` | #883c00 | `--ins-orange-700` | #883c00 |
 | `--orange-800` | `--ins-orange-800` | #652b00 | `--ins-orange-800` | #652b00 |
 | `--orange-900` | `--ins-orange-900` | #471b00 | `--ins-orange-900` | #471b00 |
+| `--orange-950` | `--ins-orange-950` | #341300 | `--ins-orange-950` | #341300 |
 | `--amber-50` | `--ins-amber-50` | #fff7ee | `--ins-amber-50` | #fff7ee |
 | `--amber-100` | `--ins-amber-100` | #ffedd8 | `--ins-amber-100` | #ffedd8 |
 | `--amber-200` | `--ins-amber-200` | #ffddb3 | `--ins-amber-200` | #ffddb3 |
@@ -536,6 +545,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--amber-700` | `--ins-amber-700` | #885700 | `--ins-amber-700` | #885700 |
 | `--amber-800` | `--ins-amber-800` | #643f00 | `--ins-amber-800` | #643f00 |
 | `--amber-900` | `--ins-amber-900` | #452a00 | `--ins-amber-900` | #452a00 |
+| `--amber-950` | `--ins-amber-950` | #301b00 | `--ins-amber-950` | #301b00 |
 | `--yellow-50` | `--ins-yellow-50` | #fdf8ea | `--ins-yellow-50` | #fdf8ea |
 | `--yellow-100` | `--ins-yellow-100` | #faf0d2 | `--ins-yellow-100` | #faf0d2 |
 | `--yellow-200` | `--ins-yellow-200` | #f4e2ae | `--ins-yellow-200` | #f4e2ae |
@@ -546,6 +556,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--yellow-700` | `--ins-yellow-700` | #786000 | `--ins-yellow-700` | #786000 |
 | `--yellow-800` | `--ins-yellow-800` | #584600 | `--ins-yellow-800` | #584600 |
 | `--yellow-900` | `--ins-yellow-900` | #3c2f00 | `--ins-yellow-900` | #3c2f00 |
+| `--yellow-950` | `--ins-yellow-950` | #291f00 | `--ins-yellow-950` | #291f00 |
 | `--cyan-50` | `--ins-cyan-50` | #eff9fb | `--ins-cyan-50` | #eff9fb |
 | `--cyan-100` | `--ins-cyan-100` | #ddf1f7 | `--ins-cyan-100` | #ddf1f7 |
 | `--cyan-200` | `--ins-cyan-200` | #bde4f0 | `--ins-cyan-200` | #bde4f0 |
@@ -556,6 +567,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--cyan-700` | `--ins-cyan-700` | #006073 | `--ins-cyan-700` | #006073 |
 | `--cyan-800` | `--ins-cyan-800` | #004656 | `--ins-cyan-800` | #004656 |
 | `--cyan-900` | `--ins-cyan-900` | #00303b | `--ins-cyan-900` | #00303b |
+| `--cyan-950` | `--ins-cyan-950` | #00232c | `--ins-cyan-950` | #00232c |
 | `--teal-50` | `--ins-teal-50` | #f0f9f8 | `--ins-teal-50` | #f0f9f8 |
 | `--teal-100` | `--ins-teal-100` | #ddf2ef | `--ins-teal-100` | #ddf2ef |
 | `--teal-200` | `--ins-teal-200` | #bee6e1 | `--ins-teal-200` | #bee6e1 |
@@ -566,6 +578,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--teal-700` | `--ins-teal-700` | #00635d | `--ins-teal-700` | #00635d |
 | `--teal-800` | `--ins-teal-800` | #004945 | `--ins-teal-800` | #004945 |
 | `--teal-900` | `--ins-teal-900` | #00322f | `--ins-teal-900` | #00322f |
+| `--teal-950` | `--ins-teal-950` | #002422 | `--ins-teal-950` | #002422 |
 | `--violet-50` | `--ins-violet-50` | #f6f6ff | `--ins-violet-50` | #f6f6ff |
 | `--violet-100` | `--ins-violet-100` | #eaebff | `--ins-violet-100` | #eaebff |
 | `--violet-200` | `--ins-violet-200` | #d8d8ff | `--ins-violet-200` | #d8d8ff |
@@ -576,6 +589,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--violet-700` | `--ins-violet-700` | #504896 | `--ins-violet-700` | #504896 |
 | `--violet-800` | `--ins-violet-800` | #3a3472 | `--ins-violet-800` | #3a3472 |
 | `--violet-900` | `--ins-violet-900` | #272250 | `--ins-violet-900` | #272250 |
+| `--violet-950` | `--ins-violet-950` | #1c1938 | `--ins-violet-950` | #1c1938 |
 | `--pink-50` | `--ins-pink-50` | #fff3f8 | `--ins-pink-50` | #fff3f8 |
 | `--pink-100` | `--ins-pink-100` | #fee5ef | `--ins-pink-100` | #fee5ef |
 | `--pink-200` | `--ins-pink-200` | #fdcde0 | `--ins-pink-200` | #fdcde0 |
@@ -586,6 +600,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--pink-700` | `--ins-pink-700` | #86335c | `--ins-pink-700` | #86335c |
 | `--pink-800` | `--ins-pink-800` | #652244 | `--ins-pink-800` | #652244 |
 | `--pink-900` | `--ins-pink-900` | #46152e | `--ins-pink-900` | #46152e |
+| `--pink-950` | `--ins-pink-950` | #321121 | `--ins-pink-950` | #321121 |
 | `--purple-50` | `--ins-purple-50` | #faf4fe | `--ins-purple-50` | #faf4fe |
 | `--purple-100` | `--ins-purple-100` | #f4e7fc | `--ins-purple-100` | #f4e7fc |
 | `--purple-200` | `--ins-purple-200` | #ead2f9 | `--ins-purple-200` | #ead2f9 |
@@ -596,17 +611,26 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--purple-700` | `--ins-purple-700` | #6c3d86 | `--ins-purple-700` | #6c3d86 |
 | `--purple-800` | `--ins-purple-800` | #502b65 | `--ins-purple-800` | #502b65 |
 | `--purple-900` | `--ins-purple-900` | #371c47 | `--ins-purple-900` | #371c47 |
+| `--purple-950` | `--ins-purple-950` | #271532 | `--ins-purple-950` | #271532 |
 | `--neutral` | `--ins-surface-base` | #ffffff | `--ins-surface-base` | #111820 |
 | `--invert-neutral` | `--ins-text-strong` | #141b25 | `--ins-text-strong` | #eceff2 |
 | `--neutral-black` | `--ins-slate-950` | #091018 | `--ins-slate-950` | #091018 |
 | `--surface-white` | `--ins-surface-base` | #ffffff | `--ins-surface-base` | #111820 |
+| `--surface-base` | `--ins-surface-base` | #ffffff | `--ins-surface-base` | #111820 |
+| `--surface-sidebar` | `--ins-surface-sunken` | #f7f9fc | `--ins-surface-sunken` | #0b1119 |
+| `--desk-sidebar-bg` | `--ins-surface-sunken` | #f7f9fc | `--ins-surface-sunken` | #0b1119 |
+| `--surface-elevation-1` | `--ins-surface-sunken` | #f7f9fc | `--ins-surface-sunken` | #0b1119 |
+| `--surface-elevation-2` | `--ins-surface-overlay` | #ffffff | `--ins-surface-overlay` | #1d252f |
+| `--surface-elevation-3` | `--ins-surface-base` | #ffffff | `--ins-surface-hover` | #252c37 |
+| `--surface-alpha-gray-2` | `--ins-surface-hover` | #f1f4f8 | `--ins-surface-hover` | #252c37 |
 | `--surface-gray-1` | `--ins-surface-sunken` | #f7f9fc | `--ins-surface-raised` | #171e28 |
 | `--surface-gray-2` | `--ins-surface-hover` | #f1f4f8 | `--ins-surface-hover` | #252c37 |
 | `--surface-gray-3` | `--ins-surface-active` | #e8ebf1 | `--ins-surface-active` | #2e3641 |
 | `--surface-gray-4` | `--ins-slate-300` | #dadee5 | `--ins-night-600` | #4b535e |
-| `--surface-gray-5` | `--ins-slate-700` | #424b57 | `--ins-night-300` | #b9bec6 |
-| `--surface-gray-6` | `--ins-slate-800` | #28313c | `--ins-night-200` | #d0d5db |
+| `--surface-gray-5` | `--ins-slate-400` | #b8bec7 | `--ins-night-450` | #899099 |
+| `--surface-gray-6` | `--ins-slate-500` | #6a727d | `--ins-night-400` | #9da4ac |
 | `--surface-gray-7` | `--ins-slate-900` | #141b25 | `--ins-night-50` | #eceff2 |
+| `--surface-gray-10` | `--ins-surface-inverse` | #141b25 | `--ins-surface-inverse` | #dfe3e8 |
 | `--surface-menu-bar` | `--ins-surface-sunken` | #f7f9fc | `--ins-surface-sunken` | #0b1119 |
 | `--surface-modal` | `--ins-surface-overlay` | #ffffff | `--ins-surface-overlay` | #1d252f |
 | `--surface-cards` | `--ins-surface-raised` | #ffffff | `--ins-surface-raised` | #171e28 |
@@ -615,15 +639,15 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--surface-red-2` | `--ins-red-100` | #ffe6e4 | `--ins-red-900` | #510b0d |
 | `--surface-red-3` | `--ins-red-200` | #ffcfca | `--ins-red-800` | #741417 |
 | `--surface-red-4` | `--ins-red-300` | #ffada6 | `--ins-red-700` | #992225 |
-| `--surface-red-5` | `--ins-red-600` | #be3737 | `--ins-red-400` | #fb7e77 |
-| `--surface-red-6` | `--ins-red-700` | #992225 | `--ins-red-300` | #ffada6 |
-| `--surface-red-7` | `--ins-red-800` | #741417 | `--ins-red-200` | #ffcfca |
+| `--surface-red-5` | `--ins-red-400` | #fb7e77 | `--ins-red-600` | #be3737 |
+| `--surface-red-6` | `--ins-red-500` | #e15552 | `--ins-red-500` | #e15552 |
+| `--surface-red-7` | `--ins-danger` | #be3737 | `--ins-danger` | #fb7e77 |
 | `--surface-green-1` | `--ins-green-50` | #f0f9f4 | `--ins-green-950` | #022514 |
 | `--surface-green-2` | `--ins-green-100` | #def3e6 | `--ins-green-900` | #00341d |
-| `--surface-green-3` | `--ins-green-600` | #0e8352 | `--ins-green-400` | #68be8f |
+| `--surface-green-3` | `--ins-green-200` | #c0e8cf | `--ins-green-800` | #004c2c |
 | `--surface-amber-1` | `--ins-amber-50` | #fff7ee | `--ins-amber-950` | #301b00 |
 | `--surface-amber-2` | `--ins-amber-100` | #ffedd8 | `--ins-amber-900` | #452a00 |
-| `--surface-amber-3` | `--ins-amber-600` | #b37400 | `--ins-amber-400` | #f3ae4f |
+| `--surface-amber-3` | `--ins-amber-200` | #ffddb3 | `--ins-amber-800` | #643f00 |
 | `--surface-blue-1` | `--ins-blue-50` | #f0f8ff | `--ins-blue-950` | #001f3a |
 | `--surface-blue-2` | `--ins-blue-100` | #dfefff | `--ins-blue-900` | #002c4f |
 | `--surface-blue-3` | `--ins-blue-600` | #0072be | `--ins-blue-400` | #60aff8 |
@@ -631,7 +655,7 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--surface-violet-1` | `--ins-violet-50` | #f6f6ff | `--ins-violet-950` | #1c1938 |
 | `--surface-cyan-1` | `--ins-cyan-50` | #eff9fb | `--ins-cyan-950` | #00232c |
 | `--surface-pink-1` | `--ins-pink-50` | #fff3f8 | `--ins-pink-950` | #321121 |
-| `--ink-white` | literal | #ffffff | `--ins-night-950` | #0b1119 |
+| `--ink-white` | `--ins-on-danger` | #ffffff | `--ins-on-danger` | #3a0b0b |
 | `--ink-gray-1` | `--ins-slate-200` | #e8ebf1 | `--ins-night-800` | #1d252f |
 | `--ink-gray-2` | `--ins-slate-300` | #dadee5 | `--ins-night-700` | #2e3641 |
 | `--ink-gray-3` | `--ins-slate-400` | #b8bec7 | `--ins-night-600` | #4b535e |
@@ -641,47 +665,49 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--ink-gray-7` | `--ins-text-secondary` | #424b57 | `--ins-text-secondary` | #b9bec6 |
 | `--ink-gray-8` | `--ins-text` | #28313c | `--ins-text` | #dfe3e8 |
 | `--ink-gray-9` | `--ins-text-strong` | #141b25 | `--ins-text-strong` | #eceff2 |
-| `--ink-red-1` | `--ins-red-50` | #fff4f3 | `--ins-red-950` | #3a0b0b |
-| `--ink-red-2` | `--ins-red-300` | #ffada6 | `--ins-red-700` | #992225 |
-| `--ink-red-3` | `--ins-red-600` | #be3737 | `--ins-red-400` | #fb7e77 |
+| `--ink-base` | `--ins-text-inverse` | #ffffff | `--ins-text-inverse` | #0b1119 |
+| `--ink-red-1` | `--ins-on-danger` | #ffffff | `--ins-on-danger` | #3a0b0b |
+| `--ink-red-2` | `--ins-red-100` | #ffe6e4 | `--ins-red-800` | #741417 |
+| `--ink-red-3` | `--ins-red-200` | #ffcfca | `--ins-red-700` | #992225 |
 | `--ink-red-4` | `--ins-red-700` | #992225 | `--ins-red-300` | #ffada6 |
 | `--ink-green-1` | `--ins-green-50` | #f0f9f4 | `--ins-green-950` | #022514 |
-| `--ink-green-2` | `--ins-green-600` | #0e8352 | `--ins-green-400` | #68be8f |
+| `--ink-green-2` | `--ins-green-100` | #def3e6 | `--ins-green-800` | #004c2c |
 | `--ink-green-3` | `--ins-green-700` | #00663e | `--ins-green-300` | #98d6b1 |
 | `--ink-amber-1` | `--ins-amber-50` | #fff7ee | `--ins-amber-950` | #301b00 |
-| `--ink-amber-2` | `--ins-amber-600` | #b37400 | `--ins-amber-400` | #f3ae4f |
+| `--ink-amber-2` | `--ins-amber-100` | #ffedd8 | `--ins-amber-800` | #643f00 |
 | `--ink-amber-3` | `--ins-amber-700` | #885700 | `--ins-amber-300` | #ffc781 |
 | `--ink-blue-1` | `--ins-blue-50` | #f0f8ff | `--ins-blue-950` | #001f3a |
-| `--ink-blue-2` | `--ins-blue-600` | #0072be | `--ins-blue-400` | #60aff8 |
+| `--ink-blue-2` | `--ins-blue-100` | #dfefff | `--ins-blue-800` | #004170 |
 | `--ink-blue-3` | `--ins-blue-700` | #005895 | `--ins-blue-300` | #96cbff |
 | `--ink-blue-link` | `--ins-text-link` | #005895 | `--ins-text-link` | #96cbff |
-| `--ink-cyan-1` | `--ins-cyan-700` | #006073 | `--ins-cyan-300` | #92d1e4 |
-| `--ink-pink-1` | `--ins-pink-700` | #86335c | `--ins-pink-300` | #f5adcc |
-| `--ink-violet-1` | `--ins-violet-700` | #504896 | `--ins-violet-300` | #bfbeff |
+| `--ink-cyan-1` | `--ins-cyan-50` | #eff9fb | `--ins-cyan-950` | #00232c |
+| `--ink-pink-1` | `--ins-pink-50` | #fff3f8 | `--ins-pink-950` | #321121 |
+| `--ink-violet-1` | `--ins-violet-50` | #f6f6ff | `--ins-violet-950` | #1c1938 |
 | `--outline-white` | literal | #ffffff | `--ins-night-850` | #171e28 |
 | `--outline-gray-1` | `--ins-border-hairline` | #e8ebf1 | `--ins-border-hairline` | #252c37 |
 | `--outline-gray-2` | `--ins-border` | #dadee5 | `--ins-border` | #2e3641 |
 | `--outline-gray-3` | `--ins-border-strong` | #b8bec7 | `--ins-border-strong` | #4b535e |
 | `--outline-gray-4` | `--ins-border-control` | #858d97 | `--ins-border-control` | #6f7781 |
-| `--outline-gray-5` | `--ins-slate-800` | #28313c | `--ins-night-200` | #d0d5db |
+| `--outline-gray-5` | `--ins-slate-600` | #58616d | `--ins-night-400` | #9da4ac |
 | `--outline-gray-modals` | `--ins-border` | #dadee5 | `--ins-border` | #2e3641 |
-| `--outline-red-1` | `--ins-red-200` | #ffcfca | `--ins-red-800` | #741417 |
+| `--outline-elevation-2` | `--ins-border` | #dadee5 | `--ins-border` | #2e3641 |
+| `--outline-red-1` | `--ins-red-100` | #ffe6e4 | `--ins-red-900` | #510b0d |
 | `--outline-red-2` | `--ins-red-300` | #ffada6 | `--ins-red-700` | #992225 |
-| `--outline-red-3` | `--ins-red-600` | #be3737 | `--ins-red-400` | #fb7e77 |
-| `--outline-green-1` | `--ins-green-200` | #c0e8cf | `--ins-green-800` | #004c2c |
-| `--outline-green-2` | `--ins-green-300` | #98d6b1 | `--ins-green-700` | #00663e |
-| `--outline-amber-1` | `--ins-amber-200` | #ffddb3 | `--ins-amber-800` | #643f00 |
-| `--outline-amber-2` | `--ins-amber-300` | #ffc781 | `--ins-amber-700` | #885700 |
-| `--outline-blue-1` | `--ins-blue-200` | #c1e0ff | `--ins-blue-800` | #004170 |
-| `--outline-orange-1` | `--ins-orange-300` | #fab38b | `--ins-orange-700` | #883c00 |
+| `--outline-red-3` | `--ins-red-300` | #ffada6 | `--ins-red-700` | #992225 |
+| `--outline-green-1` | `--ins-green-100` | #def3e6 | `--ins-green-900` | #00341d |
+| `--outline-green-2` | `--ins-green-200` | #c0e8cf | `--ins-green-800` | #004c2c |
+| `--outline-amber-1` | `--ins-amber-100` | #ffedd8 | `--ins-amber-900` | #452a00 |
+| `--outline-amber-2` | `--ins-amber-200` | #ffddb3 | `--ins-amber-800` | #643f00 |
+| `--outline-blue-1` | `--ins-blue-100` | #dfefff | `--ins-blue-900` | #002c4f |
+| `--outline-orange-1` | `--ins-orange-100` | #ffe7db | `--ins-orange-900` | #471b00 |
 | `--bg-color` | `--ins-surface-base` | #ffffff | `--ins-surface-base` | #111820 |
 | `--fg-color` | `--ins-surface-raised` | #ffffff | `--ins-surface-raised` | #171e28 |
 | `--subtle-accent` | `--ins-surface-sunken` | #f7f9fc | `--ins-surface-sunken` | #0b1119 |
 | `--subtle-fg` | `--ins-surface-hover` | #f1f4f8 | `--ins-surface-hover` | #252c37 |
 | `--fg-hover-color` | `--ins-surface-hover` | #f1f4f8 | `--ins-surface-hover` | #252c37 |
 | `--highlight-color` | `--ins-surface-hover` | #f1f4f8 | `--ins-surface-hover` | #252c37 |
-| `--control-bg` | `--ins-surface-fill` | #f1f4f8 | `--ins-surface-fill` | #1d252f |
-| `--control-bg-on-gray` | `--ins-surface-fill-hover` | #e8ebf1 | `--ins-surface-fill-hover` | #252c37 |
+| `--control-bg` | `--ins-surface-field` | #ffffff | `--ins-surface-field` | #0b1119 |
+| `--control-bg-on-gray` | `--ins-surface-field` | #ffffff | `--ins-surface-field` | #0b1119 |
 | `--disabled-control-bg` | `--ins-surface-disabled` | #f1f4f8 | `--ins-surface-disabled` | #171e28 |
 | `--input-disabled-bg` | `--ins-surface-disabled` | #f1f4f8 | `--ins-surface-disabled` | #171e28 |
 | `--disabled-text-color` | `--ins-text-secondary` | #424b57 | `--ins-text-secondary` | #b9bec6 |
@@ -779,6 +805,10 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--text-on-purple` | `--ins-status-special-fg` | #3a3472 | `--ins-status-special-fg` | #d8d8ff |
 | `--bg-pink` | `--ins-status-plum-bg` | #fee5ef | `--ins-status-plum-bg` | #46152e |
 | `--text-on-pink` | `--ins-status-plum-fg` | #652244 | `--ins-status-plum-fg` | #fdcde0 |
+| `--bg-amber` | `--ins-status-pending-bg` | #ffe7db | `--ins-status-pending-bg` | #471b00 |
+| `--text-on-amber` | `--ins-status-pending-fg` | #652b00 | `--ins-status-pending-fg` | #ffd1b9 |
+| `--bg-violet` | `--ins-status-plum-bg` | #fee5ef | `--ins-status-plum-bg` | #46152e |
+| `--text-on-violet` | `--ins-status-plum-fg` | #652244 | `--ins-status-plum-fg` | #fdcde0 |
 | `--avatar-frame-bg` | `--ins-slate-200` | #e8ebf1 | `--ins-night-700` | #2e3641 |
 | `--avatar-frame-border` | `--ins-surface-raised` | #ffffff | `--ins-surface-raised` | #171e28 |
 | `--avatar-frame-color` | `--ins-slate-700` | #424b57 | `--ins-night-200` | #d0d5db |
@@ -805,11 +835,18 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--shadow-lg` | `--ins-elevation-overlay` | 0 6px 16px rgba(9, 16, 24, 0.1), 0 1px 3px rgba(9, 16, 24, 0.08) | `--ins-elevation-overlay` | 0 0 0 1px #2e3641 |
 | `--shadow-xl` | `--ins-elevation-dialog` | 0 20px 48px rgba(9, 16, 24, 0.18), 0 4px 12px rgba(9, 16, 24, 0.08) | `--ins-elevation-dialog` | 0 0 0 1px #4b535e |
 | `--shadow-2xl` | `--ins-elevation-dialog` | 0 20px 48px rgba(9, 16, 24, 0.18), 0 4px 12px rgba(9, 16, 24, 0.08) | `--ins-elevation-dialog` | 0 0 0 1px #4b535e |
+| `--elevation-sm` | `--ins-elevation-raised` | 0 1px 2px rgba(9, 16, 24, 0.06), 0 1px 1px rgba(9, 16, 24, 0.04) | `--ins-elevation-raised` | none |
+| `--elevation-base` | `--ins-elevation-raised` | 0 1px 2px rgba(9, 16, 24, 0.06), 0 1px 1px rgba(9, 16, 24, 0.04) | `--ins-elevation-raised` | none |
+| `--elevation-md` | `--ins-elevation-overlay` | 0 6px 16px rgba(9, 16, 24, 0.1), 0 1px 3px rgba(9, 16, 24, 0.08) | `--ins-elevation-overlay` | 0 0 0 1px #2e3641 |
+| `--elevation-lg` | `--ins-elevation-overlay` | 0 6px 16px rgba(9, 16, 24, 0.1), 0 1px 3px rgba(9, 16, 24, 0.08) | `--ins-elevation-overlay` | 0 0 0 1px #2e3641 |
+| `--elevation-xl` | `--ins-elevation-dialog` | 0 20px 48px rgba(9, 16, 24, 0.18), 0 4px 12px rgba(9, 16, 24, 0.08) | `--ins-elevation-dialog` | 0 0 0 1px #4b535e |
+| `--elevation-2xl` | `--ins-elevation-dialog` | 0 20px 48px rgba(9, 16, 24, 0.18), 0 4px 12px rgba(9, 16, 24, 0.08) | `--ins-elevation-dialog` | 0 0 0 1px #4b535e |
 | `--card-shadow` | `--ins-elevation-raised` | 0 1px 2px rgba(9, 16, 24, 0.06), 0 1px 1px rgba(9, 16, 24, 0.04) | `--ins-elevation-raised` | none |
 | `--modal-shadow` | `--ins-elevation-dialog` | 0 20px 48px rgba(9, 16, 24, 0.18), 0 4px 12px rgba(9, 16, 24, 0.08) | `--ins-elevation-dialog` | 0 0 0 1px #4b535e |
 | `--awesomebar-shadow` | `--ins-elevation-dialog` | 0 20px 48px rgba(9, 16, 24, 0.18), 0 4px 12px rgba(9, 16, 24, 0.08) | `--ins-elevation-dialog` | 0 0 0 1px #4b535e |
 | `--shadow-inset` | literal | inset 0 -1px 0 var(--ins-border-hairline) | literal | inset 0 -1px 0 var(--ins-border-hairline) |
 | `--highlight-shadow` | literal | 0 0 0 2px var(--ins-focus) | literal | 0 0 0 2px var(--ins-focus) |
+| `--focus-outline-default` | literal | 2px solid var(--ins-focus) | literal | 2px solid var(--ins-focus) |
 | `--focus-default` | literal | none | literal | none |
 | `--checkbox-focus-shadow` | literal | none | literal | none |
 | `--checkbox-gradient` | literal | linear-gradient(var(--ins-primary), var(--ins-primary)) | literal | linear-gradient(var(--ins-primary), var(--ins-primary)) |
@@ -824,16 +861,30 @@ Rows follow the emitted light block of `_frappe_map.scss`; every name in model.j
 | `--text-xl` | `--ins-text-xl` | 18px | `--ins-text-xl` | 18px |
 | `--text-2xl` | `--ins-text-2xl` | 20px | `--ins-text-2xl` | 20px |
 | `--text-3xl` | `--ins-text-3xl` | 24px | `--ins-text-3xl` | 24px |
+| `--text-p-xs` | `--ins-text-xs` | 12px | `--ins-text-xs` | 12px |
+| `--text-p-sm` | `--ins-text-sm` | 13px | `--ins-text-sm` | 13px |
+| `--text-p-base` | `--ins-text-base` | 13px | `--ins-text-base` | 13px |
+| `--text-p-lg` | `--ins-text-lg` | 16px | `--ins-text-lg` | 16px |
+| `--text-p-xl` | `--ins-text-xl` | 18px | `--ins-text-xl` | 18px |
 | `--weight-regular` | `--ins-weight-regular` | 400 | `--ins-weight-regular` | 400 |
 | `--weight-medium` | `--ins-weight-medium` | 500 | `--ins-weight-medium` | 500 |
 | `--weight-semibold` | `--ins-weight-strong` | 600 | `--ins-weight-strong` | 600 |
 | `--weight-bold` | `--ins-weight-strong` | 600 | `--ins-weight-strong` | 600 |
+| `--font-weight-regular` | `--ins-weight-regular` | 400 | `--ins-weight-regular` | 400 |
+| `--font-weight-medium` | `--ins-weight-medium` | 500 | `--ins-weight-medium` | 500 |
+| `--font-weight-semibold` | `--ins-weight-strong` | 600 | `--ins-weight-strong` | 600 |
+| `--font-weight-bold` | `--ins-weight-strong` | 600 | `--ins-weight-strong` | 600 |
 | `--border-radius-tiny` | `--ins-radius-xs` | 2px | `--ins-radius-xs` | 2px |
 | `--border-radius-sm` | `--ins-radius-sm` | 4px | `--ins-radius-sm` | 4px |
 | `--border-radius` | `--ins-radius-sm` | 4px | `--ins-radius-sm` | 4px |
 | `--border-radius-md` | `--ins-radius-md` | 6px | `--ins-radius-md` | 6px |
 | `--border-radius-lg` | `--ins-radius-md` | 6px | `--ins-radius-md` | 6px |
 | `--border-radius-xl` | `--ins-radius-lg` | 8px | `--ins-radius-lg` | 8px |
+| `--radius` | `--ins-radius-sm` | 4px | `--ins-radius-sm` | 4px |
+| `--radius-sm` | `--ins-radius-xs` | 2px | `--ins-radius-xs` | 2px |
+| `--radius-md` | `--ins-radius-md` | 6px | `--ins-radius-md` | 6px |
+| `--radius-lg` | `--ins-radius-md` | 6px | `--ins-radius-md` | 6px |
+| `--radius-xl` | `--ins-radius-lg` | 8px | `--ins-radius-lg` | 8px |
 | `--padding-xs` | `--ins-space-1` | 4px | `--ins-space-1` | 4px |
 | `--padding-sm` | `--ins-space-2` | 8px | `--ins-space-2` | 8px |
 | `--padding-md` | `--ins-space-4` | 16px | `--ins-space-4` | 16px |
@@ -868,8 +919,12 @@ Generated from `docs/audits/contrast.json`.
 | Body text and headings | `text-strong` | `surface-hover` | min 4.5 | 15.69 | pass | 12.178 | pass |
 | Body text and headings | `text-strong` | `surface-active` | min 4.5 | 14.494 | pass | 10.578 | pass |
 | Body text and headings | `text-strong` | `surface-selected` | min 4.5 | 16.082 | pass | 11.823 | pass |
-| Body text and headings | `text-strong` | `surface-selected-strong` | min 4.5 | 14.889 | pass | 9.805 | pass |
+| Body text and headings | `text-strong` | `surface-selected-strong` | min 4.5 | 14.889 | pass | 10.231 | pass |
 | Body text and headings | `text-strong` | `surface-field` | min 4.5 | 17.309 | pass | 16.415 | pass |
+| Body text and headings | `text-strong` | `--control-bg` | min 4.5 | 17.309 | pass | 16.415 | pass |
+| Body text and headings | `text-strong` | `--control-bg-on-gray` | min 4.5 | 17.309 | pass | 16.415 | pass |
+| Body text and headings | `text-strong` | `surface-fill` | min 4.5 | 15.69 | pass | 13.399 | pass |
+| Body text and headings | `text-strong` | `surface-fill-hover` | min 4.5 | 14.494 | pass | 12.178 | pass |
 | Body text and headings | `text` | `surface-base` | min 4.5 | 13.168 | pass | 13.86 | pass |
 | Body text and headings | `text` | `surface-sunken` | min 4.5 | 12.485 | pass | 14.697 | pass |
 | Body text and headings | `text` | `surface-raised` | min 4.5 | 13.168 | pass | 13.003 | pass |
@@ -877,8 +932,12 @@ Generated from `docs/audits/contrast.json`.
 | Body text and headings | `text` | `surface-hover` | min 4.5 | 11.936 | pass | 10.903 | pass |
 | Body text and headings | `text` | `surface-active` | min 4.5 | 11.026 | pass | 9.47 | pass |
 | Body text and headings | `text` | `surface-selected` | min 4.5 | 12.234 | pass | 10.585 | pass |
-| Body text and headings | `text` | `surface-selected-strong` | min 4.5 | 11.327 | pass | 8.779 | pass |
+| Body text and headings | `text` | `surface-selected-strong` | min 4.5 | 11.327 | pass | 9.16 | pass |
 | Body text and headings | `text` | `surface-field` | min 4.5 | 13.168 | pass | 14.697 | pass |
+| Body text and headings | `text` | `--control-bg` | min 4.5 | 13.168 | pass | 14.697 | pass |
+| Body text and headings | `text` | `--control-bg-on-gray` | min 4.5 | 13.168 | pass | 14.697 | pass |
+| Body text and headings | `text` | `surface-fill` | min 4.5 | 11.936 | pass | 11.997 | pass |
+| Body text and headings | `text` | `surface-fill-hover` | min 4.5 | 11.026 | pass | 10.903 | pass |
 | Body text and headings | `text-secondary` | `surface-base` | min 4.5 | 8.839 | pass | 9.566 | pass |
 | Body text and headings | `text-secondary` | `surface-sunken` | min 4.5 | 8.381 | pass | 10.144 | pass |
 | Body text and headings | `text-secondary` | `surface-raised` | min 4.5 | 8.839 | pass | 8.975 | pass |
@@ -886,20 +945,31 @@ Generated from `docs/audits/contrast.json`.
 | Body text and headings | `text-secondary` | `surface-hover` | min 4.5 | 8.013 | pass | 7.525 | pass |
 | Body text and headings | `text-secondary` | `surface-active` | min 4.5 | 7.402 | pass | 6.536 | pass |
 | Body text and headings | `text-secondary` | `surface-selected` | min 4.5 | 8.213 | pass | 7.306 | pass |
-| Body text and headings | `text-secondary` | `surface-selected-strong` | min 4.5 | 7.604 | pass | 6.059 | pass |
+| Body text and headings | `text-secondary` | `surface-selected-strong` | min 4.5 | 7.604 | pass | 6.322 | pass |
 | Body text and headings | `text-secondary` | `surface-field` | min 4.5 | 8.839 | pass | 10.144 | pass |
+| Body text and headings | `text-secondary` | `--control-bg` | min 4.5 | 8.839 | pass | 10.144 | pass |
+| Body text and headings | `text-secondary` | `--control-bg-on-gray` | min 4.5 | 8.839 | pass | 10.144 | pass |
+| Body text and headings | `text-secondary` | `surface-fill` | min 4.5 | 8.013 | pass | 8.28 | pass |
+| Body text and headings | `text-secondary` | `surface-fill-hover` | min 4.5 | 7.402 | pass | 7.525 | pass |
 | Help, caption and placeholder text | `text-muted` | `surface-base` | min 4.5 | 6.277 | pass | 7.095 | pass |
 | Help, caption and placeholder text | `text-muted` | `surface-sunken` | min 4.5 | 5.951 | pass | 7.524 | pass |
 | Help, caption and placeholder text | `text-muted` | `surface-raised` | min 4.5 | 6.277 | pass | 6.657 | pass |
 | Help, caption and placeholder text | `text-muted` | `surface-overlay` | min 4.5 | 6.277 | pass | 6.141 | pass |
 | Help, caption and placeholder text | `text-muted` | `surface-field` | min 4.5 | 6.277 | pass | 7.524 | pass |
+| Help, caption and placeholder text | `text-muted` | `--control-bg` | min 4.5 | 6.277 | pass | 7.524 | pass |
+| Help, caption and placeholder text | `text-muted` | `--control-bg-on-gray` | min 4.5 | 6.277 | pass | 7.524 | pass |
 | Help, caption and placeholder text | `text-placeholder` | `surface-base` | min 4.5 | 4.866 | pass | 5.541 | pass |
 | Help, caption and placeholder text | `text-placeholder` | `surface-sunken` | min 4.5 | 4.613 | pass | 5.876 | pass |
 | Help, caption and placeholder text | `text-placeholder` | `surface-raised` | min 4.5 | 4.866 | pass | 5.199 | pass |
 | Help, caption and placeholder text | `text-placeholder` | `surface-overlay` | min 4.5 | 4.866 | pass | 4.796 | pass |
 | Help, caption and placeholder text | `text-placeholder` | `surface-field` | min 4.5 | 4.866 | pass | 5.876 | pass |
+| Help, caption and placeholder text | `text-placeholder` | `--control-bg` | min 4.5 | 4.866 | pass | 5.876 | pass |
+| Help, caption and placeholder text | `text-placeholder` | `--control-bg-on-gray` | min 4.5 | 4.866 | pass | 5.876 | pass |
 | Help text on hover and selected rows | `text-muted` | `surface-hover` | min 4.5 | 5.69 | pass | 5.582 | pass |
 | Help text on hover and selected rows | `text-muted` | `surface-selected` | min 4.5 | 5.832 | pass | 5.419 | pass |
+| Help text on hover and selected rows | `text-muted` | `surface-selected-strong` | min 4.5 | 5.399 | pass | 4.689 | pass |
+| Help text on hover and selected rows | `text-muted` | `surface-active` | min 4.5 | 5.256 | pass | 4.848 | pass |
+| Help text on hover and selected rows | `text-muted` | `surface-fill` | min 4.5 | 5.69 | pass | 6.141 | pass |
 | Links | `text-link` | `surface-base` | min 4.5 | 7.421 | pass | 10.451 | pass |
 | Links | `text-link` | `surface-sunken` | min 4.5 | 7.036 | pass | 11.081 | pass |
 | Links | `text-link` | `surface-raised` | min 4.5 | 7.421 | pass | 9.805 | pass |
@@ -927,6 +997,13 @@ Generated from `docs/audits/contrast.json`.
 | Disabled text stays legible | `text-disabled` | `surface-disabled` | min 3 | 4.411 | pass | 3.697 | pass |
 | Disabled text stays legible | `text-disabled` | `surface-base` | min 3 | 4.866 | pass | 3.941 | pass |
 | Disabled text stays legible | `text-disabled` | `surface-raised` | min 3 | 4.866 | pass | 3.697 | pass |
+| Disabled text stays legible | `text-disabled` | `--disabled-control-bg` | min 3 | 4.411 | pass | 3.697 | pass |
+| Disabled text stays legible | `text-disabled` | `--input-disabled-bg` | min 3 | 4.411 | pass | 3.697 | pass |
+| Disabled text stays legible | `text-placeholder` | `surface-disabled` | min 3 | 4.411 | pass | 5.199 | pass |
+| Disabled text stays legible | `text-placeholder` | `surface-base` | min 3 | 4.866 | pass | 5.541 | pass |
+| Disabled text stays legible | `text-placeholder` | `surface-raised` | min 3 | 4.866 | pass | 5.199 | pass |
+| Disabled text stays legible | `text-placeholder` | `--disabled-control-bg` | min 3 | 4.411 | pass | 5.199 | pass |
+| Disabled text stays legible | `text-placeholder` | `--input-disabled-bg` | min 3 | 4.411 | pass | 5.199 | pass |
 | Read-only values | `--disabled-text-color` | `surface-base` | min 4.5 | 8.839 | pass | 9.566 | pass |
 | Read-only values | `--disabled-text-color` | `surface-raised` | min 4.5 | 8.839 | pass | 8.975 | pass |
 | Read-only values | `--disabled-text-color` | `surface-disabled` | min 4.5 | 8.013 | pass | 8.975 | pass |
@@ -986,11 +1063,17 @@ Generated from `docs/audits/contrast.json`.
 | Input, checkbox and switch boundary | `border-control` | `surface-raised` | min 3 | 3.358 | pass | 3.697 | pass |
 | Input, checkbox and switch boundary | `border-control` | `surface-overlay` | min 3 | 3.358 | pass | 3.411 | pass |
 | Input, checkbox and switch boundary | `border-control` | `surface-field` | min 3 | 3.358 | pass | 4.178 | pass |
+| Input, checkbox and switch boundary | `border-control` | `--control-bg` | min 3 | 3.358 | pass | 4.178 | pass |
+| Input, checkbox and switch boundary | `border-control` | `--control-bg-on-gray` | min 3 | 3.358 | pass | 4.178 | pass |
+| Input, checkbox and switch boundary | `border-control` | `surface-hover` | min 3 | 3.044 | pass | 3.1 | pass |
 | Input, checkbox and switch boundary | `border-control-hover` | `surface-base` | min 3 | 6.277 | pass | 7.095 | pass |
 | Input, checkbox and switch boundary | `border-control-hover` | `surface-sunken` | min 3 | 5.951 | pass | 7.524 | pass |
 | Input, checkbox and switch boundary | `border-control-hover` | `surface-raised` | min 3 | 6.277 | pass | 6.657 | pass |
 | Input, checkbox and switch boundary | `border-control-hover` | `surface-overlay` | min 3 | 6.277 | pass | 6.141 | pass |
 | Input, checkbox and switch boundary | `border-control-hover` | `surface-field` | min 3 | 6.277 | pass | 7.524 | pass |
+| Input, checkbox and switch boundary | `border-control-hover` | `--control-bg` | min 3 | 6.277 | pass | 7.524 | pass |
+| Input, checkbox and switch boundary | `border-control-hover` | `--control-bg-on-gray` | min 3 | 6.277 | pass | 7.524 | pass |
+| Input, checkbox and switch boundary | `border-control-hover` | `surface-hover` | min 3 | 5.69 | pass | 5.582 | pass |
 | Focus ring against adjacent colours | `focus` | `surface-base` | min 3 | 5.614 | pass | 10.428 | pass |
 | Focus ring against adjacent colours | `focus` | `surface-sunken` | min 3 | 5.323 | pass | 11.057 | pass |
 | Focus ring against adjacent colours | `focus` | `surface-raised` | min 3 | 5.614 | pass | 9.783 | pass |
@@ -1023,16 +1106,16 @@ Generated from `docs/audits/contrast.json`.
 | Icons | `--icon-stroke` | `surface-active` | min 3 | 7.402 | pass | 6.536 | pass |
 | Chart marks against the plot background | `chart-1` | `surface-base` | min 3 | 8.273 | pass | 10.428 | pass |
 | Chart marks against the plot background | `chart-1` | `surface-raised` | min 3 | 8.273 | pass | 9.783 | pass |
-| Chart marks against the plot background | `chart-2` | `surface-base` | min 3 | 6.158 | pass | 7.01 | pass |
-| Chart marks against the plot background | `chart-2` | `surface-raised` | min 3 | 6.158 | pass | 6.577 | pass |
+| Chart marks against the plot background | `chart-2` | `surface-base` | min 3 | 3.658 | pass | 7.248 | pass |
+| Chart marks against the plot background | `chart-2` | `surface-raised` | min 3 | 3.658 | pass | 6.8 | pass |
 | Chart marks against the plot background | `chart-3` | `surface-base` | min 3 | 4.812 | pass | 5.47 | pass |
 | Chart marks against the plot background | `chart-3` | `surface-raised` | min 3 | 4.812 | pass | 5.132 | pass |
-| Chart marks against the plot background | `chart-4` | `surface-base` | min 3 | 11.321 | pass | 7.106 | pass |
-| Chart marks against the plot background | `chart-4` | `surface-raised` | min 3 | 11.321 | pass | 6.667 | pass |
-| Chart marks against the plot background | `chart-5` | `surface-base` | min 3 | 3.658 | pass | 7.248 | pass |
-| Chart marks against the plot background | `chart-5` | `surface-raised` | min 3 | 3.658 | pass | 6.8 | pass |
-| Chart marks against the plot background | `chart-6` | `surface-base` | min 3 | 3.613 | pass | 3.358 | pass |
-| Chart marks against the plot background | `chart-6` | `surface-raised` | min 3 | 3.613 | pass | 3.151 | pass |
+| Chart marks against the plot background | `chart-4` | `surface-base` | min 3 | 6.158 | pass | 7.01 | pass |
+| Chart marks against the plot background | `chart-4` | `surface-raised` | min 3 | 6.158 | pass | 6.577 | pass |
+| Chart marks against the plot background | `chart-5` | `surface-base` | min 3 | 3.613 | pass | 3.358 | pass |
+| Chart marks against the plot background | `chart-5` | `surface-raised` | min 3 | 3.613 | pass | 3.151 | pass |
+| Chart marks against the plot background | `chart-6` | `surface-base` | min 3 | 11.321 | pass | 7.106 | pass |
+| Chart marks against the plot background | `chart-6` | `surface-raised` | min 3 | 11.321 | pass | 6.667 | pass |
 | Chart marks against the plot background | `chart-7` | `surface-base` | min 3 | 4.872 | pass | 10.603 | pass |
 | Chart marks against the plot background | `chart-7` | `surface-raised` | min 3 | 4.872 | pass | 9.948 | pass |
 | Chart marks against the plot background | `chart-8` | `surface-base` | min 3 | 3.358 | pass | 5.541 | pass |
@@ -1049,12 +1132,12 @@ Generated from `docs/audits/contrast.json`, `docs/audits/presets.txt`.
 
 | Preset | Status | Pairs per mode (Light / Dark) | Failures (contrast.json) | Reason |
 |---|---|---|---|---|
-| midad | shipped | 181 / 181 | 0 | - |
-| graphite | shipped | 181 / 181 | 0 | - |
-| petrol | shipped | 181 / 181 | 0 | - |
-| forest | shipped | 181 / 181 | 0 | - |
-| plum | shipped | 181 / 181 | 0 | - |
-| umber | dropped | 181 / 181 | 0 | FAIL status warning: primary vs status-warning-solid, dark mode, tritanopia: 3.3 (needs 5.0) |
+| midad | shipped | 213 / 213 | 0 | - |
+| graphite | shipped | 213 / 213 | 0 | - |
+| petrol | shipped | 213 / 213 | 0 | - |
+| forest | shipped | 213 / 213 | 0 | - |
+| plum | shipped | 213 / 213 | 0 | - |
+| umber | dropped | 213 / 213 | 0 | FAIL status warning: primary vs status-warning-solid, dark mode, tritanopia: 3.3 (needs 5.0) |
 
 ## 5. Scale tokens
 
@@ -1144,7 +1227,6 @@ Generated from `docs/audits/colour_vision.txt`.
 ```text
 Distance: OKLab Euclidean x 100 after simulating the deficiency (Machado et al. 2009, severity 1).
 Status check (fatal): primary against the solid mark of every chromatic status role within 45 degrees of the primary hue, both modes, four visions, needs 5.0.
-Chart check (reported gap, not fatal): closest pair of series, needs 5.0.
 == midad (shipped)
 Status check, hue-adjacent roles: progress, info, special
   closest approach 7.7; failures 0
@@ -1165,10 +1247,9 @@ Status check, hue-adjacent roles: pending, warning, danger
   closest approach 3.3; failures 1
   FAIL status warning: primary vs status-warning-solid, dark mode, tritanopia: 3.3 (needs 5.0)
 Status failures in shipped presets: 0
-Chart gaps in shipped presets (not fatal): 67
 ```
 
-Parity audit, from `docs/audits/parity.txt`: 51 checks, 0 failed.
+Parity audit, from `docs/audits/parity.txt`: 56 checks, 0 failed.
 
 ## Could not fill
 
@@ -1195,11 +1276,7 @@ Parity audit, from `docs/audits/parity.txt`: 51 checks, 0 failed.
 - ramp step `--ins-brass-900`: not emitted in both blocks of _tokens.scss
 - ramp step `--ins-brass-950`: not emitted in both blocks of _tokens.scss
 - ramp step `--ins-slate-25`: not emitted in both blocks of _tokens.scss
-- ramp step `--ins-night-450`: not emitted in both blocks of _tokens.scss
 - ramp step `--ins-night-750`: not emitted in both blocks of _tokens.scss
-- ramp step `--ins-yellow-950`: not emitted in both blocks of _tokens.scss
-- ramp step `--ins-teal-950`: not emitted in both blocks of _tokens.scss
-- ramp step `--ins-purple-950`: not emitted in both blocks of _tokens.scss
 - Frappe variable `--font-stack`: its --ins-* source is not emitted in _tokens.scss or _scale.scss
 - scale token `--ins-font-sans`: not declared in _scale.scss
 - scale token `--ins-font-mono`: not declared in _scale.scss

@@ -80,6 +80,7 @@ Remaining cell: Automatic under a dark OS, 345 non-differing names at (0,2,1) in
 - HRMS (source 16.20.1 above; bench copy `scan-hrms-bench.txt`): the `/hrms` and `/roster` single-page apps declare `:root` and `[data-theme=dark]` (0,1,0) on their own pages.
 - A third-party app that declares one of those names on the root with a specificity of (0,2,1) to (0,3,1) would differ in Automatic-dark only (ASSUMED none; the coexistence fixtures in `tests/browser` use `html[lang=ar], html[dir=rtl] { --font-stack }`, (0,1,1)).
 - Phase B2 dumps `getComputedStyle(documentElement)` of all 424 names in every mode before and after, including Automatic with the OS emulated dark and light.
+- Correction after the upgrade re-check (`docs/team/reviews/upgrade-round6.md`, addendum A1; lead, COMPUTED from source): once the desk script runs, Automatic is not seen by the stylesheet as `data-theme="automatic"`: core's theme switcher resolves it and writes `data-theme="dark"` or `"light"` on the root from the OS setting (16.32.0 `frappe/public/js/frappe/ui/theme_switcher.js:154-163`). So the "Automatic under a dark OS" captures above exercised the explicit Dark root, whose specificity did not change, not the (0,2,1) cell. That cell exists only in the moment before the desk script runs (the server renders `data-theme="automatic"`, findings section 2). The real exposure is therefore smaller than the table states, and the captures do not test it directly; no capture with the attribute forced to `automatic` was made.
 
 ## Code changes and test expectation changes
 
