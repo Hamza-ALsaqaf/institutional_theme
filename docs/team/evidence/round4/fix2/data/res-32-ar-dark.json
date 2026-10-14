@@ -1,0 +1,47 @@
+{
+ "which": "32",
+ "lang": "ar",
+ "theme": "dark",
+ "mode": "dark",
+ "heights": {
+  "primary": "130x32",
+  "menu": "32x32",
+  "pill": null,
+  "btn": "0x0",
+  "input": "107x32"
+ },
+ "forced": {
+  "sbActive": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "solid 1px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(5, 0, 73, 0.8)",
+    "w": "3px"
+   }
+  },
+  "sbPlain": {
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgba(255, 255, 255, 0)",
+   "border": "none 0px rgb(0, 0, 0)",
+   "outline": "none 0px rgb(0, 0, 0)",
+   "before": {
+    "bg": "rgba(255, 255, 255, 0)",
+    "w": "auto"
+   }
+  }
+ },
+ "coarse": {
+  "coarse": true,
+  "primary": "130x44",
+  "menu": "44x44",
+  "pill": null,
+  "input": "107x44"
+ },
+ "weights": {
+  "discard": "400",
+  "kbd": "400",
+  "menuShortcut": "400"
+ }
+}

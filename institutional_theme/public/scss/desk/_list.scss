@@ -92,6 +92,26 @@ html:root[dir] .list-paging-area .es-tab-buttons {
 	border-radius: var(--ins-radius-md);
 }
 
+// The pressed pill differs from the rest by fill alone (1.07:1 Light), so it also gets a control-boundary ring (3:1) and the medium weight:
+// two cues that are not a colour change. Core gives it `--elevation-base` (tab_buttons.css:114); the inset ring replaces that shadow.
+html:root[dir] .list-paging-area .es-tab-buttons .es-pill[data-state="active"] {
+	box-shadow: inset 0 0 0 1px var(--ins-border-control);
+	font-weight: var(--ins-weight-medium);
+}
+
+// Pill height comes from padding and line-height only (tab_buttons.css, "never a fixed height"): 26px. A minimum from the control scale
+// gives the small step on desktop (28px) and the 44px target on coarse pointers. v16.52.0 only; 16.32.0 has no `.es-pill`.
+html:root[dir] .es-tab-buttons .es-pill {
+	min-block-size: var(--ins-control-height-sm);
+}
+
+// Forced colours: the ring is a box-shadow and the fill a background, both dropped, so the pressed pill takes a real border.
+@media (forced-colors: active) {
+	html:root[dir] .list-paging-area .es-tab-buttons .es-pill[data-state="active"] {
+		border: 1px solid CanvasText;
+	}
+}
+
 html:root[dir] .list-paging-area .es-tab-buttons .es-pill {
 	border-radius: var(--ins-radius-sm);
 }

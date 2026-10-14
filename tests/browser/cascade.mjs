@@ -120,6 +120,54 @@ async function fix1(page, scenario) {
 	rec("foreign .panel-header-actions span: the theme radius is not applied", `!= ${sm}`, await st("fx-foreign-span", "borderTopLeftRadius"), (await st("fx-foreign-span", "borderTopLeftRadius")) !== sm);
 }
 
+// ---- Round-4 accessibility fix 2 (items 2, 4, 5, 6, 7, 12). Fixture: harness/fixture_fix2.html. Items 2, 5, 6, 7 and the dock exist on v16.52.0 only.
+const fixtureFix2 = readFileSync(join(here, "harness/fixture_fix2.html"), "utf8");
+async function fix2(page, scenario) {
+	const rec = (check, expected, actual, pass, versions) => record(scenario, check, expected, actual, pass, versions);
+	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
+	await page.evaluate((html) => { const d = document.createElement("div"); d.id = "fix2"; d.innerHTML = html; document.body.append(d); }, fixtureFix2);
+	const tok = (n, prop) => page.evaluate(([n, prop]) => { const e = document.createElement("i"); e.style[prop] = `var(${n})`; document.body.append(e); const c = getComputedStyle(e)[prop]; e.remove(); return c; }, [n, prop]);
+	const cs = (id, props, pseudo) => page.evaluate(([id, props, pseudo]) => { const s = getComputedStyle(document.getElementById(id), pseudo || null); return Object.fromEntries(props.map((p) => [p, s[p]])); }, [id, props, pseudo]);
+	// 12: the literal 420 is replaced by the regular weight (both versions).
+	const reg = await tok("--ins-weight-regular", "fontWeight");
+	for (const id of ["fx2-outline", "fx2-kbd"]) rec(`#${id}: literal 420 replaced by --ins-weight-regular`, reg, (await cs(id, ["fontWeight"])).fontWeight, (await cs(id, ["fontWeight"])).fontWeight === reg);
+	if (!only(V52)) return;
+	const r52 = (check, expected, actual, pass) => rec(check, expected, actual, pass, V52);
+	// 2: the drawn stroke of the toast icon is the status ink (stroke == color == --ins-status-*-solid).
+	for (const [t, fam] of [["success", "success"], ["error", "danger"]]) {
+		const want = await tok(`--ins-status-${fam}-solid`, "color"), got = await cs(`fx2-toast-icon-${t}`, ["stroke", "color"]);
+		r52(`.es-toast[data-type=${t}] icon: stroke = --ins-status-${fam}-solid`, want, `${got.stroke} / color ${got.color}`, got.stroke === want && got.color === want);
+	}
+	// 5: control height from the theme scale (comfortable 32px here; compact and coarse come from the same token in _scale.scss).
+	const h = await tok("--ins-control-height", "height"), hs = await tok("--ins-control-height-sm", "height");
+	for (const [id, want] of [["fx2-bt-default", h], ["fx2-bt-md", h], ["fx2-bt-xs", hs]]) r52(`#${id} height = ${want === h ? "--ins-control-height" : "--ins-control-height-sm"}`, want, (await cs(id, ["height"])).height, (await cs(id, ["height"])).height === want);
+	const ib = await cs("fx2-bt-icon", ["width", "height"]);
+	r52("icon button is square at --ins-control-height", `${h} x ${h}`, `${ib.width} x ${ib.height}`, ib.width === h && ib.height === h);
+	const pm = await cs("fx2-pill-off", ["minHeight", "height"]);
+	r52("page-size pill min-height = --ins-control-height-sm, rendered height >= it", `>= ${hs}`, `${pm.height} (min ${pm.minHeight})`, pm.minHeight === hs && parseFloat(pm.height) >= parseFloat(hs));
+	// 6: the pressed pill has a ring in --ins-border-control and the medium weight; the idle pill has neither.
+	const on = await cs("fx2-pill-on", ["boxShadow", "fontWeight"]), off = await cs("fx2-pill-off", ["boxShadow", "fontWeight"]);
+	const bc = await tok("--ins-border-control", "color"), med = await tok("--ins-weight-medium", "fontWeight");
+	r52("pressed pill: inset 1px ring in --ins-border-control and medium weight", `${bc} inset 0 0 0 1px | ${med}`, `${on.boxShadow} | ${on.fontWeight}`, on.boxShadow === `${bc} 0px 0px 0px 1px inset` && on.fontWeight === med);
+	r52("idle pill: no ring, not the pressed weight", `shadow none, weight != ${med}`, `${off.boxShadow} | ${off.fontWeight}`, off.boxShadow === "none" && off.fontWeight !== med);
+	// 7: disabled buttons: dashed boundary (solid in the control colour, subtle in the hairline), different from each other, text on the disabled pair.
+	const ds = await cs("fx2-dis-solid", ["borderTopStyle", "borderTopWidth", "borderTopColor", "color"]), db = await cs("fx2-dis-subtle", ["borderTopStyle", "borderTopWidth", "borderTopColor", "color"]);
+	const td = await tok("--ins-text-disabled", "color");
+	r52("disabled solid .es-button: 2px dashed boundary in --ins-border-control, text --ins-text-disabled", `dashed 2px ${bc} ${td}`, `${ds.borderTopStyle} ${ds.borderTopWidth} ${ds.borderTopColor} ${ds.color}`, ds.borderTopStyle === "dashed" && ds.borderTopWidth === "2px" && ds.borderTopColor === bc && ds.color === td);
+	r52("disabled subtle .es-button: 1px dashed boundary in --ins-border-control, text --ins-text-disabled", `dashed 1px ${bc} ${td}`, `${db.borderTopStyle} ${db.borderTopWidth} ${db.borderTopColor} ${db.color}`, db.borderTopStyle === "dashed" && db.borderTopWidth === "1px" && db.borderTopColor === bc && db.color === td);
+	r52("disabled solid and subtle are distinguishable (boundary width differs)", "2px vs 1px", `${ds.borderTopWidth} vs ${db.borderTopWidth}`, ds.borderTopWidth !== db.borderTopWidth);
+	// 4: forced colours: the accent bar of the current sidebar row and dock tile is a system colour, and the row takes an outline; the pressed pill a border.
+	await page.emulateMedia({ forcedColors: "active", reducedMotion: "no-preference" });
+	const hl = await page.evaluate(() => { const e = document.createElement("i"); e.style.cssText = "forced-color-adjust:none;background-color:Highlight"; document.body.append(e); const c = getComputedStyle(e).backgroundColor; e.remove(); return c; });
+	for (const id of ["fx2-sb-active", "fx2-dock-active"]) {
+		const bar = await cs(id, ["backgroundColor"], "::before"), o = await cs(id, ["outlineStyle", "outlineWidth"]);
+		r52(`forced colours: #${id} bar = Highlight and a 1px outline`, `${hl} | solid 1px`, `${bar.backgroundColor} | ${o.outlineStyle} ${o.outlineWidth}`, bar.backgroundColor === hl && o.outlineStyle === "solid" && o.outlineWidth === "1px");
+	}
+	const pb = await cs("fx2-pill-on", ["borderTopStyle", "borderTopWidth"]), pi = await cs("fx2-pill-off", ["borderTopStyle"]);
+	r52("forced colours: pressed pill has a 1px solid border, idle pill none", "solid 1px | none", `${pb.borderTopStyle} ${pb.borderTopWidth} | ${pi.borderTopStyle}`, pb.borderTopStyle === "solid" && pb.borderTopWidth === "1px" && pi.borderTopStyle === "none");
+	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
+}
+
 async function v1652(page, dir, scenario) {
 	const rec = (check, expected, actual, pass) => record(scenario, check, expected, actual, pass, V52);
 	await page.emulateMedia({ forcedColors: "none", reducedMotion: "no-preference" });
@@ -489,6 +537,7 @@ for (const dir of ["ltr", "rtl"]) for (const pal of palettes) for (const mode of
 	const fcc = await page.evaluate(() => { const s = getComputedStyle(document.activeElement); return { id: document.activeElement.id, st: s.outlineStyle, w: s.outlineWidth }; });
 	record(scenario, "forced-colors: focused checked checkbox has an outline", "dt-on 2px solid", `${fcc.id} ${fcc.w} ${fcc.st}`, fcc.id === "dt-on" && fcc.st === "solid" && fcc.w === "2px");
 	await fix1(page, scenario);
+	await fix2(page, scenario);
 	if (only(["16.52.0"])) await v1652(page, dir, scenario);
 	await ctx.close();
 }

@@ -1,13 +1,13 @@
 {
  "summary": {
   "version": "16.32.0",
-  "generated": "2026-10-14T06:13:43.055Z",
+  "generated": "2026-10-14T07:37:44.386Z",
   "core": {
    "ltr": "/home/user/frappe-bench/sites/assets/frappe/dist/css/desk.bundle.3X47RWOV.css",
    "rtl": "/home/user/frappe-bench/sites/assets/frappe/dist/css-rtl/desk.bundle.3Z3EGJPI.css"
   },
   "bundles": {
-   "desk": 158327,
+   "desk": 161234,
    "graphite": 2342
   },
   "sassWarnings": [],
@@ -15,8 +15,8 @@
    "desk": true,
    "graphite": true
   },
-  "total": 4256,
-  "pass": 4256,
+  "total": 4544,
+  "pass": 4544,
   "fail": 0
  },
  "results": [
@@ -461,7 +461,7 @@
    "scenario": "ltr/midad/light",
    "check": "no second ring (box-shadow) on #select",
    "expected": "none or non-focus shadow only",
-   "actual": "rgba(0, 0, 0, 0.075) 0px 1px 2px 0px inset",
+   "actual": "rgba(0, 0, 0, 0.075) 0px 0.975547px 1.95109px 0px inset",
    "pass": true
   },
   {
@@ -1602,6 +1602,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -3186,6 +3294,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -4778,6 +4994,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/midad/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -6362,6 +6686,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/midad/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/graphite-after/light",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -7938,6 +8370,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -9530,6 +10070,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/graphite-after/automatic-light",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -11114,6 +11762,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/graphite-after/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -12690,6 +13446,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-after/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -14282,6 +15146,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/graphite-before/dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -15858,6 +16830,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -17450,6 +18530,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/graphite-before/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -19026,6 +20214,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/graphite-before/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -20618,6 +21914,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/second-app/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/second-app/dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -22194,6 +23598,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -23786,6 +25298,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "ltr/second-app/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -25362,6 +26982,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "ltr/second-app/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -26978,6 +28706,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/midad/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/midad/dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -28578,6 +30414,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -30194,6 +32138,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/midad/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -31802,6 +33854,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/midad/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/graphite-after/light",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -33402,6 +35562,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -35018,6 +37286,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/graphite-after/automatic-light",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -36626,6 +39002,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/graphite-after/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -38226,6 +40710,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-after/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -39842,6 +42434,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/graphite-before/dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -41442,6 +44142,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -43058,6 +45866,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/graphite-before/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -44658,6 +47574,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/graphite-before/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -46274,6 +49298,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/second-app/light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/second-app/dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -47874,6 +51006,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   },
   {
@@ -49490,6 +52730,114 @@
     "16.32.0",
     "16.52.0"
    ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(218, 222, 229)",
+   "actual": "rgb(218, 222, 229)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(66, 75, 87)",
+   "actual": "rgb(66, 75, 87)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(218, 222, 229) 8px)",
+   "actual": "0px rgb(66, 75, 87) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgba(9, 16, 24, 0.1) 0px 6px 16px 0px, rgba(9, 16, 24, 0.08) 0px 1px 3px 0px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-light",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
    "scenario": "rtl/second-app/automatic-dark",
    "check": "all 742 custom properties from generated partials",
    "expected": "0 mismatches",
@@ -51090,6 +54438,114 @@
    "check": "forced-colors: focused checked checkbox has an outline",
    "expected": "dt-on 2px solid",
    "actual": "dt-on 2px solid",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "gantt .tick.thick keeps the round-3 line colour (--ins-border)",
+   "expected": "rgb(46, 54, 65)",
+   "actual": "rgb(46, 54, 65)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "sidebar focus ring without standard-items-band (16.32.0 markup): outside, offset 2px",
+   "expected": "solid 2px",
+   "actual": "solid 2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "sidebar focus ring with standard-items-band (v16.52.0 markup): inside, offset -2px",
+   "expected": "solid -2px",
+   "actual": "solid -2px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "About dialog copy button glyph strokes in --ins-text-secondary (round 3)",
+   "expected": "rgb(185, 190, 198)",
+   "actual": "rgb(185, 190, 198)",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "foreign .dock: the theme hairline and overlay radius are not applied",
+   "expected": "not (1px rgb(46, 54, 65) 8px)",
+   "actual": "0px rgb(185, 190, 198) 0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "foreign .sidebar-panel: the theme overlay shadow is not applied",
+   "expected": "!= rgb(46, 54, 65) 0px 0px 0px 1px",
+   "actual": "none",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "foreign .panel-header-actions span: the theme radius is not applied",
+   "expected": "!= 4px",
+   "actual": "0px",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "#fx2-outline: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
+   "pass": true
+  },
+  {
+   "version": "16.32.0",
+   "versions": [
+    "16.32.0",
+    "16.52.0"
+   ],
+   "scenario": "rtl/second-app/automatic-dark",
+   "check": "#fx2-kbd: literal 420 replaced by --ins-weight-regular",
+   "expected": "400",
+   "actual": "400",
    "pass": true
   }
  ]

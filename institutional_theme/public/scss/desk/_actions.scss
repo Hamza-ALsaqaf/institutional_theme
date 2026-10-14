@@ -73,6 +73,32 @@ html:root[dir] .es-button {
 	--bt-disabled-fg: var(--ins-text-disabled);
 }
 
+// Control height. Core sizes `.es-button` from the local --es-bt-h (css/espresso/components/button.css:51 sm 28px, :125 xs 24px, :133 md 32px),
+// so it stayed 28px on touch while inputs grew to 44px. The theme's own scale carries comfortable 32px, compact 28px and coarse 44px:
+// the default (sm) and md take --ins-control-height, xs takes the small step. lg (40px) is left to core. Icon buttons are square by --es-bt-h (:202).
+// Core is (0,1,0) and (0,2,0); this is (0,3,1) and (0,4,1). 16.32.0 has no styled `.es-button`.
+html:root[dir] .es-button:not([data-size]),
+html:root[dir] .es-button[data-size="md"] {
+	--es-bt-h: var(--ins-control-height);
+}
+
+html:root[dir] .es-button[data-size="xs"] {
+	--es-bt-h: var(--ins-control-height-sm);
+}
+
+// Disabled: the fill alone could not tell a disabled subtle button from an enabled one (--ins-surface-fill and --ins-surface-disabled are both #f1f4f8 in Light),
+// nor solid from subtle. Same cue as `.form-control:disabled` (_controls.scss): a dashed boundary, which survives forced colours and greyscale, in the
+// control colour (3:1). Solid takes a 2px dash and subtle a 1px dash, so the two stay apart. Outline keeps core's own disabled border; ghost has no
+// boundary to dash. Text stays on the --ins-text-disabled pair above (4.41:1 Light, 3.70:1 Dark, the approved pair, over the 3:1 floor of the contrast rule).
+// Core's border is `1px solid transparent` in a border-box, so the 2px dash takes its width from the content, not from the height.
+html:root[dir] .es-button:is(:disabled, .disabled):not([data-variant="outline"], [data-variant="ghost"]) {
+	border: 1px dashed var(--ins-border-control);
+}
+
+html:root[dir] .es-button[data-variant="solid"]:is(:disabled, .disabled) {
+	border-width: 2px;
+}
+
 // 16.32.0 does have one `.es-button`, the About dialog's copy-versions button (ui/toolbar/about.js:62, no core CSS for it), and it keeps the
 // round-3 glyph colour; so the glyph rule skips that button's header row (also in v16.52.0, about.js:68).
 html:root[dir] .es-button:not(.about-section-header .es-button) {

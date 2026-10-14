@@ -47,6 +47,21 @@ html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar .sidebar-item
 	font-weight: var(--ins-weight-strong);
 }
 
+// Forced colours: the ring is a box-shadow and the accent bar a background, both dropped, so the current row looked like its neighbours.
+// The bar is kept as a system-colour fill (Highlight) and the row takes a CanvasText outline, except while focused, so the focus ring stays alone.
+// This also marks the current row on 16.32.0 (an intended improvement; the sidebar defect was in both versions).
+@media (forced-colors: active) {
+	html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar::before {
+		forced-color-adjust: none;
+		background: Highlight;
+	}
+
+	html:root[dir] .body-sidebar .standard-sidebar-item.active-sidebar:not(:focus-within) {
+		outline: 1px solid CanvasText;
+		outline-offset: -1px;
+	}
+}
+
 // ---- Sidebar labels and anchors: --ink-gray-6 is mapped, so only the weight of the group label is written.
 html:root[dir] .body-sidebar .standard-sidebar-item .item-anchor {
 	color: var(--ins-text-secondary);

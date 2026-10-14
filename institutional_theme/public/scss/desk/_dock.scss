@@ -22,6 +22,19 @@ html:root[dir] .dock:has(> .dock-items) .dock-item.active::before {
 	pointer-events: none;
 }
 
+// Forced colours: same as the sidebar row (_shell.scss), the ring and the bar are dropped by the system.
+@media (forced-colors: active) {
+	html:root[dir] .dock:has(> .dock-items) .dock-item.active::before {
+		forced-color-adjust: none;
+		background: Highlight;
+	}
+
+	html:root[dir] .dock:has(> .dock-items) .dock-item.active:not(:focus-visible) {
+		outline: 1px solid CanvasText;
+		outline-offset: -1px;
+	}
+}
+
 // ---- The floating tray: hairline and the overlay radius. A pinned dock (`body.dock-pinned`, dock.scss:223-246) is a flush column with its
 // own inline-end rule and radius 0, so it is left alone.
 html:root[dir] body:not(.dock-pinned) .dock:has(> .dock-items) {

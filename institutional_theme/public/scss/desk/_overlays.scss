@@ -83,6 +83,13 @@ html:root[dir] .es-toast[data-type="error"] {
 	--es-toast-icon: var(--ins-status-danger-solid);
 }
 
+// The icon is drawn with `stroke`, and core's `.icon { stroke: var(--icon-stroke) }` wins over the `stroke="currentColor"` attribute. The desk maps
+// --icon-stroke to the secondary text colour, so the status ink above only reached `color` and the drawn glyph stayed grey. The toast restores
+// core's own `currentColor` (css/espresso/legacy.css:46) on its type icon, so the stroke is the status ink. Core is (0,1,0); this is (0,3,2).
+html:root[dir] .es-toast[data-type] > svg {
+	--icon-stroke: currentColor;
+}
+
 // ---- Awesomplete list (link and awesomebar suggestions): same overlay surface.
 html:root[dir] .awesomplete > ul {
 	background: var(--ins-surface-overlay);
