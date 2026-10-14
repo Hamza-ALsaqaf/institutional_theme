@@ -1,0 +1,63 @@
+same ar-dark-comfortable-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-comfortable-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-comfortable-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-comfortable-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-comfortable-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-comfortable-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-compact-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-compact-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-compact-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-compact-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-compact-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-dark-compact-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-comfortable-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-comfortable-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-comfortable-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-comfortable-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-comfortable-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-comfortable-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-compact-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-compact-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-compact-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-compact-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-compact-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same ar-light-compact-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-automatic-osdark-comfortable-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+DIFF en-automatic-osdark-comfortable-form: variables 0, nested 0, attrs 0, elements changed 2, only before 0, only after 0
+    element ab[0]>div[0]>div[0]>div[0]>form[0]>div[1]>div[4]>div[0]>div[1]>div[0]>div[0]>div[0]>div[3]>div[1]>div[0]>input: [('background-color', 'rgb(75, 83, 94)', 'rgb(46, 54, 65)'), ('background-image', 'url("data:image/svg+xml, <svg viewBox=\'0 0 8 7\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M1 4.00001L2.66667 5.80001L7 1.20001\' stroke=\'black\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/></svg>"), linear-gradient(rgb(111, 119, 129), rgb(111, 119, 129))', 'none'), ('box-shadow', 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px inset', 'rgba(0, 0, 0, 0.1) 0px 1px 7px 0px inset')]
+    element ab[0]>div[0]>div[0]>div[0]>form[0]>div[1]>div[4]>div[0]>div[1]>div[0]>div[1]>div[0]>div[3]>div[1]>div[0]>input: [('background-color', 'rgb(46, 54, 65)', 'rgb(75, 83, 94)'), ('background-image', 'none', 'url("data:image/svg+xml, <svg viewBox=\'0 0 8 7\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M1 4.00001L2.66667 5.80001L7 1.20001\' stroke=\'black\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/></svg>"), linear-gradient(rgb(111, 119, 129), rgb(111, 119, 129))'), ('box-shadow', 'rgba(0, 0, 0, 0.1) 0px 1px 7px 0px inset', 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px inset')]
+same en-automatic-osdark-comfortable-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-automatic-osdark-comfortable-switcher: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-automatic-oslight-comfortable-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+DIFF en-automatic-oslight-comfortable-form: variables 0, nested 0, attrs 0, elements changed 2, only before 0, only after 0
+    element ab[0]>div[0]>div[0]>div[0]>form[0]>div[1]>div[4]>div[0]>div[1]>div[0]>div[0]>div[0]>div[3]>div[1]>div[0]>input: [('background-color', 'rgb(241, 244, 248)', 'rgb(88, 97, 109)'), ('background-image', 'none', 'url("data:image/svg+xml, <svg viewBox=\'0 0 8 7\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M1 4.00001L2.66667 5.80001L7 1.20001\' stroke=\'white\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/></svg>")'), ('border-top-color', 'rgb(184, 190, 199)', 'rgb(84, 84, 84)')]
+    element ab[0]>div[0]>div[0]>div[0]>form[0]>div[1]>div[4]>div[0]>div[1]>div[0]>div[1]>div[0]>div[3]>div[1]>div[0]>input: [('background-color', 'rgb(88, 97, 109)', 'rgb(241, 244, 248)'), ('background-image', 'url("data:image/svg+xml, <svg viewBox=\'0 0 8 7\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M1 4.00001L2.66667 5.80001L7 1.20001\' stroke=\'white\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/></svg>")', 'none'), ('border-top-color', 'rgb(84, 84, 84)', 'rgb(184, 190, 199)')]
+same en-automatic-oslight-comfortable-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-automatic-oslight-comfortable-switcher: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-comfortable-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-comfortable-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-comfortable-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-comfortable-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-comfortable-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-comfortable-switcher: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-comfortable-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-compact-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-compact-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-compact-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-compact-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-compact-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-dark-compact-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-comfortable-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-comfortable-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-comfortable-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-comfortable-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-comfortable-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-comfortable-switcher: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-comfortable-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-compact-desktop: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-compact-dialog: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-compact-form: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-compact-list: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-compact-report: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+same en-light-compact-workspace: variables 0, nested 0, attrs 0, elements changed 0, only before 0, only after 0
+58 dumps compared, 2 with differences or missing

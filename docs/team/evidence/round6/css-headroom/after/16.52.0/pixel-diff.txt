@@ -1,0 +1,35 @@
+same ar-dark-comfortable-desktop.png
+same ar-dark-comfortable-dialog.png
+same ar-dark-comfortable-form.png
+DIFF ar-dark-comfortable-list.png: pixels 8, max channel delta 1, bbox [529, 69, 681, 70]
+same ar-dark-comfortable-report.png
+same ar-dark-comfortable-workspace.png
+same ar-light-comfortable-desktop.png
+same ar-light-comfortable-dialog.png
+same ar-light-comfortable-form.png
+same ar-light-comfortable-list.png
+same ar-light-comfortable-report.png
+same ar-light-comfortable-workspace.png
+same en-automatic-osdark-comfortable-desktop.png
+same en-automatic-osdark-comfortable-form.png
+DIFF en-automatic-osdark-comfortable-list.png: pixels 14, max channel delta 2, bbox [509, 69, 750, 234]
+same en-automatic-osdark-comfortable-switcher.png
+same en-automatic-oslight-comfortable-desktop.png
+same en-automatic-oslight-comfortable-form.png
+same en-automatic-oslight-comfortable-list.png
+same en-automatic-oslight-comfortable-switcher.png
+same en-dark-comfortable-desktop.png
+same en-dark-comfortable-dialog.png
+same en-dark-comfortable-form.png
+DIFF en-dark-comfortable-list.png: pixels 14, max channel delta 2, bbox [509, 69, 750, 234]
+same en-dark-comfortable-report.png
+same en-dark-comfortable-switcher.png
+same en-dark-comfortable-workspace.png
+same en-light-comfortable-desktop.png
+same en-light-comfortable-dialog.png
+same en-light-comfortable-form.png
+DIFF en-light-comfortable-list.png: pixels 13, max channel delta 2, bbox [297, 70, 561, 234]
+same en-light-comfortable-report.png
+same en-light-comfortable-switcher.png
+same en-light-comfortable-workspace.png
+34 pairs, 4 differ or missing, 49 differing pixels in total
