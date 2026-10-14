@@ -1,0 +1,47 @@
+commit 7525f37 at 2026-10-14T00:53:34Z
+$ uvx --quiet ruff@0.16.8 check .
+All checks passed!
+exit 0
+$ uvx --quiet ruff@0.16.8 format --check .
+113 files already formatted
+exit 0
+$ python3.14 -m unittest discover -s institutional_theme/midad/tests -t .
+..................................................................................................................................
+----------------------------------------------------------------------
+Ran 130 tests in 1.832s
+
+OK
+exit 0
+$ python3.14 -m unittest discover -s institutional_theme/audits/tests -t .
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 0.325s
+
+OK
+exit 0
+$ python3.14 -m institutional_theme.midad.build --check
+build --check: 12 file(s) checked, 0 stale
+exit 0
+$ python3.14 -m institutional_theme.audits
+Presets: midad, graphite, petrol, forest, plum, umber; shipped: midad, graphite, petrol, forest, plum
+contrast  midad     light pass (0 failing)
+contrast  midad     dark  pass (0 failing)
+contrast  graphite  light pass (0 failing)
+contrast  graphite  dark  pass (0 failing)
+contrast  petrol    light pass (0 failing)
+contrast  petrol    dark  pass (0 failing)
+contrast  forest    light pass (0 failing)
+contrast  forest    dark  pass (0 failing)
+contrast  plum      light pass (0 failing)
+contrast  plum      dark  pass (0 failing)
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+parity: 55 checks, 0 failed
+colour-vision: 0 failure(s) (status, neighbouring series, gap not in the baseline), 99 baselined chart gap(s) in shipped presets
+dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
+budgets: 0 problem(s)
+wrote contrast.txt, contrast.json, parity.txt, colour_vision.txt, dead_tokens.txt, budgets.txt to docs/audits
+audits: passed
+exit 0
+CI PASSED
