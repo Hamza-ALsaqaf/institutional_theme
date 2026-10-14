@@ -51,3 +51,14 @@ Scores:
 - **Performance 4/5:** one bounded observer per layout, filtered to `class`. `ins_web` CSS is still about 61 KiB (`build1.log`), and CI has no budget check.
 - **Documentation 4/5:** all three contradictions fixed. The new 2g rows label what is ASSUMED.
 - **Craft 4/5:** guarded templates, a test for records saved before the guard, and a non-destructive print test. The physical `margin-left` is justified.
+
+## Improvement wave
+
+**Blocking: None.**
+
+- `field_labels.js`: one observer per form layout (WeakSet), created on `form-refresh` (`form.js:624`, before `refresh_fields`), so no global observer and no observer on pages without a form. Passes are batched per animation frame. It reuses an existing label `id`, skips any existing `aria-label` or foreign `aria-labelledby`, and never writes the input `id`. The DOM match is the `base_input.js:19-30` template. Evidence shows 0 duplicate ids; the unnamed checkboxes are core `grid-row-check`. Minor: `childList` with subtree on the whole layout rescans every `.frappe-control` on any insertion (timeline, grid, awesomplete).
+- `idle_warning.js`: the in-flight guard is correct. Minor: the capture-phase Esc listener calls `stopPropagation` while the warning shows, wherever focus is, so Esc cannot close an open modal at that time.
+- SCSS: no `!important`, no datatable heights, logical properties only. The token gives 44px on coarse pointers (`_scale.scss:77`).
+- `ar.csv`: none of the 14 rows overrides core. Each `msgstr` is empty in frappe, erpnext and hrms `ar.po`.
+
+The four scores stay the same.

@@ -60,3 +60,25 @@ Designed to meet WCAG 2.2 AA; formal audit recommended. Re-checked live (`/tmp/a
 | Calm | 4 | Unchanged |
 | Consistency | 4 | 99 chart gaps remain |
 | Credibility | 4 | Login title "دخول"; some English stays |
+
+## Improvement wave
+
+Designed to meet WCAG 2.2 AA; formal audit recommended. Read the diff `fce39b1..HEAD` and ran checks live (`/tmp/a11yr2c/live.mjs`; my user lacks Customer permission, so the Event form stood in).
+
+**Blocking:** None.
+
+**Now verified (was "Not tested"):**
+- Input names (Arabic, Event form): all 7 sampled `aria-labelledby` ids resolve to their visible labels; AX names equal the labels (required adds " *").
+- Reflow at 320 CSS px, Arabic list: `scrollWidth` 320, no horizontal scroll, readable screenshot.
+- Reduced motion: a dialog opened has `.modal-dialog` and backdrop at 1e-05s and no running animations.
+- Zoom 200/400 and coarse pointer: read from the evidence JSON only (COMPUTED, not rerun).
+
+**Minor, open:**
+- Grid row checkboxes stay unnamed (5 in DOM; 2 to 3 in the AX tree of Sales Invoice and Item).
+- List row checkboxes are 16px; no coarse rule covers them.
+- The Esc handler runs in capture phase and swallows Esc for any control while the banner shows.
+- "Attending" is still English.
+
+**Scores:** Accessibility stays 4 (named inputs closed, targets open). No other score changes.
+
+Still untested: screen readers, Esc live, light-theme hover pairs.
