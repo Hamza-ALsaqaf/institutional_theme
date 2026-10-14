@@ -3,7 +3,9 @@
 // Chrome renders the same text. No fonts here: `print/ship.py` prepends the `@font-face` block and the family rule.
 //
 // Rules for this file:
-//  - Every selector starts with `.print-format` (Print Style CSS is unscoped and is sent in every desk boot).
+//  - Every selector starts with `.print-format` or `body.print-format-doc` (Print Style CSS is unscoped and is sent
+//    in every desk boot). The second root is ERPNext 16.50's "Modern" formats, which have no `.print-format`
+//    element and put the class on `<body>`. A comma list, not `:is()`: wkhtmltopdf's WebKit has no `:is()`.
 //  - Meaning is carried by borders, weight and shape, never by a tint alone (black-and-white photocopy).
 //  - QtWebKit has no logical properties, no flex, no grid, no `inset`, no `text-align: start`: the block axis
 //    uses `border-top` and `border-bottom`, layout uses `display: table`, and the few inline-axis rules are a
@@ -13,7 +15,8 @@
 /*rtl:begin:ignore*/
 @import "generated/literals";
 
-.print-format {
+.print-format,
+body.print-format-doc {
 	color: $ins-text-strong;
 	line-height: $ins-leading;
 	-webkit-print-color-adjust: exact;
@@ -152,7 +155,6 @@
 	// Figures: core aligns numeric columns with `text-right` (flipped by the RTL print bundle). Digits stay
 	// left to right inside Arabic text and use tabular lining figures where the renderer has them.
 	td.text-right,
-	th.text-right,
 	td.text-right .value {
 		direction: ltr;
 		unicode-bidi: embed;
@@ -376,7 +378,8 @@
 // Physical pairs for the inline axis where the renderer has no logical properties. Core and ERPNext name
 // alignment with physical classes (`text-right` for figures); in Arabic figures sit at the line end (left)
 // and text at the line start (right), set here so it does not depend on which stylesheet loaded last.
-[dir="rtl"] .print-format {
+[dir="rtl"] .print-format,
+[dir="rtl"] body.print-format-doc {
 	// Label blocks: a label that stays English (ERPNext hard-codes "Customer Name:" and "Bill to:" in the
 	// Quotation print formats) must keep its colon after the words. Each block takes its direction from
 	// its own first strong letter; the physical right edge keeps the column alignment. Chromium honours
@@ -425,11 +428,13 @@
 // top margin. Only that page has a `.wrapper` without `onload` on `body` (the wkhtmltopdf header page
 // has `onload="subst()"` and pads itself by 15mm to cancel its own -15mm; printview.html has no
 // `.wrapper`), so the extra space is added there only. It collapses with the core margin: net +4mm from the page top.
-body:not([onload]) .print-format .wrapper .letter-head .ins-lh {
+body:not([onload]) .print-format .wrapper .letter-head .ins-lh,
+body.print-format-doc:not([onload]) .wrapper .letter-head .ins-lh {
 	margin-top: 16mm;
 }
 
-body:not([onload]) .print-format .wrapper .letter-head-footer .ins-lf {
+body:not([onload]) .print-format .wrapper .letter-head-footer .ins-lf,
+body.print-format-doc:not([onload]) .wrapper .letter-head-footer .ins-lf {
 	margin-top: 12mm;
 }
 /*rtl:end:ignore*/

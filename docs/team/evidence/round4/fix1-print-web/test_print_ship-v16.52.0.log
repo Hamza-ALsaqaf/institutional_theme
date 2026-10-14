@@ -1,0 +1,35 @@
+Starting test run with parameters: site=midad52.test, app=institutional_theme, module=institutional_theme.tests.test_print_ship, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/newest-bench/logs/frappe.testing.log
+
+Running 21 integration tests for institutional_theme
+
+institutional_theme.tests.test_print_ship.TestDecide
+   [32m ✔ [0m test_decisions
+   [32m ✔ [0m test_the_checksum_separates_its_parts
+   [32m ✔ [0m test_the_source_map_comment_is_dropped
+
+institutional_theme.tests.test_print_ship.TestShip
+   [32m ✔ [0m test_a_deleted_record_is_not_created_again
+   [32m ✔ [0m test_a_missing_bundle_skips_without_error
+   [32m ✔ [0m test_a_record_shipped_before_the_guard_is_updated_not_flagged [31m (2.33s)[0m
+   [32m ✔ [0m test_an_administrators_edit_is_not_overwritten
+   [32m ✔ [0m test_an_existing_record_the_theme_did_not_ship_is_left_alone
+   [32m ✔ [0m test_an_unbuilt_manifest_entry_skips
+   [32m ✔ [0m test_an_untouched_record_is_updated_when_the_content_changes [31m (2.33s)[0m
+   [32m ✔ [0m test_missing_templates_skip_without_error
+   [32m ✔ [0m test_nothing_becomes_the_default
+   [32m ✔ [0m test_ships_once
+   [32m ✔ [0m test_the_bundle_is_found_through_the_manifest
+   [32m ✔ [0m test_the_font_block_follows_the_pairing
+   [32m ✔ [0m test_the_header_with_the_app_still_shows_the_emblem
+   [32m ✔ [0m test_the_installed_hooks_are_registered
+   [32m ✔ [0m test_the_second_run_changes_nothing
+   [32m ✔ [0m test_the_shipped_templates_print_without_the_app
+   [32m ✔ [0m test_uninstall_keeps_a_linked_record [31m (4.65s)[0m
+   [32m ✔ [0m test_uninstall_removes_untouched_and_keeps_changed [31m (4.48s)[0m
+
+
+----------------------------------------------------------------------
+Ran 21 tests in 32.568s
+
+OK

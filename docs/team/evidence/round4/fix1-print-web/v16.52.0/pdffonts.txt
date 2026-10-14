@@ -1,0 +1,113 @@
+## v16.52.0/chrome-A4-ar-standard-core.pdf
+AAAAAA+DejaVuSans
+AAAAAA+LiberationSans
+AAAAAA+LiberationSans-Bold
+BAAAAA+DejaVuSans
+BAAAAA+LiberationSans
+CAAAAA+DejaVuSans
+CAAAAA+LiberationSans
+DAAAAA+DejaVuSans
+EAAAAA+DejaVuSans
+## v16.52.0/chrome-A4-ar-standard.pdf
+AAAAAA+IBMPlexSans
+AAAAAA+IBMPlexSans-Medm
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSansArabic
+BAAAAA+IBMPlexSansArabic-Medm
+BAAAAA+IBMPlexSansArabic-SmBld
+CAAAAA+IBMPlexSans-Medm
+CAAAAA+IBMPlexSans-SmBld
+DAAAAA+IBMPlexSans
+EAAAAA+IBMPlexSansArabic
+FAAAAA+IBMPlexSansArabic-SmBld
+## v16.52.0/chrome-A4-ar.pdf
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSans
+CAAAAA+IBMPlexSansArabic-SmBld
+DAAAAA+IBMPlexSansArabic
+## v16.52.0/chrome-A4-en-standard-core.pdf
+AAAAAA+LiberationSans
+AAAAAA+LiberationSans-Bold
+BAAAAA+LiberationSans
+BAAAAA+LiberationSans-Bold
+CAAAAA+DejaVuSans
+DAAAAA+DejaVuSans
+## v16.52.0/chrome-A4-en-standard.pdf
+AAAAAA+IBMPlexSans
+AAAAAA+IBMPlexSans-Medm
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSans-Medm
+BAAAAA+IBMPlexSans-SmBld
+CAAAAA+IBMPlexSans
+DAAAAA+IBMPlexSansArabic
+EAAAAA+IBMPlexSansArabic-SmBld
+## v16.52.0/chrome-A4-en.pdf
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSans
+CAAAAA+IBMPlexSansArabic-SmBld
+DAAAAA+IBMPlexSansArabic
+## v16.52.0/wkhtmltopdf-A4-ar-standard-core.pdf
+DejaVuSans
+DejaVuSans-Bold
+LiberationSans
+LiberationSans-Bold
+## v16.52.0/wkhtmltopdf-A4-ar-standard.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld
+## v16.52.0/wkhtmltopdf-A4-ar.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld
+## v16.52.0/wkhtmltopdf-A4-en-standard-core.pdf
+DejaVuSans
+DejaVuSans-Bold
+LiberationSans
+LiberationSans-Bold
+## v16.52.0/wkhtmltopdf-A4-en-standard.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld
+## v16.52.0/wkhtmltopdf-A4-en.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld
+## v16.52.0/letter/chrome-Letter-ar-standard.pdf
+AAAAAA+IBMPlexSans
+AAAAAA+IBMPlexSans-Medm
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSansArabic
+BAAAAA+IBMPlexSansArabic-Medm
+BAAAAA+IBMPlexSansArabic-SmBld
+CAAAAA+IBMPlexSans-Medm
+CAAAAA+IBMPlexSans-SmBld
+DAAAAA+IBMPlexSans
+EAAAAA+IBMPlexSansArabic
+FAAAAA+IBMPlexSansArabic-SmBld
+## v16.52.0/letter/chrome-Letter-ar.pdf
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSans
+CAAAAA+IBMPlexSansArabic-SmBld
+DAAAAA+IBMPlexSansArabic
+## v16.52.0/letter/chrome-Letter-en-standard.pdf
+AAAAAA+IBMPlexSans
+AAAAAA+IBMPlexSans-Medm
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSans-Medm
+BAAAAA+IBMPlexSans-SmBld
+CAAAAA+IBMPlexSans
+DAAAAA+IBMPlexSansArabic
+EAAAAA+IBMPlexSansArabic-SmBld
+## v16.52.0/letter/chrome-Letter-en.pdf
+AAAAAA+IBMPlexSans-SmBld
+BAAAAA+IBMPlexSans
+CAAAAA+IBMPlexSansArabic-SmBld
+DAAAAA+IBMPlexSansArabic
+## v16.52.0/letter/wkhtmltopdf-Letter-ar-standard.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld
+## v16.52.0/letter/wkhtmltopdf-Letter-ar.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld
+## v16.52.0/letter/wkhtmltopdf-Letter-en-standard.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld
+## v16.52.0/letter/wkhtmltopdf-Letter-en.pdf
+IBMPlexSansArabic-Medm
+IBMPlexSansArabic-SmBld

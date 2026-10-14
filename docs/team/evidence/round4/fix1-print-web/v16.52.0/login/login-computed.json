@@ -1,0 +1,35 @@
+{
+ "en": {
+  "dir": "ltr",
+  "cardBorderTop": "3px rgb(27, 80, 134)",
+  "cardRadius": "8px",
+  "wrapperClass": "for-login",
+  "emailPadStart": "38px",
+  "emailPadEnd": "12px",
+  "pwPadStart": "38px",
+  "pwPadEnd": "38px",
+  "hasFieldIcon": false
+ },
+ "en_with_extra_class_before": {
+  "dir": "ltr",
+  "cardBorderTop": "3px rgb(27, 80, 134)",
+  "cardRadius": "8px",
+  "wrapperClass": "flex flex-col for-login",
+  "emailPadStart": "38px",
+  "emailPadEnd": "12px",
+  "pwPadStart": "38px",
+  "pwPadEnd": "38px",
+  "hasFieldIcon": false
+ },
+ "ar": {
+  "dir": "rtl",
+  "cardBorderTop": "3px rgb(27, 80, 134)",
+  "cardRadius": "8px",
+  "wrapperClass": "for-login",
+  "emailPadStart": "38px",
+  "emailPadEnd": "12px",
+  "pwPadStart": "38px",
+  "pwPadEnd": "38px",
+  "hasFieldIcon": false
+ }
+}

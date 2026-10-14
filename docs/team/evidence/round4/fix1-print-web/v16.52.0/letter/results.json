@@ -1,0 +1,46 @@
+{
+ "wkhtmltopdf-Letter-en": {
+  "ok": true,
+  "bytes": 26391
+ },
+ "wkhtmltopdf-Letter-ar": {
+  "ok": true,
+  "bytes": 31328
+ },
+ "chrome-Letter-en": {
+  "ok": true,
+  "bytes": 127364
+ },
+ "chrome-Letter-ar": {
+  "ok": true,
+  "bytes": 172962
+ },
+ "wkhtmltopdf-Letter-en-standard": {
+  "ok": true,
+  "bytes": 20538
+ },
+ "wkhtmltopdf-Letter-ar-standard": {
+  "ok": true,
+  "bytes": 29580
+ },
+ "chrome-Letter-en-standard": {
+  "ok": true,
+  "bytes": 102765
+ },
+ "chrome-Letter-ar-standard": {
+  "ok": true,
+  "bytes": 172195
+ },
+ "email-en": {
+  "bytes": 10053,
+  "has_var_function": false,
+  "has_theme_brand_rule": true,
+  "has_unicode_bidi_plaintext": true
+ },
+ "email-ar": {
+  "bytes": 10018,
+  "has_var_function": false,
+  "has_theme_brand_rule": true,
+  "has_unicode_bidi_plaintext": true
+ }
+}

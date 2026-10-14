@@ -118,7 +118,7 @@ def compose_style(font_block: str, sans_family: str, bundle_css: str) -> str:
 	The bundle declares no font (wkhtmltopdf has no custom properties and the faces depend on the
 	selected pairing), so the family rule is written here; without it a PDF falls back to DejaVu.
 	"""
-	family_rule = f".print-format {{\n\tfont-family: {sans_family};\n}}\n"
+	family_rule = f".print-format,\nbody.print-format-doc {{\n\tfont-family: {sans_family};\n}}\n"
 	return STYLE_COMMENT + font_block.rstrip() + "\n\n" + family_rule + "\n" + strip_source_map(bundle_css)
 
 
