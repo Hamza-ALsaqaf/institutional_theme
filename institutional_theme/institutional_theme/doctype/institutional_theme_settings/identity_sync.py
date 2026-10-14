@@ -43,6 +43,8 @@ from typing import Any
 import frappe
 from frappe.utils import now_datetime
 
+from institutional_theme import cache_guard, guard_log
+
 DOCTYPE = "Institutional Theme Settings"
 PRIOR_KEY = "ins_identity_prior"
 WRITTEN_KEY = "ins_identity_written"
@@ -66,7 +68,7 @@ def _key(doctype: str, fieldname: str) -> str:
 
 
 def _load(global_key: str) -> dict[str, Any]:
-	raw = frappe.db.get_global(global_key)
+	raw = cache_guard.get_global(global_key)
 	if not raw:
 		return {}
 	try:
@@ -77,7 +79,7 @@ def _load(global_key: str) -> dict[str, Any]:
 
 
 def _store(global_key: str, value: dict[str, Any]) -> None:
-	frappe.db.set_global(global_key, json.dumps(value, sort_keys=True))
+	cache_guard.set_global(global_key, json.dumps(value, sort_keys=True))
 
 
 def _text(value: Any) -> str:
@@ -128,13 +130,27 @@ def changed_fields(doc: Any, old: Any) -> list[str]:
 	return changed
 
 
-def clear_website_caches() -> None:
-	"""The cache clearing that Website Settings `on_update` performs."""
+def _clear_website_caches() -> None:
 	import frappe.website.utils
 
 	frappe.clear_cache(user="Guest")
 	frappe.website.utils.clear_cache()
 	frappe.clear_cache()
+
+
+def _clear_website_caches_guarded() -> None:
+	try:
+		_clear_website_caches()
+	except Exception:
+		guard_log.log_once("Institutional Theme: identity caches")
+
+
+def clear_website_caches() -> None:
+	"""The cache clearing that Website Settings `on_update` performs, now and again after the
+	transaction ends: a page rendered in between would otherwise cache the old name or logo until the
+	next clear (`cache_guard`)."""
+	_clear_website_caches()
+	cache_guard.after_transaction(_clear_website_caches_guarded)
 
 
 def apply(doc: Any, old: Any) -> list[str]:
@@ -229,7 +245,7 @@ def restore() -> list[str]:
 		clear_website_caches()
 
 	for global_key in (PRIOR_KEY, WRITTEN_KEY):
-		frappe.defaults.clear_default(key=global_key, parent="__global")
+		cache_guard.clear_global(global_key)
 	return restored
 
 
@@ -279,5 +295,5 @@ def delete_attachments() -> int:
 		if frappe.db.exists("File", name):
 			frappe.delete_doc("File", name, force=True, ignore_permissions=True)
 			deleted += 1
-	frappe.defaults.clear_default(key=FILES_KEY, parent="__global")
+	cache_guard.clear_global(FILES_KEY)
 	return deleted

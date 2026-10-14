@@ -1,0 +1,1118 @@
+[
+ {
+  "key": "en-light",
+  "dates": [
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   }
+  ],
+  "subj": [
+   {
+    "text": "مهمة تجريبية بوصف طويل جدا لا ",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task with a deliberately",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task three",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task two",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task one",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   }
+  ],
+  "tabs": [
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "مهمة تجريبية بوصف طويل جد",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task with a deliber",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task three\n\t\t\t\n\t\t\n\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task two\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task one\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset sidebar-toggle-btn navbar-bran",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 15,
+    "right": 35,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset search-bar navbar-modal-search",
+    "name": "Search",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 112,
+    "right": 140,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button ellipsis",
+    "name": "List View",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 148,
+    "right": 180,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button icon-btn menu-more-button",
+    "name": "Menu",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 188,
+    "right": 220,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button primary-action",
+    "name": "Add ToDoAdd",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 228,
+    "right": 295,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "sr-only sr-only-focusable btn btn-primar",
+    "name": "Navigate to main content",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 0,
+    "right": 73,
+    "ringClip": null
+   },
+   {
+    "tag": "input",
+    "cls": "input-with-feedback form-control input-x",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 17,
+    "right": 94,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default  match-type-dropdown-btn",
+    "name": "Match type",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 94,
+    "right": 127,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "filter-toggle btn btn-default btn-sm hid",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 137,
+    "right": 169,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-button",
+    "name": "Filter",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 141,
+    "right": 173,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-x-button",
+    "name": "Clear all filters",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 172,
+    "right": 205,
+    "ringClip": null
+   }
+  ],
+  "rowStops": 5,
+  "rowRingClip": 0,
+  "invisibleStopsBeforeFirstRow": 0,
+  "toggled": "btn-reset sidebar-toggle-btn navbar-brand",
+  "opened": {
+   "expanded": true,
+   "firstVisible": true,
+   "childVis": [
+    "visible",
+    "visible",
+    "visible"
+   ]
+  }
+ },
+ {
+  "key": "en-dark",
+  "dates": [
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 79,
+    "fullyVisible": false
+   }
+  ],
+  "subj": [
+   {
+    "text": "مهمة تجريبية بوصف طويل جدا لا ",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task with a deliberately",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task three",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task two",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task one",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   }
+  ],
+  "tabs": [
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "مهمة تجريبية بوصف طويل جد",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task with a deliber",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task three\n\t\t\t\n\t\t\n\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task two\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task one\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 17,
+    "right": 294,
+    "ringClip": false
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset sidebar-toggle-btn navbar-bran",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 15,
+    "right": 35,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset search-bar navbar-modal-search",
+    "name": "Search",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 112,
+    "right": 140,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button ellipsis",
+    "name": "List View",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 148,
+    "right": 180,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button icon-btn menu-more-button",
+    "name": "Menu",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 188,
+    "right": 220,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button primary-action",
+    "name": "Add ToDoAdd",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 228,
+    "right": 295,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "sr-only sr-only-focusable btn btn-primar",
+    "name": "Navigate to main content",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 0,
+    "right": 73,
+    "ringClip": null
+   },
+   {
+    "tag": "input",
+    "cls": "input-with-feedback form-control input-x",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 17,
+    "right": 94,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default  match-type-dropdown-btn",
+    "name": "Match type",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 94,
+    "right": 127,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "filter-toggle btn btn-default btn-sm hid",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 137,
+    "right": 169,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-button",
+    "name": "Filter",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 141,
+    "right": 173,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-x-button",
+    "name": "Clear all filters",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 172,
+    "right": 205,
+    "ringClip": null
+   }
+  ],
+  "rowStops": 5,
+  "rowRingClip": 0,
+  "invisibleStopsBeforeFirstRow": 0,
+  "toggled": "btn-reset sidebar-toggle-btn navbar-brand",
+  "opened": {
+   "expanded": true,
+   "firstVisible": true,
+   "childVis": [
+    "visible",
+    "visible",
+    "visible"
+   ]
+  }
+ },
+ {
+  "key": "ar-light",
+  "dates": [
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   }
+  ],
+  "subj": [
+   {
+    "text": "مهمة تجريبية بوصف طويل جدا لا ",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task with a deliberately",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task three",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task two",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task one",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   }
+  ],
+  "tabs": [
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "مهمة تجريبية بوصف طويل جد",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task with a deliber",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task three\n\t\t\t\n\t\t\n\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task two\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task one\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset sidebar-toggle-btn navbar-bran",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 285,
+    "right": 305,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset search-bar navbar-modal-search",
+    "name": "البحث",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 187,
+    "right": 215,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button ellipsis",
+    "name": "عرض منسدل",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 147,
+    "right": 179,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button icon-btn menu-more-button",
+    "name": "الخيارات",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 107,
+    "right": 139,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button primary-action",
+    "name": "أضِف قائمة المهامإضافة",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 25,
+    "right": 99,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "sr-only sr-only-focusable btn btn-primar",
+    "name": "انتقل إلى المحتوى الرئيسي",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 261,
+    "right": 320,
+    "ringClip": null
+   },
+   {
+    "tag": "input",
+    "cls": "input-with-feedback form-control input-x",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 226,
+    "right": 303,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default  match-type-dropdown-btn",
+    "name": "نوع المطابقة",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 193,
+    "right": 226,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "filter-toggle btn btn-default btn-sm hid",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 151,
+    "right": 183,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-button",
+    "name": "منقي",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 147,
+    "right": 179,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-x-button",
+    "name": "مسح جميع الفلاتر",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 115,
+    "right": 148,
+    "ringClip": null
+   }
+  ],
+  "rowStops": 5,
+  "rowRingClip": 0,
+  "invisibleStopsBeforeFirstRow": 0,
+  "toggled": "btn-reset sidebar-toggle-btn navbar-brand",
+  "opened": {
+   "expanded": true,
+   "firstVisible": true,
+   "childVis": [
+    "visible",
+    "visible",
+    "visible"
+   ]
+  }
+ },
+ {
+  "key": "ar-dark",
+  "dates": [
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   },
+   {
+    "found": true,
+    "width": 76,
+    "fullyVisible": false
+   }
+  ],
+  "subj": [
+   {
+    "text": "مهمة تجريبية بوصف طويل جدا لا ",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task with a deliberately",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task three",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task two",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   },
+   {
+    "text": "Probe task one",
+    "trunc": true,
+    "textOverflow": "ellipsis",
+    "overflow": "hidden",
+    "inside": true,
+    "ok": true
+   }
+  ],
+  "tabs": [
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "مهمة تجريبية بوصف طويل جد",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task with a deliber",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task three\n\t\t\t\n\t\t\n\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task two\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "div",
+    "cls": "list-row-container",
+    "name": "Probe task one\n\t\t\t\n\t\t\n\t\t\t",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off -2px",
+    "left": 26,
+    "right": 303,
+    "ringClip": false
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset sidebar-toggle-btn navbar-bran",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 285,
+    "right": 305,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn-reset search-bar navbar-modal-search",
+    "name": "البحث",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 187,
+    "right": 215,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button ellipsis",
+    "name": "عرض منسدل",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 147,
+    "right": 179,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button icon-btn menu-more-button",
+    "name": "الخيارات",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 107,
+    "right": 139,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "es-button primary-action",
+    "name": "أضِف قائمة المهامإضافة",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 25,
+    "right": 99,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "sr-only sr-only-focusable btn btn-primar",
+    "name": "انتقل إلى المحتوى الرئيسي",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 261,
+    "right": 320,
+    "ringClip": null
+   },
+   {
+    "tag": "input",
+    "cls": "input-with-feedback form-control input-x",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 226,
+    "right": 303,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default  match-type-dropdown-btn",
+    "name": "نوع المطابقة",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 193,
+    "right": 226,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "filter-toggle btn btn-default btn-sm hid",
+    "name": "",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 151,
+    "right": 183,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-button",
+    "name": "منقي",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 147,
+    "right": 179,
+    "ringClip": null
+   },
+   {
+    "tag": "button",
+    "cls": "btn btn-default btn-sm filter-x-button",
+    "name": "مسح جميع الفلاتر",
+    "visible": true,
+    "effOpacity": 1,
+    "visibility": "visible",
+    "outline": "solid 2px off 2px",
+    "left": 115,
+    "right": 148,
+    "ringClip": null
+   }
+  ],
+  "rowStops": 5,
+  "rowRingClip": 0,
+  "invisibleStopsBeforeFirstRow": 0,
+  "toggled": "btn-reset sidebar-toggle-btn navbar-brand",
+  "opened": {
+   "expanded": true,
+   "firstVisible": true,
+   "childVis": [
+    "visible",
+    "visible",
+    "visible"
+   ]
+  }
+ }
+]

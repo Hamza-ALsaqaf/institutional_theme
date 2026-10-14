@@ -1,0 +1,322 @@
+[
+ {
+  "lang": "en",
+  "mode": "Light",
+  "name": "todo",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 18,
+  "cRight": 295,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Medium",
+    "left": 53,
+    "right": 133,
+    "clipped": false
+   },
+   {
+    "text": "Cancelled",
+    "left": 193,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 53,
+    "right": 133,
+    "clipped": false
+   },
+   {
+    "text": "Closed",
+    "left": 212,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 53,
+    "right": 133,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 222,
+    "right": 285,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "en",
+  "mode": "Light",
+  "name": "slip",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 18,
+  "cRight": 295,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Cancelled",
+    "left": 194,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Submitted",
+    "left": 191,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Draft",
+    "left": 215,
+    "right": 277,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "en",
+  "mode": "Dark",
+  "name": "todo",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 18,
+  "cRight": 295,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Medium",
+    "left": 53,
+    "right": 133,
+    "clipped": false
+   },
+   {
+    "text": "Cancelled",
+    "left": 193,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 53,
+    "right": 133,
+    "clipped": false
+   },
+   {
+    "text": "Closed",
+    "left": 212,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 53,
+    "right": 133,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 222,
+    "right": 285,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "en",
+  "mode": "Dark",
+  "name": "slip",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 18,
+  "cRight": 295,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Cancelled",
+    "left": 194,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Submitted",
+    "left": 191,
+    "right": 285,
+    "clipped": false
+   },
+   {
+    "text": "Draft",
+    "left": 215,
+    "right": 277,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Light",
+  "name": "todo",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Medium",
+    "left": 190,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "Cancelled",
+    "left": 36,
+    "right": 126,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 190,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "Closed",
+    "left": 36,
+    "right": 107,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 190,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 36,
+    "right": 98,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Light",
+  "name": "slip",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "ملغى",
+    "left": 44,
+    "right": 99,
+    "clipped": false
+   },
+   {
+    "text": "مُرحَّل",
+    "left": 44,
+    "right": 100,
+    "clipped": false
+   },
+   {
+    "text": "مسودة",
+    "left": 44,
+    "right": 110,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Dark",
+  "name": "todo",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "متوسط",
+    "left": 201,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "ملغى",
+    "left": 43,
+    "right": 99,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 201,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "مغلق",
+    "left": 43,
+    "right": 99,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 201,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "فتح",
+    "left": 44,
+    "right": 93,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Dark",
+  "name": "slip",
+  "overflowX": "auto",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "ملغى",
+    "left": 44,
+    "right": 99,
+    "clipped": false
+   },
+   {
+    "text": "مُرحَّل",
+    "left": 44,
+    "right": 100,
+    "clipped": false
+   },
+   {
+    "text": "مسودة",
+    "left": 44,
+    "right": 110,
+    "clipped": false
+   }
+  ]
+ }
+]

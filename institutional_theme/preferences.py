@@ -14,7 +14,7 @@ from typing import Any
 import frappe
 from frappe import _
 
-from institutional_theme import site_files
+from institutional_theme import cache_guard, site_files
 from institutional_theme.midad import model as midad
 
 PALETTE_KEY = "ins_palette"
@@ -62,9 +62,13 @@ def site_default_density(settings: Any | None = None) -> str:
 
 
 def stored(user: str) -> dict[str, str | None]:
-	"""The user's stored choices, from their own defaults only (not the global ones)."""
-	defaults = frappe.defaults.get_defaults_for(user)
-	return {"palette": defaults.get(PALETTE_KEY), "density": defaults.get(DENSITY_KEY)}
+	"""The user's stored choices, from their own defaults only (not the global ones).
+
+	Read from the table, not from the defaults cache: a request that was served while the user saved a
+	choice can put the old rows back into that cache, and nothing would clear them again (`cache_guard`).
+	"""
+	values = cache_guard.user_defaults(user, (PALETTE_KEY, DENSITY_KEY))
+	return {"palette": values[PALETTE_KEY], "density": values[DENSITY_KEY]}
 
 
 def get_effective(user: str) -> dict[str, str]:

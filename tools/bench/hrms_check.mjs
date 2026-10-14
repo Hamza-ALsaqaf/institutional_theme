@@ -1,5 +1,6 @@
 // Logs in as Administrator and checks that the HRMS desk routes load and show the seeded records.
 // The locale is set explicitly: core calls new Intl.Locale(navigator.language) (alt_keyboard_shortcuts.js:99), which throws in a headless browser without one.
+// Login by Enter in the password field: the 16.52 login page has no .btn-login (16.32.0 has; both submit the form on Enter).
 // Run: NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node tools/bench/hrms_check.mjs
 import { createRequire } from "node:module";
 const req = createRequire("/opt/pw-node/package.json");
@@ -12,7 +13,7 @@ page.on("pageerror", (e) => errors.push(e.message.slice(0, 160)));
 await page.goto(`${BASE}/login`);
 await page.fill("#login_email", "Administrator");
 await page.fill("#login_password", "admin");
-await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.click(".btn-login")]);
+await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.press("#login_password", "Enter")]);
 let bad = 0;
 for (const [route, sel, min] of [
 	["/app/employee", ".list-row-container", 5],

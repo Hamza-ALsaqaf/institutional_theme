@@ -1,0 +1,18 @@
+Starting test run with parameters: site=midad.test, app=institutional_theme, module=institutional_theme.tests.test_cache_guard, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 6 integration tests for institutional_theme
+
+institutional_theme.tests.test_cache_guard.TestCacheGuard
+   [32m ✔ [0m test_a_current_settings_document_is_served_from_the_cache
+   [32m ✔ [0m test_a_failing_cache_clear_never_breaks_the_commit
+   [32m ✔ [0m test_a_global_is_read_from_the_table
+   [32m ✔ [0m test_a_users_values_come_back_by_key_and_are_none_when_absent
+   [32m ✔ [0m test_an_after_transaction_callback_runs_once_on_commit
+   [32m ✔ [0m test_an_after_transaction_callback_runs_once_on_rollback
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 5.783s
+
+OK

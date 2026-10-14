@@ -1,0 +1,56 @@
+- checkbox "Select all rows"
+- text: No. Account * Party Type Party Debit Credit
+- checkbox "Select row 1"
+- text: 1 ر.س 0.00 ر.س 0.00
+- checkbox "Select row 2"
+- text: "2"
+- combobox "Account" [expanded]:
+  - listbox:
+    - option "Capital Equipment - TI" [selected]:
+      - paragraph:
+        - strong: Capital Equipment - TI
+    - option "Cash - TI":
+      - paragraph:
+        - strong: Cash - TI
+    - option "Debtors - TI":
+      - paragraph:
+        - strong: Debtors - TI
+    - option "Earnest Money - TI":
+      - paragraph:
+        - strong: Earnest Money - TI
+    - option "Electronic Equipment - TI":
+      - paragraph:
+        - strong: Electronic Equipment - TI
+    - option "Employee Advances - TI":
+      - paragraph:
+        - strong: Employee Advances - TI
+    - option "Furniture and Fixtures - TI":
+      - paragraph:
+        - strong: Furniture and Fixtures - TI
+    - option "Prepaid Expenses - TI":
+      - paragraph:
+        - strong: Prepaid Expenses - TI
+    - option "Short-term Investments - TI":
+      - paragraph:
+        - strong: Short-term Investments - TI
+    - option "Stock In Hand - TI":
+      - paragraph:
+        - strong: Stock In Hand - TI
+    - 'option "Filtered by: Company equals \"Test Institution\", Is Group is disabled and Currency is one of \"SAR\"."':
+      - paragraph: "Filtered by: Company equals \"Test Institution\", Is Group is disabled and Currency is one of \"SAR\"."
+    - option "Create a new Account":
+      - paragraph: Create a new Account
+    - option "Advanced Search":
+      - paragraph: Advanced Search
+- status: 13 results found
+- text: account
+- combobox "Party Type"
+- status: Begin typing for results.
+- text: party_type
+- combobox "Party"
+- status: Begin typing for results.
+- text: party
+- textbox "Debit"
+- text: debit_in_account_currency
+- textbox "Credit"
+- text: credit_in_account_currency

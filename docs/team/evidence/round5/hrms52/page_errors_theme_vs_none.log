@@ -1,0 +1,16 @@
+  [theme en-US] /app/leave-application/HR-LAP-2026-00001: NotAllowedError: play() failed because the user didn't interact with the document first. h @ 
+  [theme en-US] /app/leave-application/HR-LAP-2026-00001: TypeError: Cannot convert undefined or null to object @ at Object.keys (<anonymous>) | at make_dashboard (leave_application__js:86:37)
+  [theme en-US] /app/organizational-chart: TypeError: Cannot read properties of undefined (reading '$link') @ at hrms.HierarchyChart.set_selected_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:36:1923) | at hrms.HierarchyChart.expand_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:32:667)
+done theme en-US: ins stylesheets linked at end = 1
+  [theme ar] /app/leave-application/HR-LAP-2026-00001: NotAllowedError: play() failed because the user didn't interact with the document first. h @ 
+  [theme ar] /app/leave-application/HR-LAP-2026-00001: TypeError: Cannot convert undefined or null to object @ at Object.keys (<anonymous>) | at make_dashboard (leave_application__js:86:37)
+  [theme ar] /app/organizational-chart: TypeError: Cannot read properties of undefined (reading '$link') @ at hrms.HierarchyChart.set_selected_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:36:1923) | at hrms.HierarchyChart.expand_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:32:667)
+done theme ar: ins stylesheets linked at end = 1
+  [NO-THEME en-US] /app/leave-application/HR-LAP-2026-00001: NotAllowedError: play() failed because the user didn't interact with the document first. h @ 
+  [NO-THEME en-US] /app/leave-application/HR-LAP-2026-00001: TypeError: Cannot convert undefined or null to object @ at Object.keys (<anonymous>) | at make_dashboard (leave_application__js:86:37)
+  [NO-THEME en-US] /app/organizational-chart: TypeError: Cannot read properties of undefined (reading '$link') @ at hrms.HierarchyChart.set_selected_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:36:1923) | at hrms.HierarchyChart.expand_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:32:667)
+done NO-THEME en-US: ins stylesheets linked at end = 1
+  [NO-THEME ar] /app/leave-application/HR-LAP-2026-00001: NotAllowedError: play() failed because the user didn't interact with the document first. h @ 
+  [NO-THEME ar] /app/leave-application/HR-LAP-2026-00001: TypeError: Cannot convert undefined or null to object @ at Object.keys (<anonymous>) | at make_dashboard (leave_application__js:86:37)
+  [NO-THEME ar] /app/organizational-chart: TypeError: Cannot read properties of undefined (reading '$link') @ at hrms.HierarchyChart.set_selected_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:36:1923) | at hrms.HierarchyChart.expand_node (/assets/hrms/dist/js/hierarchy-chart.bundle.DH3ZDZ7T.js:32:667)
+done NO-THEME ar: ins stylesheets linked at end = 1

@@ -139,7 +139,9 @@ html:root[dir] .indicator::before {
 // and counts (kanban_page.js:1275,2048), shortcut counts (shortcut_widget.js:127) and the rest are labels or counts, not statuses: they stay neutral.
 // `:where()` keeps the host list at (0,0,0), so a status rule is (0,2,0) as before and Draft and Cancelled below still win by order.
 // 16.32.0 has no `.es-badge`; these selectors match nothing there (its status is `.indicator-pill` above).
-$ins-badge-host: ":where([data-filter], .page-indicator-pill, .side-panel-indicator *, .diw-import-log-line *)";
+// Round 5 adds the Kanban v1 column dot (kanban_column.html:4); the column count is a number, so it is left out. Embedded-list cells are NOT hosts:
+// core renders status and label columns alike (`type: "badge"`, embedded_list.js:290-296; Workspace "Access", Role "Type"), so a status look would code labels (BRIEF 3 rule 1).
+$ins-badge-host: ":where([data-filter], .page-indicator-pill, .side-panel-indicator *, .diw-import-log-line *, .kanban-column-title > .es-badge:not(.kanban-column-count))";
 
 html:root[dir] .es-badge {
 	--c-fill: var(--ins-status-neutral-bg);
@@ -166,6 +168,11 @@ html:root[dir] .es-badge#{$ins-badge-host}::before {
 	margin-block: 0;
 	margin-inline: 0;
 	@include ins-shape(ring);
+}
+
+// The Kanban dot is an icon-only badge: core draws a circle svg (badge.js:68), and the shape above replaces it so the dot is not drawn twice.
+html:root[dir] .kanban-column-title > .es-badge:not(.kanban-column-count) > svg {
+	display: none;
 }
 
 @each $name, $spec in $ins-indicators {
@@ -206,7 +213,8 @@ html:root[dir] .indicator-pill[data-filter="docstatus,=,0"] {
 
 // v16.52.0: the same states on the badge (list: `data-filter` on the badge, list_view.js:1896; page head: `.es-badge.page-indicator-pill`).
 html:root[dir] [data-ins-docstatus="0"] .title-area .es-badge.page-indicator-pill[data-theme="red"],
-html:root[dir] .es-badge[data-filter="docstatus,=,0"] {
+html:root[dir] .es-badge[data-filter="docstatus,=,0"],
+html:root[dir] .es-badge[data-ins-filter="docstatus,=,0"] {
 	--c-fill: var(--ins-status-neutral-bg);
 	--c-fg: var(--ins-status-neutral-fg);
 	--c-line: var(--ins-status-neutral-border);
@@ -218,7 +226,8 @@ html:root[dir] .indicator-pill[data-filter="docstatus,=,0"]::before {
 }
 
 html:root[dir] [data-ins-docstatus="0"] .title-area .es-badge.page-indicator-pill[data-theme="red"]::before,
-html:root[dir] .es-badge[data-filter="docstatus,=,0"]::before {
+html:root[dir] .es-badge[data-filter="docstatus,=,0"]::before,
+html:root[dir] .es-badge[data-ins-filter="docstatus,=,0"]::before {
 	@include ins-shape(ring);
 	margin-inline: 0;
 }
@@ -231,7 +240,8 @@ html:root[dir] .indicator-pill[data-filter="docstatus,=,2"] {
 }
 
 html:root[dir] [data-ins-docstatus="2"] .title-area .es-badge.page-indicator-pill[data-theme="red"],
-html:root[dir] .es-badge[data-filter="docstatus,=,2"] {
+html:root[dir] .es-badge[data-filter="docstatus,=,2"],
+html:root[dir] .es-badge[data-ins-filter="docstatus,=,2"] {
 	--c-fill: var(--ins-status-muted-bg);
 	--c-fg: var(--ins-status-muted-fg);
 	--c-line: var(--ins-status-muted-border);
@@ -243,7 +253,8 @@ html:root[dir] .indicator-pill[data-filter="docstatus,=,2"]::before {
 }
 
 html:root[dir] [data-ins-docstatus="2"] .title-area .es-badge.page-indicator-pill[data-theme="red"]::before,
-html:root[dir] .es-badge[data-filter="docstatus,=,2"]::before {
+html:root[dir] .es-badge[data-filter="docstatus,=,2"]::before,
+html:root[dir] .es-badge[data-ins-filter="docstatus,=,2"]::before {
 	@include ins-shape(square);
 	margin-inline: 0;
 }

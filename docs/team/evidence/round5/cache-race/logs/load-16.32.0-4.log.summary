@@ -1,0 +1,13 @@
+requests: 315
+    34  200  /
+     1  500  /
+     1  200  /api/method/login
+     2  500  /api/method/login
+    34  200  /api/method/ping
+    34  404  /contact
+    69  200  /desk
+    35  200  /desk/todo
+    36  200  /login
+    35  200  /login?redirect-to=%2Fdesk
+    34  200  /update-password
+by status: 200: 278, 404: 34, 500: 3

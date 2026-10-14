@@ -8,6 +8,7 @@
 // failure leaves core looking as it does without the theme.
 import { initDensity } from "./shell/density.js";
 import { initFormStatus } from "./shell/form_status.js";
+import { initSidePanelStatus } from "./shell/side_panel_status.js";
 import { initActions } from "./shell/actions.js";
 import { initMaskedFields } from "./shell/masked_fields.js";
 import { initFieldErrors } from "./shell/field_errors.js";
@@ -29,6 +30,7 @@ import { initConnectionBanner } from "./shell/connection_banner.js";
 	[
 		initDensity,
 		initFormStatus,
+		initSidePanelStatus,
 		initActions,
 		initMaskedFields,
 		initFieldErrors,

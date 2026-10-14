@@ -1,0 +1,1 @@
+env EVIDENCE_DIR=/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round5/final/gate/v16.52.0/uninstall-residue bash -c source tools/bench/env52.sh; exec tools/bench/uninstall_residue.sh throwaway	0	41	2026-10-14T12:43:01Z

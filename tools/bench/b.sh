@@ -10,7 +10,11 @@ source "${HERE}/env.sh"
 args=$(printf '%q ' "$@")
 SUDO=""
 [[ "$(id -u)" != "0" ]] && SUDO="sudo -E"
-${SUDO} flock -o /tmp/ins-bench.lock runuser -u "${BENCH_USER}" -- env HOME="${BENCH_HOME}" \
+# INS_BENCH_LOCKED=1: the caller already holds /tmp/ins-bench.lock (a script that must change the app sources
+# and run the bench under one lock, for example docs/team/evidence/round5/cache-race/fail_without_fix.sh).
+LOCK="flock -o /tmp/ins-bench.lock"
+[[ -n "${INS_BENCH_LOCKED:-}" ]] && LOCK=""
+${SUDO} ${LOCK} runuser -u "${BENCH_USER}" -- env HOME="${BENCH_HOME}" \
 	PATH="${NODE_HOME}/bin:${BENCH_HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin" \
 	bash -c "cd ${BENCH_DIR} && bench --site ${SITE} ${args}"
 # A build writes new hashed names into public/dist, which the newest-tag bench (newest_site.sh) shares with this one:

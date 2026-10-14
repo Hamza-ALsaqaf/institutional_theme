@@ -125,3 +125,50 @@ html:root[dir] .like-action {
 	min-inline-size: var(--ins-target-min);
 	min-block-size: var(--ins-target-min);
 }
+
+// ---- Narrow viewports and zoom (WCAG 1.4.10, 2.4.7): v16.52.0 clips `.result-container` (overflow-x hidden, list.scss:815-818) while its `.result` table
+// grows to the rows' content width (`display: table; width: auto`, :3-8), so the status badge of `.level-right` falls outside the clip.
+// A fixed table layout at the container width, rows that may shrink to it (so the focus ring of `.list-row-container` stays inside the clip), and a
+// subject that ellipsises (core's `.level-item.ellipsis` is `flex: 0 0 auto`, so its ellipsis never fired). `unicode-bidi: plaintext` puts a Latin
+// subject in an Arabic row at its own start, so the ellipsis lands at its end. 576px is core's `sm` breakpoint (the same media query).
+@media (max-width: 576px) {
+	html:root[dir] .layout-main-section .frappe-list .result-container .result {
+		table-layout: fixed;
+		inline-size: 100%;
+		max-inline-size: 100%;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container,
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container .list-row {
+		max-inline-size: 100%;
+		min-inline-size: 0;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-col.list-subject .level-item.ellipsis {
+		flex: 0 1 auto;
+		min-inline-size: 0;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-col.list-subject a {
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		unicode-bidi: plaintext;
+	}
+
+	// The rows now end at the container, so the left group (131px at 320px) is narrower than the two inline-block meta items of the second line
+	// (priority chip and date, `.mobile-layout`, list.scss:851-866 in v16.52.0); core's `nowrap` then pushed the date under the chip, where the
+	// group's ellipsis clipped it to "...". Let the meta line wrap between its items; each column keeps its own `nowrap`, so the subject still ellipsises.
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container:not(:has(.list-row-head)) .list-row .level-left {
+		white-space: normal;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container:not(:has(.list-row-head)) .list-row .level-left .list-row-col {
+		white-space: nowrap;
+	}
+
+	html:root[dir] .layout-main-section .frappe-list .result-container .list-row-container:not(:has(.list-row-head)) .list-row .level-left .mobile-layout .list-row-col {
+		flex: 0 0 auto;
+		overflow: visible;
+	}
+}

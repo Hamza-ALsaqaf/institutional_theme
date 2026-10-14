@@ -21,7 +21,21 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-None. Round 4 finished at about 09:50 UTC 2026-10-14 (GitHub Actions, pull request #4).
+None. Round 5 finished at about 13:40 UTC 2026-10-14 (GitHub Actions, pull request #5).
+
+## Round 5 (robustness and the last known gaps) result
+
+Gate: PASSED on Frappe 16.32.0 and v16.52.0. Evidence `docs/team/evidence/round5/final/gate/README.md` (tested commit `0e3bb0f`; section "Addendum: final commit" re-runs the browser checks on the one later product change, `94ec765`, CSS at 576 px and below). Reviews: `docs/team/reviews/upgrade-round5.md`, `docs/team/reviews/a11y-round5.md` (both 0 blocking after their re-checks; every BRIEF section 10 dimension 4 or more).
+
+| Item | Result | Evidence |
+|---|---|---|
+| 1 Flaky runs | Root cause confirmed: core's `set_default`/`clear_default` clear `defaults::<parent>` once before the commit, and PostgreSQL REPEATABLE READ lets a request that began earlier refill the settings document after core's clear. Fix: `institutional_theme/cache_guard.py` clears now and again after commit or rollback; the app reads its own globals and user defaults from the table and checks the cached settings by `modified`. 12 deterministic race tests fail without the fix and pass with it; 5 loaded runs in a row on 16.32.0 and 1 on v16.52.0 pass, then 1 loaded and 1 unloaded run per version in the gate. Website 500s under load traced to core's `redis_cache` race | `round5/cache-race/` |
+| 2 wkhtmltopdf clip | Core alone (same clip with the app removed from the render); the format is pinned to Chrome by core and fits when requested by name. No app change | `round5/print-clip/`, gate Notes |
+| 3 Known v16.52.0 items | Kanban v1 dot and side-panel Draft/Cancelled fixed; list badges at 400% fixed with subject ellipsis, ring inside the clip, closed drawer out of the tab order, date kept; embedded-list badges neutral by decision | `round5/v1652-items/` (`fix1/` to `fix3/`) |
+| 4 HRMS on v16.52.0 | HRMS v16.50.0 on `hrms52.test` (port 8002), round-3 screens 0 flagged of 84 | `round5/hrms52/` |
+| 5 Release gate | CI, audits, budgets, run-tests loaded and unloaded, cascade 4576/4576 and 7680/7680, axe 0 theme-caused, attributes, grid names, print and email, install/uninstall and residue: PASS on both | `round5/final/gate/` |
+
+Decisions 78-89 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic). Bench on this runner: as in round 4, plus `hrms52.test` on the newest bench (`tools/bench/env52_hrms.sh`, `tools/bench/hrms.sh`); build logs `docs/team/evidence/round5/bench/`.
 
 ## Round 4 (forward compatibility with Frappe v16.52.0) result
 
@@ -57,7 +71,7 @@ Decisions 47-62 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic).
 
 ## Next step
 
-The lead outside the job checks the round-4 evidence on pull request #4 and, if satisfied, merges it into `main` (never done by the build job), applies `docs/team/evidence/round4/fix1-backend/ci-step-proposed.patch` to `.github/workflows/ci.yml` with a token that has `workflows` permission, and confirms CI on GitHub. Optional follow-ups: a formal accessibility audit with screen readers and Windows High Contrast; HRMS on v16.52.0; the known v16.52.0 items in `docs/UPGRADE_AND_QA_CHECKLIST.md` (Kanban v1 column dot, side-panel Draft colour); upstream contributions (Gantt Arabic month names, core-markup axe findings).
+The lead outside the job checks the round-5 evidence on pull request #5 and, if satisfied, merges it into `main` (never done by the build job) and confirms CI on GitHub. Optional follow-ups: a formal accessibility audit with screen readers and Windows High Contrast; targeted cache clears instead of `frappe.clear_cache()` on identity save (decision 82); desk CSS headroom (146 of 150 KB); HRMS print formats on both versions; upstream contributions (Gantt Arabic month names, core-markup axe findings, the `redis_cache` race, the "Quotation Modern with Images" clipping).
 
 ## Bench
 
@@ -121,3 +135,13 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 
 - 09:40 UTC 2026-10-14: the lead re-ran CI's checks on `dd035f9` (ruff 0.16.8, 130 + 48 unit tests, `build --check` 0 stale, audits passed), applied the proposed CI step "Committed reports are current" to `.github/workflows/ci.yml` after verifying it passes without a bench (budgets are skipped and the committed report kept when no build exists), and merges pull request #4 into `main` under the owner's authorisation.
 - The two flaky 16.32.0 test runs are treated as a real defect, not a flake: the app clears its settings caches before the saving transaction commits, so a concurrent request can refill a cache with the old values. Round 5 fixes the root cause (clear after commit as well) with a deterministic test, isolates the wkhtmltopdf clipping of the v16.52.0 default print format, and closes the known v16.52.0 items.
+- 09:38 UTC 2026-10-14: pull request #4 merged into `main` (merge commit `76afa23`) after CI passed on `96c88f2`. Round 5 (root cause of the flaky runs, wkhtmltopdf clipping on v16.52.0, known v16.52.0 items, HRMS on v16.52.0, release gate on both versions) starts on a new pull request; scope in `docs/team/RESUME_PROMPT.md`.
+
+## After round 5 (build job)
+
+- 13:40 UTC 2026-10-14: round 5 gate passed on both versions; pull request #5 updated with the Arabic summary. `main` untouched.
+
+## After round 5 (lead)
+
+- 13:40 UTC 2026-10-14: the lead re-ran CI's checks on `303fe56` (ruff 0.16.8 check and format, 151 + 171 unit tests OK, `build --check` 0 stale, audits passed in CI mode with the committed reports unchanged) and merges pull request #5 into `main` under the owner's authorisation.
+- Next step: round 6, final release polish: HRMS print formats (Salary Slip and the other HRMS formats) under the Midad Print Style on both versions and both PDF generators; targeted cache clears instead of `frappe.clear_cache()` on identity save (decision 82) if it keeps every race test green; restore headroom in the desk CSS budget (146 of 150 KB) without any visual change; `CHANGELOG.md` and version 1.0.0. Then the lead tags the release.

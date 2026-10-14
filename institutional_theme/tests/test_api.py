@@ -5,7 +5,7 @@ from __future__ import annotations
 import frappe
 from frappe.tests import IntegrationTestCase
 
-from institutional_theme import api, preferences
+from institutional_theme import api, cache_guard, preferences
 
 from .helpers import all_bundles_linkable, delete_user, make_user, reset_settings, set_settings
 
@@ -54,10 +54,10 @@ class TestSetAppearance(IntegrationTestCase):
 		with all_bundles_linkable():
 			result = api.set_appearance(palette="graphite", density="compact")
 		self.assertEqual(result, {"palette": "graphite", "density": "compact"})
-		defaults = frappe.defaults.get_defaults_for(USER)
-		self.assertEqual((defaults.get("ins_palette"), defaults.get("ins_density")), ("graphite", "compact"))
-		self.assertFalse(frappe.defaults.get_defaults_for(OTHER).get("ins_palette"))
-		self.assertFalse(frappe.defaults.get_defaults_for("Administrator").get("ins_palette"))
+		stored = cache_guard.user_defaults(USER, ("ins_palette", "ins_density"))
+		self.assertEqual((stored["ins_palette"], stored["ins_density"]), ("graphite", "compact"))
+		self.assertFalse(cache_guard.user_defaults(OTHER, ("ins_palette",))["ins_palette"])
+		self.assertFalse(cache_guard.user_defaults("Administrator", ("ins_palette",))["ins_palette"])
 
 	def test_a_value_left_out_is_not_changed(self) -> None:
 		frappe.set_user(USER)
@@ -77,7 +77,7 @@ class TestSetAppearance(IntegrationTestCase):
 				frappe.local.lang = "en"
 			if lang == "en":
 				self.assertIn("is not available on this site", str(caught.exception))
-		self.assertFalse(frappe.defaults.get_defaults_for(USER).get("ins_palette"))
+		self.assertFalse(cache_guard.user_defaults(USER, ("ins_palette",))["ins_palette"])
 
 	def test_an_unknown_palette_and_a_bad_density_are_rejected(self) -> None:
 		frappe.set_user(USER)
@@ -85,7 +85,7 @@ class TestSetAppearance(IntegrationTestCase):
 			api.set_appearance(palette="no-such-preset")
 		with self.assertRaises(frappe.ValidationError):
 			api.set_appearance(density="huge")
-		self.assertEqual(frappe.defaults.get_defaults_for(USER).get("ins_density"), None)
+		self.assertEqual(cache_guard.user_defaults(USER, ("ins_density",))["ins_density"], None)
 
 	def test_the_result_is_the_effective_value(self) -> None:
 		frappe.set_user(USER)

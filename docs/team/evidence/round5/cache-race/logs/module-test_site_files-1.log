@@ -1,0 +1,26 @@
+Starting test run with parameters: site=midad.test, app=institutional_theme, module=institutional_theme.tests.test_site_files, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /home/frappe/frappe-bench/logs/frappe.testing.log
+
+Running 14 integration tests for institutional_theme
+
+institutional_theme.tests.test_site_files.TestSiteFiles
+   [32m ✔ [0m test_a_deleted_folder_is_regenerated
+   [32m ✔ [0m test_a_failure_after_the_commit_is_logged_once_and_does_not_raise
+   [32m ✔ [0m test_a_palette_that_fails_its_audit_is_never_written
+   [32m ✔ [0m test_a_read_only_folder_gives_no_link_and_no_error
+   [32m ✔ [0m test_after_migrate_regenerates
+   [32m ✔ [0m test_changing_the_colours_writes_a_new_name_and_keeps_one_previous
+   [32m ✔ [0m test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name
+   [32m ✔ [0m test_ensure_never_writes_the_database
+   [32m ✔ [0m test_nothing_is_written_when_nothing_is_wanted
+   [32m ✔ [0m test_old_temporary_files_are_pruned_and_young_ones_kept
+   [32m ✔ [0m test_saving_the_settings_writes_the_file_through_the_on_update_hook
+   [32m ✔ [0m test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing
+   [32m ✔ [0m test_the_name_is_the_hash_of_the_content_and_deterministic
+   [32m ✔ [0m test_uploaded_fonts_are_written_and_a_missing_semibold_drops_that_script
+
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.630s
+
+OK

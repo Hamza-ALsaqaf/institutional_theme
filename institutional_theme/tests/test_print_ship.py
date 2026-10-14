@@ -12,6 +12,7 @@ import frappe
 from frappe.tests import IntegrationTestCase
 from jinja2 import DebugUndefined, Environment
 
+from institutional_theme import cache_guard
 from institutional_theme.print import ship
 
 BUNDLE_CSS = (
@@ -82,7 +83,7 @@ class TestShip(IntegrationTestCase):
 				for doctype in DOCTYPES
 			},
 			"print_style": frappe.db.get_single_value("Print Settings", "print_style"),
-			"global": frappe.db.get_global(ship.GLOBAL_KEY),
+			"global": cache_guard.get_global(ship.GLOBAL_KEY),
 			"deleted": self.deleted_documents(),
 			"defaults": sorted(frappe.get_all("Letter Head", filters={"is_default": 1}, pluck="name")),
 		}
@@ -264,7 +265,7 @@ class TestShip(IntegrationTestCase):
 		self.assertTrue(result["letter_head"].startswith("kept"))
 		self.assertFalse(frappe.db.exists("Print Style", ship.NAME))
 		self.assertTrue(frappe.db.exists("Letter Head", ship.NAME))
-		self.assertIsNone(frappe.db.get_global(ship.GLOBAL_KEY), "no orphan checksum")
+		self.assertIsNone(cache_guard.get_global(ship.GLOBAL_KEY), "no orphan checksum")
 
 	def test_uninstall_keeps_a_linked_record(self) -> None:
 		self.ship()

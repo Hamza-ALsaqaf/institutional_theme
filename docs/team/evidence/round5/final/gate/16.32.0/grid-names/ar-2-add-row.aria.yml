@@ -1,0 +1,56 @@
+- checkbox "تحديد جميع الصفوف"
+- text: لا. حساب * نوع الطرف الطرف المعني مدين دائن
+- checkbox "تحديد الصف 1"
+- text: 1 ر.س 0.00 ر.س 0.00
+- checkbox "تحديد الصف 2"
+- text: "2"
+- combobox "حساب" [expanded]:
+  - listbox:
+    - option "Capital Equipment - TI" [selected]:
+      - paragraph:
+        - strong: Capital Equipment - TI
+    - option "Cash - TI":
+      - paragraph:
+        - strong: Cash - TI
+    - option "Debtors - TI":
+      - paragraph:
+        - strong: Debtors - TI
+    - option "Earnest Money - TI":
+      - paragraph:
+        - strong: Earnest Money - TI
+    - option "Electronic Equipment - TI":
+      - paragraph:
+        - strong: Electronic Equipment - TI
+    - option "Employee Advances - TI":
+      - paragraph:
+        - strong: Employee Advances - TI
+    - option "Furniture and Fixtures - TI":
+      - paragraph:
+        - strong: Furniture and Fixtures - TI
+    - option "Prepaid Expenses - TI":
+      - paragraph:
+        - strong: Prepaid Expenses - TI
+    - option "Short-term Investments - TI":
+      - paragraph:
+        - strong: Short-term Investments - TI
+    - option "Stock In Hand - TI":
+      - paragraph:
+        - strong: Stock In Hand - TI
+    - 'option "تمت التصفية بواسطة: شركة يساوي \"Test Institution\", هل مجموعة معطل و العملة هو أحد \"SAR\"."':
+      - paragraph: "تمت التصفية بواسطة: شركة يساوي \"Test Institution\", هل مجموعة معطل و العملة هو أحد \"SAR\"."
+    - option " انشاء جديد حساب":
+      - paragraph:  انشاء جديد حساب
+    - option " البحث المتقدم":
+      - paragraph:  البحث المتقدم
+- status: 13 results found
+- text: account
+- combobox "نوع الطرف"
+- status: ابدأ الكتابة لعرض النتائج.
+- text: party_type
+- combobox "الطرف المعني"
+- status: ابدأ الكتابة لعرض النتائج.
+- text: party
+- textbox "مدين"
+- text: debit_in_account_currency
+- textbox "دائن"
+- text: credit_in_account_currency

@@ -40,7 +40,7 @@ from urllib.parse import quote
 
 import frappe
 
-from institutional_theme import fonts, guard_log, site_files
+from institutional_theme import cache_guard, fonts, guard_log, site_files
 
 STYLE_DOCTYPE = "Print Style"
 LETTER_DOCTYPE = "Letter Head"
@@ -203,7 +203,7 @@ def letter_head_html() -> tuple[str, str] | None:
 
 
 def _load() -> dict[str, str]:
-	raw = frappe.db.get_global(GLOBAL_KEY)
+	raw = cache_guard.get_global(GLOBAL_KEY)
 	if not raw:
 		return {}
 	try:
@@ -215,9 +215,9 @@ def _load() -> dict[str, str]:
 
 def _store(state: dict[str, str]) -> None:
 	if state:
-		frappe.db.set_global(GLOBAL_KEY, json.dumps(state, sort_keys=True))
+		cache_guard.set_global(GLOBAL_KEY, json.dumps(state, sort_keys=True))
 	else:
-		frappe.defaults.clear_default(key=GLOBAL_KEY, parent="__global")
+		cache_guard.clear_global(GLOBAL_KEY)
 
 
 def _style_checksum() -> str | None:
@@ -392,5 +392,5 @@ def remove() -> dict[str, str]:
 		STYLE_KEY: _remove_one(STYLE_DOCTYPE, _style_checksum(), state.get(STYLE_KEY)),
 		LETTER_KEY: _remove_one(LETTER_DOCTYPE, _letter_checksum(), state.get(LETTER_KEY)),
 	}
-	frappe.defaults.clear_default(key=GLOBAL_KEY, parent="__global")
+	cache_guard.clear_global(GLOBAL_KEY)
 	return result

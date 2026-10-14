@@ -1,0 +1,5 @@
+name	exit	seconds	command
+stage-erpnext	0	307	stage_erpnext
+stage-wizard	0	265	stage_wizard
+stage-install	0	220	stage_install
+stage-restart_web	0	5	stage_restart_web

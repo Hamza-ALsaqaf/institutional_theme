@@ -81,3 +81,16 @@ html:root[dir] .es-menu__item {
 html:root[dir] .desktop-navbar {
 	border-block-end: 1px solid var(--border-color);
 }
+
+// ---- Closed sidebar drawer on narrow screens (WCAG 2.4.7): core fades it (`opacity: 0`, `pointer-events: none`) but leaves its controls focusable, because
+// `hides_when_collapsed()` is false on mobile so `inert` is never set (v16.52.0 ui/sidebar/sidebar.js:719-726, :740-744; scss/desk/sidebar.scss:496-510).
+// `visibility: hidden` takes them out of the tab order and the accessibility tree; the delay lets the fade finish, and opening (`.expanded`) restores them at once.
+// Scoped to core's `md` breakpoint, where the closed drawer is invisible (above it `:not(.expanded)` is the visible icon rail). 16.32.0 closes the drawer to
+// `width: 0` in the same media query (scss/desk/sidebar.scss:219-232), so hiding it there changes nothing visible.
+@media (max-width: 767.98px) {
+	html:root[dir] .body-sidebar-container:not(.expanded) .body-sidebar > * {
+		visibility: hidden;
+		// core's own two transitions (sidebar.scss:73-75) plus the delayed visibility
+		transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, visibility 0s linear 0.25s;
+	}
+}

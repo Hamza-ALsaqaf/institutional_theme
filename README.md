@@ -4,7 +4,7 @@ An upgrade-safe visual identity and UI theme for the Frappe / ERPNext v16 desk, 
 
 **Status: Round 4 (forward compatibility) passed its release gate: one code base verified on Frappe 16.32.0 and v16.52.0 (cascade test, P0 screenshots in Light and Dark, Arabic and English, axe with 0 violations caused by the theme, the Frappe test suite, print and email, and the install and uninstall gate with no residue, on each version), and both hostile reviews with no open blocking finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round4/`. The build is carried out by the agent team described in `docs/team/`.
 
-Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS not tested on v16.52.0). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
+Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS v16.50.0 on v16.52.0 tested for the desk screens only, `docs/team/evidence/round5/hrms52/README.md`). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
 
 ## Where to look
 
@@ -85,6 +85,7 @@ The letter head shows the institution's names, the emblem (when it is a public f
 **PDF generator.** Print Settings → PDF Generator offers `wkhtmltopdf` and `chrome`; both are supported.
 
 - `wkhtmltopdf` must be **0.12.6.1 with patched Qt** (`wkhtmltopdf -V` prints `(with patched qt)`). The 0.12.6 package from the Ubuntu or Debian archive is not enough: the page overflows its width and the running header and footer do not work. Install the official build for your distribution from the wkhtmltopdf packaging releases.
+- On Frappe v16.52.0 the default "Quotation Modern with Images" format is pinned to Chrome by core: requesting it by name always renders with Chrome, which fits the page. wkhtmltopdf renders it only when a caller omits the print format, and then core's own output is clipped at the right edge (the left edge in Arabic), with or without this theme. Arabic in Chrome without the format named is also clipped at the left edge by core; the named format fits in both languages. Use the "Standard" format where wkhtmltopdf must be used (`docs/UPGRADE_AND_QA_CHECKLIST.md`, "Known on v16.52.0"; `docs/team/evidence/round5/print-clip/README.md`).
 - `chrome` uses the headless browser that Frappe downloads into the bench.
 
 Printing is always light, in either desk mode.
@@ -142,9 +143,9 @@ To colour the v16.52.0 desk this theme gives 26 Frappe colour variables the mean
 
 How to spot it: error or accent text that is nearly invisible after the theme is installed and returns when you uninstall it. Search the other app for the names: `grep -rnE "var\(--(surface|ink|outline)-[a-z0-9-]+" apps/<app> --include=*.css --include=*.scss --include=*.js --include=*.html --include=*.vue`, then compare the hits with the list above. Remedy: have that app use its own variable, or give the colour a fixed value in that app's stylesheet.
 
-### A status badge is grey on Frappe v16.52.0 (other apps and the Kanban v1 column dot)
+### A status badge is grey on Frappe v16.52.0 (other apps and embedded lists)
 
-On Frappe v16.52.0 the theme draws a status shape and colour only on core's own status badges: the list view status, the page status chip, the side panel status, and the Data Import log result. Status badges that other apps render from their own code, for example the Job Card status and the Draft, Submitted and Cancelled columns on the ERPNext Work Order form, and the dot on a Kanban v1 column, are drawn neutral. Their text is unchanged, so the state is still readable, but the colour and the shape are not. Kanban v1 dots have no text, so on a v1 board every column dot looks the same and the column setting for the dot has no visible effect; the column title still names the value.
+On Frappe v16.52.0 the theme draws a status shape and colour on core's own status badges: the list view status, the page status chip, the side panel status, the Data Import log result and the Kanban v1 column dot. Badges that another app renders from its own code elsewhere, including the status cells of embedded lists such as the ERPNext Work Order form's Job Card and Stock Entry tabs, are drawn neutral. Their text is unchanged, so the state is still readable, but the colour and the shape are not. Core renders status and label badge columns identically, so a status look there would code labels as statuses. Login, website and error pages are Light only by platform constraint and design (a decision recorded by the lead; a11y round-4 finding 11). Sources: `docs/team/evidence/round5/v1652-items/` (sections 1 and 2, fix round 2).
 
 How to spot it: the badge is a grey ring with no coloured shape, while the same state is coloured in the list view. Confirm the version with `__version__` in `apps/frappe/frappe/__init__.py` (it reads `16.52.0`). On Frappe v16.32.0 these badges are coloured, so the difference appears only after an upgrade. This is a known difference between the two Frappe versions, not a fault in the other app. No action is needed for the text. A status rendered through the list view filter or the page head keeps its colour and shape; the other app's own badges do not, and the theme does not change them without a change to its status host list.
 

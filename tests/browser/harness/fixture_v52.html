@@ -31,6 +31,12 @@
 	<div class="kn-card"><span class="es-badge" id="tag-kanban" data-theme="green"><span class="es-badge__label">Urgent</span></span></div>
 	<div class="widget-footer"><span class="es-badge" id="count-shortcut" data-theme="red"><span class="es-badge__label">12</span></span></div>
 	<div class="side-panel-indicator"><span class="es-badge" id="badge-side" data-theme="green">Paid</span></div>
+	<!-- Round 5: side-panel Draft keyed by our data-ins-filter (shell/side_panel_status.js; side_panel.js:746 passes no docstatus) -->
+	<div class="side-panel-indicator"><span class="es-badge" id="badge-side-draft" data-theme="red" data-ins-filter="docstatus,=,0">Draft</span></div>
+	<!-- Kanban v1 column header (views/kanban/kanban_column.html:3-6): icon-only dot badge and the count badge -->
+	<span class="kanban-column-title"><span class="es-badge" id="badge-kanban-dot" data-theme="green"><svg class="icon icon-sm" id="kanban-dot-svg"><use href="#icon-circle"></use></svg></span><span class="kanban-column-count es-badge" id="badge-kanban-count" data-theme="green" data-variant="subtle" data-size="sm">0</span></span>
+	<!-- Embedded list badge cell, status or label alike (ui/embedded_list.js:290-296); not a status host -->
+	<table class="embedded-list-table"><tbody><tr><td><span class="es-badge" id="badge-embedded" data-theme="green"><span class="es-badge__label">Completed</span></span></td></tr></tbody></table>
 	<span class="es-badge page-indicator-pill" id="badge-page" data-theme="green">Paid</span>
 	<span class="es-badge page-indicator-pill" id="badge-page-gray">Open</span>
 	<div data-ins-docstatus="0"><div class="title-area"><span class="es-badge page-indicator-pill" id="badge-title-draft" data-theme="red">Draft</span></div></div>

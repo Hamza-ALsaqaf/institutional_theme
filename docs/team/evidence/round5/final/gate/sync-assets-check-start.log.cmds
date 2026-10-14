@@ -1,0 +1,1 @@
+python3 tools/bench/sync_assets.py --check /home/frappe/frappe-bench /home/frappe/newest-bench	0	0	2026-10-14T11:35:24Z

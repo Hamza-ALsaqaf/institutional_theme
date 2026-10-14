@@ -5,7 +5,7 @@ from __future__ import annotations
 import frappe
 from frappe import _
 
-from institutional_theme import preferences
+from institutional_theme import cache_guard, preferences
 
 
 @frappe.whitelist(methods=["POST"])
@@ -32,7 +32,7 @@ def set_appearance(palette: str | None = None, density: str | None = None) -> di
 		frappe.throw(_("Density must be Comfortable or Compact."), frappe.ValidationError)
 
 	if palette is not None:
-		frappe.defaults.set_user_default(preferences.PALETTE_KEY, palette, user)
+		cache_guard.set_user_default(preferences.PALETTE_KEY, palette, user)
 	if density is not None:
-		frappe.defaults.set_user_default(preferences.DENSITY_KEY, density, user)
+		cache_guard.set_user_default(preferences.DENSITY_KEY, density, user)
 	return preferences.get_effective(user)

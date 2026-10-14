@@ -1,0 +1,60 @@
+== chrome-A4-ar-standard-core.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 843.12 pts (A4)
+
+== chrome-A4-ar-standard.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 844.08 pts (A4)
+
+== chrome-A4-ar.pdf
+Producer:        Skia/PDF m133
+Pages:           1
+Page size:       595.92 x 841.92 pts (A4)
+
+== chrome-A4-en-standard-core.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 843.12 pts (A4)
+
+== chrome-A4-en-standard.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595.92 x 844.08 pts (A4)
+
+== chrome-A4-en.pdf
+Producer:        Skia/PDF m133
+Pages:           1
+Page size:       595.92 x 841.92 pts (A4)
+
+== wkhtmltopdf-A4-ar-standard-core.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== wkhtmltopdf-A4-ar-standard.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== wkhtmltopdf-A4-ar.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== wkhtmltopdf-A4-en-standard-core.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== wkhtmltopdf-A4-en-standard.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+
+== wkhtmltopdf-A4-en.pdf
+Producer:        pypdf
+Pages:           1
+Page size:       595 x 842 pts (A4)
+

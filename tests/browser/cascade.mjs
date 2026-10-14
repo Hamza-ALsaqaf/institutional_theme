@@ -253,6 +253,26 @@ async function v1652(page, dir, scenario) {
 		const l = await cs("badge-green", ["backgroundColor"]), lb = await cs("badge-green", ["content"], "::before");
 		rec("list status (data-filter, theme green): success fill and a shape", await tok("--ins-status-success-bg", "backgroundColor"), l.backgroundColor, l.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && lb.content === '""');
 	}
+	// Round 5: Kanban v1 column dot, the embedded-list cell (stays neutral) and the side-panel Draft (a11y/upgrade round-4 F1, F2, F3).
+	{
+		const successBg = await tok("--ins-status-success-bg", "backgroundColor");
+		{
+			const g = await cs("badge-kanban-dot", ["backgroundColor"]), b = await cs("badge-kanban-dot", ["content", "borderRightWidth"], "::before");
+			rec("badge-kanban-dot (status host, theme green): success fill and check", successBg, g.backgroundColor, g.backgroundColor === successBg && b.content === '""' && b.borderRightWidth === "2px");
+		}
+		{
+			const g = await cs("badge-embedded", ["backgroundColor"]), b = await cs("badge-embedded", ["content"], "::before");
+			rec("embedded-list cell (data-theme, not a status host): neutral fill and no shape", `${await tok("--ins-status-neutral-bg", "backgroundColor")}, no ::before`, `${g.backgroundColor}, ${b.content}`,
+				g.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && (b.content === "none" || b.content === "normal"));
+		}
+		const svg = await cs("kanban-dot-svg", ["display"]);
+		rec("Kanban dot: core's circle svg is hidden (the shape replaces it)", "none", svg.display, svg.display === "none");
+		const c = await cs("badge-kanban-count", ["backgroundColor"]), cb = await cs("badge-kanban-count", ["content"], "::before");
+		rec("Kanban column count (data-theme, not a status host): neutral fill and no shape", `${await tok("--ins-status-neutral-bg", "backgroundColor")}, no ::before`, `${c.backgroundColor}, ${cb.content}`,
+			c.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && (cb.content === "none" || cb.content === "normal"));
+		const sd = await cs("badge-side-draft", ["backgroundColor", "color"]), sdb = await cs("badge-side-draft", ["backgroundImage"], "::before");
+		rec("side-panel Draft (data-ins-filter docstatus,=,0, red): neutral pair, ring", await tok("--ins-status-neutral-bg", "backgroundColor"), sd.backgroundColor, sd.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && sd.color === (await tok("--ins-status-neutral-fg", "color")) && sdb.backgroundImage === "none");
+	}
 	const pill = await cs("badge-page", ["backgroundColor", "color"]), pillBefore = await cs("badge-page", ["content", "borderRightWidth", "transform"], "::before");
 	rec("page-status chip (.es-badge.page-indicator-pill green): success pair and check", `${await tok("--ins-status-success-bg", "backgroundColor")} ${await tok("--ins-status-success-fg", "color")}`, `${pill.backgroundColor} ${pill.color}`,
 		pill.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && pill.color === (await tok("--ins-status-success-fg", "color")) && pillBefore.borderRightWidth === "2px");

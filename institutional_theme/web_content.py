@@ -13,6 +13,8 @@ from urllib.parse import urlencode
 import frappe
 from frappe import _
 
+from institutional_theme import cache_guard
+
 TEMPLATE_DIR = "institutional_theme/templates/ins"
 AUTH_TEMPLATES = ("www/login.html", "www/update-password.html")
 ERROR_TEMPLATES = ("www/error.html", "www/message.html", "www/404.html")
@@ -29,7 +31,7 @@ def _setting(settings, fieldname: str) -> str:
 
 def _get_settings():
 	try:
-		return frappe.get_cached_doc(SETTINGS)
+		return cache_guard.settings_doc(SETTINGS)
 	except Exception:
 		return None
 

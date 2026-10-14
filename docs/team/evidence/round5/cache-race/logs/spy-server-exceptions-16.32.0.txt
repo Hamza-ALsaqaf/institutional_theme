@@ -1,0 +1,84 @@
+=== /404 TypeError
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/serve.py", line 19, in get_response
+    endpoint, renderer_instance = path_resolver.resolve()
+                                  ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/path_resolver.py", line 69, in resolve
+    if renderer_instance.can_render():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/document_page.py", line 20, in can_render
+    if self.search_web_page_dynamic_routes():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/document_page.py", line 32, in search_web_page_dynamic_routes
+    d = get_page_info_from_web_page_with_dynamic_routes(self.path)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/router.py", line 22, in get_page_info_from_web_page_with_dynamic_routes
+    for d in get_dynamic_web_pages():
+             ~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'NoneType' object is not iterable
+
+=== /404 TypeError
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/serve.py", line 19, in get_response
+    endpoint, renderer_instance = path_resolver.resolve()
+                                  ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/path_resolver.py", line 69, in resolve
+    if renderer_instance.can_render():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/web_form.py", line 8, in can_render
+    web_form = get_page_info_from_web_form(self.path)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/router.py", line 36, in get_page_info_from_web_form
+    for d in get_published_web_forms():
+             ~~~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'NoneType' object is not iterable
+
+=== /contact TypeError
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/serve.py", line 19, in get_response
+    endpoint, renderer_instance = path_resolver.resolve()
+                                  ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/path_resolver.py", line 69, in resolve
+    if renderer_instance.can_render():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/web_form.py", line 8, in can_render
+    web_form = get_page_info_from_web_form(self.path)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/router.py", line 36, in get_page_info_from_web_form
+    for d in get_published_web_forms():
+             ~~~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'NoneType' object is not iterable
+
+=== /404 TypeError
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/serve.py", line 19, in get_response
+    endpoint, renderer_instance = path_resolver.resolve()
+                                  ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/path_resolver.py", line 69, in resolve
+    if renderer_instance.can_render():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/document_page.py", line 20, in can_render
+    if self.search_web_page_dynamic_routes():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/document_page.py", line 32, in search_web_page_dynamic_routes
+    d = get_page_info_from_web_page_with_dynamic_routes(self.path)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/router.py", line 22, in get_page_info_from_web_page_with_dynamic_routes
+    for d in get_dynamic_web_pages():
+             ~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'NoneType' object is not iterable
+
+=== /404 TypeError
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/serve.py", line 19, in get_response
+    endpoint, renderer_instance = path_resolver.resolve()
+                                  ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/path_resolver.py", line 69, in resolve
+    if renderer_instance.can_render():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/document_page.py", line 20, in can_render
+    if self.search_web_page_dynamic_routes():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/page_renderers/document_page.py", line 32, in search_web_page_dynamic_routes
+    d = get_page_info_from_web_page_with_dynamic_routes(self.path)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/router.py", line 22, in get_page_info_from_web_page_with_dynamic_routes
+    for d in get_dynamic_web_pages():
+             ~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'NoneType' object is not iterable
+

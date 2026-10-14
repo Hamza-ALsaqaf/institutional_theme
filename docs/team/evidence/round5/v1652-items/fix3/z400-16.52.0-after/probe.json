@@ -1,0 +1,418 @@
+[
+ {
+  "lang": "en",
+  "mode": "Light",
+  "name": "todo",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 17,
+  "cRight": 294,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 218,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 218,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Cancelled",
+    "left": 193,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Closed",
+    "left": 211,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 218,
+    "right": 276,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "en",
+  "mode": "Light",
+  "name": "slip",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 17,
+  "cRight": 294,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Cancelled",
+    "left": 194,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Submitted",
+    "left": 191,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Draft",
+    "left": 222,
+    "right": 276,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "en",
+  "mode": "Dark",
+  "name": "todo",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 17,
+  "cRight": 294,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 218,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 218,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Cancelled",
+    "left": 193,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Closed",
+    "left": 211,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Medium",
+    "left": 52,
+    "right": 125,
+    "clipped": false
+   },
+   {
+    "text": "Open",
+    "left": 218,
+    "right": 276,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "en",
+  "mode": "Dark",
+  "name": "slip",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 17,
+  "cRight": 294,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "Cancelled",
+    "left": 194,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Submitted",
+    "left": 191,
+    "right": 276,
+    "clipped": false
+   },
+   {
+    "text": "Draft",
+    "left": 222,
+    "right": 276,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Light",
+  "name": "todo",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "فتح",
+    "left": 44,
+    "right": 88,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "فتح",
+    "left": 44,
+    "right": 88,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "ملغى",
+    "left": 44,
+    "right": 95,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "مغلق",
+    "left": 44,
+    "right": 95,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "فتح",
+    "left": 44,
+    "right": 88,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Light",
+  "name": "slip",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "ملغى",
+    "left": 44,
+    "right": 94,
+    "clipped": false
+   },
+   {
+    "text": "مُرحَّل",
+    "left": 44,
+    "right": 96,
+    "clipped": false
+   },
+   {
+    "text": "مسودة",
+    "left": 46,
+    "right": 105,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Dark",
+  "name": "todo",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "فتح",
+    "left": 44,
+    "right": 88,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "فتح",
+    "left": 44,
+    "right": 88,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "ملغى",
+    "left": 44,
+    "right": 95,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "مغلق",
+    "left": 44,
+    "right": 95,
+    "clipped": false
+   },
+   {
+    "text": "متوسط",
+    "left": 208,
+    "right": 268,
+    "clipped": false
+   },
+   {
+    "text": "فتح",
+    "left": 44,
+    "right": 88,
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "lang": "ar",
+  "mode": "Dark",
+  "name": "slip",
+  "overflowX": "hidden",
+  "scrollWidth": 277,
+  "clientWidth": 277,
+  "cLeft": 26,
+  "cRight": 303,
+  "pageOverflow": 0,
+  "badges": [
+   {
+    "text": "ملغى",
+    "left": 44,
+    "right": 94,
+    "clipped": false
+   },
+   {
+    "text": "مُرحَّل",
+    "left": 44,
+    "right": 96,
+    "clipped": false
+   },
+   {
+    "text": "مسودة",
+    "left": 46,
+    "right": 105,
+    "clipped": false
+   }
+  ]
+ }
+]
