@@ -107,9 +107,11 @@ const screens = [
 	desk("notifications", "/desk/user", ".frappe-list", {
 		action: async (page) => {
 			await page.evaluate(() => document.querySelector(".sidebar-notification")?.click());
+			// v16.52.0 opens a `.sidebar-panel-notifications` panel, 16.32.0 a `.dropdown-notifications` dropdown.
+			await page.waitForSelector(".dropdown-notifications:not(.hidden), .sidebar-panel-notifications:not(.hidden)", { timeout: 10000 }).catch(() => {});
 			await settle(page, 1000);
 		},
-		include: ".dropdown-notifications",
+		include: ".dropdown-notifications, .sidebar-panel-notifications",
 	}),
 	desk("dialog", "/desk/user", ".frappe-list", {
 		action: async (page) => {
@@ -143,10 +145,11 @@ const screens = [
 				frappe.show_alert({ message: "Saved", indicator: "green" }, 60);
 				frappe.show_alert({ message: "Check this value", indicator: "orange" }, 60);
 			});
-			await page.waitForSelector("#alert-container .alert", { timeout: 10000 });
+			// v16.52.0 renders `.es-toast` inside `.es-toast-container`, 16.32.0 `.alert` inside `#alert-container`.
+			await page.waitForSelector("#alert-container .alert, .es-toast-container .es-toast", { timeout: 10000 });
 			await settle(page, 600);
 		},
-		include: "#alert-container",
+		include: "#alert-container, .es-toast-container",
 	}),
 	desk("freeze", "/desk/user", ".frappe-list", {
 		action: async (page) => {
@@ -219,7 +222,7 @@ async function ensureUsers(browser) {
 	await page.goto(`${BASE}/login`);
 	await page.fill("#login_email", "Administrator");
 	await page.fill("#login_password", "admin");
-	await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.click(".btn-login")]);
+	await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.press("#login_password", "Enter")]);
 	await page.waitForFunction(() => window.frappe && frappe.csrf_token && frappe.csrf_token !== "{{ csrf_token }}", null, { timeout: 30000 });
 	const log = await page.evaluate(async ({ users, password }) => {
 		const out = [];
@@ -284,7 +287,7 @@ async function runOne(browser, variant, lang, mode) {
 			await page.goto(`${BASE}/login`);
 			await page.fill("#login_email", userOf(lang, mode));
 			await page.fill("#login_password", PASSWORD);
-			await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.click(".btn-login")]);
+			await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.press("#login_password", "Enter")]);
 		}
 		return { ctx, page };
 	};

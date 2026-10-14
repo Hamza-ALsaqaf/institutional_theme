@@ -1,0 +1,50 @@
+{
+ "variant": "themed",
+ "lang": "en",
+ "mode": "light",
+ "base": "http://localhost:8001",
+ "axe": "4.13.0",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa"
+ ],
+ "started": "2026-10-14T06:40:49.442Z",
+ "screens": {
+  "notifications": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/users/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.FUV47A7O.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 15
+  },
+  "toast": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/users/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.FUV47A7O.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 13
+  }
+ },
+ "finished": "2026-10-14T06:40:58.550Z"
+}

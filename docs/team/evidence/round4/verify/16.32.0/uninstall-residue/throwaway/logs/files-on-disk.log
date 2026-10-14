@@ -1,0 +1,6 @@
+=== files-on-disk  2026-10-14T06:58:28Z
+$ as_frappe bash -c ls -la '/home/frappe/frappe-bench/sites/r3fix.test/public/files' || true
+total 8
+drwxrwxr-x+ 2 frappe frappe 4096 Oct 14 06:58 .
+drwxrwxr-x+ 3 frappe frappe 4096 Oct 14 06:57 ..
+exit 0

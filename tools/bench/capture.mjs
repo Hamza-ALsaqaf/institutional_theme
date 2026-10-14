@@ -143,8 +143,19 @@ if (wantedTheme) {
 	lines.push(section("/app data-theme attributes (raw html)", found.themes));
 
 	const page = await context.newPage();
+	const seen = [];
+	page.on("pageerror", (e) => seen.push(`pageerror: ${String(e.message).slice(0, 200)}`));
+	page.on("requestfailed", (r) => seen.push(`requestfailed: ${r.url().slice(0, 160)} ${r.failure()?.errorText}`));
 	await page.goto(`${baseUrl}/app/todo`, { waitUntil: "load" });
-	await page.waitForSelector(".page-head", { timeout: 60000 });
+	try {
+		await page.waitForSelector(".page-head", { timeout: 60000 });
+	} catch (error) {
+		// Say what the page showed instead, so a timeout can be told apart from a broken desk.
+		await page.screenshot({ path: path.join(outDir, `${label}-todo-FAILED.png`), animations: "disabled", caret: "hide" }).catch(() => {});
+		const text = await page.evaluate(() => (document.body ? document.body.innerText : "").replace(/\s+/g, " ").slice(0, 400)).catch(() => "");
+		console.error(`todo did not render .page-head within 60 s at ${page.url()}; page text: ${text}; events: ${JSON.stringify(seen.slice(0, 10))}`);
+		throw error;
+	}
 	await page.waitForTimeout(3000);
 	const live = await page.evaluate(() => ({
 		dataTheme: document.documentElement.getAttribute("data-theme"),

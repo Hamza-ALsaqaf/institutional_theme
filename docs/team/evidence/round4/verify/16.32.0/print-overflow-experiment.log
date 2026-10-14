@@ -1,0 +1,14 @@
+$ /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/scripts/run_print_check.sh /home/frappe/frappe-bench midad.test /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/16.32.0/print-overflow
+wkhtmltopdf 0.12.6.1 (with patched qt)
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 1.0435 seconds
+OK headers-wrap chrome ar 169239
+OK headers-wrap wkhtmltopdf en 20644
+Chromium executable is already executable: /home/frappe/frappe-bench/chromium/chrome-linux/headless_shell
+Headless Chromium closed successfully.
+Function get_chrome_pdf took 1.0019 seconds
+OK figures-and-headers-wrap chrome ar 168858
+OK figures-and-headers-wrap wkhtmltopdf en 20626
+LEFT styles 0 quotations 0
+exit 0, 5 s

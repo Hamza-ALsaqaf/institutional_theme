@@ -1,0 +1,50 @@
+$ node grid_names.mjs --base http://localhost:8001 --out /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/verify/v16.52.0/grid-names
+PASS [en] baseline has grid checkboxes 2 found
+PASS [en] baseline: core gives them no name 
+PASS [en] 1-load: header named [{"header":true,"idx":null,"label":"Select all rows"}]
+PASS [en] 1-load: every row named by its number [["1","Select row 1"]]
+PASS [en] 1-load: row numbers are 1..n 1
+PASS [en] new Journal Entry starts with one row 1
+PASS [en] 2-add-row: header named [{"header":true,"idx":null,"label":"Select all rows"}]
+PASS [en] 2-add-row: every row named by its number [["1","Select row 1"],["2","Select row 2"]]
+PASS [en] 2-add-row: row numbers are 1..n 1,2
+PASS [en] Add Row adds one row 1 -> 2
+PASS [en] 3-add-row-again: header named [{"header":true,"idx":null,"label":"Select all rows"}]
+PASS [en] 3-add-row-again: every row named by its number [["1","Select row 1"],["2","Select row 2"],["3","Select row 3"]]
+PASS [en] 3-add-row-again: row numbers are 1..n 1,2,3
+PASS [en] 4-delete-row: header named [{"header":true,"idx":null,"label":"Select all rows"}]
+PASS [en] 4-delete-row: every row named by its number [["1","Select row 1"],["2","Select row 2"]]
+PASS [en] 4-delete-row: row numbers are 1..n 1,2
+PASS [en] deleting one row leaves one fewer 3 -> 2
+PASS [en] 5-insert-above: header named [{"header":true,"idx":null,"label":"Select all rows"}]
+PASS [en] 5-insert-above: every row named by its number [["1","Select row 1"],["2","Select row 2"],["3","Select row 3"]]
+PASS [en] 5-insert-above: row numbers are 1..n 1,2,3
+PASS [en] drag reorder ran (order changed) 
+PASS [en] 6-reorder: header named [{"header":true,"idx":null,"label":"Select all rows"}]
+PASS [en] 6-reorder: every row named by its number [["1","Select row 1"],["2","Select row 2"],["3","Select row 3"]]
+PASS [en] 6-reorder: row numbers are 1..n 1,2,3
+PASS [ar] baseline has grid checkboxes 2 found
+PASS [ar] baseline: core gives them no name 
+PASS [ar] 1-load: header named [{"header":true,"idx":null,"label":"تحديد جميع الصفوف"}]
+PASS [ar] 1-load: every row named by its number [["1","تحديد الصف 1"]]
+PASS [ar] 1-load: row numbers are 1..n 1
+PASS [ar] new Journal Entry starts with one row 1
+PASS [ar] 2-add-row: header named [{"header":true,"idx":null,"label":"تحديد جميع الصفوف"}]
+PASS [ar] 2-add-row: every row named by its number [["1","تحديد الصف 1"],["2","تحديد الصف 2"]]
+PASS [ar] 2-add-row: row numbers are 1..n 1,2
+PASS [ar] Add Row adds one row 1 -> 2
+PASS [ar] 3-add-row-again: header named [{"header":true,"idx":null,"label":"تحديد جميع الصفوف"}]
+PASS [ar] 3-add-row-again: every row named by its number [["1","تحديد الصف 1"],["2","تحديد الصف 2"],["3","تحديد الصف 3"]]
+PASS [ar] 3-add-row-again: row numbers are 1..n 1,2,3
+PASS [ar] 4-delete-row: header named [{"header":true,"idx":null,"label":"تحديد جميع الصفوف"}]
+PASS [ar] 4-delete-row: every row named by its number [["1","تحديد الصف 1"],["2","تحديد الصف 2"]]
+PASS [ar] 4-delete-row: row numbers are 1..n 1,2
+PASS [ar] deleting one row leaves one fewer 3 -> 2
+PASS [ar] 5-insert-above: header named [{"header":true,"idx":null,"label":"تحديد جميع الصفوف"}]
+PASS [ar] 5-insert-above: every row named by its number [["1","تحديد الصف 1"],["2","تحديد الصف 2"],["3","تحديد الصف 3"]]
+PASS [ar] 5-insert-above: row numbers are 1..n 1,2,3
+PASS [ar] drag reorder ran (order changed) 
+PASS [ar] 6-reorder: header named [{"header":true,"idx":null,"label":"تحديد جميع الصفوف"}]
+PASS [ar] 6-reorder: every row named by its number [["1","تحديد الصف 1"],["2","تحديد الصف 2"],["3","تحديد الصف 3"]]
+PASS [ar] 6-reorder: row numbers are 1..n 1,2,3
+exit 0, 24 s

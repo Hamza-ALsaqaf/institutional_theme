@@ -1,0 +1,25 @@
+- text: Ae
+- button "Edit"
+- button "Print"
+- img
+- text: Axe en-light axe-en-light@midad.test Assign
+- button "Assign"
+- text: Attachments
+- button "Add attachment"
+- text: Tags
+- button "Add Tags"
+- text: Share
+- button "Share"
+- text: Ae
+- list:
+  - listitem:
+    - text: Last Edited By
+    - link "Administrator":
+      - /url: /desk/user/Administrator
+    - text: 7 minutes ago
+  - listitem:
+    - text: Created By
+    - link "Administrator":
+      - /url: /desk/user/Administrator
+    - text: 23 minutes ago
+  - listitem

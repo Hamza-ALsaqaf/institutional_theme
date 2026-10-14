@@ -1,0 +1,27 @@
+$ python3.14 -m institutional_theme.audits --no-write
+Presets: midad, graphite, petrol, forest, plum, umber; shipped: midad, graphite, petrol, forest, plum
+contrast  midad     light pass (0 failing)
+contrast  midad     dark  pass (0 failing)
+contrast  graphite  light pass (0 failing)
+contrast  graphite  dark  pass (0 failing)
+contrast  petrol    light pass (0 failing)
+contrast  petrol    dark  pass (0 failing)
+contrast  forest    light pass (0 failing)
+contrast  forest    dark  pass (0 failing)
+contrast  plum      light pass (0 failing)
+contrast  plum      dark  pass (0 failing)
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+avatars: 216 pair measurements, 0 failing in shipped presets, 0 problem(s)
+parity: 55 checks, 0 failed
+colour-vision: 0 failure(s) (status, neighbouring series, gap not in the baseline), 99 baselined chart gap(s) in shipped presets
+dead-tokens 16.32.0: 484 variables: 268 declared and read by core, 131 declared only, 0 read only, 1 consumed by the theme, 84 dead in this version
+dead-tokens 16.52.0: 484 variables: 430 declared and read by core, 33 declared only, 6 read only, 0 consumed by the theme, 15 dead in this version
+dead-tokens 16.32.0: 14 variable(s) read by core only in this version
+dead-tokens 16.52.0: 182 variable(s) read by core only in this version
+dead-tokens: combined over 16.32.0, 16.52.0: 484 variables: 449 declared and read by core, 35 declared only, 0 read only, 0 consumed by the theme, 0 dead in every version
+counterparts: 30 pair(s), 0 finding(s)
+budgets: 0 problem(s)
+audits: passed
+exit 0, 1 s

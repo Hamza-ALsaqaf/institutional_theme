@@ -1,0 +1,173 @@
+- text: "Editing Row #1"
+- button "Collapse"
+- button "Move"
+- button "Duplicate"
+- button "Insert Above"
+- button "Insert Below"
+- button "Delete"
+- text: Receiver By Document Field
+- combobox "Receiver By Document Field"
+- text: receiver_by_document_field Receiver By Role
+- combobox "Receiver By Role" [expanded]:
+  - listbox:
+    - option "Academics User" [selected]:
+      - paragraph:
+        - strong: Academics User
+    - option "Accounts Manager":
+      - paragraph:
+        - strong: Accounts Manager
+    - option "Accounts User":
+      - paragraph:
+        - strong: Accounts User
+    - option "Administrator":
+      - paragraph:
+        - strong: Administrator
+    - option "All":
+      - paragraph:
+        - strong: All
+    - option "Analytics":
+      - paragraph:
+        - strong: Analytics
+    - option "Auditor":
+      - paragraph:
+        - strong: Auditor
+    - option "Customer":
+      - paragraph:
+        - strong: Customer
+    - option "Dashboard Manager":
+      - paragraph:
+        - strong: Dashboard Manager
+    - option "Delivery Manager":
+      - paragraph:
+        - strong: Delivery Manager
+    - option "Delivery User":
+      - paragraph:
+        - strong: Delivery User
+    - option "Desk User":
+      - paragraph:
+        - strong: Desk User
+    - option "Employee":
+      - paragraph:
+        - strong: Employee
+    - option "Fleet Manager":
+      - paragraph:
+        - strong: Fleet Manager
+    - option "Fulfillment User":
+      - paragraph:
+        - strong: Fulfillment User
+    - option "Guest":
+      - paragraph:
+        - strong: Guest
+    - option "HR Manager":
+      - paragraph:
+        - strong: HR Manager
+    - option "HR User":
+      - paragraph:
+        - strong: HR User
+    - option "Inbox User":
+      - paragraph:
+        - strong: Inbox User
+    - option "Item Manager":
+      - paragraph:
+        - strong: Item Manager
+    - option "Knowledge Base Contributor":
+      - paragraph:
+        - strong: Knowledge Base Contributor
+    - option "Knowledge Base Editor":
+      - paragraph:
+        - strong: Knowledge Base Editor
+    - option "Maintenance Manager":
+      - paragraph:
+        - strong: Maintenance Manager
+    - option "Maintenance User":
+      - paragraph:
+        - strong: Maintenance User
+    - option "Manufacturing Manager":
+      - paragraph:
+        - strong: Manufacturing Manager
+    - option "Manufacturing User":
+      - paragraph:
+        - strong: Manufacturing User
+    - option "Marketing Manager":
+      - paragraph:
+        - strong: Marketing Manager
+    - option "Newsletter Manager":
+      - paragraph:
+        - strong: Newsletter Manager
+    - option "Prepared Report User":
+      - paragraph:
+        - strong: Prepared Report User
+    - option "Projects Manager":
+      - paragraph:
+        - strong: Projects Manager
+    - option "Projects User":
+      - paragraph:
+        - strong: Projects User
+    - option "Purchase Manager":
+      - paragraph:
+        - strong: Purchase Manager
+    - option "Purchase Master Manager":
+      - paragraph:
+        - strong: Purchase Master Manager
+    - option "Purchase User":
+      - paragraph:
+        - strong: Purchase User
+    - option "Quality Manager":
+      - paragraph:
+        - strong: Quality Manager
+    - option "Report Manager":
+      - paragraph:
+        - strong: Report Manager
+    - option "Sales Manager":
+      - paragraph:
+        - strong: Sales Manager
+    - option "Sales Master Manager":
+      - paragraph:
+        - strong: Sales Master Manager
+    - option "Sales User":
+      - paragraph:
+        - strong: Sales User
+    - option "Script Manager":
+      - paragraph:
+        - strong: Script Manager
+    - option "Stock Manager":
+      - paragraph:
+        - strong: Stock Manager
+    - option "Stock User":
+      - paragraph:
+        - strong: Stock User
+    - option "Supplier":
+      - paragraph:
+        - strong: Supplier
+    - option "Support Team":
+      - paragraph:
+        - strong: Support Team
+    - option "System Manager":
+      - paragraph:
+        - strong: System Manager
+    - option "Translator":
+      - paragraph:
+        - strong: Translator
+    - option "Website Manager":
+      - paragraph:
+        - strong: Website Manager
+    - option "Workspace Manager":
+      - paragraph:
+        - strong: Workspace Manager
+    - option " Create a new Role":
+      - paragraph:  Create a new Role
+    - option " Advanced Search":
+      - paragraph:  Advanced Search
+- status: 50 results found
+- text: receiver_by_role CC
+- textbox "CC"
+- text: "Optional: Always send to these ids. Each Email Address on a new row"
+- button "Expand"
+- text: cc BCC
+- textbox "BCC"
+- button "Expand"
+- text: bcc Condition
+- textbox "Condition":
+  - /placeholder: ""
+- text: "Expression, Optional condition Shortcuts: Ctrl + Up . Ctrl + Down . ESC"
+- button "Insert Below"

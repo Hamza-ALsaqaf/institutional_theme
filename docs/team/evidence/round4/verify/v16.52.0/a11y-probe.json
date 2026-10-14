@@ -1,0 +1,76 @@
+{
+ "lang": "en",
+ "themeBlocked": false,
+ "list": {
+  "breadcrumbOld": null,
+  "breadcrumbAny": "<nav class=\"es-breadcrumbs navbar-breadcrumbs\" aria-label=\"Breadcrumb\"><ol><li><span class=\"es-breadcrumbs__item\" title=\"Someone who can log in to your site.\" aria-current=\"page\"><span class=\"es-breadcrumbs__label\">User</span></span></li></ol></nav>",
+  "logoOld": null,
+  "sidebarHeader": "<a class=\"sidebar-header shell-header\" style=\"text-decoration: none;\" aria-haspopup=\"menu\" aria-expanded=\"false\"> <div class=\"header-logo\"><svg class=\"icon icon-md\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-users-soft\"> </use> </svg></div> <div cl",
+  "headerButtonOld": "<button class=\"btn-reset drop-icon\" aria-label=\"Sidebar Menu\"> <svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\"> </use> </svg> </button>"
+ },
+ "form": {
+  "assign": "<button class=\"es-button add-assignment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Assign\" aria-label=\"Assign\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> ",
+  "attach": "<button class=\"es-button add-attachment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Add attachment\" aria-label=\"Add attachment\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" hre",
+  "share": "<button class=\"es-button share-doc-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Share\" aria-label=\"Share\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use> ",
+  "tags": "<button type=\"button\" class=\"es-button add-tags-btn\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Add Tags\" aria-label=\"Add Tags\"> <svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use> </svg> </button>",
+  "top": "<button class=\"scroll-to-top btn btn-default icon-btn\" onclick=\"frappe.utils.scroll_page_to_top()\" aria-label=\"Scroll to top\"> <svg class=\"icon icon-xs\"><use href=\"#icon-chevron-up\"></use></svg> </button>"
+ },
+ "editor": "<button class=\"es-button pull-right grid-collapse-row\" type=\"button\" data-icon-button=\"true\" title=\"Collapse\" aria-label=\"Collapse\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\">"
+}
+{
+ "lang": "en",
+ "themeBlocked": true,
+ "list": {
+  "breadcrumbOld": null,
+  "breadcrumbAny": "<nav class=\"es-breadcrumbs navbar-breadcrumbs\" aria-label=\"Breadcrumb\"><ol><li><span class=\"es-breadcrumbs__item\" title=\"Someone who can log in to your site.\" aria-current=\"page\"><span class=\"es-breadcrumbs__label\">User</span></span></li></ol></nav>",
+  "logoOld": null,
+  "sidebarHeader": "<a class=\"sidebar-header shell-header\" style=\"text-decoration: none;\" aria-haspopup=\"menu\" aria-expanded=\"false\"> <div class=\"header-logo\"><svg class=\"icon icon-md\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-users-soft\"> </use> </svg></div> <div cl",
+  "headerButtonOld": "<button class=\"btn-reset drop-icon\" aria-label=\"Sidebar Menu\"> <svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\"> </use> </svg> </button>"
+ },
+ "form": {
+  "assign": "<button class=\"es-button add-assignment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Assign\" aria-label=\"Assign\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> ",
+  "attach": "<button class=\"es-button add-attachment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Add attachment\" aria-label=\"Add attachment\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" hre",
+  "share": "<button class=\"es-button share-doc-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Share\" aria-label=\"Share\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use> ",
+  "tags": "<button type=\"button\" class=\"es-button add-tags-btn\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Add Tags\" aria-label=\"Add Tags\"> <svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use> </svg> </button>",
+  "top": "<button class=\"scroll-to-top btn btn-default icon-btn\" onclick=\"frappe.utils.scroll_page_to_top()\"> <svg class=\"icon icon-xs\"><use href=\"#icon-chevron-up\"></use></svg> </button>"
+ },
+ "editor": "<button class=\"es-button pull-right grid-collapse-row\" type=\"button\" data-icon-button=\"true\" title=\"Collapse\" aria-label=\"Collapse\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\">"
+}
+{
+ "lang": "ar",
+ "themeBlocked": false,
+ "list": {
+  "breadcrumbOld": null,
+  "breadcrumbAny": "<nav class=\"es-breadcrumbs navbar-breadcrumbs\" aria-label=\"Breadcrumb\"><ol><li><span class=\"es-breadcrumbs__item\" title=\"Someone who can log in to your site.\" aria-current=\"page\"><span class=\"es-breadcrumbs__label\">المستعمل</span></span></li></ol></nav>",
+  "logoOld": null,
+  "sidebarHeader": "<a class=\"sidebar-header shell-header\" style=\"text-decoration: none;\" aria-haspopup=\"menu\" aria-expanded=\"false\"> <div class=\"header-logo\"><svg class=\"icon icon-md\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-users-soft\"> </use> </svg></div> <div cl",
+  "headerButtonOld": "<button class=\"btn-reset drop-icon\" aria-label=\"Sidebar Menu\"> <svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\"> </use> </svg> </button>"
+ },
+ "form": {
+  "assign": "<button class=\"es-button add-assignment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"عين\" aria-label=\"عين\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use>",
+  "attach": "<button class=\"es-button add-attachment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Add attachment\" aria-label=\"Add attachment\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" hre",
+  "share": "<button class=\"es-button share-doc-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"مشاركة\" aria-label=\"مشاركة\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use",
+  "tags": "<button type=\"button\" class=\"es-button add-tags-btn\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"إضافة وسوم\" aria-label=\"إضافة وسوم\"> <svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use> </svg> </button>",
+  "top": "<button class=\"scroll-to-top btn btn-default icon-btn\" onclick=\"frappe.utils.scroll_page_to_top()\" aria-label=\"العودة إلى الأعلى\"> <svg class=\"icon icon-xs\"><use href=\"#icon-chevron-up\"></use></svg> </button>"
+ },
+ "editor": "<button class=\"es-button pull-right grid-collapse-row\" type=\"button\" data-icon-button=\"true\" title=\"انهيار\" aria-label=\"انهيار\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\"> </u"
+}
+{
+ "lang": "ar",
+ "themeBlocked": true,
+ "list": {
+  "breadcrumbOld": null,
+  "breadcrumbAny": "<nav class=\"es-breadcrumbs navbar-breadcrumbs\" aria-label=\"Breadcrumb\"><ol><li><span class=\"es-breadcrumbs__item\" title=\"Someone who can log in to your site.\" aria-current=\"page\"><span class=\"es-breadcrumbs__label\">المستعمل</span></span></li></ol></nav>",
+  "logoOld": null,
+  "sidebarHeader": "<a class=\"sidebar-header shell-header\" style=\"text-decoration: none;\" aria-haspopup=\"menu\" aria-expanded=\"false\"> <div class=\"header-logo\"><svg class=\"icon icon-md\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-users-soft\"> </use> </svg></div> <div cl",
+  "headerButtonOld": "<button class=\"btn-reset drop-icon\" aria-label=\"Sidebar Menu\"> <svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\"> </use> </svg> </button>"
+ },
+ "form": {
+  "assign": "<button class=\"es-button add-assignment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"عين\" aria-label=\"عين\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use>",
+  "attach": "<button class=\"es-button add-attachment-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"Add attachment\" aria-label=\"Add attachment\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" hre",
+  "share": "<button class=\"es-button share-doc-btn\" type=\"button\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"مشاركة\" aria-label=\"مشاركة\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use",
+  "tags": "<button type=\"button\" class=\"es-button add-tags-btn\" data-variant=\"ghost\" data-icon-button=\"true\" title=\"إضافة وسوم\" aria-label=\"إضافة وسوم\"> <svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-plus\"> </use> </svg> </button>",
+  "top": "<button class=\"scroll-to-top btn btn-default icon-btn\" onclick=\"frappe.utils.scroll_page_to_top()\"> <svg class=\"icon icon-xs\"><use href=\"#icon-chevron-up\"></use></svg> </button>"
+ },
+ "editor": "<button class=\"es-button pull-right grid-collapse-row\" type=\"button\" data-icon-button=\"true\" title=\"انهيار\" aria-label=\"انهيار\"><span class=\"es-spinner\" aria-hidden=\"true\"></span><svg class=\"icon icon-sm\" stroke=\"currentColor\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\"> </u"
+}

@@ -1,0 +1,50 @@
+{
+ "variant": "themed",
+ "lang": "ar",
+ "mode": "dark",
+ "base": "http://localhost:8001",
+ "axe": "4.13.0",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa"
+ ],
+ "started": "2026-10-14T06:41:17.293Z",
+ "screens": {
+  "notifications": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/users/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.NHPPQMLS.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 15
+  },
+  "toast": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/users/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.NHPPQMLS.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 13
+  }
+ },
+ "finished": "2026-10-14T06:41:26.806Z"
+}

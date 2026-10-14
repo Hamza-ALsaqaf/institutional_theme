@@ -21,7 +21,7 @@ for (const mode of ["light", "dark"]) for (const variant of ["themed", "core"]) 
 	await page.goto(`${BASE}/login`);
 	await page.fill("#login_email", `axe-en-${mode}@midad.test`);
 	await page.fill("#login_password", "Mdd#Test2026x");
-	await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.click(".btn-login")]);
+	await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.press("#login_password", "Enter")]);
 	await page.waitForSelector(".body-sidebar", { timeout: 30000, state: "attached" });
 	await page.waitForTimeout(1500);
 	const pairs = await page.evaluate((names) => names.map((n) => {
