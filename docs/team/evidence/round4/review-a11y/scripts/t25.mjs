@@ -1,0 +1,10 @@
+import { chromium, BENCH, login } from "./lib.mjs";
+const which = process.argv[2];
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const page = await (await b.newContext({ viewport: { width: 1366, height: 768 } })).newPage();
+page.on("pageerror", e=>console.log("PAGEERR", e.message.slice(0,150)));
+page.on("response", r=>{ if(r.status()>=400) console.log("HTTP", r.status(), r.url().slice(0,120)); });
+await login(page, BENCH[which]);
+await page.goto(BENCH[which] + "/desk/user"); await page.waitForTimeout(8000);
+console.log(page.url(), await page.evaluate(()=>document.querySelectorAll('.list-row-container').length));
+await b.close();

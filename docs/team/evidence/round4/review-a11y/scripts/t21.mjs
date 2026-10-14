@@ -1,0 +1,11 @@
+import { chromium, BENCH, login, OUT } from "./lib.mjs";
+const [which, user, w] = process.argv.slice(2);
+const base = BENCH[which];
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const ctx = await b.newContext({ locale: "en-US", viewport: { width: +w, height: 400 }, deviceScaleFactor: 4, reducedMotion: "reduce" });
+const page = await ctx.newPage();
+await login(page, base);
+await page.goto(base + "/desk/todo"); await page.waitForTimeout(3500);
+console.log(which, w, JSON.stringify(await page.evaluate(()=>{ const row=document.querySelector('.list-row-container .list-row'); const rr=row.getBoundingClientRect(); const out=[]; for (const e of row.querySelectorAll('.es-badge, .indicator-pill, .list-subject a, .level-right')) { const r=e.getBoundingClientRect(); const vis = r.width>0; if(!vis) continue; const clipPar=[]; let p=e.parentElement; while(p && p!==document.body){ const c=getComputedStyle(p); if(/(hidden|clip|auto|scroll)/.test(c.overflowX)) { const pr=p.getBoundingClientRect(); clipPar.push(String(p.className).slice(0,26)+' R='+Math.round(pr.right)+' L='+Math.round(pr.left)); } p=p.parentElement; } out.push({cls:String(e.className).slice(0,28), txt:e.textContent.trim().slice(0,14), L:Math.round(r.left), R:Math.round(r.right), clip:clipPar.slice(0,3)}); } return {rowL:Math.round(rr.left), rowR:Math.round(rr.right), vw:innerWidth, out}; })));
+await page.screenshot({ path: OUT+`row-${which}-${w}.png`, clip:{x:0,y:100,width:+w,height:200} });
+await b.close();

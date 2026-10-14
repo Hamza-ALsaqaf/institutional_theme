@@ -1,0 +1,138 @@
+{
+ "z200": {
+  "list": {
+   "sw": 640,
+   "iw": 640,
+   "coarse": false,
+   "nControls": 38,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 16x16",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 156x18",
+    "SPAN.es-badge filterable ellipsis 73x20",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 138x21",
+    "SPAN.es-badge filterable ellipsis 73x20",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 128x21",
+    "SPAN.es-badge filterable ellipsis 73x20"
+   ],
+   "sizes": {
+    "primary": "67x28",
+    "menu": "28x28",
+    "pill": "32x26",
+    "input": "185x32"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 640,
+   "iw": 640,
+   "coarse": false,
+   "nControls": 40,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20"
+   ],
+   "sizes": {
+    "primary": "48x28",
+    "input": "269x32"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ },
+ "z400": {
+  "list": {
+   "sw": 320,
+   "iw": 320,
+   "coarse": false,
+   "nControls": 28,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 15x15",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 156x18",
+    "SPAN.es-badge filterable ellipsis 73x20",
+    "SPAN.es-badge filterable ellipsis 83x20"
+   ],
+   "sizes": {
+    "primary": "67x28",
+    "menu": "28x28",
+    "pill": "32x26",
+    "input": "77x32"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 320,
+   "iw": 320,
+   "coarse": false,
+   "nControls": 12,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20"
+   ],
+   "sizes": {
+    "primary": "48x28",
+    "input": "248x32"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ },
+ "touch": {
+  "list": {
+   "sw": 390,
+   "iw": 390,
+   "coarse": true,
+   "nControls": 41,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 15x15",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 156x18",
+    "SPAN.es-badge filterable ellipsis 73x20",
+    "SPAN.es-badge filterable ellipsis 83x20",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 138x21",
+    "SPAN.es-badge filterable ellipsis 73x20",
+    "SPAN.es-badge filterable ellipsis 65x20",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 128x21",
+    "SPAN.es-badge filterable ellipsis 73x20",
+    "SPAN.es-badge filterable ellipsis 58x20"
+   ],
+   "sizes": {
+    "primary": "67x28",
+    "menu": "28x28",
+    "pill": "32x26",
+    "input": "77x44"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 390,
+   "iw": 390,
+   "coarse": true,
+   "nControls": 40,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20"
+   ],
+   "sizes": {
+    "primary": "48x28",
+    "input": "328x44"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ }
+}

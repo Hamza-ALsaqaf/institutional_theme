@@ -1,0 +1,11 @@
+import { chromium, BENCH, login, OUT } from "./lib.mjs";
+const [which, w, block] = process.argv.slice(2);
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const ctx = await b.newContext({ locale: "en-US", viewport: { width: +w, height: 400 }, deviceScaleFactor: 3, reducedMotion: "reduce" });
+await login(await ctx.newPage(), BENCH[which]);
+const page = await ctx.newPage();
+if (block==="block") await page.route(/\/assets\/institutional_theme\//, r=>r.abort());
+await page.goto(BENCH[which] + "/desk/todo"); await page.waitForTimeout(3500);
+console.log(which, w, block, JSON.stringify(await page.evaluate(()=>{ const res=document.querySelector('.result-container'); const rr=res.getBoundingClientRect(); const bd=[...document.querySelectorAll('.list-row .es-badge[data-filter*=status], .list-row .indicator-pill')].filter(e=>e.getBoundingClientRect().width>0).slice(0,1).map(e=>{const r=e.getBoundingClientRect(); return {L:Math.round(r.left),R:Math.round(r.right),txt:e.textContent.trim()};}); return { theme: !!document.querySelector('html[data-ins-shell]'), resR:Math.round(rr.right), ov:getComputedStyle(res).overflowX, sw:res.scrollWidth, cw:res.clientWidth, bd }; })));
+await page.screenshot({ path: OUT+`row400-${which}-${block}.png`, clip:{x:0,y:100,width:+w,height:200} });
+await b.close();

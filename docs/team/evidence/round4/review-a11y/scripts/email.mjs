@@ -1,0 +1,10 @@
+import { chromium, OUT } from "./lib.mjs";
+import { readFileSync } from "node:fs";
+const html = readFileSync("/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round4/login/email/1652-email-password_reset.html","utf8");
+const ar = html.replace("<html ", '<html dir="rtl" lang="ar" ').replace("If you didn't request this, you can safely ignore this email. Your password won't be changed.", "إذا لم تطلب ذلك، يمكنك تجاهل هذه الرسالة بأمان. لن تتغير كلمة المرور.").replace("Reset your password","إعادة تعيين كلمة المرور").replace("Click below to reset your password. The link expires in 10 minutes.","انقر أدناه لإعادة تعيين كلمة المرور. ينتهي الرابط خلال 10 دقائق.").replace("Reset password","إعادة التعيين");
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const p = await b.newPage({ viewport: { width: 760, height: 560 } });
+await p.setContent(ar); await p.waitForTimeout(300);
+console.log(await p.evaluate(()=>{ const e=document.querySelector('.email-ignore'); const c=getComputedStyle(e); const r=e.getBoundingClientRect(); return { dir:document.documentElement.dir, ta:c.textAlign, borderL:c.borderLeftWidth+' '+c.borderLeftColor, borderR:c.borderRightWidth, rect:[Math.round(r.left),Math.round(r.right)] }; }));
+await p.screenshot({ path: OUT+"email-ar-simulated-rtl.png" });
+await b.close();
