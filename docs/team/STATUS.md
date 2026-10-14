@@ -72,3 +72,8 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 
 - Lead decisions: login, website and error pages are light only by platform constraint and design, not a dark-parity defect; the Dark calendar chips may use a narrowly scoped, manifest-justified `!important` against Frappe's inline colours if nothing else works; the test site's own `site_config.json` may be edited for verification and restored.
 - Order of work and the end-of-job routine are in `docs/team/RESUME_PROMPT.md` (round 2). `main` stays unchanged; pull request #2 stays open for the owner.
+
+## After round 2 (lead)
+
+- 00:30 UTC 2026-10-14: every phase gate passed with evidence (round 2). The lead re-ran CI's own checks on `f3faf4d` (ruff 0.16.8 check and format, 130 + 34 unit tests, `build --check` 0 stale, all audits passed). With the owner's explicit authorisation to merge, pull request #2 is merged into `main`. Before that, `main` was `24a8b35` (the unverified snapshot merged from pull request #1, CI red).
+- Next step: round 3, release hardening and independent verification (`docs/team/RESUME_PROMPT.md`), on a new pull request from `build/midad-v1` to `main`; the lead merges it only after verifying its evidence. All changes stay inside this app; Frappe core is never modified.
