@@ -40,8 +40,12 @@ class TestSiteFiles(IntegrationTestCase):
 
 	def setUp(self) -> None:
 		frappe.set_user("Administrator")
-		shutil.rmtree(folder(), ignore_errors=True)
+		# The committed state first, the folder second: a desk request that is served while the previous
+		# test's custom palette is still the committed state writes that palette's file (`ensure`, the lazy
+		# path), and `prune` keeps the newest previous file of each kind. Emptying the folder before the
+		# reset let such a file survive into this test. Once the reset is committed no request wants one.
 		reset_settings()
+		shutil.rmtree(folder(), ignore_errors=True)
 		guard_log.reset()
 
 	def test_nothing_is_written_when_nothing_is_wanted(self) -> None:
@@ -74,9 +78,14 @@ class TestSiteFiles(IntegrationTestCase):
 		self.assertLessEqual(len(generated(site_files.PALETTE_PREFIX)), 2)
 
 	def test_a_palette_that_fails_its_audit_is_never_written(self) -> None:
+		# The settings are not saved: a saved (committed) custom state would let a desk request on the same site,
+		# which does not run under this mock, write the file of a palette that really passes. The document is
+		# given to `ensure` and to the after-commit callback directly, which is the code under test.
+		doc = frappe.get_doc(site_files.DOCTYPE)
+		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
 		with mock.patch.object(site_files, "_custom_css", return_value=None):
-			set_settings(allow_custom=1, custom_primary=PRIMARY, custom_accent=ACCENT)
-			self.assertEqual(site_files.ensure(), {})
+			self.assertEqual(site_files.ensure(doc), {})
+			site_files._regenerate(doc)
 		self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
 
 	def test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name(self) -> None:
@@ -166,10 +175,13 @@ class TestSiteFiles(IntegrationTestCase):
 	def test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing(self) -> None:
 		doc = frappe.get_doc(site_files.DOCTYPE)
 		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
+		# What a desk request may have written for the committed state is not this save's doing: the property is
+		# that the save and the rollback change nothing, and that the commit adds the new state's file.
+		before = generated(site_files.PALETTE_PREFIX)
 		doc.save()
-		self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+		self.assertEqual(generated(site_files.PALETTE_PREFIX), before)
 		frappe.db.rollback()
-		self.assertEqual(generated(site_files.PALETTE_PREFIX), [])
+		self.assertEqual(generated(site_files.PALETTE_PREFIX), before)
 		doc = frappe.get_doc(site_files.DOCTYPE)
 		doc.update({"allow_custom": 1, "custom_primary": PRIMARY, "custom_accent": ACCENT})
 		doc.save()
@@ -177,7 +189,11 @@ class TestSiteFiles(IntegrationTestCase):
 			clear_cache.assert_not_called()
 			frappe.db.commit()
 			clear_cache.assert_called_once()
-		self.assertEqual(len(generated(site_files.PALETTE_PREFIX)), 1)
+		new = site_files.file_name(site_files.PALETTE_PREFIX, site_files.palette_content(doc))
+		self.assertEqual(
+			sorted(path.name for path in generated(site_files.PALETTE_PREFIX)),
+			sorted({new, *(path.name for path in before)}),
+		)
 
 	def test_a_failure_after_the_commit_is_logged_once_and_does_not_raise(self) -> None:
 		with (

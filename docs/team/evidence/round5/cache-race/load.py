@@ -5,7 +5,7 @@
 Each worker loops over the paths until <stop-file> exists. Every request is one log line:
     <iso time> <worker> <status> <seconds> <path>
 A summary of counts by path and status is written to <log-file>.summary when the load stops.
-Only GET requests, plus one login POST per worker at the start. The site's data is never written.
+Only GET requests, plus one login POST at the start (retried up to five times). The site's data is never written.
 """
 
 import collections
@@ -21,16 +21,18 @@ from datetime import datetime, timezone
 
 base, log_path, stop_path = sys.argv[1], sys.argv[2], sys.argv[3]
 workers = int(sys.argv[4]) if len(sys.argv) > 4 else 3
-PATHS = [
-	"/desk",
+# Worker 0 is the one logged-in desk user (one session: several logins of the same user at the same time fail
+# in core with a PostgreSQL serialization error, which is not what this load is meant to test); the others
+# are anonymous visitors of the login page and the website.
+DESK_PATHS = ["/desk", "/desk/todo", "/desk", "/api/method/ping", "/desk/user"]
+PUBLIC_PATHS = [
 	"/login",
 	"/",
-	"/desk/todo",
 	"/login?redirect-to=%2Fdesk",
 	"/contact",
 	"/api/method/ping",
-	"/desk",
 	"/update-password",
+	"/about",
 ]
 lock = threading.Lock()
 counts: collections.Counter = collections.Counter()
@@ -58,24 +60,40 @@ def fetch(opener, worker: int, path: str, data: bytes | None = None):
 			status = response.status
 	except urllib.error.HTTPError as error:
 		status = error.code
+		if status >= 500:
+			# developer_mode shows the traceback in the body: keep the text of the page for diagnosis
+			text = error.read().decode("utf-8", "replace")
+			with lock, open(log_path + ".errors", "a") as errors:
+				at = text.find("error-content")
+				text = text[at : at + 7000] if at >= 0 else text[-3500:]
+				errors.write(f"=== {datetime.now(timezone.utc).isoformat(timespec='milliseconds')} {status} {path}\n{text}\n")
 	except Exception as error:
 		status = type(error).__name__
 	record(worker, status, time.monotonic() - started, path)
 	return status
 
 
-def run(worker: int) -> None:
-	opener = make_opener()
-	data = urllib.parse.urlencode({"usr": "Administrator", "pwd": "admin"}).encode()
-	fetch(opener, worker, "/api/method/login", data)
+def run(worker: int, opener) -> None:
+	paths = DESK_PATHS if worker == 0 else PUBLIC_PATHS
 	index = worker
 	while not os.path.exists(stop_path):
-		fetch(opener, worker, PATHS[index % len(PATHS)])
+		fetch(opener, worker, paths[index % len(paths)])
 		index += 1
 		time.sleep(0.05)
 
 
-threads = [threading.Thread(target=run, args=(n,)) for n in range(workers)]
+def login() -> urllib.request.OpenerDirector:
+	opener = make_opener()
+	data = urllib.parse.urlencode({"usr": "Administrator", "pwd": "admin"}).encode()
+	for _attempt in range(5):
+		if fetch(opener, 0, "/api/method/login", data) == 200:
+			break
+		time.sleep(1)
+	return opener
+
+
+openers = [login()] + [make_opener() for _ in range(workers - 1)]
+threads = [threading.Thread(target=run, args=(n, openers[n])) for n in range(workers)]
 for thread in threads:
 	thread.start()
 for thread in threads:
