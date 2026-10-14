@@ -2,6 +2,11 @@
 // every value is a literal from `generated/_literals.scss`: no custom properties, no `@font-face`, no
 // logical properties (mail clients do not read them), no flex or grid. Layout is the core table markup.
 // Equal specificity to core's `email.bundle.scss` (0,2,0 and up) and loaded after it, so these rules win.
+// Side rules (warning note, callout, quote) are drawn on BOTH the left and the right edge, with physical
+// properties. Mail clients ignore `border-inline-start`, and core's templates set no `dir` attribute
+// (checked in 16.32.0 and 16.52.0 `templates/emails`), so a `[dir=rtl]` selector never matches: the text
+// direction is only known per paragraph (`unicode-bidi: plaintext`), which CSS cannot read from a border.
+// A rule on both edges is correct in either direction and in every client.
 // Direction: core's template sets no `dir`, so text blocks use `unicode-bidi: plaintext`, which resolves the
 // direction of each paragraph from its first strong character; clients that ignore it show left to right.
 /*rtl:begin:ignore*/
@@ -115,6 +120,7 @@ a {
 .callout-warning {
 	border: 1px solid $ins-status-warning-border;
 	border-left: 4px solid $ins-status-warning-solid;
+	border-right: 4px solid $ins-status-warning-solid;
 	background-color: $ins-feedback-warning-bg;
 	color: $ins-feedback-warning-fg;
 }
@@ -181,6 +187,7 @@ a {
 			padding: 12px 16px;
 			border: 1px solid $ins-status-warning-border;
 			border-left: 4px solid $ins-status-warning-solid;
+			border-right: 4px solid $ins-status-warning-solid;
 			border-radius: $ins-radius-sm;
 			background-color: $ins-feedback-warning-bg;
 			color: $ins-feedback-warning-fg;
@@ -220,6 +227,7 @@ a {
 
 blockquote {
 	border-left: 2px solid $ins-border-strong;
+	border-right: 2px solid $ins-border-strong;
 }
 
 .indicator-red {

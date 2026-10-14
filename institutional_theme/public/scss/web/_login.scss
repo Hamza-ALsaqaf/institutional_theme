@@ -178,6 +178,9 @@ $ins-auth-pages: 'html body:is([data-path="login"], [data-path="update-password"
 				}
 
 				// Icon at the start of both fields, reveal button at the end of the password field only.
+				// The input is forced `direction: ltr`, so its inline start is always its left edge. In an
+				// Arabic page the icon sits at the field's inline start, the right edge; that case is the
+				// `html[dir="rtl"]` rule at the end of this file.
 				.email-field input {
 					padding-inline-start: 38px;
 				}
@@ -453,6 +456,21 @@ html body[data-path="update-password"] .ins-trust {
 html[dir="rtl"] body[data-path="login"] .page-card-body :is(#login_email, #login_password),
 html[dir="rtl"] body[data-path="update-password"] .page-card-body input[type="password"] {
 	text-align: end;
+}
+
+// RTL: the icon is drawn at the right edge of the field while the email input stays `direction: ltr`.
+// Logical properties follow the input's own direction (ltr), not the field's, so they would reserve
+// the left edge. This is the one place where physical `padding-left` and `padding-right` are the correct
+// choice: they name the edge where the icon is. The 38px padding moves from the left to the right edge.
+// The chain repeats the base rule's (`[class*=for-] .page-card ...`) behind `html[dir]`, so it out-ranks it.
+html[dir="rtl"] body[data-path] [class*="for-"] .page-card .page-card-body .email-field input {
+	padding-left: var(--ins-space-3);
+	padding-right: 38px;
+}
+
+// 16.32.0 pads both edges of the email field (`.field-icon` is its marker); keep that symmetric.
+html[dir="rtl"] body[data-path] [class*="for-"] .page-card .page-card-body .email-field:has(> .field-icon) input {
+	padding-left: 38px;
 }
 
 // Each heading and subtitle takes its direction from its own first strong character, so a string that

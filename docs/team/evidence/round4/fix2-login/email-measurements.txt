@@ -1,0 +1,8 @@
+32-email-password_reset-ar.html {"l":"4px","r":"4px","text":"إذا لم تطلب إعادة تعيين كلمة المرور، يرجى تجاهل هذ"}
+32-email-password_reset-en.html {"l":"4px","r":"4px","text":"If you did not request a password reset, please ig"}
+32-email-verification_code-ar.html null
+32-email-verification_code-en.html null
+52-email-password_reset-ar.html {"l":"4px","r":"4px","text":"إذا لم تطلب ذلك، يمكنك تجاهل هذه الرسالة بأمان. لن"}
+52-email-password_reset-en.html {"l":"4px","r":"4px","text":"If you didn't request this, you can safely ignore "}
+52-email-verification_code-ar.html {"l":"4px","r":"4px","text":"إذا لم تطلب هذا الرمز، يمكنك تجاهل هذه الرسالة بأم"}
+52-email-verification_code-en.html {"l":"4px","r":"4px","text":"If you didn't request this code, you can safely ig"}
