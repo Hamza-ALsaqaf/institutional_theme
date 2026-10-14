@@ -43,6 +43,7 @@ Supported versions: verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) a
 - Round 4: control heights follow the theme scale on v16.52.0: 32 px, 28 px compact, 44 px for touch ([evidence](docs/team/evidence/round4/final/)).
 - Round 4: Arabic wording corrected for "Collapse" and "Reset your password" desk-wide ([decision 74](docs/team/OWNER_REVIEW.md)).
 - Round 5: on Frappe 16.32.0, list titles are cut with an ellipsis below 576 px, and closed side-drawer items leave the tab order below 767.98 px ([evidence](docs/team/evidence/round5/v1652-items/)).
+- Round 6: saving the identity clears only the caches that hold the identity values (every cached copy of the core settings documents it writes, the users' boot payloads and the rendered website pages) instead of the whole site cache, once when it writes and again after the save commits ([evidence](docs/team/evidence/round6/cache-clears/)).
 
 ### Fixed
 
@@ -52,15 +53,22 @@ Supported versions: verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) a
 - Round 4: invalid and mandatory field errors look the same, and `aria-invalid` is set on both versions ([evidence](docs/team/evidence/round4/fix1-backend/)).
 - Round 5: settings cache race: the cache was cleared before the save committed, so a concurrent request could refill it with old values; the clear now runs again after commit or rollback ([evidence](docs/team/evidence/round5/cache-race/)).
 - Round 5: Kanban v1 column dot, side-panel Draft and Cancelled colours, and list badges at 400% zoom on v16.52.0 ([evidence](docs/team/evidence/round5/v1652-items/)).
-- Round 6: the Draft and Cancelled watermark is placed per generator, so under wkhtmltopdf it no longer lands on the table rows; under Chrome it still overlaps the title ([evidence](docs/team/evidence/round6/hrms-print/)).
+- Round 6: the Draft and Cancelled watermark is placed per generator. Under wkhtmltopdf it sits near the middle of an A4 or Letter page instead of over the title of a short document; on a document with several item rows it can still cross the totals, at 12% ink, and the text under it stays legible (13.5:1). Under Chrome it sits at the top of the page, over the letter head and the title, the only position where Chrome prints the whole frame on both versions ([evidence](docs/team/evidence/round6/hrms-print/), [fix](docs/team/evidence/round6/print-fix/)).
 - Round 6: builder salary slips use the Midad font instead of Arial and DejaVu Sans ([evidence](docs/team/evidence/round6/hrms-print/)).
 - Round 6: Arabic builder salary slips mirror their sides (labels, amounts, accent bar and separators) ([evidence](docs/team/evidence/round6/hrms-print/)).
+- Round 6: builder salary slip captions and amounts in words are readable on their grey bands (4.1:1 raised to 7.9:1), Arabic captions and column headers are no longer letter-spaced, and English and Arabic slips draw their rules in the same colours ([evidence](docs/team/evidence/round6/print-fix/)).
 
 ### Known limitations
 
 - The full list, in Arabic, is in section 3 of [`docs/team/OWNER_REVIEW.md`](docs/team/OWNER_REVIEW.md).
 - The manual QA matrix and the steps after a Frappe upgrade are in [`docs/UPGRADE_AND_QA_CHECKLIST.md`](docs/UPGRADE_AND_QA_CHECKLIST.md).
 - Frappe core's `redis_cache` race and the 500 errors it causes under load are not fixed by this app ([evidence](docs/team/evidence/round5/cache-race/)).
+- On a busy site the old system name or logo can stay on screen after an identity save: a request that started before the save can put the old values back into core's cache after the app clears it, and core keeps that entry until the next cache clear. If the old name or logo persists, run `bench --site <site> clear-cache` ([review](docs/team/reviews/upgrade-round6.md), S1; [evidence](docs/team/evidence/round6/cache-clears/)).
+- Arabic salary slips print a date that follows an Arabic word with its parts reversed when the site date format uses hyphens (`dd-mm-yyyy`): HRMS prints the dates without direction isolation, which a stylesheet cannot add. A date format with slashes (`dd/mm/yyyy`, System Settings) prints both dates of the period in one order ([review](docs/team/reviews/a11y-round6.md), finding 3; [evidence](docs/team/evidence/round6/print-fix/)).
+- On Frappe v16.52.0 the Salary Slip "Standard" format (core's generated format; HRMS v16.50.0 no longer ships its own) cuts the last column of a table at the page edge in Chrome and overprints column headers in wkhtmltopdf, with or without this theme. Use the Classic, Detailed or Compact salary slip formats ([evidence](docs/team/evidence/round6/hrms-print/)).
+- On Frappe 16.32.0 Chrome prints the Salary Slip, Leave Application and Expense Claim "Standard" formats without the document title and number (core; wkhtmltopdf prints them) ([evidence](docs/team/evidence/round6/hrms-print/)).
+- PDFs carry no tags, headings or document language in either generator (core merges the header and body pages), and the Arabic text layer of a wkhtmltopdf PDF comes out as separate letters when copied or read aloud. Prefer Chrome where the text of an Arabic PDF must be copied or searched ([review](docs/team/reviews/a11y-round6.md), finding 5).
+- The wkhtmltopdf watermark is placed for A4 and Letter; on A5 landscape and A6 it falls below the content or is cut ([evidence](docs/team/evidence/round6/print-fix/)).
 - Screen readers and Windows High Contrast were not tested; a formal accessibility audit is still required before production.
 
 [1.0.0]: https://github.com/Hamza-ALsaqaf/institutional_theme/releases/tag/v1.0.0
