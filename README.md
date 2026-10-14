@@ -2,7 +2,7 @@
 
 An upgrade-safe visual identity and UI theme for the Frappe / ERPNext v16 desk, designed for a government institution: Light and Dark of equal quality, Arabic-first with full English parity, zero core edits.
 
-**Status: Round 3 (release hardening) passed its release gate: clean install from scratch, HRMS 16.20.1, the newest v16 tag checked, coexistence with another brand app, an automated axe-core scan with 0 violations caused by the theme, and both hostile reviews with no blocking finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round3/`. The build is carried out by the agent team described in `docs/team/`.
+**Status: Round 4 (forward compatibility) passed its release gate: one code base verified on Frappe 16.32.0 and v16.52.0 (cascade test, P0 screenshots in Light and Dark, Arabic and English, axe with 0 violations caused by the theme, the Frappe test suite, print and email, and the install and uninstall gate with no residue, on each version), and both hostile reviews with no open blocking finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round4/`. The build is carried out by the agent team described in `docs/team/`.
 
 Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS not tested on v16.52.0). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
 
