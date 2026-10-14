@@ -1,0 +1,9 @@
+- combobox "حقل": enab
+- status: No results found
+- combobox "الشرط":
+  - option "تساوي" [selected]
+- combobox "القيمة":
+  - option "نعم" [selected]
+  - option "لا"
+- text: enabled
+- img
