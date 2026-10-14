@@ -1,0 +1,4234 @@
+[
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/employee-list-ar-light-comfortable.png",
+    "title": "الموظف",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/employee-list-ar-light-compact.png",
+    "title": "الموظف",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/employee-form-ar-light-comfortable.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/employee-form-ar-light-compact.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "نشط",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/leave-list-ar-light-comfortable.png",
+    "title": "طلب اجازة",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "معتمد",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "فتح",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/leave-list-ar-light-compact.png",
+    "title": "طلب اجازة",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "معتمد",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "فتح",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form-server-error-dialog",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/leave-form-dialog-ar-light.png",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 57,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "فتح",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/leave-form-ar-light-comfortable.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "فتح",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/leave-form-ar-light-compact.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "فتح",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/slip-list-ar-light-comfortable.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/slip-list-ar-light-compact.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/slip-form-ar-light-comfortable.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 64,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "مسودة",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/slip-form-ar-light-compact.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 64,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "مسودة",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/workspace-leaves-ar-light-comfortable.png",
+    "title": "الاجازات",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/workspace-leaves-ar-light-compact.png",
+    "title": "الاجازات",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/workspace-payroll-ar-light-comfortable.png",
+    "title": "دفع الرواتب",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/workspace-payroll-ar-light-compact.png",
+    "title": "دفع الرواتب",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 47,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/org-chart-ar-light-comfortable.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "ar-light",
+    "density": "compact",
+    "shot": "shots/org-chart-ar-light-compact.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-selected",
+    "url": "/app/organizational-chart",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/org-chart-selected-ar-light.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-narrow",
+    "url": "/app/organizational-chart",
+    "combo": "ar-light",
+    "density": "comfortable",
+    "shot": "shots/org-chart-narrow-ar-light.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "none",
+    "textChecked": 18,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [],
+    "pillFails": 0
+  },
+  {
+    "page": "(page errors)",
+    "combo": "ar-light",
+    "errors": [
+      "NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD",
+      "TypeError: Cannot convert undefined or null to object",
+      "TypeError: Cannot read properties of undefined (reading 'parent_id')"
+    ]
+  },
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/employee-list-ar-dark-comfortable.png",
+    "title": "الموظف",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/employee-list-ar-dark-compact.png",
+    "title": "الموظف",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/employee-form-ar-dark-comfortable.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/employee-form-ar-dark-compact.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "نشط",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/leave-list-ar-dark-comfortable.png",
+    "title": "طلب اجازة",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "معتمد",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "فتح",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/leave-list-ar-dark-compact.png",
+    "title": "طلب اجازة",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "معتمد",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "فتح",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form-server-error-dialog",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/leave-form-dialog-ar-dark.png",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 57,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "فتح",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/leave-form-ar-dark-comfortable.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "فتح",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/leave-form-ar-dark-compact.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 53,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "فتح",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/slip-list-ar-dark-comfortable.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/slip-list-ar-dark-compact.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "مسودة",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/slip-form-ar-dark-comfortable.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 64,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "مسودة",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/slip-form-ar-dark-compact.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 64,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "مسودة",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/workspace-leaves-ar-dark-comfortable.png",
+    "title": "الاجازات",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/workspace-leaves-ar-dark-compact.png",
+    "title": "الاجازات",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/workspace-payroll-ar-dark-comfortable.png",
+    "title": "دفع الرواتب",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/workspace-payroll-ar-dark-compact.png",
+    "title": "دفع الرواتب",
+    "hrmsNodes": {},
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 47,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/org-chart-ar-dark-comfortable.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "ar-dark",
+    "density": "compact",
+    "shot": "shots/org-chart-ar-dark-compact.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-selected",
+    "url": "/app/organizational-chart",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/org-chart-selected-ar-dark.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "right",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-narrow",
+    "url": "/app/organizational-chart",
+    "combo": "ar-dark",
+    "density": "comfortable",
+    "shot": "shots/org-chart-narrow-ar-dark.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "rtl",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "none",
+    "textChecked": 18,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [],
+    "pillFails": 0
+  },
+  {
+    "page": "(page errors)",
+    "combo": "ar-dark",
+    "errors": [
+      "NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD",
+      "TypeError: Cannot convert undefined or null to object",
+      "TypeError: Cannot read properties of undefined (reading 'parent_id')"
+    ]
+  },
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/employee-list-en-light-comfortable.png",
+    "title": "Employee",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/employee-list-en-light-compact.png",
+    "title": "Employee",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/employee-form-en-light-comfortable.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 67,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/employee-form-en-light-compact.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 68,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Active",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/leave-list-en-light-comfortable.png",
+    "title": "Leave Application",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 54,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Approved",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "Open",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/leave-list-en-light-compact.png",
+    "title": "Leave Application",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 54,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Approved",
+        "ratio": 8.73,
+        "bg": "rgb(222,243,230)",
+        "fg": "rgb(0, 76, 44)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "Open",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form-server-error-dialog",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/leave-form-dialog-en-light.png",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 58,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Open",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/leave-form-en-light-comfortable.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 54,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Open",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/leave-form-en-light-compact.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 56,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Open",
+        "ratio": 9.32,
+        "bg": "rgb(255,231,219)",
+        "fg": "rgb(101, 43, 0)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/slip-list-en-light-comfortable.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/slip-list-en-light-compact.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/slip-form-en-light-comfortable.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Draft",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/slip-form-en-light-compact.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Draft",
+        "ratio": 8.01,
+        "bg": "rgb(241,244,248)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/workspace-leaves-en-light-comfortable.png",
+    "title": "Leaves",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/workspace-leaves-en-light-compact.png",
+    "title": "Leaves",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/workspace-payroll-en-light-comfortable.png",
+    "title": "Payroll",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 47,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/workspace-payroll-en-light-compact.png",
+    "title": "Payroll",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 47,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/org-chart-en-light-comfortable.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "en-light",
+    "density": "compact",
+    "shot": "shots/org-chart-en-light-compact.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-selected",
+    "url": "/app/organizational-chart",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/org-chart-selected-en-light.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 8.84,
+        "bg": "rgb(255,255,255)",
+        "fg": "rgb(66, 75, 87)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-narrow",
+    "url": "/app/organizational-chart",
+    "combo": "en-light",
+    "density": "comfortable",
+    "shot": "shots/org-chart-narrow-en-light.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(255, 255, 255)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(66, 75, 87)",
+        "border": "rgb(66, 75, 87)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "light",
+    "bodyBg": "rgb(255, 255, 255)",
+    "overflowX": 0,
+    "sidebarSide": "none",
+    "textChecked": 18,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(201, 99, 147)",
+        "bg": "rgb(255,243,248)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [],
+    "pillFails": 0
+  },
+  {
+    "page": "(page errors)",
+    "combo": "en-light",
+    "errors": [
+      "NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD",
+      "TypeError: Cannot convert undefined or null to object",
+      "TypeError: Cannot read properties of undefined (reading 'parent_id')"
+    ]
+  },
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/employee-list-en-dark-comfortable.png",
+    "title": "Employee",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-list",
+    "url": "/app/employee",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/employee-list-en-dark-compact.png",
+    "title": "Employee",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/employee-form-en-dark-comfortable.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 67,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "employee-form",
+    "url": "/app/employee/HR-EMP-00001",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/employee-form-en-dark-compact.png",
+    "title": "Layla Hamdan - HR-EMP-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 68,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Active",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/leave-list-en-dark-comfortable.png",
+    "title": "Leave Application",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 54,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Approved",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "Open",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-list",
+    "url": "/app/leave-application",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/leave-list-en-dark-compact.png",
+    "title": "Leave Application",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 54,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.green.filterable",
+        "text": "Approved",
+        "ratio": 10.39,
+        "bg": "rgb(0,52,29)",
+        "fg": "rgb(192, 232, 207)"
+      },
+      {
+        "sel": "span.indicator-pill.orange.filterable",
+        "text": "Open",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form-server-error-dialog",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/leave-form-dialog-en-dark.png",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 58,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Open",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/leave-form-en-dark-comfortable.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 54,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Open",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "leave-form",
+    "url": "/app/leave-application/HR-LAP-2026-00001",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/leave-form-en-dark-compact.png",
+    "title": "Layla Hamdan - HR-LAP-2026-00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 56,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Open",
+        "ratio": 10.58,
+        "bg": "rgb(71,27,0)",
+        "fg": "rgb(255, 209, 185)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/slip-list-en-dark-comfortable.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-list",
+    "url": "/app/salary-slip",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/slip-list-en-dark-compact.png",
+    "title": "Salary Slip",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 63,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      },
+      {
+        "sel": "span.indicator-pill.red.filterable",
+        "text": "Draft",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/slip-form-en-dark-comfortable.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 65,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Draft",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "slip-form",
+    "url": "/app/salary-slip/Sal%20Slip%2FHR-EMP-00001%2F00001",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/slip-form-en-dark-compact.png",
+    "title": "Layla Hamdan - Sal Slip/HR-EMP-00001/00001",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 66,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.no-indicator-dot.whitespace-nowrap",
+        "text": "Draft",
+        "ratio": 10.47,
+        "bg": "rgb(29,37,47)",
+        "fg": "rgb(208, 213, 219)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/workspace-leaves-en-dark-comfortable.png",
+    "title": "Leaves",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-leaves",
+    "url": "/app/leaves",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/workspace-leaves-en-dark-compact.png",
+    "title": "Leaves",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 46,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/workspace-payroll-en-dark-comfortable.png",
+    "title": "Payroll",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 47,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "workspace-payroll",
+    "url": "/app/payroll",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/workspace-payroll-en-dark-compact.png",
+    "title": "Payroll",
+    "hrmsNodes": {},
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 47,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/org-chart-en-dark-comfortable.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart",
+    "url": "/app/organizational-chart",
+    "combo": "en-dark",
+    "density": "compact",
+    "shot": "shots/org-chart-en-dark-compact.png",
+    "title": "Organizational Chart",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-selected",
+    "url": "/app/organizational-chart",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/org-chart-selected-en-dark.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "left",
+    "textChecked": 33,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [
+      {
+        "sel": "span.indicator-pill.whitespace-nowrap.page-indicator-pill",
+        "text": "",
+        "ratio": 9.57,
+        "bg": "rgb(17,24,32)",
+        "fg": "rgb(185, 190, 198)"
+      }
+    ],
+    "pillFails": 0
+  },
+  {
+    "page": "org-chart-narrow",
+    "url": "/app/organizational-chart",
+    "combo": "en-dark",
+    "density": "comfortable",
+    "shot": "shots/org-chart-narrow-en-dark.png",
+    "hrmsNodes": {
+      ".node-card": {
+        "bg": "rgb(29, 37, 47)",
+        "color": "rgb(208, 213, 219)",
+        "border": "rgba(0, 0, 0, 0.125)",
+        "stroke": "none"
+      },
+      ".hierarchy-edge, #arrows path, .hierarchy svg path": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(185, 190, 198)",
+        "border": "rgb(185, 190, 198)",
+        "stroke": "none"
+      }
+    },
+    "dir": "ltr",
+    "theme": "dark",
+    "bodyBg": "rgb(17, 24, 32)",
+    "overflowX": 0,
+    "sidebarSide": "none",
+    "textChecked": 18,
+    "lowContrast": [
+      {
+        "chain": [
+          "span.avatar.avatar-medium-2",
+          "div"
+        ],
+        "disabled": false,
+        "sel": "div.avatar-frame.standard-image",
+        "text": "H",
+        "ratio": 3.41,
+        "fg": "rgb(255, 243, 248)",
+        "bg": "rgb(201,99,147)"
+      }
+    ],
+    "lowContrastCount": 1,
+    "lightSurfaces": [],
+    "lightSurfaceCount": 0,
+    "pills": [],
+    "pillFails": 0
+  },
+  {
+    "page": "(page errors)",
+    "combo": "en-dark",
+    "errors": [
+      "NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD",
+      "TypeError: Cannot convert undefined or null to object",
+      "TypeError: Cannot read properties of undefined (reading 'parent_id')"
+    ]
+  }
+]
