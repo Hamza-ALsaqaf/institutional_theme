@@ -17,3 +17,6 @@ stage-build	0	12	stage_build
 stage-install	0	43	stage_install
 stage-web	0	7	stage_web
 stage-verify	0	3	stage_verify
+stage-preflight	0	0	stage_preflight
+stage-redis	0	0	stage_redis
+stage-web	0	2	stage_web

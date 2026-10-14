@@ -54,3 +54,16 @@ ins_desk link: ins_desk.bundle.css
 ins_desk link: rtl_ins_desk.bundle.css
 STAGE verify END exit 0
 TOTAL 117s
+STAGE preflight START 2026-10-14T19:44:56Z
+frappe v16.52.0, erpnext v16.50.0
+STAGE preflight END exit 0
+STAGE redis START 2026-10-14T19:44:56Z
+redis cache on 13003: up
+redis queue on 11003: up
+STAGE redis END exit 0
+STAGE web START 2026-10-14T19:44:56Z
+redis cache on 13003: up
+redis queue on 11003: up
+web: up on port 8001
+STAGE web END exit 0
+TOTAL 2s
