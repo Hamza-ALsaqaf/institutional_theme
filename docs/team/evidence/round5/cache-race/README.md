@@ -108,8 +108,99 @@ normal cached path. No threads, no timing.
   (`frappe.db.get_global`, `get_defaults_for`) or the cached settings document now read the table through the
   same `cache_guard` functions the app uses (`test_institutional_theme_settings.py`, `test_print_ship.py`,
   `test_api.py`, `test_preferences.py`, `test_site_files.py`). Every assertion keeps its expected value.
+- `institutional_theme/tests/test_cache_guard.py` (6 tests, `logs/module-test_cache_guard-1.log`) covers the helpers themselves: current document served from the cache, tables reads, callback once on commit and once on rollback, a failing clear never breaks the commit.
 - Full suite, unloaded, with the fix: `logs/full-unloaded-with-fix-16.32.0.log`: 160 integration tests (148 + 12) OK,
   322 unit tests OK.
+
+## 5. Loaded runs (`run-tests --app institutional_theme` while a request load hits the same site)
+
+Method (VERIFIED, scripts and logs in this folder). `loaded_run.sh` starts `load.py` (three workers: one logged in as
+Administrator on `/desk`, `/desk/todo`, `/desk/user`, `/api/method/ping`; two anonymous on `/login`, `/`, `/contact`, `/about`,
+`/update-password`), waits five seconds, runs the whole `bench run-tests --app institutional_theme` (integration tests,
+then the 322 unit tests) and stops the load. Every request is a line in `logs/load-<run>.log`, counts by path and status
+are in `logs/load-<run>.log.summary`, and the text of every 500 page is in `logs/load-<run>.log.errors`. One file per run,
+none overwritten. The benches: 16.32.0 is `midad.test` on port 8000, v16.52.0 is `midad52.test` on port 8001. The login is
+checked: every logged-in series below has `/api/method/login 200` as its first line and a 200 on every `/desk` request.
+
+All runs (`summarize.py`; "Failed tests" is empty for a pass):
+
+| Run | Integration tests | Unit tests | Verdicts | Exit | Load requests | Load status codes | Failed tests |
+|---|---|---|---|---|---|---|---|
+| `16.32.0-1` | 160 (199.661 s) | 322 | OK, OK | 0 | 1001 | 200: 883, 404: 108, 500: 10 | - |
+| `16.32.0-2` | 160 (204.922 s) | 322 | OK, OK | 0 | 719 | 200: 635, 404: 79, 500: 5 | - |
+| `16.32.0-3` | 160 (209.524 s) | 322 | OK, OK | 0 | 479 | 200: 424, 404: 52, 500: 3 | - |
+| `16.32.0-4` | 160 (200.408 s) | 322 | OK, OK | 0 | 315 | 200: 278, 404: 34, 500: 3 | - |
+| `16.32.0-5` | 160 (205.585 s) | 322 | OK, OK | 0 | 908 | 200: 768, 404: 140 | - |
+| `16.32.0-b-1` | 160 (207.207 s) | 322 | FAILED (failures=1), OK | 1 | 837 | 200: 745, 404: 92 | test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing |
+| `16.32.0-b-2` | 160 (216.977 s) | 322 | FAILED (failures=1), OK | 1 | 1001 | 200: 849, 404: 152 | test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing |
+| `16.32.0-b-3` | 160 (203.679 s) | 322 | FAILED (failures=1), OK | 1 | 449 | 200: 404, 404: 43, 500: 2 | test_a_palette_that_fails_its_audit_is_never_written |
+| `16.32.0-c-1` | 166 (209.168 s) | 322 | OK, OK | 0 | 787 | 200: 690, 404: 94, 500: 3 | - |
+| `16.32.0-c-2` | 166 (215.566 s) | 322 | OK, OK | 0 | 409 | 200: 375, 404: 34 | - |
+| `16.32.0-c-3` | 166 (213.752 s) | 322 | OK, OK | 0 | 512 | 200: 469, 404: 41, 500: 2 | - |
+| `16.32.0-c-4` | 166 (224.141 s) | 322 | OK, OK | 0 | 948 | 200: 822, 404: 122, 500: 4 | - |
+| `16.32.0-c-5` | 166 (249.855 s) | 322 | OK, OK | 0 | 519 | 200: 470, 404: 46, 500: 3 | - |
+| `16.32.0-d-1` | 166 (238.295 s) | 322 | OK, OK | 0 | 406 | 200: 378, 404: 28 | - |
+| `16.32.0-d-2` | 166 (238.813 s) | 322 | OK, OK | 0 | 461 | 200: 431, 404: 30 | - |
+| `16.32.0-d-3` | 166 (229.589 s) | 322 | OK, OK | 0 | 422 | 200: 392, 404: 30 | - |
+| `16.32.0-d-4` | 166 (227.593 s) | 322 | OK, OK | 0 | 387 | 200: 359, 404: 28 | - |
+| `16.32.0-d-5` | 166 (230.046 s) | 322 | OK, OK | 0 | 405 | 200: 373, 404: 32 | - |
+| `16.32.0-spy-1` | 166 (245.951 s) | 322 | OK, OK | 0 | 941 | 200: 759, 404: 177, 500: 5 | - |
+| `v16.52.0-1` | 166 (259.604 s) | 322 | FAILED (failures=1), OK | 1 | 1071 | 200: 861, 404: 207, 500: 3 | test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name |
+| `v16.52.0-d-1` | 166 (236.425 s) | 322 | OK, OK | 0 | 828 | 200: 699, 404: 127, 500: 2 | - |
+
+How to read the series:
+
+- `16.32.0-1` to `-5` (series A, commits 430c2da): five passes, but **this load was weaker than intended**: the three workers
+  logged in as the same user at the same moment and core failed two of the three logins with a PostgreSQL serialization
+  error (`logs/load-16.32.0-1.log`, first lines), so most desk traffic was anonymous. `load.py` was changed to one logged-in
+  session afterwards. Kept, but not counted for the claim below.
+- `16.32.0-b-1` to `-3` (series B, one logged-in desk user): **three failures, all test-side, none retried**. Root cause: a
+  desk request on the same site writes the generated file of the committed custom palette (`site_files.ensure`, the lazy
+  path), and `prune` keeps the newest previous file. `test_the_files_wait_for_the_commit_and_a_rollback_writes_nothing` and
+  `test_a_palette_that_fails_its_audit_is_never_written` assumed an empty folder, that no other process writes, and that no
+  committed custom state exists while a mock is active. Fix (`af3388d`): reset the settings first and empty the folder
+  second, compare with the folder as it was before the save, and give the audit test an unsaved document. Series B was
+  stopped after run 3 started; run 3 was already running and is kept.
+- `v16.52.0-1`: **one failure, test-side**: `test_concurrent_calls_leave_complete_files_whose_hash_equals_their_name` found
+  `ins_palette_custom.e1a90fb09e3f.css.72026.140037878445760.tmp`. Pid 72026 is the v16.52.0 web server
+  (`/home/frappe/newest-bench/logs/web.pid`, `ps`: `frappe --site midad52.test serve --port 8001`), not the test runner: a
+  desk request was writing its file at that moment. `_write_atomic` names a temporary file `<target>.<pid>.<thread>.tmp`
+  (`site_files.py:142`), the test's threads share the runner's pid, so the assertion now looks at temporary files with the
+  runner's pid only (`725a227`); a leak by the code under test is still caught, another process's file in flight is not.
+- `16.32.0-c-1` to `-5` (series C): five passes with the single logged-in session; `c-1` started before the test fix was committed (its header shows
+  5747ec4 with the fix in the working tree), `c-2` to `c-5` on af3388d.
+- `16.32.0-spy-1`: one more pass, with the load pointed at a second web server that records the exception behind the
+  generic error page (see "The 500 pages").
+- **`16.32.0-d-1` to `-5` (series D, the final test code, commit 725a227 plus the docs after it): five passes in a row, 166
+  integration tests and 322 unit tests each, exit 0.** Load per run 387 to 461 requests, status codes only 200 and 404 (the 404 is `/contact`
+  and `/about`, which this site does not have: core redirects them to `/404`).
+- **`v16.52.0-d-1` (commit 37931be, the HEAD when it started): pass**, 166 and 322 tests OK, exit 0, 828 requests, 200: 699,
+  404: 127, 500: 2.
+
+Not run: a v16.52.0 loaded run at a commit that contains the css-engineer's later side-panel change (it was not pushed
+when this was written). The release gate re-runs the suite on both versions.
+
+### The 500 pages in the load logs (N3 of the upgrade review)
+
+Not caused by this app. Diagnosed on 16.32.0 (VERIFIED): `spy_server.py` is a second development web server on the same
+site (port 8010) that wraps `frappe.website.serve.handle_exception` in its own process only and writes the exception
+core turns into "500: There was an error building this page". During `16.32.0-spy-1`, five 500s, all the same:
+`TypeError: 'NoneType' object is not iterable` in `website/router.py` `get_dynamic_web_pages()` (four times, page `/404`) and
+`get_published_web_forms()` (one, `/contact`) (`logs/spy-server-exceptions-16.32.0.txt`). Both functions are decorated with
+core's `@redis_cache` (`website/doctype/web_page/web_page.py:288`, `web_form/web_form.py:1199`), whose wrapper reads the
+key, finds nothing, then asks `frappe.cache.exists(key)` and returns `None` when another thread has just set it
+(`utils/caching.py:191-198`; the lines are identical in v16.52.0, `diff` of `caching.py:170-206`). Any `frappe.clear_cache()`
+that runs while a page is served can trigger it. The test suite clears caches constantly, and this app now also clears again after the
+commit when an identity save or an uninstall runs (`identity_sync.clear_website_caches`, `install.before_uninstall`),
+so the exposure on a real site is one administrator action, not a request. In production it can show as a single 500 on a
+website page right after such a save. The other 500s are the PostgreSQL serialization failure on concurrent logins and
+`/desk` writes of one session (`SerializationFailure` in `update_user_metadata`, `logs/load-16.32.0-3.log.errors`), also core. The two 500s of
+`v16.52.0-d-1` were not diagnosed one by one (no spy server on that bench): same page types, same unchanged core code.
+The five tracebacks of the spy log hold no frame of this app (the generic error pages in the `.errors` files carry no traceback, so they cannot show one either).
+
+Not reproduced under load: the two original round-4 failures. Five loaded runs on the unfixed code were not made; the
+evidence that the fix matters is the 12 deterministic tests that fail without it (section 4) and the probe (section 1),
+not a statistical comparison.
 
 ## 6. Proposed wording for the lead (checklist and manifest; I did not edit those files)
 

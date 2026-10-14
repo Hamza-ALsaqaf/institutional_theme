@@ -37,7 +37,8 @@ def after_transaction(callback: Callable[[], None]) -> None:
 	"""Run `callback` once when the transaction ends, whether it commits or rolls back.
 
 	Core drops the queued callbacks of the other outcome (`database.py` `commit` and `rollback`), so the
-	callback runs once. It runs now as well when there is no transaction to wait for.
+	callback runs once. Without a database connection there is no transaction to wait for and the callback is
+	not queued (every caller clears its cache at once, before it calls this).
 	"""
 	db = getattr(frappe, "db", None)
 	if db is None or not hasattr(db, "after_commit"):
