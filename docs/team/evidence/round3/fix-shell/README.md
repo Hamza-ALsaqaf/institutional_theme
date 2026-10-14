@@ -25,7 +25,7 @@ Scope: the shell script (`public/js/shell/*`, `ins_shell.bundle.js`), `ar.csv` r
 | `node tests/browser/axe.mjs --variant=themed` (4 pairs x 24 screens) | summary: 274 nodes (`axe/`) |
 | `node tests/browser/axe.mjs --variant=core --measure=no` | summary: 274 themed nodes all also present in core; 1185 core-only nodes the theme removes |
 | `node tests/browser/axe.mjs --variant=themed --screens=list,form,form-child-table,form-row-editor,search,appearance` | colour-contrast incompletes measured (`axe-measure/`) |
-| `tools/ci/local_ci.sh docs/team/evidence/round3/fix-shell/ci-1.log` | CI PASSED (before the Check-value commit); `ci-2.log` for the last push |
+| `tools/ci/local_ci.sh docs/team/evidence/round3/fix-shell/ci-1.log` | CI PASSED (before the Check-value commit); `ci-2.log` (after the evidence commit): CI PASSED |
 
 Note: a first themed axe run was cut short by the web server being restarted by another agent (ERR_CONNECTION_REFUSED on the Arabic pairs); I re-ran the Arabic pairs and the core variant. The final `axe/` folder has all eight runs with 0 screen errors (the Coverage table in `axe/summary.md`).
 
@@ -138,4 +138,4 @@ Layout risk observed (not caused by the meta change; it is the same 375 px layou
 - Row-editor Link fields (`input[data-target=Role]`): axe `aria-required-attr` (`aria-controls`) and `aria-valid-attr-value` (`aria-activedescendant="awesomplete_list_N_item_0"`) fire while the awesomplete list is open. Core markup (the same two rules fire on the search box); the node is also in the core variant. Not fixed.
 - The first measurement pass of the colour-contrast triage was wrong in two ways (the glyph-hiding style tag was never removed, and transitions faded the colour back); both were fixed in `axe.mjs` before the numbers above were taken. The earlier numbers are not kept.
 - Not run: screen readers, real touch pinch, forced colours, 320 px.
-- `docs/audits/budgets.txt` was not touched by my runs (git status clean for `docs/audits` after `local_ci`). `ins_shell` size: read from the audit output of `ci-2.log`.
+- `docs/audits/budgets.txt` was not touched by my runs (`git status docs/audits` is clean after `local_ci`; the budget audit passes, 0 problems). Built `ins_shell.bundle.*.js` is 21,238 bytes (20.7 KB) on the bench against the 24 KB budget: about 3.3 KB of headroom. The committed `budgets.txt` still says 18.3 KB for that bundle (stale, written by an earlier audit run); it is not regenerated here.
