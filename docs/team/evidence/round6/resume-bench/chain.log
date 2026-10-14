@@ -14,3 +14,6 @@ services1632 EXIT 0 0s
 START hrms1632 2026-10-14T19:11:49Z
 hrms1632 EXIT 0 197s
 START newest_tag 2026-10-14T19:15:06Z
+newest_tag EXIT 2 8s
+RESTART chain2 (CA variables -> /opt/proxy-ca-bundle.crt) 2026-10-14T19:15:47Z
+START newest_tag 2026-10-14T19:15:47Z
