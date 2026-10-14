@@ -1,0 +1,36 @@
+STAGE preflight START 2026-10-14T13:47:50Z
+frappe v16.52.0, erpnext v16.50.0
+STAGE preflight END exit 0
+STAGE config START 2026-10-14T13:47:51Z
+STAGE config END exit 0
+STAGE redis START 2026-10-14T13:47:59Z
+redis cache on 13003: up
+redis queue on 11003: up
+STAGE redis END exit 0
+STAGE site START 2026-10-14T13:47:59Z
+STAGE site END exit 0
+STAGE erpnext START 2026-10-14T13:48:32Z
+STAGE erpnext END exit 0
+STAGE wizard START 2026-10-14T13:49:23Z
+STAGE wizard END exit 0
+STAGE app START 2026-10-14T13:50:37Z
+STAGE app END exit 0
+STAGE build START 2026-10-14T13:51:07Z
+STAGE build END exit 0
+STAGE install START 2026-10-14T13:51:16Z
+STAGE install END exit 0
+STAGE web START 2026-10-14T13:51:23Z
+redis cache on 13003: up
+redis queue on 11003: up
+web: up on port 8001
+STAGE web END exit 0
+STAGE verify START 2026-10-14T13:51:25Z
+GET /login -> 200; ins bundles linked: ins_desk.bundle.css ins_email.bundle.css ins_fonts_noto.bundle.css ins_fonts_tajawal.bundle.css ins_palette_forest.bundle.css ins_palette_graphite.bundle.css ins_palette_petrol.bundle.css ins_palette_plum.bundle.css ins_print.bundle.css ins_shell.bundle.TCNIJRLY.js ins_shell.bundle.js ins_web.bundle.S7YMWZWK.js ins_web.bundle.css ins_web.bundle.js institutional_theme/dist/css-rtl/ins_desk.bundle.Q4CZRDJU.css institutional_theme/dist/css-rtl/ins_email.bundle.YAAVRUOD.css institutional_theme/dist/css-rtl/ins_fonts_noto.bundle.FC4QSY6Z.css institutional_theme/dist/css-rtl/ins_fonts_tajawal.bundle.D7WGGNSS.css institutional_theme/dist/css-rtl/ins_palette_forest.bundle.QM7MI667.css institutional_theme/dist/css-rtl/ins_palette_graphite.bundle.74A2P5DG.css institutional_theme/dist/css-rtl/ins_palette_petrol.bundle.4MXS7ABX.css institutional_theme/dist/css-rtl/ins_palette_plum.bundle.IS4YVL6B.css institutional_theme/dist/css-rtl/ins_print.bundle.NLZDMHPG.css institutional_theme/dist/css-rtl/ins_web.bundle.MQTPZMUX.css institutional_theme/dist/css/ins_desk.bundle.G2UXVXHV.css institutional_theme/dist/css/ins_email.bundle.BSHFUVDA.css institutional_theme/dist/css/ins_fonts_noto.bundle.27TZ54K2.css institutional_theme/dist/css/ins_fonts_tajawal.bundle.7C3BQLJQ.css institutional_theme/dist/css/ins_palette_forest.bundle.OYGCWIAY.css institutional_theme/dist/css/ins_palette_graphite.bundle.IIFWKQKK.css institutional_theme/dist/css/ins_palette_petrol.bundle.BAG7SNRM.css institutional_theme/dist/css/ins_palette_plum.bundle.KFKBLUM4.css institutional_theme/dist/css/ins_print.bundle.U6T244P5.css institutional_theme/dist/css/ins_web.bundle.LIWYBMER.css 
+POST /api/method/login -> 200
+GET /app (logged in, redirects followed) -> 200
+ins_desk link: /assets/institutional_theme/dist/css-rtl/ins_desk.bundle.Q4CZRDJU.css
+ins_desk link: /assets/institutional_theme/dist/css/ins_desk.bundle.G2UXVXHV.css
+ins_desk link: ins_desk.bundle.css
+ins_desk link: rtl_ins_desk.bundle.css
+STAGE verify END exit 0
+TOTAL 216s
