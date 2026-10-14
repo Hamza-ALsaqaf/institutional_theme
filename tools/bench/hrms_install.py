@@ -29,8 +29,12 @@ def main(site: str) -> int:
 
 	def execute() -> None:
 		if frappe.db.table_exists("Employee Advance") and frappe.db.count("Employee Advance"):
-			raise RuntimeError("Employee Advance rows exist: the PostgreSQL workaround must not skip the patch")
-		print("update_employee_advance_status: no Employee Advance rows, nothing to update (skipped on PostgreSQL)")
+			raise RuntimeError(
+				"Employee Advance rows exist: the PostgreSQL workaround must not skip the patch"
+			)
+		print(
+			"update_employee_advance_status: no Employee Advance rows, nothing to update (skipped on PostgreSQL)"
+		)
 
 	patch.execute = execute
 

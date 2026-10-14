@@ -69,7 +69,9 @@ def make_designations() -> None:
 def make_employees(company: str) -> list[str]:
 	names = []
 	for first, last, gender, desig, dob in PEOPLE:
-		existing = frappe.db.get_value("Employee", {"first_name": first, "last_name": last, "company": company})
+		existing = frappe.db.get_value(
+			"Employee", {"first_name": first, "last_name": last, "company": company}
+		)
 		if existing:
 			names.append(existing)
 			continue
@@ -109,7 +111,9 @@ def make_holiday_list(company: str) -> None:
 		)
 		doc.get_weekly_off_dates()
 		doc.insert()
-	if not frappe.db.exists("Holiday List Assignment", {"applicable_for": "Company", "assigned_to": company, "docstatus": 1}):
+	if not frappe.db.exists(
+		"Holiday List Assignment", {"applicable_for": "Company", "assigned_to": company, "docstatus": 1}
+	):
 		frappe.get_doc(
 			{
 				"doctype": "Holiday List Assignment",
@@ -126,9 +130,13 @@ def make_leave(company: str, employees: list[str]) -> None:
 	year = getdate(nowdate()).year
 	leave_type = "Casual Leave"
 	if not frappe.db.exists("Leave Type", leave_type):
-		frappe.get_doc({"doctype": "Leave Type", "leave_type_name": leave_type, "max_continuous_days_allowed": 3}).insert()
+		frappe.get_doc(
+			{"doctype": "Leave Type", "leave_type_name": leave_type, "max_continuous_days_allowed": 3}
+		).insert()
 	for emp in employees[:3]:
-		if not frappe.db.exists("Leave Allocation", {"employee": emp, "leave_type": leave_type, "docstatus": 1}):
+		if not frappe.db.exists(
+			"Leave Allocation", {"employee": emp, "leave_type": leave_type, "docstatus": 1}
+		):
 			frappe.get_doc(
 				{
 					"doctype": "Leave Allocation",
@@ -143,7 +151,10 @@ def make_leave(company: str, employees: list[str]) -> None:
 	start = add_days(nowdate(), 14)
 	while getdate(start).weekday() > 3:  # Monday to Thursday, so the application does not span a weekend
 		start = add_days(start, 1)
-	for emp, status, submit, offset in ((employees[0], "Open", False, 0), (employees[2], "Approved", True, 21)):
+	for emp, status, submit, offset in (
+		(employees[0], "Open", False, 0),
+		(employees[2], "Approved", True, 21),
+	):
 		from_date = add_days(start, offset)
 		while getdate(from_date).weekday() > 2:
 			from_date = add_days(from_date, 1)
@@ -176,7 +187,11 @@ def make_leave(company: str, employees: list[str]) -> None:
 @block("salary")
 def make_salary(company: str, employees: list[str]) -> None:
 	currency = frappe.db.get_value("Company", company, "default_currency")
-	for name, abbr, kind in (("Basic", "B", "Earning"), ("Housing", "H", "Earning"), ("Social Insurance", "SI", "Deduction")):
+	for name, abbr, kind in (
+		("Basic", "B", "Earning"),
+		("Housing", "H", "Earning"),
+		("Social Insurance", "SI", "Deduction"),
+	):
 		if not frappe.db.exists("Salary Component", name):
 			frappe.get_doc(
 				{
@@ -202,7 +217,11 @@ def make_salary(company: str, employees: list[str]) -> None:
 					{"salary_component": "Housing", "amount_based_on_formula": 1, "formula": "base * 0.3"},
 				],
 				"deductions": [
-					{"salary_component": "Social Insurance", "amount_based_on_formula": 1, "formula": "base * 0.09"},
+					{
+						"salary_component": "Social Insurance",
+						"amount_based_on_formula": 1,
+						"formula": "base * 0.09",
+					},
 				],
 			}
 		).insert()
@@ -246,7 +265,9 @@ def main(site: str) -> None:
 	frappe.init(site=site, sites_path=".")
 	frappe.connect()
 	frappe.set_user("Administrator")
-	company = frappe.db.get_single_value("Global Defaults", "default_company") or frappe.db.get_value("Company", {})
+	company = frappe.db.get_single_value("Global Defaults", "default_company") or frappe.db.get_value(
+		"Company", {}
+	)
 	log(f"company {company}")
 	make_designations()
 	make_holiday_list(company)
