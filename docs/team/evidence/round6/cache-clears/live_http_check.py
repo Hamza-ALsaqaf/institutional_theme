@@ -14,12 +14,15 @@ from __future__ import annotations
 
 import http.cookiejar
 import json
+import os
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 
 import frappe
+import frappe.website.utils
 
 SITE, BASE = sys.argv[1], sys.argv[2].rstrip("/")
 NAME = "Live Check Authority"
@@ -62,12 +65,41 @@ def login_page(op: urllib.request.OpenerDirector) -> tuple[bool, str]:
 	return NAME in html, logo.group(1) if logo else "?"
 
 
+def login_page_reader(op):
+	return lambda: login_page(op)
+
+
+def settle(read, wanted, seconds: float = float(os.environ.get("INS_SETTLE_SECONDS", "10"))):
+	"""Read until `wanted(value)` holds, for at most `seconds`. Returns (value, seconds waited).
+
+	Another process learns of a changed cache key through Redis' invalidation message, which core documents as
+	not instant (`frappe/utils/redis_wrapper.py`, `ClientCache`: "Do not expect sub-second invalidation guarantees
+	across processes"); the old whole-site clear had the same property. The wait is printed, never hidden.
+	"""
+	started = time.monotonic()
+	while True:
+		value = read()
+		waited = time.monotonic() - started
+		if wanted(value) or waited >= seconds:
+			return value, waited
+		time.sleep(0.25)
+
+
 def main() -> int:
 	from institutional_theme.institutional_theme.doctype.institutional_theme_settings import identity_sync
 
 	frappe.init(SITE)
 	frappe.connect()
 	frappe.set_user("Administrator")
+	if os.environ.get("INS_ROUND5_CLEAR") == "1":
+		# Control: the clear of round 5, to compare what the other process sees with the targeted clears.
+		def round5_clear() -> None:
+			frappe.clear_cache(user="Guest")
+			frappe.website.utils.clear_cache()
+			frappe.clear_cache()
+
+		identity_sync._clear_website_caches = round5_clear
+		print("CONTROL: identity_sync._clear_website_caches is the round-5 code")
 	identity_sync.restore()
 	frappe.db.commit()
 	file = frappe.get_doc(
@@ -97,9 +129,13 @@ def main() -> int:
 		frappe.db.commit()
 		print("saved   system_name and emblem through the settings document, committed")
 
-		after = desk(op)
+		after, waited_after = settle(
+			lambda: desk(op), lambda v: v[0] == NAME and logo in v[1] and logo in v[2]
+		)
+		print(f"after   desk fresh after {waited_after:.2f} s")
 		print("after   desk title / app_logo_url / navbar app_logo:", after)
-		shown, login_logo = login_page(op)
+		(shown, login_logo), waited_login = settle(login_page_reader(op), lambda v: v[0] and v[1] == logo)
+		print(f"after   login fresh after {waited_login:.2f} s")
 		print("after   login page shows the new name:", shown, "| login logo:", login_logo)
 		ok &= after[0] == NAME and logo in after[1] and logo in after[2] and shown and login_logo == logo
 
@@ -109,8 +145,9 @@ def main() -> int:
 		doc.save()
 		frappe.db.commit()
 		print("cleared system_name and emblem through the settings document, committed")
-		restored = desk(op)
-		shown_after_restore, _ = login_page(op)
+		restored, waited_restore = settle(lambda: desk(op), lambda v: v == before)
+		print(f"cleared desk fresh after {waited_restore:.2f} s")
+		(shown_after_restore, _), _waited = settle(login_page_reader(op), lambda v: not v[0])
 		print("cleared desk title / app_logo_url / navbar app_logo:", restored)
 		print("cleared login page still shows the new name:", shown_after_restore)
 		ok &= restored == before and not shown_after_restore

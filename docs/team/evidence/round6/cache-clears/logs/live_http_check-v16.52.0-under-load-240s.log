@@ -1,0 +1,14 @@
+before  desk title / app_logo_url / navbar app_logo: ('Frappe', '/assets/erpnext/images/erpnext-logo.svg,/assets/frappe/images/frappe-framework-logo.svg', '?')
+before  desk again (served from the cached boot payload): ('Frappe', '/assets/erpnext/images/erpnext-logo.svg,/assets/frappe/images/frappe-framework-logo.svg', '?')
+before  login page shows the new name: False
+saved   system_name and emblem through the settings document, committed
+after   desk fresh after 240.02 s
+after   desk title / app_logo_url / navbar app_logo: ('Live Check Authority', '/assets/erpnext/images/erpnext-logo.svg,/assets/frappe/images/frappe-framework-logo.svg,/files/ins-live-check.png', '?')
+after   login fresh after 0.09 s
+after   login page shows the new name: True | login logo: /files/ins-live-check.png
+cleared system_name and emblem through the settings document, committed
+cleared desk fresh after 2.43 s
+cleared desk title / app_logo_url / navbar app_logo: ('Frappe', '/assets/erpnext/images/erpnext-logo.svg,/assets/frappe/images/frappe-framework-logo.svg', '?')
+cleared login page still shows the new name: False
+{"result": "FAIL"}
+done

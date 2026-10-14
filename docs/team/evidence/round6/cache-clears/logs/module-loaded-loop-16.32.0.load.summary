@@ -1,0 +1,13 @@
+requests: 9940
+   943  200  /
+   942  404  /about
+     1  200  /api/method/login
+  1610  200  /api/method/ping
+   944  404  /contact
+  1336  200  /desk
+   668  200  /desk/todo
+   668  200  /desk/user
+   942  200  /login
+   944  200  /login?redirect-to=%2Fdesk
+   942  200  /update-password
+by status: 200: 8054, 404: 1886
