@@ -173,8 +173,30 @@ def restore() -> list[str]:
 
 
 def delete_attachments() -> int:
-	"""Delete the File rows attached to the settings. A file shared by `content_hash` stays on disk."""
-	names = frappe.get_all("File", filters={"attached_to_doctype": DOCTYPE}, pluck="name")
+	"""Delete the File rows attached to the settings, and the copies core made for Navbar Settings.
+
+	Saving Navbar Settings with the emblem makes core attach a copy of the file to that document
+	(`attached_to_field` `app_logo`, a new name, the same `content_hash`). The copy is this app's
+	leftover once the logo is restored, so it goes with the originals, unless Navbar Settings
+	currently shows it. Other files attached to Navbar Settings are never touched. A file shared by
+	`content_hash` with a row that stays is kept on disk by core.
+	"""
+	mine = frappe.get_all("File", filters={"attached_to_doctype": DOCTYPE}, fields=["name", "content_hash"])
+	names = [row.name for row in mine]
+	hashes = sorted({row.content_hash for row in mine if row.content_hash})
+	if hashes:
+		showing = frappe.db.get_single_value("Navbar Settings", "app_logo")
+		for row in frappe.get_all(
+			"File",
+			filters={
+				"attached_to_doctype": "Navbar Settings",
+				"attached_to_field": "app_logo",
+				"content_hash": ("in", hashes),
+			},
+			fields=["name", "file_url"],
+		):
+			if row.file_url != showing:
+				names.append(row.name)
 	for name in names:
 		frappe.delete_doc("File", name, force=True, ignore_permissions=True)
 	return len(names)

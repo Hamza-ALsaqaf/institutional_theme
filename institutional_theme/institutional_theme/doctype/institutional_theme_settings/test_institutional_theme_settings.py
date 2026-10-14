@@ -526,6 +526,43 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertFalse(frappe.get_all("File", filters={"attached_to_doctype": DOCTYPE}))
 		self.assertTrue(frappe.db.exists("File", other.name))
 
+	def test_delete_attachments_removes_the_navbar_copies_core_made(self) -> None:
+		logo = self.public_file("ins-test-emblem-nav.png", b"\x89PNG\r\n\x1a\n" + b"\x00" * 24)
+		self.settings(system_name="Test Authority", emblem=logo).save()
+		navbar = {"attached_to_doctype": "Navbar Settings", "attached_to_field": "app_logo"}
+		copies = frappe.get_all("File", filters=navbar, pluck="name")
+		self.assertTrue(copies, "core attaches a copy of the emblem to Navbar Settings when it is saved")
+		# An unrelated logo file of the administrator, attached to the same field, must stay.
+		theirs = frappe.get_doc(
+			{
+				"doctype": "File",
+				"file_name": "ins-test-theirs.png",
+				"content": b"\x89PNG\r\n\x1a\n" + b"\x01" * 24,
+				"is_private": 0,
+				"attached_to_doctype": "Navbar Settings",
+				"attached_to_name": "Navbar Settings",
+				"attached_to_field": "app_logo",
+			}
+		).insert(ignore_permissions=True)
+		self._files.append(theirs.name)
+		identity_sync.restore()
+		identity_sync.delete_attachments()
+		self.assertFalse(frappe.get_all("File", filters={**navbar, "name": ("in", copies)}))
+		self.assertTrue(frappe.db.exists("File", theirs.name))
+
+	def test_delete_attachments_keeps_a_navbar_copy_that_is_showing(self) -> None:
+		logo = self.public_file("ins-test-emblem-keep.png", b"\x89PNG\r\n\x1a\n" + b"\x00" * 32)
+		self.settings(system_name="Test Authority", emblem=logo).save()
+		navbar = {"attached_to_doctype": "Navbar Settings", "attached_to_field": "app_logo"}
+		copy_row = frappe.get_all("File", filters=navbar, fields=["name", "file_url"], limit=1)[0]
+		# The administrator chose the copy as the logo after this app wrote it.
+		frappe.db.set_single_value("Navbar Settings", "app_logo", copy_row.file_url)
+		identity_sync.restore()
+		identity_sync.delete_attachments()
+		self.assertTrue(frappe.db.exists("File", copy_row.name))
+		frappe.db.set_single_value("Navbar Settings", "app_logo", None)
+		frappe.delete_doc("File", copy_row.name, force=True, ignore_permissions=True)
+
 	def test_private_emblem_is_rejected(self) -> None:
 		private = frappe.get_doc(
 			{
