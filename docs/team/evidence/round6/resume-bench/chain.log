@@ -20,3 +20,5 @@ START newest_tag 2026-10-14T19:15:47Z
 newest_tag EXIT 2 38s
 RESTART chain2 attempt 3 (yarn linked) (CA variables -> /opt/proxy-ca-bundle.crt) 2026-10-14T19:17:14Z
 START newest_tag 2026-10-14T19:17:14Z
+newest_tag EXIT 0 89s
+START newest_site 2026-10-14T19:18:43Z
