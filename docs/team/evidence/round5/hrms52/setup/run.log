@@ -1,0 +1,15 @@
+STAGE erpnext START 2026-10-14T10:11:45Z
+STAGE erpnext END exit 0
+TOTAL 307s
+STAGE wizard START 2026-10-14T10:16:52Z
+STAGE wizard END exit 0
+TOTAL 265s
+STAGE install START 2026-10-14T10:21:28Z
+STAGE install END exit 0
+TOTAL 220s
+STAGE restart_web START 2026-10-14T10:35:01Z
+redis cache on 13003: up
+redis queue on 11003: up
+web: up on port 8002
+STAGE restart_web END exit 0
+TOTAL 5s

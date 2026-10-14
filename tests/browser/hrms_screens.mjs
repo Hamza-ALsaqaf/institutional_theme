@@ -1,4 +1,5 @@
 // HRMS desk pages under the theme: screenshots plus computed-style checks, Light/Dark x ar/en x comfortable/compact.
+// Frappe 16.52 renders status pills as .es-badge (16.32.0: .indicator-pill); both are checked.
 // Checks per page: text contrast, light surfaces in Dark, indicator-pill legibility, sidebar side (RTL mirroring), horizontal overflow.
 // Usage: NODE_PATH=/opt/pw-node/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node hrms_screens.mjs [--out DIR] [--base URL] [--only ar-dark]
 import { chromium } from "playwright-core";
@@ -62,7 +63,7 @@ const audit = () => {
 		const c = parse(getComputedStyle(el).backgroundColor); if ((c[3] ?? 1) < 0.5) continue;
 		if (lum(c) > 0.8) lightSurfaces.push({ sel: sel(el), bg: getComputedStyle(el).backgroundColor, w: Math.round(r.width), h: Math.round(r.height) });
 	}
-	const pills = [...document.querySelectorAll(".indicator-pill, .indicator")].filter(visible).slice(0, 40).map((el) => {
+	const pills = [...document.querySelectorAll(".indicator-pill, .indicator, .es-badge")].filter(visible).slice(0, 40).map((el) => {
 		const s = getComputedStyle(el); const bg = bgOf(el); const fg = parse(s.color).slice(0, 3);
 		return { sel: sel(el), text: el.textContent.trim().slice(0, 24), ratio: +ratio(fg, bg).toFixed(2), bg: `rgb(${bg.map(Math.round)})`, fg: s.color };
 	});

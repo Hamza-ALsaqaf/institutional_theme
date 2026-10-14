@@ -1,0 +1,21 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/frappe/newest-bench/env, got /home/frappe/newest-bench/sites/../env
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/frappe/newest-bench/env, got /home/frappe/newest-bench/sites/../env
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/hrms_stock_patch_check.py", line 38, in <module>
+    raise SystemExit(main(sys.argv[1]))
+  File "/home/runner/work/institutional_theme/institutional_theme/tools/bench/hrms_stock_patch_check.py", line 24, in main
+    patch.execute()
+  File "/home/frappe/newest-bench/apps/hrms/hrms/patches/post_install/update_employee_advance_status.py", line 16, in execute
+    ).run()
+  File "/home/frappe/newest-bench/apps/frappe/frappe/query_builder/utils.py", line 144, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/frappe/newest-bench/apps/frappe/frappe/database/postgres/database.py", line 234, in sql
+    return super().sql(modify_query(query), modify_values(values), *args, **kwargs)
+  File "/home/frappe/newest-bench/apps/frappe/frappe/database/database.py", line 294, in sql
+    traceback.print_stack()
+Error in query:
+argument of AND must be type boolean, not type numeric
+LINE 1: ...ET "status"='Returned' WHERE "docstatus"= '1' AND "return_am...
+                                                             ^
+
+STOCK PATCH FAILS: psycopg2.errors.DatatypeMismatch: argument of AND must be type boolean, not type numeric
+exit 1 in 224s

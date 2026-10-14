@@ -1,0 +1,9 @@
+records 84 flagged 0 sidebar on wrong side 0
+by combo {'ar-light': 21, 'ar-dark': 21, 'en-light': 21, 'en-dark': 21}
+text elements checked 4068 pills checked 116
+min pill ratio 8.01
+sidebar none: []
+page errors ar-light ["NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD", 'TypeError: Cannot convert undefined or null to object', "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading 'parent_id')"]
+page errors ar-dark ["NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD", 'TypeError: Cannot convert undefined or null to object', "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading 'parent_id')"]
+page errors en-light ["NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD", 'TypeError: Cannot convert undefined or null to object', "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.", "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading 'parent_id')"]
+page errors en-dark ["NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD", 'TypeError: Cannot convert undefined or null to object', "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading '$link')", "TypeError: Cannot read properties of undefined (reading 'parent_id')"]
