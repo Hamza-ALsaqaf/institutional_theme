@@ -97,6 +97,14 @@ stage_bench() {
 	start_redis
 }
 
+# A bench made with --skip-redis-config-generation (the fresh bench, the newest-tag bench) has no Redis settings yet.
+ensure_redis_config() {
+	grep -q '"redis_cache"' "${FRESH_BENCH}/sites/common_site_config.json" && return 0
+	step set-config-redis-cache fb "bench set-config -g redis_cache redis://127.0.0.1:${FRESH_REDIS_CACHE}"
+	step set-config-redis-queue fb "bench set-config -g redis_queue redis://127.0.0.1:${FRESH_REDIS_QUEUE}"
+	step set-config-redis-socketio fb "bench set-config -g redis_socketio redis://127.0.0.1:${FRESH_REDIS_CACHE}"
+}
+
 start_redis() {
 	local kind port
 	for kind in cache queue; do
@@ -352,8 +360,8 @@ case "${1:-all}" in
 all) run_all ;;
 clean) stage_clean ;;
 bench) stage_bench ;;
-site-frappe) start_redis && stage_site_frappe ;;
-site-erpnext) start_redis && stage_site_erpnext ;;
+site-frappe) ensure_redis_config; start_redis && stage_site_frappe; stage_stop ;;
+site-erpnext) ensure_redis_config; start_redis && stage_site_erpnext; stage_stop ;;
 idempotency) start_redis && stage_idempotency && stage_stop ;;
 remove-app) start_redis && stage_remove_app && stage_stop ;;
 stop) stage_stop ;;

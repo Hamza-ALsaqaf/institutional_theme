@@ -1,0 +1,4 @@
+=== newest.test-capture-before  2026-10-14T01:50:01Z
+$ capture newest.test before
+captured before into /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/newest-tag/site/shots-newest.test
+exit 0

@@ -5,10 +5,10 @@ Creating virtual environment with seed packages at: env
  + pip==26.2.1
 Activate with: env/bin/activate
 Getting frappe
-$ git clone /tmp/frappe-newest/frappe-src --branch v16.51.1 --depth 1 --origin upstream
+$ git clone /tmp/frappe-newest/frappe-src --branch v16.52.0 --depth 1 --origin upstream
 Cloning into 'frappe-src'...
 warning: --depth is ignored in local clones; use file:// instead.
-Note: switching to '2871914b69b6e14a4b023d9b7cc52dc3e269cc1b'.
+Note: switching to '4515014c87ece6cb20ee91d2cfb121c5cbd1ff4a'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -38,10 +38,10 @@ warning " > @frappe/esbuild-plugin-postcss2@0.1.3" has unmet peer dependency "le
 warning " > @frappe/esbuild-plugin-postcss2@0.1.3" has unmet peer dependency "stylus@^0.x".
 warning " > @vue/component-compiler@4.2.4" has unmet peer dependency "vue-template-compiler@*".
 [5/5] Building fresh packages...
-Done in 9.41s.
+Done in 7.99s.
 Found existing apps updating states...
 $ bench build
-Assets for Release v16.51.1 don't exist
+Assets for Release v16.52.0 don't exist
 Linking /home/frappe/newest-bench/apps/frappe/frappe/public to ./assets/frappe  Linking /home/frappe/newest-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                ✔ Application Assets Linked                                            
 
 
@@ -57,70 +57,70 @@ frappe/dist/js/
 ├─ billing.bundle.H53FAIQO.js                               2.84 Kb
 ├─ bootstrap-4-web.bundle.OGQ7JEDG.js                       1.72 Kb
 ├─ calendar.bundle.4A4YITIU.js                              264.60 Kb
-├─ controls.bundle.43XYFJCJ.js                              919.54 Kb
-├─ data_import_tools.bundle.T72GIFVK.js                     158.47 Kb
+├─ controls.bundle.V3YRJ7AD.js                              920.05 Kb
+├─ data_import_tools.bundle.O7LBRHS7.js                     158.60 Kb
 ├─ data_import_wizard.bundle.Q3W2M5V6.js                    27.96 Kb
-├─ desk.bundle.Q4EBQXGO.js                                  1342.45 Kb
+├─ desk.bundle.B6MGZXFQ.js                                  1343.85 Kb
 ├─ desktop_icons.bundle.VWS32CL6.js                         19.06 Kb
 ├─ dialog.bundle.UTGERW3T.js                                63.02 Kb
 ├─ doctype_settings.bundle.EJKZU3UE.js                      40.01 Kb
 ├─ embedded_list.bundle.H5EEZKJH.js                         8.61 Kb
-├─ form.bundle.XO2RUXO5.js                                  199.50 Kb
-├─ frappe-web.bundle.WG7HPFAP.js                            669.18 Kb
+├─ form.bundle.P7ZTY5WQ.js                                  199.30 Kb
+├─ frappe-web.bundle.WKCNK5I6.js                            669.09 Kb
 ├─ leaflet.bundle.XQBWTHH6.js                               215.87 Kb
 ├─ libs.bundle.LDNONUAV.js                                  341.23 Kb
-├─ list.bundle.ZJOBVJ4O.js                                  267.56 Kb
+├─ list.bundle.7ZTEZBLV.js                                  267.53 Kb
 ├─ list_filter.bundle.UV4YPE6W.js                           29.69 Kb
 ├─ list_view_virtualization.bundle.SM6SDIQP.js              7.63 Kb
 ├─ logtypes.bundle.WKQH7KBM.js                              0.72 Kb
 ├─ onboarding_tours.bundle.3QPQU5AO.js                      7.63 Kb
 ├─ photoswipe.bundle.YSXZQA64.js                            60.50 Kb
 ├─ print.bundle.27VKHZQE.js                                 62.76 Kb
-├─ report.bundle.CBSHTH6V.js                                222.56 Kb
+├─ report.bundle.6AJMS4KJ.js                                222.57 Kb
 ├─ sentry.bundle.AX44GVWW.js                                74.42 Kb
-├─ side_panel.bundle.GSXUYU6Y.js                            14.87 Kb
+├─ side_panel.bundle.RA4WSNTT.js                            15.02 Kb
 ├─ syntax_highlighting.bundle.YHGNRCUE.js                   38.95 Kb
 ├─ telemetry.bundle.RXBBNH3H.js                             1.74 Kb
 ├─ user_settings_dialog.bundle.NKBJKITN.js                  16.35 Kb
 ├─ video_player.bundle.DUYYLSFO.js                          120.67 Kb
-├─ web_form.bundle.4BC7ESNE.js                              1124.59 Kb
+├─ web_form.bundle.BGE4TDJW.js                              1125.13 Kb
 ├─ kanban_board.bundle.UVNSIH5U.js                          160.92 Kb
-├─ kanban.bundle.BBG4VOBK.js                                108.38 Kb
+├─ kanban.bundle.4ZJAEG3T.js                                108.37 Kb
 ├─ kanban_settings.bundle.2MU5TTLL.js                       7.49 Kb
 ├─ form_builder.bundle.MCGI5A3I.js                          803.43 Kb
-├─ print_format_builder.bundle.A47NZSU4.js                  980.27 Kb
+├─ print_format_builder.bundle.66VKAOTN.js                  979.19 Kb
 ├─ workflow_builder.bundle.ORJT73Y4.js                      354.31 Kb
 ├─ build_events.bundle.VUBSPPYI.js                          105.71 Kb
 └─ file_uploader.bundle.IRT7SBA4.js                         206.92 Kb
 
 frappe/dist/css/
-├─ desk.bundle.EVRWBYTT.css                                 814.65 Kb
-├─ email.bundle.OKKX3S3R.css                                11.21 Kb
-├─ leaflet.bundle.D5JANFBR.css                              16.37 Kb
-├─ login.bundle.XUQVSGDZ.css                                77.61 Kb
-├─ print.bundle.L343BS4P.css                                277.19 Kb
-├─ print_format.bundle.5HVDIK22.css                         253.52 Kb
-├─ report.bundle.PU7MVL2L.css                               5.92 Kb
-├─ web_form.bundle.TH5S2HOM.css                             7.07 Kb
-└─ website.bundle.CPKIVAPB.css                              577.55 Kb
+├─ desk.bundle.G3NZOSZA.css                                 815.07 Kb
+├─ email.bundle.UQNSSLPX.css                                11.21 Kb
+├─ leaflet.bundle.CONMEHHI.css                              16.37 Kb
+├─ login.bundle.ZA2E6RRJ.css                                77.61 Kb
+├─ print.bundle.PGX2BF5U.css                                277.19 Kb
+├─ print_format.bundle.Q72XICH2.css                         253.91 Kb
+├─ report.bundle.7P2O6EQ7.css                               5.92 Kb
+├─ web_form.bundle.WUJMXVYX.css                             7.07 Kb
+└─ website.bundle.3HE5PDLA.css                              577.75 Kb
 
 frappe/dist/css-rtl/
-├─ desk.bundle.CSYL52JC.css                                 815.00 Kb
-├─ email.bundle.C3XWFXH2.css                                11.22 Kb
-├─ leaflet.bundle.JOC5UOQX.css                              16.58 Kb
-├─ login.bundle.RN2MGBDH.css                                77.61 Kb
-├─ print.bundle.NNCZ7E5H.css                                277.34 Kb
-├─ print_format.bundle.SN7QWUMO.css                         253.65 Kb
-├─ report.bundle.V7NOE3BS.css                               5.92 Kb
-├─ web_form.bundle.5YNLI75X.css                             7.07 Kb
-└─ website.bundle.UJHL74GB.css                              577.73 Kb
+├─ desk.bundle.FWRZBKW7.css                                 815.42 Kb
+├─ email.bundle.T7KAJBYW.css                                11.22 Kb
+├─ leaflet.bundle.LFSAT57Y.css                              16.58 Kb
+├─ login.bundle.7FJT5JPO.css                                77.61 Kb
+├─ print.bundle.NC4XOYW5.css                                277.34 Kb
+├─ print_format.bundle.7YRQ5342.css                         254.04 Kb
+├─ report.bundle.V6SGMUZQ.css                               5.92 Kb
+├─ web_form.bundle.7UD7UQJD.css                             7.07 Kb
+└─ website.bundle.FIH4ZBGH.css                              577.93 Kb
 
- DONE  Total Build Time: 17.722s
+ DONE  Total Build Time: 13.737s
 
  WARN  Cannot connect to redis_cache to update assets_json
  WARN  Cannot connect to redis_cache to update assets_json
  WARN  Cannot connect to redis_cache to update assets_json
-Done in 18.47s.
+Done in 14.35s.
 Compiling translations for frappe
 MO file created at /home/frappe/newest-bench/sites/assets/locale/km/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/my/LC_MESSAGES/frappe.mo
@@ -128,31 +128,31 @@ MO file created at /home/frappe/newest-bench/sites/assets/locale/ar/LC_MESSAGES/
 MO file created at /home/frappe/newest-bench/sites/assets/locale/hu/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/ta/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/sv/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/da/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/de/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/bs/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/vi/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/hr/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/uk/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/bg/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/ru/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/tr/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/zh_TW/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/pt_BR/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/nb/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/zh/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/eo/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/fa/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/th/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/hi/LC_MESSAGES/frappe.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/es/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/pl/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/fr/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/it/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/zh/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/eo/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/fa/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/bg/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/ru/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/tr/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/da/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/de/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/bs/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/pt/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/uz/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/mn/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/ko/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/th/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/hi/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/es/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/zh_TW/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/pt_BR/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/nb/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/vi/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/hr/LC_MESSAGES/frappe.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/uk/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/af/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/ro/LC_MESSAGES/frappe.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/sl/LC_MESSAGES/frappe.mo

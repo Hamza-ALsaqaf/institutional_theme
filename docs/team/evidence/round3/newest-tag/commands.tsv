@@ -1,10 +1,14 @@
 step	exit	seconds	command
 stage-tag	0	0	stage_tag
-clone	0	6	git clone --quiet --depth 1 --branch v16.51.1 https://github.com/frappe/frappe /tmp/frappe-newest/frappe-src
-stage-clone	0	6	stage_clone
-bench-init	0	62	as_frappe bash -c cd '/home/frappe' && bench init 'newest-bench'    --frappe-path '/tmp/frappe-newest/frappe-src' --frappe-branch 'v16.51.1' --python '/opt/python3.14/bin/python3.14'    --no-backups --skip-redis-config-generation
-get-app-erpnext	0	18	as_frappe bash -c cd '/home/frappe/newest-bench' && bench get-app erpnext    https://github.com/frappe/erpnext --branch 'v16.50.0' --skip-assets
-build-erpnext	0	17	as_frappe bash -c cd '/home/frappe/newest-bench' && bench build --app erpnext
-stage-bench	0	97	stage_bench
-stage-audit	0	0	stage_audit
-stage-selectors	0	2	stage_selectors
+clone	0	2	git clone --quiet --depth 1 --branch v16.52.0 https://github.com/frappe/frappe /tmp/frappe-newest/frappe-src
+stage-clone	0	2	stage_clone
+bench-init	0	32	as_frappe bash -c cd '/home/frappe' && bench init 'newest-bench'    --frappe-path '/tmp/frappe-newest/frappe-src' --frappe-branch 'v16.52.0' --python '/opt/python3.14/bin/python3.14'    --no-backups --skip-redis-config-generation
+get-app-erpnext	0	16	as_frappe bash -c cd '/home/frappe/newest-bench' && bench get-app erpnext    https://github.com/frappe/erpnext --branch 'v16.50.0' --skip-assets
+build-erpnext	0	10	as_frappe bash -c cd '/home/frappe/newest-bench' && bench build --app erpnext
+stage-bench	0	58	stage_bench
+get-app-theme	0	9	as_frappe bash -c cd '/home/frappe/newest-bench' && bench get-app https://github.com/Hamza-ALsaqaf/institutional_theme --branch build/midad-v1
+build-theme	0	4	as_frappe bash -c cd '/home/frappe/newest-bench' && bench build --app institutional_theme
+stage-theme	0	13	stage_theme
+stage-site	0	104	stage_site
+stage-audit	0	1	stage_audit
+stage-selectors	0	1	stage_selectors

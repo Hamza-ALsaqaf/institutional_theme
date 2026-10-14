@@ -1,0 +1,4 @@
+=== newest.test-install-again  2026-10-14T01:50:27Z
+$ fb bench --site newest.test install-app institutional_theme
+App institutional_theme already installed
+exit 0

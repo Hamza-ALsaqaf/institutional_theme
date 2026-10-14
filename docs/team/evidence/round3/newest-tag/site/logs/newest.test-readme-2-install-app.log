@@ -1,0 +1,7 @@
+=== newest.test-readme-2-install-app  2026-10-14T01:50:08Z
+$ fb bench --site newest.test install-app institutional_theme
+
+Installing institutional_theme...
+Updating DocTypes for institutional_theme: [====================                    ] 50%Updating DocTypes for institutional_theme: [========================================] 100%
+Updating Dashboard for institutional_theme
+exit 0

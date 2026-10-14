@@ -1,0 +1,3 @@
+=== newest.test-verify-after-uninstall  2026-10-14T01:50:57Z
+$ verify newest.test newest.test-after-uninstall-no-restart no
+exit 0

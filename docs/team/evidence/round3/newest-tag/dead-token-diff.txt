@@ -1,10 +1,10 @@
-core variables declared: old 581, new 1043
-core variables read:     old 403, new 935
-declared only in old: 46; only in new: 508
-read only in old:     24; only in new: 556
+core variables declared: old 581, new 1041
+core variables read:     old 403, new 937
+declared only in old: 46; only in new: 506
+read only in old:     25; only in new: 559
 
 old: declared-read 266, declared-only 111, read-only 0, theme 0, dead 0
-new: declared-read 346, declared-only 10, read-only 7, theme 0, dead 14
+new: declared-read 346, declared-only 10, read-only 6, theme 0, dead 15
 
 overridden variables whose category changed: 123
   --green-50: declared-only -> declared-read
@@ -71,7 +71,7 @@ overridden variables whose category changed: 123
   --surface-gray-5: declared-only -> declared-read
   --surface-gray-6: declared-only -> declared-read
   --surface-menu-bar: declared-read -> dead
-  --surface-modal: declared-read -> read-only
+  --surface-modal: declared-read -> dead
   --surface-cards: declared-only -> dead
   --surface-selected: declared-read -> dead
   --surface-red-2: declared-only -> declared-read
@@ -131,10 +131,11 @@ overridden variables whose category changed: 123
   --border-radius-lg: declared-read -> read-only
   --border-radius-xl: declared-read -> dead
 
-dead in the newest tag: 14
+dead in the newest tag: 15
   --neutral-black
   --surface-white
   --surface-menu-bar
+  --surface-modal
   --surface-cards
   --surface-selected
   --outline-white

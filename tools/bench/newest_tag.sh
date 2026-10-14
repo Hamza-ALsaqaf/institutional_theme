@@ -2,12 +2,14 @@
 # Check this theme against the newest Frappe v16 tag without touching the supported range
 # (ADR 0001 D1, round 3 item 3). Everything is built outside the repository:
 #
-#   tools/bench/newest_tag.sh [stage...]       stages: tag clone bench audit selectors   (default: all)
+#   tools/bench/newest_tag.sh [stage...]       stages: tag clone bench theme site audit selectors   (default: all)
 #
 #   tag        highest v16.x.y tag of github.com/frappe/frappe (and of erpnext), by semver
 #   clone      shallow clone of that tag into $NEWEST_DIR/frappe-src (default /tmp/frappe-newest)
 #   bench      a throw-away bench (default /home/frappe/newest-bench) on that clone, plus the newest
 #              ERPNext v16 tag, so the compiled desk CSS (LTR and RTL) can be read; no site is created
+#   theme      get-app of this theme from GitHub (APP_BRANCH, default build/midad-v1) into the newest bench and build it
+#   site       a fresh Frappe-only site on that bench: install, HTTP checks, screenshots, uninstall, residue diff
 #   audit      the dead-token audit on 16.32.0 (committed snapshot and the midad.test bench's live CSS)
 #              and on the newest tag's compiled CSS, written to the evidence folder
 #   selectors  tools/bench/manifest_selectors.py: every file:line and selector of
@@ -60,7 +62,8 @@ highest_tag() { # repo url
 }
 
 stage_tag() {
-	FRAPPE_NEWEST="$(highest_tag https://github.com/frappe/frappe)"
+	# NEWEST_TAG pins a tag (for example to repeat an earlier run); otherwise the highest v16.x.y is used.
+	FRAPPE_NEWEST="${NEWEST_TAG:-$(highest_tag https://github.com/frappe/frappe)}"
 	ERPNEXT_NEWEST="$(highest_tag https://github.com/frappe/erpnext)"
 	printf 'FRAPPE_NEWEST=%s\nERPNEXT_NEWEST=%s\n' "${FRAPPE_NEWEST}" "${ERPNEXT_NEWEST}" >"${EVIDENCE_DIR}/tags.env"
 	log "newest frappe v16 tag: ${FRAPPE_NEWEST}; newest erpnext v16 tag: ${ERPNEXT_NEWEST}"
@@ -107,6 +110,32 @@ stage_bench() {
 	fi
 	log "newest bench: frappe $(git -C "${NEWEST_BENCH}/apps/frappe" describe --tags), erpnext $(git -C "${NEWEST_BENCH}/apps/erpnext" describe --tags)"
 	ls "${NEWEST_BENCH}/sites/assets/frappe/dist/css" "${NEWEST_BENCH}/sites/assets/frappe/dist/css-rtl" >"${EVIDENCE_DIR}/newest-css-files.txt"
+}
+
+# The theme itself on the newest bench: get-app (which also builds the app's bundles) from the branch
+# under test and build again. Proves the SCSS and JS still compile against the newest core; no site.
+stage_theme() {
+	local url="${APP_URL:-https://github.com/Hamza-ALsaqaf/institutional_theme}" branch="${APP_BRANCH:-build/midad-v1}"
+	as_frappe rm -rf "${NEWEST_BENCH}/apps/institutional_theme"
+	timed get-app-theme as_frappe bash -c "cd '${NEWEST_BENCH}' && bench get-app ${url} --branch ${branch}" \
+		>"${EVIDENCE_DIR}/get-app-theme.log" 2>&1
+	timed build-theme as_frappe bash -c "cd '${NEWEST_BENCH}' && bench build --app institutional_theme" \
+		>"${EVIDENCE_DIR}/build-theme.log" 2>&1
+	git -C "${NEWEST_BENCH}/apps/institutional_theme" log --oneline -1 >"${EVIDENCE_DIR}/theme-commit.txt"
+	log "theme built on frappe $(git -C "${NEWEST_BENCH}/apps/frappe" describe --tags): $(cat "${EVIDENCE_DIR}/theme-commit.txt")"
+}
+
+# Install, check and uninstall the theme on a fresh Frappe-only site of the newest bench: the same steps and checks as
+# tools/bench/fresh_install.sh (README commands, HTTP checks, screenshots, table-by-table residue diff), web on 8011.
+stage_site() {
+	local dir="${EVIDENCE_DIR}/site" rc=0
+	rm -rf "${dir}"
+	mkdir -p "${dir}"
+	printf 'step\texit\tseconds\tcommand\n' >"${dir}/commands.tsv"
+	FRESH_BENCH="${NEWEST_BENCH}" FRESH_PORT=8011 FRESH_REDIS_CACHE=13002 FRESH_REDIS_QUEUE=11002 \
+		SITE_FRAPPE=newest.test EVIDENCE_DIR="${dir}" "${HERE}/fresh_install.sh" site-frappe >"${dir}/run.log" 2>&1 || rc=$?
+	log "site install and uninstall on the newest tag: exit ${rc} (${dir}/run.log)"
+	return 0
 }
 
 # Compiled stylesheets of a bench, one path per line: frappe and erpnext, LTR and RTL, no source maps.
@@ -160,7 +189,7 @@ stage_selectors() {
 
 stages=("$@")
 if [[ ${#stages[@]} -eq 0 ]]; then
-	stages=(tag clone bench audit selectors)
+	stages=(tag clone bench theme site audit selectors)
 	# A full run starts from nothing: fresh clone, fresh bench, fresh records.
 	rm -rf "${NEWEST_DIR}" "${EVIDENCE_DIR}/tags.env"
 	as_frappe rm -rf "${NEWEST_BENCH}"

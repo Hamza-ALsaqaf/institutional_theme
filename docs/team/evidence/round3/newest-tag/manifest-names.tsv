@@ -50,10 +50,10 @@ section	row	name	state	where
 2b	1	active-sidebar	present	in the cited file
 2b	1	item-anchor	present	in the cited file
 2b	1	sidebar-item-label	present	in the cited file
-2b	2	dropdown-menu-item	missing	gone from 16.51.1 (was in frappe/public/js/frappe/ui/menu.js)
+2b	2	dropdown-menu-item	missing	gone from 16.52.0 (was in frappe/public/js/frappe/ui/menu.js)
 2b	3	page-head	present	in the cited file
 2b	3	page-title	present	in the cited file
-2b	3	title-text	missing	gone from 16.51.1 (was in frappe/public/js/frappe/ui/page.js)
+2b	3	title-text	missing	gone from 16.52.0 (was in frappe/public/js/frappe/ui/page.js)
 2b	4	navbar-breadcrumbs	present	in the cited file
 2b	5	list-row	present	in the cited file
 2b	5	list-row-head	present	in the cited file
@@ -67,7 +67,7 @@ section	row	name	state	where
 2b	8	list-paging-area	present	in the cited file
 2b	8	btn-group	present	in the cited file
 2b	8	btn	present	in the cited file
-2b	8	btn-paging	missing	gone from 16.51.1 (was in frappe/public/js/frappe/list/base_list.js)
+2b	8	btn-paging	missing	gone from 16.52.0 (was in frappe/public/js/frappe/list/base_list.js)
 2b	8	btn-info	present	in the cited file
 2b	9	datatable	present	in the cited file
 2b	9	dt-cell__content	present	in the cited file
@@ -91,7 +91,7 @@ section	row	name	state	where
 2b	11	dropdown-menu	present	in the cited file
 2b	11	popover	present	in the cited file
 2b	11	tooltip-content	present	in the cited file
-2b	11	desk-alert	missing	gone from 16.51.1 (was in frappe/public/js/frappe/ui/messages.js)
+2b	11	desk-alert	missing	gone from 16.52.0 (was in frappe/public/js/frappe/ui/messages.js)
 2b	11	awesomplete	moved	not in the cited file; now in frappe/public/js/frappe/data_import/import_preview.js
 2b	12	datepicker	present	no source line cited; found in frappe/public/js/controls.bundle.js
 2b	13	widget	present	in the cited file
@@ -116,7 +116,7 @@ section	row	name	state	where
 2c	5	page-card	present	in the cited file
 2c	5	form-group	present	in the cited file
 2c	6	page-card-actions	present	in the cited file
-2c	6	btn-login	missing	gone from 16.51.1 (was in frappe/public/scss/login.bundle.scss)
+2c	6	btn-login	missing	gone from 16.52.0 (was in frappe/public/scss/login.bundle.scss)
 2c	6	btn-ldap-login	present	in the cited file
 2c	6	btn-signup	moved	not in the cited file; now in frappe/templates/includes/login/login.js
 2c	6	btn-login-option	present	in the cited file
@@ -126,7 +126,7 @@ section	row	name	state	where
 2c	7	email-field	present	in the cited file
 2c	7	password-field	present	in the cited file
 2c	7	toggle-password	present	in the cited file
-2c	7	forgot-password-message	missing	gone from 16.51.1 (was in frappe/public/scss/login.bundle.scss)
+2c	7	forgot-password-message	missing	gone from 16.52.0 (was in frappe/public/scss/login.bundle.scss)
 2c	7	login-error-banner	moved	not in the cited file; now in frappe/templates/includes/login/login.js
 2c	7	login-success-banner	moved	not in the cited file; now in frappe/templates/includes/login/login.js
 2c	7	field-error	present	in the cited file
@@ -142,7 +142,7 @@ section	row	name	state	where
 2c	11	verify_token	present	in the cited file
 2c	11	text-muted	present	in the cited file
 2c	12	for-reset-password	present	in the cited file
-2c	12	password-strength-bar-track	missing	gone from 16.51.1 (was in frappe/public/scss/login.bundle.scss)
+2c	12	password-strength-bar-track	missing	gone from 16.52.0 (was in frappe/public/scss/login.bundle.scss)
 2c	13	error-page	present	in the cited file
 2c	13	details	present	in the cited file
 2c	13	error-content	present	in the cited file
@@ -226,8 +226,8 @@ section	row	name	state	where
 2e	9	brand-name	present	in the cited file
 2e	9	btn	present	in the cited file
 2e	9	table	present	in the cited file
-2e	9	callout-warning	missing	gone from 16.51.1 (was in frappe/public/scss/email.bundle.scss)
-2e	9	verification-code	missing	gone from 16.51.1 (was in frappe/public/scss/email.bundle.scss)
+2e	9	callout-warning	missing	gone from 16.52.0 (was in frappe/public/scss/email.bundle.scss)
+2e	9	verification-code	missing	gone from 16.52.0 (was in frappe/public/scss/email.bundle.scss)
 2e	9	indicator-	present	in the cited file
 2e	10	border-left	present	no source line cited; found in frappe/public/css/bootstrap.css
 2e	11	border-top	present	no source line cited; found in frappe/public/css/bootstrap.css

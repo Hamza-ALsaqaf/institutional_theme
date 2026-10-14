@@ -16,16 +16,16 @@ erpnext/dist/js/
 └─ bom_configurator.bundle.ZKILGIKP.js                      10.19 Kb
 
 erpnext/dist/css/
-├─ erpnext-web.bundle.HK7LNH77.css                          2.86 Kb
-├─ erpnext.bundle.HMEK3ULR.css                              52.56 Kb
-└─ erpnext_email.bundle.KGJ2HHGB.css                        0.56 Kb
+├─ erpnext-web.bundle.ZKQQJUXX.css                          2.86 Kb
+├─ erpnext.bundle.4R43BFAC.css                              52.56 Kb
+└─ erpnext_email.bundle.FSZSUX5L.css                        0.56 Kb
 
 erpnext/dist/css-rtl/
-├─ erpnext-web.bundle.2GDBVAB5.css                          2.87 Kb
-├─ erpnext.bundle.CU43AVYR.css                              52.56 Kb
-└─ erpnext_email.bundle.T7RVPVF3.css                        0.56 Kb
+├─ erpnext-web.bundle.U7S7Z4BX.css                          2.87 Kb
+├─ erpnext.bundle.YVQUS6GH.css                              52.56 Kb
+└─ erpnext_email.bundle.MNLJIA6X.css                        0.56 Kb
 
- DONE  Total Build Time: 1.134s
+ DONE  Total Build Time: 797.366ms
 
  WARN  Cannot connect to redis_cache to update assets_json
  WARN  Cannot connect to redis_cache to update assets_json
@@ -84,29 +84,29 @@ computing gzip size...
 ../erpnext/public/banking/assets/error-banner-CvMol9Ww.js                         357.94 kB │ gzip: 107.83 kB
 ../erpnext/public/banking/assets/index-CPnNkMtB.js                                360.51 kB │ gzip: 104.93 kB
 
-✓ built in 1.18s
+✓ built in 884ms
 $ cp ../erpnext/public/banking/index.html ../erpnext/www/banking.html
-Done in 4.35s.
+Done in 3.17s.
 Compiling translations for erpnext
 MO file created at /home/frappe/newest-bench/sites/assets/locale/vi/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/hr/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/uk/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/hu/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/ta/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/sv/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/pt/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/uz/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/mn/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/ko/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/th/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/hi/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/es/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/pl/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/fr/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/it/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/zh_TW/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/pt_BR/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/nb/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/pt/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/zh/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/eo/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/fa/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/bg/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/ru/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/tr/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/da/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/de/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/bs/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/km/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/my/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/ar/LC_MESSAGES/erpnext.mo
@@ -119,12 +119,12 @@ MO file created at /home/frappe/newest-bench/sites/assets/locale/nl/LC_MESSAGES/
 MO file created at /home/frappe/newest-bench/sites/assets/locale/fi/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/cs/LC_MESSAGES/erpnext.mo
 MO file created at /home/frappe/newest-bench/sites/assets/locale/id/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/zh/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/eo/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/fa/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/bg/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/ru/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/tr/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/da/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/de/LC_MESSAGES/erpnext.mo
-MO file created at /home/frappe/newest-bench/sites/assets/locale/bs/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/uz/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/mn/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/ko/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/hu/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/ta/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/sv/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/zh_TW/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/pt_BR/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/nb/LC_MESSAGES/erpnext.mo

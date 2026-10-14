@@ -1,0 +1,3 @@
+=== redis-queue  2026-10-14T01:49:18Z
+$ as_frappe redis-server --port 11002 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/newest-bench/logs --pidfile /home/frappe/newest-bench/logs/redis-queue.pid
+exit 0

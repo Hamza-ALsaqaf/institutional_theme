@@ -1,18 +1,24 @@
-STAGE tag START 2026-10-14T01:09:02Z
-newest frappe v16 tag: v16.51.1; newest erpnext v16 tag: v16.50.0
-STAGE tag END 2026-10-14T01:09:02Z
-STAGE clone START 2026-10-14T01:09:02Z
-clone commit: 2871914b69b6e14a4b023d9b7cc52dc3e269cc1b (v16.51.1)
-STAGE clone END 2026-10-14T01:09:08Z
-STAGE bench START 2026-10-14T01:09:08Z
-newest bench: frappe v16.51.1, erpnext v16.50.0
-STAGE bench END 2026-10-14T01:10:45Z
-STAGE audit START 2026-10-14T01:10:45Z
+STAGE tag START 2026-10-14T01:48:05Z
+newest frappe v16 tag: v16.52.0; newest erpnext v16 tag: v16.50.0
+STAGE tag END 2026-10-14T01:48:05Z
+STAGE clone START 2026-10-14T01:48:05Z
+clone commit: 4515014c87ece6cb20ee91d2cfb121c5cbd1ff4a (v16.52.0)
+STAGE clone END 2026-10-14T01:48:07Z
+STAGE bench START 2026-10-14T01:48:07Z
+newest bench: frappe v16.52.0, erpnext v16.50.0
+STAGE bench END 2026-10-14T01:49:05Z
+STAGE theme START 2026-10-14T01:49:05Z
+theme built on frappe v16.52.0: 76f6265 docs: round-3 wave 1 results and wave 2 in flight
+STAGE theme END 2026-10-14T01:49:18Z
+STAGE site START 2026-10-14T01:49:18Z
+site install and uninstall on the newest tag: exit 0 (/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/newest-tag/site/run.log)
+STAGE site END 2026-10-14T01:51:02Z
+STAGE audit START 2026-10-14T01:51:02Z
 audit snapshot: exit 0: dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
 audit 1632-live: exit 0: dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
-audit newest: exit 1: dead-tokens: 377 variables: 346 declared and read by core, 10 declared only, 7 read only, 0 consumed by the theme, 14 dead
+audit newest: exit 1: dead-tokens: 377 variables: 346 declared and read by core, 10 declared only, 6 read only, 0 consumed by the theme, 15 dead
 wrote dead-token-diff.txt
-STAGE audit END 2026-10-14T01:10:45Z
-STAGE selectors START 2026-10-14T01:10:45Z
+STAGE audit END 2026-10-14T01:51:03Z
+STAGE selectors START 2026-10-14T01:51:03Z
 selectors: exit 1
-STAGE selectors END 2026-10-14T01:10:47Z
+STAGE selectors END 2026-10-14T01:51:04Z
