@@ -43,6 +43,7 @@ Supported versions: verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) a
 - Round 4: control heights follow the theme scale on v16.52.0: 32 px, 28 px compact, 44 px for touch ([evidence](docs/team/evidence/round4/final/)).
 - Round 4: Arabic wording corrected for "Collapse" and "Reset your password" desk-wide ([decision 74](docs/team/OWNER_REVIEW.md)).
 - Round 5: on Frappe 16.32.0, list titles are cut with an ellipsis below 576 px, and closed side-drawer items leave the tab order below 767.98 px ([evidence](docs/team/evidence/round5/v1652-items/)).
+- Round 6: the desk stylesheet is 120.1 KB instead of 146.2 KB (budget 150 KB): the generated Frappe variable map declares every variable once for all modes and repeats only the 79 whose Dark value differs; computed styles and screenshots are unchanged on both versions ([evidence](docs/team/evidence/round6/css-headroom/)).
 - Round 6: saving the identity clears only the caches that hold the identity values (every cached copy of the core settings documents it writes, the users' boot payloads and the rendered website pages) instead of the whole site cache, once when it writes and again after the save commits ([evidence](docs/team/evidence/round6/cache-clears/)).
 
 ### Fixed
