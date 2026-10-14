@@ -1,0 +1,100 @@
+{
+ "htmlLang": [
+  "ar",
+  "rtl",
+  "ar"
+ ],
+ "listNames": {
+  "navBreadcrumb": [
+   null
+  ],
+  "sidebarMenuBtn": [
+   "الخيارات",
+   "طيّ تقارير",
+   "طيّ Pages"
+  ],
+  "allApps": [],
+  "collapse": [
+   "طيّ تقارير",
+   "طيّ Pages",
+   "تبديل الشريط الجانبي"
+  ]
+ },
+ "formSidebar": [
+  "Render check cancelled 19s5r5sk89 عين المرفقات بطاقات مشاركة آخر تعديل بواسطة Administrator 2 قبل ساعات تم إنشاؤه بواسطة Administrator 2 قبل ساعات",
+  "Render check cancelled 19s5r5sk89"
+ ],
+ "lastEdited": [],
+ "crumbLabels": [
+  "BUTTON:الخيارات",
+  "BUTTON:طيّ تقارير",
+  "BUTTON:طيّ Pages",
+  "A:قائمة المستخدم",
+  "BUTTON:تبديل الشريط الجانبي",
+  "A:الصفحة الرئيسية",
+  "BUTTON:أعد تحميل القائمة",
+  "BUTTON:الخيارات",
+  "BUTTON:نوع المطابقة",
+  "BUTTON:نوع المطابقة",
+  "BUTTON:مسح جميع الفلاتر",
+  "BUTTON:تنازلي",
+  "A:الصفحة الرئيسية",
+  "BUTTON:المستند السابق",
+  "BUTTON:المستند التالي",
+  "BUTTON:الخيارات",
+  "BUTTON:bold",
+  "BUTTON:italic",
+  "BUTTON:underline",
+  "BUTTON:strike",
+  "BUTTON:clean",
+  "BUTTON:blockquote",
+  "BUTTON:code-block",
+  "BUTTON:direction: rtl",
+  "BUTTON:link",
+  "BUTTON:image",
+  "BUTTON:list: ordered",
+  "BUTTON:list: bullet",
+  "BUTTON:list: check",
+  "BUTTON:indent: -1",
+  "BUTTON:indent: +1",
+  "BUTTON:bold",
+  "BUTTON:italic",
+  "BUTTON:underline",
+  "BUTTON:strike",
+  "BUTTON:blockquote",
+  "BUTTON:code-block",
+  "BUTTON:direction: rtl",
+  "BUTTON:link",
+  "BUTTON:image",
+  "BUTTON:list: ordered",
+  "BUTTON:list: bullet",
+  "BUTTON:clean",
+  "BUTTON:العودة إلى الأعلى",
+  "BUTTON:طباعة",
+  "BUTTON:عين",
+  "BUTTON:إضافة مرفق",
+  "BUTTON:إضافة وسوم",
+  "BUTTON:مشاركة"
+ ],
+ "collapseGrid": [
+  "طيّ"
+ ],
+ "collapseSidebar": null,
+ "expandCollapse": [
+  "الخيارات",
+  "طيّ تقارير",
+  "طيّ Pages"
+ ],
+ "bareCollapse": [],
+ "dict": {
+  "breadcrumb": "مسار التصفح",
+  "sidebarMenu": "قائمة الشريط الجانبي",
+  "allApps": "كل التطبيقات",
+  "lastEditedBy": "آخر تعديل بواسطة X",
+  "lastEditedYou": "آخر تعديل بواسطتك",
+  "collapse": "طي",
+  "collapseRow": "طيّ",
+  "addAttachment": "إضافة مرفق",
+  "collapse0": "طيّ X"
+ }
+}

@@ -1,0 +1,83 @@
+{
+ "sbActive": {
+  "rect": [
+   9,
+   143,
+   201,
+   28
+  ],
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgb(255, 255, 255)",
+  "border": "none 0px rgb(0, 0, 0)",
+  "outline": "solid 1px rgb(0, 0, 0) off -1px",
+  "shadow": "none",
+  "fca": "auto",
+  "fw": "400",
+  "before": {
+   "content": "\"\"",
+   "bg": "rgba(5, 0, 73, 0.8)",
+   "w": "3px",
+   "h": "16px",
+   "fca": "none",
+   "disp": "block"
+  }
+ },
+ "sbPlain": {
+  "rect": [
+   8,
+   99,
+   203,
+   28
+  ],
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgba(255, 255, 255, 0)",
+  "border": "none 0px rgb(0, 0, 0)",
+  "outline": "none 0px rgb(0, 0, 0) off 0px",
+  "shadow": "none",
+  "fca": "auto",
+  "fw": "400",
+  "before": {
+   "content": "none",
+   "bg": "rgba(255, 255, 255, 0)",
+   "w": "auto",
+   "h": "auto",
+   "fca": "auto",
+   "disp": "block"
+  }
+ },
+ "dockActive": null,
+ "dockPlain": null,
+ "pillActive": null,
+ "pillInactive": null,
+ "ariaCurrent": [],
+ "ariaChecked": [],
+ "sbActiveFocused": {
+  "rect": [
+   9,
+   143,
+   201,
+   28
+  ],
+  "color": "rgb(0, 0, 0)",
+  "bg": "rgb(255, 255, 255)",
+  "border": "none 0px rgb(0, 0, 0)",
+  "outline": "none 0px rgb(0, 0, 0) off 0px",
+  "shadow": "none",
+  "fca": "auto",
+  "fw": "400",
+  "before": {
+   "content": "\"\"",
+   "bg": "rgba(5, 0, 73, 0.8)",
+   "w": "3px",
+   "h": "16px",
+   "fca": "none",
+   "disp": "block"
+  }
+ },
+ "sbAnchorFocused": {
+  "tag": "A",
+  "cls": "item-anchor",
+  "outline": "solid 2px rgba(5, 0, 73, 0.8) off 2px",
+  "fv": true
+ }
+}

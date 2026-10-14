@@ -1,0 +1,34 @@
+import { chromium, BENCH, login, OUT } from "./lib.mjs";
+import { HELPERS } from "./measure.mjs";
+import { writeFileSync } from "node:fs";
+const [which, user, lang, mode] = process.argv.slice(2);
+const base = BENCH[which];
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const ctx = await b.newContext({ locale: lang==="ar"?"ar":"en-US", viewport: { width: 1280, height: 800 }, reducedMotion: "reduce" });
+const page = await ctx.newPage();
+await login(page, base, user, "Rev4-pass-9X!q");
+const res = {}; const tag=`${which}-${lang}-${mode}`;
+await page.goto(base + "/desk/user"); await page.waitForSelector(".list-row-container",{timeout:30000}); await page.waitForTimeout(2500); await page.evaluate(HELPERS);
+const rowM = (state) => page.evaluate((state)=>{ const rows=[...document.querySelectorAll('.list-row-container')].slice(1); const r=rows[1]; const row=r.querySelector('.list-row'); const subj=r.querySelector('.list-subject a, .list-subject'); const muted=r.querySelector('.list-row-col:not(.list-subject) span'); const pill=r.querySelector('.indicator-pill, .es-badge'); return { state, rowBg: __rgb(__bg(row)), subj: __text(subj), muted: muted? __text(muted):null, pill: pill? {...__text(pill), cls:pill.className.slice(0,40), txt:pill.textContent.trim()}:null }; }, state);
+res.row_normal = await rowM('normal');
+const row2 = (await page.$$('.list-row-container'))[2];
+await row2.hover(); await page.waitForTimeout(250); res.row_hover = await rowM('hover');
+await page.mouse.move(2,2);
+await (await row2.$('.list-row-checkbox')).click(); await page.waitForTimeout(250); await page.mouse.move(2,2); res.row_selected = await rowM('selected');
+await (await row2.$('.list-row-checkbox')).click();
+res.breadcrumbHome = await page.evaluate(()=>{ const a=document.querySelector('.navbar-breadcrumbs > li:first-child > a'); if(!a) return null; const r=a.getBoundingClientRect(); return {w:r.width,h:r.height,left:Math.round(r.left),right:Math.round(r.right)}; });
+res.primary = await page.evaluate(()=>{ const e=document.querySelector('.primary-action'); if(!e) return null; return {cls:e.className, ...__text(e), h:Math.round(e.getBoundingClientRect().height)}; });
+res.weights = await page.evaluate(() => { const m={}; for (const e of document.querySelectorAll('body *')) { let t=false; for (const n of e.childNodes) if (n.nodeType===3 && n.textContent.trim()) {t=true;break;} if(!t) continue; const cs=getComputedStyle(e); if (cs.display==='none') continue; m[cs.fontWeight]=(m[cs.fontWeight]||0)+1; } return m; });
+// sidebar
+res.sbActive = await page.evaluate(()=>{ const e=document.querySelector('.body-sidebar .standard-sidebar-item.active-sidebar'); if(!e) return null; const a=e.querySelector('.item-anchor')||e; const bf=getComputedStyle(e,'::before'); return {...__text(a), itemBg:getComputedStyle(e).backgroundColor, shadow:getComputedStyle(e).boxShadow, bar:bf.backgroundColor, barW:bf.width}; });
+// danger button in row editor of Notification
+await page.goto(base + "/desk/notification/new"); await page.waitForSelector(".form-layout"); await page.waitForTimeout(2000); await page.evaluate(HELPERS);
+await page.evaluate(() => { cur_frm.add_child("recipients"); cur_frm.refresh_field("recipients"); }); await page.waitForTimeout(600);
+await page.locator(".form-grid .grid-row .btn-open-row").first().click(); const btn = page.locator(".form-in-grid .grid-delete-row").first(); await btn.waitFor();
+const read = (state) => page.evaluate((state)=>{ const e=document.querySelector('.form-in-grid .grid-delete-row'); const cs=getComputedStyle(e); return { state, ...__text(e), bg:cs.backgroundColor }; }, state);
+res.danger=[await read('normal')]; await btn.hover(); await page.waitForTimeout(300); res.danger.push(await read('hover')); await page.mouse.move(2,2);
+await btn.focus(); await page.keyboard.press("Shift+Tab"); await page.keyboard.press("Tab"); await page.waitForTimeout(200); res.danger.push(await read('focus'));
+res.primaryForm = await page.evaluate(()=>{ const e=document.querySelector('.primary-action'); return e?{...__text(e), cls:e.className.slice(0,50)}:null; });
+writeFileSync(OUT+`t7-${tag}.json`, JSON.stringify(res,null,1));
+await page.screenshot({ path: OUT+`reg-${tag}.png` });
+await b.close();

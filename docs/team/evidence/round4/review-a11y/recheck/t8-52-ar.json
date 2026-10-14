@@ -1,0 +1,140 @@
+{
+ "z200": {
+  "list": {
+   "sw": 640,
+   "iw": 640,
+   "coarse": false,
+   "nControls": 38,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 16x16",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 150x18",
+    "SPAN.es-badge filterable ellipsis 60x20",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 133x23",
+    "SPAN.es-badge filterable ellipsis 60x20",
+    "INPUT.list-row-checkbox 16x16",
+    "A.ellipsis 123x23",
+    "SPAN.es-badge filterable ellipsis 60x20"
+   ],
+   "sizes": {
+    "primary": "74x32",
+    "menu": "32x32",
+    "pill": "32x28",
+    "input": "185x32"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 640,
+   "iw": 640,
+   "coarse": false,
+   "nControls": 40,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20"
+   ],
+   "sizes": {
+    "primary": "44x32",
+    "input": "269x32"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ },
+ "z400": {
+  "list": {
+   "sw": 320,
+   "iw": 320,
+   "coarse": false,
+   "nControls": 28,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 15x15",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 150x18",
+    "SPAN.es-badge filterable ellipsis 60x20",
+    "SPAN.es-badge filterable ellipsis 51x20"
+   ],
+   "sizes": {
+    "primary": "74x32",
+    "menu": "32x32",
+    "pill": "32x28",
+    "input": "77x32"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 320,
+   "iw": 320,
+   "coarse": false,
+   "nControls": 12,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20"
+   ],
+   "sizes": {
+    "primary": "44x32",
+    "input": "248x32"
+   },
+   "fs": "14px"
+  },
+  "covered": [
+   "INPUT.input-with-feedback form-contr covered by datepicker--content"
+  ]
+ },
+ "touch": {
+  "list": {
+   "sw": 390,
+   "iw": 390,
+   "coarse": true,
+   "nControls": 41,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20",
+    "BUTTON.sr-only sr-only-focusable btn  16x8",
+    "INPUT.list-header-checkbox list-chec 15x15",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 150x18",
+    "SPAN.es-badge filterable ellipsis 60x20",
+    "SPAN.es-badge filterable ellipsis 51x20",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 133x23",
+    "SPAN.es-badge filterable ellipsis 60x20",
+    "SPAN.es-badge filterable ellipsis 51x20",
+    "INPUT.list-row-checkbox 15x15",
+    "A.ellipsis 123x23",
+    "SPAN.es-badge filterable ellipsis 60x20",
+    "SPAN.es-badge filterable ellipsis 44x20"
+   ],
+   "sizes": {
+    "primary": "74x44",
+    "menu": "44x44",
+    "pill": "32x44",
+    "input": "77x44"
+   },
+   "fs": "14px"
+  },
+  "form": {
+   "sw": 390,
+   "iw": 390,
+   "coarse": true,
+   "nControls": 40,
+   "small": [
+    "BUTTON.btn-reset drop-icon 16x16",
+    "BUTTON.btn-reset sidebar-toggle-btn n 20x20"
+   ],
+   "sizes": {
+    "primary": "44x44",
+    "input": "328x44"
+   },
+   "fs": "14px"
+  },
+  "covered": []
+ }
+}
