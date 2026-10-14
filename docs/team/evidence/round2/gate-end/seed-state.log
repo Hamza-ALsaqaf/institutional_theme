@@ -1,0 +1,15 @@
+$ bench_state seed midad.test /tmp/ins-gate-state.json
+{
+ "seeded": {
+  "Website Settings.app_name": "Gate Test Authority",
+  "Website Settings.app_logo": "/files/gate-emblem.png",
+  "Website Settings.splash_image": "/files/gate-emblem.png",
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": "/files/gate-emblem.png"
+ },
+ "print_records_after_install": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ }
+}
