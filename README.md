@@ -4,7 +4,7 @@ An upgrade-safe visual identity and UI theme for the Frappe / ERPNext v16 desk, 
 
 **Status: Round 3 (release hardening) passed its release gate: clean install from scratch, HRMS 16.20.1, the newest v16 tag checked, coexistence with another brand app, an automated axe-core scan with 0 violations caused by the theme, and both hostile reviews with no blocking finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round3/`. The build is carried out by the agent team described in `docs/team/`.
 
-Verified target: Frappe 16.32.0, ERPNext 16.33.0, HRMS 16.20.1.
+Verified on Frappe 16.32.0 (ERPNext 16.33.0, HRMS 16.20.1) and Frappe v16.52.0 (ERPNext v16.50.0; HRMS not tested on v16.52.0). Install constraint `>=16.32.0,<17` (`pyproject.toml`). Tags between and after these two were not tested: run `docs/UPGRADE_AND_QA_CHECKLIST.md` before using one.
 
 ## Where to look
 

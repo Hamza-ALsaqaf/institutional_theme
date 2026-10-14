@@ -15,7 +15,7 @@ dependencies = [
 requires = ["flit_core >=3.4,<4"]
 build-backend = "flit_core.buildapi"
 
-# Verified against these versions. Re-run the audits before widening the range.
+# Verified on Frappe 16.32.0 and 16.52.0 (ADR 0011 R7). Re-run the audits and the checklist before relying on another tag.
 [tool.bench.frappe-dependencies]
 frappe = ">=16.32.0,<17.0.0"
 
