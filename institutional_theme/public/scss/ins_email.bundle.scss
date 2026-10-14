@@ -119,6 +119,94 @@ a {
 	color: $ins-feedback-warning-fg;
 }
 
+// Frappe v16.52.0 moved the authentication emails (password reset, verification code, email login link,
+// new user, invitation) to `templates/emails/auth_email.html`: `.body-table.auth-email` holds an
+// `.email-card`, the title is `.email-title`, the button `.email-btn.email-btn-primary`, the code
+// `.email-code` and the "ignore this email" note `.email-ignore`. They replace `.email-header-title`,
+// `.btn-primary`, `.verification-code` and `.callout-warning` of 16.32.0, whose rules stay above and match
+// nothing there. Core writes the button colour with `!important`; its white-on-near-black pair is only
+// changed on the background, which core sets without it. Selectors carry the `.body-table.auth-email`
+// prefix so they weigh more than core's own `.body-table.auth-email .email-body p` (0,3,1).
+.body-table.auth-email {
+	background-color: $ins-surface-sunken;
+	font-family: $ins-email-font;
+
+	.email-card {
+		border: 1px solid $ins-border;
+		border-top: 4px solid $ins-brand;
+		border-radius: $ins-radius-md;
+		background-color: $ins-surface-base;
+		font-family: $ins-email-font;
+		color: $ins-text-secondary;
+		unicode-bidi: plaintext;
+		text-align: start;
+	}
+
+	.email-title {
+		color: $ins-text-strong;
+		font-weight: $ins-weight-strong;
+		letter-spacing: 0;
+		unicode-bidi: plaintext;
+		text-align: start;
+	}
+
+	.email-body {
+		color: $ins-text-secondary;
+
+		p {
+			color: $ins-text-secondary;
+			letter-spacing: 0;
+			unicode-bidi: plaintext;
+			text-align: start;
+		}
+
+		.email-inline-link {
+			color: $ins-text-link;
+		}
+
+		// Meaning by border and weight, not by tint: a boxed code with a heavy rule.
+		.email-code {
+			display: inline-block;
+			padding: 14px 24px;
+			border: 2px solid $ins-text-strong;
+			border-radius: $ins-radius-sm;
+			background-color: $ins-surface-base;
+			color: $ins-text-strong;
+			direction: ltr;
+			unicode-bidi: isolate;
+		}
+
+		// The note that replaced the warning callout: the border and the heavy left rule survive greyscale.
+		.email-ignore {
+			padding: 12px 16px;
+			border: 1px solid $ins-status-warning-border;
+			border-left: 4px solid $ins-status-warning-solid;
+			border-radius: $ins-radius-sm;
+			background-color: $ins-feedback-warning-bg;
+			color: $ins-feedback-warning-fg;
+			font-size: 13px;
+		}
+	}
+
+	.email-btn {
+		border-radius: $ins-radius-sm;
+	}
+
+	.email-btn.email-btn-primary {
+		border: 1px solid $ins-primary;
+		background-color: $ins-primary;
+	}
+
+	.email-divider {
+		border-top: 1px solid $ins-border-strong;
+	}
+
+	.email-footer-meta {
+		color: $ins-text-muted;
+		unicode-bidi: plaintext;
+	}
+}
+
 .table th,
 .table td {
 	border-top: 1px solid $ins-border-strong;
