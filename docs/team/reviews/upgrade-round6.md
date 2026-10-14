@@ -119,3 +119,70 @@ None.
 - I did not check whether QtWebKit in the patched wkhtmltopdf 0.12.6.1 ignores `@supports`. COMPUTED from the WebKit version; the authors' render shows it.
 - ClientCache behaviour across processes (invalidation latency) is taken from its docstring and the authors' live check; I did not measure it.
 - MariaDB: every cache trace is from source. The authors' benches are PostgreSQL. Under MariaDB's default REPEATABLE READ the S1 refill is ASSUMED to behave the same way.
+
+## Re-check after fix round
+
+Branch `claude/exciting-ride-33ufyd` at `ab5ac37`. Commits checked: `9a0c3fe` (print), `ae4705b` (print-fix evidence), `4e2eb05` (docs).
+
+| Finding | State | Evidence |
+|---|---|---|
+| S1 (stale identity under load) | **Closed as a documented limitation.** OWNER_REVIEW decision-82 text is **pending** (the lead's final Arabic update), not open | `CHANGELOG.md` Known limitations now names the effect, the cause (a request that started before the save refills core's cache, which keeps the entry until the next clear) and the remedy (`bench --site <site> clear-cache`). `README.md` Troubleshooting adds "The old system name or logo still shows after saving the identity" with the same remedy. The lead's reasons for not adding the queued third clear are sound: it narrows the window but does not close it, and the test bench runs no workers to verify it. |
+| S2 (checklist) | **Closed** | `docs/UPGRADE_AND_QA_CHECKLIST.md`: B13 now covers R1 to R11, names `frappe.client_cache` (marked internal by core) and `frappe.db.value_cache`, and runs `test_identity_caches`. C4 lists the 11 identity-cache tests. New row C46 renders an Arabic and an English Classic slip and a Draft Leave Application and Expense Claim with both generators. It names the `.ss-*` source (`salary_slip_*.json`, `css` field), the expected results and the Chrome watermark re-measure. |
+| S3 (watermark on small pages) | **Closed as a documented limitation** | `print-fix/README.md` item 5: rendered on 16.32.0 with wkhtmltopdf. A5 landscape loses the box below the content; A6 cuts it; A4 and Letter are whole. The manifest row, the CHANGELOG, the README "Known print limits" and the SCSS comment (`ins_print.bundle.scss:386-387`) all say "A4 and Letter". Not rendered on 16.52.0 (the authors state this). |
+| S4 (rule colours) | **Closed** | `ins_print.bundle.scss:55-63`: the left-to-right `.ss-net` `border-left-color` and the `.ss-split td.l` and `.ss-strip td` `border-right-color` take the theme colours. Widths and sides stay HRMS's, and the specificity (0,2,0) and (0,2,1) beats HRMS's (0,1,0) and (0,2,1) without `!important`. `print-fix/rule-colours.txt`: the Classic vertical rule is `(184,190,199)` in both English and Arabic after the fix (it was `(226,226,226)` in English before). The Detailed strip rules match in both directions. Setting a colour on a side with no border style (the Detailed `td.l`, the `.ss-strip td.last` `none`) draws nothing. |
+| `9a0c3fe` extras | **Hold** | Caption colour `$ins-text-secondary` and 10 px (`:39-52`). Their selectors exist in the HRMS CSS of both tags: `.ss-label`, `.ss-net .words`, `.ss-hero .words`, `.ss-strip .ss-label`, `.ss-ledger tr.ss-sec td`. The Arabic `letter-spacing: 0` list (`:450-456`) extends a rule that already existed. The Chrome watermark is at `top: 3mm` (`:422`); the manifest row cites the 0 to 20 mm sweep on both versions, and the README states the risk of a printer's unprintable edge. No `!important` added (grep: the only hits are comments, at `:14,137,551`). |
+| N1 (negative control) | Open (note) | Unchanged. |
+| N2 (other apps' `website_clear_cache` hooks) | Open (note) | Unchanged. |
+| N3 (render tool usage text) | **Open (note)** | `tools/bench/hrms_print_render.py:3,8` still documents `[JOBS_FILE]` as optional with a default; `:19` still reads `sys.argv[4]` unconditionally. |
+| N4 (test namespace) | Open (note) | Unchanged. |
+| N5 (`.ss-*` manifest row) | **Closed** | The row now says HRMS 16.20.1 ships the same classes and values, byte-identical to v16.50.0 except `.ss-timesheets`, VERIFIED. |
+| N6 | Note | Unchanged (core). |
+| N7 (desk headroom) | **Closed** | `docs/audits/budgets.txt:5,15`: `ins_desk` is 120.1 KB of 150 KB, both directions. See the addendum. |
+
+## Addendum: desk CSS headroom
+
+Diff: `git diff 490dd98..ab5ac37 -- institutional_theme/midad institutional_theme/audits institutional_theme/public/scss/generated tests/browser/harness tools/docs`. Evidence: `docs/team/evidence/round6/css-headroom/README.md`.
+
+### What holds
+
+- **The reasoning behind the equivalence is correct.** Every mapped value is a `var(--ins-*)` expression or a literal, and the browser resolves it on the element that declares it. For the 345 names whose light and dark expressions are equal (same text), the dark declarations were no-ops. The `--ins-*` underneath switch per mode in `_tokens.scss` and the palette files, which the change does not touch. `build._check_map_values_are_independent` (`build.py`) is conservative and fails the build on a self-reference.
+- **The specificity on the explicit Dark root is unchanged.** The shared list (`emit.SHAPES["map"]["shared"]`) contains `html:root[dir][data-theme="dark"]` at (0,3,1). The dark block follows in the same generated file at the same specificity, so source order inside one file decides the 79 differing names, not load order across bundles. The nested light and dark elements keep (0,2,1).
+- **Core cannot compete in the one changed cell (VERIFIED).** It declares mapped names on the root only at (0,1,0): `:root`, `[data-theme="light"]` and `[data-theme="dark"]`, plus `.dark` on 16.52.0. That matches the authors' scans `scan-core-16.32.0.txt` and `scan-core-16.52.0.txt`, and the root selectors of both trees.
+- **What the Dark root actually uses, confirmed in core source.** In Automatic mode core resolves the attribute in JavaScript: `frappe.ui.set_theme` sets `data-theme` to `"dark"` or `"light"` from `prefers-color-scheme` (`public/js/frappe/ui/theme_switcher.js:154-163` / `:174-183`). Desk calls it on start and whenever `data-theme-mode` changes (`desk.js:105-118` / `:106-119`). So once desk JS has run, an Automatic page in a dark OS is matched by the explicit Dark root (0,3,1), not by the `[data-theme="automatic"]` media block. The (0,2,1) cell the authors identify exists only between first paint and `setup_theme`, because the server sends `data-theme="automatic"` (`www/desk.html:2`, both versions). The real exposure is therefore smaller than the README states.
+- **The parity audit guards what it should.** `parity.check_map_family` asserts:
+  - the exact selector tuples and media of all three blocks;
+  - no duplicate keys;
+  - dark keys are a subset of the shared keys, in shared order;
+  - automatic equals dark;
+  - no dark declaration repeats the light value;
+  - the dark block equals the model's dark delta exactly.
+
+  The shared block's values are not re-checked against the model by parity, but `build --check` (0 stale) catches any hand edit of the generated file. `docs/audits/parity.txt` is unchanged.
+- **The measured result.** Computed-style dumps of all 424 names on `html` and on nested `[data-theme]` elements differ in 0 of 58 (16.32.0) and 0 of 34 (16.52.0). The only element differences are the Roles-editor checkbox swap the authors recorded as nondeterministic before the change. Pixel deltas of at most 3 sit on glyph edges, reproduced between two runs of the old CSS. Cascade passes 4576/4576 and 7680/7680. Budget: 146.2 to 120.1 KB raw. The website map `_frappe_map_light.scss` and the compiled `ins_web` CSS are byte-identical (the authors' `cmp`).
+- **Other apps.** A second brand app that sets brand variables at `:root` or `[data-theme=...]` (0,1,0), or at `html[lang=ar], html[dir=rtl]` (0,1,1) as in the coexistence fixture, loses to this map in every mode, as before. Nothing in this change alters the font-family registration.
+
+### Findings
+
+- **A1 (minor). The B2 Automatic-dark dumps do not test the cell the change moved.**
+  - Repository: `docs/team/evidence/round6/css-headroom/README.md`, "Residual exposure" (last bullet) and the B2 table.
+  - Frappe proof: `theme_switcher.js:154-163`; the dump `after/16.32.0/dumps/en-automatic-osdark-comfortable-desktop.json.gz` records `"data-theme":"dark"` with `"data-theme-mode":"automatic"`.
+  - Failure: none on a site today. The dumps exercised the explicit Dark root (unchanged specificity), so the equivalence of the Automatic media block rests only on the static proof and the cascade model. If a future core stops resolving `data-theme` in JavaScript (for example, it starts relying on CSS `prefers-color-scheme` only), the (0,2,1) cell becomes the steady state for every Automatic user. Nothing captured so far would have shown that.
+  - Smallest correction: correct the README sentence. Add one capture with desk JS's resolution suppressed: load the page with `data-theme` forced to `"automatic"` after load, then dump the 424 names. Or add an upgrade-checklist note to B12 or B13: "if `frappe.ui.set_theme` no longer writes the resolved theme to `data-theme`, re-run the Automatic-dark dumps".
+- **A2 (minor). The cascade harness now decides layers by selector text, not by specificity.**
+  - Repository: `tests/browser/harness/css_model.mjs:41-48` (`family()`).
+  - Failure: none today. A block that lists the plain root is now always the light layer, and the dark delta layers on top by family. If a later edit dropped `html:root[dir][data-theme="dark"]` from the shared list, the 345 names on the Dark root would fall to (0,2,1), but the harness would still layer them as before and pass. Only `parity.check_map_family`'s selector-shape check catches that edit. The guard still exists, but in one place instead of two.
+  - Smallest correction: one harness assertion (or a unit test next to `test_the_map_shapes_beat_core`) that the Dark root's specificity for a non-differing name is (0,3,1), computed from the generated selector list.
+- **A3 (note). The committed `docs/DESIGN_SYSTEM.md` is stale against its generator.** The authors report it (ramp steps 450 and 950 missing) and say this change does not cause it, which I accept. It should be regenerated before the tag or listed as known. I did not verify it.
+
+### Not verified in the addendum
+
+I did not run the build, the audits, the cascade test or the dump comparison. I relied on the authors' logs, plus the one dump I decompressed. I did not open the ERPNext and HRMS bench scans beyond their summary in the README. I did not check the second brand app on the owner's bench. The pre-JS flash in Automatic mode was not observed: COMPUTED, no competing rule found.
+
+## Scores after the fix round and the addendum
+
+| Dimension | Round 6 (first pass) | Re-check | Evidence |
+|---|---|---|---|
+| Upgrade-safety | 4 | **4** | S2 closed: R8 to R11, `test_identity_caches` and the HRMS print row C46 are now in the checklist the next tag will run. The map change keeps every specificity except a pre-JS transient, and core cannot reach that cell in either version. **Held below 5 by:** reliance on `frappe.client_cache` (internal, subject to change), on HRMS's undeclared `.ss-*` CSS, and on a measured, unexplained Chrome clipping (watermark at 3 mm). All are now listed and re-checked, but each can break on a point release without an error. A1 also leaves the Automatic cell depending on core's JavaScript behaviour without a capture that would catch a change. |
+| Performance | 4 | **5** | Desk bundle 146.2 to 120.1 KB raw, 16.7 KB gzip, 29.9 KB headroom (`budgets.txt:5,15`). Zero whole-site clears at the identity commit. The three clears inside the save come from core (R8, N6), not from the app. |
+| Documentation | 3 | **4** | S1, S2, S3 and N5 are closed with exact wording in CHANGELOG, README Troubleshooting and Known print limits, the manifest and the checklist. The headroom README gives sizes, scans and both versions. **Held below 5 by:** the OWNER_REVIEW decision-82 text (pending the lead), N3 (the tool's usage text is still wrong), A1 (the README overstates what the Automatic-dark dumps tested) and A3. |
+| Craft | 4 | **4** | S4 is closed with colour-only overrides, no `!important` and pixel-checked results. The map change is data-driven (79 names from the model, not a hand list), guarded by a build check and exact parity, and proven by the static, computed and pixel layers. The harness failure was diagnosed to its cause rather than loosened. **Held below 5 by:** N1 (half of the negative control fails on missing names), N4 (test namespace via `db_name`) and A2 (one guard where there were two). |
