@@ -10,6 +10,7 @@
 Run with the bench interpreter from the `sites` folder. Exit code 1 when `residue` finds anything.
 """
 
+import glob
 import json
 import os
 import sys
@@ -22,7 +23,20 @@ LETTER_HEAD = "Letter Head"
 PRINT_NAME = "Midad"
 WEBSITE = ("app_name", "app_logo", "splash_image", "favicon")
 KEPT_STATE = ""
-PNG = b"\x89PNG\r\n\x1a\n" + b"\x00" * 16
+# 0x81 is undefined in every text encoding `File.get_content` tries, so core copies these bytes unchanged,
+# as it does a real image (a text-decodable file would be re-encoded into a different one).
+PNG = b"\x89PNG\r\n\x1a\n\x81\x90" + b"\x00" * 16
+CORE_SETTINGS = ("Navbar Settings", "Website Settings")
+CORE_FIELDS = ("app_logo", "splash_image", "favicon")
+
+
+def core_setting_files() -> list[str]:
+	"""Names of the File rows attached to the logo fields of Navbar Settings and Website Settings."""
+	return frappe.get_all(
+		"File",
+		filters={"attached_to_doctype": ("in", CORE_SETTINGS), "attached_to_field": ("in", CORE_FIELDS)},
+		pluck="name",
+	)
 
 
 def website_values() -> dict:
@@ -41,7 +55,30 @@ def print_state() -> dict:
 
 
 def seed(state_path: str) -> None:
-	state = {"original": website_values(), "print_at_seed": print_state()}
+	state = {
+		"original": website_values(),
+		"print_at_seed": print_state(),
+		"core_files_before": core_setting_files(),
+	}
+	# An administrator's own upload of the same image, attached to a logo field before the theme is
+	# configured: it has the emblem's content hash and file_url, and must survive uninstall. With the
+	# default target core finds it and makes no Navbar copy; with GATE_ADMIN_TARGET="Website Settings.favicon"
+	# the sync makes a Navbar copy, which must go while this row stays.
+	admin_doctype, _sep, admin_field = os.environ.get(
+		"GATE_ADMIN_TARGET", "Navbar Settings.app_logo"
+	).partition(".")
+	admin = frappe.get_doc(
+		{
+			"doctype": "File",
+			"file_name": "gate-admin-emblem.png",
+			"content": PNG,
+			"is_private": 0,
+			"attached_to_doctype": admin_doctype,
+			"attached_to_name": admin_doctype,
+			"attached_to_field": admin_field,
+		}
+	).insert(ignore_permissions=True)
+	state["admin_file"] = admin.name
 	file = frappe.get_doc(
 		{
 			"doctype": "File",
@@ -57,6 +94,9 @@ def seed(state_path: str) -> None:
 	doc.emblem = file.file_url
 	doc.default_density = "Compact"
 	doc.save()
+	# An administrator saving Website Settings while it holds the emblem makes core attach copies of it.
+	frappe.get_doc("Website Settings").save()
+	state["core_files_after_save"] = core_setting_files()
 	frappe.defaults.set_user_default("ins_palette", "graphite", "Administrator")
 	frappe.defaults.set_user_default("ins_density", "Compact", "Administrator")
 	folder = frappe.get_site_path("public", "files", "institutional_theme")
@@ -91,6 +131,26 @@ def residue(state_path: str) -> int:
 		left["file row"] = state["file"]
 	if frappe.db.count("File", {"attached_to_doctype": DOCTYPE}):
 		left["file rows attached"] = frappe.db.count("File", {"attached_to_doctype": DOCTYPE})
+	strays = [
+		name
+		for name in core_setting_files()
+		if name not in state.get("core_files_before", []) and name != state.get("admin_file")
+	]
+	if strays:
+		left["file rows attached to Navbar/Website Settings"] = strays
+	stray_disk = sorted(glob.glob(frappe.get_site_path("public", "files", "gate-emblem*")))
+	if stray_disk:
+		left["files on disk"] = [os.path.basename(path) for path in stray_disk]
+	admin_file = state.get("admin_file")
+	if admin_file and not frappe.db.exists("File", admin_file):
+		left["administrator's file with the emblem's bytes"] = "was deleted"
+	elif admin_file:
+		admin_url = frappe.db.get_value("File", admin_file, "file_url")
+		if not os.path.exists(frappe.get_site_path("public", admin_url.lstrip("/"))):
+			left["administrator's file on disk"] = "was deleted"
+		# The gate's own test file: remove it, so the site ends as it began.
+		frappe.delete_doc("File", admin_file, force=True, ignore_permissions=True)
+		frappe.db.commit()
 	for key in ("ins_palette", "ins_density"):
 		if frappe.db.count("DefaultValue", {"defkey": key}):
 			left[f"default {key}"] = frappe.db.count("DefaultValue", {"defkey": key})

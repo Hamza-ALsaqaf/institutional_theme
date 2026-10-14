@@ -5,8 +5,11 @@
         [--old-label 16.32.0 --new-label 16.51.1] --tsv OUT.tsv --md OUT.md
 
 OLD and NEW are checkouts of the `frappe` repository (the folder that contains the `frappe` package).
-The manifest rows read are the tables of section 1 (hooks), 2a to 2h (selectors, items), the
-round 2 `!important` table of section 4 and section 6 (behaviours and APIs). For each row:
+The manifest rows read are the tables of section 1 (hooks), every `### 2x` section of section 2
+(selectors, items: 2a, 2b ... 2j and any later letter, the section id is read from the heading, nothing
+is listed here), the `!important` table of section 4 and section 6 (behaviours and APIs). A table in a
+`2x` section whose header is neither `Selector` nor `Item` is not skipped quietly: it is reported on
+stderr and the exit code is 1, because its dependencies would go unchecked. For each row:
 
 1. Every citation `path:lines` is resolved in OLD, then the same lines are compared with NEW:
    `present` (identical text on the same lines), `moved` (identical block found on other lines),
@@ -16,8 +19,8 @@ round 2 `!important` table of section 4 and section 6 (behaviours and APIs). For
    of NEW; when absent there, in all of NEW (`moved`), else `missing`.
 3. The row verdict is the worst of its parts: present < moved < changed < missing.
 
-Reads files only. Exit code 1 when any row is `missing`, else 0 (moved and changed rows are
-reported and need a human reading).
+Reads files only. Exit code 1 when any row is `missing` or a `2x` table could not be read, else 0
+(moved and changed rows are reported and need a human reading).
 """
 
 from __future__ import annotations
@@ -107,8 +110,10 @@ class Row:
 	source: str
 
 
-def read_rows(manifest: Path) -> list[Row]:
-	"""Rows of the tables this check covers, with the section id (`1`, `2a`, ... `6`)."""
+def read_rows(manifest: Path, unread: list[str] | None = None) -> list[Row]:
+	"""Rows of the tables this check covers, with the section id (`1`, `2a`, ... `6`).
+
+	`unread` collects one entry for each table of a `2x` section that has an unknown header."""
 	rows: list[Row] = []
 	section, header, count = "", [], 0
 	for line in manifest.read_text(encoding="utf-8").splitlines():
@@ -127,6 +132,8 @@ def read_rows(manifest: Path) -> list[Row]:
 			continue
 		if not header:
 			header, count = [c.lower() for c in cells], 0
+			if unread is not None and section.startswith("2") and header[0] not in ("selector", "item"):
+				unread.append(f"{section}: header {cells[:2]}")
 			continue
 		count += 1
 		first, second = header[0], header[1] if len(header) > 1 else ""
@@ -326,7 +333,10 @@ def main(argv: list[str] | None = None) -> int:
 	args = ap.parse_args(argv)
 
 	old, new = Tree(args.old, args.old_node), Tree(args.new, args.new_node)
-	rows = read_rows(args.manifest)
+	unread: list[str] = []
+	rows = read_rows(args.manifest, unread)
+	for note in unread:
+		print(f"WARNING: manifest table not read, {note}", file=sys.stderr)
 	parsed = []
 	pending: set[str] = set()
 	for row in rows:
@@ -423,7 +433,7 @@ def main(argv: list[str] | None = None) -> int:
 	print(lines[0])
 	print(lines[2])
 	print(lines[3])
-	return 1 if counts["missing"] else 0
+	return 1 if counts["missing"] or unread else 0
 
 
 if __name__ == "__main__":

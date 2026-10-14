@@ -30,6 +30,12 @@ TTF = b"\x00\x01\x00\x00" + b"\x00" * 60
 NOT_A_FONT = b"<html>not a font</html>"
 
 
+def _image(seed: int) -> bytes:
+	"""Bytes that no text encoding of `File.get_content` accepts (0x81 is undefined in windows-1250, windows-1252
+	and UTF-8), as with a real image: core then attaches a byte-identical copy instead of a re-encoded one."""
+	return b"\x89PNG\r\n\x1a\n\x81\x90" + bytes([seed]) * 40
+
+
 def _make_user(email: str, role: str) -> None:
 	if frappe.db.exists("User", email):
 		return
@@ -57,6 +63,10 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		# Saving a document that points at a file adds File rows of its own: sweep them.
 		frappe.set_user("Administrator")
 		identity_sync.delete_attachments()
+		# Rows that core attached to the core settings for the test images (their names start with the
+		# test file name plus a hash suffix).
+		for name in frappe.get_all("File", filters={"file_name": ("like", "ins-test-%")}, pluck="name"):
+			frappe.delete_doc("File", name, force=True, ignore_permissions=True)
 		frappe.db.delete("Version", {"ref_doctype": DOCTYPE})
 		frappe.db.commit()
 		for leftover in glob.glob(frappe.get_site_path("public", "files", "ins-test-*")):
@@ -83,6 +93,7 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 	def _reset(self) -> None:
 		"""Back to a never-saved settings document and to the original core identity values."""
 		identity_sync.restore()
+		identity_sync.delete_attachments()
 		frappe.db.delete("Singles", {"doctype": DOCTYPE})
 		frappe.clear_document_cache(DOCTYPE, DOCTYPE)
 		frappe.db.commit()
@@ -527,10 +538,11 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertTrue(frappe.db.exists("File", other.name))
 
 	def test_delete_attachments_removes_the_navbar_copies_core_made(self) -> None:
-		logo = self.public_file("ins-test-emblem-nav.png", b"\x89PNG\r\n\x1a\n" + b"\x00" * 24)
-		self.settings(system_name="Test Authority", emblem=logo).save()
+		logo = self.public_file("ins-test-emblem-nav.png", _image(13))
 		navbar = {"attached_to_doctype": "Navbar Settings", "attached_to_field": "app_logo"}
-		copies = frappe.get_all("File", filters=navbar, pluck="name")
+		before = frappe.get_all("File", filters=navbar, pluck="name")
+		self.settings(system_name="Test Authority", emblem=logo).save()
+		copies = [name for name in frappe.get_all("File", filters=navbar, pluck="name") if name not in before]
 		self.assertTrue(copies, "core attaches a copy of the emblem to Navbar Settings when it is saved")
 		# An unrelated logo file of the administrator, attached to the same field, must stay.
 		theirs = frappe.get_doc(
@@ -551,17 +563,124 @@ class TestInstitutionalThemeSettings(IntegrationTestCase):
 		self.assertTrue(frappe.db.exists("File", theirs.name))
 
 	def test_delete_attachments_keeps_a_navbar_copy_that_is_showing(self) -> None:
-		logo = self.public_file("ins-test-emblem-keep.png", b"\x89PNG\r\n\x1a\n" + b"\x00" * 32)
+		"""The administrator already used this image as the logo: it is the prior value, so it stays shown
+		and the File row behind it stays."""
+		logo = self.public_file("ins-test-emblem-keep.png", _image(12))
+		frappe.db.set_single_value("Navbar Settings", "app_logo", logo)
 		self.settings(system_name="Test Authority", emblem=logo).save()
 		navbar = {"attached_to_doctype": "Navbar Settings", "attached_to_field": "app_logo"}
-		copy_row = frappe.get_all("File", filters=navbar, fields=["name", "file_url"], limit=1)[0]
-		# The administrator chose the copy as the logo after this app wrote it.
-		frappe.db.set_single_value("Navbar Settings", "app_logo", copy_row.file_url)
+		copy_row = frappe.get_all("File", filters={**navbar, "file_url": logo}, fields=["name", "file_url"])[
+			0
+		]
 		identity_sync.restore()
+		self.assertEqual(frappe.db.get_single_value("Navbar Settings", "app_logo"), logo)
 		identity_sync.delete_attachments()
 		self.assertTrue(frappe.db.exists("File", copy_row.name))
 		frappe.db.set_single_value("Navbar Settings", "app_logo", None)
 		frappe.delete_doc("File", copy_row.name, force=True, ignore_permissions=True)
+
+	def admin_file(self, name: str, content: bytes, doctype: str, field: str) -> str:
+		"""A File the administrator uploaded earlier, attached to a core settings field."""
+		file = frappe.get_doc(
+			{
+				"doctype": "File",
+				"file_name": name,
+				"content": content,
+				"is_private": 0,
+				"attached_to_doctype": doctype,
+				"attached_to_name": doctype,
+				"attached_to_field": field,
+			}
+		).insert(ignore_permissions=True)
+		self._files.append(file.name)
+		return file.name
+
+	def test_an_administrators_file_with_the_emblems_bytes_survives_uninstall(self) -> None:
+		"""Upgrade review round 3, should-fix 2: the same bytes mean the same `content_hash` and `file_url`."""
+		png = _image(7)
+		# The administrator uploaded the emblem as the navbar logo and as the website logo long ago, then
+		# put other logos in. Their rows stay attached, not shown.
+		theirs_nav = self.admin_file("ins-test-admin-nav.png", png, "Navbar Settings", "app_logo")
+		theirs_web = self.admin_file("ins-test-admin-web.png", png, "Website Settings", "app_logo")
+		logo = self.public_file("ins-test-emblem-same.png", png)
+		self.assertEqual(frappe.db.get_value("File", theirs_nav, "file_url"), logo)
+		self.settings(system_name="Test Authority", emblem=logo).save()
+		frappe.get_doc("Website Settings").save()  # core copies the logo while the theme's value is in it
+		identity_sync.restore()
+		identity_sync.delete_attachments()
+		self.assertTrue(frappe.db.exists("File", theirs_nav))
+		self.assertTrue(frappe.db.exists("File", theirs_web))
+		self.assertTrue(
+			os.path.exists(frappe.get_site_path("public", logo.lstrip("/"))), "the file stays on disk"
+		)
+
+	def test_the_theme_copies_go_while_an_administrators_same_bytes_row_stays(self) -> None:
+		png = _image(8)
+		theirs = self.admin_file("ins-test-admin-other.png", png, "Website Settings", "favicon")
+		logo = self.public_file("ins-test-emblem-copies.png", png)
+		self.settings(system_name="Test Authority", emblem=logo).save()
+		navbar_copies = frappe.get_all(
+			"File",
+			filters={
+				"attached_to_doctype": "Navbar Settings",
+				"attached_to_field": "app_logo",
+				"file_url": logo,
+			},
+			pluck="name",
+		)
+		self.assertTrue(navbar_copies, "the sync itself makes core attach a copy to Navbar Settings")
+		recorded = json.loads(frappe.db.get_global(identity_sync.FILES_KEY))
+		self.assertEqual(recorded["Navbar Settings.app_logo"][0]["names"], sorted(navbar_copies))
+		identity_sync.restore()
+		self.assertGreaterEqual(identity_sync.delete_attachments(), 2)
+		self.assertFalse(frappe.db.exists("File", {"name": ("in", navbar_copies)}))
+		self.assertTrue(frappe.db.exists("File", theirs))
+		self.assertTrue(
+			os.path.exists(frappe.get_site_path("public", logo.lstrip("/"))), "theirs keeps the file"
+		)
+		self.assertFalse(frappe.db.get_global(identity_sync.FILES_KEY))
+
+	def test_website_settings_copies_made_by_a_later_save_are_removed(self) -> None:
+		"""Upgrade review round 3, should-fix 1."""
+		png = _image(9)
+		ico = _image(10)
+		logo = self.public_file("ins-test-emblem-web.png", png)
+		icon = self.public_file("ins-test-favicon-web.ico", ico)
+		web = {
+			"attached_to_doctype": "Website Settings",
+			"attached_to_field": ("in", ["app_logo", "splash_image", "favicon"]),
+		}
+		before = frappe.get_all("File", filters=web, pluck="name")
+		self.settings(emblem=logo, favicon=icon).save()
+		frappe.get_doc("Website Settings").save()
+		fields = ["name", "attached_to_field", "file_url", "creation"]
+		copies = [row for row in frappe.get_all("File", filters=web, fields=fields) if row.name not in before]
+		self.assertGreaterEqual(len(copies), 3, "core attached a copy per field on that save")
+		identity_sync.restore()
+		identity_sync.delete_attachments()
+		left = frappe.get_all("File", filters={"name": ("in", [row.name for row in copies])}, fields=fields)
+		self.assertFalse(left, f"left: {left}; recorded: {frappe.db.get_global(identity_sync.FILES_KEY)}")
+		self.assertFalse(os.path.exists(frappe.get_site_path("public", logo.lstrip("/"))))
+
+	def test_a_website_copy_that_is_still_shown_stays(self) -> None:
+		png = _image(11)
+		logo = self.public_file("ins-test-emblem-shown.png", png)
+		frappe.db.set_single_value("Website Settings", "splash_image", logo)  # prior value is the same image
+		self.settings(emblem=logo).save()
+		frappe.get_doc("Website Settings").save()
+		shown = frappe.get_all(
+			"File",
+			filters={"attached_to_doctype": "Website Settings", "attached_to_field": "splash_image"},
+			pluck="name",
+		)
+		self.assertTrue(shown)
+		identity_sync.restore()
+		self.assertEqual(self.website("splash_image"), logo)
+		identity_sync.delete_attachments()
+		self.assertTrue(all(frappe.db.exists("File", name) for name in shown))
+		frappe.db.set_single_value("Website Settings", "splash_image", None)
+		for name in shown:
+			frappe.delete_doc("File", name, force=True, ignore_permissions=True)
 
 	def test_private_emblem_is_rejected(self) -> None:
 		private = frappe.get_doc(
