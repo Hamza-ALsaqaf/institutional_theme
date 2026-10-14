@@ -1,0 +1,21 @@
+$ python3 tools/bench/web_style_diff.py iso-before-1632.json iso-after-1632.json --allowed desk_only.json
+Frappe 16.32.0, site midad.test:8000. Isolated comparison: both captures are built from the SAME working tree (including another agent's uncommitted edit of web/_login.scss and ins_email.bundle.scss, sha256 unchanged between the two builds); the only difference is _frappe_map_light.scss: 'before' = the file at HEAD 07d18f1 (all 424 names), 'after' = this change (60 desk-only names left out).
+Pages (14): login en/ar, login forgot en/ar, login email link, update-password, 404, /me, /third_party_apps, /orders, /portal, /timesheets, web form account deletion, web form task (tools/bench/web_style_capture.mjs). Default state of each page; hover, focus and opened menus are not captured.
+login-ar (/login?_lang=ar, status 200/200): 131 elements compared, 0 differ, 0 only on one side, 49 custom properties resolve differently on html
+login-email-link-en (/login?_lang=en#login-with-email-link, status 200/200): 131 elements compared, 0 differ, 0 only on one side, 49 custom properties resolve differently on html
+login-en (/login?_lang=en, status 200/200): 131 elements compared, 0 differ, 0 only on one side, 49 custom properties resolve differently on html
+login-forgot-ar (/login?_lang=ar#forgot, status 200/200): 131 elements compared, 0 differ, 0 only on one side, 49 custom properties resolve differently on html
+login-forgot-en (/login?_lang=en#forgot, status 200/200): 131 elements compared, 0 differ, 0 only on one side, 49 custom properties resolve differently on html
+me (/me, status 200/200): 48 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+not-found (/404-no-such-page, status 404/404): 22 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+orders (/orders, status 200/200): 105 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+portal (/portal, status 200/200): 101 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+third-party-apps (/third_party_apps, status 200/200): 20 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+timesheets (/timesheets, status 200/200): 105 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+update-password (/update-password?key=none, status 200/200): 73 elements compared, 0 differ, 0 only on one side, 49 custom properties resolve differently on html
+webform-account-deletion (/request-for-account-deletion/new, status 200/200): 107 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+webform-task (/tasks/new, status 200/200): 817 elements compared, 0 differ, 0 only on one side, 53 custom properties resolve differently on html
+custom properties of html that resolve differently on any page (53): --appreciation-bg, --appreciation-color, --awesomebar-shadow, --bg-dark-blue, --border-primary, --border-radius-xl, --brand-color, --charts-axis-line-color, --charts-dataset-circle-stroke, --charts-legend-label, --charts-legend-value, --charts-tooltip-bg, --charts-tooltip-label, --charts-tooltip-title, --charts-tooltip-value, --criticism-bg, --criticism-color, --desk-sidebar-bg, --diff-added, --diff-changed, --diff-removed, --divider-color, --frappe-card-button-bg-color, --frappe-card-button-color, --highlight-color, --highlight-shadow, --input-disabled-bg, --kanban-card-bg, --kanban-column-bg, --kanban-new-card-bg, --kanban-new-card-hover-bg, --outline-gray-modals, --outline-white, --page-head-height, --progress-bar-bg, --scrollbar-thumb-color, --scrollbar-track-color, --shadow-inset, --shadow-xl, --sidebar-active-color, --sidebar-border-color, --sidebar-hover-color, --sidebar-select-color, --skeleton-bg, --surface-cards, --surface-menu-bar, --surface-selected, --text-on-dark-blue, --text-on-dark-gray, --text-on-light-gray, --text-tiny, --timeline-badge-bg, --timeline-badge-color
+  not in the allowed list (0): none
+RESULT: 0 problem(s) over 14 pages (identical)
+exit 0

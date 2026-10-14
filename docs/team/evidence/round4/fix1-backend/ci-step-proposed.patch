@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 0ed0e08..da6d848 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -61,3 +61,10 @@ jobs:
+       # (institutional_theme/audits/data), so it needs no bench.
+       - name: Audits (contrast, parity, colour vision, dead tokens)
+         run: python -m institutional_theme.audits
++
++      # The committed reports are generated from committed snapshots, so a run without a build must not change them.
++      # (budgets.txt is skipped here: it needs a built bench and is kept as committed.)
++      - name: Committed reports are current
++        run: |
++          git status --porcelain -- docs/audits
++          test -z "$(git status --porcelain -- docs/audits)"

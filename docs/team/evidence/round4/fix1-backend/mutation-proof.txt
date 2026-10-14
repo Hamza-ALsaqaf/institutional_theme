@@ -1,0 +1,64 @@
+Each regression below was applied to a scratch copy of the repository (tools: /tmp/ins_work/mutate.sh, one sed-style replacement per case) and both unit suites were run.
+The 3 errors common to every case (test_manifest_selectors, test_the_brief_still_says_so, test_the_licence_record_matches_the_files) come from the scratch copy lacking docs/, not from the mutation; subtract 3. Baseline of the real tree: 0 failing.
+
+MUTATION scan_theme keeps comments (N3a): 7 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_name_used_only_in_a_comment_is_dead_not_theme
+    FAIL: test_css_keeps_double_slash_but_drops_block_comments
+    FAIL: test_js_comments_are_not_use
+MUTATION declared scan keeps comments (N3a): 5 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_generated_files_comments_and_reads_are_ignored
+    FAIL: test_the_declared_scan_uses_the_same_stripping
+MUTATION unread check passes everything (N3b): 8 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_stale_entry_fails
+    FAIL: test_an_entry_without_a_reason_fails
+    FAIL: test_the_command_fails_for_an_unlisted_name_and_passes_with_the_list
+MUTATION unread check ignores source readers (N3b): 8 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_source_reader_in_any_version_makes_it_live
+    FAIL: test_default_run_audits_every_committed_snapshot
+    FAIL: test_one_live_version_is_combined_with_the_other_snapshot
+MUTATION old merge order (N3c): 9 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_name_one_version_reads_is_not_reported_inert_in_the_combined_verdict
+    FAIL: test_default_run_audits_every_committed_snapshot
+    FAIL: test_one_live_version_is_combined_with_the_other_snapshot
+MUTATION effective diff ignores source readers (N3d): 6 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_source_reader_makes_an_added_declaration_a_movement
+    FAIL: test_an_unaccepted_source_move_is_not_hidden_by_other_acceptances
+    FAIL: test_the_two_16_32_0_radius_readers_are_covered_explicitly
+MUTATION effective diff accepts anything (N3d): 5 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_name_the_compiled_css_reads_is_never_accepted
+    FAIL: test_a_name_without_a_source_reader_cannot_be_accepted
+MUTATION web check ignores the marks (F6): 11 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_desk_only_name_nobody_reads_passes
+    FAIL: test_a_desk_only_name_read_by_a_website_page_of_any_version_fails
+    FAIL: test_a_desk_only_name_read_by_the_theme_website_sources_fails
+MUTATION web map ignores the scope (F6): 14 failing test(s)
+    ERROR: institutional_theme.audits.tests.test_manifest_selectors
+    ERROR: test_the_brief_still_says_so
+    ERROR: test_the_licence_record_matches_the_files
+    FAIL: test_a_stale_file_is_detected
+    FAIL: test_default_run_audits_every_committed_snapshot
+    FAIL: test_files_on_disk_are_not_stale

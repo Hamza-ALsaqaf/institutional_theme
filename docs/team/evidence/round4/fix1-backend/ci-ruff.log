@@ -1,0 +1,7 @@
+HEAD f399578 (clean tree except evidence)
+$ uvx ruff@0.16.8 check .
+All checks passed!
+exit 0
+$ uvx ruff@0.16.8 format --check .
+138 files already formatted
+exit 0

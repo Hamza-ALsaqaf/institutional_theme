@@ -1,0 +1,66 @@
+60 variables marked scope desk in design/tokens.json and left out of _frappe_map_light.scss (the website map).
+For each: does a website page of each version read it (data/web_reads_frappe_<v>.json; compiled website/login/web_form/erpnext-web CSS,
+frappe-web/web_form/controls/dialog JS, website templates and pages), does this theme's website source read it, and who reads it elsewhere.
+
+--desk-sidebar-bg                  web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0 source: frappe/frappe/public/scss/desk/dock.scss:22
+--surface-menu-bar                 web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/settings_dialog.scss:20; 16.52.0: no reader
+--surface-modal                    web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/card.scss:31; 16.52.0: no reader
+--surface-cards                    web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--surface-selected                 web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/settings_dialog.scss:87; 16.52.0: no reader
+--outline-white                    web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--outline-gray-modals              web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--highlight-color                  web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/printing/page/print_format_builder/print_format_builder.css:95; 16.52.0 source: frappe/frappe/printing/page/print_format_builder/print_format_builder.css:96
+--input-disabled-bg                web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/variables.scss:48; 16.52.0 source: frappe/frappe/public/scss/desk/variables.scss:48
+--navbar-bg                        web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/navbar.scss:3; 16.52.0 source: frappe/frappe/public/scss/desk/navbar.scss:3
+--awesomebar-focus-bg              web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/navbar.scss:69; 16.52.0 source: frappe/frappe/public/scss/desk/navbar.scss:77
+--skeleton-bg                      web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/desktop.scss:912; 16.52.0 source: frappe/frappe/public/scss/desk/desktop.scss:909
+--text-neutral                     web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/form.scss:512; 16.52.0 source: frappe/frappe/public/scss/desk/form.scss:566
+--text-dark                        web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/js/form_builder/FormBuilder.vue:119; 16.52.0 source: frappe/frappe/public/js/form_builder/FormBuilder.vue:119
+--border-primary                   web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/js/form_builder/components/Column.vue:87; 16.52.0 source: frappe/frappe/public/js/form_builder/components/Column.vue:87
+--btn-group-border-color           web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/filters.scss:119; 16.52.0 source: frappe/frappe/public/scss/desk/filters.scss:134
+--sidebar-border-color             web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/sidebar.scss:40; 16.52.0: no reader
+--divider-color                    web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--brand-color                      web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--progress-bar-bg                  web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/variables.scss:107; 16.52.0 source: frappe/frappe/public/scss/desk/variables.scss:107
+--frappe-card-button-bg-color      web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/card.scss:47; 16.52.0 source: frappe/frappe/public/scss/desk/card.scss:55
+--frappe-card-button-color         web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/card.scss:48; 16.52.0 source: frappe/frappe/public/scss/desk/card.scss:56
+--sidebar-hover-color              web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/menu.scss:22; 16.52.0: no reader
+--sidebar-select-color             web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/global.scss:481; 16.52.0 source: frappe/frappe/public/scss/desk/global.scss:502
+--sidebar-active-color             web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/sidebar.scss:272; 16.52.0: no reader
+--scrollbar-thumb-color            web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/scrollbar.scss:4; 16.52.0 source: frappe/frappe/public/scss/desk/kanban_v2.scss:47
+--scrollbar-track-color            web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/scrollbar.scss:4; 16.52.0 source: frappe/frappe/public/scss/desk/scrollbar.scss:4
+--diff-added                       web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/core/doctype/version/version_view.html:32; 16.52.0 source: frappe/frappe/core/doctype/version/version_view.html:32
+--diff-removed                     web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/core/doctype/version/version_view.html:38; 16.52.0 source: frappe/frappe/core/doctype/version/version_view.html:38
+--diff-changed                     web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/core/doctype/version/version_view.html:35; 16.52.0 source: frappe/frappe/core/doctype/version/version_view.html:35
+--appreciation-bg                  web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/global.scss:437; 16.52.0 source: frappe/frappe/public/scss/desk/global.scss:458
+--appreciation-color               web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/global.scss:438; 16.52.0 source: frappe/frappe/public/scss/desk/global.scss:459
+--criticism-bg                     web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/global.scss:442; 16.52.0 source: frappe/frappe/public/scss/desk/global.scss:463
+--criticism-color                  web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/global.scss:443; 16.52.0 source: frappe/frappe/public/scss/desk/global.scss:464
+--text-on-light-gray               web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/printing/page/print_format_builder/print_format_builder.css:109; 16.52.0 source: frappe/frappe/printing/page/print_format_builder/print_format_builder.css:110
+--text-on-dark-gray                web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--bg-dark-blue                     web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--text-on-dark-blue                web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0: no reader
+--timeline-badge-bg                web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/timeline.scss:16; 16.52.0 source: frappe/frappe/public/scss/desk/timeline.scss:16
+--timeline-badge-color             web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/timeline.scss:18; 16.52.0 source: frappe/frappe/public/scss/desk/timeline.scss:18
+--kanban-column-bg                 web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/js/frappe/views/kanban/kanban_column.html:1; 16.52.0 source: frappe/frappe/public/js/frappe/views/kanban/kanban_column.html:1
+--kanban-card-bg                   web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/kanban.scss:163; 16.52.0 source: frappe/frappe/public/scss/desk/kanban.scss:180
+--kanban-new-card-bg               web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/kanban.scss:71; 16.52.0 source: frappe/frappe/public/scss/desk/kanban.scss:76
+--kanban-new-card-hover-bg         web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/kanban.scss:67; 16.52.0 source: frappe/frappe/public/scss/desk/kanban.scss:72
+--charts-axis-line-color           web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--charts-tooltip-title             web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--charts-tooltip-label             web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--charts-tooltip-value             web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--charts-tooltip-bg                web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--charts-legend-label              web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--charts-legend-value              web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--charts-dataset-circle-stroke     web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 compiled desk/other CSS; 16.52.0 compiled desk/other CSS
+--shadow-xl                        web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/menu.scss:14; 16.52.0: no reader
+--awesomebar-shadow                web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/navbar.scss:68; 16.52.0 source: frappe/frappe/public/scss/desk/navbar.scss:76
+--shadow-inset                     web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/variables.scss:77; 16.52.0 source: frappe/frappe/public/scss/desk/variables.scss:77
+--highlight-shadow                 web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/global.scss:651; 16.52.0 source: frappe/frappe/public/scss/desk/global.scss:675
+--text-tiny                        web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0: no reader; 16.52.0 source: frappe/frappe/public/js/print_format_builder/components/BlockCard.vue:61
+--border-radius-xl                 web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/common/about.scss:11; 16.52.0: no reader
+--margin-2xl                       web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/public/scss/desk/desktop.scss:12; 16.52.0 source: frappe/frappe/public/scss/desk/desktop.scss:13
+--page-head-height                 web 16.32.0=no 16.52.0=no theme-web=no | 16.32.0 source: frappe/frappe/printing/page/print/print.js:472; 16.52.0 source: frappe/frappe/printing/page/print/print.js:504
+
+names read by a website page or the theme's website sources: 0
