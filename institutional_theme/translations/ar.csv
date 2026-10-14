@@ -2,6 +2,7 @@ Accent background,الخلفية المميزة
 Accent colour,اللون المميز
 Accent rule and marker,خط التمييز وعلامته
 Accent text,النص المميز
+Add attachment,إضافة مرفق
 Access to this system is restricted to authorised users. Activity is recorded.,الوصول إلى هذا النظام مقصور على المصرَّح لهم، ويُسجَّل النشاط.
 Adjust the {0} colour.,اضبط اللون {0}.
 Allow Forest,السماح بمجموعة الألوان غابي
@@ -28,6 +29,7 @@ Behaviour,السلوك
 Between 1 and 30 minutes before the session expires.,بين 1 و30 دقيقة قبل انتهاء الجلسة.
 Body text,نص المتن
 Brand text,نص العلامة
+Breadcrumb,مسار التصفح
 Cancelled,ملغى
 Card background,خلفية البطاقة
 Chart gridlines,خطوط شبكة الرسم البياني
@@ -41,6 +43,7 @@ Chart series 6,سلسلة الرسم البياني 6
 Chart series 7,سلسلة الرسم البياني 7
 Chart series 8,سلسلة الرسم البياني 8
 Choose a different colour preset to apply it.,اختر مجموعة ألوان أخرى لتطبيقها.
+Collapse,طي
 Collapse {0},طيّ {0}
 Colour,الألوان
 Colour preset,مجموعة الألوان
@@ -185,6 +188,7 @@ Set by your administrator.,يحدده مسؤول النظام.
 Show a banner when the connection is lost,إظهار شريط عند انقطاع الاتصال
 Show password,إظهار كلمة المرور
 Sidebar and well background,خلفية الشريط الجانبي والمناطق الغائرة
+Sidebar Menu,قائمة الشريط الجانبي
 Sign In,تسجيل الدخول
 Staging,ما قبل الإنتاج
 Submitted,مُرحَّل
