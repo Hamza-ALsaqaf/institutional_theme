@@ -1,0 +1,26 @@
+[
+ {
+  "shellBlocked": true,
+  "insertMs": 18.8,
+  "toSecondFrameMs": 257,
+  "named": 0
+ },
+ {
+  "shellBlocked": false,
+  "insertMs": 18.9,
+  "toSecondFrameMs": 298,
+  "named": 3000
+ },
+ {
+  "shellBlocked": true,
+  "insertMs": 18.5,
+  "toSecondFrameMs": 259.9,
+  "named": 0
+ },
+ {
+  "shellBlocked": false,
+  "insertMs": 19.1,
+  "toSecondFrameMs": 296.1,
+  "named": 3000
+ }
+]

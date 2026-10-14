@@ -1,0 +1,57 @@
+# asset list: installed
+# base url: http://127.0.0.1:8011
+
+# GET /login -> 200
+
+## /login stylesheets (3)
+/assets/frappe/dist/css/website.bundle.3HE5PDLA.css
+/assets/institutional_theme/dist/css/ins_web.bundle.GTTLODHH.css
+/assets/frappe/dist/css/login.bundle.ZA2E6RRJ.css
+
+## /login scripts (3)
+/assets/frappe/dist/js/frappe-web.bundle.WKCNK5I6.js
+/website_script.js
+/assets/institutional_theme/dist/js/ins_web.bundle.VUXQ76EX.js
+
+## /login data-theme attributes (raw html) (5)
+data-theme="red"
+data-theme="green"
+data-theme="red"
+data-theme="green"
+data-theme="red"
+
+## /login data-theme (live DOM)
+{"dataTheme":null,"dataThemeMode":null,"bodyDataTheme":null}
+
+# POST /api/method/login -> 200
+
+# GET /app -> 200
+
+## /app stylesheets (3)
+/assets/frappe/dist/css/desk.bundle.G3NZOSZA.css
+/assets/frappe/dist/css/report.bundle.7P2O6EQ7.css
+/assets/institutional_theme/dist/css/ins_desk.bundle.I64OHRQT.css
+
+## /app scripts (9)
+/assets/frappe/dist/js/libs.bundle.LDNONUAV.js
+/assets/frappe/dist/js/billing.bundle.H53FAIQO.js
+/assets/frappe/dist/js/desk.bundle.B6MGZXFQ.js
+/assets/frappe/dist/js/list.bundle.7ZTEZBLV.js
+/assets/frappe/dist/js/form.bundle.P7ZTY5WQ.js
+/assets/frappe/dist/js/controls.bundle.V3YRJ7AD.js
+/assets/frappe/dist/js/report.bundle.6AJMS4KJ.js
+/assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+/assets/institutional_theme/dist/js/ins_shell.bundle.MVLFTBLF.js
+
+## /app data-theme attributes (raw html) (2)
+data-theme-mode="light"
+data-theme="light"
+
+## /app/todo data-theme (live DOM)
+{"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+
+## /app/todo stylesheets (live DOM) (3)
+/assets/frappe/dist/css/desk.bundle.G3NZOSZA.css
+/assets/frappe/dist/css/report.bundle.7P2O6EQ7.css
+/assets/institutional_theme/dist/css/ins_desk.bundle.I64OHRQT.css
+

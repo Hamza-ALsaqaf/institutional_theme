@@ -1,0 +1,3 @@
+=== clean-rm  2026-10-14T00:53:30Z
+$ as_frappe rm -rf /home/frappe/fresh-bench
+exit 0

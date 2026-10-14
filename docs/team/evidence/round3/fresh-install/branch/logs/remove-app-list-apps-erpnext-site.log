@@ -1,0 +1,7 @@
+=== remove-app-list-apps-erpnext-site  2026-10-14T01:38:26Z
+$ fb bench --site fresherp.test list-apps
+
+frappe  16.32.0 HEAD
+erpnext 16.33.0 HEAD
+
+exit 0

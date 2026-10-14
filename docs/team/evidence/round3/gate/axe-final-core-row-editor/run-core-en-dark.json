@@ -1,0 +1,652 @@
+{
+ "variant": "core",
+ "lang": "en",
+ "mode": "dark",
+ "base": "http://localhost:8000",
+ "axe": "4.13.0",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa"
+ ],
+ "started": "2026-10-14T04:56:57.040Z",
+ "screens": {
+  "form-row-editor": {
+   "meta": {
+    "theme": "dark",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/notification/new-notification-ddhpwifzwa",
+    "forgotDisplay": null,
+    "insStyles": []
+   },
+   "violations": [
+    {
+     "id": "aria-required-attr",
+     "impact": "critical",
+     "help": "Required ARIA attributes must be provided",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "input[data-target=\"Role\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+       "summary": "Fix any of the following: Required ARIA attribute not present: aria-controls"
+      }
+     ]
+    },
+    {
+     "id": "aria-valid-attr-value",
+     "impact": "critical",
+     "help": "ARIA attributes must conform to valid values",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=playwright",
+     "nodes": [
+      {
+       "target": "input[data-target=\"Role\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+       "summary": "Fix all of the following: Invalid ARIA attribute value: aria-activedescendant=\"awesomplete_list_8_item_0\""
+      }
+     ]
+    },
+    {
+     "id": "button-name",
+     "impact": "critical",
+     "help": "Buttons must have discernible text",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=playwright",
+     "nodes": [
+      {
+       "target": ".show-in-edit-mode",
+       "html": "<button class=\"btn-reset drop-icon show-in-edit-mode\"> <svg class=\"icon icon-sm\" style=\"display: block;margin:auto;\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\"></use> </svg> </button>",
+       "summary": "Fix any of the following: Element does not have inner text that is visible to screen readers aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Element does not have an impli"
+      },
+      {
+       "target": "div[item-name=\"Notifications\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset",
+       "html": "<button class=\"btn-reset drop-icon\"><svg class=\"icon icon-sm\" stroke=\"#808080\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\" stroke=\"#808080\"> </use> </svg></button>",
+       "summary": "Fix any of the following: Element does not have inner text that is visible to screen readers aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Element does not have an impli"
+      },
+      {
+       "target": "div[item-name=\"Background Job\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset",
+       "html": "<button class=\"btn-reset drop-icon\"><svg class=\"icon icon-sm\" stroke=\"#808080\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\" stroke=\"#808080\"> </use> </svg></button>",
+       "summary": "Fix any of the following: Element does not have inner text that is visible to screen readers aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Element does not have an impli"
+      },
+      {
+       "target": "div[item-name=\"Logs\"] > .indent.standard-sidebar-item > .item-anchor > .sidebar-item-control > .drop-icon.btn-reset",
+       "html": "<button class=\"btn-reset drop-icon\"><svg class=\"icon icon-sm\" stroke=\"#808080\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-chevron-down\" stroke=\"#808080\"> </use> </svg></button>",
+       "summary": "Fix any of the following: Element does not have inner text that is visible to screen readers aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Element does not have an impli"
+      },
+      {
+       "target": ".grid-collapse-row",
+       "html": "<button class=\"btn btn-secondary btn-sm pull-right grid-collapse-row\"> <svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-down\"> </use> </svg> </button>",
+       "summary": "Fix any of the following: Element does not have inner text that is visible to screen readers aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Element does not have an impli"
+      }
+     ]
+    },
+    {
+     "id": "color-contrast",
+     "impact": "serious",
+     "help": "Elements must meet minimum color contrast ratio thresholds",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+     "nodes": [
+      {
+       "target": ".keyboard-shortcut",
+       "html": "<span class=\"keyboard-shortcut\">Ctrl+K</span>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 3.92 (foreground color: #717171, background color: #0f0f0f, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#717171",
+        "bg": "#0f0f0f",
+        "ratio": 3.92,
+        "expected": "4.5:1",
+        "fontSize": "9.8pt (13px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": ".item-anchor[href$=\"notification\"][target=\"\"] > .sidebar-item-label",
+       "html": "<span class=\"sidebar-item-label\">Notification</span>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 3.52 (foreground color: #999999, background color: #424242, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#999999",
+        "bg": "#424242",
+        "ratio": 3.52,
+        "expected": "4.5:1",
+        "fontSize": "9.8pt (13px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": ".avatar-medium-2 > .avatar-frame.standard-image[title=\"Axe en-dark\"]",
+       "html": "<div class=\"avatar-frame standard-image\" style=\"background-color: var(--red-avatar-bg); color: var(--red-avatar-color)\" title=\"Axe en-dark\"> Ae </div>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 4.18 (foreground color: #fff7f7, background color: #e03636, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#fff7f7",
+        "bg": "#e03636",
+        "ratio": 4.18,
+        "expected": "4.5:1",
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": ".hljs-string > .hljs-string",
+       "html": "<span class=\"hljs-string\">\"Open\"</span>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 3.85 (foreground color: #718c00, background color: #ffffff, font size: 9.2pt (12.25px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#718c00",
+        "bg": "#ffffff",
+        "ratio": 3.85,
+        "expected": "4.5:1",
+        "fontSize": "9.2pt (12.25px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": ".hljs-number > .hljs-number",
+       "html": "<span class=\"hljs-number\">40000</span>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 2.5 (foreground color: #f5871f, background color: #ffffff, font size: 9.2pt (12.25px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#f5871f",
+        "bg": "#ffffff",
+        "ratio": 2.5,
+        "expected": "4.5:1",
+        "fontSize": "9.2pt (12.25px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-index.sortable-handle.grid-static-col > span",
+       "html": "<span>No.</span>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 2.8 (foreground color: #7c7c7c, background color: #383838, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#7c7c7c",
+        "bg": "#383838",
+        "ratio": 2.8,
+        "expected": "4.5:1",
+        "fontSize": "9.8pt (13px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": "div[title=\"Receiver By Document Field\"] > .static-area.ellipsis",
+       "html": "<div class=\"static-area ellipsis\">Receiver By Document Field</div>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 2.8 (foreground color: #7c7c7c, background color: #383838, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#7c7c7c",
+        "bg": "#383838",
+        "ratio": 2.8,
+        "expected": "4.5:1",
+        "fontSize": "9.8pt (13px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": "div[title=\"Receiver By Role\"] > .static-area.ellipsis",
+       "html": "<div class=\"static-area ellipsis\">Receiver By Role</div>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 2.8 (foreground color: #7c7c7c, background color: #383838, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#7c7c7c",
+        "bg": "#383838",
+        "ratio": 2.8,
+        "expected": "4.5:1",
+        "fontSize": "9.8pt (13px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": "div[title=\"Condition\"] > .static-area.ellipsis",
+       "html": "<div class=\"static-area ellipsis\">Condition</div>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 2.8 (foreground color: #7c7c7c, background color: #383838, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#7c7c7c",
+        "bg": "#383838",
+        "ratio": 2.8,
+        "expected": "4.5:1",
+        "fontSize": "9.8pt (13px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": ".grid-delete-row",
+       "html": "<button class=\"btn btn-danger btn-sm pull-right grid-delete-row\">Delete</button>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 4.42 (foreground color: #ffffff, background color: #e03636, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#ffffff",
+        "bg": "#e03636",
+        "ratio": 4.42,
+        "expected": "4.5:1",
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal"
+       }
+      },
+      {
+       "target": ".hljs-comment > .hljs-comment > .hljs-comment",
+       "html": "<span class=\"hljs-comment\">&lt;!-- show last comment --&gt;</span>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 3.22 (foreground color: #8e908c, background color: #ffffff, font size: 9.2pt (12.25px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#8e908c",
+        "bg": "#ffffff",
+        "ratio": 3.22,
+        "expected": "4.5:1",
+        "fontSize": "9.2pt (12.25px)",
+        "fontWeight": "normal"
+       }
+      }
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "help": "Images must have alternative text",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=playwright",
+     "nodes": [
+      {
+       "target": ".header-logo > img",
+       "html": "<img src=\"/assets/frappe/icons/desktop_icons/solid/system.svg\">",
+       "summary": "Fix any of the following: Element does not have an alt attribute aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Element's default semantics were not overridden with role="
+      }
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "help": "Form elements must have labels",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/label?application=playwright",
+     "nodes": [
+      {
+       "target": ".bold[data-fieldname=\"__newname\"][data-fieldtype=\"Data\"]",
+       "html": "<input type=\"text\" autocomplete=\"off\" class=\"input-with-feedback form-control bold\" maxlength=\"140\" data-fieldtype=\"Data\" data-fieldname=\"__newname\" placeholder=\"\" data-doctype=\"Notification\">",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": ".bold[data-fieldname=\"subject\"][data-fieldtype=\"Data\"]",
+       "html": "<input type=\"text\" autocomplete=\"off\" class=\"input-with-feedback form-control bold\" maxlength=\"140\" data-fieldtype=\"Data\" data-fieldname=\"subject\" placeholder=\"\" data-doctype=\"Notification\">",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "input[data-target=\"DocType\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback form-control bold\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"document_type\" placeholder=\"\" data-doctype=\"Notification\" data-target=\"DocType\" autocomplete=\"off\" ar",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "input[data-target=\"Email Account\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback form-control\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"sender\" placeholder=\"\" data-doctype=\"Notification\" data-target=\"Email Account\" autocomplete=\"off\" aria-exp",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]",
+       "html": "<textarea class=\"ace_text-input\" wrap=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-haspopup=\"false\" aria-autocomplete=\"both\" role=\"textbox\" style=\"opacity: 0; font-size: 1px; height: 1px; width: 1",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": ".grid-heading-row > .grid-row > .data-row.m-0.row > .row-check.sortable-handle.col > .grid-row-check[type=\"checkbox\"]",
+       "html": "<input type=\"checkbox\" class=\"grid-row-check\" tabindex=\"-1\">",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "input[data-target=\"Role\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]",
+       "html": "<textarea class=\"ace_text-input\" wrap=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-haspopup=\"false\" aria-autocomplete=\"both\" role=\"textbox\" style=\"opacity: 0; font-size: 1px; height: 1px; width: 1",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "div[data-fieldname=\"bcc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]",
+       "html": "<textarea class=\"ace_text-input\" wrap=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-haspopup=\"false\" aria-autocomplete=\"both\" role=\"textbox\" style=\"opacity: 0; font-size: 1px; height: 1px; width: 1",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "input[data-doctype=\"Notification Recipient\"][data-fieldname=\"condition\"][data-fieldtype=\"Data\"]",
+       "html": "<input type=\"text\" autocomplete=\"off\" class=\"input-with-feedback form-control\" maxlength=\"140\" data-fieldtype=\"Data\" data-fieldname=\"condition\" placeholder=\"\" data-doctype=\"Notification Recipient\">",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_text-input[wrap=\"off\"][autocorrect=\"off\"]",
+       "html": "<textarea class=\"ace_text-input\" wrap=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-haspopup=\"false\" aria-autocomplete=\"both\" role=\"textbox\" style=\"opacity: 0; font-size: 1px; height: 1px; width: 1",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      }
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "help": "Links must have discernible text",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=playwright",
+     "nodes": [
+      {
+       "target": "a[href$=\"desk\"]",
+       "html": "<a href=\"/desk\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+       "summary": "Fix all of the following: Element is in tab order and does not have accessible text Fix any of the following: Element does not have text that is visible to screen readers aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references element"
+      }
+     ]
+    },
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    },
+    {
+     "id": "select-name",
+     "impact": "critical",
+     "help": "Select element must have an accessible name",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/select-name?application=playwright",
+     "nodes": [
+      {
+       "target": ".bold[data-fieldname=\"channel\"]",
+       "html": "<select type=\"text\" autocomplete=\"off\" class=\"input-with-feedback form-control ellipsis bold\" maxlength=\"140\" data-fieldtype=\"Select\" data-fieldname=\"channel\" placeholder=\"\" data-doctype=\"Notification\">",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": ".bold[data-fieldname=\"event\"]",
+       "html": "<select type=\"text\" autocomplete=\"off\" class=\"input-with-feedback form-control ellipsis bold\" maxlength=\"140\" data-fieldtype=\"Select\" data-fieldname=\"event\" placeholder=\"\" data-doctype=\"Notification\">",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "select[data-fieldname=\"condition_type\"]",
+       "html": "<select type=\"text\" autocomplete=\"off\" class=\"input-with-feedback form-control ellipsis\" maxlength=\"140\" data-fieldtype=\"Select\" data-fieldname=\"condition_type\" placeholder=\"\" data-doctype=\"Notification\"><option value=\"P",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      },
+      {
+       "target": "select[data-doctype=\"Notification Recipient\"][data-fieldname=\"receiver_by_document_field\"]",
+       "html": "<select type=\"text\" autocomplete=\"off\" class=\"input-with-feedback form-control ellipsis\" maxlength=\"140\" data-fieldtype=\"Select\" data-fieldname=\"receiver_by_document_field\" placeholder=\"\" data-doctype=\"Notification Recip",
+       "summary": "Fix any of the following: Element does not have an implicit (wrapped) <label> Element does not have an explicit <label> aria-label attribute does not exist or is empty aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty Element has no title attribute Ele"
+      }
+     ]
+    },
+    {
+     "id": "target-size",
+     "impact": "serious",
+     "help": "All touch targets must be 24px large, or leave sufficient space",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/target-size?application=playwright",
+     "nodes": [
+      {
+       "target": "a[href$=\"desk\"]",
+       "html": "<a href=\"/desk\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+       "summary": "Fix any of the following: Target has insufficient size (16px by 20px, should be at least 24px by 24px) Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 16px instead of at least 24px."
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 14
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"User Menu\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .help-box.text-extra-muted.small",
+      "html": "<div class=\"help-box small text-extra-muted\">Optional: The alert will be sent if this expression is true</div>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 8400,
+       "min": 5.52,
+       "p5": 5.52,
+       "median": 6.29,
+       "distinctBackgroundColours": 5,
+       "fg": "rgb(153, 153, 153)",
+       "text": "Optional: The alert will be sent if this"
+      }
+     },
+     {
+      "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">Expand</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1664,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Expand"
+      }
+     },
+     {
+      "target": "div[data-fieldname=\"property_section\"] > .collapsed.collapsible.section-head",
+      "html": "<div class=\"section-head collapsible collapsed\" tabindex=\"0\"> Set Property After Alert <span class=\"collapse-indicator\" tabindex=\"0\" style=\"\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <us",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 30600,
+       "min": 14.8,
+       "p5": 14.8,
+       "median": 16.88,
+       "distinctBackgroundColours": 5,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Set Property After Alert"
+      }
+     },
+     {
+      "target": "p[title=\"Dashboard Manager\"] > strong",
+      "html": "<strong>Dashboard Manager</strong>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "bold",
+      "measured": {
+       "n": 2192,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Dashboard Manager"
+      }
+     },
+     {
+      "target": "p[title=\"Delivery Manager\"] > strong",
+      "html": "<strong>Delivery Manager</strong>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "bold",
+      "measured": {
+       "n": 1888,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Delivery Manager"
+      }
+     },
+     {
+      "target": "p[title=\"Delivery User\"] > strong",
+      "html": "<strong>Delivery User</strong>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "bold",
+      "measured": {
+       "n": 1440,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Delivery User"
+      }
+     },
+     {
+      "target": "p[title=\"Desk User\"] > strong",
+      "html": "<strong>Desk User</strong>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "bold",
+      "measured": {
+       "n": 1104,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Desk User"
+      }
+     },
+     {
+      "target": "p[title=\"Employee\"] > strong",
+      "html": "<strong>Employee</strong>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "bold",
+      "measured": {
+       "n": 1024,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Employee"
+      }
+     },
+     {
+      "target": "p[title=\"Employee Self Service\"] > strong",
+      "html": "<strong>Employee Self Service</strong>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "bold",
+      "measured": {
+       "n": 2384,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Employee Self Service"
+      }
+     },
+     {
+      "target": "div[data-fieldname=\"cc\"] > .form-group > .clearfix > .control-label",
+      "html": "<label class=\"control-label\" style=\"padding-right: 5px;\">CC</label>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 525,
+       "min": 9.3,
+       "p5": 10.61,
+       "median": 10.61,
+       "distinctBackgroundColours": 2,
+       "fg": "rgb(199, 199, 199)",
+       "text": "CC"
+      }
+     },
+     {
+      "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .control-input > .ace-editor-target.border.rounded > .ace_gutter[aria-hidden=\"true\"] > .ace_gutter-layer.ace_folding-enabled.ace_layer > .ace_gutter-cell.ace_gutter-active-line[aria-hidden=\"true\"]",
+      "html": "<div class=\"ace_gutter-cell ace_gutter-active-line \" aria-hidden=\"true\" style=\"height: 14px; top: 0px;\">1<span tabindex=\"0\" style=\"display: none;\"></span><span tabindex=\"0\" style=\"display: none;\"><spa",
+      "key": "shortTextContent",
+      "message": "Element content is too short to determine if it is actual text content",
+      "axeContrast": 0,
+      "fontSize": "9.0pt (12px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 574,
+       "min": 13.84,
+       "p5": 13.84,
+       "median": 13.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(226, 226, 226)",
+       "text": "1"
+      }
+     },
+     {
+      "target": ".ace_text",
+      "html": "<span class=\"ace_text ace_xml\">Add your message here</span>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "9.0pt (12px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2198,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Add your message here"
+      }
+     },
+     {
+      "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">Expand</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1664,
+       "min": 16.88,
+       "p5": 16.88,
+       "median": 16.88,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(248, 248, 248)",
+       "text": "Expand"
+      }
+     },
+     {
+      "target": ".language-xml",
+      "html": "<code class=\"language-xml\">",
+      "key": "elmPartiallyObscuring",
+      "message": "Element's background color could not be determined because it partially overlaps other elements",
+      "axeContrast": 0,
+      "fontSize": "9.2pt (12.25px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 72000,
+       "min": 1.86,
+       "p5": 1.86,
+       "median": 2.12,
+       "distinctBackgroundColours": 5,
+       "fg": "rgb(77, 77, 76)",
+       "text": "<h3>Order Overdue</h3> <p>Transaction {{"
+      }
+     }
+    ]
+   },
+   "passes": 30
+  }
+ },
+ "finished": "2026-10-14T04:57:07.092Z"
+}

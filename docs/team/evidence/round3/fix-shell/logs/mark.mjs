@@ -1,0 +1,23 @@
+import { chromium, BASE } from "./lib.mjs";
+const variant = process.argv[2];
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const ctx = await b.newContext({ viewport: { width: 1280, height: 800 }, locale: "en-US", reducedMotion: "reduce" });
+if (variant === "core") await ctx.route("**/assets/institutional_theme/**", (r) => r.abort());
+const page = await ctx.newPage();
+await page.goto(`${BASE}/login`);
+await page.fill("#login_email", "axe-en-dark@midad.test");
+await page.fill("#login_password", "Mdd#Test2026x");
+await Promise.all([page.waitForURL(/\/app|\/desk/, { timeout: 60000 }), page.click(".btn-login")]);
+await page.goto(BASE + "/desk/user");
+await page.waitForSelector(".frappe-list", { timeout: 30000 });
+await page.waitForTimeout(2000);
+await page.keyboard.press("Control+k");
+await page.waitForSelector("#navbar-search", { timeout: 10000 });
+await page.fill("#navbar-search", "user");
+await page.waitForTimeout(1500);
+console.log(variant, JSON.stringify(await page.evaluate(() => {
+	const lum = (c) => { const m = c.match(/[\d.]+/g).map(Number); const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(m[0]) + 0.7152 * f(m[1]) + 0.0722 * f(m[2]); };
+	const ratio = (a, b) => { const x = lum(a), y = lum(b); return +((Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05)).toFixed(2); };
+	return [...document.querySelectorAll("#awesomplete_list_3 li")].slice(7, 12).map((li) => { const mk = li.querySelector("mark"); const sp = li.querySelector("a > span"); if (!mk) return { li: li.textContent.trim().slice(0, 30), mark: null }; const cs = getComputedStyle(mk), ss = getComputedStyle(sp || li); return { li: li.textContent.trim().slice(0, 30), mark: { color: cs.color, bg: cs.backgroundColor, ratio: ratio(cs.color, cs.backgroundColor) }, span: { color: ss.color, bg: ss.backgroundColor } }; });
+}), null, 1));
+await b.close();

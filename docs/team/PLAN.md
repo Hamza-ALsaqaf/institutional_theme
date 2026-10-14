@@ -123,3 +123,19 @@ At most three agents run at once (WORKFLOW rule 1). These three run concurrently
 - **print-web-engineer**: `pkg/public/scss/ins_web.bundle.scss`, `pkg/public/scss/web/*`, `pkg/public/images/*`.
 
 The contracts between them are the attribute names in 0008, the class names in 0002 and the generated partials from Phase 2; none of these is edited in Phase 3. `scribe` runs after them, on `ar.csv`. In Phase 4, css-engineer (desk views, then the proof) and print-web-engineer (print and email) run in parallel; backend-engineer's `print/ship.py` waits for `ins_print.bundle.scss`.
+
+## Round 3: release hardening (lead, 2026-10-14)
+
+Scope in `docs/team/RESUME_PROMPT.md`. Evidence in `docs/team/evidence/round3/<area>/`. At most three agents at once on disjoint files; bench builds, migrations, installs and the gate run under `flock -o /tmp/ins-bench.lock`.
+
+| Path | Owner | Purpose |
+|---|---|---|
+| `tools/bench/fresh_install.sh` | backend-engineer | Item 1: a second bench and a fresh site, install from the repository following `README.md`, timed, then uninstall. |
+| `tools/bench/newest_tag.sh` | backend-engineer | Item 3: compile the newest Frappe v16 tag's CSS and re-run the dead-token audit and the manifest selector checks against it. |
+| `tools/bench/hrms.sh` | backend-engineer | Item 2: get HRMS v16.20.1 and install it on `midad.test`, with fictional HR records. |
+| `tests/browser/axe.mjs`, `tests/browser/package.json` (adds `@axe-core/playwright`) | backend-engineer | Item 5: axe-core on every P0 screen and the login pages, Light and Dark, ar and en. |
+| `tests/browser/hrms_screens.mjs` | css-engineer | Item 2: HRMS desk screenshots and computed-style checks. |
+| `tests/browser/coexistence/brand_app.css`, `tests/browser/coexistence.mjs` | css-engineer | Item 4: test-only copy of the documented rules of the other brand app, loaded after this app; computed-style proof. Never shipped. |
+| `pkg/public/scss/desk/*` (fixes) | css-engineer | Fixes for items 2, 4 and 5. |
+| `pkg/public/js/shell/*` (grid-row checkbox names) | backend-engineer | Item 6, attributes only. |
+| `README.md` (install and troubleshooting), `docs/UPGRADE_AND_QA_CHECKLIST.md`, `docs/DEPENDENCY_MANIFEST.md`, `pkg/translations/ar.csv` | scribe, from the engineers' evidence | Item 1 README fixes may be made by the backend-engineer who ran the install (exception recorded here). |

@@ -1,0 +1,14 @@
+=== fresherp.test-residue-table-diff  2026-10-14T00:58:24Z
+$ bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresherp.test-before.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresherp.test-after.json'
+Differences ignored (record activity by nature):
+  tabActivity Log: before 0, after 2
+  tabComment: before 0, after 6
+  tabDeleted Document: before 11, after 20
+  tabSessions: before 0, after 2
+  tabVersion: before 0, after 4
+RESIDUE: 
+  tabDesktop Icon: before 36, after 35
+  tabFile: before 2, after 3
+  tabNavbar Item: before 8, after 5
+  tabPermission Log: before 0, after 1
+exit 1

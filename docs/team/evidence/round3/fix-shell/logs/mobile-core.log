@@ -1,0 +1,166 @@
+{
+ "core": [
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 295,
+   "right": 351,
+   "width": 56,
+   "parentLeft": 285,
+   "parentRight": 361,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 295,
+   "right": 351,
+   "width": 56,
+   "parentLeft": 285,
+   "parentRight": 361,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 290,
+   "right": 346,
+   "width": 56,
+   "parentLeft": 280,
+   "parentRight": 356,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 293,
+   "right": 349,
+   "width": 56,
+   "parentLeft": 283,
+   "parentRight": 359,
+   "parentOverflow": "hidden",
+   "clipped": false
+  }
+ ],
+ "themed": [
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 281,
+   "right": 350,
+   "width": 69,
+   "parentLeft": 271,
+   "parentRight": 360,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 281,
+   "right": 350,
+   "width": 69,
+   "parentLeft": 271,
+   "parentRight": 360,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 281,
+   "right": 350,
+   "width": 69,
+   "parentLeft": 271,
+   "parentRight": 360,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 0,
+   "right": 0,
+   "width": 0,
+   "parentLeft": 0,
+   "parentRight": 0,
+   "parentOverflow": "hidden",
+   "clipped": false
+  },
+  {
+   "text": "Active",
+   "left": 281,
+   "right": 350,
+   "width": 69,
+   "parentLeft": 271,
+   "parentRight": 360,
+   "parentOverflow": "hidden",
+   "clipped": false
+  }
+ ]
+}

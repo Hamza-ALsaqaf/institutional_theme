@@ -1,0 +1,9 @@
+site fresherp.test, label fresherp.test-after-uninstall-no-restart, expecting this app's bundles: no
+ping: {"message":"pong"}
+GET /login -> 200
+{"message":"Logged In","home_page":"desk","full_name":"Administrator"}
+POST /api/method/login -> 200
+GET /app -> 301
+login page: 0 link(s) to ins_ bundles
+app page: 0 link(s) to ins_ bundles
+PASS

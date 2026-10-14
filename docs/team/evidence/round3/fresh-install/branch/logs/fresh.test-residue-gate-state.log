@@ -1,0 +1,25 @@
+=== fresh.test-residue-gate-state  2026-10-14T01:33:20Z
+$ as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' residue 'fresh.test' '/tmp/fresh-state-fresh.test.json'
+{
+ "print_after_uninstall": {
+  "print_style": false,
+  "letter_head": false,
+  "globals": 0
+ },
+ "print_at_seed": {
+  "print_style": true,
+  "letter_head": true,
+  "globals": 1
+ }
+}
+{
+ "after_uninstall": {
+  "Website Settings.app_name": "Frappe",
+  "Website Settings.app_logo": null,
+  "Website Settings.splash_image": null,
+  "Website Settings.favicon": null,
+  "Navbar Settings.app_logo": null
+ }
+}
+RESIDUE: none
+exit 0

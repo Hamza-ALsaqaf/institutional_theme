@@ -1,0 +1,4 @@
+=== newest.test-snapshot-installed  2026-10-14T01:50:37Z
+$ snapshot newest.test installed
+263 tables written to /tmp/fresh-snapshot-newest.test-installed.json
+exit 0

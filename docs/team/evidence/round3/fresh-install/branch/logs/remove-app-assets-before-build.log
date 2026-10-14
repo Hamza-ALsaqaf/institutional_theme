@@ -1,0 +1,5 @@
+=== remove-app-assets-before-build  2026-10-14T01:37:59Z
+$ fb echo "ins_ entries in assets.json: $(grep -c 'ins_' sites/assets/assets.json)"; ls -l sites/assets | grep institutional_theme || echo 'no sites/assets/institutional_theme'
+ins_ entries in assets.json: 12
+lrwxrwxrwx   1 frappe frappe   76 Oct 14 01:36 institutional_theme -> /home/frappe/fresh-bench/apps/institutional_theme/institutional_theme/public
+exit 0

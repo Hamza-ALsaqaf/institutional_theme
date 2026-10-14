@@ -1,0 +1,17 @@
+site fresh.test, label fresh.test-after-migrate, expecting this app's bundles: yes
+ping: {"message":"pong"}
+GET /login -> 200
+{"message":"Logged In","home_page":"desk","full_name":"Administrator"}
+POST /api/method/login -> 200
+GET /app (after redirects: http://127.0.0.1:8010/desk) -> 200
+login page: 2 link(s) to ins_ bundles
+href="/assets/institutional_theme/dist/css/ins_web.bundle.D3CPQ4CV.css"
+src="/assets/institutional_theme/dist/js/ins_web.bundle.VUXQ76EX.js"
+  200 61091 /assets/institutional_theme/dist/css/ins_web.bundle.D3CPQ4CV.css
+  200 1475 /assets/institutional_theme/dist/js/ins_web.bundle.VUXQ76EX.js
+app page: 2 link(s) to ins_ bundles
+href="/assets/institutional_theme/dist/css/ins_desk.bundle.A4FJT4PP.css"
+src="/assets/institutional_theme/dist/js/ins_shell.bundle.4FEHGEO2.js"
+  200 119048 /assets/institutional_theme/dist/css/ins_desk.bundle.A4FJT4PP.css
+  200 12197 /assets/institutional_theme/dist/js/ins_shell.bundle.4FEHGEO2.js
+PASS

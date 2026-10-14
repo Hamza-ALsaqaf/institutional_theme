@@ -1,0 +1,3 @@
+=== fresh.test-verify-installed  2026-10-14T01:32:48Z
+$ verify fresh.test fresh.test-installed yes
+exit 0

@@ -1,0 +1,61 @@
+// Third-party and hard-coded core colours that fail 4.5:1 or ignore Dark: air-datepicker, highlight.js, the onboarding badge.
+// All values are tokens, so both modes follow without a branch. Specificity html:root[dir] (0,2,1) beats core's (0,1,0) to (0,3,0).
+
+// ---- air-datepicker (node_modules/air-datepicker/dist/css/datepicker.min.css): literal #dedede, #9c9c9c, #c5c5c5.
+html:root[dir] :is(.datepicker--cell-day.-other-month-, .datepicker--cell-year.-other-decade-) {
+	color: var(--ins-text-muted);
+}
+
+html:root[dir] :is(.datepicker--cell-day.-other-month-, .datepicker--cell-year.-other-decade-):hover {
+	color: var(--ins-text-secondary);
+}
+
+html:root[dir] .datepicker--nav-title i {
+	color: var(--ins-text-muted);
+}
+
+// ---- highlight.js in field descriptions (core ships the default light theme: white block, pastel tokens).
+// Each colour is a status foreground, which holds 4.5:1 or better on the sunken surface in both modes (checked in the evidence).
+html:root[dir] .hljs {
+	background: var(--ins-surface-sunken);
+	color: var(--ins-text);
+}
+
+html:root[dir] :is(.hljs-comment, .hljs-quote) {
+	color: var(--ins-text-muted);
+}
+
+html:root[dir] :is(.hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion) {
+	color: var(--ins-status-danger-fg);
+}
+
+html:root[dir] :is(.hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link) {
+	color: var(--ins-status-pending-fg);
+}
+
+html:root[dir] .hljs-attribute {
+	color: var(--ins-status-warning-fg);
+}
+
+html:root[dir] :is(.hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition) {
+	color: var(--ins-status-success-fg);
+}
+
+html:root[dir] :is(.hljs-title, .hljs-section) {
+	color: var(--ins-status-progress-fg);
+}
+
+html:root[dir] :is(.hljs-keyword, .hljs-selector-tag) {
+	color: var(--ins-status-special-fg);
+}
+
+// ---- Onboarding progress badges (injected by user_onboarding.bundle.js:209-275, literal amber and green).
+html:root[dir] .onb-progress-badge {
+	background: var(--ins-status-warning-bg);
+	color: var(--ins-status-warning-fg);
+}
+
+html:root[dir] .onb-progress-badge-complete {
+	background: var(--ins-status-success-bg);
+	color: var(--ins-status-success-fg);
+}

@@ -1,0 +1,3 @@
+=== fresherp.test-verify-installed  2026-10-14T00:57:25Z
+$ verify fresherp.test fresherp.test-installed yes
+exit 1

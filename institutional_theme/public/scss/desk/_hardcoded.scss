@@ -1,5 +1,5 @@
 // Core's hard-coded colours and literals, replaced by tokens (print preview stays paper white, desk/print_preview.scss:73).
-// Selectors sit above core's; no !important anywhere (RUN_RULES). Calendar event text keeps core's !important colour, see _calendar.scss.
+// Selectors sit above core's; no !important except the Bootstrap text utilities at the end of this file (core uses it on the same property). Calendar event text keeps core's !important colour, see _calendar.scss.
 
 // ---- Breadcrumb: core paints `background-color: white` (desk/breadcrumb.scss:4) on a (0,1,0) selector.
 html:root .breadcrumb {
@@ -66,3 +66,22 @@ html:root:root:root .cdx-marker {
 // ---- Outline literals `1px solid #c9c9c9` on :focus-visible (desk/form.scss:54,58; common/grid.scss:150): they are (0,3,0) to (0,4,0),
 // below the ring rule in _base.scss (0,4,2), so the one ring replaces them wherever the element is focusable by that rule.
 // The tab link is the exception (core `outline: none` at (0,5,0)), handled in _form.scss.
+
+// ---- Bootstrap contextual text colours: core ships literals with !important (`.text-secondary { color: #7c7c7c !important }` 3.96:1 on
+// the Light sidebar, `.text-dark #383838` unreadable on Dark surfaces, `.text-warning #ffc107` 1.6:1 on white), in the compiled desk
+// bundle from the vendored Bootstrap utilities. HRMS desk templates use them (public/js/templates/feedback_summary.html,
+// interview_feedback.html). !important is required: an important declaration beats any normal one whatever its specificity, so
+// only an important rule can win; among important rules ours is (0,3,1) against core's (0,1,0). Manifest entry.
+html:root[dir] .text-primary { color: var(--ins-text-strong) !important; }
+html:root[dir] .text-dark { color: var(--ins-text) !important; }
+html:root[dir] .text-secondary { color: var(--ins-text-secondary) !important; }
+html:root[dir] a.text-secondary:is(:hover, :focus) { color: var(--ins-text-strong) !important; }
+html:root[dir] .text-success { color: var(--ins-feedback-success-fg) !important; }
+html:root[dir] .text-info { color: var(--ins-feedback-info-fg) !important; }
+html:root[dir] .text-warning { color: var(--ins-feedback-warning-fg) !important; }
+html:root[dir] .text-danger { color: var(--ins-feedback-danger-fg) !important; }
+
+// ---- `.text-extra-muted`: core `color: var(--gray-500) !important` (desk/global.scss:608-610). The ramp step is a scale value that
+// stays as designed (Dark night-500 is 3.70:1 on the field surface), so the utility is re-pointed at the audited muted text token.
+// Seen on the Select placeholder of list standard filters (frappe/public/js/frappe/form/controls/select.js). !important as above.
+html:root[dir] .text-extra-muted { color: var(--ins-text-muted) !important; }

@@ -1,0 +1,5 @@
+=== idem-drop-old-site  2026-10-14T01:41:39Z
+$ fb bench drop-site idem.test --force --no-backup --db-root-username postgres --db-root-password postgres
+Dropping site database and user
+Moving site to archive under /home/frappe/fresh-bench/archived/sites
+exit 0

@@ -1,0 +1,8 @@
+=== fresherp.test-readme-5-list-apps  2026-10-14T01:10:50Z
+$ fb bench --site fresherp.test list-apps
+
+frappe              16.32.0 HEAD
+erpnext             16.33.0 HEAD
+institutional_theme 0.1.0   main
+
+exit 0

@@ -1,0 +1,10 @@
+new-site	0	22	bench_cmd new-site r3fix.test --db-type postgres --db-host 127.0.0.1 --db-port 5432 --db-root-username postgres --db-root-password postgres --admin-password admin
+snapshot-before	0	0	in_sites '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' snapshot 'r3fix.test' '/tmp/ins-residue-before.json'
+install-app	0	4	bench_cmd --site r3fix.test install-app institutional_theme
+seed	0	4	as_frappe bash -c cd '/home/frappe/frappe-bench/sites' && GATE_ADMIN_TARGET='Navbar Settings.app_logo' ../env/bin/python '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' seed 'r3fix.test' '/tmp/ins-residue-r3fix.test.json'
+uninstall-app	0	5	as_frappe bash -c cp '/tmp/identity_sync.old.py' '/home/runner/work/institutional_theme/institutional_theme/institutional_theme/institutional_theme/doctype/institutional_theme_settings/identity_sync.py' && cd '/home/frappe/frappe-bench' && bench --site 'r3fix.test' uninstall-app institutional_theme --yes --no-backup; rc=$?; cp /tmp/identity_sync.current.py '/home/runner/work/institutional_theme/institutional_theme/institutional_theme/institutional_theme/doctype/institutional_theme_settings/identity_sync.py'; exit $rc
+residue	1	1	in_sites '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' residue 'r3fix.test' '/tmp/ins-residue-r3fix.test.json'
+files-on-disk	0	1	as_frappe bash -c ls -la '/home/frappe/frappe-bench/sites/r3fix.test/public/files' || true
+snapshot-after	0	0	in_sites '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' snapshot 'r3fix.test' '/tmp/ins-residue-after.json'
+table-diff	1	0	in_sites '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff /tmp/ins-residue-before.json /tmp/ins-residue-after.json
+drop-site	0	1	bench_cmd drop-site r3fix.test --force --no-backup --db-root-username postgres --db-root-password postgres

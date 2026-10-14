@@ -1,0 +1,34 @@
+# CI checks 2026-10-14T00:29:53Z on a clean export of 1d75f10
+## ruff check
+All checks passed!
+## ruff format --check
+113 files already formatted
+## unit midad
+----------------------------------------------------------------------
+Ran 130 tests in 1.791s
+
+OK
+## unit audits
+----------------------------------------------------------------------
+Ran 34 tests in 0.400s
+
+OK
+## build --check
+build --check: 12 file(s) checked, 0 stale
+## audits
+contrast  graphite  dark  pass (0 failing)
+contrast  petrol    light pass (0 failing)
+contrast  petrol    dark  pass (0 failing)
+contrast  forest    light pass (0 failing)
+contrast  forest    dark  pass (0 failing)
+contrast  plum      light pass (0 failing)
+contrast  plum      dark  pass (0 failing)
+contrast  umber     light pass (0 failing) (not shipped)
+contrast  umber     dark  pass (0 failing) (not shipped)
+contrast: 0 failing pair(s) in shipped presets
+parity: 55 checks, 0 failed
+colour-vision: 0 failure(s) (status, neighbouring series, gap not in the baseline), 99 baselined chart gap(s) in shipped presets
+dead-tokens: 377 variables: 266 declared and read by core, 111 declared only, 0 read only, 0 consumed by the theme, 0 dead
+budgets: 0 problem(s)
+audits: passed
+RESULT rc=0

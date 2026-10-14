@@ -1,0 +1,55 @@
+# fix: Navbar Settings File copies removed on uninstall. Run 2026-10-14T01:11:26Z on midad.test
+## with the fix, the whole settings test module (45 tests)
+    ✔  test_a_changed_font_is_checked_while_the_pairing_stays_uploaded
+    ✔  test_audit_text_uses_labels_not_token_names
+    ✔  test_before_uninstall_continues_after_a_failing_step  (7.87s)
+    ✔  test_before_uninstall_leaves_nothing_behind_and_is_idempotent  (13.1s)
+    ✔  test_behaviour_ships_disabled
+    ✔  test_broken_website_settings_does_not_block_saving  (4.21s)
+    ✔  test_clearing_a_field_restores_the_original  (4.13s)
+    ✔  test_clearing_does_not_overwrite_an_administrators_later_edit  (3.06s)
+    ✔  test_contrast_line_wording_for_a_maximum
+    ✔  test_custom_colours_are_required_and_must_be_hex
+    ✔  test_custom_default_needs_allow_custom
+    ✔  test_custom_palette_failing_a_pair_is_rejected_naming_every_pair
+    ✔  test_custom_palette_that_passes_is_saved_with_its_audit
+    ✔  test_default_must_be_allowed
+    ✔  test_defaults_save
+    ✔  test_delete_attachments_keeps_a_navbar_copy_that_is_showing  (4.15s)
+    ✔  test_delete_attachments_removes_only_this_doctypes_files
+    ✔  test_delete_attachments_removes_the_navbar_copies_core_made  (4.56s)
+    ✔  test_doctype_lists_exactly_the_shipped_presets
+    ✔  test_dropped_preset_is_not_a_valid_default
+    ✔  test_environment_comes_from_site_config_and_is_not_stored
+    ✔  test_environment_labels
+    ✔  test_external_font_url_is_rejected
+    ✔  test_file_that_is_not_a_font_is_rejected  (2.03s)
+    ✔  test_form_shows_the_audit_in_words_and_storage_stays_neutral
+    ✔  test_hook_is_registered
+    ✔  test_identity_changed_elsewhere_is_not_overwritten_by_an_unrelated_save  (2.35s)
+    ✔  test_identity_is_written_through_by_a_system_manager_without_website_manager  (4.49s)
+    ✔  test_idle_warning_range
+    ✔  test_missing_upload_is_named_on_the_form  (2.11s)
+    ✔  test_only_system_manager_has_permissions
+    ✔  test_other_pairings_do_not_check_stale_font_fields
+    ✔  test_other_shipped_default_saves_when_allowed
+    ✔  test_pale_custom_colour_keeps_curve_lightness_and_passes
+    ✔  test_private_emblem_is_rejected
+    ✔  test_private_font_is_rejected  (2.14s)
+    ✔  test_restore_gives_back_prior_values_and_is_idempotent  (4.79s)
+    ✔  test_restore_leaves_a_value_an_administrator_changed  (2.48s)
+    ✔  test_restore_without_files_still_saves_with_another_pairing  (2.0s)
+    ✔  test_save_without_identity_change_writes_nothing  (2.57s)
+    ✔  test_track_changes_is_on
+    ✔  test_truetype_is_accepted  (2.45s)
+    ✔  test_uploaded_pairing_requires_all_four_files  (2.16s)
+    ✔  test_uploaded_pairing_with_real_fonts_saves  (2.55s)
+    ✔  test_website_manager_cannot_write_the_settings
+Ran 45 tests in 97.441s
+OK
+
+## without the fix (identity_sync.py as in HEAD), the new test
+    ✖  test_delete_attachments_removes_the_navbar_copies_core_made
+AssertionError: [{'name': 'e107e2bdd8'}] is not false
+Ran 1 test in 9.314s
+FAILED (failures=1)

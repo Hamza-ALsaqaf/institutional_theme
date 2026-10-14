@@ -55,6 +55,13 @@ html:root[dir] .list-row .level-left .list-subject {
 	background-color: var(--ins-row-bg);
 }
 
+// The sticky subject (z-index 1) is as wide as its text and, on narrow screens, runs under the sticky inline-end block (core
+// list.scss:155 `position: sticky`, so z-index applies). The block ties with the subject at 1 and comes later in the row, so it
+// paints above it and the status chip is never covered; core's sticky list header is 2 (list.scss:11-14) and stays above both.
+html:root[dir] .list-row .level-right {
+	z-index: 1;
+}
+
 // Keyboard focus and anchor scrolling stop clear of the sticky column.
 html:root[dir] .frappe-list .result-container {
 	scroll-padding-inline-start: calc(var(--ins-space-16) * 3);

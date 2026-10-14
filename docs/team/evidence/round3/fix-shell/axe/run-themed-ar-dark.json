@@ -1,0 +1,1438 @@
+{
+ "variant": "themed",
+ "lang": "ar",
+ "mode": "dark",
+ "base": "http://localhost:8000",
+ "axe": "4.13.0",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa"
+ ],
+ "started": "2026-10-14T03:30:52.350Z",
+ "screens": {
+  "desktop": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 22
+  },
+  "workspace": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/build",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 25
+  },
+  "workspace-cards": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/invoicing",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-attr",
+     "impact": "critical",
+     "help": "Elements must only use supported ARIA attributes",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "div[data-widget-name=\"9q0bjdd812\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      },
+      {
+       "target": "div[data-widget-name=\"9q0jo61kdl\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      },
+      {
+       "target": "div[data-widget-name=\"9q090ncilj\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      },
+      {
+       "target": "div[data-widget-name=\"9q087iho9b\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 25
+  },
+  "list": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 8,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".list-row-container:nth-child(16) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(16) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-en-light@midad.test\"> coex-en-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(17) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "a[data-filter=\"name,=,coex-ar-dark@midad.test\"]",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-ar-dark@midad.test\"> coex-ar-dark@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(18) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(18) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-ar-light@midad.test\"> coex-ar-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(19) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "a[data-filter=\"name,=,admin@example.com\"]",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,admin@example.com\"> admin@example.com </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 29
+  },
+  "list-selected": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 8,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".list-row-container:nth-child(16) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(16) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-en-light@midad.test\"> coex-en-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(17) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "a[data-filter=\"name,=,coex-ar-dark@midad.test\"]",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-ar-dark@midad.test\"> coex-ar-dark@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(18) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(18) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-ar-light@midad.test\"> coex-ar-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".list-row-container:nth-child(19) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "a[data-filter=\"name,=,admin@example.com\"]",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,admin@example.com\"> admin@example.com </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 29
+  },
+  "list-filter": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 19
+  },
+  "form": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user/axe-ar-dark%40midad.test#user_details_tab",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 1,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".sidebar-user-button",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".sidebar-standard-image > .standard-image",
+      "html": "<div class=\"standard-image\">Aa</div>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "30.0pt (40px)",
+      "fontWeight": "normal"
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 31
+  },
+  "form-new": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user/new-user-vqcyzgxoiq#user_details_tab",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".sidebar-user-button",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 30
+  },
+  "form-invalid": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user/new-user-hrlwxpiyab#user_details_tab",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".sidebar-user-button",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 30
+  },
+  "form-child-table": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/notification/new-notification-tyxqpbrwpb",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 2,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".ace_text",
+      "html": "<span class=\"ace_text ace_xml\">Add your message here</span>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "9.0pt (12px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">\u0648\u0633\u0639\u062a</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 30
+  },
+  "form-row-editor": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/notification/new-notification-hhtvtchrqg",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-required-attr",
+     "impact": "critical",
+     "help": "Required ARIA attributes must be provided",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "input[data-target=\"Role\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+       "summary": "Fix any of the following: Required ARIA attribute not present: aria-controls"
+      }
+     ]
+    },
+    {
+     "id": "aria-valid-attr-value",
+     "impact": "critical",
+     "help": "ARIA attributes must conform to valid values",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=playwright",
+     "nodes": [
+      {
+       "target": "input[data-target=\"Role\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+       "summary": "Fix all of the following: Invalid ARIA attribute value: aria-activedescendant=\"awesomplete_list_8_item_0\""
+      }
+     ]
+    },
+    {
+     "id": "color-contrast",
+     "impact": "serious",
+     "help": "Elements must meet minimum color contrast ratio thresholds",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+     "nodes": [
+      {
+       "target": ".grid-delete-row",
+       "html": "<button class=\"btn btn-danger btn-sm pull-right grid-delete-row\">\u062d\u0630\u0641</button>",
+       "summary": "Fix any of the following: Element has insufficient color contrast of 2.51 (foreground color: #ffffff, background color: #fb7e77, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+       "contrast": {
+        "fg": "#ffffff",
+        "bg": "#fb7e77",
+        "ratio": 2.51,
+        "expected": "4.5:1",
+        "fontSize": "10.5pt (14px)",
+        "fontWeight": "normal"
+       }
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 6,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">\u0648\u0633\u0639\u062a</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "div[data-fieldname=\"property_section\"] > .collapsed.collapsible.section-head",
+      "html": "<div class=\"section-head collapsible collapsed\" tabindex=\"0\"> \u062a\u0639\u064a\u064a\u0646 \u0627\u0644\u0645\u0644\u0643\u064a\u0629 \u0628\u0639\u062f \u062a\u0646\u0628\u064a\u0647 <span class=\"collapse-indicator\" tabindex=\"0\" style=\"\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">\u0648\u0633\u0639\u062a</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".ace_text",
+      "html": "<span class=\"ace_text ace_xml\">Add your message here</span>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "9.0pt (12px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">\u0648\u0633\u0639\u062a</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": ".language-xml",
+      "html": "<code class=\"language-xml\">",
+      "key": "elmPartiallyObscuring",
+      "message": "Element's background color could not be determined because it partially overlaps other elements",
+      "axeContrast": 0,
+      "fontSize": "9.2pt (12.25px)",
+      "fontWeight": "normal"
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 33
+  },
+  "datepicker": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/todo/new-todo-uifvydpctf",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 2
+  },
+  "report-view": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user/view/report",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 29
+  },
+  "query-report": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/query-report/General%20Ledger",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "document-title",
+     "impact": "serious",
+     "help": "Documents must have <title> element to aid in navigation",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/document-title?application=playwright",
+     "nodes": [
+      {
+       "target": "html",
+       "html": "<html data-theme-mode=\"dark\" data-theme=\"dark\" dir=\"rtl\" lang=\"ar\" data-ins-shell=\"1\" data-ins-density=\"comfortable\" class=\"chrome\">",
+       "summary": "Fix any of the following: Document does not have a non-empty <title> element"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ]
+   },
+   "passes": 22
+  },
+  "search": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-attr",
+     "impact": "critical",
+     "help": "Elements must only use supported ARIA attributes",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(1)",
+       "html": "<li aria-selected=\"true\"><a style=\"font-weight:normal\" href=\"/desk/user\"><span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark></span></a></li>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-selected=\"true\""
+      }
+     ]
+    },
+    {
+     "id": "aria-required-attr",
+     "impact": "critical",
+     "help": "Required ARIA attributes must be provided",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "#navbar-search",
+       "html": "<input id=\"navbar-search\" type=\"text\" class=\"form-control bg-transparent shadow-none\" aria-haspopup=\"true\" placeholder=\"\u0627\u0628\u062d\u062b \u0623\u0648 \u0627\u0643\u062a\u0628 \u0623\u0645\u0631\u064b\u0627\" autocomplete=\"off\" aria-expanded=\"true\" aria-owns=\"awesomplete_list_3\" role=\"com",
+       "summary": "Fix any of the following: Required ARIA attribute not present: aria-controls"
+      }
+     ]
+    },
+    {
+     "id": "aria-required-children",
+     "impact": "critical",
+     "help": "Certain ARIA roles must contain particular children",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-children?application=playwright",
+     "nodes": [
+      {
+       "target": "#awesomplete_list_3",
+       "html": "<ul role=\"listbox\" id=\"awesomplete_list_3\">",
+       "summary": "Fix any of the following: Element has children which are not allowed: li"
+      }
+     ]
+    },
+    {
+     "id": "aria-valid-attr-value",
+     "impact": "critical",
+     "help": "ARIA attributes must conform to valid values",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=playwright",
+     "nodes": [
+      {
+       "target": "#navbar-search",
+       "html": "<input id=\"navbar-search\" type=\"text\" class=\"form-control bg-transparent shadow-none\" aria-haspopup=\"true\" placeholder=\"\u0627\u0628\u062d\u062b \u0623\u0648 \u0627\u0643\u062a\u0628 \u0623\u0645\u0631\u064b\u0627\" autocomplete=\"off\" aria-expanded=\"true\" aria-owns=\"awesomplete_list_3\" role=\"com",
+       "summary": "Fix all of the following: Invalid ARIA attribute value: aria-activedescendant=\"awesomplete_list_3_item_0\""
+      }
+     ]
+    },
+    {
+     "id": "listitem",
+     "impact": "serious",
+     "help": "<li> elements must be contained in a <ul> or <ol>",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=playwright",
+     "nodes": [
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(1)",
+       "html": "<li aria-selected=\"true\"><a style=\"font-weight:normal\" href=\"/desk/user\"><span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(2)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user/view/report\"><span><mark>User</mark> \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(3)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span><mark>User</mark> \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(4)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/users\"><span>\u0645\u0641\u062a\u0648\u062d\u0629 <mark>User</mark>s</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(5)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-type\"><span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark> Type</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(6)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-type/view/report\"><span><mark>User</mark> Type \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(7)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-group\"><span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark> Group</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(8)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-group/view/report\"><span><mark>User</mark> Group \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(9)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span><mark>User</mark> Group \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(10)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-permission\"><span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark> Permission</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(11)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-invitation\"><span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark> Invitation</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(12)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-permission/view/report\"><span><mark>User</mark> Permission \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(13)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-invitation/view/report\"><span><mark>User</mark> Invitation \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(14)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span><mark>User</mark> Permission \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(15)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span><mark>User</mark> Invitation \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(16)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/User%20Doctype%20Permissions\"><span>\u062a\u0642\u0631\u064a\u0631 <mark>User</mark> Doctype Permissions</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(17)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Permitted%20Documents%20For%20User\"><span>\u062a\u0642\u0631\u064a\u0631 Permitted Documents For <mark>User</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(18)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/customer-group/view/tree\"><span>\u0645\u0641\u062a\u0648\u062d\u0629 C<mark>us</mark>tom<mark>er</mark> Group Tree</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(19)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-period\"><span>\u0642\u0627\u0626\u0645\u0629 S<mark>u</mark>pplier <mark>S</mark>corecard P<mark>er</mark>iod</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(20)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-period/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>corecard P<mark>er</mark>iod \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(21)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/docshare/view/report/Document%20Share%20Report\"><span>\u062a\u0642\u0631\u064a\u0631 Doc<mark>u</mark>ment <mark>S</mark>har<mark>e</mark> <mark>R</mark>eport</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(22)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-criteria\"><span>\u0642\u0627\u0626\u0645\u0629 S<mark>u</mark>pplier <mark>S</mark>corecard Crit<mark>er</mark>ia</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(23)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-criteria/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>corecard Crit<mark>er</mark>ia \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(24)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>S<mark>u</mark>pplier <mark>S</mark>corecard Crit<mark>er</mark>ia \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(25)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard\"><span>\u0642\u0627\u0626\u0645\u0629 S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(26)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(27)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(28)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/customize-form/Customize%20Form\"><span>C<mark>us</mark>tomiz<mark>e</mark> Fo<mark>r</mark>m </span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(29)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Customers%20Without%20Any%20Sales%20Transactions\"><span>\u062a\u0642\u0631\u064a\u0631 C<mark>us</mark>tom<mark>er</mark>s Without Any Sales Transactions</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(30)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/purpose-of-travel\"><span>\u0642\u0627\u0626\u0645\u0629 P<mark>u</mark>rpo<mark>se</mark> of T<mark>r</mark>avel</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(31)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/purpose-of-travel/view/report\"><span>P<mark>u</mark>rpo<mark>se</mark> of T<mark>r</mark>avel \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(32)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>P<mark>u</mark>rpo<mark>se</mark> of T<mark>r</mark>avel \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(33)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-variable\"><span>\u0642\u0627\u0626\u0645\u0629 S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Variable</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(34)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-standing\"><span>\u0642\u0627\u0626\u0645\u0629 S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Standing</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(35)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-variable/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Variable \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(36)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-standing/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Standing \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(37)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Variable \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(38)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Standing \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(39)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span> <span class=\"flex justify-between text-medium\"> <span class=\"ellipsis\">\u0627\u0628\u062d\u062b \u0639\u0646 <b>user</b></span> <kbd>\u21b5</kbd> </span> </span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(40)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter\"><span>\u0642\u0627\u0626\u0645\u0629 Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(41)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter/view/report\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(42)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(43)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter-group\"><span>\u0642\u0627\u0626\u0645\u0629 Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> Group</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(44)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter-group/view/report\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> Group \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(45)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> Group \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(46)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>\u0627\u0644\u0628\u062d\u062b \u0639\u0646 <b>user</b> \u0641\u064a <b>\u0627\u0644\u0645\u0633\u062a\u0639\u0645\u0644</b></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(47)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/accounting-dimension-filter\"><span>\u0642\u0627\u0626\u0645\u0629 Acco<mark>u</mark>nting Dimen<mark>s</mark>ion Filt<mark>er</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(48)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/accounting-dimension-filter/view/report\"><span>Acco<mark>u</mark>nting Dimen<mark>s</mark>ion Filt<mark>er</mark> \u062a\u0642\u0631\u064a\u0631</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(49)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>Acco<mark>u</mark>nting Dimen<mark>s</mark>ion Filt<mark>er</mark> \u062c\u062f\u064a\u062f</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(50)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Dimension-wise%20Accounts%20Balance%20Report\"><span>\u062a\u0642\u0631\u064a\u0631 Dimension-wise Acco<mark>u</mark>nt<mark>s</mark> Balanc<mark>e</mark> <mark>R</mark>eport</span></a></",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(51)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Accrued%20Earnings%20Report\"><span>\u062a\u0642\u0631\u064a\u0631 Accr<mark>u</mark>ed Earning<mark>s</mark> R<mark>e</mark>po<mark>r</mark>t</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(52)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Material%20Requirements%20Planning%20Report\"><span>\u062a\u0642\u0631\u064a\u0631 Material Req<mark>u</mark>irement<mark>s</mark> Planning R<mark>e</mark>po<mark>r</mark>t</span></a></li",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "color-contrast": 11
+   },
+   "incompleteNodes": {
+    "color-contrast": [
+     {
+      "target": "li:nth-child(8) > a[href$=\"report\"] > span",
+      "html": "<span><mark>User</mark> Group \u062a\u0642\u0631\u064a\u0631</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "#awesomplete_list_3 > li:nth-child(9) > a[href=\"#\"] > span",
+      "html": "<span><mark>User</mark> Group \u062c\u062f\u064a\u062f</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "li:nth-child(10) > a[href$=\"user-permission\"] > span",
+      "html": "<span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark> Permission</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "a[href$=\"user-invitation\"] > span",
+      "html": "<span>\u0642\u0627\u0626\u0645\u0629 <mark>User</mark> Invitation</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "li:nth-child(12) > a > span",
+      "html": "<span><mark>User</mark> Permission \u062a\u0642\u0631\u064a\u0631</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "li:nth-child(13) > a > span",
+      "html": "<span><mark>User</mark> Invitation \u062a\u0642\u0631\u064a\u0631</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "li:nth-child(14) > a[href=\"#\"] > span",
+      "html": "<span><mark>User</mark> Permission \u062c\u062f\u064a\u062f</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "li:nth-child(15) > a[href=\"#\"] > span",
+      "html": "<span><mark>User</mark> Invitation \u062c\u062f\u064a\u062f</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "li:nth-child(16) > a > span",
+      "html": "<span>\u062a\u0642\u0631\u064a\u0631 <mark>User</mark> Doctype Permissions</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "li:nth-child(17) > a > span",
+      "html": "<span>\u062a\u0642\u0631\u064a\u0631 Permitted Documents For <mark>User</mark></span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     },
+     {
+      "target": "a[href$=\"tree\"] > span",
+      "html": "<span>\u0645\u0641\u062a\u0648\u062d\u0629 C<mark>us</mark>tom<mark>er</mark> Group Tree</span>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "9.8pt (13px)",
+      "fontWeight": "normal"
+     }
+    ]
+   },
+   "passes": 17
+  },
+  "notifications": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-required-children",
+     "impact": "critical",
+     "help": "Certain ARIA roles must contain particular children",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-children?application=playwright",
+     "nodes": [
+      {
+       "target": ".notifications-list",
+       "html": "<div class=\"notifications-list\" role=\"menu\">",
+       "summary": "Fix any of the following: Element has children which are not allowed: [role=tablist], img"
+      },
+      {
+       "target": ".notification-item-tabs",
+       "html": "<ul class=\"notification-item-tabs nav nav-tabs\" role=\"tablist\">",
+       "summary": "Fix any of the following: Element has children which are not allowed: li"
+      }
+     ]
+    },
+    {
+     "id": "listitem",
+     "impact": "serious",
+     "help": "<li> elements must be contained in a <ul> or <ol>",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=playwright",
+     "nodes": [
+      {
+       "target": "#notifications",
+       "html": "<li class=\"notifications-category active\" id=\"notifications\" data-toggle=\"collapse\">\u0625\u062e\u0637\u0627\u0631\u0627\u062a</li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#todays_events",
+       "html": "<li class=\"notifications-category\" id=\"todays_events\" data-toggle=\"collapse\">\u0627\u0644\u0641\u0639\u0627\u0644\u064a\u0627\u062a</li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#changelog_feed",
+       "html": "<li class=\"notifications-category\" id=\"changelog_feed\" data-toggle=\"collapse\">What's New</li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      }
+     ]
+    }
+   ],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 8
+  },
+  "dialog": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 19
+  },
+  "msgprint": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 14
+  },
+  "toast": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 6
+  },
+  "freeze": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "incompleteNodes": {},
+   "passes": 1
+  },
+  "appearance": {
+   "meta": {
+    "theme": "dark",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/ins-appearance",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.VQC6ACRR.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 1,
+    "target-size": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".ins-selected-icon",
+      "html": "<span aria-hidden=\"true\" class=\"ins-selected-icon\">\u2713</span>",
+      "key": "nonBmp",
+      "message": "Element content contains only non-text characters"
+     }
+    ],
+    "target-size": [
+     {
+      "target": "a[href$=\"desk\"]",
+      "html": "<a href=\"/desk\" aria-label=\"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use class=\"\" href=\"#icon-home\"> </use> </svg></a>",
+      "key": "contentOverflow",
+      "message": "Element size could not be accurately determined due to overflow content"
+     }
+    ]
+   },
+   "passes": 26
+  }
+ },
+ "pageErrorDetails": [
+  {
+   "screen": "workspace-cards",
+   "message": "undefined",
+   "name": "",
+   "stack": ""
+  },
+  {
+   "screen": "workspace-cards",
+   "message": "undefined",
+   "name": "",
+   "stack": ""
+  },
+  {
+   "screen": "workspace-cards",
+   "message": "undefined",
+   "name": "",
+   "stack": ""
+  },
+  {
+   "screen": "workspace-cards",
+   "message": "undefined",
+   "name": "",
+   "stack": ""
+  },
+  {
+   "screen": "workspace-cards",
+   "message": "undefined",
+   "name": "",
+   "stack": ""
+  },
+  {
+   "screen": "query-report",
+   "message": "undefined",
+   "name": "",
+   "stack": ""
+  }
+ ],
+ "pageErrors": [
+  "undefined",
+  "undefined",
+  "undefined",
+  "undefined",
+  "undefined",
+  "undefined"
+ ],
+ "finished": "2026-10-14T03:32:29.600Z"
+}

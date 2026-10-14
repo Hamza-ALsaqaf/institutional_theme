@@ -1,0 +1,55 @@
+
+Installing institutional_theme...
+Updating DocTypes for institutional_theme..
+Creating Workspace Sidebars
+Creating Desktop Icons
+Updating Dashboard for institutional_theme
+install EXIT 0
+Linking /home/frappe/frappe-bench/apps/frappe/frappe/public to ./assets/frappe  Linking /home/frappe/frappe-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/erpnext/public to ./assets/erpnext                                                                                Linking /home/frappe/frappe-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                Linking /home/runner/work/institutional_theme/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps institutional_theme --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+institutional_theme/dist/js/
+├─ ins_shell.bundle.PUYCMVZ3.js                             12.20 Kb
+└─ ins_web.bundle.S7YMWZWK.js                               1.48 Kb
+
+institutional_theme/dist/css/
+├─ ins_desk.bundle.QT7PS3QS.css                             119.05 Kb
+├─ ins_email.bundle.PJXC5TYM.css                            2.02 Kb
+├─ ins_print.bundle.AWGHCGDY.css                            6.42 Kb
+├─ ins_web.bundle.AGJONUIS.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.CIYBLEXN.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.7CFFVK4B.css                    2.21 Kb
+├─ ins_palette_forest.bundle.2AAL5R6Y.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.BQPR5CVO.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.FB75ITX3.css                   8.16 Kb
+└─ ins_palette_plum.bundle.YYGNB7UY.css                     8.16 Kb
+
+institutional_theme/dist/css-rtl/
+├─ ins_desk.bundle.ZI5LCXLN.css                             119.05 Kb
+├─ ins_email.bundle.TSSK5A6S.css                            2.02 Kb
+├─ ins_print.bundle.3R54QRZS.css                            6.42 Kb
+├─ ins_web.bundle.UUWTYIGD.css                              61.09 Kb
+├─ ins_fonts_noto.bundle.4P3OBDPF.css                       2.24 Kb
+├─ ins_fonts_tajawal.bundle.FN54WQOJ.css                    2.21 Kb
+├─ ins_palette_forest.bundle.644UABA2.css                   8.16 Kb
+├─ ins_palette_graphite.bundle.E3UCMMVR.css                 2.11 Kb
+├─ ins_palette_petrol.bundle.C72HP72U.css                   8.16 Kb
+└─ ins_palette_plum.bundle.XN6DEABO.css                     8.16 Kb
+
+ DONE  Total Build Time: 1.201s
+
+Done in 1.78s.
+Compiling translations for institutional_theme
+build EXIT 0
+127.0.0.1:5432 - accepting connections
+redis cache on 13000: up
+redis queue on 11000: up
+web: up on port 8000
+DONE

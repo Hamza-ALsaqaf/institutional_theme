@@ -1,0 +1,3 @@
+=== redis-cache  2026-10-14T00:54:06Z
+$ as_frappe redis-server --port 13001 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/fresh-bench/logs --pidfile /home/frappe/fresh-bench/logs/redis-cache.pid
+exit 0

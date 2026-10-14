@@ -1,0 +1,4 @@
+=== newest.test-capture-after-uninstall  2026-10-14T01:50:50Z
+$ capture newest.test after-uninstall
+captured after-uninstall into /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/newest-tag/site/shots-newest.test
+exit 0

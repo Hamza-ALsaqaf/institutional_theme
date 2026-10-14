@@ -1,0 +1,12 @@
+/* Test only, never shipped: reproduces the documented rules of the other installed app (findings 8, tcsid-brand.css).
+   coexistence.mjs injects it after the theme's bundles, the way a later app's app_include_css loads. */
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 100 900; font-style: normal; font-display: swap;
+	src: url("/assets/institutional_theme/fonts/noto/noto-sans-arabic-arabic-400-normal.woff2") format("woff2");
+	unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 100 900; font-style: normal; font-display: swap;
+	src: url("/assets/institutional_theme/fonts/noto/noto-sans-latin-400-normal.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC, U+2122; }
+html[lang=ar], html[dir=rtl] { --font-stack: "IBM Plex Sans Arabic", "Segoe UI", sans-serif; }
+[data-theme=light] .btn-primary { background: rgb(184, 134, 11); border-color: rgb(184, 134, 11); color: rgb(0, 0, 0); }
+[data-theme=light] .btn-primary:hover { background: rgb(212, 160, 23); border-color: rgb(212, 160, 23); }
+.desktop-navbar { border-bottom: 2px solid rgb(184, 134, 11); }

@@ -36,9 +36,14 @@ const PROBES = {
 	report: [P("html"), P(".page-head .title-text"), P(".datatable"), P(".dt-row-header .dt-cell", true), P(".dt-row-header .dt-cell__content"), P(".dt-scrollable .dt-row-0 .dt-cell--col-2", true),
 		P(".dt-scrollable .dt-row-0 .dt-cell--col-2 a"), P(".dt-scrollable .dt-row-1 .dt-cell--col-4", true)],
 	dialog: [P("html"), P(".modal-content"), P(".modal-header"), P(".modal-title"), P(".modal-body"), P(".msgprint"), P(".btn-modal-close", true), P(".indicator.red"), P(".modal-backdrop")],
+	workspace: [P("html"), P(".page-head"), P(".navbar-breadcrumbs"), P(".ce-header .h4"), P(".shortcut-widget-box", true), P(".shortcut-widget-box .widget-title"), P(".shortcut-widget-box .widget-control .indicator-pill"),
+		P(".shortcut-widget-box .widget-control svg"), P(".links-widget-box", true), P(".links-widget-box .widget-title"), P(".links-widget-box .link-item", true), P(".links-widget-box .link-text"),
+		P(".standard-sidebar-item.active-sidebar"), P(".sidebar-header .header-title")],
+	toast: [P("html"), P("#alert-container"), P(".desk-alert.green", true), P(".desk-alert.green .alert-message"), P(".desk-alert.green .alert-subtitle"), P(".desk-alert.green .alert-title-container svg"),
+		P(".desk-alert.red", true), P(".desk-alert.orange", true), P(".desk-alert.orange .alert-message"), P(".desk-alert .close svg")],
 	login: [P("html"), P("body"), P(".login-content"), P(".page-card-head h4"), P(".page-card-subtitle"), P(".form-label"), P("#login_password", true), P(".btn-login", true), P(".forgot-password-message a"), P(".ins-masthead"), P(".ins-lang-link")],
 };
-const DESK = ["list", "form", "report", "dialog"];
+const DESK = ["list", "form", "report", "dialog", "workspace", "toast"];
 const PRESETS = ["midad", "graphite", "forest", "petrol", "plum"];
 
 const probeFn = ([probes, props]) => probes.map(({ selector, size }) => {
@@ -121,7 +126,7 @@ async function settle(page, sel) {
 async function openLive(ctx, screen, lang) {
 	const page = await ctx.newPage();
 	page.on("domcontentloaded", () => {});
-	const urls = { list: ["/desk/todo", ".list-row"], form: ["/desk/todo/new", ".form-layout .frappe-control[data-fieldname=date]"], report: ["/desk/todo/view/report", ".dt-scrollable .dt-row-1"], dialog: ["/desk/todo", ".list-row"] };
+	const urls = { list: ["/desk/todo", ".list-row"], form: ["/desk/todo/new", ".form-layout .frappe-control[data-fieldname=date]"], report: ["/desk/todo/view/report", ".dt-scrollable .dt-row-1"], dialog: ["/desk/todo", ".list-row"], workspace: ["/desk/home", ".shortcut-widget-box"], toast: ["/desk/todo", ".list-row"] };
 	page.__url = base + urls[screen][0];
 	await settle(page, urls[screen][1]);
 	await page.addStyleTag({ content: NO_MOTION });
@@ -132,6 +137,16 @@ async function openLive(ctx, screen, lang) {
 		await page.evaluate(() => frappe.msgprint({ title: "Message", message: "Body", indicator: "red" }));
 		await page.waitForSelector(".modal.show .modal-content", { timeout: 15000 });
 		await page.waitForTimeout(700);
+	}
+	if (screen === "workspace") await page.waitForSelector(".links-widget-box .link-item", { timeout: 15000 });
+	if (screen === "toast") {
+		await page.evaluate(() => {
+			frappe.show_alert({ message: "Saved", subtitle: "Task", indicator: "green" }, 600);
+			frappe.show_alert({ message: "Check", indicator: "red" }, 600);
+			frappe.show_alert({ message: "Unsaved", indicator: "orange" }, 600);
+		});
+		await page.waitForSelector(".desk-alert.orange", { timeout: 15000 });
+		await page.waitForTimeout(900);
 	}
 	return page;
 }

@@ -1,0 +1,4 @@
+$ bench_state kept-render midad.test /tmp/ins-gate-state.json
+printed en: html 7375 bytes, wkhtmltopdf not installed: pdf NOT VERIFIED
+printed ar: html 7388 bytes, wkhtmltopdf not installed: pdf NOT VERIFIED
+KEPT PRINT: ok

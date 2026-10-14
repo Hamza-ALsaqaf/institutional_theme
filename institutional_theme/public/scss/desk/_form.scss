@@ -87,6 +87,17 @@ html:root[dir] .attachment-row .data-pill .attachment-file-label a:hover {
 	text-decoration: underline;
 }
 
+// ---- Timeline links sit inside sentences and differ from the text by less than 3:1, so the cue is an underline (WCAG 1.4.1, axe link-in-text-block).
+html:root[dir] .new-timeline .timeline-item .timeline-content a {
+	color: var(--ins-text-link);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+html:root[dir] .new-timeline .timeline-item .timeline-content a:hover {
+	color: var(--ins-text-link-hover);
+}
+
 // ---- Timeline (desk/timeline.scss). Cards, badge and rail are tokens through the map (--timeline-badge-*, --dark-border-color);
 // the card gets the raised surface and the control boundary radius of the design (artboard `.card`).
 html:root[dir] .new-timeline .timeline-item .timeline-content.frappe-card {

@@ -1,0 +1,6 @@
+=== newest.test-list-apps-before  2026-10-14T01:49:52Z
+$ fb bench --site newest.test list-apps
+
+frappe 16.52.0 HEAD
+
+exit 0

@@ -401,6 +401,206 @@
    "ok": true
   },
   {
+   "tag": "en/workspace/light/comfortable/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/comfortable/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/comfortable/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/comfortable/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/comfortable/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/compact/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/compact/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/compact/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/compact/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/light/compact/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/comfortable/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/comfortable/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/comfortable/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/comfortable/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/comfortable/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/compact/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/compact/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/compact/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/compact/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/workspace/dark/compact/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/comfortable/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/comfortable/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/comfortable/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/comfortable/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/comfortable/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/compact/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/compact/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/compact/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/compact/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/light/compact/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/comfortable/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/comfortable/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/comfortable/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/comfortable/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/comfortable/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/compact/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/compact/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/compact/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/compact/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "en/toast/dark/compact/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
    "tag": "en/login",
    "probes": 11,
    "ok": true
@@ -806,6 +1006,206 @@
    "ok": true
   },
   {
+   "tag": "ar/workspace/light/comfortable/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/comfortable/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/comfortable/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/comfortable/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/comfortable/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/compact/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/compact/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/compact/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/compact/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/light/compact/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/comfortable/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/comfortable/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/comfortable/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/comfortable/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/comfortable/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/compact/midad",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/compact/graphite",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/compact/forest",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/compact/petrol",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/workspace/dark/compact/plum",
+   "probes": 14,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/comfortable/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/comfortable/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/comfortable/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/comfortable/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/comfortable/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/compact/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/compact/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/compact/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/compact/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/light/compact/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/comfortable/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/comfortable/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/comfortable/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/comfortable/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/comfortable/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/compact/midad",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/compact/graphite",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/compact/forest",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/compact/petrol",
+   "probes": 10,
+   "ok": true
+  },
+  {
+   "tag": "ar/toast/dark/compact/plum",
+   "probes": 10,
+   "ok": true
+  },
+  {
    "tag": "ar/login",
    "probes": 11,
    "ok": true
@@ -820,6 +1220,10 @@
   "en/report/reduced-motion": true,
   "en/dialog/forced-colors": true,
   "en/dialog/reduced-motion": true,
+  "en/workspace/forced-colors": true,
+  "en/workspace/reduced-motion": true,
+  "en/toast/forced-colors": true,
+  "en/toast/reduced-motion": true,
   "ar/list/forced-colors": true,
   "ar/list/reduced-motion": true,
   "ar/form/forced-colors": true,
@@ -828,6 +1232,10 @@
   "ar/report/reduced-motion": true,
   "ar/dialog/forced-colors": true,
   "ar/dialog/reduced-motion": true,
+  "ar/workspace/forced-colors": true,
+  "ar/workspace/reduced-motion": true,
+  "ar/toast/forced-colors": true,
+  "ar/toast/reduced-motion": true,
   "pointer-coarse-matchMedia": true,
   "reflow-320-screenshot": "/home/runner/work/institutional_theme/institutional_theme/docs/proof/parity-320.png"
  },
@@ -838,8 +1246,8 @@
   "blocked": []
  },
  "counts": {
-  "configs": 178,
-  "probes": 1738,
+  "configs": 266,
+  "probes": 2794,
   "mismatches": 0
  },
  "failures": 0,

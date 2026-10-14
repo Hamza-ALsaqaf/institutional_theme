@@ -1,0 +1,3 @@
+=== newest.test-verify-after-migrate  2026-10-14T01:50:37Z
+$ verify newest.test newest.test-after-migrate yes
+exit 0

@@ -1,0 +1,4 @@
+=== fresh.test-snapshot-installed  2026-10-14T00:55:05Z
+$ snapshot fresh.test installed
+244 tables written to /tmp/fresh-snapshot-fresh.test-installed.json
+exit 0

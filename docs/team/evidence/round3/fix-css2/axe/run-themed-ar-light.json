@@ -1,0 +1,492 @@
+{
+ "variant": "themed",
+ "lang": "ar",
+ "mode": "light",
+ "base": "http://localhost:8000",
+ "axe": "4.13.0",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa"
+ ],
+ "started": "2026-10-14T03:55:40.093Z",
+ "screens": {
+  "list": {
+   "meta": {
+    "theme": "light",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.DZIQRGLW.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 14
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"قائمة المستخدم\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".list-row-container:nth-child(16) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"نوع المستخدم: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1422,
+       "min": 8.01,
+       "p5": 8.01,
+       "median": 8.01,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "System User"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(16) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,hrms-en-light@midad.test\"> hrms-en-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 3024,
+       "min": 8.01,
+       "p5": 8.01,
+       "median": 8.01,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "hrms-en-light@midad.test"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(17) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"نوع المستخدم: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1422,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "System User"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(17) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,hrms-ar-light@midad.test\"> hrms-ar-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2952,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "hrms-ar-light@midad.test"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(18) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"نوع المستخدم: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1422,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "System User"
+      }
+     },
+     {
+      "target": "a[data-filter=\"name,=,hrms-ar-dark@midad.test\"]",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,hrms-ar-dark@midad.test\"> hrms-ar-dark@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2934,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "hrms-ar-dark@midad.test"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(19) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"نوع المستخدم: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1422,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "System User"
+      }
+     },
+     {
+      "target": "a[data-filter=\"name,=,coex-en-dark@midad.test\"]",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-en-dark@midad.test\"> coex-en-dark@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2970,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "coex-en-dark@midad.test"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(20) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"نوع المستخدم: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1422,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "System User"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(20) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-en-light@midad.test\"> coex-en-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2988,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "coex-en-light@midad.test"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(21) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"نوع المستخدم: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1422,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "System User"
+      }
+     },
+     {
+      "target": "a[data-filter=\"name,=,coex-ar-dark@midad.test\"]",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-ar-dark@midad.test\"> coex-ar-dark@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2898,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "coex-ar-dark@midad.test"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(22) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"user_type\"] > .ellipsis[title=\"نوع المستخدم: System User\"] > .filterable[data-filter=\"user_type,=,System User\"]",
+      "html": "<a class=\" filterable ellipsis \" data-filter=\"user_type,=,System User\"> System User </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1422,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "System User"
+      }
+     },
+     {
+      "target": ".list-row-container:nth-child(22) > .list-row.level > .level-left.ellipsis > .list-row-col.hidden-xs[data-fieldname=\"name\"] > .ellipsis > .filterable",
+      "html": "<a class=\" filterable ellipsis\" data-filter=\"name,=,coex-ar-light@midad.test\"> coex-ar-light@midad.test </a>",
+      "key": "elmPartiallyObscured",
+      "message": "Element's background color could not be determined because it's partially obscured by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2916,
+       "min": 8.84,
+       "p5": 8.84,
+       "median": 8.84,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(66, 75, 87)",
+       "text": "coex-ar-light@midad.test"
+      }
+     }
+    ]
+   },
+   "passes": 29
+  },
+  "form": {
+   "meta": {
+    "theme": "light",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/user/axe-ar-light%40midad.test#user_details_tab",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.DZIQRGLW.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {
+    "aria-prohibited-attr": 1
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".sidebar-user-button",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"قائمة المستخدم\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ]
+   },
+   "passes": 31
+  },
+  "form-row-editor": {
+   "meta": {
+    "theme": "light",
+    "dir": "rtl",
+    "lang": "ar",
+    "url": "/desk/notification/new-notification-sueccueghf",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.DZIQRGLW.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-required-attr",
+     "impact": "critical",
+     "help": "Required ARIA attributes must be provided",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "input[data-target=\"Role\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+       "summary": "Fix any of the following: Required ARIA attribute not present: aria-controls"
+      }
+     ]
+    },
+    {
+     "id": "aria-valid-attr-value",
+     "impact": "critical",
+     "help": "ARIA attributes must conform to valid values",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=playwright",
+     "nodes": [
+      {
+       "target": "input[data-target=\"Role\"]",
+       "html": "<input type=\"text\" class=\"input-with-feedback ...\" maxlength=\"140\" data-fieldtype=\"Link\" data-fieldname=\"receiver_by_role\" placeholder=\"\" data-doctype=\"Notification Recipie...\" data-target=\"Role\" autocomplete=\"off\" aria-",
+       "summary": "Fix all of the following: Invalid ARIA attribute value: aria-activedescendant=\"awesomplete_list_8_item_0\""
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 6
+   },
+   "incompleteNodes": {
+    "aria-prohibited-attr": [
+     {
+      "target": ".nav-link",
+      "html": "<a class=\"align-center btn-reset flex nav-link sidebar-user-button\" style=\"width: 100%; min-height: 40px;\" onclick=\"return frappe.ui.toolbar.route_to_user()\" aria-label=\"قائمة المستخدم\">",
+      "key": "noRoleSingular",
+      "message": "aria-label attribute is not well supported on a a with no valid role attribute."
+     }
+    ],
+    "color-contrast": [
+     {
+      "target": ".frappe-control[data-fieldtype=\"Code\"][data-fieldname=\"condition\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">وسعت</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1248,
+       "min": 13.17,
+       "p5": 13.17,
+       "median": 13.17,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(40, 49, 60)",
+       "text": "وسعت"
+      }
+     },
+     {
+      "target": "div[data-fieldname=\"property_section\"] > .collapsed.collapsible.section-head",
+      "html": "<div class=\"section-head collapsible collapsed\" tabindex=\"0\"> تعيين الملكية بعد تنبيه <span class=\"collapse-indicator\" tabindex=\"0\" style=\"\"><svg class=\"icon icon-sm\" style=\"\" aria-hidden=\"true\"> <use",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 33000,
+       "min": 12.83,
+       "p5": 17.31,
+       "median": 17.31,
+       "distinctBackgroundColours": 14,
+       "fg": "rgb(20, 27, 37)",
+       "text": "تعيين الملكية بعد تنبيه"
+      }
+     },
+     {
+      "target": "div[data-fieldname=\"cc\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">وسعت</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1248,
+       "min": 11.94,
+       "p5": 11.94,
+       "median": 11.94,
+       "distinctBackgroundColours": 4,
+       "fg": "rgb(40, 49, 60)",
+       "text": "وسعت"
+      }
+     },
+     {
+      "target": ".ace_text",
+      "html": "<span class=\"ace_text ace_xml\">Add your message here</span>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "9.0pt (12px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 2114,
+       "min": 13.17,
+       "p5": 13.17,
+       "median": 13.17,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(40, 49, 60)",
+       "text": "Add your message here"
+      }
+     },
+     {
+      "target": "div[data-fieldname=\"message\"] > .form-group > .control-input-wrapper > .mt-2.btn-default.btn-xs",
+      "html": "<button class=\"btn btn-xs btn-default mt-2\">وسعت</button>",
+      "key": "bgOverlap",
+      "message": "Element's background color could not be determined because it is overlapped by another element",
+      "axeContrast": 0,
+      "fontSize": "10.5pt (14px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 1248,
+       "min": 13.17,
+       "p5": 13.17,
+       "median": 13.17,
+       "distinctBackgroundColours": 1,
+       "fg": "rgb(40, 49, 60)",
+       "text": "وسعت"
+      }
+     },
+     {
+      "target": ".language-xml",
+      "html": "<code class=\"language-xml\">",
+      "key": "elmPartiallyObscuring",
+      "message": "Element's background color could not be determined because it partially overlaps other elements",
+      "axeContrast": 0,
+      "fontSize": "9.2pt (12.25px)",
+      "fontWeight": "normal",
+      "measured": {
+       "n": 72000,
+       "min": 11.03,
+       "p5": 13.17,
+       "median": 13.17,
+       "distinctBackgroundColours": 2,
+       "fg": "rgb(40, 49, 60)",
+       "text": "<h3>Order Overdue</h3> <p>Transaction {{"
+      }
+     }
+    ]
+   },
+   "passes": 33
+  }
+ },
+ "finished": "2026-10-14T03:55:59.618Z"
+}

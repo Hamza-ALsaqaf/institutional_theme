@@ -1,0 +1,149 @@
+core variables declared: old 581, new 1041
+core variables read:     old 403, new 937
+declared only in old: 46; only in new: 506
+read only in old:     25; only in new: 559
+
+old: declared-read 266, declared-only 111, read-only 0, theme 0, dead 0
+new: declared-read 346, declared-only 10, read-only 6, theme 0, dead 15
+
+overridden variables whose category changed: 123
+  --green-50: declared-only -> declared-read
+  --green-400: declared-only -> declared-read
+  --orange-50: declared-only -> declared-read
+  --orange-200: declared-only -> declared-read
+  --orange-300: declared-only -> declared-read
+  --orange-400: declared-only -> declared-read
+  --orange-900: declared-only -> declared-read
+  --amber-50: declared-only -> declared-read
+  --amber-100: declared-only -> declared-read
+  --amber-200: declared-only -> declared-read
+  --amber-300: declared-only -> declared-read
+  --amber-400: declared-only -> declared-read
+  --amber-500: declared-only -> declared-read
+  --amber-600: declared-only -> declared-read
+  --amber-700: declared-only -> declared-read
+  --amber-800: declared-only -> declared-read
+  --amber-900: declared-only -> declared-read
+  --yellow-200: declared-only -> declared-read
+  --yellow-400: declared-only -> declared-read
+  --yellow-600: declared-only -> declared-read
+  --cyan-200: declared-only -> declared-read
+  --cyan-300: declared-only -> declared-read
+  --cyan-400: declared-only -> declared-read
+  --cyan-500: declared-only -> declared-read
+  --cyan-600: declared-only -> declared-read
+  --cyan-900: declared-only -> declared-read
+  --teal-50: declared-only -> declared-read
+  --teal-100: declared-only -> declared-read
+  --teal-200: declared-only -> declared-read
+  --teal-300: declared-only -> declared-read
+  --teal-400: declared-only -> declared-read
+  --teal-500: declared-only -> declared-read
+  --teal-600: declared-only -> declared-read
+  --teal-700: declared-only -> declared-read
+  --teal-800: declared-only -> declared-read
+  --teal-900: declared-only -> declared-read
+  --violet-50: declared-only -> declared-read
+  --violet-100: declared-only -> declared-read
+  --violet-200: declared-only -> declared-read
+  --violet-300: declared-only -> declared-read
+  --violet-400: declared-only -> declared-read
+  --violet-500: declared-only -> declared-read
+  --violet-600: declared-only -> declared-read
+  --violet-700: declared-only -> declared-read
+  --violet-800: declared-only -> declared-read
+  --violet-900: declared-only -> declared-read
+  --pink-200: declared-only -> declared-read
+  --pink-300: declared-only -> declared-read
+  --pink-400: declared-only -> declared-read
+  --pink-600: declared-only -> declared-read
+  --pink-800: declared-only -> declared-read
+  --pink-900: declared-only -> declared-read
+  --purple-200: declared-only -> declared-read
+  --purple-300: declared-only -> declared-read
+  --purple-400: declared-only -> declared-read
+  --purple-800: declared-only -> declared-read
+  --purple-900: declared-only -> declared-read
+  --invert-neutral: declared-read -> read-only
+  --neutral-black: declared-read -> dead
+  --surface-white: declared-read -> dead
+  --surface-gray-4: declared-only -> declared-read
+  --surface-gray-5: declared-only -> declared-read
+  --surface-gray-6: declared-only -> declared-read
+  --surface-menu-bar: declared-read -> dead
+  --surface-modal: declared-read -> dead
+  --surface-cards: declared-only -> dead
+  --surface-selected: declared-read -> dead
+  --surface-red-2: declared-only -> declared-read
+  --surface-red-3: declared-only -> declared-read
+  --surface-red-4: declared-only -> declared-read
+  --surface-red-5: declared-only -> declared-read
+  --surface-red-6: declared-only -> declared-read
+  --surface-red-7: declared-only -> declared-read
+  --surface-green-2: declared-only -> declared-read
+  --surface-green-3: declared-only -> declared-read
+  --surface-amber-2: declared-only -> declared-read
+  --surface-amber-3: declared-only -> declared-read
+  --surface-orange-1: declared-only -> declared-read
+  --surface-violet-1: declared-only -> declared-read
+  --surface-cyan-1: declared-only -> declared-read
+  --surface-pink-1: declared-only -> declared-read
+  --ink-white: declared-only -> read-only
+  --ink-red-1: declared-only -> declared-read
+  --ink-red-2: declared-only -> declared-read
+  --ink-red-3: declared-only -> declared-read
+  --ink-green-1: declared-only -> declared-read
+  --ink-green-2: declared-only -> declared-read
+  --ink-amber-1: declared-only -> declared-read
+  --ink-amber-2: declared-only -> declared-read
+  --ink-blue-1: declared-only -> declared-read
+  --ink-blue-2: declared-only -> declared-read
+  --ink-blue-link: declared-only -> declared-read
+  --ink-cyan-1: declared-only -> declared-read
+  --ink-pink-1: declared-only -> declared-read
+  --ink-violet-1: declared-only -> declared-read
+  --outline-white: declared-only -> dead
+  --outline-gray-1: declared-only -> declared-read
+  --outline-gray-4: declared-only -> declared-read
+  --outline-gray-5: declared-only -> declared-read
+  --outline-gray-modals: declared-only -> dead
+  --outline-red-1: declared-only -> declared-read
+  --outline-red-3: declared-only -> declared-read
+  --outline-green-1: declared-only -> declared-read
+  --outline-green-2: declared-only -> declared-read
+  --outline-amber-1: declared-only -> declared-read
+  --outline-amber-2: declared-only -> declared-read
+  --outline-blue-1: declared-only -> declared-read
+  --outline-orange-1: declared-only -> declared-read
+  --toast-bg: declared-read -> dead
+  --sidebar-border-color: declared-read -> dead
+  --divider-color: declared-only -> dead
+  --primary-color: declared-read -> declared-only
+  --sidebar-hover-color: declared-read -> dead
+  --sidebar-active-color: declared-read -> dead
+  --shadow-xl: declared-read -> declared-only
+  --modal-shadow: declared-read -> declared-only
+  --text-2xs: declared-only -> declared-read
+  --border-radius-tiny: declared-read -> dead
+  --border-radius-sm: declared-read -> read-only
+  --border-radius: declared-read -> read-only
+  --border-radius-md: declared-read -> read-only
+  --border-radius-lg: declared-read -> read-only
+  --border-radius-xl: declared-read -> dead
+
+dead in the newest tag: 15
+  --neutral-black
+  --surface-white
+  --surface-menu-bar
+  --surface-modal
+  --surface-cards
+  --surface-selected
+  --outline-white
+  --outline-gray-modals
+  --toast-bg
+  --sidebar-border-color
+  --divider-color
+  --sidebar-hover-color
+  --sidebar-active-color
+  --border-radius-tiny
+  --border-radius-xl

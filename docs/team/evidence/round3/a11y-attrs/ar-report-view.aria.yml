@@ -1,0 +1,24 @@
+- checkbox "تحديد جميع الصفوف"
+- text: هوية شخصية
+- img
+- text: الحالة
+- img
+- text: الاسم الكامل
+- img
+- text: صورة المستخدم
+- img
+- text: اسم االمستخدم
+- img
+- text: نوع المستخدم
+- img
+- text: تمكين
+- img
+- textbox "تصفية" [disabled]
+- textbox "Filter based on Index"
+- textbox "Filter based on هوية شخصية"
+- textbox "Filter based on الحالة"
+- textbox "Filter based on الاسم الكامل"
+- textbox "Filter based on صورة المستخدم"
+- textbox "Filter based on اسم االمستخدم"
+- textbox "Filter based on نوع المستخدم"
+- textbox "Filter based on تمكين"

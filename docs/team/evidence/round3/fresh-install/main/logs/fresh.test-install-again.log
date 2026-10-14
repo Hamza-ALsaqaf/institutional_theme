@@ -1,0 +1,4 @@
+=== fresh.test-install-again  2026-10-14T01:06:29Z
+$ fb bench --site fresh.test install-app institutional_theme
+App institutional_theme already installed
+exit 0

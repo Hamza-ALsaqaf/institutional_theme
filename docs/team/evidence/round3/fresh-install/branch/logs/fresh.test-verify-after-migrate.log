@@ -1,0 +1,3 @@
+=== fresh.test-verify-after-migrate  2026-10-14T01:33:10Z
+$ verify fresh.test fresh.test-after-migrate yes
+exit 0

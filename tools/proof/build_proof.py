@@ -205,6 +205,47 @@ def datatable_parts() -> tuple[str, str, str]:
 	return header, "".join(rows), "\n".join(rules)
 
 
+def workspace_parts() -> tuple[str, str]:
+	arrow = '<svg class="es-icon es-line ml-2 icon-xs" aria-hidden="true"><use href="#es-line-arrow-up-right"></use></svg>'
+	shortcuts = "".join(
+		'<div class="ce-block col-xs-12 col-sm-6 col-md-4 col-lg-3"><div class="ce-block__content"><div>'
+		f'<div class="widget shortcut-widget-box" role="link" tabindex="0" aria-label="[[ws.s{i}]]">'
+		f'<div class="widget-head"><div class="widget-label"><div class="widget-title"><span class="ellipsis">[[ws.s{i}]]</span></div><div class="widget-subtitle"></div></div>'
+		f'<div class="widget-control"><div class="indicator-pill no-indicator-dot ellipsis gray">{n}</div>{arrow}</div></div>'
+		'<div class="widget-body"></div><div class="widget-footer"></div></div></div></div></div>'
+		for i, n in ((1, 3), (2, 0), (3, 12))
+	)
+
+	def card(title: str, links: list[str]) -> str:
+		body = "".join(
+			f'<a href="#" class="link-item ellipsis onboard-spotlight" type="Link"><span class="link-content ellipsis"><span class="link-text">[[ws.l{k}]]</span>{arrow}</span></a>'
+			for k in links
+		)
+		return (
+			'<div class="ce-block col-xs-12 col-sm-6 col-md-4"><div class="ce-block__content"><div>'
+			f'<div class="widget links-widget-box"><div class="widget-head"><div class="widget-label"><div class="widget-title"><span class="ellipsis">[[{title}]]</span></div><div class="widget-subtitle"></div></div><div class="widget-control"></div></div>'
+			f'<div class="widget-body">{body}</div><div class="widget-footer"></div></div></div></div></div>'
+		)
+
+	return shortcuts, card("ws.c1", ["1", "2", "3", "4"]) + card("ws.c2", ["5", "6", "7", "8"])
+
+
+def alerts_html() -> str:
+	def one(cls: str, icon: str, msg: str, sub: str = "") -> str:
+		return (
+			f'<div class="alert desk-alert {cls}" role="alert"><div class="alert-message-container"><div class="alert-title-container">'
+			f'<div><svg class="icon icon-lg" aria-hidden="true"><use href="#icon-{icon}"></use></svg></div><div class="alert-message">[[{msg}]]</div></div>'
+			f'<div class="alert-subtitle">{"[[" + sub + "]]" if sub else ""}</div></div><div class="alert-body" style="display: none"></div>'
+			'<a class="close"><svg class="icon icon-sm" aria-hidden="true"><use href="#icon-x"></use></svg></a></div>'
+		)
+
+	return (
+		one("green", "solid-success", "toast.ok", "toast.sub")
+		+ one("red", "solid-error", "toast.err")
+		+ one("orange", "solid-warning", "toast.warn")
+	)
+
+
 def screens(strings: dict) -> tuple[str, str]:
 	shell = read("_shell_sidebar.html")
 	rows = read("_rows.html")
@@ -231,6 +272,21 @@ def screens(strings: dict) -> tuple[str, str]:
 		.replace("%%BODYROWS%%", body_rows)
 	)
 	out["dialog"] = read("dialog.html")
+	shortcuts, cards = workspace_parts()
+	out["workspace"] = (
+		read("workspace.html")
+		.replace("%%SHELL%%", shell)
+		.replace("%%PAGEHEAD%%", page_head("shell.home", "", "", ""))
+		.replace("%%SHORTCUTS%%", shortcuts)
+		.replace("%%CARDS%%", cards)
+	)
+	out["toast"] = (
+		read("toast.html")
+		.replace("%%SHELL%%", shell)
+		.replace("%%PAGEHEAD%%", page_head("page.list.title", "", "", NEW_BTN))
+		.replace("%%ROWS%%", rows)
+		.replace("%%ALERTS%%", alerts_html())
+	)
 	html = "".join(
 		f'<section class="proof-screen" id="screen-{k}" data-screen="{k}" hidden aria-label="{k}">{i18n(v, strings)}</section>'
 		for k, v in out.items()

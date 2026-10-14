@@ -1,0 +1,104 @@
+step	exit	seconds	command
+clean-drop-fresh.test	0	1	fb bench drop-site fresh.test --force --no-backup --db-root-username postgres --db-root-password postgres
+clean-drop-fresherp.test	0	2	fb bench drop-site fresherp.test --force --no-backup --db-root-username postgres --db-root-password postgres
+clean-rm	0	6	as_frappe rm -rf /home/frappe/fresh-bench
+bench-init	0	40	as_frappe bash -c cd '/home/frappe' && bench init 'fresh-bench'   --frappe-branch 'v16.32.0' --python '/opt/python3.14/bin/python3.14' --no-backups --skip-redis-config-generation
+set-config-redis-cache	0	1	fb bench set-config -g redis_cache redis://127.0.0.1:13001
+set-config-redis-queue	0	1	fb bench set-config -g redis_queue redis://127.0.0.1:11001
+set-config-redis-socketio	0	1	fb bench set-config -g redis_socketio redis://127.0.0.1:13001
+frappe-version	0	0	fb git -C apps/frappe describe --tags && ls apps && cat sites/apps.txt
+redis-cache	0	0	as_frappe redis-server --port 13001 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/fresh-bench/logs --pidfile /home/frappe/fresh-bench/logs/redis-cache.pid
+redis-queue	0	0	as_frappe redis-server --port 11001 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/fresh-bench/logs --pidfile /home/frappe/fresh-bench/logs/redis-queue.pid
+fresh.test-new-site	0	26	fb bench new-site fresh.test --db-type postgres --db-host 127.0.0.1 --db-port 5432   --db-root-username postgres --db-root-password postgres --admin-password admin
+fresh.test-setup-wizard	0	7	wizard fresh.test 0
+fresh.test-list-apps-before	0	2	fb bench --site fresh.test list-apps
+fresh.test-migrate-stock	0	8	fb bench --site fresh.test migrate
+fresh.test-snapshot-before	0	1	snapshot fresh.test before
+fresh.test-web-start-stock	0	3	web_start fresh.test
+fresh.test-capture-before	0	6	capture fresh.test before
+fresh.test-readme-1-get-app	0	10	fb bench get-app https://github.com/Hamza-ALsaqaf/institutional_theme --branch build/midad-v1
+fresh.test-app-version	0	0	fb git -C apps/institutional_theme log --oneline -1 && git -C apps/institutional_theme branch --show-current && cat sites/apps.txt
+fresh.test-readme-2-install-app	0	3	fb bench --site fresh.test install-app institutional_theme
+fresh.test-readme-3-build	0	6	fb bench build --app institutional_theme
+fresh.test-readme-4-restart	0	1	fb bench restart
+fresh.test-readme-5-list-apps	0	1	fb bench --site fresh.test list-apps
+fresh.test-web-start	0	4	web_start fresh.test
+fresh.test-verify-installed	0	1	verify fresh.test fresh.test-installed yes
+fresh.test-capture-installed	0	6	capture fresh.test installed
+fresh.test-install-again	0	1	fb bench --site fresh.test install-app institutional_theme
+fresh.test-migrate-1	0	7	fb bench --site fresh.test migrate
+fresh.test-migrate-2	0	6	fb bench --site fresh.test migrate
+fresh.test-snapshot-installed	0	1	snapshot fresh.test installed
+fresh.test-verify-after-migrate	0	0	verify fresh.test fresh.test-after-migrate yes
+fresh.test-seed-state	0	3	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' seed 'fresh.test' '/tmp/fresh-state-fresh.test.json'
+fresh.test-readme-6-uninstall	0	5	fb printf 'y\n' | bench --site fresh.test uninstall-app institutional_theme
+fresh.test-list-apps-after	0	2	fb bench --site fresh.test list-apps
+fresh.test-residue-gate-state	0	1	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' residue 'fresh.test' '/tmp/fresh-state-fresh.test.json'
+fresh.test-snapshot-after	0	1	snapshot fresh.test after
+fresh.test-residue-table-diff	0	0	bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-fresh.test-before.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-fresh.test-after.json'
+fresh.test-capture-after-uninstall	0	8	capture fresh.test after-uninstall
+fresh.test-pixel-compare	0	1	pixel_compare fresh.test
+fresh.test-verify-after-uninstall	0	0	verify fresh.test fresh.test-after-uninstall-no-restart no
+fresh.test-site-files	0	0	fb ls -la sites/fresh.test/public/files 2>&1; test ! -e sites/fresh.test/public/files/institutional_theme && echo 'no institutional_theme folder'
+fresherp.test-new-site	0	23	fb bench new-site fresherp.test --db-type postgres --db-host 127.0.0.1 --db-port 5432   --db-root-username postgres --db-root-password postgres --admin-password admin
+fresherp.test-get-app-erpnext	0	25	fb bench get-app erpnext https://github.com/frappe/erpnext --branch v16.33.0
+fresherp.test-install-erpnext	0	60	fb bench --site fresherp.test install-app erpnext
+fresherp.test-setup-wizard	0	25	wizard fresherp.test 1
+fresherp.test-list-apps-before	0	2	fb bench --site fresherp.test list-apps
+fresherp.test-migrate-stock	0	20	fb bench --site fresherp.test migrate
+fresherp.test-snapshot-before	0	1	snapshot fresherp.test before
+fresherp.test-web-start-stock	0	3	web_start fresherp.test
+fresherp.test-capture-before	0	8	capture fresherp.test before
+fresherp.test-readme-2-install-app	0	4	fb bench --site fresherp.test install-app institutional_theme
+fresherp.test-readme-3-build	0	4	fb bench build --app institutional_theme
+fresherp.test-readme-4-restart	0	1	fb bench restart
+fresherp.test-readme-5-list-apps	0	1	fb bench --site fresherp.test list-apps
+fresherp.test-web-start	0	4	web_start fresherp.test
+fresherp.test-verify-installed	0	2	verify fresherp.test fresherp.test-installed yes
+fresherp.test-capture-installed	0	7	capture fresherp.test installed
+fresherp.test-install-again	0	1	fb bench --site fresherp.test install-app institutional_theme
+fresherp.test-migrate-1	0	21	fb bench --site fresherp.test migrate
+fresherp.test-migrate-2	0	21	fb bench --site fresherp.test migrate
+fresherp.test-snapshot-installed	0	1	snapshot fresherp.test installed
+fresherp.test-verify-after-migrate	0	2	verify fresherp.test fresherp.test-after-migrate yes
+fresherp.test-seed-state	0	3	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' seed 'fresherp.test' '/tmp/fresh-state-fresherp.test.json'
+fresherp.test-readme-6-uninstall	0	7	fb printf 'y\n' | bench --site fresherp.test uninstall-app institutional_theme
+fresherp.test-list-apps-after	0	2	fb bench --site fresherp.test list-apps
+fresherp.test-residue-gate-state	0	1	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' residue 'fresherp.test' '/tmp/fresh-state-fresherp.test.json'
+fresherp.test-snapshot-after	0	1	snapshot fresherp.test after
+fresherp.test-residue-table-diff	0	0	bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-fresherp.test-before.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-fresherp.test-after.json'
+fresherp.test-capture-after-uninstall	0	8	capture fresherp.test after-uninstall
+fresherp.test-pixel-compare	0	1	pixel_compare fresherp.test
+fresherp.test-verify-after-uninstall	0	1	verify fresherp.test fresherp.test-after-uninstall-no-restart no
+fresherp.test-site-files	0	0	fb ls -la sites/fresherp.test/public/files 2>&1; test ! -e sites/fresherp.test/public/files/institutional_theme && echo 'no institutional_theme folder'
+remove-app	0	5	fb bench remove-app institutional_theme --no-backup
+remove-app-apps-txt	0	1	fb cat sites/apps.txt; echo; ls apps; /home/frappe/fresh-bench/env/bin/pip list 2>/dev/null | grep -i institutional || echo 'package not installed'
+remove-app-assets-before-build	0	0	fb echo "ins_ entries in assets.json: $(grep -c 'ins_' sites/assets/assets.json)"; ls -l sites/assets | grep institutional_theme || echo 'no sites/assets/institutional_theme'
+remove-app-build	0	20	fb bench build
+remove-app-assets-after-build	0	0	fb echo "ins_ entries in assets.json: $(grep -c 'ins_' sites/assets/assets.json)"; ls -l sites/assets | grep institutional_theme || echo 'no sites/assets/institutional_theme'
+remove-app-web-start	0	4	web_start fresh.test
+remove-app-verify-frappe-site	0	1	verify fresh.test remove-app-frappe-site no
+remove-app-list-apps-frappe-site	0	2	fb bench --site fresh.test list-apps
+remove-app-list-apps-erpnext-site	0	1	fb bench --site fresherp.test list-apps
+redis-cache	0	0	as_frappe redis-server --port 13001 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/fresh-bench/logs --pidfile /home/frappe/fresh-bench/logs/redis-cache.pid
+redis-queue	0	0	as_frappe redis-server --port 11001 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/fresh-bench/logs --pidfile /home/frappe/fresh-bench/logs/redis-queue.pid
+idem-get-app	0	9	fb bench get-app https://github.com/Hamza-ALsaqaf/institutional_theme --branch build/midad-v1
+idem-drop-old-site	0	1	fb bench drop-site idem.test --force --no-backup --db-root-username postgres --db-root-password postgres
+idem-new-site	0	18	fb bench new-site idem.test --db-type postgres --db-host 127.0.0.1 --db-port 5432   --db-root-username postgres --db-root-password postgres --admin-password admin
+idem-migrate-stock	0	7	fb bench --site idem.test migrate
+idem-install-app	0	2	fb bench --site idem.test install-app institutional_theme
+idem-stamps-1	0	3	fb bench --site idem.test execute frappe.db.get_value --args "['Letter Head', 'Midad', 'modified']"; bench --site idem.test execute frappe.db.get_value --args "['Print Style', 'Midad', 'modified']"
+idem-snapshot-1	0	1	snapshot idem.test 1
+idem-set-admin-value	0	2	fb bench --site idem.test execute frappe.db.set_single_value --args "['Institutional Theme Settings', 'default_density', 'Compact']" && bench --site idem.test execute frappe.db.commit
+idem-install-again	0	2	fb bench --site idem.test install-app institutional_theme
+idem-snapshot-2	0	0	snapshot idem.test 2
+idem-diff-1-2	0	0	bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-1.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-2.json'
+idem-migrate-1	0	7	fb bench --site idem.test migrate
+idem-snapshot-3	0	1	snapshot idem.test 3
+idem-diff-2-3	0	0	bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-2.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-3.json' 'tabDesktop Icon'
+idem-migrate-2	0	6	fb bench --site idem.test migrate
+idem-snapshot-4	0	1	snapshot idem.test 4
+idem-diff-3-4	0	0	bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-3.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/snapshot-idem.test-4.json'
+idem-stamps-2	0	3	fb bench --site idem.test execute frappe.db.get_value --args "['Letter Head', 'Midad', 'modified']"; bench --site idem.test execute frappe.db.get_value --args "['Print Style', 'Midad', 'modified']"
+idem-admin-value-kept	0	1	fb bench --site idem.test execute frappe.db.get_single_value --args "['Institutional Theme Settings', 'default_density']"
+idem-uninstall	0	3	fb bench --site idem.test uninstall-app institutional_theme --yes --no-backup

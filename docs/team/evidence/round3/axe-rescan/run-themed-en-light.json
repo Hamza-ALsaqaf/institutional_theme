@@ -1,0 +1,990 @@
+{
+ "variant": "themed",
+ "lang": "en",
+ "mode": "light",
+ "base": "http://localhost:8000",
+ "axe": "4.13.0",
+ "tags": [
+  "wcag2a",
+  "wcag2aa",
+  "wcag21a",
+  "wcag21aa",
+  "wcag22aa"
+ ],
+ "started": "2026-10-14T02:21:33.435Z",
+ "screens": {
+  "desktop": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "bypass": 1
+   },
+   "passes": 20
+  },
+  "workspace": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/build",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "bypass": 1,
+    "target-size": 1
+   },
+   "passes": 23
+  },
+  "workspace-cards": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/invoicing",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-attr",
+     "impact": "critical",
+     "help": "Elements must only use supported ARIA attributes",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "div[data-widget-name=\"9q0bjdd812\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      },
+      {
+       "target": "div[data-widget-name=\"9q0jo61kdl\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      },
+      {
+       "target": "div[data-widget-name=\"9q090ncilj\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      },
+      {
+       "target": "div[data-widget-name=\"9q087iho9b\"] > .widget-head > .widget-control > .card-actions.dropdown.pull-right > a[aria-haspopup=\"true\"][data-toggle=\"dropdown\"]",
+       "html": "<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ... </a>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-expanded=\"false\""
+      }
+     ]
+    },
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "target-size": 1
+   },
+   "passes": 24
+  },
+  "list": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "bypass": 1,
+    "color-contrast": 4,
+    "target-size": 1
+   },
+   "passes": 27
+  },
+  "list-selected": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "bypass": 1,
+    "color-contrast": 4,
+    "target-size": 1
+   },
+   "passes": 27
+  },
+  "list-filter": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 19
+  },
+  "form": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user/axe-en-light%40midad.test#user_details_tab",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 1,
+    "target-size": 1
+   },
+   "passes": 31
+  },
+  "form-new": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user/new-user-jlxwpulvru#user_details_tab",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "bypass": 1,
+    "target-size": 1
+   },
+   "passes": 28
+  },
+  "form-invalid": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user/new-user-nfkujkojuw#user_details_tab",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "bypass": 1,
+    "target-size": 1
+   },
+   "passes": 28
+  },
+  "form-child-table": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/notification/new-notification-bclqwkdilq",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 3,
+    "target-size": 1
+   },
+   "passes": 29
+  },
+  "datepicker": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/todo/new-todo-nkqzvtgecu",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 2
+  },
+  "report-view": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user/view/report",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "bypass": 1,
+    "target-size": 1
+   },
+   "passes": 27
+  },
+  "query-report": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/query-report/General%20Ledger",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "document-title",
+     "impact": "serious",
+     "help": "Documents must have <title> element to aid in navigation",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/document-title?application=playwright",
+     "nodes": [
+      {
+       "target": "html",
+       "html": "<html data-theme-mode=\"light\" data-theme=\"light\" dir=\"ltr\" lang=\"en\" data-ins-shell=\"1\" data-ins-density=\"comfortable\" class=\"chrome\">",
+       "summary": "Fix any of the following: Document does not have a non-empty <title> element"
+      }
+     ]
+    },
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1
+   },
+   "passes": 21
+  },
+  "search": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-attr",
+     "impact": "critical",
+     "help": "Elements must only use supported ARIA attributes",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(1)",
+       "html": "<li aria-selected=\"true\"><a style=\"font-weight:normal\" href=\"/desk/user\"><span><mark>User</mark> List</span></a></li>",
+       "summary": "Fix all of the following: ARIA attribute is not allowed: aria-selected=\"true\""
+      }
+     ]
+    },
+    {
+     "id": "aria-required-attr",
+     "impact": "critical",
+     "help": "Required ARIA attributes must be provided",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-attr?application=playwright",
+     "nodes": [
+      {
+       "target": "#navbar-search",
+       "html": "<input id=\"navbar-search\" type=\"text\" class=\"form-control bg-transparent shadow-none\" aria-haspopup=\"true\" placeholder=\"Search or type a command\" autocomplete=\"off\" aria-expanded=\"true\" aria-owns=\"awesomplete_list_3\" rol",
+       "summary": "Fix any of the following: Required ARIA attribute not present: aria-controls"
+      }
+     ]
+    },
+    {
+     "id": "aria-required-children",
+     "impact": "critical",
+     "help": "Certain ARIA roles must contain particular children",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-children?application=playwright",
+     "nodes": [
+      {
+       "target": "#awesomplete_list_3",
+       "html": "<ul role=\"listbox\" id=\"awesomplete_list_3\">",
+       "summary": "Fix any of the following: Element has children which are not allowed: li"
+      }
+     ]
+    },
+    {
+     "id": "aria-valid-attr-value",
+     "impact": "critical",
+     "help": "ARIA attributes must conform to valid values",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=playwright",
+     "nodes": [
+      {
+       "target": "#navbar-search",
+       "html": "<input id=\"navbar-search\" type=\"text\" class=\"form-control bg-transparent shadow-none\" aria-haspopup=\"true\" placeholder=\"Search or type a command\" autocomplete=\"off\" aria-expanded=\"true\" aria-owns=\"awesomplete_list_3\" rol",
+       "summary": "Fix all of the following: Invalid ARIA attribute value: aria-activedescendant=\"awesomplete_list_3_item_0\""
+      }
+     ]
+    },
+    {
+     "id": "listitem",
+     "impact": "serious",
+     "help": "<li> elements must be contained in a <ul> or <ol>",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=playwright",
+     "nodes": [
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(1)",
+       "html": "<li aria-selected=\"true\"><a style=\"font-weight:normal\" href=\"/desk/user\"><span><mark>User</mark> List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(2)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user/view/report\"><span><mark>User</mark> Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(3)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New <mark>User</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(4)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/users\"><span>Open <mark>User</mark>s</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(5)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-type\"><span><mark>User</mark> Type List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(6)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-type/view/report\"><span><mark>User</mark> Type Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(7)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-group\"><span><mark>User</mark> Group List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(8)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-group/view/report\"><span><mark>User</mark> Group Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(9)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New <mark>User</mark> Group</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#awesomplete_list_3 > li:nth-child(10)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-invitation\"><span><mark>User</mark> Invitation List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(11)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-permission\"><span><mark>User</mark> Permission List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(12)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-invitation/view/report\"><span><mark>User</mark> Invitation Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(13)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/user-permission/view/report\"><span><mark>User</mark> Permission Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(14)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New <mark>User</mark> Invitation</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(15)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New <mark>User</mark> Permission</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(16)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/User%20Doctype%20Permissions\"><span>Report <mark>User</mark> Doctype Permissions</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(17)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Permitted%20Documents%20For%20User\"><span>Report Permitted Documents For <mark>User</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(18)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/customer-group/view/tree\"><span>Open C<mark>us</mark>tom<mark>er</mark> Group Tree</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(19)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-period\"><span>S<mark>u</mark>pplier <mark>S</mark>corecard P<mark>er</mark>iod List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(20)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-period/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>corecard P<mark>er</mark>iod Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(21)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/docshare/view/report/Document%20Share%20Report\"><span>Report Doc<mark>u</mark>ment <mark>S</mark>har<mark>e</mark> <mark>R</mark>eport</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(22)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-criteria\"><span>S<mark>u</mark>pplier <mark>S</mark>corecard Crit<mark>er</mark>ia List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(23)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-criteria/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>corecard Crit<mark>er</mark>ia Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(24)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New S<mark>u</mark>pplier <mark>S</mark>corecard Crit<mark>er</mark>ia</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(25)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(26)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(27)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(28)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/customize-form/Customize%20Form\"><span>C<mark>us</mark>tomiz<mark>e</mark> Fo<mark>r</mark>m </span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(29)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Customers%20Without%20Any%20Sales%20Transactions\"><span>Report C<mark>us</mark>tom<mark>er</mark>s Without Any Sales Transactions</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(30)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/purpose-of-travel\"><span>P<mark>u</mark>rpo<mark>se</mark> of T<mark>r</mark>avel List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(31)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/purpose-of-travel/view/report\"><span>P<mark>u</mark>rpo<mark>se</mark> of T<mark>r</mark>avel Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(32)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New P<mark>u</mark>rpo<mark>se</mark> of T<mark>r</mark>avel</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(33)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-variable\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Variable List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(34)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-standing\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Standing List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(35)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-variable/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Variable Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(36)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/supplier-scorecard-standing/view/report\"><span>S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Standing Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(37)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Variable</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(38)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New S<mark>u</mark>pplier <mark>S</mark>cor<mark>e</mark>ca<mark>r</mark>d Standing</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(39)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span> <span class=\"flex justify-between text-medium\"> <span class=\"ellipsis\">Search for <b>user</b></span> <kbd>↵</kbd> </span> </span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(40)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(41)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter/view/report\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(42)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(43)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter-group\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> Group List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(44)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/quality-inspection-parameter-group/view/report\"><span>Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> Group Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(45)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New Q<mark>u</mark>ality In<mark>s</mark>pection Paramet<mark>er</mark> Group</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(46)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>Find <b>user</b> in <b>User</b></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(47)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/accounting-dimension-filter\"><span>Acco<mark>u</mark>nting Dimen<mark>s</mark>ion Filt<mark>er</mark> List</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(48)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/accounting-dimension-filter/view/report\"><span>Acco<mark>u</mark>nting Dimen<mark>s</mark>ion Filt<mark>er</mark> Report</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(49)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"#\"><span>New Acco<mark>u</mark>nting Dimen<mark>s</mark>ion Filt<mark>er</mark></span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(50)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Dimension-wise%20Accounts%20Balance%20Report\"><span>Report Dimension-wise Acco<mark>u</mark>nt<mark>s</mark> Balanc<mark>e</mark> <mark>R</mark>eport</span></a><",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(51)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Accrued%20Earnings%20Report\"><span>Report Accr<mark>u</mark>ed Earning<mark>s</mark> R<mark>e</mark>po<mark>r</mark>t</span></a></li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "li:nth-child(52)",
+       "html": "<li><a style=\"font-weight:normal\" href=\"/desk/query-report/Material%20Requirements%20Planning%20Report\"><span>Report Material Req<mark>u</mark>irement<mark>s</mark> Planning R<mark>e</mark>po<mark>r</mark>t</span></a></l",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "color-contrast": 11
+   },
+   "passes": 17
+  },
+  "notifications": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "aria-required-children",
+     "impact": "critical",
+     "help": "Certain ARIA roles must contain particular children",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-children?application=playwright",
+     "nodes": [
+      {
+       "target": ".notifications-list",
+       "html": "<div class=\"notifications-list\" role=\"menu\">",
+       "summary": "Fix any of the following: Element has children which are not allowed: [role=tablist], img"
+      },
+      {
+       "target": ".notification-item-tabs",
+       "html": "<ul class=\"notification-item-tabs nav nav-tabs\" role=\"tablist\">",
+       "summary": "Fix any of the following: Element has children which are not allowed: li"
+      }
+     ]
+    },
+    {
+     "id": "listitem",
+     "impact": "serious",
+     "help": "<li> elements must be contained in a <ul> or <ol>",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=playwright",
+     "nodes": [
+      {
+       "target": "#notifications",
+       "html": "<li class=\"notifications-category active\" id=\"notifications\" data-toggle=\"collapse\">Notifications</li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#todays_events",
+       "html": "<li class=\"notifications-category\" id=\"todays_events\" data-toggle=\"collapse\">Events</li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      },
+      {
+       "target": "#changelog_feed",
+       "html": "<li class=\"notifications-category\" id=\"changelog_feed\" data-toggle=\"collapse\">What's New</li>",
+       "summary": "Fix any of the following: List item parent element has a role that is not role=\"list\""
+      }
+     ]
+    }
+   ],
+   "incomplete": {},
+   "passes": 8
+  },
+  "dialog": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 19
+  },
+  "msgprint": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 14
+  },
+  "toast": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 6
+  },
+  "freeze": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/user",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 1
+  },
+  "appearance": {
+   "meta": {
+    "theme": "light",
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/desk/ins-appearance",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_desk.bundle.YB2MOTUM.css"
+    ]
+   },
+   "violations": [
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "help": "Zooming and scaling must not be disabled",
+     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=playwright",
+     "nodes": [
+      {
+       "target": "meta[name=\"viewport\"]",
+       "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui\">",
+       "summary": "Fix any of the following: user-scalable=no on <meta> tag disables zooming on mobile devices"
+      }
+     ]
+    }
+   ],
+   "incomplete": {
+    "aria-prohibited-attr": 1,
+    "color-contrast": 1,
+    "target-size": 1
+   },
+   "passes": 25
+  },
+  "login": {
+   "meta": {
+    "theme": null,
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/login",
+    "forgotDisplay": "none",
+    "insStyles": [
+     "ins_web.bundle.6Q7ERSAO.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 27
+  },
+  "forgot-password": {
+   "meta": {
+    "theme": null,
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/login#forgot",
+    "forgotDisplay": "block",
+    "insStyles": [
+     "ins_web.bundle.6Q7ERSAO.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 27
+  },
+  "error-404": {
+   "meta": {
+    "theme": null,
+    "dir": "ltr",
+    "lang": "en",
+    "url": "/this-page-does-not-exist-axe",
+    "forgotDisplay": null,
+    "insStyles": [
+     "ins_web.bundle.6Q7ERSAO.css"
+    ]
+   },
+   "violations": [],
+   "incomplete": {},
+   "passes": 11
+  }
+ },
+ "pageErrors": [
+  "undefined",
+  "undefined",
+  "undefined",
+  "undefined",
+  "undefined",
+  "undefined"
+ ],
+ "finished": "2026-10-14T02:23:03.160Z"
+}

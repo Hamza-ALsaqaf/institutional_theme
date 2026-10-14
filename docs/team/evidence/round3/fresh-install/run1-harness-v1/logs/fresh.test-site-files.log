@@ -1,0 +1,8 @@
+=== fresh.test-site-files  2026-10-14T00:55:17Z
+$ fb ls -la sites/fresh.test/public/files 2>&1; test ! -e sites/fresh.test/public/files/institutional_theme && echo 'no institutional_theme folder'
+total 12
+drwxrwxr-x+ 2 frappe frappe 4096 Oct 14 00:55 .
+drwxrwxr-x+ 3 frappe frappe 4096 Oct 14 00:54 ..
+-rw-rw-r--+ 1 frappe frappe   26 Oct 14 00:55 gate-emblema7b14f.png
+no institutional_theme folder
+exit 0

@@ -8,7 +8,9 @@
 // label is still empty at `form-refresh`: core fills the text a moment later.
 //
 // Check controls (check.js `make_wrapper`) wrap the input in a `<label>` already, so they are left alone:
-// a second name would be announced twice. Controls inside a grid keep core's own naming. A control that
+// a second name would be announced twice. Controls in the cells of a grid row keep core's own naming (they
+// have no visible label), but the row editor that opens under a row (`.form-in-grid`, grid_row_form.js:4) is
+// a form of its own, with a label above each control, and is named like one. A control that
 // already carries `aria-label` or an `aria-labelledby` of its own is not touched, and `id` and
 // `aria-describedby` are never written.
 //
@@ -16,7 +18,7 @@
 // before `refresh_fields`), so one MutationObserver per form layout, created on the first `form-refresh`
 // of that form, watches for added nodes and labels what appeared. Passes are batched into one animation
 // frame, and each pass only writes an attribute that differs. A page without a form creates no observer.
-import { toElement, setAttr, warn } from "./dom.js";
+import { defer, toElement, setAttr, warn } from "./dom.js";
 
 const CONTROLS = "input:not([type='hidden']):not([type='checkbox']), textarea, select, [contenteditable='true']";
 const ID_PREFIX = "ins-label-";
@@ -33,7 +35,7 @@ function ownLabel(wrapper) {
 
 function ownControls(wrapper) {
 	return Array.from(wrapper.querySelectorAll(CONTROLS)).filter(
-		(control) => control.closest(".frappe-control") === wrapper && !control.closest(".form-grid, .grid-row")
+		(control) => control.closest(".frappe-control") === wrapper && (!control.closest(".form-grid, .grid-row") || !!control.closest(".form-in-grid"))
 	);
 }
 
@@ -78,8 +80,7 @@ export function watchLayout(frm) {
 	new MutationObserver((records) => {
 		if (queued || !records.some((record) => record.addedNodes.length)) return;
 		queued = true;
-		if (typeof requestAnimationFrame === "function") requestAnimationFrame(run);
-		else setTimeout(run, 16);
+		defer(run);
 	}).observe(root, { childList: true, subtree: true });
 }
 

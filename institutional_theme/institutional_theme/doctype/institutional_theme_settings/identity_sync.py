@@ -17,9 +17,22 @@ Rules:
 - The first time a target is written, its current value is stored in the global `ins_identity_prior`;
   each value written is stored in `ins_identity_written`. `restore()` puts the prior value back, but
   only into a target that still holds the value this app wrote.
+- Core copies a file when a document that holds another document's file in an Attach field is saved
+  (`frappe/hooks.py` `doc_events["*"]["on_update"]`, `core/doctype/file/utils.py`
+  `attach_files_to_document`). Those copies are the app's leftovers, but an administrator's own File rows
+  can have the same `file_url` and `content_hash` (core's de-duplication). So ownership is recorded, not
+  guessed from the hash: the global `ins_identity_files` keeps, per target, each value this app wrote, the
+  time of the write and the names of the File rows that the write itself created: every row attached to
+  Navbar Settings `app_logo` since the write began, whatever its `file_url` (core re-saves content that
+  decodes as text, `File.get_content`, so a copy can have another hash and name). A row that existed before the
+  write is never owned. Website Settings is written without `save()`, so core copies appear only when somebody
+  saves it later; those rows are recognised by target field, `file_url` equal to a written value and
+  `creation` at or after the write.
 - Install and migrate never call `apply`.
 
 `restore()` and `delete_attachments()` are called from `before_uninstall` (`institutional_theme/install.py`).
+`ins_identity_files` starts with the prefix that `install.clear_globals` deletes, and `delete_attachments()`
+removes it itself once the files are gone.
 """
 
 from __future__ import annotations
@@ -28,10 +41,12 @@ import json
 from typing import Any
 
 import frappe
+from frappe.utils import now_datetime
 
 DOCTYPE = "Institutional Theme Settings"
 PRIOR_KEY = "ins_identity_prior"
 WRITTEN_KEY = "ins_identity_written"
+FILES_KEY = "ins_identity_files"
 
 # settings field -> ((target doctype, target field), ...)
 TARGETS: dict[str, tuple[tuple[str, str], ...]] = {
@@ -69,6 +84,36 @@ def _text(value: Any) -> str:
 	return "" if value is None else str(value)
 
 
+def _stamp() -> str:
+	"""Now, with microseconds, in the format of `File.creation` (the seconds-only `frappe.utils.now()`
+	would let a row created earlier in the same second count as new)."""
+	return str(now_datetime())
+
+
+def _record_write(files: dict[str, Any], key: str, url: str, since: str, names: list[str]) -> None:
+	"""Remember that this app wrote `url` to the target `key` at `since`, and which File rows that created."""
+	entries = files.setdefault(key, [])
+	for entry in entries:
+		if entry["url"] == url:
+			entry["since"] = min(entry["since"], since)
+			entry["names"] = sorted(set(entry["names"]) | set(names))
+			return
+	entries.append({"url": url, "since": since, "names": sorted(names)})
+
+
+def _created_since(doctype: str, fieldname: str, since: str, url: str | None = None) -> list[str]:
+	"""Names of the File rows attached to `doctype`.`fieldname` that were created at or after `since`,
+	for `url` when one is given."""
+	filters: dict[str, Any] = {
+		"attached_to_doctype": doctype,
+		"attached_to_field": fieldname,
+		"creation": (">=", since),
+	}
+	if url:
+		filters["file_url"] = url
+	return frappe.get_all("File", filters=filters, pluck="name")
+
+
 def changed_fields(doc: Any, old: Any) -> list[str]:
 	"""Identity fields whose value differs from the previous save.
 
@@ -101,6 +146,8 @@ def apply(doc: Any, old: Any) -> list[str]:
 
 	prior = _load(PRIOR_KEY)
 	written = _load(WRITTEN_KEY)
+	files = _load(FILES_KEY)
+	since = _stamp()
 	website: dict[str, Any] = {}
 	navbar: dict[str, Any] = {}
 
@@ -115,6 +162,8 @@ def apply(doc: Any, old: Any) -> list[str]:
 			if value:
 				batch[target_field] = value
 				written[key] = value
+				if target_doctype == "Website Settings":
+					_record_write(files, key, value, since, [])
 				continue
 			# Cleared here: forget the key. The original value goes back only into a target that still
 			# holds what this app wrote; an administrator's later edit is left alone.
@@ -125,6 +174,7 @@ def apply(doc: Any, old: Any) -> list[str]:
 
 	_store(PRIOR_KEY, prior)
 	_store(WRITTEN_KEY, written)
+	_store(FILES_KEY, files)
 
 	if website:
 		frappe.db.set_single_value("Website Settings", website)
@@ -133,6 +183,17 @@ def apply(doc: Any, old: Any) -> list[str]:
 		for fieldname, value in navbar.items():
 			settings.set(fieldname, value)
 		settings.save()
+		# `save()` ran core's attach hook: the rows created by this very save belong to this app.
+		for fieldname, value in navbar.items():
+			if value and written.get(_key("Navbar Settings", fieldname)) == value:
+				_record_write(
+					files,
+					_key("Navbar Settings", fieldname),
+					value,
+					since,
+					_created_since("Navbar Settings", fieldname, since),
+				)
+		_store(FILES_KEY, files)
 	if website or navbar:
 		clear_website_caches()
 	return changed
@@ -172,9 +233,51 @@ def restore() -> list[str]:
 	return restored
 
 
+def _owned_copies(files: dict[str, Any]) -> list[str]:
+	"""Names of the File rows this app is responsible for, per `ins_identity_files`.
+
+	A recorded name counts as is. For Website Settings, where core copies a file only when the document is
+	saved after this app wrote it, a row counts when it is attached to the written field, carries a written
+	`file_url`, and was created at or after that write. A row whose `file_url` is what the target shows now is
+	never owned: it is what the site displays.
+	"""
+	owned: list[str] = []
+	for key, entries in files.items():
+		target_doctype, _sep, target_field = key.partition(".")
+		showing = _text(frappe.db.get_single_value(target_doctype, target_field))
+		for entry in entries:
+			candidates = list(entry.get("names", []))
+			if target_doctype == "Website Settings":
+				candidates += _created_since(target_doctype, target_field, entry["since"], entry["url"])
+			for name in dict.fromkeys(candidates):
+				row = frappe.db.get_value(
+					"File",
+					name,
+					["file_url", "attached_to_doctype", "attached_to_field"],
+					as_dict=True,
+				)
+				if (
+					row
+					and row.attached_to_doctype == target_doctype
+					and row.attached_to_field == target_field
+					and _text(row.file_url) != showing
+				):
+					owned.append(name)
+	return list(dict.fromkeys(owned))
+
+
 def delete_attachments() -> int:
-	"""Delete the File rows attached to the settings. A file shared by `content_hash` stays on disk."""
+	"""Delete the File rows this app owns: those attached to the settings doctype, and the copies core made
+	of its images for Navbar Settings and Website Settings (see the module docstring for how ownership is
+	known). An administrator's own file, even one with the same bytes as the emblem, is never touched: core
+	keeps the file on disk while a row that stays shares its `content_hash`. Idempotent; forgets the record.
+	"""
 	names = frappe.get_all("File", filters={"attached_to_doctype": DOCTYPE}, pluck="name")
-	for name in names:
-		frappe.delete_doc("File", name, force=True, ignore_permissions=True)
-	return len(names)
+	names += _owned_copies(_load(FILES_KEY))
+	deleted = 0
+	for name in dict.fromkeys(names):
+		if frappe.db.exists("File", name):
+			frappe.delete_doc("File", name, force=True, ignore_permissions=True)
+			deleted += 1
+	frappe.defaults.clear_default(key=FILES_KEY, parent="__global")
+	return deleted

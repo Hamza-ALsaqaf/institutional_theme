@@ -1,0 +1,176 @@
+=== fresherp.test-get-app-erpnext  2026-10-14T01:07:26Z
+$ fb bench get-app erpnext https://github.com/frappe/erpnext --branch v16.33.0
+Getting erpnext
+$ git clone https://github.com/frappe/erpnext --branch v16.33.0 --depth 1 --origin upstream
+Cloning into 'erpnext'...
+Note: switching to 'b24c9eba551905e256e336ff170a91a92d197a2f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Ignoring dependencies of https://github.com/frappe/erpnext. To install dependencies use --resolve-deps
+Installing erpnext
+$ uv pip install --quiet -e /home/frappe/fresh-bench/apps/erpnext  --python /home/frappe/fresh-bench/env/bin/python
+$ yarn install --check-files
+yarn install v1.22.22
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+$ cd banking && yarn install
+yarn install v1.22.22
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 6.51s.
+Done in 6.77s.
+$ bench build --app erpnext
+Linking /home/frappe/fresh-bench/apps/frappe/frappe/public to ./assets/frappe   Linking /home/frappe/fresh-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/fresh-bench/apps/erpnext/erpnext/public to ./assets/erpnextLinking /home/frappe/fresh-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                Linking /home/frappe/fresh-bench/apps/institutional_theme/institutional_theme/public to ./assets/institutional_theme                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps erpnext --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+erpnext/dist/js/
+├─ bank-reconciliation-tool.bundle.3OD5XE4B.js              17.65 Kb
+├─ erpnext.bundle.J7IIEFRC.js                               263.96 Kb
+├─ item-dashboard.bundle.2TMZR2HR.js                        10.52 Kb
+├─ point-of-sale.bundle.USGGAUZO.js                         106.33 Kb
+└─ bom_configurator.bundle.ZQW56QWW.js                      10.69 Kb
+
+erpnext/dist/css/
+├─ erpnext-web.bundle.N5DNWBQF.css                          2.86 Kb
+├─ erpnext.bundle.KIFY7BF2.css                              52.05 Kb
+└─ erpnext_email.bundle.LCRUSG7W.css                        0.56 Kb
+
+erpnext/dist/css-rtl/
+├─ erpnext-web.bundle.YYYO3NQN.css                          2.87 Kb
+├─ erpnext.bundle.PJ55KVY5.css                              52.05 Kb
+└─ erpnext_email.bundle.YMZ3SRD4.css                        0.56 Kb
+
+ DONE  Total Build Time: 1.052s
+
+
+Running build command for erpnext
+$ cd banking && yarn build
+$ vite build --base=/assets/erpnext/banking/ && yarn copy-html-entry
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:17:22). Use `import.meta.dirname` instead
+  - import "./proxyOptions" without a file extension (vite.config.ts:4:26). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.2.1 building client environment for production...
+[2Ktransforming...
+/assets/frappe/css/fonts/inter/InterVariable.woff2 referenced in /assets/frappe/css/fonts/inter/InterVariable.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+/assets/frappe/css/fonts/inter/InterVariable-Italic.woff2 referenced in /assets/frappe/css/fonts/inter/InterVariable-Italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+✓ 3573 modules transformed.
+rendering chunks...
+computing gzip size...
+../erpnext/public/banking/index.html                                                3.36 kB │ gzip:   1.09 kB
+../erpnext/public/banking/assets/index-J_w2RrLs.css                               245.10 kB │ gzip:  24.21 kB
+../erpnext/public/banking/assets/MissingFiltersBanner-xuypI2EX.js                   0.30 kB │ gzip:   0.23 kB
+../erpnext/public/banking/assets/rolldown-runtime-8BhlS34s.js                       0.80 kB │ gzip:   0.47 kB
+../erpnext/public/banking/assets/FileUploadBanner-CYwei0Xs.js                       1.12 kB │ gzip:   0.62 kB
+../erpnext/public/banking/assets/checkbox-CcdSe05F.js                               1.58 kB │ gzip:   0.65 kB
+../erpnext/public/banking/assets/CSVImport-DnhAaCaq.js                              1.89 kB │ gzip:   0.94 kB
+../erpnext/public/banking/assets/SelectedTransactionDetails-Chcrj8Sw.js             2.35 kB │ gzip:   0.89 kB
+../erpnext/public/banking/assets/BankTransactionUnreconcileModalBody-Cj8W6X9d.js    2.97 kB │ gzip:   1.22 kB
+../erpnext/public/banking/assets/dialog-D_6ljQ2x.js                                 3.19 kB │ gzip:   1.19 kB
+../erpnext/public/banking/assets/ViewBankStatementImportLog-DFaIw4Vb.js             3.30 kB │ gzip:   1.39 kB
+../erpnext/public/banking/assets/IncorrectlyClearedEntries-BzWCq8hb.js              4.42 kB │ gzip:   1.89 kB
+../erpnext/public/banking/assets/BankReconciliationStatement-C7T-v9cK.js            6.04 kB │ gzip:   2.14 kB
+../erpnext/public/banking/assets/list-view-B4RgjqZW.js                              7.19 kB │ gzip:   2.95 kB
+../erpnext/public/banking/assets/button-DOcW7Qt9.js                                 7.40 kB │ gzip:   1.50 kB
+../erpnext/public/banking/assets/BankClearanceSummary-BiNDBaGQ.js                   7.53 kB │ gzip:   2.74 kB
+../erpnext/public/banking/assets/amountFormula-CFGgnAXE.js                          8.06 kB │ gzip:   2.29 kB
+../erpnext/public/banking/assets/BankStatementImporter-Bif2Cfpp.js                  8.20 kB │ gzip:   2.84 kB
+../erpnext/public/banking/assets/BankTransactionList-ODZBCyGB.js                    8.89 kB │ gzip:   2.87 kB
+../erpnext/public/banking/assets/PDFImport-CR5I6RZK.js                              9.77 kB │ gzip:   3.48 kB
+../erpnext/public/banking/assets/vendor-jotai-BkrKvjbq.js                          10.37 kB │ gzip:   4.36 kB
+../erpnext/public/banking/assets/ActionLogDialogBody-DZMLsWs7.js                   12.39 kB │ gzip:   3.41 kB
+../erpnext/public/banking/assets/TransferModalContent-DvZ0-OBh.js                  12.56 kB │ gzip:   3.90 kB
+../erpnext/public/banking/assets/BankEntryModalContent-BeHXEB-0.js                 14.58 kB │ gzip:   4.60 kB
+../erpnext/public/banking/assets/StatementDetails-B1eE2ra0.js                      14.90 kB │ gzip:   4.16 kB
+../erpnext/public/banking/assets/vendor-lucide-BkXXslVd.js                         15.38 kB │ gzip:   5.35 kB
+../erpnext/public/banking/assets/RecordPaymentModalContent-DSyiOJcD.js             25.61 kB │ gzip:   6.93 kB
+../erpnext/public/banking/assets/vendor-fuse--ddGMqbN.js                           26.73 kB │ gzip:   9.70 kB
+../erpnext/public/banking/assets/typography-CAu2sKVS.js                            62.32 kB │ gzip:  19.64 kB
+../erpnext/public/banking/assets/file-dropzone-CdHiXGt7.js                         71.98 kB │ gzip:  20.60 kB
+../erpnext/public/banking/assets/vendor-tanstack-D_Y0JpoQ.js                       73.99 kB │ gzip:  19.64 kB
+../erpnext/public/banking/assets/SettingsPanelsContent-sW9PlRt-.js                 84.20 kB │ gzip:  24.39 kB
+../erpnext/public/banking/assets/vendor-frappe-Do1ZmVzw.js                        134.32 kB │ gzip:  43.93 kB
+../erpnext/public/banking/assets/vendor-radix-PBxB5fcH.js                         148.16 kB │ gzip:  45.14 kB
+../erpnext/public/banking/assets/vendor-react-Bu7gr542.js                         178.51 kB │ gzip:  56.33 kB
+../erpnext/public/banking/assets/error-banner-CvMol9Ww.js                         357.94 kB │ gzip: 107.83 kB
+../erpnext/public/banking/assets/index-CADYgQwe.js                                359.34 kB │ gzip: 104.20 kB
+
+✓ built in 780ms
+$ cp ../erpnext/public/banking/index.html ../erpnext/www/banking.html
+Done in 3.70s.
+Compiling translations for erpnext
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/ar/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/vi/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/hr/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/sr_CS/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/sr/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/nl/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/uz/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/ko/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/zh/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/bg/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/ru/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/tr/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/pl/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/fr/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/it/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/pt/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/eo/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/fa/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/my/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/hu/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/ta/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/sv/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/zh_TW/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/pt_BR/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/nb/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/fi/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/cs/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/id/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/af/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/ro/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/sl/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/th/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/hi/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/es/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/da/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/de/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/fresh-bench/sites/assets/locale/bs/LC_MESSAGES/erpnext.mo
+exit 0

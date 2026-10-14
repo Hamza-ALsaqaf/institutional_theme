@@ -19,6 +19,10 @@ You are the lead of the Institutional Theme (Midad) build team, continuing on br
 - CI does not run by itself on commits pushed from this job. Before every push run the same checks as `.github/workflows/ci.yml` locally (ruff 0.16.8 check and format, both unit-test suites, `python -m institutional_theme.midad.build --check`, `python -m institutional_theme.audits`) and keep their output in the task's evidence folder.
 - `GH_TOKEN` is set for the `gh` CLI.
 
+## Run mechanics (learned from the first round-3 attempt)
+
+This headless run ends when you end your turn. The first round-3 attempt (00:22 to 00:40 UTC) ended its turn while three background agents were working and they were stopped after 10 minutes, losing their unpushed work. So: dispatch agents in the foreground (several Agent calls in one message run in parallel, and you wait for all of them); never end your turn while any agent or background command is still running; and have every agent commit and push its own finished work before it reports. What the first attempt pushed (the plan, the bench rebuild, CI checks) stays; redo its wave 1 (clean install, newest tag, HRMS, axe scan, brand-app coexistence) from `docs/team/STATUS.md`.
+
 ## Read first
 
 `CLAUDE.md`, `docs/team/STATUS.md`, `docs/team/OWNER_REVIEW.md`, the latest reviews in `docs/team/reviews/` (`upgrade-round2.md`, `a11y-round2.md`), `docs/team/RUN_RULES.md`, `docs/team/PLAN.md`, `docs/BRIEF.md`, `docs/research/frappe-16.32-findings.md`, `docs/adr/`, `README.md`, `docs/UPGRADE_AND_QA_CHECKLIST.md`. Accepted ADRs and logged decisions are final; do not redo passed work, re-verify only what your changes touch.

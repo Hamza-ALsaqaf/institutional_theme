@@ -1,0 +1,123 @@
+### diff assets-before.txt assets-installed.txt
+--- /dev/fd/63	2026-10-14 04:42:40.762964801 +0000
++++ /dev/fd/62	2026-10-14 04:42:40.762964801 +0000
+@@ -2,14 +2,16 @@
+ 
+ # GET /login -> 200
+ 
+-## /login stylesheets (3)
++## /login stylesheets (4)
+ /assets/frappe/dist/css/website.bundle.D3B7P6U7.css
+ /assets/erpnext/dist/css/erpnext-web.bundle.TB4B6KMW.css
++/assets/institutional_theme/dist/css/ins_web.bundle.KI52FWYT.css
+ /assets/frappe/dist/css/login.bundle.TEGVE5VM.css
+ 
+-## /login scripts (2)
++## /login scripts (3)
+ /assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js
+ /website_script.js
++/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js
+ 
+ ## /login data-theme attributes (raw html) (0)
+ 
+@@ -20,13 +22,14 @@
+ 
+ # GET /app -> 200
+ 
+-## /app stylesheets (4)
++## /app stylesheets (5)
+ /assets/frappe/dist/css/desk.bundle.6M445LMD.css
+ /assets/frappe/dist/css/report.bundle.3TU3QQEB.css
+ /assets/erpnext/dist/css/erpnext.bundle.C5Y7LWLB.css
+ /assets/hrms/dist/css/hrms.bundle.56QAKPHB.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.GFGCUA5B.css
+ 
+-## /app scripts (10)
++## /app scripts (11)
+ /assets/frappe/dist/js/libs.bundle.JEM3HUCP.js
+ /assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js
+ /assets/frappe/dist/js/desk.bundle.RY6OWFAD.js
+@@ -37,6 +40,7 @@
+ /assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+ /assets/erpnext/dist/js/erpnext.bundle.DZUIK47Y.js
+ /assets/hrms/dist/js/hrms.bundle.4ZPKX5BG.js
++/assets/institutional_theme/dist/js/ins_shell.bundle.V72536LA.js
+ 
+ ## /app data-theme attributes (raw html) (2)
+ data-theme-mode="light"
+@@ -45,9 +49,10 @@
+ ## /app/todo data-theme (live DOM)
+ {"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+ 
+-## /app/todo stylesheets (live DOM) (4)
++## /app/todo stylesheets (live DOM) (5)
+ /assets/frappe/dist/css/desk.bundle.6M445LMD.css
+ /assets/frappe/dist/css/report.bundle.3TU3QQEB.css
+ /assets/erpnext/dist/css/erpnext.bundle.C5Y7LWLB.css
+ /assets/hrms/dist/css/hrms.bundle.56QAKPHB.css
++/assets/institutional_theme/dist/css/ins_desk.bundle.GFGCUA5B.css
+ 
+
+### diff assets-before.txt assets-after-uninstall.txt
+(identical)
+
+### diff assets-installed.txt assets-after-uninstall.txt
+--- /dev/fd/63	2026-10-14 04:42:40.766964791 +0000
++++ /dev/fd/62	2026-10-14 04:42:40.766964791 +0000
+@@ -2,16 +2,14 @@
+ 
+ # GET /login -> 200
+ 
+-## /login stylesheets (4)
++## /login stylesheets (3)
+ /assets/frappe/dist/css/website.bundle.D3B7P6U7.css
+ /assets/erpnext/dist/css/erpnext-web.bundle.TB4B6KMW.css
+-/assets/institutional_theme/dist/css/ins_web.bundle.KI52FWYT.css
+ /assets/frappe/dist/css/login.bundle.TEGVE5VM.css
+ 
+-## /login scripts (3)
++## /login scripts (2)
+ /assets/frappe/dist/js/frappe-web.bundle.JTAQXGLM.js
+ /website_script.js
+-/assets/institutional_theme/dist/js/ins_web.bundle.S7YMWZWK.js
+ 
+ ## /login data-theme attributes (raw html) (0)
+ 
+@@ -22,14 +20,13 @@
+ 
+ # GET /app -> 200
+ 
+-## /app stylesheets (5)
++## /app stylesheets (4)
+ /assets/frappe/dist/css/desk.bundle.6M445LMD.css
+ /assets/frappe/dist/css/report.bundle.3TU3QQEB.css
+ /assets/erpnext/dist/css/erpnext.bundle.C5Y7LWLB.css
+ /assets/hrms/dist/css/hrms.bundle.56QAKPHB.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.GFGCUA5B.css
+ 
+-## /app scripts (11)
++## /app scripts (10)
+ /assets/frappe/dist/js/libs.bundle.JEM3HUCP.js
+ /assets/frappe/dist/js/billing.bundle.WUY3N4ZW.js
+ /assets/frappe/dist/js/desk.bundle.RY6OWFAD.js
+@@ -40,7 +37,6 @@
+ /assets/frappe/dist/js/telemetry.bundle.RXBBNH3H.js
+ /assets/erpnext/dist/js/erpnext.bundle.DZUIK47Y.js
+ /assets/hrms/dist/js/hrms.bundle.4ZPKX5BG.js
+-/assets/institutional_theme/dist/js/ins_shell.bundle.V72536LA.js
+ 
+ ## /app data-theme attributes (raw html) (2)
+ data-theme-mode="light"
+@@ -49,10 +45,9 @@
+ ## /app/todo data-theme (live DOM)
+ {"dataTheme":"light","dataThemeMode":"light","bodyDataTheme":null}
+ 
+-## /app/todo stylesheets (live DOM) (5)
++## /app/todo stylesheets (live DOM) (4)
+ /assets/frappe/dist/css/desk.bundle.6M445LMD.css
+ /assets/frappe/dist/css/report.bundle.3TU3QQEB.css
+ /assets/erpnext/dist/css/erpnext.bundle.C5Y7LWLB.css
+ /assets/hrms/dist/css/hrms.bundle.56QAKPHB.css
+-/assets/institutional_theme/dist/css/ins_desk.bundle.GFGCUA5B.css
+ 
+

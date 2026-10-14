@@ -41,12 +41,14 @@ Chart series 6,سلسلة الرسم البياني 6
 Chart series 7,سلسلة الرسم البياني 7
 Chart series 8,سلسلة الرسم البياني 8
 Choose a different colour preset to apply it.,اختر مجموعة ألوان أخرى لتطبيقها.
+Collapse {0},طيّ {0}
 Colour,الألوان
 Colour preset,مجموعة الألوان
 Colour preset changed to {0}.,تم تغيير مجموعة الألوان إلى {0}.
 Comfortable,مريحة
 Compact,مضغوطة
 Completed,مكتمل
+Condition,الشرط,Filter
 Contrast check,فحص التباين
 "Copied to the Frappe settings that show it (login page, navbar, browser tab) when changed here.",يُنسخ إلى إعدادات Frappe التي تعرضه (صفحة الدخول، شريط التنقل، علامة تبويب المتصفح) عند تغييره هنا.
 Custom,مخصصة
@@ -75,9 +77,11 @@ Environment,البيئة
 Error banner background,خلفية شريط الخطأ
 Error banner text,نص شريط الخطأ
 Error border,إطار الخطأ
+Expand {0},توسيع {0}
 Favicon,أيقونة المتصفح
 Field background,خلفية الحقل
 Field background on grey,خلفية الحقل على الرمادي
+Filter,تصفية,Column filter
 Focus ring,حلقة التركيز
 Font pairing,ثنائية الخطوط
 Forgot Password?,نسيت كلمة المرور؟
@@ -114,7 +118,9 @@ Link text,نص الرابط
 Link text on hover,نص الرابط عند تمرير المؤشر
 Login with Email Link,الدخول برابط عبر البريد الإلكتروني
 Login with password,الدخول بكلمة المرور
+Match type,نوع المطابقة
 Menu and dialog background,خلفية القوائم والحوارات
+Minimize,تصغير
 Minutes of warning,دقائق التنبيه
 Mode,الوضع
 Mode changed to {0}.,تم تغيير الوضع إلى {0}.
@@ -133,6 +139,7 @@ On hold,معلَّق
 Overdue,متأخر
 Page background,خلفية الصفحة
 "Passed pairs out of all pairs, and the lowest ratio. Set when the settings are saved.",عدد الأزواج الناجحة من مجموع الأزواج، وأدنى نسبة تباين. تُحدَّد عند حفظ الإعدادات.
+Paste into table,لصق في الجدول
 Pending approval,بانتظار الاعتماد
 Pending banner background,خلفية شريط الانتظار
 Pending banner text,نص شريط الانتظار
@@ -158,12 +165,16 @@ Reject,رفض
 Rejected,مرفوض
 Release {0},الإصدار {0}
 Resend,إعادة الإرسال
+Scroll to top,العودة إلى الأعلى
 Scrollbar thumb,مقبض شريط التمرير
 Scrollbar track,مسار شريط التمرير
 Search highlight,تمييز نتائج البحث
 Secondary button background,خلفية الزر الثانوي
 Secondary button background on hover,خلفية الزر الثانوي عند تمرير المؤشر
 Secondary text,النص الثانوي
+Select all rows,تحديد جميع الصفوف
+Select row,تحديد الصف
+Select row {0},تحديد الصف {0}
 Selected,محددة
 Selected and hovered row background,خلفية الصف المحدد عند تمرير المؤشر
 Selected row background,خلفية الصف المحدد
@@ -277,3 +288,9 @@ View Balance Sheet,عرض الميزانية العمومية
 Review Accounts Settings,مراجعة إعدادات الحسابات
 Begin typing for results.,ابدأ الكتابة لعرض النتائج.
 Timeline,الخط الزمني
+Collapse,طيّ,Row editor
+Previous Document,المستند السابق
+Next Document,المستند التالي
+Clear all filters,مسح جميع الفلاتر
+Filter {0},تصفية {0},Column filter
+"{0}, row {1}","{0}، الصف {1}"

@@ -1,0 +1,58 @@
+step	exit	seconds	command
+clean-drop-fresh.test	0	2	fb bench drop-site fresh.test --force --no-backup --db-root-username postgres --db-root-password postgres
+clean-rm	0	2	as_frappe rm -rf /home/frappe/fresh-bench
+bench-init	0	32	as_frappe bash -c cd '/home/frappe' && bench init 'fresh-bench'   --frappe-branch 'v16.32.0' --python '/opt/python3.14/bin/python3.14' --no-backups --skip-redis-config-generation
+set-config-redis-cache	0	1	fb bench set-config -g redis_cache redis://127.0.0.1:13001
+set-config-redis-queue	0	1	fb bench set-config -g redis_queue redis://127.0.0.1:11001
+set-config-redis-socketio	0	0	fb bench set-config -g redis_socketio redis://127.0.0.1:13001
+frappe-version	0	0	fb git -C apps/frappe describe --tags && ls apps && cat sites/apps.txt
+redis-cache	0	1	as_frappe redis-server --port 13001 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/fresh-bench/logs --pidfile /home/frappe/fresh-bench/logs/redis-cache.pid
+redis-queue	0	0	as_frappe redis-server --port 11001 --bind 127.0.0.1 --daemonize yes --save  --appendonly no --dir /home/frappe/fresh-bench/logs --pidfile /home/frappe/fresh-bench/logs/redis-queue.pid
+fresh.test-new-site	0	21	fb bench new-site fresh.test --db-type postgres --db-host 127.0.0.1 --db-port 5432   --db-root-username postgres --db-root-password postgres --admin-password admin
+fresh.test-list-apps-before	0	1	fb bench --site fresh.test list-apps
+fresh.test-snapshot-before	0	1	snapshot fresh.test before
+fresh.test-readme-1-get-app	0	7	fb bench get-app https://github.com/Hamza-ALsaqaf/institutional_theme
+fresh.test-app-version	0	0	fb git -C apps/institutional_theme log --oneline -1 && git -C apps/institutional_theme branch --show-current && cat sites/apps.txt
+fresh.test-readme-2-install-app	0	3	fb bench --site fresh.test install-app institutional_theme
+fresh.test-readme-3-build	0	4	fb bench build --app institutional_theme
+fresh.test-readme-4-restart	0	0	fb bench restart
+fresh.test-readme-5-list-apps	0	2	fb bench --site fresh.test list-apps
+fresh.test-web-start	0	3	web_start fresh.test
+fresh.test-verify-installed	1	1	verify fresh.test fresh.test-installed yes
+fresh.test-install-again	0	1	fb bench --site fresh.test install-app institutional_theme
+fresh.test-migrate-1	0	7	fb bench --site fresh.test migrate
+fresh.test-migrate-2	0	7	fb bench --site fresh.test migrate
+fresh.test-snapshot-installed	0	0	snapshot fresh.test installed
+fresh.test-verify-after-migrate	1	1	verify fresh.test fresh.test-after-migrate yes
+fresh.test-seed-state	0	2	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' seed 'fresh.test' '/tmp/fresh-state-fresh.test.json'
+fresh.test-readme-6-uninstall	0	4	fb printf 'y\n' | bench --site fresh.test uninstall-app institutional_theme
+fresh.test-list-apps-after	0	2	fb bench --site fresh.test list-apps
+fresh.test-residue-gate-state	0	1	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' residue 'fresh.test' '/tmp/fresh-state-fresh.test.json'
+fresh.test-snapshot-after	0	1	snapshot fresh.test after
+fresh.test-residue-table-diff	1	0	bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresh.test-before.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresh.test-after.json'
+fresh.test-verify-after-uninstall	0	1	verify fresh.test fresh.test-after-uninstall-no-restart no
+fresh.test-site-files	0	0	fb ls -la sites/fresh.test/public/files 2>&1; test ! -e sites/fresh.test/public/files/institutional_theme && echo 'no institutional_theme folder'
+fresherp.test-new-site	0	18	fb bench new-site fresherp.test --db-type postgres --db-host 127.0.0.1 --db-port 5432   --db-root-username postgres --db-root-password postgres --admin-password admin
+fresherp.test-get-app-erpnext	0	22	fb bench get-app erpnext https://github.com/frappe/erpnext --branch v16.33.0
+fresherp.test-install-erpnext	0	55	fb bench --site fresherp.test install-app erpnext
+fresherp.test-list-apps-before	0	2	fb bench --site fresherp.test list-apps
+fresherp.test-snapshot-before	0	1	snapshot fresherp.test before
+fresherp.test-readme-2-install-app	0	20	fb bench --site fresherp.test install-app institutional_theme
+fresherp.test-readme-3-build	0	4	fb bench build --app institutional_theme
+fresherp.test-readme-4-restart	0	0	fb bench restart
+fresherp.test-readme-5-list-apps	0	2	fb bench --site fresherp.test list-apps
+fresherp.test-web-start	0	3	web_start fresherp.test
+fresherp.test-verify-installed	1	1	verify fresherp.test fresherp.test-installed yes
+fresherp.test-install-again	0	1	fb bench --site fresherp.test install-app institutional_theme
+fresherp.test-migrate-1	0	21	fb bench --site fresherp.test migrate
+fresherp.test-migrate-2	0	20	fb bench --site fresherp.test migrate
+fresherp.test-snapshot-installed	0	1	snapshot fresherp.test installed
+fresherp.test-verify-after-migrate	1	1	verify fresherp.test fresherp.test-after-migrate yes
+fresherp.test-seed-state	0	3	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' seed 'fresherp.test' '/tmp/fresh-state-fresherp.test.json'
+fresherp.test-readme-6-uninstall	0	7	fb printf 'y\n' | bench --site fresherp.test uninstall-app institutional_theme
+fresherp.test-list-apps-after	0	2	fb bench --site fresherp.test list-apps
+fresherp.test-residue-gate-state	0	1	as_frappe bash -c cd '/home/frappe/fresh-bench/sites' && '/home/frappe/fresh-bench/env/bin/python' '/home/runner/work/institutional_theme/institutional_theme/tools/bench/gate_state.py' residue 'fresherp.test' '/tmp/fresh-state-fresherp.test.json'
+fresherp.test-snapshot-after	0	1	snapshot fresherp.test after
+fresherp.test-residue-table-diff	1	0	bash -c python3 -I '/home/runner/work/institutional_theme/institutional_theme/tools/bench/fresh_check.py' diff '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresherp.test-before.json' '/home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/snapshot-fresherp.test-after.json'
+fresherp.test-verify-after-uninstall	0	1	verify fresherp.test fresherp.test-after-uninstall-no-restart no
+fresherp.test-site-files	0	0	fb ls -la sites/fresherp.test/public/files 2>&1; test ! -e sites/fresherp.test/public/files/institutional_theme && echo 'no institutional_theme folder'

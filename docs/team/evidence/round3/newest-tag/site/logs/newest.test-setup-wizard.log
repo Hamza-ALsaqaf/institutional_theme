@@ -1,0 +1,6 @@
+=== newest.test-setup-wizard  2026-10-14T01:49:46Z
+$ wizard newest.test 0
+Updating Dashboard for frappe
+{"status": "ok"}
+true
+exit 0

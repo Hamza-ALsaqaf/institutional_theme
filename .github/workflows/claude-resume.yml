@@ -119,7 +119,10 @@ jobs:
           sudo systemctl stop redis-server postgresql || true
           sudo systemctl disable redis-server postgresql || true
 
+      # No cache: the bench writes into it as the frappe user, which breaks the post-job prune.
       - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: false
 
       - name: Python 3.14
         run: uv python install 3.14
@@ -132,6 +135,8 @@ jobs:
 
       - name: Run the Midad build
         env:
+          # Headless runs stop background agents 10 minutes after the lead's last turn by default.
+          CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS: "0"
           ANTHROPIC_API_KEY: ${{ secrets.INSTITUTIONAL_THEME }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENGINE: ${{ steps.smoke_sdk.outcome == 'success' && 'sdk' || 'cli' }}

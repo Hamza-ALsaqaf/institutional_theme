@@ -3,6 +3,12 @@
 	"private": true,
 	"type": "module",
 	"description": "Computed-style proof that the theme wins against compiled Frappe core CSS.",
-	"scripts": { "cascade": "node cascade.mjs" },
-	"devDependencies": { "playwright-core": "1.56.1" }
+	"scripts": {
+		"cascade": "node cascade.mjs"
+	},
+	"devDependencies": {
+		"@axe-core/playwright": "4.13.0",
+		"axe-core": "4.13.0",
+		"playwright-core": "1.56.1"
+	}
 }

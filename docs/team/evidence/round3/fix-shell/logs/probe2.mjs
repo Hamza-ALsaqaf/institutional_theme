@@ -1,0 +1,14 @@
+import { chromium, login, BASE } from "./lib.mjs";
+const b = await chromium.launch({ args: ["--no-sandbox"] });
+const { page } = await login(b, "en");
+await page.goto(BASE + "/desk/user/view/report");
+await page.waitForSelector(".datatable", { timeout: 30000 });
+await page.waitForTimeout(1500);
+await page.evaluate(async () => { await new Promise(r => { frappe.model.user_settings.save("User", "Report", { fields: [["name","User"],["full_name","User"],["enabled","User"]] }); setTimeout(r, 1000); }); });
+await page.goto(BASE + "/desk/user/view/report");
+await page.waitForSelector(".datatable .dt-cell", { timeout: 30000 });
+await page.waitForTimeout(2500);
+const out = await page.evaluate(() => [...document.querySelectorAll(".dt-scrollable .dt-row")].slice(0,3).map(r => [...r.querySelectorAll("input[type=checkbox]")].map(c => `${c.closest(".dt-cell").className.match(/col-\d+/)}|dis=${c.disabled}|${c.className}|label=${c.getAttribute("aria-label")}`)));
+console.log(JSON.stringify(out, null, 1));
+console.log(await page.evaluate(() => [...document.querySelectorAll(".dt-header input[type=checkbox]")].map(c=>c.getAttribute("aria-label")+c.closest(".dt-cell").className)));
+await b.close();

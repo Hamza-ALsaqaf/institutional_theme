@@ -1,0 +1,4 @@
+=== newest.test-snapshot-before  2026-10-14T01:49:57Z
+$ snapshot newest.test before
+263 tables written to /tmp/fresh-snapshot-newest.test-before.json
+exit 0

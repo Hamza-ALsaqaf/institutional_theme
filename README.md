@@ -2,7 +2,7 @@
 
 An upgrade-safe visual identity and UI theme for the Frappe / ERPNext v16 desk, designed for a government institution: Light and Dark of equal quality, Arabic-first with full English parity, zero core edits.
 
-**Status: Round 2 delivered Phase 4 and ran the Phase 5 hostile reviews; final scores are in `docs/team/OWNER_REVIEW.md`.** Phase 3 gate passed earlier (desk, shell and login are themed; see `docs/team/evidence/phase3/`). The build is carried out by the agent team described in `docs/team/`.
+**Status: Round 3 (release hardening) passed its release gate: clean install from scratch, HRMS 16.20.1, the newest v16 tag checked, coexistence with another brand app, an automated axe-core scan with 0 violations caused by the theme, and both hostile reviews with no blocking finding.** Results and scores are in `docs/team/OWNER_REVIEW.md` (Arabic); evidence in `docs/team/evidence/round3/`. The build is carried out by the agent team described in `docs/team/`.
 
 Verified target: Frappe 16.32.0, ERPNext 16.33.0, HRMS 16.20.1.
 
@@ -29,7 +29,7 @@ Users may choose among audited colour presets; `midad` is the default. A site ad
 
 ## Install
 
-Run as the bench user, in the bench directory:
+Run as the bench user, in the bench directory. The bench is a Frappe v16 bench with at least one site (ERPNext is optional: the theme installs and uninstalls the same way on a Frappe-only site and on a site with ERPNext).
 
 ```bash
 cd ~/frappe-bench
@@ -39,16 +39,20 @@ bench build --app institutional_theme
 bench restart
 ```
 
-- `bench get-app` fetches the app from the repository (the `origin` remote of this repository, default branch).
-- `install-app` changes no setting by itself: the theme is on as soon as the bundles are built. An administrator's saved values are never overwritten.
-- `bench build --app institutional_theme` builds the desk and website bundles. Run it again after each change to the app's stylesheets or scripts.
-- Restart the bench processes so the web and worker processes load the new hooks.
+- `bench get-app` clones the repository's default branch (shallow, remote named `upstream`), installs the Python package and builds the app's bundles. To install another branch or tag, add `--branch <name>`.
+- `install-app` changes no setting by itself: the theme is on as soon as the bundles are built. An administrator's saved values are never overwritten. Running it again prints "already installed" and changes nothing.
+- `bench build --app institutional_theme` builds the desk and website bundles. `get-app` already built them once, so on a first install this finishes in a few seconds with the same files; run it again after each change to the app's stylesheets or scripts.
+- Restart the bench processes so the web and worker processes load the new hooks. On a bench without supervisor or systemd, `bench restart` exits 0 and restarts nothing (observed on the test bench): stop and start `bench start` or `bench serve` yourself.
+- After the app's code changes (for example `git pull` in `apps/institutional_theme`), run `bench build --app institutional_theme`, `bench --site <site> migrate` and `bench restart`. `migrate` can be run any number of times: a second run changes nothing.
 
 Check the install:
 
 ```bash
 bench --site <site> list-apps
+curl -s http://<site-host>/login | grep -o 'ins_web.bundle[^"]*'
 ```
+
+`list-apps` shows `institutional_theme 0.1.0`; the login page of a site with the app links `ins_web.bundle.<hash>.css` and `.js`, and the desk (`/desk`, signed in) links `ins_desk.bundle` and `ins_shell.bundle`.
 
 ## Optional site configuration
 
@@ -91,15 +95,46 @@ Uninstalling restores the stock Frappe look:
 
 ```bash
 bench --site <site> uninstall-app institutional_theme
+bench remove-app institutional_theme    # optional: also takes the app out of the bench
+bench restart
 ```
 
-The generated per-site stylesheets folder is removed by the uninstall hook. The stock look after uninstall is checked by `tools/bench/gate_install_uninstall.sh`.
+- `uninstall-app` asks "Are you sure you want to continue? [y/N]" and first takes a backup of the site (`sites/<site>/private/backups/`). `--yes` skips the question and `--no-backup` skips the backup.
+- It removes the Institutional Theme Settings doctype, the appearance page and the module; the Midad Print Style and Letter Head (only when you did not edit them and nothing links to them); this app's globals and per-user defaults; its attachments, meaning the files attached to the settings and the copies of the emblem and favicon that Frappe attached to Navbar Settings and Website Settings while the theme's values were in them (Frappe copies a file whenever one of those documents is saved); and the generated per-site stylesheets folder. Website Settings and Navbar Settings values that this app wrote (name, emblem, favicon) are put back, unless you changed them afterwards.
+- What it keeps: a file you uploaded yourself stays, even when it has exactly the same bytes as the emblem, because only the copies that this app made or caused are deleted (it records them when it writes the emblem). A copy that Frappe attached to Website Settings or Navbar Settings that you still show as the logo stays. One case cannot be told apart: a file you upload to the same Website Settings logo field, with the same bytes as the emblem, after the theme wrote the emblem, looks exactly like Frappe's own copy and is removed unless it is the logo you show. This record exists only for identity values written by this version: on a site that wrote an emblem with an earlier build, uninstall cannot tell the copies from your files and leaves them (delete them in the File list if you want them gone). Palette and font choices, and the files you upload for fonts, are removed with the settings.
+- The site stops linking the theme's bundles at once, without a restart. The app stays installed in the bench (and available to other sites) until `bench remove-app`; that command removes the Python package and the app folder (a copy goes to `archived/apps/` unless you add `--no-backup`), and it refuses while the app is installed on any site unless you add `--force`. It leaves a dangling `sites/assets/institutional_theme` link, which the next `bench build` removes (observed); unused `ins_*` entries stay in `sites/assets/assets.json`, which nothing references.
+- The stock look after uninstall is checked by `tools/bench/gate_install_uninstall.sh`. A clean install on a second bench and site, followed by uninstall, with a comparison of every database table before and after, is `tools/bench/fresh_install.sh`.
 
 ## Developing and testing
 
 - Unit tests and audits (no bench needed): see `.github/workflows/ci.yml`. They are `python -m unittest discover -s institutional_theme/midad/tests -t .`, `python -m unittest discover -s institutional_theme/audits/tests -t .` and `python -m institutional_theme.midad.build --check`.
 - Bench tests: `tools/bench/b.sh run-tests --app institutional_theme`. Bench set-up is in `tools/bench/README.md`.
 - After a Frappe upgrade, follow `docs/UPGRADE_AND_QA_CHECKLIST.md`.
+
+## Troubleshooting
+
+### Another brand app is installed (for example one that ships its own `*-brand.css`)
+
+Apps load their `app_include_css` in `installed_apps` order, so an app installed after this one loads its stylesheet later and wins ties. Tested with a reproduction of such an app's documented rules (`tests/browser/coexistence.mjs`, evidence in `docs/team/evidence/round3/coexistence/`):
+
+- Font: the other app's `html[lang=ar], html[dir=rtl] { --font-stack }` is (0,1,1); this theme sets `--font-stack` at `html:root[dir]`, (0,2,1). Midad Plex stays in use and the other app's `IBM Plex Sans Arabic` face is never requested. No action needed.
+- Primary button: `[data-theme=light] .btn-primary` and its `:hover` rule are (0,2,0) and (0,3,0); this theme sets background, border and colour at `html:root[dir] .btn.btn-primary` (0,4,1) and its `:hover` (0,5,1). No action needed.
+- Desktop page header border: a later `.desktop-navbar { border-bottom }` is (0,1,0); this theme restores the hairline at (0,3,1). No action needed.
+
+What this theme cannot beat: any rule of the other app that uses `!important`, a selector of specificity (0,4,1) or more on the same property, or an inline style. Symptoms are gold or foreign-coloured buttons, a foreign font in Arabic, or a thick header border. Remedy for an administrator, in this order:
+
+1. Remove the offending rule from the other app's stylesheet or disable its `app_include_css` (the cleanest fix; that app owns the file).
+2. Otherwise report the selector to the theme maintainer: the fix is one rule at (0,5,1) or higher in `institutional_theme/public/scss/desk/`, then `bench build --app institutional_theme`.
+
+Check which app wins: open the browser developer tools, select the element and read the "Computed" tab; the winning rule names the stylesheet (`/assets/<app>/css/...`).
+
+### HRMS on PostgreSQL
+
+Found on the test bench with HRMS v16.20.1 on PostgreSQL 16 (2026-10-14). These are HRMS upstream defects, not theme issues; the theme's stylesheets do not cause them. The evidence of record is `docs/team/evidence/round3/hrms/README.md` and `docs/team/evidence/round3/hrms-screens/README.md`.
+
+- `bench install-app hrms` fails (exit 1) in the post-install patch `hrms/patches/post_install/update_employee_advance_status.py` with `argument of AND must be type boolean, not type numeric`. The test bench worked around it with a temporary in-memory replacement of that one function and a forced install (`tools/bench/hrms_install.py`). The evidence records no upstream fix; check the HRMS release notes before repeating the workaround.
+- Saving a Salary Slip fails with `GroupingError` on PostgreSQL: `compute_year_to_date` and `compute_month_to_date` (`hrms/payroll/doctype/salary_slip/salary_slip.py`, defined at lines 2296 and 2320) order an aggregate by `creation`. The test seed neutralised both for its own run, so its two draft slips have zero year-to-date and month-to-date figures. The evidence says MariaDB is not affected; this was not tested here.
+- Opening a Leave Application form shows an "Error in server" dialog: `get_leave_details` (`hrms/hr/doctype/leave_application/leave_application.py`, line 1009) returns 500 with `column tabLeave Application.creation must appear in the GROUP BY clause`. It occurs in every mode and language on the test bench.
 
 ## Out of scope
 

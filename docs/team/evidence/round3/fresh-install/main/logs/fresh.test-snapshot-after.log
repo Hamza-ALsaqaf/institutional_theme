@@ -1,0 +1,4 @@
+=== fresh.test-snapshot-after  2026-10-14T01:07:00Z
+$ snapshot fresh.test after
+244 tables written to /tmp/fresh-snapshot-fresh.test-after.json
+exit 0

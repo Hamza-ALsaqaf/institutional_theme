@@ -1,0 +1,3 @@
+=== fresherp.test-readme-4-restart  2026-10-14T01:36:27Z
+$ fb bench restart
+exit 0

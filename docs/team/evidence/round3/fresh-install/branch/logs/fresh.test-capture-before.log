@@ -1,0 +1,4 @@
+=== fresh.test-capture-before  2026-10-14T01:32:17Z
+$ capture fresh.test before
+captured before into /home/runner/work/institutional_theme/institutional_theme/docs/team/evidence/round3/fresh-install/branch/shots-fresh.test
+exit 0

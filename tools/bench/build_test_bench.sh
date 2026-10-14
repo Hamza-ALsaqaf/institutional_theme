@@ -149,6 +149,8 @@ step_bench() {
 		)
 	fi
 	if [[ ! -e "${BENCH_DIR}" ]]; then
+		# /home/user exists in the cloud container but not on the GitHub runner.
+		mkdir -p "$(dirname "${BENCH_DIR}")"
 		ln -s "${BENCH_REAL_DIR}" "${BENCH_DIR}"
 	fi
 	bgit "${BENCH_DIR}/apps/frappe" describe --tags

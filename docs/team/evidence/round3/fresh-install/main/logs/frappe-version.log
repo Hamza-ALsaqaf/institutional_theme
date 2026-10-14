@@ -1,0 +1,5 @@
+=== frappe-version  2026-10-14T01:04:19Z
+$ fb git -C apps/frappe describe --tags && ls apps && cat sites/apps.txt
+v16.32.0
+frappe
+frappeexit 0

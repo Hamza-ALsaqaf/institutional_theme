@@ -21,11 +21,25 @@ Updated by the lead at every gate and whenever a task finishes. A fresh session 
 
 ## Tasks in flight
 
-None. Round 2 ended about 00:20 UTC on 2026-10-14; final report in `docs/team/OWNER_REVIEW.md` (Arabic) and on pull request #2.
+None. Round 3 finished at about 05:15 UTC 2026-10-14 (second attempt, fresh runner, pull request #3).
+
+## Round 3 (release hardening) result
+
+| Item | Result | Evidence |
+|---|---|---|
+| 1 Clean install | PASSED: fresh bench (Frappe 16.32.0), Frappe-only and ERPNext sites, README commands literally, install/build/migrate/uninstall all exit 0, no table residue; README corrected; uninstall residue bug found and fixed (theme-made File copies only) | `docs/team/evidence/round3/fresh-install/`, `fix-uninstall/` |
+| 2 HRMS 16.20.1 | PASSED: installed with fictional records; 84 screenshots, 0 flagged; two text-utility contrast fixes. HRMS defects on PostgreSQL documented (not theme) | `hrms/`, `hrms-screens/` |
+| 3 Newest tag | CHECKED: v16.52.0; theme installs and uninstalls cleanly there, but the dead-token audit fails (15 dead); range unchanged (16.32.0); work list G1-G8 in the checklist | `newest-tag/` |
+| 4 Coexistence | PASSED: Midad wins font stack and primary button; navbar border fixed; the rest documented in README Troubleshooting | `coexistence/` |
+| 5 axe-core | PASSED: 1154 to 272 nodes, 0 caused by the theme; remaining nodes are core markup (checklist) | `axe/`, `axe-rescan/`, `fix-shell/`, `gate/axe-final/` |
+| 6 Remaining gaps | Grid-row checkbox names delivered; Gantt month names not possible without core (documented); proof extended to 7 screens (parity 0 mismatches) | `grid-names/`, `proof/` |
+| 7 Release gate | PASSED 05:05: CI checks; 148 Frappe + 178 unit tests OK; audits pass; cascade 4256/4256; install/uninstall gate clean (login 0 px; todo 5 px anti-aliasing, max delta 6); residue none; both hostile reviews 0 blocking after two fix rounds; every BRIEF section 10 dimension 4 or more | `gate/README.md`, `docs/team/reviews/upgrade-round3.md`, `a11y-round3.md` |
+
+Decisions 47-62 are recorded in `docs/team/OWNER_REVIEW.md` section 4 (Arabic).
 
 ## Next step
 
-All phases 0 to 5 have passed. The owner reviews pull request #2 and decides whether to fast-forward `main` (never done by the build team). Optional follow-ups if the owner asks: the items in `docs/team/OWNER_REVIEW.md` section 3 (Gantt month names need a core change; grid-row checkbox names come from core; the proof could grow to the full ADR 0007 scope), then a formal accessibility audit (screen readers, Windows High Contrast).
+The lead outside the job checks the round-3 evidence on pull request #3 and, if satisfied, merges it into `main` (never done by the build job). Optional follow-ups: a formal accessibility audit with screen readers and Windows High Contrast; a compatibility round before raising the supported range to the newest v16 tag (`docs/UPGRADE_AND_QA_CHECKLIST.md`, G1-G8); upstream contributions for Gantt Arabic month names and the core-markup axe findings.
 
 ## Bench
 
@@ -77,3 +91,9 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 
 - 00:30 UTC 2026-10-14: every phase gate passed with evidence (round 2). The lead re-ran CI's own checks on `f3faf4d` (ruff 0.16.8 check and format, 130 + 34 unit tests, `build --check` 0 stale, all audits passed). With the owner's explicit authorisation to merge, pull request #2 is merged into `main`. Before that, `main` was `24a8b35` (the unverified snapshot merged from pull request #1, CI red).
 - Next step: round 3, release hardening and independent verification (`docs/team/RESUME_PROMPT.md`), on a new pull request from `build/midad-v1` to `main`; the lead merges it only after verifying its evidence. All changes stay inside this app; Frappe core is never modified.
+- 00:22 UTC 2026-10-14: pull request #2 merged into `main` (merge commit `0b605da`) after CI passed on `f07990c` (Ruff, tests and audits). Round 3 starts on a new pull request from `build/midad-v1`; its scope is in `docs/team/RESUME_PROMPT.md`.
+
+## After round 3 (lead)
+
+- 05:15 UTC 2026-10-14: the lead re-ran CI's own checks on `01b7c18` (ruff 0.16.8 check and format, 130 + 48 unit tests, `build --check` 0 stale, all audits including avatars passed), confirmed that the HRMS PostgreSQL workaround (`tools/bench/hrms_install.py`) is test-bench only and edits nothing on disk, and merges pull request #3 into `main` under the owner's authorisation.
+- Next step: round 4, forward compatibility with the newest v16 tag (v16.52.0) while keeping 16.32.0 fully supported (`docs/UPGRADE_AND_QA_CHECKLIST.md` G1 to G8).

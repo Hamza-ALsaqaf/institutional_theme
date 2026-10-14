@@ -38,3 +38,10 @@ html:root[dir] .body-sidebar .standard-sidebar-item .item-anchor {
 html:root[dir] .dropdown-menu-item {
 	border-radius: var(--ins-radius-sm);
 }
+
+// ---- Desktop page navbar. Core `.navbar` (desk/navbar.scss:1-4, (0,1,0)) draws the 1px hairline; the desktop page header is
+// `header.desktop-navbar.navbar` (desk/page/desktop/desktop.html:3). Another brand app loaded later may set a border on it at
+// (0,1,0) (findings 8). This is (0,3,1), so the hairline stays whatever load order the apps have.
+html:root[dir] .desktop-navbar {
+	border-block-end: 1px solid var(--border-color);
+}
