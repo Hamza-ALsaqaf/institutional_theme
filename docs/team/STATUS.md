@@ -92,3 +92,8 @@ Round 2 ran 21:29 UTC 2026-10-13 to about 00:20 UTC 2026-10-14. Bench rebuilt (`
 - 00:30 UTC 2026-10-14: every phase gate passed with evidence (round 2). The lead re-ran CI's own checks on `f3faf4d` (ruff 0.16.8 check and format, 130 + 34 unit tests, `build --check` 0 stale, all audits passed). With the owner's explicit authorisation to merge, pull request #2 is merged into `main`. Before that, `main` was `24a8b35` (the unverified snapshot merged from pull request #1, CI red).
 - Next step: round 3, release hardening and independent verification (`docs/team/RESUME_PROMPT.md`), on a new pull request from `build/midad-v1` to `main`; the lead merges it only after verifying its evidence. All changes stay inside this app; Frappe core is never modified.
 - 00:22 UTC 2026-10-14: pull request #2 merged into `main` (merge commit `0b605da`) after CI passed on `f07990c` (Ruff, tests and audits). Round 3 starts on a new pull request from `build/midad-v1`; its scope is in `docs/team/RESUME_PROMPT.md`.
+
+## After round 3 (lead)
+
+- 05:15 UTC 2026-10-14: the lead re-ran CI's own checks on `01b7c18` (ruff 0.16.8 check and format, 130 + 48 unit tests, `build --check` 0 stale, all audits including avatars passed), confirmed that the HRMS PostgreSQL workaround (`tools/bench/hrms_install.py`) is test-bench only and edits nothing on disk, and merges pull request #3 into `main` under the owner's authorisation.
+- Next step: round 4, forward compatibility with the newest v16 tag (v16.52.0) while keeping 16.32.0 fully supported (`docs/UPGRADE_AND_QA_CHECKLIST.md` G1 to G8).
