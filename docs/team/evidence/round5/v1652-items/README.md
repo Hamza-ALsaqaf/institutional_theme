@@ -6,7 +6,7 @@ Evidence labels: VERIFIED (ran it, output in this folder), COMPUTED (computed st
 |---|---|---|
 | 1 | Kanban v1 column dot neutral on v16.52.0 | Fixed |
 | 2 | Side panel Draft and Cancelled with the error look | Fixed (needs one small shell script, see below) |
-| 3 | Status badges of other apps (Job Card, Work Order Draft/Submitted/Cancelled) | Fixed for the Work Order form through a stable core hook; Cancelled keeps the red family |
+| 3 | Status badges of other apps (Job Card, Work Order Draft/Submitted/Cancelled) | Documented, not fixed (fix round 2 reversed the embedded-list host: core renders status and label columns identically). Third-party badges stay neutral |
 | 4 | List badges clip at 400% zoom | Fixed by CSS |
 | 5 | Login is Light only | Not changed. Lead decision: login, website and error pages are Light only (platform constraint and design) |
 
@@ -52,3 +52,8 @@ Checklist "Known on v16.52.0", replace the first two bullets and the badge-clipp
 - Keep: the login is Light only (a lead decision: login, website and error pages are Light only by platform constraint and design; `docs/team/reviews/a11y-round4.md` finding 11).
 
 README section "A status badge is grey on Frappe v16.52.0": replace the first paragraph with: "On Frappe v16.52.0 the theme draws a status shape and colour on core's own status badges: the list view status, the page status chip, the side panel status, the Data Import log result, the Kanban v1 column dot and the status cells of embedded lists (the ERPNext Work Order form). Badges that another app renders from its own code elsewhere are drawn neutral; their text is unchanged." Delete the sentence about Kanban v1 dots having no visible effect. Add: "Login, website and error pages are Light only by platform constraint and design (a decision recorded by the lead; a11y round-4 finding 11)."
+
+## Update, fix round 2 (supersedes section 3 and the proposed wording above)
+
+The `.embedded-list-table td > .es-badge` host was removed (lead decision, upgrade review S2): core renders status and label badge columns identically (`embedded_list.js:290-296`; Workspace "Access", Role "Type"), so a status look would code labels as statuses (BRIEF 3 rule 1). Embedded-list badges are back to the neutral look of round 4 with the label kept (`fix2/README.md`).
+Proposed checklist wording: "Status badges that another app renders, including the status cells of embedded lists such as the ERPNext Work Order form's Job Card and Stock Entry tabs, are neutral: the text is kept, the colour and the shape are not. Core renders status and label badge columns identically, so a status look there would code labels as statuses." The README paragraph likewise: drop "and the status cells of embedded lists (the ERPNext Work Order form)" from the list of coloured badges.

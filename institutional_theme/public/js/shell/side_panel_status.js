@@ -9,7 +9,8 @@ function markIndicator(host) {
 	if (!badge) return;
 	let filter = null;
 	try {
-		const panel = window.frappe && frappe.ui && frappe.ui._side_panel;
+		// The public accessor returns the singleton; it only constructs a panel when none exists, and this runs once the host (so the panel) exists.
+		const panel = window.frappe && frappe.ui && (frappe.ui.get_side_panel ? frappe.ui.get_side_panel() : frappe.ui._side_panel);
 		const doc = panel && panel.preview && panel.preview.doc;
 		const doctype = panel && panel.current && panel.current.doctype;
 		const indicator = doc && doctype && frappe.get_indicator ? frappe.get_indicator(doc, doctype) : null;
@@ -22,14 +23,25 @@ function markIndicator(host) {
 
 export function initSidePanelStatus() {
 	if (typeof MutationObserver !== "function" || !document.body) return;
-	let watched = null;
-	const watch = () => {
-		const host = document.querySelector(".side-panel-indicator");
-		if (!host || host === watched) return;
-		watched = host;
+	const attach = (host) => {
 		new MutationObserver(() => markIndicator(host)).observe(host, { childList: true });
 		markIndicator(host);
 	};
-	new MutationObserver(watch).observe(document.body, { childList: true, subtree: true });
-	watch();
+	const existing = document.querySelector(".side-panel-indicator");
+	if (existing) return attach(existing);
+	// Core appends the panel to <body> once (side_panel.js:415) and never removes it (hide() only toggles classes, :800-811), so one direct-child
+	// observer, no subtree, looks at the added node only and disconnects when it finds the host.
+	const waiting = new MutationObserver((records) => {
+		for (const record of records) {
+			for (const node of record.addedNodes) {
+				if (node.nodeType !== 1) continue;
+				const host = node.matches(".side-panel-indicator") ? node : node.querySelector(".side-panel-indicator");
+				if (!host) continue;
+				waiting.disconnect();
+				attach(host);
+				return;
+			}
+		}
+	});
+	waiting.observe(document.body, { childList: true });
 }

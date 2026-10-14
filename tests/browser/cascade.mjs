@@ -253,12 +253,17 @@ async function v1652(page, dir, scenario) {
 		const l = await cs("badge-green", ["backgroundColor"]), lb = await cs("badge-green", ["content"], "::before");
 		rec("list status (data-filter, theme green): success fill and a shape", await tok("--ins-status-success-bg", "backgroundColor"), l.backgroundColor, l.backgroundColor === (await tok("--ins-status-success-bg", "backgroundColor")) && lb.content === '""');
 	}
-	// Round 5: Kanban v1 column dot, embedded-list status cell and the side-panel Draft (a11y/upgrade round-4 F1, F2, F3).
+	// Round 5: Kanban v1 column dot, the embedded-list cell (stays neutral) and the side-panel Draft (a11y/upgrade round-4 F1, F2, F3).
 	{
 		const successBg = await tok("--ins-status-success-bg", "backgroundColor");
-		for (const id of ["badge-kanban-dot", "badge-embedded"]) {
-			const g = await cs(id, ["backgroundColor"]), b = await cs(id, ["content", "borderRightWidth"], "::before");
-			rec(`${id} (status host, theme green): success fill and check`, successBg, g.backgroundColor, g.backgroundColor === successBg && b.content === '""' && b.borderRightWidth === "2px");
+		{
+			const g = await cs("badge-kanban-dot", ["backgroundColor"]), b = await cs("badge-kanban-dot", ["content", "borderRightWidth"], "::before");
+			rec("badge-kanban-dot (status host, theme green): success fill and check", successBg, g.backgroundColor, g.backgroundColor === successBg && b.content === '""' && b.borderRightWidth === "2px");
+		}
+		{
+			const g = await cs("badge-embedded", ["backgroundColor"]), b = await cs("badge-embedded", ["content"], "::before");
+			rec("embedded-list cell (data-theme, not a status host): neutral fill and no shape", `${await tok("--ins-status-neutral-bg", "backgroundColor")}, no ::before`, `${g.backgroundColor}, ${b.content}`,
+				g.backgroundColor === (await tok("--ins-status-neutral-bg", "backgroundColor")) && (b.content === "none" || b.content === "normal"));
 		}
 		const svg = await cs("kanban-dot-svg", ["display"]);
 		rec("Kanban dot: core's circle svg is hidden (the shape replaces it)", "none", svg.display, svg.display === "none");

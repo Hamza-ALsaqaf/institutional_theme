@@ -139,9 +139,9 @@ html:root[dir] .indicator::before {
 // and counts (kanban_page.js:1275,2048), shortcut counts (shortcut_widget.js:127) and the rest are labels or counts, not statuses: they stay neutral.
 // `:where()` keeps the host list at (0,0,0), so a status rule is (0,2,0) as before and Draft and Cancelled below still win by order.
 // 16.32.0 has no `.es-badge`; these selectors match nothing there (its status is `.indicator-pill` above).
-// Round 5 adds the Kanban v1 column dot (kanban_column.html:4) and the status cells of an embedded list (embedded_list.js:201,293, used by the
-// ERPNext Work Order form for Job Card, Material Request and Stock Entry statuses). The Kanban column count is a number, so it is left out.
-$ins-badge-host: ":where([data-filter], .page-indicator-pill, .side-panel-indicator *, .diw-import-log-line *, .kanban-column-title > .es-badge:not(.kanban-column-count), .embedded-list-table td > .es-badge)";
+// Round 5 adds the Kanban v1 column dot (kanban_column.html:4); the column count is a number, so it is left out. Embedded-list cells are NOT hosts:
+// core renders status and label columns alike (`type: "badge"`, embedded_list.js:290-296; Workspace "Access", Role "Type"), so a status look would code labels (BRIEF 3 rule 1).
+$ins-badge-host: ":where([data-filter], .page-indicator-pill, .side-panel-indicator *, .diw-import-log-line *, .kanban-column-title > .es-badge:not(.kanban-column-count))";
 
 html:root[dir] .es-badge {
 	--c-fill: var(--ins-status-neutral-bg);
