@@ -1,0 +1,98 @@
+Linking /home/frappe/newest-bench/apps/frappe/frappe/public to ./assets/frappe  Linking /home/frappe/newest-bench/apps/frappe/node_modules to ./assets/frappe/node_modules                                                                                Linking /home/frappe/newest-bench/apps/erpnext/erpnext/public to ./assets/erpnext                                                                                Linking /home/frappe/newest-bench/apps/erpnext/node_modules to ./assets/erpnext/node_modules                                                                                ✔ Application Assets Linked                                            
+
+
+yarn run v1.22.22
+$ node esbuild --production --apps erpnext --run-build-command
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+File                                                        Size
+
+erpnext/dist/js/
+├─ bank-reconciliation-tool.bundle.ZWXYTTTM.js              18.96 Kb
+├─ erpnext.bundle.EQSHBQJW.js                               265.42 Kb
+├─ item-dashboard.bundle.JQ35WOHX.js                        10.20 Kb
+├─ point-of-sale.bundle.WNKTPMOV.js                         106.51 Kb
+└─ bom_configurator.bundle.ZKILGIKP.js                      10.19 Kb
+
+erpnext/dist/css/
+├─ erpnext-web.bundle.QYNXX66H.css                          2.86 Kb
+├─ erpnext.bundle.26YI7L4U.css                              52.56 Kb
+└─ erpnext_email.bundle.N4UKMGGG.css                        0.56 Kb
+
+erpnext/dist/css-rtl/
+├─ erpnext-web.bundle.QV2YL662.css                          2.87 Kb
+├─ erpnext.bundle.3SOP6SLC.css                              52.56 Kb
+└─ erpnext_email.bundle.4FXMCMB4.css                        0.56 Kb
+
+ DONE  Total Build Time: 916.105ms
+
+ WARN  Cannot connect to redis_cache to update assets_json
+ WARN  Cannot connect to redis_cache to update assets_json
+ WARN  Cannot connect to redis_cache to update assets_json
+
+Running build command for erpnext
+$ cd banking && yarn build
+$ vite build --base=/assets/erpnext/banking/ && yarn copy-html-entry
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:17:22). Use `import.meta.dirname` instead
+  - import "./proxyOptions" without a file extension (vite.config.ts:4:26). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.2.1 building client environment for production...
+[2Ktransforming...
+/assets/frappe/css/fonts/inter/InterVariable.woff2 referenced in /assets/frappe/css/fonts/inter/InterVariable.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+/assets/frappe/css/fonts/inter/InterVariable-Italic.woff2 referenced in /assets/frappe/css/fonts/inter/InterVariable-Italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+✓ 3574 modules transformed.
+rendering chunks...
+computing gzip size...
+../erpnext/public/banking/index.html                                                3.36 kB │ gzip:   1.09 kB
+../erpnext/public/banking/assets/index-DdCjYgZc.css                               248.73 kB │ gzip:  24.72 kB
+../erpnext/public/banking/assets/MissingFiltersBanner-xuypI2EX.js                   0.30 kB │ gzip:   0.23 kB
+../erpnext/public/banking/assets/rolldown-runtime-8BhlS34s.js                       0.80 kB │ gzip:   0.47 kB
+../erpnext/public/banking/assets/FileUploadBanner-BvnJTR9a.js                       1.12 kB │ gzip:   0.61 kB
+../erpnext/public/banking/assets/checkbox-CcdSe05F.js                               1.58 kB │ gzip:   0.65 kB
+../erpnext/public/banking/assets/CSVImport-COxNOmCi.js                              1.89 kB │ gzip:   0.94 kB
+../erpnext/public/banking/assets/SelectedTransactionDetails-BQyRqbL8.js             2.35 kB │ gzip:   0.90 kB
+../erpnext/public/banking/assets/BankTransactionUnreconcileModalBody-DZwotwvY.js    2.97 kB │ gzip:   1.22 kB
+../erpnext/public/banking/assets/dialog-D_6ljQ2x.js                                 3.19 kB │ gzip:   1.19 kB
+../erpnext/public/banking/assets/ViewBankStatementImportLog-Cf6vCtbR.js             3.30 kB │ gzip:   1.39 kB
+../erpnext/public/banking/assets/IncorrectlyClearedEntries-BQOcABr-.js              4.55 kB │ gzip:   1.92 kB
+../erpnext/public/banking/assets/BankReconciliationStatement-CVqE6OII.js            6.55 kB │ gzip:   2.25 kB
+../erpnext/public/banking/assets/list-view-Il2FfJI9.js                              7.20 kB │ gzip:   2.96 kB
+../erpnext/public/banking/assets/button-DOcW7Qt9.js                                 7.40 kB │ gzip:   1.50 kB
+../erpnext/public/banking/assets/BankClearanceSummary-Ctp949Zw.js                   7.58 kB │ gzip:   2.74 kB
+../erpnext/public/banking/assets/amountFormula-CFGgnAXE.js                          8.06 kB │ gzip:   2.29 kB
+../erpnext/public/banking/assets/BankStatementImporter-Cyx4O3wQ.js                  8.19 kB │ gzip:   2.84 kB
+../erpnext/public/banking/assets/BankTransactionList-DGOfITbk.js                    8.92 kB │ gzip:   2.87 kB
+../erpnext/public/banking/assets/PDFImport-BDbZt-mS.js                              9.77 kB │ gzip:   3.48 kB
+../erpnext/public/banking/assets/vendor-jotai-BkrKvjbq.js                          10.37 kB │ gzip:   4.36 kB
+../erpnext/public/banking/assets/ActionLogDialogBody-C_4uHw4O.js                   12.39 kB │ gzip:   3.41 kB
+../erpnext/public/banking/assets/TransferModalContent-gE-jbuws.js                  12.56 kB │ gzip:   3.91 kB
+../erpnext/public/banking/assets/BankEntryModalContent-DnRJqp1s.js                 14.58 kB │ gzip:   4.61 kB
+../erpnext/public/banking/assets/StatementDetails-DD2wnJn_.js                      15.17 kB │ gzip:   4.25 kB
+../erpnext/public/banking/assets/vendor-lucide-BkXXslVd.js                         15.38 kB │ gzip:   5.35 kB
+../erpnext/public/banking/assets/RecordPaymentModalContent-BudCzFfT.js             25.73 kB │ gzip:   6.96 kB
+../erpnext/public/banking/assets/vendor-fuse--ddGMqbN.js                           26.73 kB │ gzip:   9.70 kB
+../erpnext/public/banking/assets/typography-CAu2sKVS.js                            62.32 kB │ gzip:  19.64 kB
+../erpnext/public/banking/assets/file-dropzone-CdHiXGt7.js                         71.98 kB │ gzip:  20.60 kB
+../erpnext/public/banking/assets/vendor-tanstack-D_Y0JpoQ.js                       73.99 kB │ gzip:  19.64 kB
+../erpnext/public/banking/assets/SettingsPanelsContent-Bnzl7qX1.js                 84.19 kB │ gzip:  24.39 kB
+../erpnext/public/banking/assets/vendor-frappe-Do1ZmVzw.js                        134.32 kB │ gzip:  43.93 kB
+../erpnext/public/banking/assets/vendor-radix-PBxB5fcH.js                         148.16 kB │ gzip:  45.14 kB
+../erpnext/public/banking/assets/vendor-react-Bu7gr542.js                         178.51 kB │ gzip:  56.33 kB
+../erpnext/public/banking/assets/error-banner-CvMol9Ww.js                         357.94 kB │ gzip: 107.83 kB
+../erpnext/public/banking/assets/index-CPnNkMtB.js                                360.51 kB │ gzip: 104.93 kB
+
+✓ built in 2.01s
+$ cp ../erpnext/public/banking/index.html ../erpnext/www/banking.html
+Done in 4.73s.
+Compiling translations for erpnext
+MO file created at /home/frappe/newest-bench/sites/assets/locale/id/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/fr/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/tr/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/cs/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/uz/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/uk/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/hi/LC_MESSAGES/erpnext.mo
+MO file created at /home/frappe/newest-bench/sites/assets/locale/ro/LC_MESSAGES/erpnext.mo

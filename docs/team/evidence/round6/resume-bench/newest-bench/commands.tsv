@@ -1,1 +1,3 @@
 stage-clone	0	1	stage_clone
+bench-init	0	53	as_frappe bash -c cd '/home/frappe' && bench init 'newest-bench'    --frappe-path '/tmp/frappe-newest/frappe-src' --frappe-branch 'v16.52.0' --python '/opt/python3.14/bin/python3.14'    --no-backups --skip-redis-config-generation
+get-app-erpnext	0	22	as_frappe bash -c cd '/home/frappe/newest-bench' && bench get-app erpnext    https://github.com/frappe/erpnext --branch 'v16.50.0' --skip-assets
